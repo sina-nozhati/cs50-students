@@ -1,0 +1,71 @@
+{# صفحه‌ی لیدربورد — بازطراحی‌شده با تم هاروارد (Crimson).
+   UX: رتبه‌ی کاربر فعلی هایلایت، جدول Crimson، کارت جمع‌بندی.
+#}
+{% extends "base.html" %}
+{% block title %}رتبه‌بندی کلاس{% endblock %}
+
+{% block content %}
+<header class="mb-6">
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        رتبه‌بندی کلاس
+    </h1>
+    <p class="text-[var(--slate)] text-sm mt-1">۱۰ نفر برتر انزلی بر اساس XP</p>
+</header>
+
+{% if users %}
+<div class="card-harvard overflow-hidden">
+    <table class="w-full text-right">
+        <thead>
+            <tr class="bg-crimson text-white text-sm">
+                <th class="px-4 py-3 font-semibold">رتبه</th>
+                <th class="px-4 py-3 font-semibold">نام</th>
+                <th class="px-4 py-3 font-semibold text-center">XP</th>
+                <th class="px-4 py-3 font-semibold text-center">استریک</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr class="border-t border-[var(--border)]
+                {% if u.id == current_user.id %}bg-crimson-tint/60 ring-1 ring-inset ring-crimson/30
+                {% elif loop.index <= 3 %}bg-crimson-tint/40{% endif %}
+                hover:bg-crimson-tint/20 transition-colors">
+                <td class="px-4 py-3.5 font-bold num">
+                    {% if loop.index == 1 %}<span style="color: var(--gold);">۱</span>
+                    {% elif loop.index == 2 %}<span style="color: var(--slate);">۲</span>
+                    {% elif loop.index == 3 %}<span style="color: var(--warning);">۳</span>
+                    {% else %}{{ loop.index }}{% endif %}
+                    {% if u.id == current_user.id %}<span class="sr-only">(شما)</span>{% endif %}
+                </td>
+                <td class="px-4 py-3.5 font-semibold">
+                    {{ u.username }}
+                    {% if u.id == current_user.id %}<span class="text-xs text-crimson font-normal"> (شما)</span>{% endif %}
+                </td>
+                <td class="px-4 py-3.5 text-center font-bold text-crimson num">{{ u.xp }}</td>
+                <td class="px-4 py-3.5 text-center num">
+                    {% if u.streak %}<span style="color: var(--warning);">{{ u.streak }} روز</span>
+                    {% else %}<span class="text-[var(--slate)]">—</span>{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if current_user.is_authenticated %}
+<div class="mt-4 card-harvard p-4 flex items-center justify-between flex-wrap gap-2">
+    <span class="text-sm font-medium">رتبه‌ی شما</span>
+    <span class="text-sm">
+        <span class="text-lg font-bold text-crimson num">#{{ rank.rank }}</span>
+        <span class="text-[var(--slate)]"> از {{ rank.total_students }} نفر</span>
+    </span>
+</div>
+{% endif %}
+
+{% else %}
+<div class="card-harvard p-8 text-center">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" class="mx-auto mb-3" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+    <p class="text-[var(--slate)]">هنوز کسی XP نگرفته است. اولین نفر باش!</p>
+</div>
+{% endif %}
+{% endblock %}

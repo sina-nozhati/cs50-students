@@ -1,0 +1,221 @@
+{# داشبورد دانش‌آموز — صفحه‌ی اصلی پنل (login_required).
+   خلاصه‌ی کامل: پیشرفت مدرک، آمار، تکالیف نزدیک، نقشه راه هفته‌ها.
+   متغیرها: stats, certificate, upcoming (list), rank.
+#}
+{% extends "base.html" %}
+{% from "_partials/_macros.html" import stat_card, progress_bar, badge %}
+
+{% block title %}داشبورد{% endblock %}
+
+{% block content %}
+
+{# ─── خوش‌آمد + بنر پیشرفت مدرک ─── #}
+<section class="card-harvard p-6 sm:p-8 mb-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="space-y-2 text-center md:text-right">
+        <h1 class="text-2xl font-extrabold">سلام {{ stats.username }}! خوش برگشتی</h1>
+        <p class="text-[var(--slate)]">
+            {% if certificate.completed_weeks < certificate.total_weeks %}
+            تو فقط {{ certificate.total_weeks - certificate.completed_weeks }} قدم تا دریافت مدرک CS50 فاصله داری. عالی داری پیش میری!
+            {% else %}
+            تبریک! تمام هفته‌ها تکمیل شده. مدرک CS50 منتظر توست!
+            {% endif %}
+        </p>
+    </div>
+    <div class="w-full md:w-1/3 space-y-3 shrink-0">
+        <div class="flex justify-between text-sm font-bold">
+            <span>پیشرفت تا مدرک</span>
+            <span class="text-crimson num">{{ certificate.percent }}٪</span>
+        </div>
+        <div class="w-full h-3 bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-crimson rounded-full transition-all duration-500" style="width: {{ certificate.percent }}%"></div>
+        </div>
+        <p class="text-xs text-[var(--slate)] text-center italic num">
+            {{ certificate.completed_weeks }} از {{ certificate.total_weeks }} هفته تکمیل شده
+        </p>
+    </div>
+</section>
+
+{# ─── ۴ کارت آمار ─── #}
+<section class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+    {{ stat_card(
+        'امتیاز کل (XP)',
+        stats.xp,
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.9 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>',
+        '--crimson'
+    ) }}
+    {{ stat_card(
+        'استریک روزانه',
+        stats.streak ~ ' روز',
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="var(--accent)"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14a8 8 0 1 0 16 0c0-4.1-1.97-7.78-5-10.13C14.42 3.36 13.96 2.97 13.5.67z"/></svg>',
+        '--amber'
+    ) }}
+    {{ stat_card(
+        'تکالیف فعال',
+        stats.active_assignments,
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>',
+        '--success'
+    ) }}
+    {{ stat_card(
+        'رتبه‌ی کلاس',
+        '#' ~ rank.rank,
+        '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>',
+        '--purple'
+    ) }}
+</section>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    {# ─── ستون اصلی (۲/۳): هفته جاری + ابزارها + نقشه راه ─── #}
+    <div class="lg:col-span-2 space-y-6">
+
+        {# هفته‌ی جاری — کارت بزرگ با هدر crimson #}
+        <section class="card-harvard overflow-hidden">
+            <div class="bg-crimson p-4 text-white flex justify-between items-center">
+                <span class="font-bold">هفته‌ی جاری: هفته {{ certificate.current_week }}</span>
+                <span class="text-xs opacity-80 italic">در حال یادگیری...</span>
+            </div>
+            <div class="p-6 flex flex-col md:flex-row items-center gap-6">
+                <div class="w-full md:w-1/3 bg-crimson-tint rounded-xl p-8 flex items-center justify-center shrink-0">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                </div>
+                <div class="flex-1 space-y-4">
+                    {% set week_titles = ['Scratch', 'C (پایه)', 'آرایه‌ها', 'الگوریتم‌ها', 'حافظه', 'ساختمان داده', 'پایتون', 'SQL', 'HTML/CSS/JS', 'Flask', 'پروژه نهایی'] %}
+                    <h2 class="text-xl font-bold">{{ week_titles[certificate.current_week] if certificate.current_week < week_titles|length else 'هفته ' ~ certificate.current_week }}</h2>
+                    <p class="text-[var(--slate)] text-sm leading-relaxed">برای ادامه‌ی یادگیری، وارد پایگاه دانش این هفته شوید و جزوه‌ها و تکالیف مربوطه را مرور کنید.</p>
+                    <a href="{{ url_for('kb.week_page', week=certificate.current_week) }}" class="inline-block btn-crimson px-6 py-2.5 text-sm">
+                        ورود به پایگاه دانش
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        {# ابزارهای مطالعه — گرید ۴ دکمه #}
+        <section>
+            <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                <span class="w-1.5 h-5 bg-crimson rounded-full"></span>
+                ابزارهای مطالعه‌ی هوشمند
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {% set tools = [
+                    ('فلش‌کارت', '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/>'),
+                    ('تحلیل ضعف', '<path d="M12 2v20"/><path d="m4.93 4.93 14.14 14.14"/><path d="M2 12h20"/><path d="m19.07 4.93-14.14 14.14"/>'),
+                    ('چالش زمان‌دار', '<path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/>'),
+                    ('تایمر مطالعه', '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>'),
+                ] %}
+                {% for tool_label, tool_icon in tools %}
+                <button class="card-harvard p-4 border-dashed border-gray-200 bg-gray-50/50 cursor-not-allowed group text-center relative overflow-hidden" title="به زودی در فازهای بعدی اضافه می‌شود">
+                    <div class="absolute -right-6 top-2 bg-slate-200 text-slate-500 text-[9px] font-bold py-0.5 px-6 rotate-45">به زودی</div>
+                    <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mx-auto opacity-60">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ tool_icon|safe }}</svg>
+                    </div>
+                    <span class="block mt-2 text-xs font-bold text-gray-400">{{ tool_label }}</span>
+                </button>
+                {% endfor %}
+            </div>
+        </section>
+
+        {# نقشه راه هفته‌ها #}
+        <section>
+            <h3 class="text-lg font-bold flex items-center gap-2 mb-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                مسیر یادگیری
+            </h3>
+            <div class="card-harvard p-5">
+                <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-{{ [weeks_data|length, 11]|min }} gap-2">
+                    {% for w in weeks_data %}
+                    {% set is_done = w.number < certificate.completed_weeks %}
+                    {% set is_current = w.number == certificate.current_week %}
+                    {% set is_published = w.is_published %}
+                    {% if is_published %}
+                    <a href="{{ url_for('kb.week_page', week=w.number) }}"
+                       class="aspect-square rounded-lg flex flex-col items-center justify-center text-center p-1 transition border-2
+                              {% if is_done %}bg-crimson text-white border-crimson
+                              {% elif is_current %}bg-canvas text-crimson border-crimson ring-2 ring-crimson/30
+                              {% else %}bg-canvas text-[var(--slate)] border-[var(--border)] hover:border-crimson/40{% endif %}">
+                        <span class="text-xs font-bold num">{{ w.number }}</span>
+                        <span class="text-[10px] leading-tight">{{ w.title.split('—')[1]|trim if '—' in w.title else w.title.split(' ')[-1] }}</span>
+                        {% if is_done %}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        {% endif %}
+                    </a>
+                    {% else %}
+                    <div class="aspect-square rounded-lg flex flex-col items-center justify-center text-center p-1 border-2 border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed"
+                         title="هنوز منتشر نشده">
+                        <span class="text-xs font-bold text-gray-400 num">{{ w.number }}</span>
+                        <span class="text-[10px] leading-tight text-gray-400">{{ w.title.split('—')[1]|trim if '—' in w.title else w.title.split(' ')[-1] }}</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <p class="text-xs text-[var(--slate)] mt-3 text-center">
+                    برای شروع یادگیری هفته‌ای، روی کارت آن بزن.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    {# ─── ستون کناری (۱/۳): تکالیف پیش رو + فعالیت‌های اخیر ─── #}
+    <aside class="space-y-6">
+
+        {# تکالیف نزدیک‌به‌مهلت #}
+        <section class="card-harvard p-6">
+            <h3 class="font-bold mb-5 flex justify-between items-center">
+                <span>تکالیف پیش رو</span>
+                <a href="{{ url_for('assignments.index') }}" class="text-xs text-crimson hover:underline">همه</a>
+            </h3>
+            {% if upcoming %}
+            <div class="space-y-3">
+                {% for a in upcoming %}
+                <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg
+                    {% if not a.submitted %}border-r-4 border-amber-400{% else %}border-r-4 border-[var(--border)]{% endif %}">
+                    <div class="flex-1 min-w-0">
+                        <p class="text-sm font-bold truncate">{{ a.title }}</p>
+                        <p class="text-xs text-[var(--slate)] mt-1 num">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block align-text-bottom" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            مهلت: {{ a.due_date.strftime('%Y-%m-%d') }}
+                        </p>
+                    </div>
+                    {% if not a.submitted %}
+                    <a href="{{ url_for('assignments.week_assignments', week=a.week) }}" class="text-xs text-crimson font-bold hover:underline whitespace-nowrap">تحویل</a>
+                    {% else %}
+                    {{ badge('تحویل شد', 'muted') }}
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center py-4">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" class="mx-auto mb-2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                <p class="text-xs text-[var(--slate)]">تکلیف فعالی با مهلت نزدیک نیست.</p>
+            </div>
+            {% endif %}
+        </section>
+
+        {# فعالیت‌های اخیر — timeline ساده #}
+        <section class="card-harvard p-6">
+            <h3 class="font-bold mb-5">فعالیت‌های اخیر</h3>
+            <div class="space-y-5 relative before:content-[''] before:absolute before:right-3 before:top-2 before:bottom-2 before:w-[2px] before:bg-gray-100">
+                {% if stats.xp > 0 %}
+                <div class="relative pr-8">
+                    <div class="absolute right-1.5 top-1.5 w-3 h-3 rounded-full bg-crimson"></div>
+                    <p class="text-xs font-bold">دریافت امتیاز (XP)</p>
+                    <p class="text-[10px] text-[var(--slate)] num">امتیاز فعلی: {{ stats.xp }} XP</p>
+                </div>
+                {% endif %}
+                {% if stats.streak > 0 %}
+                <div class="relative pr-8">
+                    <div class="absolute right-1.5 top-1.5 w-3 h-3 rounded-full bg-amber-400"></div>
+                    <p class="text-xs font-bold">استریک فعال</p>
+                    <p class="text-[10px] text-[var(--slate)] num">{{ stats.streak }} روز متوالی فعالیت</p>
+                </div>
+                {% endif %}
+                <div class="relative pr-8 opacity-60">
+                    <div class="absolute right-1.5 top-1.5 w-3 h-3 rounded-full bg-gray-300"></div>
+                    <p class="text-xs font-bold">رتبه‌ی کلاس</p>
+                    <p class="text-[10px] text-[var(--slate)] num">رتبه {{ rank.rank }} از {{ rank.total_students }} نفر</p>
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>
+{% endblock %}

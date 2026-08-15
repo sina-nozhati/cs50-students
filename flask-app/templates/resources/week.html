@@ -1,0 +1,51 @@
+{# صفحه‌ی فایل‌های هفته — بازطراحی‌شده با تم هاروارد (Crimson).
+   UX: آیکون SVG به‌جای ایموجی، کارت‌های هارواردی، touch-friendly.
+#}
+{% extends "base.html" %}
+{% block title %}هفته {{ week }} — منابع{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('resources.index') }}" class="inline-flex items-center gap-1 text-sm text-crimson hover:underline mb-4">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    برگشت به منابع
+</a>
+
+<header class="mb-6">
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-crimson text-white flex items-center justify-center font-serif font-bold text-sm">{{ week }}</span>
+        {{ title }}
+    </h1>
+    <p class="text-[var(--slate)] text-sm mt-1 num">{{ files|length }} فایل قابل‌دانلود</p>
+</header>
+
+{% if files %}
+<ul class="space-y-3">
+    {% for f in files %}
+    <li class="card-harvard flex items-center justify-between p-4 gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+            {# آیکون PDF یا ZIP — SVG به‌جای ایموجی #}
+            {% if f.filename.endswith('.pdf') %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15v-2"/><path d="M12 15v-4"/><path d="M15 15v-6"/></svg>
+            {% else %}
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="13" width="8" height="5" rx="1"/><path d="M8 17h8"/></svg>
+            {% endif %}
+            <div class="min-w-0">
+                <div class="font-semibold truncate">{{ f.display_name }}</div>
+                <div class="text-xs text-[var(--slate)]">{{ f.category }}</div>
+            </div>
+        </div>
+        <a href="{{ url_for('resources.download', resource_id=f.id) }}"
+           class="btn-crimson px-4 py-2 text-sm whitespace-nowrap shrink-0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline -mt-0.5 ml-1" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            دانلود
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<div class="card-harvard p-8 text-center">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" class="mx-auto mb-3" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <p class="text-[var(--slate)]">هنوز فایلی برای این هفته منتشر نشده است.</p>
+</div>
+{% endif %}
+{% endblock %}

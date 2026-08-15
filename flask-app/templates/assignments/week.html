@@ -1,0 +1,96 @@
+{# صفحه‌ی تکالیف یک هفته خاص — بازطراحی‌شده با تم هاروارد (Crimson).
+   UX: countdown مهلت، وضعیت تحویل کاربر، touch-friendly، loading feedback.
+   متغیرها: assignments (list), submitted (dict: assignment_id → Submission), week, title.
+#}
+{% extends "base.html" %}
+{% block title %}تکالیف {{ title }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('assignments.index') }}" class="inline-flex items-center gap-1 text-sm text-crimson hover:underline mb-4">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    بازگشت به لیست تکالیف هفته‌ها
+</a>
+
+<header class="mb-6">
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        تکالیف {{ title }}
+    </h1>
+    <p class="text-[var(--slate)] text-sm mt-1">تکالیف این هفته را اینجا تحویل دهید.</p>
+</header>
+
+{% if assignments %}
+<div class="space-y-4">
+    {% for a in assignments %}
+    {% set sub = submitted.get(a.id) %}
+    <div class="card-harvard {% if not sub %}card-accent{% endif %} p-5">
+        <div class="flex items-start justify-between flex-wrap gap-3">
+            <div>
+                <h2 class="font-bold text-lg">{{ a.title }}</h2>
+                <p class="text-sm text-[var(--slate)]">هفته {{ a.week }}</p>
+            </div>
+            <div class="text-left">
+                <div class="text-xs text-[var(--slate)]">مهلت تحویل</div>
+                <div class="text-sm font-semibold num">{{ a.due_date.strftime('%Y-%m-%d %H:%M') }}</div>
+            </div>
+        </div>
+
+        {# وضعیت تحویل کاربر — نمره اگر نمره‌دهی شده، وگرنه «تحویل داده شد» #}
+        {% if sub %}
+        <div class="mt-3 flex items-center gap-2 flex-wrap">
+            {% if sub.grade is not none %}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-semibold bg-emerald-100 text-emerald-700">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    نمره: {{ sub.grade }} از ۱۰۰
+                </span>
+                {% if sub.feedback %}
+                <details class="inline-block">
+                    <summary class="cursor-pointer text-sm text-crimson hover:underline">بازخورد استاد</summary>
+                    <p class="mt-2 text-sm bg-canvas border border-[var(--border)] rounded-lg p-3">{{ sub.feedback }}</p>
+                </details>
+                {% endif %}
+            {% else %}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-semibold bg-gray-100 text-gray-600">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                    تحویل داده شد · در انتظار نمره
+                </span>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if a.github_template_url %}
+        <a href="{{ a.github_template_url }}" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 mt-3 text-sm text-crimson font-semibold hover:underline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            قالب گیت‌هاب
+        </a>
+        {% endif %}
+
+        {# فرم تحویل — فقط اگر هنوز تحویل نداده #}
+        {% if current_user.is_authenticated and not sub %}
+        <form method="POST" action="{{ url_for('assignments.submit', assignment_id=a.id) }}"
+              class="mt-3 flex gap-2 flex-wrap"
+              onsubmit="this.querySelector('button[type=submit]').disabled=true;">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+            <input type="url" name="github_url" placeholder="https://github.com/username/repo"
+                   required pattern="https://github\.com/.*"
+                   class="flex-1 min-w-[200px] px-3 py-2.5 border border-[var(--border)] rounded-lg text-sm focus:ring-2 focus:ring-crimson focus:outline-none focus:border-crimson">
+            <button type="submit"
+                    class="btn-crimson px-4 py-2.5 text-sm whitespace-nowrap">
+                تحویل (+{{ a.xp_reward }} XP)
+            </button>
+        </form>
+        {% elif not sub %}
+        <p class="text-xs text-[var(--slate)] mt-3 italic">برای تحویل، ابتدا <a href="{{ url_for('auth.login') }}" class="text-crimson underline">وارد شوید</a>.</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="card-harvard p-8 text-center">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" class="mx-auto mb-3" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <p class="text-[var(--slate)]">در حال حاضر تکلیف فعالی برای این هفته وجود ندارد.</p>
+</div>
+{% endif %}
+{% endblock %}

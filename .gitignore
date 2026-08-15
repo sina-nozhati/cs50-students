@@ -1,0 +1,58 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# === Virtual Environments ===
+.venv/
+venv/
+env/
+
+# === Testing ===
+.pytest_cache/
+htmlcov/
+.coverage
+.tox/
+
+# === Flask ===
+instance/
+.webassets-cache
+
+# === Environment / Secrets ===
+.env
+*.pem
+
+# === Database ===
+*.db
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Logs ===
+*.log
+
+# === Downloads (large binary files — deploy separately) ===
+flask-app/static/downloads/
+
+# === Agent / AI tool artifacts (not part of source) ===
+.agents/
+.claude/
+.z-ai-config
+agent-ctx/
+tool-results/
+.playwright-mcp/
+.zcode/
+.zscripts/

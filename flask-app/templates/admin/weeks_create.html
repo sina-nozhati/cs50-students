@@ -1,0 +1,46 @@
+{# ایجاد هفته جدید (ادمین) #}
+{% extends "admin/admin_base.html" %}
+{% block title %}ایجاد هفته جدید{% endblock %}
+{% block page_title %}ایجاد هفته جدید{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('admin.weeks_list') }}" class="inline-flex items-center gap-1 text-sm text-crimson hover:underline mb-4">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    برگشت به هفته‌ها
+</a>
+
+<header class="mb-6">
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+        ایجاد هفته جدید
+    </h1>
+    <p class="text-[var(--slate)] text-sm mt-1">شماره و عنوان هفته جدید را وارد کنید.</p>
+</header>
+
+<form method="POST" action="{{ url_for('admin.weeks_create') }}" class="space-y-6 max-w-xl">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+    <div class="card-harvard card-accent p-6 sm:p-8 space-y-4">
+        <div>
+            <label for="number" class="block text-sm font-semibold mb-1.5">شماره هفته (مثلاً 9)</label>
+            <input type="number" id="number" name="number" required min="0"
+                   class="w-full px-3 py-2.5 border border-[var(--border)] rounded-lg text-sm
+                          focus:ring-2 focus:ring-crimson focus:outline-none focus:border-crimson transition" dir="ltr">
+        </div>
+        <div>
+            <label for="title" class="block text-sm font-semibold mb-1.5">عنوان (مثلاً هفته ۹ — Flask)</label>
+            <input type="text" id="title" name="title" required
+                   class="w-full px-3 py-2.5 border border-[var(--border)] rounded-lg text-sm
+                          focus:ring-2 focus:ring-crimson focus:outline-none focus:border-crimson transition">
+        </div>
+    </div>
+
+    <div class="flex items-center gap-3">
+        <button type="submit" class="btn-crimson px-6 py-2.5 text-sm font-semibold">
+            ایجاد هفته
+        </button>
+        <a href="{{ url_for('admin.weeks_list') }}" class="px-4 py-2.5 text-sm font-semibold text-[var(--slate)] hover:text-ink transition">
+            انصراف
+        </a>
+    </div>
+</form>
+{% endblock %}

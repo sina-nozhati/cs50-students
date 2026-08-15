@@ -1,0 +1,53 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}{% if edit_mode %}ویرایش کاربر{% else %}افزودن دانش‌آموز{% endif %}{% endblock %}
+{% block page_title %}{% if edit_mode %}ویرایش کاربر{% else %}افزودن دانش‌آموز{% endif %}{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="card-harvard p-6 sm:p-8">
+        <form action="" method="POST" class="space-y-6">
+            
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+            
+            <div class="space-y-2">
+                <label for="username" class="block font-semibold text-[var(--ink)]">نام کاربری</label>
+                <input type="text" id="username" name="username" class="form-input" 
+                       value="{{ user.username if user else '' }}" required dir="ltr">
+            </div>
+
+            <div class="space-y-2">
+                <label for="password" class="block font-semibold text-[var(--ink)]">رمز عبور {% if edit_mode %}<span class="text-sm font-normal text-[var(--slate)]">(برای عدم تغییر خالی بگذارید)</span>{% endif %}</label>
+                <input type="password" id="password" name="password" class="form-input" {% if not edit_mode %}required{% endif %} dir="ltr">
+            </div>
+
+            {% if edit_mode %}
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 bg-[var(--canvas)] border border-[var(--border)] rounded-lg text-center">
+                    <span class="block text-sm text-[var(--slate)] mb-1">XP فعلی</span>
+                    <span class="text-xl font-bold num text-[var(--crimson)]">{{ user.xp }}</span>
+                </div>
+                <div class="p-4 bg-[var(--canvas)] border border-[var(--border)] rounded-lg text-center">
+                    <span class="block text-sm text-[var(--slate)] mb-1">استریک فعلی</span>
+                    <span class="text-xl font-bold num text-[var(--amber)]">{{ user.streak }}</span>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label for="xp_adjustment" class="block font-semibold text-[var(--ink)]">تغییر دستی XP (اختیاری)</label>
+                <p class="text-sm text-[var(--slate)] mb-2">برای افزایش عدد مثبت (مثلاً 10) و برای کاهش عدد منفی (مثلاً -5) وارد کنید.</p>
+                <input type="number" id="xp_adjustment" name="xp_adjustment" class="form-input num" dir="ltr" placeholder="0">
+            </div>
+            {% endif %}
+
+            <div class="pt-4 flex items-center justify-end gap-3 border-t border-[var(--border)]">
+                <a href="/admin/users" class="px-4 py-2 rounded-lg text-[var(--slate)] hover:bg-gray-100 transition min-h-[40px] flex items-center">انصراف</a>
+                <button type="submit" class="btn-crimson min-w-[120px]">
+                    {% if edit_mode %}ذخیره تغییرات{% else %}افزودن کاربر{% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

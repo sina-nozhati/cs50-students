@@ -1,0 +1,362 @@
+{# قالب پایه‌ی همه‌ی صفحات — بازطراحی‌شده با تم رسمی دانشگاه هاروارد.
+
+   اصول طراحی (طبق docs/PRD.md بخش ۶):
+   - رنگ اصلی: Harvard Crimson (#A51C30)
+   - تایپوگرافی: Vazirmatn (فارسی) + سریف رسمی برای تیترهای انگلیسی
+   - navbar حداکثر ۵ مورد (سادگی آموزشی)
+   - Tailwind و HTMX از CDN — بدون build-step (مناسب VPS ضعیف ایرانی)
+#}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CS50x انزلی{% endblock %} · Anzali CS50x</title>
+
+    {# فاوآیکون لوگوی اردک CS50x #}
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/duck-logo.png') }}">
+
+    {# فونت Vazirmatn از CDN با fallback (اینترنت نوسانی ایران) #}
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+    {# HTMX از CDN برای تعاملات ایجکس بدون ریلود #}
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+
+    {# Tailwind CSS از CDN — بدون build.
+       نکته آموزشی: config زیر رنگ crimson را به‌عنوان رنگ سفارشی Tailwind اضافه می‌کند
+       تا بتوانیم از کلاس‌هایی مثل bg-crimson استفاده کنیم. #}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crimson:        '#A51C30',  // رنگ رسمی هاروارد
+              'crimson-dark': '#771020',  // برای hover
+              'crimson-tint': '#FBEAEE',  // پس‌زمینه‌ی ملایم
+              canvas:         '#FAFAF7',  // پس‌زمینه‌ی کاغذی گرم
+              ink:            '#1E1E1E',  // متن اصلی
+              gold:           '#C9A227',  // لهجه‌ی طلایی (حاشیه‌ی لوگو)
+            },
+            fontFamily: {
+              sans: ['Vazirmatn', 'Tahoma', 'system-ui', 'sans-serif'],
+              serif: ['Georgia', 'Times New Roman', 'serif'],
+            },
+          }
+        }
+      }
+    </script>
+
+    {# ─── استایل پایه و کلاس‌های کمکی هاروارد ───
+       این متغیرها و کلاس‌ها در همه‌ی صفحات در دسترس‌اند. #}
+    <style>
+      :root {
+        --crimson: #A51C30;
+        --crimson-dark: #771020;
+        --crimson-tint: #FBEAEE;
+        --gold: #C9A227;
+        --canvas: #FAFAF7;
+        --ink: #1E1E1E;
+        --slate: #4A5568;
+        --border: #E2E0DA;
+        --success: #1E5631;
+        --warning: #B7791F;
+        --purple: #7C5CFC;
+        --amber: #F59E0B;
+      }
+
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Vazirmatn', Tahoma, system-ui, sans-serif;
+        background: var(--canvas);
+        color: var(--ink);
+      }
+
+      /* اعداد فارسی لطیف‌تر با tabular-nums */
+      .num { font-variant-numeric: tabular-nums; }
+
+      /* دکمه‌ی اصلی هاروارد */
+      .btn-crimson {
+        background: var(--crimson);
+        color: #fff;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
+        box-shadow: 0 1px 2px rgba(58,10,18,.15);
+      }
+      .btn-crimson:hover { background: var(--crimson-dark); }
+      .btn-crimson:active { transform: translateY(1px); }
+      .btn-crimson:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+      }
+
+      /* کارت استاندارد هاروارد */
+      .card-harvard {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        transition: box-shadow .2s ease, transform .2s ease;
+      }
+      .card-harvard:hover { box-shadow: 0 6px 18px -6px rgba(0,0,0,.12); }
+      /* کارت برجسته با نوار سمت راست (RTL) */
+      .card-accent { border-right: 4px solid var(--crimson); }
+
+      /* badge هاروارد */
+      .badge-crimson {
+        background: var(--crimson-tint);
+        color: var(--crimson);
+        border-radius: 9999px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 10px;
+      }
+
+      /* نوار پیشرفت */
+      .progress-track {
+        background: #ece9e3;
+        border-radius: 9999px;
+        height: 10px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        background: linear-gradient(90deg, var(--crimson), var(--crimson-dark));
+        height: 100%;
+        border-radius: 9999px;
+        transition: width .5s ease;
+      }
+
+      /* focus-visible دسترس‌پذیر برای همه‌ی تعاملی‌ها */
+      a:focus-visible, button:focus-visible, input:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+        border-radius: 6px;
+      }
+
+      /* کد همیشه LTR حتی در صفحه‌ی RTL */
+      pre, code { direction: ltr; text-align: left; }
+
+      /* اسکرول‌بار لطیف */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-thumb { background: rgba(165,28,48,.25); border-radius: 9999px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(165,28,48,.4); }
+
+      /* ─── navbar سفید با خط فعال crimson ─── */
+      .nav-link {
+        position: relative;
+        padding: 0.5rem 0;
+        font-weight: 500;
+        color: var(--slate);
+        transition: color .15s ease;
+      }
+      .nav-link:hover { color: var(--crimson); }
+      .nav-link--active {
+        color: var(--crimson);
+        font-weight: 600;
+      }
+      .nav-link--active::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        left: 0;
+        height: 2px;
+        background: var(--crimson);
+        border-radius: 2px 2px 0 0;
+      }
+
+      /* ─── nav پایین (موبایل) ─── */
+      .bottom-nav-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        color: var(--slate);
+        font-size: 10px;
+        font-weight: 500;
+        transition: color .15s ease;
+      }
+      .bottom-nav-link--active {
+        color: var(--crimson);
+        font-weight: 700;
+      }
+    </style>
+
+    {# HTMX برای تعامل بدون رفرش صفحه (مثل دکمه‌ی «من خواندم») #}
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+    {% block head_extra %}{% endblock %}
+</head>
+<body class="min-h-screen flex flex-col" style="overscroll-behavior: contain" hx-headers='{"X-CSRFToken": "{{ csrf_token() }}"}'>
+
+    {# ─── Skip-link دسترس‌پذیری — کاربران صفحه‌کلید می‌توانند مستقیم به محتوا بروند ─── #}
+    <a href="#main-content"
+       class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:right-2 focus:z-[100] focus:bg-crimson focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:text-sm focus:font-bold">
+        رفتن به محتوا
+    </a>
+
+    {# ─── نوار ناوبری بالا (سفید با حاشیه) ─── #}
+    <header class="sticky top-0 z-50">
+        <nav class="bg-white border-b border-[var(--border)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="flex items-center justify-between h-16">
+
+                    {# برند: لوگو + wordmark #}
+                    <a href="{{ url_for('main.index') }}" class="flex items-center gap-2.5 shrink-0">
+                        <img src="{{ url_for('static', filename='img/duck-logo.png') }}"
+                             alt="لوگو CS50x انزلی" class="w-10 h-10">
+                        <span class="font-bold text-lg text-crimson hidden sm:inline">CS50x <span class="text-ink/30">·</span> Anzali</span>
+                    </a>
+
+                    {# لینک‌های اصلی — فقط دسکتاپ #}
+                    <div class="hidden md:flex items-center gap-8">
+                        {% if current_user.is_authenticated %}
+                            {% set nav_items = [
+                                ('داشبورد', 'main.dashboard', 'dashboard'),
+                                ('تکالیف', 'assignments.index', 'assignments'),
+                                ('منابع', 'resources.index', 'resources'),
+                                ('رتبه‌بندی', 'gamification.leaderboard', 'gamification'),
+                            ] %}
+                            {% for label, endpoint, section in nav_items %}
+                                <a href="{{ url_for(endpoint) }}"
+                                   class="nav-link {% if request.endpoint and request.endpoint.startswith(section) %}nav-link--active{% endif %}">
+                                    {{ label }}
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <span class="text-[var(--slate)] text-sm font-serif italic hidden lg:inline">VERITAS</span>
+                        {% endif %}
+                    </div>
+
+                    {# سمت چپ: اعلان + آواتار #}
+                    <div class="flex items-center gap-3">
+                        {% if current_user.is_authenticated %}
+                            {# آیکون اعلان (placeholder) #}
+                            <button class="p-2 text-[var(--slate)] hover:bg-gray-100 rounded-full transition" aria-label="اعلان‌ها">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                            </button>
+
+                            {# آواتار + dropdown #}
+                            <details class="relative group">
+                                <summary class="list-none cursor-pointer w-10 h-10 rounded-full bg-crimson text-white flex items-center justify-center font-bold text-sm hover:bg-crimson-dark transition select-none"
+                                         aria-label="منوی کاربر {{ current_user.username }}"
+                                         role="button">
+                                    {{ current_user.username[0]|upper }}
+                                </summary>
+                                <div class="absolute left-0 mt-2 w-52 bg-white text-ink rounded-lg shadow-xl border border-[var(--border)] py-2 z-50 hidden group-open:block">
+                                    <div class="px-4 py-2.5 border-b border-[var(--border)]">
+                                        <p class="font-semibold text-sm">{{ current_user.username }}</p>
+                                        <p class="text-xs text-[var(--slate)]">دانش‌آموز CS50x انزلی</p>
+                                    </div>
+                                    <a href="{{ url_for('main.dashboard') }}" class="block px-4 py-2 text-sm hover:bg-gray-50 transition">داشبورد</a>
+                                    <a href="{{ url_for('auth.profile') }}" class="block px-4 py-2 text-sm hover:bg-gray-50 transition">پروفایل و تغییر رمز</a>
+                                    <a href="{{ url_for('main.dashboard') }}#certificate" class="block px-4 py-2 text-sm hover:bg-gray-50 transition">مسیر مدرک</a>
+                                    {% if current_user.is_admin %}
+                                        <a href="{{ url_for('admin.index') }}" class="block px-4 py-2 text-sm hover:bg-gray-50 transition font-semibold">پنل ادمین</a>
+                                    {% endif %}
+                                    <div class="border-t border-[var(--border)] mt-1 pt-1">
+                                        <a href="{{ url_for('auth.logout') }}" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition">خروج</a>
+                                    </div>
+                                </div>
+                            </details>
+                        {% else %}
+                            <a href="{{ url_for('auth.login') }}" class="btn-crimson px-5 py-2 text-sm">
+                                ورود
+                            </a>
+                        {% endif %}
+
+                        {# دکمه‌ی همبرگری موبایل #}
+                        <button type="button"
+                                onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"
+                                class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-[var(--slate)] hover:bg-gray-100 transition"
+                                aria-label="منو">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {# منوی موبایل (مخفی پیش‌فرض) #}
+            <div id="mobileMenu" class="hidden md:hidden border-t border-[var(--border)] bg-white">
+                <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+                    {% if current_user.is_authenticated %}
+                        {% for label, endpoint in [('داشبورد', 'main.dashboard'), ('تکالیف', 'assignments.index'), ('منابع', 'resources.index'), ('رتبه‌بندی', 'gamification.leaderboard')] %}
+                            <a href="{{ url_for(endpoint) }}" class="px-3 py-2 rounded-md text-sm font-medium text-[var(--ink)] hover:bg-gray-50 transition">{{ label }}</a>
+                        {% endfor %}
+                        <a href="{{ url_for('auth.profile') }}" class="px-3 py-2 rounded-md text-sm font-medium text-[var(--ink)] hover:bg-gray-50 transition">پروفایل و تغییر رمز</a>
+                        <a href="{{ url_for('auth.logout') }}" class="px-3 py-2 rounded-md text-sm text-red-600 hover:bg-red-50 transition">خروج</a>
+                    {% else %}
+                        <a href="{{ url_for('auth.login') }}" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition">ورود</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {# ─── پیام‌های flash ─── #}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-4 space-y-2 w-full">
+                {% for category, message in messages %}
+                    <div class="px-4 py-3 rounded-lg text-sm border flex items-center gap-2.5
+                        {% if category == 'error' %}bg-red-50 text-red-800 border-red-200
+                        {% elif category == 'success' %}bg-green-50 text-green-800 border-green-200
+                        {% elif category == 'info' %}bg-crimson-tint text-crimson border-[var(--crimson-tint)]
+                        {% else %}bg-slate-50 text-slate-700 border-slate-200{% endif %}">
+                        {# آیکون SVG — بدون emoji #}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0" aria-hidden="true">
+                            {% if category == 'error' %}<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                            {% elif category == 'success' %}<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                            {% elif category == 'info' %}<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                            {% else %}<path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.9 5.8 21.3l2.4-7.4L2 9.4h7.6z"/>{% endif %}
+                        </svg>
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {# ─── محتوای اصلی هر صفحه ─── #}
+    <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full pb-20 md:pb-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    {# ─── فوتر (فقط دسکتاپ — موبایل nav پایین دارد) ─── #}
+    <footer class="hidden md:block bg-white border-t border-[var(--border)] mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+            <div class="flex items-center gap-2">
+                <img src="{{ url_for('static', filename='img/duck-logo.png') }}" alt="" class="w-5 h-5 opacity-60">
+                <span class="font-semibold text-[var(--slate)]">CS50x Anzali</span>
+            </div>
+            <p class="text-xs text-[var(--slate)]">
+                ساخته‌شده با Flask برای کلاس CS50x بندر انزلی
+            </p>
+            <p class="text-xs text-[var(--slate)] opacity-50 font-serif">VERITAS</p>
+        </div>
+    </footer>
+
+    {# ─── ناوبری پایین (فقط موبایل) ─── #}
+    {% if current_user.is_authenticated %}
+    <nav class="fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-[var(--border)] z-50 flex md:hidden justify-around items-center px-4 safe-bottom">
+        {% set bottom_nav = [
+            ('داشبورد', 'main.dashboard', 'dashboard', '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>'),
+            ('تکالیف', 'assignments.index', 'assignments', '<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/>'),
+            ('منابع', 'resources.index', 'resources', '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
+            ('رتبه‌بندی', 'gamification.leaderboard', 'gamification', '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>'),
+        ] %}
+        {% for label, endpoint, section, icon_path in bottom_nav %}
+        <a href="{{ url_for(endpoint) }}"
+           class="bottom-nav-link {% if request.endpoint and request.endpoint.startswith(section) %}bottom-nav-link--active{% endif %}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ icon_path|safe }}</svg>
+            <span>{{ label }}</span>
+        </a>
+        {% endfor %}
+    </nav>
+    {% endif %}
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

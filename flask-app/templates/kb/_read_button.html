@@ -1,0 +1,40 @@
+{# Fragment دکمه‌ی «من خواندم» — بازطراحی‌شده با تم هاروارد (Crimson).
+   سه حالت دارد:
+     1. first_read=True  → پیام موفقیت با +۵ XP
+     2. first_read=False → کاربر قبلاً خوانده، بدون XP (idempotent)
+     3. (پیش‌فرض awarded=False) → دکمه‌ی قابل‌کلیک با loading state
+
+   UX: hx-indicator برای feedback روی اینترنت کند + hx-disabled-elt جلوگیری
+   کلیک چندباره حین درخواست.
+#}
+{% if awarded %}
+    {% if first_read %}
+    {# اولین بار — XP داده شد #}
+    <div role="status" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white rounded-lg text-sm font-semibold">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        خوانده شد! +۵ XP
+    </div>
+    {% else %}
+    {# تکراری — قبلاً خوانده بود #}
+    <div role="status" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--slate)] text-white rounded-lg text-sm font-semibold opacity-80">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        قبلاً خوانده‌اید
+    </div>
+    {% endif %}
+{% else %}
+    {# حالت پیش‌فرض — دکمه‌ی قابل‌کلیک #}
+    <button hx-post="{{ url_for('kb.mark_read', week=week) }}"
+            hx-target="#read-button-wrapper"
+            hx-swap="innerHTML"
+            hx-indicator="#read-spinner"
+            hx-disabled-elt="this"
+            class="btn-crimson px-5 py-2.5 text-sm font-semibold">
+        <span id="read-spinner" class="htmx-indicator hidden inline-flex items-center gap-2">
+            <svg class="animate-spin" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            در حال ثبت...
+        </span>
+        <span class="htmx-request:block">
+            من خواندم (+۵ XP)
+        </span>
+    </button>
+{% endif %}

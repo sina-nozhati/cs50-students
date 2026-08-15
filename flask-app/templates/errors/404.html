@@ -1,0 +1,37 @@
+{# صفحه 404 — صفحه‌ی یافت نشد.
+   طراحی ساده و تمیز با هویت بصری CS50x Anzali.
+#}
+{% extends "base.html" %}
+{% block title %}صفحه یافت نشد{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center py-16 sm:py-24 text-center">
+
+    {# لوگوی اردک با opacity کم #}
+    <img src="{{ url_for('static', filename='img/duck-logo.png') }}" alt="" class="w-24 h-24 opacity-20 mb-6">
+
+    {# کد خطا #}
+    <h1 class="text-7xl sm:text-8xl font-extrabold text-crimson num">404</h1>
+
+    {# پیام اصلی #}
+    <h2 class="text-xl sm:text-2xl font-bold mt-4 mb-2">صفحه‌ای یافت نشد</h2>
+    <p class="text-[var(--slate)] text-sm max-w-md leading-relaxed mb-8">
+        آدرسی که وارد کردید وجود ندارد یا حذف شده است.
+        شاید این هفته هنوز منتشر نشده باشد.
+    </p>
+
+    {# دکمه‌های بازگشت #}
+    <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="{{ url_for('main.index') }}" class="btn-crimson px-6 py-2.5 text-sm inline-flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            صفحه اصلی
+        </a>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('main.dashboard') }}" class="px-6 py-2.5 text-sm font-semibold text-crimson border border-crimson rounded-lg hover:bg-crimson-tint transition inline-flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            داشبورد
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{# صفحه‌ی تکالیف — بازطراحی‌شده با تم هاروارد (Crimson).
+   UX: کارت‌های هارواردی برای هر هفته مشابه بخش منابع.
+#}
+{% extends "base.html" %}
+{% block title %}تکالیف{% endblock %}
+
+{% block content %}
+<header class="mb-6">
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        تکالیف
+    </h1>
+    <p class="text-[var(--slate)] text-sm mt-1">تکالیف خود را بر اساس هفته‌ها انتخاب و تحویل دهید.</p>
+</header>
+
+{# ۹ کارت هفته — به‌ازای هر هفته یک کارت #}
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {% for w in weeks %}
+        {% if w.is_published %}
+        <a href="{{ url_for('assignments.week_assignments', week=w.week) }}"
+           class="card-harvard p-5 text-center hover:-translate-y-1 transition min-h-[120px] flex flex-col items-center justify-center gap-2 relative">
+            <div class="w-10 h-10 rounded-xl bg-crimson-tint flex items-center justify-center font-serif font-bold text-crimson text-lg">
+                {{ w.week }}
+            </div>
+            <div class="font-bold text-sm">{{ w.title }}</div>
+            {% if w.assignment_count > 0 %}
+            <span class="badge-crimson text-xs num">{{ w.assignment_count }} تکلیف</span>
+            {% else %}
+            <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded font-semibold whitespace-nowrap">بدون تکلیف</span>
+            {% endif %}
+        </a>
+        {% else %}
+        <div class="card-harvard p-5 text-center min-h-[120px] flex flex-col items-center justify-center gap-2 opacity-60 cursor-not-allowed bg-gray-50 border-gray-200">
+            <div class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center font-serif font-bold text-gray-500 text-lg">
+                {{ w.week }}
+            </div>
+            <div class="font-bold text-sm text-gray-500">{{ w.title }}</div>
+            <span class="px-2 py-1 bg-gray-200 text-gray-500 text-xs rounded font-semibold whitespace-nowrap">هنوز منتشر نشده</span>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

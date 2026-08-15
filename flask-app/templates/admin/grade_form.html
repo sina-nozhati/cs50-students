@@ -1,0 +1,67 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}نمره‌دهی{% endblock %}
+{% block page_title %}نمره‌دهی تکلیف{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="flex items-center justify-between mb-4">
+        <a href="/admin/submissions" class="text-[var(--slate)] hover:text-[var(--crimson)] transition flex items-center gap-1 text-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            بازگشت به لیست نمره‌دهی
+        </a>
+    </div>
+
+    <div class="card-harvard p-6 sm:p-8">
+        {# اطلاعات تحویل #}
+        <div class="bg-[var(--canvas)] border border-[var(--border)] rounded-xl p-5 mb-6 space-y-4">
+            <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+                <span class="text-[var(--slate)] text-sm">دانش‌آموز</span>
+                <span class="font-bold text-[var(--ink)]">{{ submission.student.username }}</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+                <span class="text-[var(--slate)] text-sm">تکلیف</span>
+                <span class="font-medium text-[var(--ink)]">{{ submission.assignment.title }}</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-[var(--border)] pb-3">
+                <span class="text-[var(--slate)] text-sm">تاریخ تحویل</span>
+                <span class="num text-sm text-[var(--ink)]" dir="ltr">{{ submission.submitted_at }}</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-[var(--slate)] text-sm">لینک ریپازیتوری</span>
+                <a href="{{ submission.github_url }}" target="_blank" class="text-blue-600 hover:underline flex items-center gap-1 text-sm font-semibold" dir="ltr">
+                    مشاهده در GitHub
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            </div>
+        </div>
+
+        {# فرم نمره #}
+        <form action="" method="POST" class="space-y-6">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+            <div class="space-y-2">
+                <label for="grade" class="block font-semibold text-[var(--ink)]">نمره (از ۱۰۰)</label>
+                <div class="relative w-32">
+                    <input type="number" id="grade" name="grade" class="form-input num text-lg font-bold text-center" 
+                           value="{{ submission.grade if submission.grade is not none else '' }}" 
+                           required min="0" max="100" dir="ltr" placeholder="0">
+                </div>
+                <p class="text-xs text-[var(--slate)] mt-1">حداقل نمره‌ی قبولی برای تعلق گرفتن XP معمولاً ۶۰ است.</p>
+            </div>
+
+            <div class="space-y-2">
+                <label for="feedback" class="block font-semibold text-[var(--ink)]">بازخورد (اختیاری)</label>
+                <p class="text-xs text-[var(--slate)] mb-1">توضیحاتی برای دانش‌آموز بنویسید که چرا این نمره را گرفته است.</p>
+                <textarea id="feedback" name="feedback" class="form-input" rows="5">{{ submission.feedback if submission.feedback else '' }}</textarea>
+            </div>
+
+            <div class="pt-4 flex items-center justify-end gap-3 border-t border-[var(--border)]">
+                <button type="submit" class="btn-crimson min-w-[120px]">
+                    ثبت نمره
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

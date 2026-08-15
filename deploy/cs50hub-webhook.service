@@ -1,0 +1,15 @@
+[Unit]
+Description=GitHub Webhook — CS50x Anzali Auto-Deploy
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/var/www/cs50hub
+Environment="WEBHOOK_SECRET=cs50-anzali-webhook-secret"
+ExecStart=/var/www/cs50hub/venv/bin/python /var/www/cs50hub/deploy/webhook.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

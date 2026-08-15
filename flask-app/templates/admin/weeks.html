@@ -1,0 +1,94 @@
+{# مدیریت هفته‌ها (ادمین) — انتشار و محتوا.
+   UX: جدول هارواردی شبیه resources.html، دکمه‌ی toggle و ویرایش، نشان محتوا.
+#}
+{% extends "admin/admin_base.html" %}
+{% block title %}مدیریت هفته‌ها{% endblock %}
+{% block page_title %}مدیریت هفته‌ها{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('admin.index') }}" class="inline-flex items-center gap-1 text-sm text-crimson hover:underline mb-4">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    برگشت به پنل ادمین
+</a>
+
+<header class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div>
+        <h1 class="text-2xl font-bold flex items-center gap-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            مدیریت هفته‌ها
+        </h1>
+        <p class="text-[var(--slate)] text-sm mt-1">هفته‌ها را منتشر کنید و محتوای آموزشی آنها را ویرایش نمایید.</p>
+    </div>
+    <a href="{{ url_for('admin.weeks_create') }}" class="btn-crimson inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold self-start sm:self-auto">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        ایجاد هفته جدید
+    </a>
+</header>
+
+<div class="card-harvard overflow-hidden">
+    <table class="w-full text-right">
+        <thead>
+            <tr class="bg-crimson text-white text-sm">
+                <th class="px-4 py-3 font-semibold">هفته</th>
+                <th class="px-4 py-3 font-semibold">عنوان</th>
+                <th class="px-4 py-3 font-semibold text-center">محتوا</th>
+                <th class="px-4 py-3 font-semibold text-center">وضعیت انتشار</th>
+                <th class="px-4 py-3 font-semibold text-center">عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for w in weeks %}
+            <tr class="border-t border-[var(--border)] hover:bg-crimson-tint/20 transition-colors align-middle">
+                <td class="px-4 py-3.5">
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-crimson text-white font-serif font-bold text-sm num">{{ w.number }}</span>
+                </td>
+                <td class="px-4 py-3.5 font-semibold">{{ w.title }}</td>
+                <td class="px-4 py-3.5 text-center">
+                    {% if w.content_html %}
+                        <span class="inline-flex items-center gap-1 px-2 py-1 bg-emerald-50 text-emerald-700 text-xs rounded font-semibold">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                            دارد
+                        </span>
+                    {% else %}
+                        <span class="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded font-semibold">—</span>
+                    {% endif %}
+                </td>
+                <td class="px-4 py-3.5 text-center">
+                    {% if w.is_published %}
+                        <span class="badge-crimson">منتشر</span>
+                    {% else %}
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded font-semibold">مخفی</span>
+                    {% endif %}
+                </td>
+                <td class="px-4 py-3.5">
+                    <div class="flex items-center justify-center gap-2">
+                        <a href="{{ url_for('admin.weeks_edit', week_number=w.number) }}"
+                           class="px-3 py-1.5 bg-crimson-tint text-crimson text-xs rounded-lg font-semibold hover:bg-crimson hover:text-white transition-colors">
+                            ویرایش
+                        </a>
+                        <form method="POST" action="{{ url_for('admin.weeks_toggle', week_number=w.number) }}" class="inline">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                            <button type="submit"
+                                    class="px-3 py-1.5 text-xs rounded-lg font-semibold transition-colors
+                                           {% if w.is_published %}bg-gray-100 text-gray-600 hover:bg-gray-200{% else %}bg-emerald-50 text-emerald-700 hover:bg-emerald-100{% endif %}">
+                                {% if w.is_published %}مخفی کردن{% else %}انتشار{% endif %}
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-4 card-harvard p-4 flex items-start gap-3">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <p class="text-sm text-[var(--slate)] leading-relaxed">
+        <strong class="text-ink">راهنما:</strong> یک هفته فقط وقتی برای دانش‌آموزان قابل‌مشاهده است که «منتشر» باشد.
+        دانش‌آموز نمیتواند برای هفته‌ای که منتشر نشده یا محتوایی ندارد XP بگیرد.
+        برای افزودن محتوا، روی «ویرایش» بزنید و یک فایل HTML آپلود کنید یا مستقیماً در باکس متن بنویسید.
+    </p>
+</div>
+{% endblock %}

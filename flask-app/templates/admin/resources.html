@@ -1,0 +1,66 @@
+{# مدیریت منابع (ادمین) — بازطراحی‌شده با تم هاروارد (Crimson).
+   UX: جدول هارواردی، دکمه‌های crimson، آیکون SVG.
+#}
+{% extends "admin/admin_base.html" %}
+{% block title %}مدیریت منابع{% endblock %}
+{% block page_title %}مدیریت منابع{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('admin.index') }}" class="inline-flex items-center gap-1 text-sm text-crimson hover:underline mb-4">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    برگشت به پنل ادمین
+</a>
+
+<h1 class="text-2xl font-bold mb-4 flex items-center gap-2">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+    مدیریت منابع
+</h1>
+
+{% if resources %}
+<div class="card-harvard overflow-hidden overflow-x-auto">
+    <table class="w-full text-right text-sm">
+        <thead>
+            <tr class="bg-crimson text-white">
+                <th class="px-4 py-3 font-semibold">هفته</th>
+                <th class="px-4 py-3 font-semibold">نام</th>
+                <th class="px-4 py-3 font-semibold">فایل</th>
+                <th class="px-4 py-3 font-semibold">دسته</th>
+                <th class="px-4 py-3 font-semibold">وضعیت</th>
+                <th class="px-4 py-3 font-semibold">عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in resources %}
+            <tr class="border-t border-[var(--border)] hover:bg-crimson-tint/20 transition-colors">
+                <td class="px-4 py-3 num">{{ r.week }}</td>
+                <td class="px-4 py-3 font-semibold">{{ r.display_name }}</td>
+                <td class="px-4 py-3 num text-xs text-[var(--slate)]">{{ r.filename }}</td>
+                <td class="px-4 py-3">{{ r.category }}</td>
+                <td class="px-4 py-3">
+                    {% if r.is_published %}
+                        <span class="badge-crimson">منتشر</span>
+                    {% else %}
+                        <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded font-semibold">مخفی</span>
+                    {% endif %}
+                </td>
+                <td class="px-4 py-3">
+                    <form method="POST" action="{{ url_for('admin.toggle_publish', resource_id=r.id) }}" class="inline">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                        <button type="submit"
+                                class="px-3 py-1.5 bg-crimson-tint text-crimson text-xs rounded-lg font-semibold hover:bg-crimson hover:text-white transition-colors">
+                            تغییر وضعیت
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="card-harvard p-8 text-center">
+    <p class="text-[var(--slate)]">هنوز منبعی ثبت نشده است.</p>
+</div>
+{% endif %}
+{% endblock %}

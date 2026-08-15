@@ -1,0 +1,158 @@
+{# داشبورد تحلیلی ادمین — آمار کلی، هشدارها، وضعیت هفته‌ها.
+   extends admin_base.html (لایه‌بندی مستقل ادمین).
+#}
+{% extends "admin/admin_base.html" %}
+{% block title %}داشبورد ادمین{% endblock %}
+{% block page_title %}داشبورد تحلیلی{% endblock %}
+
+{% block content %}
+{# ── ردیف ۱: کارت‌های آمار سریع ──────────────────────────────── #}
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+    <div class="card-harvard p-5 text-center">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="1.5" class="mx-auto mb-2" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="text-2xl font-bold" style="color:var(--crimson)">{{ overview.total_students }}</div>
+        <div class="text-xs text-[var(--slate)]">دانش‌آموز</div>
+    </div>
+    <div class="card-harvard p-5 text-center">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" class="mx-auto mb-2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+        <div class="text-2xl font-bold" style="color:var(--gold)">{{ overview.active_assignments }}</div>
+        <div class="text-xs text-[var(--slate)]">تکلیف فعال</div>
+    </div>
+    <div class="card-harvard p-5 text-center">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5631" stroke-width="1.5" class="mx-auto mb-2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="text-2xl font-bold" style="color:#1E5631">{{ overview.submissions_today }}</div>
+        <div class="text-xs text-[var(--slate)]">تحویل امروز</div>
+    </div>
+    <div class="card-harvard p-5 text-center">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7C5CFC" stroke-width="1.5" class="mx-auto mb-2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <div class="text-2xl font-bold" style="color:#7C5CFC">{{ overview.avg_xp|round|int }}</div>
+        <div class="text-xs text-[var(--slate)]">میانگین XP</div>
+    </div>
+    <div class="card-harvard p-5 text-center">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="1.5" class="mx-auto mb-2" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <div class="text-2xl font-bold" style="color:var(--crimson)">{{ overview.submissions_week }}</div>
+        <div class="text-xs text-[var(--slate)]">تحویل این هفته</div>
+    </div>
+</div>
+
+{# ── ردیف ۲: هشدارها ──────────────────────────────────────────── #}
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+    {# دانش‌آموزان غیرفعال #}
+    <div class="card-harvard p-5 border-r-4" style="border-right-color:var(--gold)">
+        <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            دانش‌آموزان غیرفعال ({{ low_engagement|length }} نفر)
+        </h2>
+        {% if low_engagement %}
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead><tr class="text-[var(--slate)] border-b"><th class="text-right py-2">نام</th><th class="text-right py-2">آخرین فعالیت</th><th class="text-right py-2">XP</th></tr></thead>
+                <tbody>
+                {% for s in low_engagement %}
+                <tr class="border-b border-gray-100"><td class="py-2">{{ s.username }}</td><td class="py-2 text-[var(--slate)]">{{ s.last_activity.strftime('%Y-%m-%d') if s.last_activity else '—' }}</td><td class="py-2">{{ s.xp }}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="text-[var(--slate)] text-sm">همه فعالند!</p>
+        {% endif %}
+    </div>
+
+    {# تحویل‌های بدون نمره #}
+    <div class="card-harvard p-5 border-r-4" style="border-right-color:var(--crimson)">
+        <h2 class="font-bold text-lg mb-3 flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            تحویل‌های بدون نمره
+        </h2>
+        <div class="text-3xl font-bold mb-2" style="color:var(--crimson)">{{ ungraded_count }}</div>
+        {% if ungraded_count > 0 %}
+        <a href="{{ url_for('admin.submissions_list', status='ungraded') }}" class="btn-crimson inline-block px-4 py-2 text-sm rounded-lg">رفتن به نمره‌دهی</a>
+        {% else %}
+        <p class="text-[var(--slate)] text-sm">همه نمره‌دهی شده‌اند!</p>
+        {% endif %}
+    </div>
+</div>
+
+{# ── ردیف ۳: آمار تکالیف ─────────────────────────────────────── #}
+{% if assignment_stats %}
+<div class="card-harvard p-5 mb-8">
+    <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        وضعیت تکالیف
+    </h2>
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+            <thead><tr class="bg-[var(--crimson)] text-white"><th class="py-3 px-4 text-right rounded-tr-lg">عنوان</th><th class="py-3 px-4 text-right">هفته</th><th class="py-3 px-4 text-right">تحویل‌شده</th><th class="py-3 px-4 text-right">نمره‌دهی‌شده</th><th class="py-3 px-4 text-right rounded-tl-lg">میانگین نمره</th></tr></thead>
+            <tbody>
+            {% for stat in assignment_stats %}
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                <td class="py-3 px-4 font-medium">{{ stat.title }}</td>
+                <td class="py-3 px-4">{{ stat.week }}</td>
+                <td class="py-3 px-4">{{ stat.submitted_count }} / {{ stat.total_students }}</td>
+                <td class="py-3 px-4">{{ stat.graded_count }}</td>
+                <td class="py-3 px-4">
+                    {% if stat.avg_grade > 0 %}
+                    <span class="inline-block px-2 py-0.5 rounded text-white text-xs font-bold {% if stat.avg_grade >= 60 %}bg-green-600{% else %}bg-red-500{% endif %}">{{ stat.avg_grade }}</span>
+                    {% else %}—{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+{# ── ردیف ۴: پیشرفت هفتگی ────────────────────────────────────── #}
+<div class="card-harvard p-5 mb-8">
+    <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--crimson)" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        پیشرفت هفتگی دانش‌آموزان
+    </h2>
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+            <thead><tr class="bg-[var(--crimson)] text-white"><th class="py-3 px-4 text-right rounded-tr-lg">هفته</th><th class="py-3 px-4 text-right">عنوان</th><th class="py-3 px-4 text-right">KB خوانده</th><th class="py-3 px-4 text-right">کوییز</th><th class="py-3 px-4 text-right">فلش‌کارت</th><th class="py-3 px-4 text-right rounded-tl-lg">انتشار</th></tr></thead>
+            <tbody>
+            {% for wp in weekly_progress %}
+            <tr class="border-b border-gray-100">
+                <td class="py-3 px-4 font-bold">{{ wp.week }}</td>
+                <td class="py-3 px-4">{{ wp.title }}</td>
+                <td class="py-3 px-4">{{ wp.kb_read_count }} نفر</td>
+                <td class="py-3 px-4">{{ wp.quiz_done_count }} نفر</td>
+                <td class="py-3 px-4">{{ wp.flashcard_done_count }} نفر</td>
+                <td class="py-3 px-4">
+                    {% if wp.is_published %}
+                    <span class="inline-block w-3 h-3 rounded-full bg-green-500" title="منتشر"></span>
+                    {% else %}
+                    <span class="inline-block w-3 h-3 rounded-full bg-gray-300" title="مخفی"></span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{# ── ردیف ۵: برترین‌ها ────────────────────────────────────────── #}
+{% if top_performers %}
+<div class="card-harvard p-5">
+    <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 7 7 7 7"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 17 7 17 7"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+        برترین‌ها
+    </h2>
+    <div class="space-y-2">
+        {% for tp in top_performers %}
+        <div class="flex items-center justify-between py-2 {% if not loop.last %}border-b border-gray-100{% endif %}">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-[var(--crimson)] text-white text-sm font-bold flex items-center justify-center">{{ loop.index }}</span>
+                <span class="font-medium">{{ tp.username }}</span>
+            </div>
+            <span class="font-bold" style="color:var(--crimson)">{{ tp.xp }} XP</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}{% if edit_mode %}ویرایش تکلیف{% else %}ایجاد تکلیف{% endif %}{% endblock %}
+{% block page_title %}{% if edit_mode %}ویرایش تکلیف{% else %}ایجاد تکلیف{% endif %}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto">
+    <div class="card-harvard p-6 sm:p-8">
+        <form action="" method="POST" class="space-y-6">
+            
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+            
+            <div class="space-y-2">
+                <label for="title" class="block font-semibold text-[var(--ink)]">عنوان تکلیف</label>
+                <input type="text" id="title" name="title" class="form-input" 
+                       value="{{ assignment.title if assignment else '' }}" required placeholder="مثلاً: Hello World">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <label for="week_id" class="block font-semibold text-[var(--ink)]">هفته مربوطه</label>
+                    <select id="week_id" name="week_id" class="form-input bg-white" required>
+                        {% for w in range(0, 9) %}
+                        <option value="{{ w }}" {% if assignment and assignment.week_id == w %}selected{% endif %}>هفته {{ w }}</option>
+                        {% endfor %}
+                        <option value="9" {% if assignment and assignment.week_id == 9 %}selected{% endif %}>پروژه نهایی (هفته ۹)</option>
+                    </select>
+                </div>
+                
+                <div class="space-y-2">
+                    <label for="xp_reward" class="block font-semibold text-[var(--ink)]">پاداش XP</label>
+                    <input type="number" id="xp_reward" name="xp_reward" class="form-input num" 
+                           value="{{ assignment.xp_reward if assignment else '20' }}" required min="0" dir="ltr">
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label for="due_date" class="block font-semibold text-[var(--ink)]">مهلت تحویل</label>
+                <input type="datetime-local" id="due_date" name="due_date" class="form-input num" 
+                       value="{{ assignment.due_date.strftime('%Y-%m-%dT%H:%M') if assignment and assignment.due_date else '' }}" required dir="ltr">
+            </div>
+
+            <div class="space-y-2">
+                <label for="github_template_url" class="block font-semibold text-[var(--ink)]">لینک قالب GitHub (اختیاری)</label>
+                <p class="text-xs text-[var(--slate)] mb-1">اگر قالب کد برای دانش‌آموزان وجود دارد، لینک ریپازیتوری را اینجا قرار دهید.</p>
+                <input type="url" id="github_template_url" name="github_template_url" class="form-input" 
+                       value="{{ assignment.github_template_url if assignment else '' }}" dir="ltr" placeholder="https://github.com/...">
+            </div>
+
+            <div class="space-y-2">
+                <label for="description" class="block font-semibold text-[var(--ink)]">توضیحات (اختیاری)</label>
+                <textarea id="description" name="description" class="form-input" rows="4">{{ assignment.description if assignment else '' }}</textarea>
+            </div>
+
+            <div class="pt-4 flex items-center justify-end gap-3 border-t border-[var(--border)]">
+                <a href="/admin/assignments" class="px-4 py-2 rounded-lg text-[var(--slate)] hover:bg-gray-100 transition min-h-[40px] flex items-center">انصراف</a>
+                <button type="submit" class="btn-crimson min-w-[120px]">
+                    {% if edit_mode %}ذخیره تغییرات{% else %}ایجاد تکلیف{% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

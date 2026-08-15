@@ -1,0 +1,39 @@
+{# صفحه‌ی منابع — بازطراحی‌شده با تم هاروارد (Crimson).
+   UX: کارت‌های هارواردی، آیکون SVG به‌جای ایموجی.
+#}
+{% extends "base.html" %}
+{% block title %}منابع{% endblock %}
+
+{% block content %}
+<header class="mb-6">
+    <h1 class="text-2xl font-bold flex items-center gap-2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        منابع هر هفته
+    </h1>
+    <p class="text-[var(--slate)] text-sm mt-1">اسلایدها، جزوه‌ها و سورس‌کد را دانلود کنید.</p>
+</header>
+
+{# ۹ کارت هفته — به‌ازای هر هفته یک کارت #}
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    {% for w in weeks %}
+        {% if w.is_published %}
+        <a href="{{ url_for('kb.week_page', week=w.week) }}"
+           class="card-harvard p-5 text-center hover:-translate-y-1 transition min-h-[120px] flex flex-col items-center justify-center gap-2">
+            <div class="w-10 h-10 rounded-xl bg-crimson-tint flex items-center justify-center font-serif font-bold text-crimson text-lg">
+                {{ w.week }}
+            </div>
+            <div class="font-bold text-sm">{{ w.title }}</div>
+            <span class="badge-crimson text-xs num">{{ w.file_count }} فایل</span>
+        </a>
+        {% else %}
+        <div class="card-harvard p-5 text-center min-h-[120px] flex flex-col items-center justify-center gap-2 opacity-60 cursor-not-allowed bg-gray-50 border-gray-200">
+            <div class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center font-serif font-bold text-gray-500 text-lg">
+                {{ w.week }}
+            </div>
+            <div class="font-bold text-sm text-gray-500">{{ w.title }}</div>
+            <span class="px-2 py-1 bg-gray-200 text-gray-500 text-xs rounded font-semibold whitespace-nowrap">هنوز منتشر نشده</span>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
