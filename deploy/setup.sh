@@ -10,7 +10,7 @@ set -euo pipefail
 # ── Config ────────────────────────────────────────────────────
 PROJECT_DIR="/var/www/cs50hub"
 REPO_URL="https://github.com/sina-nozhati/cs50-students.git"
-DOMAIN="cs50anzali.ir"
+DOMAIN="cs50xanzali.ir"
 
 # ── Helpers ───────────────────────────────────────────────────
 RED='\033[0;31m'
