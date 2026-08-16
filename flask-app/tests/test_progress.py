@@ -73,7 +73,7 @@ class TestGetCertificateProgress:
             wp = WeekProgress(
                 user_id=student_user.id,
                 week=w,
-                quiz_completed=True,
+                kb_read=True,
             )
             db.session.add(wp)
         db.session.commit()
@@ -89,7 +89,7 @@ class TestGetCertificateProgress:
             wp = WeekProgress(
                 user_id=student_user.id,
                 week=w,
-                quiz_completed=True,
+                kb_read=True,
             )
             db.session.add(wp)
         db.session.commit()

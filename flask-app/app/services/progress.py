@@ -54,14 +54,14 @@ def get_certificate_progress(user_id: int) -> dict:
     """
     total_weeks = Week.query.count() or TOTAL_WEEKS
     completed = WeekProgress.query.filter_by(
-        user_id=user_id, quiz_completed=True
+        user_id=user_id, kb_read=True
     ).count()
 
     percent = int((completed / total_weeks) * 100) if total_weeks else 0
 
-    # هفته‌ی فعلی = اولین هفته‌ای که هنوز quiz_completed نیست
+    # هفته‌ی فعلی = اولین هفته‌ای که هنوز kb_read نیست
     last_completed = (
-        WeekProgress.query.filter_by(user_id=user_id, quiz_completed=True)
+        WeekProgress.query.filter_by(user_id=user_id, kb_read=True)
         .order_by(WeekProgress.week.desc())
         .first()
     )
