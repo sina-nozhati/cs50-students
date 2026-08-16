@@ -153,12 +153,17 @@ def users_edit(user_id: int):
         return redirect(url_for("admin.users_list"))
 
     if request.method == "POST":
+        username = request.form.get("username", "").strip()
         password = request.form.get("password", "").strip() or None
         xp_adj = request.form.get("xp_adjustment", 0, type=int)
 
-        users_service.update_user(user_id, password=password, xp_adjustment=xp_adj)
-        flash(f"اطلاعات «{user.username}» به‌روزرسانی شد.", "success")
-        return redirect(url_for("admin.users_list"))
+        try:
+            users_service.update_user(user_id, username=username, password=password, xp_adjustment=xp_adj)
+            flash(f"اطلاعات کاربر به‌روزرسانی شد.", "success")
+            return redirect(url_for("admin.users_list"))
+        except ValueError as e:
+            flash("این نام کاربری قبلاً توسط شخص دیگری ثبت شده است.", "error")
+            return redirect(url_for("admin.users_edit", user_id=user_id))
 
     return render_template("admin/user_form.html", user=user, edit_mode=True)
 

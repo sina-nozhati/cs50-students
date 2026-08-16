@@ -37,11 +37,17 @@ def create_user(username: str, password: str) -> User:
     db.session.commit()
     return user
 
-def update_user(user_id: int, password: str | None = None, xp_adjustment: int = 0) -> User:
-    """رمز عبور یا XP کاربر را آپدیت می‌کند."""
+def update_user(user_id: int, username: str | None = None, password: str | None = None, xp_adjustment: int = 0) -> User:
+    """رمز عبور، نام کاربری یا XP کاربر را آپدیت می‌کند."""
     user = db.session.get(User, user_id)
     if not user:
         abort(404)
+        
+    if username and username != user.username:
+        existing = User.query.filter_by(username=username).first()
+        if existing:
+            raise ValueError("Username already exists")
+        user.username = username
         
     if password:
         user.password_hash = generate_password_hash(password)
