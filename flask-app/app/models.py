@@ -27,8 +27,9 @@ class User(UserMixin, db.Model):
     xp = db.Column(db.Integer, default=0, index=True)        # index برای کوئری leaderboard
     streak = db.Column(db.Integer, default=0)
     is_admin = db.Column(db.Boolean, default=False)
-    submissions = db.relationship("Submission", backref="student", lazy=True)
-    xp_logs = db.relationship("XPLog", backref="user", lazy=True)
+    submissions = db.relationship("Submission", backref="student", lazy=True, cascade="all, delete-orphan")
+    xp_logs = db.relationship("XPLog", backref="user", lazy=True, cascade="all, delete-orphan")
+    week_progress = db.relationship("WeekProgress", backref="user", lazy=True, cascade="all, delete-orphan")
 
 
 class Assignment(db.Model):

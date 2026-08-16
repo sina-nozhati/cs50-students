@@ -179,6 +179,13 @@ def users_delete(user_id: int):
     return redirect(url_for("admin.users_list"))
 
 
+@bp.route("/users/<int:user_id>")
+@admin_required
+def users_detail_redirect(user_id: int):
+    """ریدایرکت به مسیر صحیح جزئیات کاربر."""
+    return redirect(url_for("admin.users_detail", user_id=user_id))
+
+
 @bp.route("/users/<int:user_id>/detail")
 @admin_required
 def users_detail(user_id: int):

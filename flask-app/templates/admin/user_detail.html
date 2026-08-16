@@ -101,7 +101,7 @@
                 <tbody class="divide-y divide-[var(--border)]">
                     {% for wp in week_progress %}
                     <tr class="hover:bg-[var(--canvas)] transition">
-                        <td class="px-4 py-2 font-medium">هفته {{ wp.week_id }}</td>
+                        <td class="px-4 py-2 font-medium">هفته {{ wp.week }}</td>
                         <td class="px-4 py-2 text-center">
                             {% if wp.kb_read %}
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" class="inline"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -110,7 +110,7 @@
                             {% endif %}
                         </td>
                         <td class="px-4 py-2 text-center">
-                            {% if wp.quiz_done %}
+                            {% if wp.quiz_completed %}
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" class="inline"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             {% else %}
                                 <span class="text-gray-300">-</span>
@@ -148,7 +148,7 @@
             <tbody class="divide-y divide-[var(--border)]">
                 {% for log in xp_logs %}
                 <tr class="hover:bg-[var(--canvas)] transition">
-                    <td class="px-4 py-2 num text-[var(--slate)]" dir="ltr">{{ log.created_at }}</td>
+                    <td class="px-4 py-2 num text-[var(--slate)]" dir="ltr">{{ log.timestamp }}</td>
                     <td class="px-4 py-2 num font-bold {% if log.amount > 0 %}text-green-600{% else %}text-red-600{% endif %}" dir="ltr">
                         {% if log.amount > 0 %}+{% endif %}{{ log.amount }}
                     </td>
