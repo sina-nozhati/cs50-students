@@ -53,7 +53,7 @@ def login():
             flash("نام کاربری یا رمز اشتباه است.", "error")
             return redirect(url_for("auth.login", next=next_url))
 
-        login_user(user)
+        login_user(user, remember=True)
         flash("خوش آمدید!", "success")
 
         # redirect امن به next، یا داشبورد به‌عنوان fallback
