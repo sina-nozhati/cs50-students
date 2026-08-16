@@ -36,96 +36,36 @@
       }
     </script>
 
+    {# ─── Design Tokens + Base Styles (Single Source of Truth) ─── #}
+    {% include "_partials/_design-tokens.html" %}
+
+    {# Admin-specific variables & styles #}
     <style>
       :root {
-        --crimson: #A51C30;
-        --crimson-dark: #771020;
-        --crimson-tint: #FBEAEE;
-        --gold: #C9A227;
-        --canvas: #FAFAF7;
-        --ink: #1E1E1E;
-        --slate: #4A5568;
-        --border: #E2E0DA;
-        --success: #1E5631;
-        --warning: #B7791F;
-        --purple: #7C5CFC;
-        --amber: #F59E0B;
-        
         /* Admin specific variables */
         --admin-sidebar-bg: #1a1a2e;
         --admin-sidebar-text: #e0e0e0;
         --admin-sidebar-active: var(--crimson);
       }
 
-      html { scroll-behavior: smooth; }
-      body {
-        font-family: 'Vazirmatn', Tahoma, system-ui, sans-serif;
-        background: var(--canvas);
-        color: var(--ink);
+      /* Sidebar active state */
+      #admin-nav a.bg-[var(--admin-sidebar-active)] {
+        background-color: var(--admin-sidebar-active) !important;
+        color: white !important;
       }
-
-      .num { font-variant-numeric: tabular-nums; }
-
-      .btn-crimson {
-        background: var(--crimson);
-        color: #fff;
-        border-radius: 8px;
-        font-weight: 600;
-        min-height: 40px;
-        padding: 0.5rem 1rem;
-        transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
-        box-shadow: 0 1px 2px rgba(58,10,18,.15);
+      #admin-nav a.bg-[var(--admin-sidebar-active)] svg {
+        stroke: white !important;
       }
-      .btn-crimson:hover { background: var(--crimson-dark); }
-      .btn-crimson:active { transform: translateY(1px); }
-      
-      a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-        outline: 2px solid var(--crimson);
-        outline-offset: 2px;
-        border-radius: 6px;
-      }
-      
-      .form-input {
-        width: 100%;
-        padding: 0.5rem 0.75rem;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        background: #fff;
-        min-height: 40px;
-        transition: border-color 0.2s;
-      }
-      .form-input:focus {
-        border-color: var(--crimson);
-      }
-
-      .card-harvard {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        transition: box-shadow .2s ease, transform .2s ease;
-      }
-      .card-harvard:hover { box-shadow: 0 6px 18px -6px rgba(0,0,0,.12); }
-      
-      .badge-crimson {
-        background: var(--crimson-tint);
-        color: var(--crimson);
-        border-radius: 9999px;
-        font-size: 12px;
-        font-weight: 600;
-        padding: 2px 10px;
-      }
-
-      ::-webkit-scrollbar { width: 8px; height: 8px; }
-      ::-webkit-scrollbar-thumb { background: rgba(165,28,48,.25); border-radius: 9999px; }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(165,28,48,.4); }
     </style>
 
     {# HTMX #}
-    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
     
     {% block head_extra %}{% endblock %}
 </head>
 <body class="min-h-screen flex" style="overscroll-behavior: contain" hx-headers='{"X-CSRFToken": "{{ csrf_token() }}"}'>
+    {# Skip link for accessibility #}
+    <a href="#admin-main-content" class="skip-link">رفتن به محتوای اصلی</a>
 
     {# Sidebar #}
     <aside id="sidebar" class="w-64 fixed inset-y-0 right-0 z-40 transform transition-transform duration-300 md:translate-x-0 translate-x-full md:relative bg-[var(--admin-sidebar-bg)] text-[var(--admin-sidebar-text)] flex flex-col h-screen">
@@ -174,14 +114,14 @@
     </aside>
 
     {# Overlay برای موبایل #}
-    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleSidebar()"></div>
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden" onclick="toggleSidebar()" aria-hidden="true"></div>
 
     {# Main Content #}
     <div class="flex-1 flex flex-col min-w-0 h-screen overflow-y-auto bg-[var(--canvas)]">
         {# Header #}
         <header class="h-16 bg-white border-b border-[var(--border)] flex items-center justify-between px-4 sm:px-6 shrink-0 sticky top-0 z-20">
             <div class="flex items-center gap-3">
-                <button onclick="toggleSidebar()" class="md:hidden p-2 rounded-md hover:bg-gray-100 text-[var(--ink)]">
+                <button onclick="toggleSidebar()" class="md:hidden p-2 rounded-md hover:bg-gray-100 text-[var(--ink)]" aria-label="باز کردن منوی کناری" aria-expanded="false" aria-controls="sidebar">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 </button>
                 <h1 class="text-xl font-bold text-[var(--ink)]">{% block page_title %}داشبورد مدیریت{% endblock %}</h1>
@@ -196,7 +136,7 @@
                             A
                         {% endif %}
                     </div>
-                    <a href="{{ url_for('auth.logout') }}" class="text-sm text-red-600 hover:text-red-800 transition hidden sm:inline-block">خروج</a>
+                    <a href="{{ url_for('auth.logout') }}" class="text-sm text-red-600 hover:text-red-800 transition hidden sm:inline-block" aria-label="خروج از پنل مدیریت">خروج</a>
                 </div>
             </div>
         </header>
@@ -225,7 +165,7 @@
         {% endwith %}
 
         {# Page Content #}
-        <main class="flex-1 p-4 sm:p-6 w-full max-w-6xl mx-auto">
+        <main id="admin-main-content" class="flex-1 p-4 sm:p-6 w-full max-w-6xl mx-auto">
             {% block content %}{% endblock %}
         </main>
     </div>
@@ -262,13 +202,19 @@
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('mobile-overlay');
+            const toggleBtn = document.querySelector('button[aria-controls="sidebar"]');
             
             sidebar.classList.toggle('translate-x-full');
+            const isOpen = !sidebar.classList.contains('translate-x-full');
             
-            if (sidebar.classList.contains('translate-x-full')) {
-                overlay.classList.add('hidden');
-            } else {
+            if (isOpen) {
                 overlay.classList.remove('hidden');
+            } else {
+                overlay.classList.add('hidden');
+            }
+            
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', isOpen);
             }
         }
     </script>

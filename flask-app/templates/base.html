@@ -1,10 +1,10 @@
 {# قالب پایه‌ی همه‌ی صفحات — بازطراحی‌شده با تم رسمی دانشگاه هاروارد.
 
-   اصول طراحی (طبق docs/PRD.md بخش ۶):
-   - رنگ اصلی: Harvard Crimson (#A51C30)
-   - تایپوگرافی: Vazirmatn (فارسی) + سریف رسمی برای تیترهای انگلیسی
-   - navbar حداکثر ۵ مورد (سادگی آموزشی)
-   - Tailwind و HTMX از CDN — بدون build-step (مناسب VPS ضعیف ایرانی)
+    اصول طراحی (طبق docs/PRD.md بخش ۶):
+    - رنگ اصلی: Harvard Crimson (#A51C30)
+    - تایپوگرافی: Vazirmatn (فارسی) + سریف رسمی برای تیترهای انگلیسی
+    - navbar حداکثر ۵ مورد (سادگی آموزشی)
+    - Tailwind و HTMX از CDN — بدون build-step (مناسب VPS ضعیف ایرانی)
 #}
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -21,9 +21,6 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
 
-    {# HTMX از CDN برای تعاملات ایجکس بدون ریلود #}
-    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
-
     {# Tailwind CSS از CDN — بدون build.
        نکته آموزشی: config زیر رنگ crimson را به‌عنوان رنگ سفارشی Tailwind اضافه می‌کند
        تا بتوانیم از کلاس‌هایی مثل bg-crimson استفاده کنیم. #}
@@ -33,12 +30,12 @@
         theme: {
           extend: {
             colors: {
-              crimson:        '#A51C30',  // رنگ رسمی هاروارد
-              'crimson-dark': '#771020',  // برای hover
-              'crimson-tint': '#FBEAEE',  // پس‌زمینه‌ی ملایم
-              canvas:         '#FAFAF7',  // پس‌زمینه‌ی کاغذی گرم
-              ink:            '#1E1E1E',  // متن اصلی
-              gold:           '#C9A227',  // لهجه‌ی طلایی (حاشیه‌ی لوگو)
+              crimson:        '#A51C30',
+              'crimson-dark': '#771020',
+              'crimson-tint': '#FBEAEE',
+              canvas:         '#FAFAF7',
+              ink:            '#1E1E1E',
+              gold:           '#C9A227',
             },
             fontFamily: {
               sans: ['Vazirmatn', 'Tahoma', 'system-ui', 'sans-serif'],
@@ -49,140 +46,8 @@
       }
     </script>
 
-    {# ─── استایل پایه و کلاس‌های کمکی هاروارد ───
-       این متغیرها و کلاس‌ها در همه‌ی صفحات در دسترس‌اند. #}
-    <style>
-      :root {
-        --crimson: #A51C30;
-        --crimson-dark: #771020;
-        --crimson-tint: #FBEAEE;
-        --gold: #C9A227;
-        --canvas: #FAFAF7;
-        --ink: #1E1E1E;
-        --slate: #4A5568;
-        --border: #E2E0DA;
-        --success: #1E5631;
-        --warning: #B7791F;
-        --purple: #7C5CFC;
-        --amber: #F59E0B;
-      }
-
-      html { scroll-behavior: smooth; }
-      body {
-        font-family: 'Vazirmatn', Tahoma, system-ui, sans-serif;
-        background: var(--canvas);
-        color: var(--ink);
-      }
-
-      /* اعداد فارسی لطیف‌تر با tabular-nums */
-      .num { font-variant-numeric: tabular-nums; }
-
-      /* دکمه‌ی اصلی هاروارد */
-      .btn-crimson {
-        background: var(--crimson);
-        color: #fff;
-        border-radius: 8px;
-        font-weight: 600;
-        transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
-        box-shadow: 0 1px 2px rgba(58,10,18,.15);
-      }
-      .btn-crimson:hover { background: var(--crimson-dark); }
-      .btn-crimson:active { transform: translateY(1px); }
-      .btn-crimson:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 2px;
-      }
-
-      /* کارت استاندارد هاروارد */
-      .card-harvard {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        transition: box-shadow .2s ease, transform .2s ease;
-      }
-      .card-harvard:hover { box-shadow: 0 6px 18px -6px rgba(0,0,0,.12); }
-      /* کارت برجسته با نوار سمت راست (RTL) */
-      .card-accent { border-right: 4px solid var(--crimson); }
-
-      /* badge هاروارد */
-      .badge-crimson {
-        background: var(--crimson-tint);
-        color: var(--crimson);
-        border-radius: 9999px;
-        font-size: 12px;
-        font-weight: 600;
-        padding: 2px 10px;
-      }
-
-      /* نوار پیشرفت */
-      .progress-track {
-        background: #ece9e3;
-        border-radius: 9999px;
-        height: 10px;
-        overflow: hidden;
-      }
-      .progress-fill {
-        background: linear-gradient(90deg, var(--crimson), var(--crimson-dark));
-        height: 100%;
-        border-radius: 9999px;
-        transition: width .5s ease;
-      }
-
-      /* focus-visible دسترس‌پذیر برای همه‌ی تعاملی‌ها */
-      a:focus-visible, button:focus-visible, input:focus-visible {
-        outline: 3px solid var(--gold);
-        outline-offset: 2px;
-        border-radius: 6px;
-      }
-
-      /* کد همیشه LTR حتی در صفحه‌ی RTL */
-      pre, code { direction: ltr; text-align: left; }
-
-      /* اسکرول‌بار لطیف */
-      ::-webkit-scrollbar { width: 8px; height: 8px; }
-      ::-webkit-scrollbar-thumb { background: rgba(165,28,48,.25); border-radius: 9999px; }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(165,28,48,.4); }
-
-      /* ─── navbar سفید با خط فعال crimson ─── */
-      .nav-link {
-        position: relative;
-        padding: 0.5rem 0;
-        font-weight: 500;
-        color: var(--slate);
-        transition: color .15s ease;
-      }
-      .nav-link:hover { color: var(--crimson); }
-      .nav-link--active {
-        color: var(--crimson);
-        font-weight: 600;
-      }
-      .nav-link--active::after {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        right: 0;
-        left: 0;
-        height: 2px;
-        background: var(--crimson);
-        border-radius: 2px 2px 0 0;
-      }
-
-      /* ─── nav پایین (موبایل) ─── */
-      .bottom-nav-link {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2px;
-        color: var(--slate);
-        font-size: 10px;
-        font-weight: 500;
-        transition: color .15s ease;
-      }
-      .bottom-nav-link--active {
-        color: var(--crimson);
-        font-weight: 700;
-      }
-    </style>
+    {# ─── Design Tokens + Base Styles (Single Source of Truth) ─── #}
+    {% include "_partials/_design-tokens.html" %}
 
     {# HTMX برای تعامل بدون رفرش صفحه (مثل دکمه‌ی «من خواندم») #}
     <script src="https://unpkg.com/htmx.org@1.9.12"></script>
@@ -232,7 +97,7 @@
                     <div class="flex items-center gap-3">
                         {% if current_user.is_authenticated %}
                             {# آیکون اعلان (placeholder) #}
-                            <button class="p-2 text-[var(--slate)] hover:bg-gray-100 rounded-full transition" aria-label="اعلان‌ها">
+                            <button class="p-2 text-[var(--slate)] hover:bg-gray-100 rounded-full transition" aria-label="اعلان‌ها" aria-expanded="false">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
                             </button>
 
@@ -269,7 +134,9 @@
                         <button type="button"
                                 onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"
                                 class="md:hidden w-9 h-9 flex items-center justify-center rounded-md text-[var(--slate)] hover:bg-gray-100 transition"
-                                aria-label="منو">
+                                aria-label="باز کردن منو"
+                                aria-expanded="false"
+                                aria-controls="mobileMenu">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                         </button>
                     </div>
