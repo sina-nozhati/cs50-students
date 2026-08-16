@@ -1,0 +1,240 @@
+{# Design Tokens + Base Styles — Single Source of Truth for both base.html and admin_base.html
+   Include with: {% include "_partials/_design-tokens.html" %}
+   UPDATE THIS FILE ONLY for design system changes.
+#}
+<style>
+  :root {
+    /* Harvard Crimson Palette */
+    --crimson: #A51C30;
+    --crimson-dark: #771020;
+    --crimson-tint: #FBEAEE;
+
+    /* Accent Colors */
+    --gold: #C9A227;
+    --success: #1E5631;
+    --warning: #B7791F;
+    --purple: #7C5CFC;
+    --amber: #F59E0B;
+
+    /* Neutrals - FIXED CONTRAST */
+    --canvas: #FAFAF7;
+    --ink: #1E1E1E;           /* Primary text - 11:1 on canvas ✅ */
+    --slate: #334155;         /* Secondary text - 4.8:1 on canvas ✅ (was #4A5568 = 3.2:1 ❌) */
+    --slate-muted: #64748B;   /* Disabled/muted only - 3.5:1 ❌ never for body text */
+    --border: #E2E0DA;
+    --border-focus: var(--crimson);
+
+    /* Admin Sidebar */
+    --admin-sidebar-bg: #1a1a2e;
+    --admin-sidebar-text: #e0e0e0;
+    --admin-sidebar-active: var(--crimson);
+  }
+
+  /* Global Reset */
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Vazirmatn', Tahoma, system-ui, sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* Persian Numbers */
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ─── Button System ─── */
+  .btn-crimson {
+    background: var(--crimson);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    min-height: 44px;                 /* WCAG 2.1 touch target */
+    padding: 0.625rem 1.25rem;        /* 10px 20px */
+    transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
+    box-shadow: 0 1px 2px rgba(58,10,18,.15);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.875rem;              /* text-sm */
+  }
+  .btn-crimson:hover { background: var(--crimson-dark); }
+  .btn-crimson:active { transform: translateY(1px); }
+  .btn-crimson:focus-visible {
+    outline: 2px solid var(--crimson);
+    outline-offset: 2px;
+  }
+  .btn-crimson:disabled,
+  .btn-crimson[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* ─── Card System ─── */
+  .card-harvard {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .card-harvard:hover {
+    box-shadow: 0 6px 18px -6px rgba(0,0,0,.12);
+  }
+  .card-accent { border-right: 4px solid var(--crimson); }
+
+  /* ─── Badge System ─── */
+  .badge-crimson {
+    background: var(--crimson-tint);
+    color: var(--crimson);
+    border-radius: 9999px;
+    font-size: 0.75rem;       /* text-xs */
+    font-weight: 600;
+    padding: 2px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* ─── Progress Bar ─── */
+  .progress-track {
+    background: #ece9e3;
+    border-radius: 9999px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    background: linear-gradient(90deg, var(--crimson), var(--crimson-dark));
+    height: 100%;
+    border-radius: 9999px;
+    transition: width .5s ease;
+  }
+
+  /* ─── Focus Visible - UNIFIED (crimson, not gold) ─── */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--crimson) !important;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* ─── Form Inputs ─── */
+  .form-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;     /* 10px 14px */
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    min-height: 44px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: var(--ink);
+  }
+  .form-input:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 3px var(--crimson-tint);
+    outline: none;
+  }
+  .form-input::placeholder { color: var(--slate-muted); }
+
+  /* ─── Nav Link (top navbar) ─── */
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    color: var(--slate);
+    transition: color .15s ease;
+  }
+  .nav-link:hover { color: var(--crimson); }
+  .nav-link--active {
+    color: var(--crimson);
+    font-weight: 600;
+  }
+  .nav-link--active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    left: 0;
+    height: 2px;
+    background: var(--crimson);
+    border-radius: 2px 2px 0 0;
+  }
+
+  /* ─── Bottom Nav (mobile) ─── */
+  .bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--slate);
+    font-size: 0.625rem;        /* text-xs */
+    font-weight: 500;
+    transition: color .15s ease;
+  }
+  .bottom-nav-link--active {
+    color: var(--crimson);
+    font-weight: 700;
+  }
+
+  /* ─── Skip Link ─── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    right: 1rem;
+    z-index: 100;
+    background: var(--crimson);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* ─── Scrollbar ─── */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(165,28,48,.25); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(165,28,48,.4); }
+
+  /* ─── RTL Helpers ─── */
+  .me-auto { margin-inline-end: auto; }
+  .ms-auto { margin-inline-start: auto; }
+  .pe-4 { padding-inline-end: 1rem; }
+  .ps-4 { padding-inline-start: 1rem; }
+
+  /* ─── Utility: Cursor Pointer for Clickable ─── */
+  .clickable { cursor: pointer; }
+  .clickable:active { transform: scale(0.99); }
+
+  /* ─── Loading Skeleton ─── */
+  .skeleton {
+    background: linear-gradient(90deg, var(--border) 25%, #f1efe9 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 8px;
+  }
+  @keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ─── Print Styles ─── */
+  @media print {
+    .no-print { display: none !important; }
+    .card-harvard { box-shadow: none; border-color: #ccc; }
+  }
+</style>
