@@ -1,0 +1,719 @@
+{
+  "$schema": "../schemas/learning-map.schema.json",
+  "version": "0.1.0",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "origin": "authored",
+  "note": "The concept graph and prerequisite edges were authored by CS50x Anzali from the order and dependencies in the official notes. They are a pedagogical inference, not a CS50 artifact.",
+  "weeks": [
+    {
+      "week": 0,
+      "title_fa": "هفتهٔ ۰ — Scratch",
+      "title_en": "Week 0 Scratch",
+      "stages": [
+        {
+          "id": "w00-s1",
+          "title_fa": "بازنمایی اطلاعات",
+          "concepts": [
+            "w00-c-problem-solving",
+            "w00-c-computational-thinking",
+            "w00-c-unary",
+            "w00-c-decimal",
+            "w00-c-binary",
+            "w00-c-bit",
+            "w00-c-transistor",
+            "w00-c-byte",
+            "w00-c-ascii",
+            "w00-c-unicode",
+            "w00-c-rgb",
+            "w00-c-pixel",
+            "w00-c-media-representation",
+            "w00-c-context-interpretation"
+          ]
+        },
+        {
+          "id": "w00-s2",
+          "title_fa": "الگوریتم و شبه‌کد",
+          "concepts": [
+            "w00-c-algorithm",
+            "w00-c-running-time",
+            "w00-c-big-o",
+            "w00-c-correctness-vs-design",
+            "w00-c-pseudocode",
+            "w00-c-function",
+            "w00-c-boolean-expression",
+            "w00-c-conditional",
+            "w00-c-loop",
+            "w00-c-corner-case",
+            "w00-c-abstraction",
+            "w00-c-compiler"
+          ]
+        },
+        {
+          "id": "w00-s3",
+          "title_fa": "برنامه‌نویسی با Scratch",
+          "concepts": [
+            "w00-c-scratch-interface",
+            "w00-c-sprite",
+            "w00-c-coordinates",
+            "w00-c-event",
+            "w00-c-argument",
+            "w00-c-side-effect",
+            "w00-c-variable",
+            "w00-c-return-value",
+            "w00-c-string-join",
+            "w00-c-custom-block",
+            "w00-c-parameter-input",
+            "w00-c-forever-loop"
+          ]
+        },
+        {
+          "id": "w00-s4",
+          "title_fa": "ساختن بازی و پروژه",
+          "concepts": [
+            "w00-c-costume",
+            "w00-c-thread",
+            "w00-c-incremental-development",
+            "w00-c-movement-collision",
+            "w00-c-boolean-operators"
+          ]
+        },
+        {
+          "id": "w00-s0",
+          "title_fa": "زمینه و سیاست دوره",
+          "concepts": [
+            "w00-c-ai-fundamentals",
+            "w00-c-academic-honesty-ai",
+            "w00-c-ide"
+          ]
+        }
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "w00-c-ai-fundamentals",
+      "label_fa": "هوش مصنوعی و اصول پایه",
+      "label_en": "AI and fundamentals",
+      "note_id": "w00-n01",
+      "source_ref": "src-notes-0#welcome",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-academic-honesty-ai",
+      "label_fa": "سیاست صداقت علمی دربارهٔ هوش مصنوعی",
+      "label_en": "Academic honesty policy on AI",
+      "note_id": "w00-n02",
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-ide",
+      "label_fa": "محیط توسعهٔ یکپارچه",
+      "label_en": "integrated development environment (IDE)",
+      "note_id": "w00-n02",
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-problem-solving",
+      "label_fa": "حل مسئله: ورودی، خروجی، جعبهٔ سیاه",
+      "label_en": "problem solving: input, output, black box",
+      "note_id": "w00-n03",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-computational-thinking",
+      "label_fa": "تفکر محاسباتی",
+      "label_en": "computational thinking",
+      "note_id": "w00-n03",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-unary",
+      "label_fa": "یکانی (پایهٔ ۱)",
+      "label_en": "unary (base-1)",
+      "note_id": "w00-n03",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-decimal",
+      "label_fa": "دهدهی (پایهٔ ۱۰)",
+      "label_en": "decimal (base-10)",
+      "note_id": "w00-n03",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-binary",
+      "label_fa": "دودویی (پایهٔ ۲)",
+      "label_en": "binary (base-2)",
+      "note_id": "w00-n03",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-bit",
+      "label_fa": "بیت",
+      "label_en": "bit",
+      "note_id": "w00-n03",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-transistor",
+      "label_fa": "ترانزیستور",
+      "label_en": "transistor",
+      "note_id": "w00-n03",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-byte",
+      "label_fa": "بایت",
+      "label_en": "byte",
+      "note_id": "w00-n03",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-ascii",
+      "label_fa": "اَسکی",
+      "label_en": "ASCII",
+      "note_id": "w00-n04",
+      "source_ref": "src-notes-0#ascii",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-unicode",
+      "label_fa": "یونیکد",
+      "label_en": "Unicode",
+      "note_id": "w00-n05",
+      "source_ref": "src-notes-0#unicode",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-rgb",
+      "label_fa": "RGB (قرمز، سبز، آبی)",
+      "label_en": "RGB",
+      "note_id": "w00-n06",
+      "source_ref": "src-notes-0#rgb",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-pixel",
+      "label_fa": "پیکسل",
+      "label_en": "pixel",
+      "note_id": "w00-n06",
+      "source_ref": "src-notes-0#rgb",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-media-representation",
+      "label_fa": "نمایش ویدئو و موسیقی",
+      "label_en": "representing video and music",
+      "note_id": "w00-n06",
+      "source_ref": "src-notes-0#rgb",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-context-interpretation",
+      "label_fa": "تفسیر بیت‌ها وابسته به زمینه",
+      "label_en": "context determines interpretation",
+      "note_id": "w00-n06",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-algorithm",
+      "label_fa": "الگوریتم",
+      "label_en": "algorithm",
+      "note_id": "w00-n07",
+      "source_ref": "src-notes-0#algorithms",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-running-time",
+      "label_fa": "زمان اجرا",
+      "label_en": "running time",
+      "note_id": "w00-n07",
+      "source_ref": "src-notes-0#algorithms",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-big-o",
+      "label_fa": "نماد O بزرگ",
+      "label_en": "big-O notation",
+      "note_id": "w00-n07",
+      "source_ref": "src-notes-0#algorithms",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-correctness-vs-design",
+      "label_fa": "درستی در برابر طراحی خوب",
+      "label_en": "correctness vs design",
+      "note_id": "w00-n07",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-pseudocode",
+      "label_fa": "شبه‌کد",
+      "label_en": "pseudocode",
+      "note_id": "w00-n08",
+      "source_ref": "src-notes-0#pseudocode",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-function",
+      "label_fa": "تابع",
+      "label_en": "function",
+      "note_id": "w00-n08",
+      "source_ref": "src-notes-0#pseudocode",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-conditional",
+      "label_fa": "شرط",
+      "label_en": "conditional",
+      "note_id": "w00-n08",
+      "source_ref": "src-notes-0#pseudocode",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-boolean-expression",
+      "label_fa": "عبارت بولی",
+      "label_en": "boolean expression",
+      "note_id": "w00-n08",
+      "source_ref": "src-notes-0#pseudocode",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-loop",
+      "label_fa": "حلقه",
+      "label_en": "loop",
+      "note_id": "w00-n08",
+      "source_ref": "src-notes-0#pseudocode",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-corner-case",
+      "label_fa": "حالت مرزی",
+      "label_en": "corner case",
+      "note_id": "w00-n08",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-abstraction",
+      "label_fa": "انتزاع",
+      "label_en": "abstraction",
+      "note_id": "w00-n09",
+      "source_ref": "src-notes-0#whats-ahead",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-compiler",
+      "label_fa": "کامپایلر",
+      "label_en": "compiler",
+      "note_id": "w00-n09",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-scratch-interface",
+      "label_fa": "محیط Scratch: پالت بلوک‌ها، ناحیهٔ برنامه، صحنه",
+      "label_en": "Scratch interface: blocks palette, programming area, stage",
+      "note_id": "w00-n10",
+      "source_ref": "src-notes-0#scratch",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-sprite",
+      "label_fa": "اسپرایت",
+      "label_en": "sprite",
+      "note_id": "w00-n10",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-coordinates",
+      "label_fa": "دستگاه مختصات Scratch",
+      "label_en": "Scratch coordinate system",
+      "note_id": "w00-n10",
+      "source_ref": "src-notes-0#scratch",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-event",
+      "label_fa": "رویداد",
+      "label_en": "event",
+      "note_id": "w00-n11",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-argument",
+      "label_fa": "آرگومان (ورودی تابع)",
+      "label_en": "argument (input)",
+      "note_id": "w00-n11",
+      "source_ref": "src-notes-0#hello-world",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-side-effect",
+      "label_fa": "اثر جانبی",
+      "label_en": "side effect",
+      "note_id": "w00-n11",
+      "source_ref": "src-notes-0#hello-world",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-variable",
+      "label_fa": "متغیر",
+      "label_en": "variable",
+      "note_id": "w00-n12",
+      "source_ref": "src-notes-0#hello-you",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-return-value",
+      "label_fa": "مقدار بازگشتی",
+      "label_en": "return value",
+      "note_id": "w00-n12",
+      "source_ref": "src-notes-0#hello-you",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-string-join",
+      "label_fa": "رشته و پیوند دادن رشته‌ها",
+      "label_en": "string, join",
+      "note_id": "w00-n12",
+      "source_ref": "src-notes-0#hello-you",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-custom-block",
+      "label_fa": "بلوک سفارشی (تابع خودمان)",
+      "label_en": "custom block (define)",
+      "note_id": "w00-n13",
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-parameter-input",
+      "label_fa": "ورودی بلوک سفارشی",
+      "label_en": "custom block input (parameter)",
+      "note_id": "w00-n13",
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-forever-loop",
+      "label_fa": "حلقهٔ همیشگی",
+      "label_en": "forever loop",
+      "note_id": "w00-n14",
+      "source_ref": "src-notes-0#conditionals",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-costume",
+      "label_fa": "لباس (کاستوم)",
+      "label_en": "costume",
+      "note_id": "w00-n15",
+      "source_ref": "src-notes-0#oscartime",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-thread",
+      "label_fa": "اسکریپت‌های هم‌زمان (ریسه)",
+      "label_en": "threads: scripts running in parallel",
+      "note_id": "w00-n15",
+      "source_ref": "src-transcript-0",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-incremental-development",
+      "label_fa": "توسعهٔ گام‌به‌گام",
+      "label_en": "incremental development (baby steps)",
+      "note_id": "w00-n15",
+      "source_ref": "src-pset-0-scratch#starting-from-scratch",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-movement-collision",
+      "label_fa": "حرکت و برخورد با دیوار",
+      "label_en": "movement and wall collision",
+      "note_id": "w00-n16",
+      "source_ref": "src-notes-0#ivys-hardest-game",
+      "origin": "official"
+    },
+    {
+      "id": "w00-c-boolean-operators",
+      "label_fa": "عملگر بولی «یا»",
+      "label_en": "boolean operator or",
+      "note_id": "w00-n16",
+      "source_ref": "src-notes-0#ivys-hardest-game",
+      "origin": "official"
+    }
+  ],
+  "edges": [
+    {
+      "from": "w00-c-ai-fundamentals",
+      "to": "w00-c-academic-honesty-ai",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-problem-solving",
+      "to": "w00-c-computational-thinking",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-problem-solving",
+      "to": "w00-c-unary",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-unary",
+      "to": "w00-c-binary",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-decimal",
+      "to": "w00-c-binary",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-binary",
+      "to": "w00-c-bit",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-bit",
+      "to": "w00-c-transistor",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-bit",
+      "to": "w00-c-byte",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-byte",
+      "to": "w00-c-ascii",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-ascii",
+      "to": "w00-c-unicode",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-byte",
+      "to": "w00-c-rgb",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-rgb",
+      "to": "w00-c-pixel",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-pixel",
+      "to": "w00-c-media-representation",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-ascii",
+      "to": "w00-c-context-interpretation",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-rgb",
+      "to": "w00-c-context-interpretation",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-problem-solving",
+      "to": "w00-c-algorithm",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-algorithm",
+      "to": "w00-c-running-time",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-running-time",
+      "to": "w00-c-big-o",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-algorithm",
+      "to": "w00-c-correctness-vs-design",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-algorithm",
+      "to": "w00-c-pseudocode",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-pseudocode",
+      "to": "w00-c-function",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-pseudocode",
+      "to": "w00-c-conditional",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-boolean-expression",
+      "to": "w00-c-conditional",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-pseudocode",
+      "to": "w00-c-boolean-expression",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-pseudocode",
+      "to": "w00-c-loop",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-conditional",
+      "to": "w00-c-corner-case",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w00-c-abstraction",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-abstraction",
+      "to": "w00-c-compiler",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-scratch-interface",
+      "to": "w00-c-sprite",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-scratch-interface",
+      "to": "w00-c-coordinates",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-scratch-interface",
+      "to": "w00-c-event",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w00-c-argument",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w00-c-side-effect",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-argument",
+      "to": "w00-c-variable",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w00-c-return-value",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-side-effect",
+      "to": "w00-c-return-value",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-return-value",
+      "to": "w00-c-string-join",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w00-c-custom-block",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-loop",
+      "to": "w00-c-custom-block",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-abstraction",
+      "to": "w00-c-custom-block",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-custom-block",
+      "to": "w00-c-parameter-input",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-argument",
+      "to": "w00-c-parameter-input",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-loop",
+      "to": "w00-c-forever-loop",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-conditional",
+      "to": "w00-c-forever-loop",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-sprite",
+      "to": "w00-c-costume",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-event",
+      "to": "w00-c-thread",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-abstraction",
+      "to": "w00-c-incremental-development",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-coordinates",
+      "to": "w00-c-movement-collision",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-conditional",
+      "to": "w00-c-movement-collision",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-custom-block",
+      "to": "w00-c-movement-collision",
+      "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-boolean-expression",
+      "to": "w00-c-boolean-operators",
+      "type": "prerequisite"
+    }
+  ]
+}

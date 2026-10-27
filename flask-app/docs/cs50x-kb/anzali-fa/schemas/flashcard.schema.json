@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/flashcard.schema.json",
+  "title": "Flashcards",
+  "type": "object",
+  "required": [
+    "week",
+    "cards",
+    "license"
+  ],
+  "properties": {
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "concept_id",
+          "note_id",
+          "front_fa",
+          "back_fa",
+          "difficulty",
+          "tags",
+          "source_ref",
+          "origin",
+          "srs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-fc-\\d{3}$"
+          },
+          "concept_id": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "note_id": {
+            "type": "string",
+            "pattern": "^w00-n\\d{2}$"
+          },
+          "front_fa": {
+            "type": "string",
+            "minLength": 1
+          },
+          "back_fa": {
+            "type": "string",
+            "minLength": 1
+          },
+          "difficulty": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "source_ref": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+          },
+          "origin": {
+            "const": "authored"
+          },
+          "content_basis": {
+            "enum": [
+              "official-notes",
+              "official-pset",
+              "transcript"
+            ]
+          },
+          "srs": {
+            "type": "object",
+            "required": [
+              "leitner_box",
+              "sm2",
+              "initial_values_ref"
+            ],
+            "properties": {
+              "leitner_box": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "sm2": {
+                "type": "object",
+                "required": [
+                  "repetitions",
+                  "interval_days",
+                  "ease_factor",
+                  "due_at"
+                ],
+                "properties": {
+                  "ease_factor": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

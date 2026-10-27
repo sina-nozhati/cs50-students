@@ -1,0 +1,374 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l03",
+  "type": "lesson",
+  "week": 0,
+  "order": 3,
+  "stage_id": "w00-s1",
+  "title_fa": "نمایش متن، رنگ و رسانه",
+  "title_en": "Representing text, color and media",
+  "note_ids": [
+    "w00-n04",
+    "w00-n05",
+    "w00-n06"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l02"
+  ],
+  "concept_ids": [
+    "w00-c-ascii",
+    "w00-c-unicode",
+    "w00-c-rgb",
+    "w00-c-pixel",
+    "w00-c-media-representation",
+    "w00-c-context-interpretation"
+  ],
+  "objective_ids": [
+    "w00-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l03-u01",
+      "order": 1,
+      "title_fa": "ASCII: نگاشت حرف به عدد",
+      "concept_ids": [
+        "w00-c-ascii"
+      ],
+      "objective_ids": [
+        "w00-o02"
+      ],
+      "note_id": "w00-n04",
+      "source_refs": [
+        "src-notes-0#ascii",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "چون همان صفر و یک‌ها هم عدد و هم حرف را نشان می‌دهند، استاندارد ASCII توافق کرد هر حرف به چه عددی نگاشت شود؛ مثلاً `A` = 65. با یک بایت ۲۵۶ کد ممکن است و ASCII فقط ۱۲۸ کد (۰ تا ۱۲۷) را به کار می‌برد.",
+        "note_id": "w00-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hi-ascii",
+        "lang": "text",
+        "content": "H   I   !\n72  73  33",
+        "source_ref": "src-notes-0#ascii",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اعداد 72 73 33 در ASCII چه متنی می‌شوند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "HI!",
+            "correct": true,
+            "feedback_fa": "درست؛ همان مثال درس‌نامه."
+          },
+          {
+            "id": "b",
+            "text_fa": "hi?",
+            "correct": false,
+            "feedback_fa": "حروف کوچک کدهای بزرگ‌تری دارند (h = 104)."
+          },
+          {
+            "id": "c",
+            "text_fa": "ABC",
+            "correct": false,
+            "feedback_fa": "A = 65، B = 66، C = 67."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l03-u01-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "با جدول ASCII درس‌نامه، کلمهٔ `CAB` را به عدد تبدیل کن.",
+        "expected": {
+          "answer": "67 65 66"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "در جدول، A = 65 است و بقیه به ترتیب الفبا می‌آیند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l03-u02",
+      "order": 2,
+      "title_fa": "یونیکد و ایموجی",
+      "concept_ids": [
+        "w00-c-unicode"
+      ],
+      "objective_ids": [
+        "w00-o02"
+      ],
+      "note_id": "w00-n05",
+      "source_refs": [
+        "src-notes-0#unicode",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "چون بیت‌های ASCII برای همهٔ نویسه‌های انسانی کافی نبود، یونیکد تعداد بیت‌ها را گسترش داد و حتی ایموجی را هم دربر گرفت. الگوی بیت استاندارد است، اما هر سازنده ممکن است ایموجی را کمی متفاوت نمایش دهد.",
+        "note_id": "w00-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n05"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "حرف فارسی «س» و ایموجی‌ها هیچ‌کدام در ۱۲۸ کد ASCII جا نمی‌شوند؛ به همین دلیل متن فارسی به یونیکد نیاز دارد.",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "مثال تألیفی؛ نتیجه‌گیری مستقیم از متن درس‌نامه."
+      },
+      "check": {
+        "id": "w00-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا یک ایموجی روی دو گوشی متفاوت کمی فرق دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "الگوی بیت یکی است، اما هر سازنده آن را کمی متفاوت رسم می‌کند",
+            "correct": true,
+            "feedback_fa": "درست؛ درس‌نامه همین را می‌گوید."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون هر گوشی الگوی بیت متفاوتی می‌فرستد",
+            "correct": false,
+            "feedback_fa": "نه. الگو در یونیکد استاندارد است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون ایموجی‌ها جزو ASCII هستند",
+            "correct": false,
+            "feedback_fa": "ایموجی‌ها در یونیکد آمده‌اند، نه ASCII."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l03-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «ASCII برای نوشتن متن فارسی کافی است.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. ASCII فقط ۱۲۸ کد دارد.",
+          "incorrect_fa": "ASCII ۱۲۸ کد دارد و حروف فارسی در آن نیستند. یونیکد برای همین ساخته شد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l03-u03",
+      "order": 3,
+      "title_fa": "RGB، پیکسل، ویدئو و موسیقی",
+      "concept_ids": [
+        "w00-c-rgb",
+        "w00-c-pixel",
+        "w00-c-media-representation"
+      ],
+      "objective_ids": [
+        "w00-o02"
+      ],
+      "note_id": "w00-n06",
+      "source_refs": [
+        "src-notes-0#rgb",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "هر پیکسل با سه عدد (سه بایت) قرمز، سبز و آبی ساخته می‌شود. تصویر مجموعه‌ای از این مقادیر است، ویدئو دنباله‌ای از تصویرها (مثل کتاب ورق‌زدنی)، و موسیقی هم با ترکیب بایت‌ها نمایش داده می‌شود.",
+        "note_id": "w00-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n06"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "پیکسل = (R, G, B)\n(255, 0, 0) → قرمز کامل\n(0, 0, 0)   → سیاه",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "مثال تألیفی؛ مقادیر ۰ تا ۲۵۵ چون هر رنگ یک بایت است."
+      },
+      "check": {
+        "id": "w00-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "هر پیکسل در RGB چند بایت دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "۳",
+            "correct": true,
+            "feedback_fa": "درست؛ یکی برای هر رنگ."
+          },
+          {
+            "id": "b",
+            "text_fa": "۱",
+            "correct": false,
+            "feedback_fa": "یک بایت فقط یک عدد ۰ تا ۲۵۵ است و برای سه رنگ کافی نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "۸",
+            "correct": false,
+            "feedback_fa": "۸ تعداد بیت‌های یک بایت است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l03-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "ویدئو در این درس چطور توصیف شد؟ در یک جمله بنویس.",
+        "expected": {
+          "accept_fa": [
+            "دنباله‌ای از تصویرها، مثل کتاب ورق‌زدنی"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "به مثال «flipbook» در درس‌نامه برگرد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l03-u04",
+      "order": 4,
+      "title_fa": "یک الگو، چند معنا: زمینه تعیین می‌کند",
+      "concept_ids": [
+        "w00-c-context-interpretation"
+      ],
+      "objective_ids": [
+        "w00-o02"
+      ],
+      "note_id": "w00-n06",
+      "source_refs": [
+        "src-notes-0#rgb",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "همان 72 73 33 در یک پیام متنی `HI!` است، اما برای برنامهٔ تصویر یک رنگ است (R=72، G=73، B=33). زمینه یا نرم‌افزار تعیین می‌کند الگو چطور تفسیر شود.",
+        "note_id": "w00-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n06"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "72 73 33\n• در برنامهٔ پیام‌رسان → HI!\n• در برنامهٔ تصویر   → یک پیکسل زرد",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "درس‌نامه رنگ را «زرد روشن» توصیف می‌کند. در منابع دیگر اختلاف توصیف ثبت شده است (sources.json، d04)."
+      },
+      "check": {
+        "id": "w00-l03-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چه چیزی تعیین می‌کند 72 73 33 متن باشد یا رنگ؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "زمینه یا برنامه‌ای که بیت‌ها را می‌خواند",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "خود بیت‌ها",
+            "correct": false,
+            "feedback_fa": "بیت‌ها یکسان‌اند؛ تفسیرشان فرق می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "تعداد بیت‌ها",
+            "correct": false,
+            "feedback_fa": "در هر دو حالت سه بایت است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l03-u04-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "یک مثال تألیفی بزن که در آن یک عدد در دو زمینه دو معنا داشته باشد.",
+        "expected": {
+          "rubric_fa": [
+            "یک عدد",
+            "دو تفسیر متفاوت"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "خوب است.",
+          "incorrect_fa": "مثلاً عدد 65 را در نظر بگیر: در ASCII و به‌عنوان عدد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

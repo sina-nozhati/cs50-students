@@ -1,0 +1,216 @@
+{
+  "$schema": "../schemas/gamification-rules.schema.json",
+  "version": "0.1.0-week0-pilot",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "status": "proposal",
+  "disclaimer": "Suggested by CS50x Anzali; configurable; NOT a CS50 rule and has no effect on official CS50 grades or certificate.",
+  "stages": [
+    {
+      "id": "w00-s0",
+      "lesson_ids": [
+        "w00-l01"
+      ],
+      "unlock": "always_open"
+    },
+    {
+      "id": "w00-s1",
+      "lesson_ids": [
+        "w00-l02",
+        "w00-l03"
+      ],
+      "unlock": "previous_stage_mastered"
+    },
+    {
+      "id": "w00-s2",
+      "lesson_ids": [
+        "w00-l04",
+        "w00-l05"
+      ],
+      "unlock": "previous_stage_mastered"
+    },
+    {
+      "id": "w00-s3",
+      "lesson_ids": [
+        "w00-l06",
+        "w00-l07",
+        "w00-l08",
+        "w00-l09"
+      ],
+      "unlock": "previous_stage_mastered"
+    },
+    {
+      "id": "w00-s4",
+      "lesson_ids": [
+        "w00-l10"
+      ],
+      "unlock": "previous_stage_mastered"
+    }
+  ],
+  "lock_rules": [
+    {
+      "id": "lock-lesson-prereq",
+      "target": "lesson",
+      "rule": "all_prerequisite_lessons_mastered",
+      "override": "admin_or_mentor",
+      "note_fa": "دانش‌آموز می‌تواند یادداشت‌های فارسی را همیشه بخواند؛ فقط واحدهای سنجشی قفل‌اند."
+    },
+    {
+      "id": "lock-mastery-test",
+      "target": "w00-mt-final",
+      "rule": "all_lessons_mastered"
+    },
+    {
+      "id": "lock-pset-guide-hints",
+      "target": "w00-ps-scratch hints",
+      "rule": "staged_reveal",
+      "note_fa": "سرنخ‌ها یکی‌یکی و فقط با درخواست باز می‌شوند؛ تعداد سرنخ دیده‌شده ثبت می‌شود اما جریمهٔ XP ندارد."
+    },
+    {
+      "id": "never-lock-official",
+      "target": "official links, notes, pset requirements",
+      "rule": "never_locked",
+      "note_fa": "محتوای رسمی و الزامات هرگز پشت گیمیفیکیشن قفل نمی‌شوند."
+    }
+  ],
+  "progress_percent": {
+    "formula": "sum(weight_i * completion_i)",
+    "weights": {
+      "lessons_mastered": 0.5,
+      "mastery_test_passed": 0.2,
+      "spaced_recall": 0.15,
+      "pset": 0.15
+    },
+    "components": {
+      "lessons_mastered": "mastered_units / total_units (33)",
+      "mastery_test_passed": "1 if passed else best_score/threshold capped at 0.9",
+      "spaced_recall": "min(1, rolling_recall_rate/0.8)",
+      "pset": "(checklist_complete*0.5) + (submission_exists*0.5)"
+    },
+    "note_fa": "زمان صرف‌شده و تعداد کلیک در درصد پیشرفت اثری ندارند."
+  },
+  "missions": {
+    "daily": [
+      {
+        "id": "w00-md-01",
+        "title_fa": "یک واحد تازه را مسلط شو",
+        "condition": {
+          "type": "units_mastered_today_gte",
+          "value": 1
+        }
+      },
+      {
+        "id": "w00-md-02",
+        "title_fa": "فلش‌کارت‌های امروز را مرور کن",
+        "condition": {
+          "type": "activity_completed_today",
+          "activity_id": "w00-a-fc-daily"
+        }
+      },
+      {
+        "id": "w00-md-03",
+        "title_fa": "یک مفهوم ضعیف را دوباره درست جواب بده",
+        "condition": {
+          "type": "activity_completed_today",
+          "activity_id": "w00-a-revisit"
+        }
+      }
+    ],
+    "daily_rule": "award at most one daily mission per UTC day (the first completed)",
+    "weekly": [
+      {
+        "id": "w00-mw-01",
+        "title_fa": "سه درس را کامل کن",
+        "condition": {
+          "type": "lessons_mastered_this_iso_week_gte",
+          "value": 3
+        }
+      },
+      {
+        "id": "w00-mw-02",
+        "title_fa": "پنج روز مرور فلش‌کارت",
+        "condition": {
+          "type": "review_days_this_iso_week_gte",
+          "value": 5
+        }
+      }
+    ]
+  },
+  "streak": {
+    "uses": "existing streak service (UTC, XPLog-day based)",
+    "freeze": null,
+    "note_fa": "بدون تغییر؛ نمایش روز به وقت تهران پیشنهاد D4 است."
+  },
+  "spaced_review": {
+    "config_ref": "xp-config.json#/srs",
+    "card_source": "weeks/week-00/flashcards.json",
+    "introduce_cards": "after the unit that teaches the concept is mastered"
+  },
+  "recommendations": [
+    {
+      "id": "rec-weak-concept",
+      "when": "same concept missed >= 2 times in quizzes/checks",
+      "recommend": [
+        "re-read note_id of concept",
+        "review that concept's flashcards",
+        "activity w00-a-revisit"
+      ]
+    },
+    {
+      "id": "rec-hints-heavy",
+      "when": "unit mastered using > 1 hint",
+      "recommend": [
+        "schedule unit check again after 2 days"
+      ]
+    },
+    {
+      "id": "rec-ready-mastery",
+      "when": "all lessons mastered and recall >= 0.7",
+      "recommend": [
+        "w00-a-mastery"
+      ]
+    },
+    {
+      "id": "rec-start-pset",
+      "when": "lesson w00-l08 mastered",
+      "recommend": [
+        "w00-a-ps-plan",
+        "/kb/d/w00-ps-scratch"
+      ]
+    }
+  ],
+  "revisits": {
+    "schedule_days_after_mastery": [
+      2,
+      7,
+      21
+    ],
+    "item_source": "equivalent auto-gradable items with the same concept_id"
+  },
+  "anti_gaming": [
+    "no XP for page views, time on page, or button clicks except the existing kb read button",
+    "idempotent reasons",
+    "mastery test draws alternate items on retake",
+    "daily cap on proposed events",
+    "challenges need rubric approval"
+  ],
+  "model_mapping": {
+    "XPLog": "all XP events via xp.award with reason templates in xp-config.json",
+    "WeekProgress": {
+      "kb_read": "w00-a-kb-read",
+      "quiz_score/quiz_total/quiz_completed": "w00-mt-final",
+      "flashcards_reviewed": "set true after first completed w00-a-fc-daily",
+      "last_activity": "any tracked activity"
+    },
+    "Week": {
+      "number": 0,
+      "publication": "existing is_published gate applies to all w00-* docs via parent chain to week-0"
+    },
+    "Assignment": {
+      "week": 0,
+      "title": "Starting from Scratch",
+      "xp_reward": 20,
+      "due_date": "2027-06-30T23:59:00Z"
+    },
+    "new_tables": "see docs/proposals/week0-gamification-data-proposal.md (QuizAttempt, UnitProgress, FlashcardState, FlashcardReview, UserAchievement)"
+  }
+}

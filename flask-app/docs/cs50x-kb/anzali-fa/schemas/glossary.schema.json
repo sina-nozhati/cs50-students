@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/glossary.schema.json",
+  "title": "Persian glossary",
+  "type": "object",
+  "required": [
+    "terms",
+    "conventions"
+  ],
+  "properties": {
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "fa",
+          "en",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^g-[a-z0-9-]+$"
+          },
+          "fa": {
+            "type": "string",
+            "minLength": 1
+          },
+          "en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "concept",
+              "ui",
+              "term"
+            ]
+          },
+          "concept_id": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "source_ref": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

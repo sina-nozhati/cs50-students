@@ -1,0 +1,286 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l09",
+  "type": "lesson",
+  "week": 0,
+  "order": 9,
+  "stage_id": "w00-s3",
+  "title_fa": "شرط و حلقهٔ همیشگی",
+  "title_en": "Conditionals and forever",
+  "note_ids": [
+    "w00-n14"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l08"
+  ],
+  "concept_ids": [
+    "w00-c-conditional",
+    "w00-c-forever-loop",
+    "w00-c-costume",
+    "w00-c-event"
+  ],
+  "objective_ids": [
+    "w00-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l08"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l09-u01",
+      "order": 1,
+      "title_fa": "forever + if: بررسی پیوسته",
+      "concept_ids": [
+        "w00-c-conditional",
+        "w00-c-forever-loop"
+      ],
+      "objective_ids": [
+        "w00-o09"
+      ],
+      "note_id": "w00-n14",
+      "source_refs": [
+        "src-notes-0#conditionals",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "شرط بررسی می‌کند آیا وضعیتی برقرار است، و اگر بود کاری انجام می‌دهد. `forever` باعث می‌شود `if` بارها و بارها اجرا شود تا پیوسته بررسی کند آیا گربه با نشانگر ماوس تماس دارد.",
+        "note_id": "w00-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-pet-forever-if",
+        "lang": "scratch",
+        "content": "when green flag clicked\nforever\nif <touching (mouse-pointer v)?> then\nplay sound (Meow v) until done",
+        "source_ref": "src-notes-0#conditionals",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l09-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بدون forever چه می‌شد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "شرط فقط یک بار، لحظهٔ کلیک پرچم، بررسی می‌شد",
+            "correct": true,
+            "feedback_fa": "درست؛ اشکال رایج همین است."
+          },
+          {
+            "id": "b",
+            "text_fa": "گربه همیشه میو می‌کرد",
+            "correct": false,
+            "feedback_fa": "بدون حلقه حتی تکرار هم نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامه خطا می‌داد",
+            "correct": false,
+            "feedback_fa": "خطا نمی‌دهد؛ فقط یک بار بررسی می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l09-u01-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "برنامه: «when green flag clicked → if touching mouse-pointer? then play sound Meow». هر چه ماوس را روی گربه می‌بری، صدایی نمی‌آید. چرا؟",
+        "expected": {
+          "answer_fa": "if فقط یک بار هنگام شروع بررسی می‌شود؛ باید داخل forever باشد."
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "شرط چند بار بررسی می‌شود؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l09-u02",
+      "order": 2,
+      "title_fa": "if … else و لباس‌ها",
+      "concept_ids": [
+        "w00-c-conditional",
+        "w00-c-costume"
+      ],
+      "objective_ids": [
+        "w00-o09"
+      ],
+      "note_id": "w00-n15",
+      "source_refs": [
+        "src-notes-0#oscartime",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "در Oscartime، اگر ماوس روی Oscar باشد لباس `oscar2` و در غیر این صورت `oscar1` نمایش داده می‌شود. این شرط دوشاخه است.",
+        "note_id": "w00-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-oscar-costume",
+        "lang": "scratch",
+        "content": "when green flag clicked\nswitch costume to (oscar1 v)\nforever\nif <touching (mouse-pointer v)?> then\nswitch costume to (oscar2 v)\nelse\nswitch costume to (oscar1 v)",
+        "source_ref": "src-notes-0#oscartime",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l09-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا قبل از forever یک «switch costume to oscar1» آمده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تا Oscar از حالت اولیهٔ درست شروع کند",
+            "correct": true,
+            "feedback_fa": "درست؛ مقداردهی اولیه."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون بدون آن forever کار نمی‌کند",
+            "correct": false,
+            "feedback_fa": "forever به آن وابسته نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "برای پخش صدا",
+            "correct": false,
+            "feedback_fa": "این بلوک لباس را عوض می‌کند، نه صدا."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l09-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "اگر ماوس روی Oscar باشد و سپس دور شود، لباس‌ها به ترتیب چه می‌شوند؟",
+        "expected": {
+          "answer": "oscar2 سپس oscar1"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "شاخهٔ if و else را دنبال کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l09-u03",
+      "order": 3,
+      "title_fa": "رویدادهای حسگر: حرکت ویدئو",
+      "concept_ids": [
+        "w00-c-event"
+      ],
+      "objective_ids": [
+        "w00-o09"
+      ],
+      "note_id": "w00-n14",
+      "source_refs": [
+        "src-notes-0#conditionals",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "به‌جای پرچم سبز می‌توان برنامه را با رویدادی دیگر شروع کرد؛ مثلاً وقتی حرکت در ویدئوی دوربین بیشتر از 10 شود، صدای میو پخش شود.",
+        "note_id": "w00-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-video-motion",
+        "lang": "scratch",
+        "content": "when video motion > (10)\nplay sound (Meow v) until done",
+        "source_ref": "src-notes-0#conditionals",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l09-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "این اسکریپت با چه چیزی شروع می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "وقتی حرکت ویدئو از 10 بیشتر شود",
+            "correct": true,
+            "feedback_fa": "درست؛ یک رویداد حسگر."
+          },
+          {
+            "id": "b",
+            "text_fa": "کلیک پرچم سبز",
+            "correct": false,
+            "feedback_fa": "در این نسخه پرچم سبز نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "فشار دادن کلید",
+            "correct": false,
+            "feedback_fa": "کلید در این اسکریپت نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l09-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "درس‌نامه وقتی خسته یا ناامید شدی چه سه پرسشی را پیشنهاد می‌کند؟",
+        "expected": {
+          "answer_fa": "مشکل دقیقاً چیست؟ چه چیزی کار می‌کند؟ چه چیزی کار نمی‌کند؟"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ این روش «حرف زدن با خود» است.",
+          "incorrect_fa": "بخش پایانی یادداشت شرط‌ها را بخوان."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w00-curriculum",
+  "week": 0,
+  "title_fa": "هفتهٔ ۰ — Scratch",
+  "title_en": "Week 0 — Scratch",
+  "panel_week_number": 0,
+  "kb_parent_node": "week-0",
+  "hub_doc_id": "w00-fa",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-0",
+    "src-notes-0",
+    "src-pset-0"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w00-o01",
+    "w00-o02",
+    "w00-o03",
+    "w00-o04",
+    "w00-o05",
+    "w00-o06",
+    "w00-o07",
+    "w00-o08",
+    "w00-o09",
+    "w00-o10",
+    "w00-o11",
+    "w00-o12"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب بخش‌های درس‌نامهٔ رسمی پیروی می‌کند و با پیش‌نیازهای learning-map.json (۵۱ یال) سازگار است: بازنمایی ← الگوریتم ← شبه‌کد ← Scratch ← بازی و پروژه.",
+  "stages": [
+    {
+      "id": "w00-s0",
+      "lesson_ids": [
+        "w00-l01"
+      ]
+    },
+    {
+      "id": "w00-s1",
+      "lesson_ids": [
+        "w00-l02",
+        "w00-l03"
+      ]
+    },
+    {
+      "id": "w00-s2",
+      "lesson_ids": [
+        "w00-l04",
+        "w00-l05"
+      ]
+    },
+    {
+      "id": "w00-s3",
+      "lesson_ids": [
+        "w00-l06",
+        "w00-l07",
+        "w00-l08",
+        "w00-l09"
+      ]
+    },
+    {
+      "id": "w00-s4",
+      "lesson_ids": [
+        "w00-l10"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w00-l01",
+      "order": 1,
+      "file": "lessons/w00-l01.json",
+      "title_fa": "خوش آمدی: هوش مصنوعی، اصول و قوانین دوره",
+      "stage_id": "w00-s0",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w00-l01-u01",
+        "w00-l01-u02"
+      ],
+      "note_ids": [
+        "w00-n01",
+        "w00-n02"
+      ]
+    },
+    {
+      "id": "w00-l02",
+      "order": 2,
+      "file": "lessons/w00-l02.json",
+      "title_fa": "حل مسئله و دودویی",
+      "stage_id": "w00-s1",
+      "prerequisite_lesson_ids": [
+        "w00-l01"
+      ],
+      "unit_ids": [
+        "w00-l02-u01",
+        "w00-l02-u02",
+        "w00-l02-u03",
+        "w00-l02-u04"
+      ],
+      "note_ids": [
+        "w00-n03"
+      ]
+    },
+    {
+      "id": "w00-l03",
+      "order": 3,
+      "file": "lessons/w00-l03.json",
+      "title_fa": "نمایش متن، رنگ و رسانه",
+      "stage_id": "w00-s1",
+      "prerequisite_lesson_ids": [
+        "w00-l02"
+      ],
+      "unit_ids": [
+        "w00-l03-u01",
+        "w00-l03-u02",
+        "w00-l03-u03",
+        "w00-l03-u04"
+      ],
+      "note_ids": [
+        "w00-n04",
+        "w00-n05",
+        "w00-n06"
+      ]
+    },
+    {
+      "id": "w00-l04",
+      "order": 4,
+      "file": "lessons/w00-l04.json",
+      "title_fa": "الگوریتم و زمان اجرا",
+      "stage_id": "w00-s2",
+      "prerequisite_lesson_ids": [
+        "w00-l02"
+      ],
+      "unit_ids": [
+        "w00-l04-u01",
+        "w00-l04-u02",
+        "w00-l04-u03"
+      ],
+      "note_ids": [
+        "w00-n07"
+      ]
+    },
+    {
+      "id": "w00-l05",
+      "order": 5,
+      "file": "lessons/w00-l05.json",
+      "title_fa": "شبه‌کد و بلوک‌های سازندهٔ برنامه‌نویسی",
+      "stage_id": "w00-s2",
+      "prerequisite_lesson_ids": [
+        "w00-l04"
+      ],
+      "unit_ids": [
+        "w00-l05-u01",
+        "w00-l05-u02",
+        "w00-l05-u03"
+      ],
+      "note_ids": [
+        "w00-n08",
+        "w00-n09"
+      ]
+    },
+    {
+      "id": "w00-l06",
+      "order": 6,
+      "file": "lessons/w00-l06.json",
+      "title_fa": "محیط Scratch، رویداد و «hello, world»",
+      "stage_id": "w00-s3",
+      "prerequisite_lesson_ids": [
+        "w00-l05"
+      ],
+      "unit_ids": [
+        "w00-l06-u01",
+        "w00-l06-u02",
+        "w00-l06-u03"
+      ],
+      "note_ids": [
+        "w00-n10",
+        "w00-n11"
+      ]
+    },
+    {
+      "id": "w00-l07",
+      "order": 7,
+      "file": "lessons/w00-l07.json",
+      "title_fa": "ورودی کاربر، متغیر و مقدار بازگشتی",
+      "stage_id": "w00-s3",
+      "prerequisite_lesson_ids": [
+        "w00-l06"
+      ],
+      "unit_ids": [
+        "w00-l07-u01",
+        "w00-l07-u02",
+        "w00-l07-u03"
+      ],
+      "note_ids": [
+        "w00-n12"
+      ]
+    },
+    {
+      "id": "w00-l08",
+      "order": 8,
+      "file": "lessons/w00-l08.json",
+      "title_fa": "حلقه و بلوک سفارشی",
+      "stage_id": "w00-s3",
+      "prerequisite_lesson_ids": [
+        "w00-l07"
+      ],
+      "unit_ids": [
+        "w00-l08-u01",
+        "w00-l08-u02",
+        "w00-l08-u03"
+      ],
+      "note_ids": [
+        "w00-n13"
+      ]
+    },
+    {
+      "id": "w00-l09",
+      "order": 9,
+      "file": "lessons/w00-l09.json",
+      "title_fa": "شرط و حلقهٔ همیشگی",
+      "stage_id": "w00-s3",
+      "prerequisite_lesson_ids": [
+        "w00-l08"
+      ],
+      "unit_ids": [
+        "w00-l09-u01",
+        "w00-l09-u02",
+        "w00-l09-u03"
+      ],
+      "note_ids": [
+        "w00-n14"
+      ]
+    },
+    {
+      "id": "w00-l10",
+      "order": 10,
+      "file": "lessons/w00-l10.json",
+      "title_fa": "ساختن بازی و برنامه‌ریزی پروژه",
+      "stage_id": "w00-s4",
+      "prerequisite_lesson_ids": [
+        "w00-l09"
+      ],
+      "unit_ids": [
+        "w00-l10-u01",
+        "w00-l10-u02",
+        "w00-l10-u03",
+        "w00-l10-u04",
+        "w00-l10-u05"
+      ],
+      "note_ids": [
+        "w00-n15",
+        "w00-n16"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "w00-n01",
+      "file": "notes/01-welcome.fa.md",
+      "official_anchor": "welcome"
+    },
+    {
+      "id": "w00-n02",
+      "file": "notes/02-vscode-chat-py.fa.md",
+      "official_anchor": "visual-studio-code-and-chatpy"
+    },
+    {
+      "id": "w00-n03",
+      "file": "notes/03-problem-solving-binary.fa.md",
+      "official_anchor": "computer-science-and-problem-solving"
+    },
+    {
+      "id": "w00-n04",
+      "file": "notes/04-ascii.fa.md",
+      "official_anchor": "ascii"
+    },
+    {
+      "id": "w00-n05",
+      "file": "notes/05-unicode.fa.md",
+      "official_anchor": "unicode"
+    },
+    {
+      "id": "w00-n06",
+      "file": "notes/06-rgb-media.fa.md",
+      "official_anchor": "rgb"
+    },
+    {
+      "id": "w00-n07",
+      "file": "notes/07-algorithms.fa.md",
+      "official_anchor": "algorithms"
+    },
+    {
+      "id": "w00-n08",
+      "file": "notes/08-pseudocode.fa.md",
+      "official_anchor": "pseudocode"
+    },
+    {
+      "id": "w00-n09",
+      "file": "notes/09-whats-ahead.fa.md",
+      "official_anchor": "whats-ahead"
+    },
+    {
+      "id": "w00-n10",
+      "file": "notes/10-scratch-interface.fa.md",
+      "official_anchor": "scratch"
+    },
+    {
+      "id": "w00-n11",
+      "file": "notes/11-hello-world.fa.md",
+      "official_anchor": "hello-world"
+    },
+    {
+      "id": "w00-n12",
+      "file": "notes/12-hello-you.fa.md",
+      "official_anchor": "hello-you"
+    },
+    {
+      "id": "w00-n13",
+      "file": "notes/13-meow-loops-abstraction.fa.md",
+      "official_anchor": "meow-loops-and-abstraction"
+    },
+    {
+      "id": "w00-n14",
+      "file": "notes/14-conditionals.fa.md",
+      "official_anchor": "conditionals"
+    },
+    {
+      "id": "w00-n15",
+      "file": "notes/15-oscartime.fa.md",
+      "official_anchor": "oscartime"
+    },
+    {
+      "id": "w00-n16",
+      "file": "notes/16-ivys-hardest-game.fa.md",
+      "official_anchor": "ivys-hardest-game"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "problem_set_guide": "problem-sets/starting-from-scratch.fa.md"
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w00-mt-final",
+    "activities": "activities.json"
+  },
+  "problem_sets": [
+    {
+      "id": "w00-ps-scratch",
+      "file": "problem-sets/starting-from-scratch.json",
+      "guide": "problem-sets/starting-from-scratch.fa.md",
+      "unlock_after_lesson": "w00-l08"
+    }
+  ],
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_id": "w00-ps-scratch"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_id": "w00-ps-scratch",
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند."
+  }
+}

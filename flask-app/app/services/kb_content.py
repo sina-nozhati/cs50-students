@@ -60,8 +60,13 @@ def week_payload(site_number: int) -> dict | None:
     node = kb_repo.week_node_by_site_number(site_number)
     if not node:
         return None
-    path = kb_repo.resolve_path(node)
-    rendered = md_render.load_and_render(path) if path else {
+
+    # بررسی آیا هاب بومی‌سازی‌شده فارسی برای این هفته وجود دارد
+    fa_hub = kb_repo.anzali_hub_by_site_number(site_number)
+
+    # رندر نسخه انگلیسی پیش‌فرض
+    path_en = kb_repo.resolve_path(node)
+    rendered_en = md_render.load_and_render(path_en) if path_en else {
         "official_html": "",
         "generated_html": "",
         "full_html": "",
@@ -69,6 +74,43 @@ def week_payload(site_number: int) -> dict | None:
         "has_generated": False,
         "toc": [],
     }
+
+    has_fa = False
+    rendered_fa_overview = None
+    rendered_fa_summary = None
+    fa_notes = []
+    fa_pset = None
+
+    if fa_hub:
+        has_fa = True
+        fa_overview_path = kb_repo.resolve_path(fa_hub)
+        if fa_overview_path:
+            rendered_fa_overview = md_render.load_and_render(fa_overview_path)
+
+        # استخراج زیرگره‌های فارسی (یادداشت‌ها، جمع‌بندی، پرابلم‌ست)
+        for c in kb_repo.children_of(fa_hub["id"]):
+            ctype = c.get("type") or ""
+            cid = c.get("id") or ""
+            if ctype == "anzali-note":
+                fa_notes.append({
+                    "id": cid,
+                    "title": c.get("title") or cid,
+                    "order": c.get("order", 99),
+                    "source_url": c.get("source_url"),
+                })
+            elif ctype == "week-summary" or cid.endswith("-summary"):
+                p_sum = kb_repo.resolve_path(c)
+                if p_sum:
+                    rendered_fa_summary = md_render.load_and_render(p_sum)
+            elif ctype == "problem-set" or "ps-" in cid:
+                fa_pset = {
+                    "id": cid,
+                    "title": c.get("title") or cid,
+                    "source_url": c.get("source_url"),
+                }
+
+        fa_notes.sort(key=lambda x: x["order"])
+
     children = []
     for c in kb_repo.children_of(node["id"]):
         children.append({
@@ -78,6 +120,10 @@ def week_payload(site_number: int) -> dict | None:
             "source_url": c.get("source_url"),
             "child_count": len(c.get("children") or []),
         })
+
+    # اگر هاب فارسی فعال است، نسخه پیش‌فرض رندر را محتوای فارسی می‌گذاریم
+    active_rendered = rendered_fa_overview if has_fa and rendered_fa_overview else rendered_en
+
     return {
         "number": site_number,
         "id": node["id"],
@@ -85,17 +131,25 @@ def week_payload(site_number: int) -> dict | None:
         "title_en": node.get("title") or "",
         "topics": node.get("tags") or [],
         "links": {"lecture": node.get("source_url")},
-        "source_url": node.get("source_url"),
+        "source_url": node.get("source_url") or (fa_hub.get("source_url") if fa_hub else None),
         "source_urls": node.get("source_urls") or [],
         "children": children,
         "has_pset": any(
             c["type"] in ("pset", "pset-index") or c["id"].startswith("pset-")
             for c in children
-        ),
-        "rendered": rendered,
+        ) or bool(fa_pset),
+        "rendered": active_rendered,
+        "has_fa": has_fa,
+        "fa_hub": fa_hub,
+        "rendered_fa_overview": rendered_fa_overview,
+        "rendered_fa_summary": rendered_fa_summary,
+        "rendered_en": rendered_en,
+        "fa_notes": fa_notes,
+        "fa_pset": fa_pset,
         "license": "CC BY-NC-SA 4.0",
         "attribution": "CS50x 2026 © David J. Malan, Harvard University",
     }
+
 
 
 def content_ready(site_number: int) -> bool:
@@ -125,6 +179,35 @@ def get_document(doc_id: str) -> dict | None:
             break
         walk = kb_repo.get_node(walk["parent"]) if walk.get("parent") else None
 
+    # بررسی آیا این سند فارسی است و پیدا کردن همتای انگلیسی/فارسی
+    nid = node.get("id") or ""
+    is_fa = (
+        node.get("lang") == "fa"
+        or "anzali-fa" in (node.get("tags") or [])
+        or nid.startswith(("w00-", "w01-", "w02-"))
+        or "anzali-fa" in (node.get("path") or "")
+    )
+
+    counterpart_node = kb_repo.find_counterpart_node(node)
+    counterpart = None
+    counterpart_rendered = None
+    if counterpart_node:
+        cp_path = kb_repo.resolve_path(counterpart_node)
+        if cp_path:
+            counterpart_rendered = md_render.load_and_render(cp_path)
+        counterpart = {
+            "id": counterpart_node["id"],
+            "title": counterpart_node.get("title") or counterpart_node["id"],
+            "type": counterpart_node.get("type"),
+            "source_url": counterpart_node.get("source_url"),
+            "is_fa": (
+                counterpart_node.get("lang") == "fa"
+                or "anzali-fa" in (counterpart_node.get("tags") or [])
+                or (counterpart_node.get("id") or "").startswith(("w00-", "w01-"))
+            ),
+            "rendered": counterpart_rendered,
+        }
+
     return {
         "id": node["id"],
         "title": node.get("title") or node["id"],
@@ -134,6 +217,8 @@ def get_document(doc_id: str) -> dict | None:
         "source_type": node.get("source_type"),
         "parent_id": node.get("parent"),
         "site_number": site_n,
+        "is_fa": is_fa,
+        "counterpart": counterpart,
         "children": [
             {
                 "id": c["id"],

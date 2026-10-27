@@ -1,0 +1,213 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l01",
+  "type": "lesson",
+  "week": 0,
+  "order": 1,
+  "stage_id": "w00-s0",
+  "title_fa": "خوش آمدی: هوش مصنوعی، اصول و قوانین دوره",
+  "title_en": "Welcome, AI and course policy",
+  "note_ids": [
+    "w00-n01",
+    "w00-n02"
+  ],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w00-c-ai-fundamentals",
+    "w00-c-academic-honesty-ai"
+  ],
+  "objective_ids": [
+    "w00-o12"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": []
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l01-u01",
+      "order": 1,
+      "title_fa": "چرا اصول را یاد بگیریم وقتی AI هست؟",
+      "concept_ids": [
+        "w00-c-ai-fundamentals"
+      ],
+      "objective_ids": [
+        "w00-o12"
+      ],
+      "note_id": "w00-n01",
+      "source_refs": [
+        "src-notes-0#welcome",
+        "src-notes-0#visual-studio-code-and-chatpy",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "طبق درس‌نامه، هوش مصنوعی گاهی گلوگاه‌های انسانی را حذف می‌کند، اما توانایی فهمیدن، ساختن و سازمان‌دادن کد از تو یک «راننده» و «خلبان» می‌سازد: سازنده‌ای توانمند. پس AI را راهی برای حذف نیاز به یادگیری اصول ندان؛ دانستن اصول به‌همراه توانمندی AI فرصت‌های تازه می‌سازد.",
+        "note_id": "w00-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "chat-py-0",
+        "lang": "python",
+        "content": "from openai import OpenAI\n\nclient = OpenAI()\n\nresponse = client.responses.create(\n    input=\"In one sentence, what is CS50?\",\n    model=\"gpt-5\"\n)\n\nprint(response.output_text)",
+        "source_ref": "src-notes-0#visual-studio-code-and-chatpy",
+        "explain_fa": "chat.py در درس‌نامه برای چشیدن طعم آینده نشان داده شد و به سیستمی نیاز دارد که برای کتابخانه‌های OpenAI پیکربندی شده باشد. این بسته اجرای آن را لازم نمی‌داند و پیشنهاد نمی‌کند."
+      },
+      "check": {
+        "id": "w00-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام جمله با پیام درس‌نامه هم‌خوان است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یادگرفتن اصول به ما کمک می‌کند از ابزارهای جدید، از جمله AI، بهتر استفاده کنیم.",
+            "correct": true,
+            "feedback_fa": "درست. دانستن اصول به‌همراه توانمندی AI فرصت‌های تازه می‌سازد."
+          },
+          {
+            "id": "b",
+            "text_fa": "با وجود AI دیگر لازم نیست برنامه‌نویسی یاد بگیریم.",
+            "correct": false,
+            "feedback_fa": "نه. درس‌نامه می‌گوید AI را راهی برای حذف نیاز به یادگیری اصول ندان."
+          },
+          {
+            "id": "c",
+            "text_fa": "AI فقط در هفتهٔ آخر دوره مطرح می‌شود.",
+            "correct": false,
+            "feedback_fa": "نه. AI از همان هفتهٔ ۰ مطرح شده است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l01-u01-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "در یک جمله بنویس چرا با وجود ابزارهای هوش مصنوعی هنوز یادگرفتن اصول برنامه‌نویسی مفید است.",
+        "expected": {
+          "rubric_fa": [
+            "اشاره به استفادهٔ بهتر یا آگاهانه‌تر از ابزارها",
+            "یا اشاره به فهم و ارزیابی خروجی ابزار"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی؛ همین فهم کمکت می‌کند خروجی ابزارها را ارزیابی کنی.",
+          "incorrect_fa": "پاسخت را با ایدهٔ «اصول = استفادهٔ بهتر از ابزار» مقایسه کن و دوباره بنویس."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l01-u02",
+      "order": 2,
+      "title_fa": "سیاست AI در CS50: فقط CS50 Duck",
+      "concept_ids": [
+        "w00-c-academic-honesty-ai"
+      ],
+      "objective_ids": [
+        "w00-o12"
+      ],
+      "note_id": "w00-n02",
+      "source_refs": [
+        "src-notes-0#visual-studio-code-and-chatpy",
+        "src-anzali-authored",
+        "src-syllabus-honesty",
+        "src-cs50-ai",
+        "src-pset-0#problem-set-0"
+      ],
+      "reading": {
+        "text_fa": "CS50 «اردک پلاستیکی» خودش، یعنی CS50 Duck (در cs50.ai)، را برای کمک در کارهای دوره ساخته است. درس‌نامه یادآوری می‌کند که سیاست صداقت علمی دوره استفاده از **هر ابزار AI به‌جز CS50 Duck** را ممنوع می‌کند.",
+        "note_id": "w00-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n02"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "موقعیت: «کد پروژهٔ Scratch من کار نمی‌کند؛ کدام کار مجاز است؟»\n- پرسیدن از CS50 Duck دربارهٔ اینکه حلقه چطور کار می‌کند ← مجاز\n- خواستن پروژهٔ کامل از یک چت‌بات عمومی ← غیرمجاز",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "نمونهٔ تألیفی برای تمرین تشخیص؛ مبنای آن سیاست رسمی درس‌نامه و سیلابس است."
+      },
+      "check": {
+        "id": "w00-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام کار طبق سیاست CS50 مجاز است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پرسیدن مفهوم یک بلوک از CS50 Duck",
+            "correct": true,
+            "feedback_fa": "درست. CS50 Duck ابزار رسمی دوره است و کمک آموزشی می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "گرفتن کد کامل پرابلم‌ست از یک چت‌بات عمومی",
+            "correct": false,
+            "feedback_fa": "غیرمجاز است. سیاست صداقت علمی هر ابزار AI به‌جز CS50 Duck را ممنوع می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "کپی کردن پروژهٔ یک هم‌کلاسی",
+            "correct": false,
+            "feedback_fa": "غیرمجاز است. کمک گرفتن مجاز است تا جایی که کس دیگری کار را برایت انجام ندهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l01-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «مجاز» یا «غیرمجاز» علامت بزن: (۱) پرسیدن از CS50 Duck که چرا شرطم اجرا نمی‌شود؛ (۲) خواستن پروژهٔ کامل از ChatGPT؛ (۳) بحث دربارهٔ ایدهٔ کلی پروژه با یک دوست، بدون دیدن کد او.",
+        "expected": {
+          "answers": {
+            "1": "allowed",
+            "2": "not_allowed",
+            "3": "allowed"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. معیار این است: آیا کمک به انجام کار به جای تو منجر می‌شود؟",
+          "incorrect_fa": "دوباره بخوان: از میان ابزارهای AI فقط CS50 Duck مجاز است، و کمک انسانی تا جایی مجاز است که کار را برایت انجام ندهد."
+        },
+        "hints_fa": [
+          "سیاست رسمی Problem Set 0 را درباره «another doing your work for you» ببین."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

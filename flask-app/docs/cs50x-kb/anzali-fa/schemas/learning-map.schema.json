@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/learning-map.schema.json",
+  "title": "Learning map",
+  "type": "object",
+  "required": [
+    "weeks",
+    "concepts",
+    "edges"
+  ],
+  "properties": {
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label_fa",
+          "label_en",
+          "note_id",
+          "source_ref",
+          "origin"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "note_id": {
+            "type": "string",
+            "pattern": "^w00-n\\d{2}$"
+          },
+          "source_ref": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+          },
+          "origin": {
+            "enum": [
+              "official",
+              "translated-rewritten",
+              "authored",
+              "inference",
+              "external",
+              "internal",
+              "mixed"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "to",
+          "type"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "type": {
+            "enum": [
+              "prerequisite",
+              "related"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 0
+    },
+    "weeks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "week",
+          "stages"
+        ],
+        "properties": {
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "title_fa",
+                "concepts"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^w00-s\\d$"
+                },
+                "concepts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^w00-c-[a-z0-9-]+$"
+                  },
+                  "minItems": 1
+                }
+              },
+              "additionalProperties": true
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 0
+    }
+  },
+  "additionalProperties": true
+}

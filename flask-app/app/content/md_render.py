@@ -53,9 +53,88 @@ def split_kb_sections(body: str) -> dict[str, str]:
     return sections
 
 
+def _process_external_links(html: str) -> str:
+    """باز شدن تمام لینک‌های بیرونی/رسمی در تب جدید با امنیت کامل."""
+    def repl(m: re.Match) -> str:
+        tag = m.group(0)
+        href = m.group(1)
+        if href.startswith(("http://", "https://")):
+            if 'target=' not in tag:
+                return tag[:-1] + ' target="_blank" rel="noopener noreferrer">'
+        return tag
+    return re.sub(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>', repl, html)
+
+
+def _process_callouts(html: str) -> str:
+    """تبدیل blockquoteها و یادداشت‌های ویژه به کامپوننت callout مطابق دیزاین سیستم."""
+    titles = {
+        "NOTE": "نکته",
+        "TIP": "پیشنهاد",
+        "IMPORTANT": "مهم",
+        "WARNING": "هشدار",
+        "CAUTION": "احتیاط"
+    }
+
+    # جایگزینی پاراگراف‌های حاوی alert: [!NOTE], [!TIP], [!IMPORTANT], [!WARNING], [!CAUTION]
+    def p_repl(m: re.Match) -> str:
+        kind = m.group(1).upper()
+        content = m.group(2).strip()
+        title = titles.get(kind, "توجه")
+        return (
+            f'<div class="kb-callout kb-callout-{kind.lower()}">'
+            f'<div class="kb-callout-title">{title}</div>'
+            f'<div class="kb-callout-content"><p>{content}</p></div>'
+            f'</div>'
+        )
+
+    html = re.sub(
+        r'<p>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\](?:\s*<br\s*/?>\s*|\s*)([\s\S]*?)</p>',
+        p_repl,
+        html,
+        flags=re.IGNORECASE
+    )
+
+    # تبدیل blockquoteهای عادی به kb-callout و باز کردن blockquote در صورت وجود callout
+    def bq_repl(m: re.Match) -> str:
+        content = m.group(1)
+        if "kb-callout" in content:
+            return content
+        if "منبع رسمی" in content or "وضعیت این صفحه" in content:
+            cls = "kb-callout kb-callout-info"
+        else:
+            cls = "kb-callout"
+        return f'<div class="{cls}"><div class="kb-callout-content">{content}</div></div>'
+
+    html = re.sub(r'<blockquote>([\s\S]*?)</blockquote>', bq_repl, html)
+    return html
+
+
+def _process_mermaid_fallback(html: str) -> str:
+    """فال‌بک متنی تمیز و دسترس‌پذیر برای نمودارهای mermaid."""
+    mermaid_pattern = re.compile(
+        r'<pre><code class="(?:language-)?mermaid">([\s\S]*?)</code></pre>',
+        re.IGNORECASE
+    )
+    def repl(m: re.Match) -> str:
+        raw_code = m.group(1).strip()
+        return (
+            f'<div class="kb-mermaid-fallback">'
+            f'<div class="kb-mermaid-header">'
+            f'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h10M7 12h10M7 17h10"/></svg>'
+            f'<span class="font-bold text-xs">نقشهٔ مفهومی (دیاگرام متنی)</span>'
+            f'</div>'
+            f'<pre class="kb-mermaid-code direction-ltr text-left"><code>{raw_code}</code></pre>'
+            f'</div>'
+        )
+    return mermaid_pattern.sub(repl, html)
+
+
 def render_markdown(text: str) -> str:
     _MD.reset()
     html = _MD.convert(text or "")
+    html = _process_external_links(html)
+    html = _process_callouts(html)
+    html = _process_mermaid_fallback(html)
     return sanitize_html(html)
 
 

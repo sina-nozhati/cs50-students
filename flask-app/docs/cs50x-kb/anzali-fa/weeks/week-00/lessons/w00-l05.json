@@ -1,0 +1,307 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l05",
+  "type": "lesson",
+  "week": 0,
+  "order": 5,
+  "stage_id": "w00-s2",
+  "title_fa": "شبه‌کد و بلوک‌های سازندهٔ برنامه‌نویسی",
+  "title_en": "Pseudocode and building blocks",
+  "note_ids": [
+    "w00-n08",
+    "w00-n09"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l04"
+  ],
+  "concept_ids": [
+    "w00-c-pseudocode",
+    "w00-c-corner-case",
+    "w00-c-function",
+    "w00-c-conditional",
+    "w00-c-boolean-expression",
+    "w00-c-loop",
+    "w00-c-abstraction",
+    "w00-c-compiler"
+  ],
+  "objective_ids": [
+    "w00-o04",
+    "w00-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l05-u01",
+      "order": 1,
+      "title_fa": "شبه‌کد دفترچهٔ تلفن",
+      "concept_ids": [
+        "w00-c-pseudocode",
+        "w00-c-corner-case"
+      ],
+      "objective_ids": [
+        "w00-o04"
+      ],
+      "note_id": "w00-n08",
+      "source_refs": [
+        "src-notes-0#pseudocode",
+        "src-transcript-0",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "شبه‌کد دستورهای انسانی‌خوانایی است که گام‌های یک الگوریتم را توصیف می‌کند. دو فایده دارد: پیش از کدنویسی منطق را فکر می‌کنی، و بعداً دیگران تصمیم‌هایت را می‌فهمند.",
+        "note_id": "w00-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook-pseudocode",
+        "lang": "text",
+        "content": "1  Pick up phone book\n2  Open to middle of phone book\n3  Look at page\n4  If person is on page\n5      Call person\n6  Else if person is earlier in book\n7      Open to middle of left half of book\n8      Go back to line 3\n9  Else if person is later in book\n10     Open to middle of right half of book\n11     Go back to line 3\n12 Else\n13     Quit",
+        "source_ref": "src-notes-0#pseudocode",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خط ۱۳ (`Quit`) برای کدام حالت است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "وقتی نام در دفترچه نیست و صفحه‌ای نمانده",
+            "correct": true,
+            "feedback_fa": "درست؛ این یک حالت مرزی است (رونوشت سخنرانی)."
+          },
+          {
+            "id": "b",
+            "text_fa": "وقتی نام پیدا شد",
+            "correct": false,
+            "feedback_fa": "آن حالت خط ۵ (`Call person`) است."
+          },
+          {
+            "id": "c",
+            "text_fa": "وقتی دفترچه باز شد",
+            "correct": false,
+            "feedback_fa": "باز کردن در خط ۲ است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l05-u01-ex",
+        "type": "write_pseudocode",
+        "origin": "authored",
+        "prompt_fa": "برای «انتخاب لباس بر اساس هوا» شبه‌کدی بنویس که حداقل یک شرط، یک حلقه یا تکرار، و یک حالت مرزی داشته باشد.",
+        "expected": {
+          "rubric_fa": [
+            "حداقل یک if/else",
+            "حداقل یک تکرار یا «برگرد به خط …»",
+            "یک حالت مرزی (مثلاً لباس مناسب نیست)"
+          ]
+        },
+        "evaluation": "rubric_self_or_peer",
+        "feedback": {
+          "correct_fa": "خوب است؛ همین مهارت در همهٔ هفته‌ها لازم است.",
+          "incorrect_fa": "چک‌لیست را دوباره ببین: شرط، تکرار، حالت مرزی."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l05-u02",
+      "order": 2,
+      "title_fa": "تابع، شرط، عبارت بولی، حلقه",
+      "concept_ids": [
+        "w00-c-function",
+        "w00-c-conditional",
+        "w00-c-boolean-expression",
+        "w00-c-loop"
+      ],
+      "objective_ids": [
+        "w00-o05"
+      ],
+      "note_id": "w00-n08",
+      "source_refs": [
+        "src-notes-0#pseudocode",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "در شبه‌کد: خط‌هایی که با فعل شروع می‌شوند (pick up، open، look at) **تابع** هستند. `if` و `else if` **شرط** هستند. عبارت‌های درست/نادرست مثل «person is earlier in book» **عبارت بولی** هستند. «go back to line 3» یک **حلقه** است.",
+        "note_id": "w00-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook-pseudocode",
+        "lang": "text",
+        "content": "1  Pick up phone book\n2  Open to middle of phone book\n3  Look at page\n4  If person is on page\n5      Call person\n6  Else if person is earlier in book\n7      Open to middle of left half of book\n8      Go back to line 3\n9  Else if person is later in book\n10     Open to middle of right half of book\n11     Go back to line 3\n12 Else\n13     Quit",
+        "source_ref": "src-notes-0#pseudocode",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "«person is earlier in book» چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "عبارت بولی",
+            "correct": true,
+            "feedback_fa": "درست؛ پاسخش درست یا نادرست است."
+          },
+          {
+            "id": "b",
+            "text_fa": "تابع",
+            "correct": false,
+            "feedback_fa": "تابع یک عمل است (مثل Open)."
+          },
+          {
+            "id": "c",
+            "text_fa": "حلقه",
+            "correct": false,
+            "feedback_fa": "حلقه «برگرد به …» است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l05-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر خط را دسته‌بندی کن: «Open to middle of phone book»، «If person is on page»، «Go back to line 3».",
+        "expected": {
+          "answers": {
+            "Open to middle of phone book": "function",
+            "If person is on page": "conditional",
+            "Go back to line 3": "loop"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "فعل = تابع، if = شرط، برگشت = حلقه."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l05-u03",
+      "order": 3,
+      "title_fa": "انتزاع: از دودویی تا C و Scratch",
+      "concept_ids": [
+        "w00-c-abstraction",
+        "w00-c-compiler"
+      ],
+      "objective_ids": [
+        "w00-o05"
+      ],
+      "note_id": "w00-n09",
+      "source_refs": [
+        "src-notes-0#whats-ahead",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "برنامه‌نویس‌ها با انتزاع روی کار دیگران بنا می‌کنند: به‌جای نوشتن با صفر و یک، زبان‌های برنامه‌نویسی ساخته شدند تا کار سخت دودویی را پنهان کنند. این هفته Scratch و از هفتهٔ بعد C.",
+        "note_id": "w00-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-c",
+        "lang": "c",
+        "content": "#include <stdio.h>\n\nint main(void)\n{\n  printf(\"hello, world\\n\");\n}",
+        "source_ref": "src-notes-0#whats-ahead",
+        "explain_fa": "برای دیدن چهرهٔ C در هفته‌های بعد؛ این هفته لازم نیست اجرا شود."
+      },
+      "check": {
+        "id": "w00-l05-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "انتزاع در این درس یعنی چه؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پنهان کردن جزئیات پیچیده پشت چیزی ساده‌تر",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "نوشتن مستقیم با صفر و یک",
+            "correct": false,
+            "feedback_fa": "این دقیقاً چیزی است که انتزاع از آن دورمان می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "حذف همهٔ شرط‌ها",
+            "correct": false,
+            "feedback_fa": "ربطی به انتزاع ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l05-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "یک مثال روزمره از انتزاع بنویس (تألیفی).",
+        "expected": {
+          "rubric_fa": [
+            "پنهان کردن جزئیات",
+            "استفاده از نام یا رابط ساده"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "خوب است.",
+          "incorrect_fa": "مثلاً روشن کردن ماشین با یک کلید، بدون دانستن جزئیات موتور."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

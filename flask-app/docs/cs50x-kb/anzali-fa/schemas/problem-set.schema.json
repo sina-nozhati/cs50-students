@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/problem-set.schema.json",
+  "title": "Problem set",
+  "type": "object",
+  "required": [
+    "id",
+    "week",
+    "official",
+    "pedagogical_guide",
+    "solution"
+  ],
+  "properties": {
+    "id": {
+      "const": "w00-ps-scratch"
+    },
+    "official": {
+      "type": "object",
+      "required": [
+        "origin",
+        "url",
+        "requirements",
+        "submission_steps",
+        "official_evaluation",
+        "deadline_utc"
+      ],
+      "properties": {
+        "origin": {
+          "const": "translated-rewritten"
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "text_fa",
+              "text_en",
+              "source_ref"
+            ],
+            "properties": {
+              "source_ref": {
+                "type": "string",
+                "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+              }
+            },
+            "additionalProperties": true
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "pedagogical_guide": {
+      "type": "object",
+      "required": [
+        "origin",
+        "staged_hints",
+        "self_checklist",
+        "common_mistakes_fa"
+      ],
+      "properties": {
+        "origin": {
+          "const": "authored"
+        }
+      },
+      "additionalProperties": true
+    },
+    "solution": {
+      "type": "object",
+      "required": [
+        "provided"
+      ],
+      "properties": {
+        "provided": {
+          "const": false
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -37,10 +37,20 @@ def site_number_for_node(node: dict[str, Any]) -> int | None:
 
 
 def _index_mtime() -> float:
+    mt = 0.0
     try:
-        return _INDEX_PATH.stat().st_mtime
+        mt = _INDEX_PATH.stat().st_mtime
     except OSError:
-        return 0.0
+        pass
+    fa_root = _KB_ROOT / "anzali-fa"
+    if fa_root.is_dir():
+        try:
+            mt = max(mt, fa_root.stat().st_mtime)
+            for p in fa_root.rglob("index.fragment.json"):
+                mt = max(mt, p.stat().st_mtime)
+        except OSError:
+            pass
+    return mt
 
 
 @lru_cache(maxsize=4)
@@ -48,6 +58,40 @@ def _load_index_cached(mtime: float) -> dict[str, Any]:
     with open(_INDEX_PATH, encoding="utf-8") as f:
         data = json.load(f)
     nodes = {n["id"]: n for n in data.get("nodes", []) if "id" in n}
+
+    # پویش خودکار برای بسته‌های هفتگی جدید در anzali-fa
+    # هر پوشهٔ جدیدی که اضافه شود و فایل index.fragment.json داشته باشد،
+    # نودهایش بدون نیاز به ادغام دستی، مستقیم در درخت لودر بارگذاری می‌شوند.
+    fa_root = _KB_ROOT / "anzali-fa"
+    if fa_root.is_dir():
+        for frag_path in sorted(fa_root.rglob("index.fragment.json")):
+            try:
+                with open(frag_path, encoding="utf-8") as ff:
+                    frag = json.load(ff)
+                mount = "anzali-fa/"
+                orig_mount = frag.get("mount_prefix", "")
+                for fn in frag.get("nodes", []):
+                    nid = fn.get("id")
+                    if nid and nid not in nodes:
+                        node_copy = dict(fn)
+                        p_str = node_copy.get("path", "")
+                        if orig_mount and p_str.startswith(orig_mount):
+                            node_copy["path"] = mount + p_str[len(orig_mount):]
+                        elif not p_str.startswith(mount):
+                            node_copy["path"] = mount + p_str
+                        nodes[nid] = node_copy
+
+                for att in frag.get("attach_to", []):
+                    pid = att.get("parent_id")
+                    cid = att.get("append_child")
+                    if pid in nodes and cid:
+                        p = nodes[pid]
+                        ch = p.setdefault("children", [])
+                        if cid not in ch:
+                            ch.append(cid)
+            except Exception:
+                pass
+
     return {"meta": {k: v for k, v in data.items() if k != "nodes"}, "nodes": nodes}
 
 
@@ -129,3 +173,66 @@ def week_node_by_site_number(site_number: int) -> dict[str, Any] | None:
 def week_doc_id(site_number: int) -> str | None:
     node = week_node_by_site_number(site_number)
     return node["id"] if node else None
+
+
+def anzali_hub_by_site_number(site_number: int) -> dict[str, Any] | None:
+    """پیدا کردن نود هاب فارسی انزلی برای یک هفته (مثلاً w00-fa یا هر هفتهٔ دیگر)."""
+    nodes = all_nodes()
+    target_id = f"w{site_number:02d}-fa"
+    if target_id in nodes:
+        return nodes[target_id]
+    for node in nodes.values():
+        if node.get("type") in ("anzali-week-hub", "week-overview"):
+            if node.get("week") == site_number or site_number_for_node(node) == site_number:
+                return node
+    return None
+
+
+def find_counterpart_node(node: dict[str, Any]) -> dict[str, Any] | None:
+    """پیدا کردن سند همتا (فارسی برای انگلیسی، یا انگلیسی برای فارسی)."""
+    nid = node.get("id") or ""
+    is_fa = (
+        node.get("lang") == "fa"
+        or "anzali-fa" in (node.get("tags") or [])
+        or nid.startswith(("w00-", "w01-", "w02-"))
+        or "anzali-fa" in (node.get("path") or "")
+    )
+    site_n = site_number_for_node(node)
+    nodes = all_nodes()
+
+    if is_fa:
+        # اگر پرابلم‌ست است
+        if "pset" in nid or "scratch" in nid or node.get("type") in ("problem-set", "anzali-pset-guide"):
+            if site_n is not None:
+                for k, cand in nodes.items():
+                    if k.startswith(f"pset-{site_n}") and cand.get("type") == "pset":
+                        return cand
+                pset_idx = nodes.get(f"pset-{site_n}")
+                if pset_idx:
+                    return pset_idx
+
+        # اگر لکچر/یادداشت/خلاصه است، لکچر یا سند اصلی انگلیسی را پیدا کن
+        if site_n is not None:
+            en_hub = week_node_by_site_number(site_n)
+            if en_hub:
+                for cid in en_hub.get("children", []):
+                    c = nodes.get(cid)
+                    if c and c.get("type") in ("lecture", "week"):
+                        return c
+                return en_hub
+    else:
+        # اگر سند انگلیسی است
+        if site_n is not None:
+            # اگر پرابلم‌ست انگلیسی است
+            if nid.startswith(f"pset-{site_n}") or "scratch" in nid.lower():
+                fa_hub = anzali_hub_by_site_number(site_n)
+                if fa_hub:
+                    for cid in fa_hub.get("children", []):
+                        c = nodes.get(cid)
+                        if c and (c.get("type") == "anzali-pset-guide" or "ps-" in cid):
+                            return c
+
+            # در غیر این صورت هاب فارسی هفته
+            return anzali_hub_by_site_number(site_n)
+    return None
+

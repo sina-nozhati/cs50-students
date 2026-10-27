@@ -3,35 +3,106 @@
 {% block title %}{{ doc.title }}{% endblock %}
 
 {% block content %}
-<nav class="mb-4 text-sm flex flex-wrap gap-3 items-center">
+<nav class="mb-4 text-sm flex flex-wrap gap-2 items-center" aria-label="مسیر راهنما">
   <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer">پایگاه دانش</a>
   {% if doc.site_number is not none %}
   <span class="text-[var(--border)]">/</span>
-  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline cursor-pointer">بازگشت به هفته</a>
+  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline cursor-pointer">هفتهٔ {{ doc.site_number }}</a>
   {% endif %}
+  <span class="text-[var(--border)]">/</span>
+  <span class="text-[var(--slate)] truncate max-w-xs">{{ doc.title }}</span>
 </nav>
 
+<!-- اگر سند انگلیسی است ولی نسخهٔ فارسی آن موجود است، بنر هدایت به فارسی نمایش داده می‌شود -->
+{% if not doc.is_fa and doc.counterpart and doc.counterpart.is_fa %}
+<aside class="card-harvard p-4 sm:p-5 mb-6 bg-crimson-tint/40 border border-crimson/25 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-crimson text-white flex items-center justify-center shrink-0">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+    </div>
+    <div>
+      <h3 class="font-bold text-sm sm:text-base text-crimson-dark">نسخهٔ بومی‌شده و روان این مبحث به زبان فارسی در دسترس است</h3>
+      <p class="text-xs text-[var(--slate)] mt-0.5">آموزش فارسی با مثال‌های تفصیلی منطبق با دورهٔ انزلی</p>
+    </div>
+  </div>
+  <a href="{{ url_for('kb.doc_page', doc_id=doc.counterpart.id) }}"
+     class="btn-crimson shrink-0 text-xs sm:text-sm py-2 px-4 shadow-sm inline-flex items-center gap-2 cursor-pointer">
+    <span>مشاهدهٔ نسخهٔ فارسی</span>
+    <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </a>
+</aside>
+{% endif %}
+
 <header class="mb-6">
-  <div class="flex flex-wrap gap-2 mb-2">
+  <div class="flex flex-wrap items-center gap-2 mb-2">
+    {% if doc.is_fa %}
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson-tint text-crimson border border-crimson/20">
+      <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+      نسخهٔ فارسی CS50x Anzali
+    </span>
+    {% endif %}
+
+    {% if doc.type %}
     <span class="kb-chip">{{ doc.type }}</span>
+    {% endif %}
+
     {% if doc.source_type == 'official' or doc.rendered.has_official %}
     <span class="inline-flex px-2.5 py-0.5 rounded text-xs font-bold bg-crimson text-white">OFFICIAL</span>
     {% endif %}
+
     {% if doc.rendered.has_generated %}
     <span class="inline-flex px-2.5 py-0.5 rounded text-xs font-bold bg-[var(--crimson-dark)] text-white">GENERATED</span>
     {% elif doc.source_type and doc.source_type != 'official' %}
     <span class="inline-flex px-2.5 py-0.5 rounded text-xs font-semibold bg-crimson-tint text-crimson">{{ doc.source_type }}</span>
     {% endif %}
   </div>
-  <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight">{{ doc.title }}</h1>
-  {% if doc.source_url %}
-  <a href="{{ doc.source_url }}" target="_blank" rel="noopener noreferrer"
-     class="inline-flex items-center gap-1 mt-3 text-sm font-bold text-crimson hover:underline cursor-pointer">
-    صفحهٔ رسمی منبع
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-  </a>
-  {% endif %}
+
+  <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight text-[var(--foreground)]">{{ doc.title }}</h1>
+
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    {% if doc.source_url %}
+    <a href="{{ doc.source_url }}" target="_blank" rel="noopener noreferrer"
+       class="inline-flex items-center gap-1 text-sm font-bold text-crimson hover:underline cursor-pointer">
+      <span>صفحهٔ رسمی منبع</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    {% endif %}
+  </div>
 </header>
+
+<!-- اگر سند فارسی است و همتای انگلیسی دارد: دکمه/آکاردئون «متن اصلی (English)» -->
+{% if doc.is_fa and doc.counterpart and not doc.counterpart.is_fa %}
+<section class="mb-6">
+  <details class="card-harvard p-4 sm:p-5 border border-[var(--border)] group">
+    <summary class="flex items-center justify-between cursor-pointer font-bold text-sm text-[var(--foreground)] hover:text-crimson select-none">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-crimson shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span>متن اصلی (English)</span>
+        <span class="text-xs font-normal text-[var(--slate)]">({{ doc.counterpart.title }})</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-[var(--slate)] font-normal group-open:hidden">مشاهده مرجع انگلیسی هاروارد</span>
+        <span class="text-xs text-crimson font-bold group-open:rotate-180 transition-transform">▼</span>
+      </div>
+    </summary>
+    <div class="mt-4 pt-4 border-t border-[var(--border)] text-left" dir="ltr">
+      <div class="flex items-center justify-between mb-3 text-xs text-[var(--slate)]">
+        <span class="font-semibold text-crimson">CS50 Official Course Material</span>
+        {% if doc.counterpart.source_url %}
+        <a href="{{ doc.counterpart.source_url }}" target="_blank" rel="noopener noreferrer" class="text-crimson hover:underline font-bold">cs50.harvard.edu ↗</a>
+        {% endif %}
+      </div>
+      <article class="kb-prose kb-official">
+        {% if doc.counterpart.rendered %}
+          {{ doc.counterpart.rendered.official_html|safe if doc.counterpart.rendered.has_official else doc.counterpart.rendered.full_html|safe }}
+        {% else %}
+          <p class="text-sm text-[var(--slate)]">متن اصلی انگلیسی در صفحهٔ رسمی قابل مشاهده است.</p>
+        {% endif %}
+      </article>
+    </div>
+  </details>
+</section>
+{% endif %}
 
 {% if doc.children %}
 <section class="mb-6">
@@ -78,10 +149,10 @@
 {% if doc.rendered.has_generated %}
 <section class="mb-8">
   <div class="flex items-center gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">کاربرد در کلاس (GENERATED)</h2>
+    <h2 class="kb-section-title mb-0">نکات تکمیلی و کاربرد در کلاس (GENERATED)</h2>
     <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson-dark)] text-white">GENERATED</span>
   </div>
-  <p class="text-xs text-[var(--slate)] mb-2">این بخش توسط سازندهٔ KB تولید شده و جزو متن رسمی CS50 نیست.</p>
+  <p class="text-xs text-[var(--slate)] mb-2">این بخش توسط تیم آموزشی تدوین شده و مکمل متن درسی است.</p>
   <article class="kb-prose kb-generated card-harvard p-5 sm:p-8">
     {{ doc.rendered.generated_html|safe }}
   </article>

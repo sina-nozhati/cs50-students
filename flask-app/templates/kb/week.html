@@ -36,6 +36,54 @@
 </section>
 {% endif %}
 
+{# ─── بخش ۱: یادداشت‌های درس به زبان فارسی (در صورت وجود بسته فارسی) ─── #}
+{% if week_data.has_fa and week_data.fa_notes %}
+<section class="mb-8">
+  <div class="flex items-center justify-between gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">یادداشت‌های درس (فارسی و گام‌به‌گام)</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white num">{{ week_data.fa_notes|length }} بخش</span>
+  </div>
+  <p class="text-xs text-[var(--slate)] mb-4">متن آموزشی بومی‌سازی‌شده منطبق با مباحث تدریس‌شده در لکچر رسمی CS50.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    {% for note in week_data.fa_notes %}
+    <a href="{{ url_for('kb.doc_page', doc_id=note.id) }}"
+       class="card-harvard p-4 flex items-start gap-3 hover:border-crimson hover:bg-crimson-tint/20 border border-[var(--border)] cursor-pointer transition-all duration-200 group">
+      <span class="w-7 h-7 rounded-full bg-crimson-tint text-crimson font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 num group-hover:bg-crimson group-hover:text-white transition-colors">
+        {{ loop.index }}
+      </span>
+      <div class="min-w-0 flex-1">
+        <p class="font-bold text-sm leading-snug group-hover:text-crimson transition-colors">{{ note.title }}</p>
+        <span class="text-[11px] text-[var(--slate)] mt-1 inline-flex items-center gap-1">
+          مطالعه یادداشت
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{# ─── بخش ۲: راهنمای پروژه و تمرین‌های هفتگی ─── #}
+{% if week_data.fa_pset %}
+<section class="mb-8">
+  <h2 class="kb-section-title">راهنمای فارسی پرابلم‌ست (Problem Set)</h2>
+  <a href="{{ url_for('kb.doc_page', doc_id=week_data.fa_pset.id) }}"
+     class="card-harvard p-5 flex items-center justify-between border-r-4 border-crimson hover:bg-crimson-tint/20 transition-all cursor-pointer">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center font-bold">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      </div>
+      <div>
+        <h3 class="font-bold text-sm text-[var(--ink)]">{{ week_data.fa_pset.title }}</h3>
+        <p class="text-xs text-[var(--slate)] mt-0.5">راهنمای گام‌به‌گام صورت مسئله، الزامات رسمی و چک‌لیست خودارزیابی</p>
+      </div>
+    </div>
+    <span class="btn-crimson text-xs py-2 px-4 shrink-0">ورود به راهنما</span>
+  </a>
+</section>
+{% endif %}
+
 {% set ns = namespace(has_official_link=false) %}
 {% if week_data.source_url or week_data.source_urls %}
 {% set ns.has_official_link = true %}
@@ -63,29 +111,55 @@
 </section>
 {% endif %}
 
+{# ─── بخش ۳: خلاصه و نمای کلی هفته ─── #}
+{% if week_data.has_fa and week_data.rendered_fa_overview %}
 <section class="mb-8">
-  <h2 class="kb-section-title">محتوای این هفته</h2>
-  {% if week_data.children %}
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-    {% for c in week_data.children %}
-    <a href="{{ url_for('kb.doc_page', doc_id=c.id) }}"
-       class="card-harvard p-4 flex items-start gap-3 hover:border-crimson border border-transparent cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-crimson">
-      <span class="text-xs font-bold uppercase tracking-wide text-crimson shrink-0 mt-0.5">{{ c.type }}</span>
-      <div class="min-w-0">
-        <p class="font-bold text-sm leading-snug">{{ c.title }}</p>
-        {% if c.child_count %}
-        <p class="text-xs text-[var(--slate)] mt-1">{{ c.child_count }} زیرمورد</p>
-        {% endif %}
-      </div>
-    </a>
-    {% endfor %}
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">نمای کلی و مسیر یادگیری هفته</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">راهنمای فارسی</span>
   </div>
-  {% else %}
-  <p class="text-sm text-[var(--slate)]">فرزند مستقیمی در درخت KB ثبت نشده؛ سند هفته را پایین ببینید.</p>
-  {% endif %}
+  <div class="kb-prose card-harvard p-5 sm:p-6">
+    {{ week_data.rendered_fa_overview.full_html|safe }}
+  </div>
 </section>
+{% endif %}
 
-{% if week_data.rendered and week_data.rendered.has_generated %}
+{# ─── بخش ۴: جمع‌بندی هفته (در صورت وجود) ─── #}
+{% if week_data.has_fa and week_data.rendered_fa_summary %}
+<section class="mb-8">
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">جمع‌بندی هفته (مرور سریع مفاهیم)</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson-dark)] text-white">خلاصه فارسی</span>
+  </div>
+  <div class="kb-prose card-harvard p-5 sm:p-6">
+    {{ week_data.rendered_fa_summary.full_html|safe }}
+  </div>
+</section>
+{% endif %}
+
+{# ─── بخش ۵: متن رسمی انگلیسی (قابل دسترسی با دکمه آکاردئون) ─── #}
+{% if week_data.has_fa and week_data.rendered_en and (week_data.rendered_en.official_html or week_data.rendered_en.full_html) %}
+<section class="mb-8">
+  <details class="card-harvard p-4 sm:p-5 group">
+    <summary class="cursor-pointer font-bold text-sm text-[var(--slate)] hover:text-crimson flex items-center justify-between select-none">
+      <span class="flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        متن اصلی انگلیسی (English Reference — Official)
+      </span>
+      <span class="text-xs bg-gray-100 group-open:bg-crimson group-open:text-white px-2.5 py-1 rounded transition-colors">مشاهده متن انگلیسی</span>
+    </summary>
+    <div class="mt-4 pt-4 border-t border-[var(--border)] kb-prose" dir="ltr">
+      {% if week_data.rendered_en.official_html %}
+        {{ week_data.rendered_en.official_html|safe }}
+      {% else %}
+        {{ week_data.rendered_en.full_html|safe }}
+      {% endif %}
+    </div>
+  </details>
+</section>
+{% elif not week_data.has_fa and week_data.rendered %}
+{# برای هفته‌هایی که هنوز بسته فارسی ندارند، متن انگلیسی را مستقیم نشان بده #}
+{% if week_data.rendered.has_generated %}
 <section class="mb-8">
   <div class="flex items-center gap-2 mb-3">
     <h2 class="kb-section-title mb-0">راهنمای فارسی / چک‌لیست (GENERATED)</h2>
@@ -97,7 +171,7 @@
 </section>
 {% endif %}
 
-{% if week_data.rendered and week_data.rendered.has_official %}
+{% if week_data.rendered.has_official %}
 <section class="mb-8">
   <div class="flex items-center gap-2 mb-3">
     <h2 class="kb-section-title mb-0">خلاصهٔ رسمی هفته (OFFICIAL)</h2>
@@ -107,12 +181,13 @@
     {{ week_data.rendered.official_html|safe }}
   </div>
 </section>
-{% elif week_data.rendered and week_data.rendered.full_html and not week_data.rendered.has_generated %}
+{% elif week_data.rendered.full_html and not week_data.rendered.has_generated %}
 <section class="mb-8">
   <div class="kb-prose card-harvard p-5 sm:p-6">
     {{ week_data.rendered.full_html|safe }}
   </div>
 </section>
+{% endif %}
 {% endif %}
 
 {% else %}

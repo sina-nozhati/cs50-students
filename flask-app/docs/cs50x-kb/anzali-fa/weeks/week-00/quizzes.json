@@ -1,0 +1,1595 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 0,
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند و اثری بر نمرهٔ رسمی CS50 ندارند.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w00-q-001",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l01",
+      "concept_ids": [
+        "w00-c-academic-honesty-ai"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy",
+      "prompt_fa": "سیاست صداقت علمی CS50 استفاده از کدام ابزار AI را مجاز می‌داند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "درس‌نامه: سیاست دوره استفاده از هر ابزار AI به‌جز CS50 Duck را ممنوع می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "CS50 Duck"
+        },
+        {
+          "id": "b",
+          "text_fa": "هر چت‌بات عمومی"
+        },
+        {
+          "id": "c",
+          "text_fa": "هیچ ابزاری، حتی CS50 Duck"
+        },
+        {
+          "id": "d",
+          "text_fa": "فقط موتورهای جست‌وجو"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-002",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l02",
+      "concept_ids": [
+        "w00-c-bit"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "prompt_fa": "«بیت» کوتاه‌شدهٔ کدام عبارت است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "bit از binary digit می‌آید.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "binary digit"
+        },
+        {
+          "id": "b",
+          "text_fa": "byte item"
+        },
+        {
+          "id": "c",
+          "text_fa": "basic integer"
+        },
+        {
+          "id": "d",
+          "text_fa": "binary tree"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-003",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l02",
+      "concept_ids": [
+        "w00-c-binary"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "prompt_fa": "برای نمایش عدد ۸ حداقل چند بیت لازم است؟",
+      "answer": {
+        "correct_option_ids": [
+          "b"
+        ]
+      },
+      "explanation_fa": "با سه بیت تا ۷ می‌شود شمرد؛ ۸ = `1000` و به بیت چهارم نیاز دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "۳"
+        },
+        {
+          "id": "b",
+          "text_fa": "۴"
+        },
+        {
+          "id": "c",
+          "text_fa": "۸"
+        },
+        {
+          "id": "d",
+          "text_fa": "۲"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-004",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l03",
+      "concept_ids": [
+        "w00-c-ascii"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#ascii",
+      "prompt_fa": "کد ASCII حرف `B` کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "b"
+        ]
+      },
+      "explanation_fa": "A = 65 و B = 66 (جدول درس‌نامه). ۹۸ کد `b` کوچک است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "65"
+        },
+        {
+          "id": "b",
+          "text_fa": "66"
+        },
+        {
+          "id": "c",
+          "text_fa": "98"
+        },
+        {
+          "id": "d",
+          "text_fa": "42"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-005",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l03",
+      "concept_ids": [
+        "w00-c-ascii"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#ascii",
+      "prompt_fa": "با یک بایت حداکثر چند کد نویسهٔ متمایز می‌شود ساخت؟",
+      "answer": {
+        "correct_option_ids": [
+          "c"
+        ]
+      },
+      "explanation_fa": "۸ بیت = ۲۵۶ الگو. ASCII فقط ۱۲۸ تا از آن‌ها را به کار می‌برد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "128"
+        },
+        {
+          "id": "b",
+          "text_fa": "255"
+        },
+        {
+          "id": "c",
+          "text_fa": "256"
+        },
+        {
+          "id": "d",
+          "text_fa": "8"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-006",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l03",
+      "concept_ids": [
+        "w00-c-rgb"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#rgb",
+      "prompt_fa": "تصویر دیجیتال در درس‌نامه چگونه توصیف شد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "تصویرها مجموعه‌ای از مقادیر RGB (پیکسل‌ها) هستند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "مجموعه‌ای از مقادیر RGB"
+        },
+        {
+          "id": "b",
+          "text_fa": "فهرستی از حروف ASCII"
+        },
+        {
+          "id": "c",
+          "text_fa": "یک عدد بزرگ"
+        },
+        {
+          "id": "d",
+          "text_fa": "دنباله‌ای از صداها"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-007",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l04",
+      "concept_ids": [
+        "w00-c-running-time"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#algorithms",
+      "prompt_fa": "با ۱۰۰ نام، روش صفحه‌به‌صفحه در بدترین حالت حدود چند تلاش لازم دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "درس‌نامه: روش اول `n` است؛ با ۱۰۰ نام تا ۱۰۰ تلاش.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "۱۰۰"
+        },
+        {
+          "id": "b",
+          "text_fa": "۵۰"
+        },
+        {
+          "id": "c",
+          "text_fa": "۷"
+        },
+        {
+          "id": "d",
+          "text_fa": "۱"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-008",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l04",
+      "concept_ids": [
+        "w00-c-big-o"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#algorithms",
+      "prompt_fa": "کدام روش با بزرگ شدن مسئله کندتر از همه رشد می‌کند (بهترین است)؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "در log₂ n دو برابر شدن مسئله فقط یک گام اضافه می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "log₂ n"
+        },
+        {
+          "id": "b",
+          "text_fa": "n/2"
+        },
+        {
+          "id": "c",
+          "text_fa": "n"
+        },
+        {
+          "id": "d",
+          "text_fa": "هر سه یکسان‌اند"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-009",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l05",
+      "concept_ids": [
+        "w00-c-conditional"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#pseudocode",
+      "prompt_fa": "در شبه‌کد دفترچه، `Else if person is earlier in book` چه نوع خطی است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "if و else if شرط هستند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "شرط"
+        },
+        {
+          "id": "b",
+          "text_fa": "تابع"
+        },
+        {
+          "id": "c",
+          "text_fa": "حلقه"
+        },
+        {
+          "id": "d",
+          "text_fa": "متغیر"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-010",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l05",
+      "concept_ids": [
+        "w00-c-abstraction"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#whats-ahead",
+      "prompt_fa": "طبق درس‌نامه، زبان‌های برنامه‌نویسی چه چیزی را «انتزاع» می‌کنند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "زبان‌ها ساخته شدند تا کار سخت برنامه‌نویسی دودویی را پنهان کنند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "برنامه‌نویسی سخت با صفر و یک"
+        },
+        {
+          "id": "b",
+          "text_fa": "سخت‌افزار کامپیوتر را حذف می‌کنند"
+        },
+        {
+          "id": "c",
+          "text_fa": "نیاز به الگوریتم را"
+        },
+        {
+          "id": "d",
+          "text_fa": "نیاز به آزمایش کد را"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-011",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l06",
+      "concept_ids": [
+        "w00-c-event"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#hello-world",
+      "prompt_fa": "در برنامهٔ hello, world، کدام بلوک رویداد است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "رویداد شروع برنامه، کلیک پرچم سبز است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "when green flag clicked"
+        },
+        {
+          "id": "b",
+          "text_fa": "say [hello, world]"
+        },
+        {
+          "id": "c",
+          "text_fa": "هر دو"
+        },
+        {
+          "id": "d",
+          "text_fa": "هیچ‌کدام"
+        }
+      ],
+      "code": "when green flag clicked\nsay [hello, world]",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-012",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l07",
+      "concept_ids": [
+        "w00-c-return-value"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#hello-you",
+      "prompt_fa": "در `say (join [hello,] (answer))` کدام بلوک مقدار برمی‌گرداند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "join مقدار ترکیبی را برمی‌گرداند و say آن را نمایش می‌دهد (اثر جانبی). ask هم پاسخ را در answer می‌گذارد، اما اینجا داخل این خط نیست.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "join"
+        },
+        {
+          "id": "b",
+          "text_fa": "say"
+        },
+        {
+          "id": "c",
+          "text_fa": "when green flag clicked"
+        },
+        {
+          "id": "d",
+          "text_fa": "ask"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-013",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l08",
+      "concept_ids": [
+        "w00-c-custom-block"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "prompt_fa": "طبق درس‌نامه، اگر می‌بینی کدی را بارها تکرار کرده‌ای، احتمالاً …",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "درس‌نامه: تکرار کد نشانهٔ فرصت برای انتزاع است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "می‌توانی آن را انتزاع کنی (حلقه یا بلوک سفارشی)"
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامه نادرست است"
+        },
+        {
+          "id": "c",
+          "text_fa": "باید رویداد دیگری اضافه کنی"
+        },
+        {
+          "id": "d",
+          "text_fa": "باید متغیر حذف کنی"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-014",
+      "origin": "authored",
+      "week": 0,
+      "type": "mcq",
+      "lesson_id": "w00-l10",
+      "concept_ids": [
+        "w00-c-thread"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-0",
+      "prompt_fa": "چرا در Oscartime منطق افتادن و برخورد زباله در دو اسکریپت جداست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "دو forever پشت هم در یک اسکریپت باعث می‌شد دومی هرگز اجرا نشود؛ اسکریپت‌های پرچم سبز هم‌زمان اجرا می‌شوند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "هر دو forever دارند و باید هم‌زمان اجرا شوند"
+        },
+        {
+          "id": "b",
+          "text_fa": "Scratch بیش از یک بلوک در اسکریپت نمی‌پذیرد"
+        },
+        {
+          "id": "c",
+          "text_fa": "برای کاهش حجم فایل"
+        },
+        {
+          "id": "d",
+          "text_fa": "چون رویدادها فرق دارند"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-015",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l02",
+      "concept_ids": [
+        "w00-c-unary"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "prompt_fa": "شمردن با یک انگشت برای هر نفر، نمونه‌ای از دستگاه یکانی است.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "یکانی (پایهٔ ۱) یعنی یکی‌یکی شمردن.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-016",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l03",
+      "concept_ids": [
+        "w00-c-unicode"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#unicode",
+      "prompt_fa": "یونیکد فقط حروف انگلیسی را پوشش می‌دهد.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "یونیکد ASCII را گسترش داد و نویسه‌های بسیار بیشتر و ایموجی را دربر می‌گیرد.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-017",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l03",
+      "concept_ids": [
+        "w00-c-context-interpretation"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#rgb",
+      "prompt_fa": "یک الگوی بیت ثابت بسته به برنامه‌ای که آن را می‌خواند می‌تواند متن یا رنگ باشد.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "72 73 33 هم `HI!` است و هم یک رنگ.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-018",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l04",
+      "concept_ids": [
+        "w00-c-algorithm"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#algorithms",
+      "prompt_fa": "هر سه روش جست‌وجوی دفترچه تلفن «الگوریتم» به حساب می‌آیند.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "درس‌نامه هر سه را الگوریتم می‌نامد.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-019",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l05",
+      "concept_ids": [
+        "w00-c-pseudocode"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#pseudocode",
+      "prompt_fa": "شبه‌کد باید با نحو دقیق یک زبان برنامه‌نویسی نوشته شود.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "شبه‌کد دستورهای انسانی‌خواناست، نه نحو یک زبان خاص.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-020",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l06",
+      "concept_ids": [
+        "w00-c-coordinates"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#scratch",
+      "prompt_fa": "در Scratch، مختصات (0,0) گوشهٔ بالا-چپ صحنه است.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "(0,0) مرکز صحنه است.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-021",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l09",
+      "concept_ids": [
+        "w00-c-forever-loop"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#conditionals",
+      "prompt_fa": "اگر if بدون forever زیر پرچم سبز باشد، شرط فقط یک بار بررسی می‌شود.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "forever است که بررسی را پیوسته می‌کند.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-022",
+      "origin": "authored",
+      "week": 0,
+      "type": "true_false",
+      "lesson_id": "w00-l10",
+      "concept_ids": [
+        "w00-c-boolean-operators"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#ivys-hardest-game",
+      "prompt_fa": "`<A> or <B>` فقط وقتی درست است که هر دو درست باشند.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "or با درست بودن دست‌کم یکی درست است؛ توصیف داده‌شده مربوط به and است.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-023",
+      "origin": "authored",
+      "week": 0,
+      "type": "short_answer",
+      "lesson_id": "w00-l02",
+      "concept_ids": [
+        "w00-c-byte"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "prompt_fa": "عدد ۱۳ را به دودویی ۸ بیتی بنویس.",
+      "answer": {
+        "accept": [
+          "00001101"
+        ],
+        "normalize": [
+          "trim",
+          "persian_digits_to_latin",
+          "casefold"
+        ]
+      },
+      "explanation_fa": "13 = 8 + 4 + 1.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-024",
+      "origin": "authored",
+      "week": 0,
+      "type": "short_answer",
+      "lesson_id": "w00-l02",
+      "concept_ids": [
+        "w00-c-binary"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#computer-science-and-problem-solving",
+      "prompt_fa": "`00101010` چه عددی است؟",
+      "answer": {
+        "accept": [
+          "42"
+        ],
+        "normalize": [
+          "trim",
+          "persian_digits_to_latin",
+          "casefold"
+        ]
+      },
+      "explanation_fa": "32 + 8 + 2 = 42.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-025",
+      "origin": "authored",
+      "week": 0,
+      "type": "short_answer",
+      "lesson_id": "w00-l03",
+      "concept_ids": [
+        "w00-c-ascii"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#ascii",
+      "prompt_fa": "کلمهٔ `CS` را با کدهای ASCII بنویس (با فاصله).",
+      "answer": {
+        "accept": [
+          "67 83"
+        ],
+        "normalize": [
+          "trim",
+          "persian_digits_to_latin",
+          "casefold"
+        ]
+      },
+      "explanation_fa": "C = 67، S = 83.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-026",
+      "origin": "authored",
+      "week": 0,
+      "type": "short_answer",
+      "lesson_id": "w00-l04",
+      "concept_ids": [
+        "w00-c-big-o"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-0#algorithms",
+      "prompt_fa": "در روش نصف‌کردن، برای ۱۰۲۴ صفحه حدوداً چند گام لازم است؟",
+      "answer": {
+        "accept": [
+          "10",
+          "۱۰"
+        ],
+        "normalize": [
+          "trim",
+          "persian_digits_to_latin",
+          "casefold"
+        ]
+      },
+      "explanation_fa": "2^10 = 1024 (محاسبهٔ تألیفی از log₂ n).",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-027",
+      "origin": "authored",
+      "week": 0,
+      "type": "short_answer",
+      "lesson_id": "w00-l07",
+      "concept_ids": [
+        "w00-c-variable"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#hello-you",
+      "prompt_fa": "نام متغیری که ask پاسخ کاربر را در آن ذخیره می‌کند چیست؟",
+      "answer": {
+        "accept": [
+          "answer"
+        ],
+        "normalize": [
+          "trim",
+          "persian_digits_to_latin",
+          "casefold"
+        ]
+      },
+      "explanation_fa": "درس‌نامه: answer.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-028",
+      "origin": "authored",
+      "week": 0,
+      "type": "short_answer",
+      "lesson_id": "w00-l08",
+      "concept_ids": [
+        "w00-c-custom-block"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "prompt_fa": "در Scratch، بلوکی که با آن تابع خودت را تعریف می‌کنی چه نام دارد؟",
+      "answer": {
+        "accept": [
+          "define"
+        ],
+        "normalize": [
+          "trim",
+          "persian_digits_to_latin",
+          "casefold"
+        ]
+      },
+      "explanation_fa": "define (ساخته‌شده با Make a Block).",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-029",
+      "origin": "authored",
+      "week": 0,
+      "type": "predict_output",
+      "lesson_id": "w00-l07",
+      "concept_ids": [
+        "w00-c-string-join"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#hello-you",
+      "prompt_fa": "اگر کاربر `David` وارد کند، گربه چه می‌گوید؟",
+      "answer": {
+        "accept": [
+          "hello, David"
+        ]
+      },
+      "explanation_fa": "join «hello,» و answer را ترکیب می‌کند.",
+      "code": "when green flag clicked\nask [What's your name?] and wait\nsay (join [hello,] (answer))",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-030",
+      "origin": "authored",
+      "week": 0,
+      "type": "predict_output",
+      "lesson_id": "w00-l08",
+      "concept_ids": [
+        "w00-c-loop"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "prompt_fa": "با کلیک پرچم سبز، چند بار صدای Meow پخش می‌شود؟",
+      "answer": {
+        "accept": [
+          "3",
+          "۳"
+        ]
+      },
+      "explanation_fa": "repeat (3).",
+      "code": "when green flag clicked\nrepeat (3)\nplay sound (Meow v) until done\nwait (1) seconds",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-031",
+      "origin": "authored",
+      "week": 0,
+      "type": "predict_output",
+      "lesson_id": "w00-l08",
+      "concept_ids": [
+        "w00-c-parameter-input"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "prompt_fa": "اگر این بلوک با `meow (4) times` صدا زده شود، چند ثانیه wait در کل اجرا می‌شود؟",
+      "answer": {
+        "accept": [
+          "4",
+          "۴"
+        ]
+      },
+      "explanation_fa": "هر تکرار یک wait (1) دارد؛ n = 4.",
+      "code": "define meow n times\nrepeat (n)\n play sound [meow v] until done\n wait (1) seconds",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-032",
+      "origin": "authored",
+      "week": 0,
+      "type": "predict_output",
+      "lesson_id": "w00-l06",
+      "concept_ids": [
+        "w00-c-coordinates"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#oscartime",
+      "prompt_fa": "زباله بعد از ۱۰۰ بار اجرای بدنهٔ forever، y برابر چند است؟ (فرض: به چیزی برخورد نکرده)",
+      "answer": {
+        "accept": [
+          "80"
+        ]
+      },
+      "explanation_fa": "از y = 180 شروع و هر بار ۱ کم: 180 − 100 = 80.",
+      "code": "when green flag clicked\nset drag mode [draggable v]\ngo to x: (pick random (0) to (240)) y: (180)\nforever\n  change y by (-1)\nend",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-033",
+      "origin": "authored",
+      "week": 0,
+      "type": "predict_output",
+      "lesson_id": "w00-l09",
+      "concept_ids": [
+        "w00-c-conditional"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#oscartime",
+      "prompt_fa": "ماوس روی Oscar است. کدام لباس نمایش داده می‌شود؟",
+      "answer": {
+        "accept": [
+          "oscar2"
+        ]
+      },
+      "explanation_fa": "شرط touching mouse-pointer درست است → oscar2.",
+      "code": "when green flag clicked\nswitch costume to (oscar1 v)\nforever\nif <touching (mouse-pointer v)?> then\nswitch costume to (oscar2 v)\nelse\nswitch costume to (oscar1 v)",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-034",
+      "origin": "authored",
+      "week": 0,
+      "type": "predict_output",
+      "lesson_id": "w00-l10",
+      "concept_ids": [
+        "w00-c-movement-collision"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#ivys-hardest-game",
+      "prompt_fa": "اسپرایت در (0,0) است و کلید جهت بالا را ۵ گام (۵ بار حلقه) نگه می‌داری. مختصات؟",
+      "answer": {
+        "accept": [
+          "(0,5)",
+          "(0, 5)"
+        ]
+      },
+      "explanation_fa": "هر بار change y by (1).",
+      "code": "define listen for keyboard\nif <key (up arrow v) pressed?> then\nchange y by (1)\nend\nif <key (down arrow v) pressed?> then\nchange y by (-1)\nend\nif <key (right arrow v) pressed?> then\nchange x by (1)\nend\nif <key (left arrow v) pressed?> then\nchange x by (-1)\nend",
+      "lang": "scratch",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-035",
+      "origin": "authored",
+      "week": 0,
+      "type": "find_the_bug",
+      "lesson_id": "w00-l09",
+      "concept_ids": [
+        "w00-c-forever-loop"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored",
+      "prompt_fa": "(کد تألیفی) چرا با بردن ماوس روی گربه صدایی پخش نمی‌شود؟",
+      "answer": {
+        "key_points_fa": [
+          "if بیرون از forever است و فقط یک بار بررسی می‌شود"
+        ]
+      },
+      "explanation_fa": "در نسخهٔ درس‌نامه if داخل forever است.",
+      "code": "when green flag clicked\nif <touching (mouse-pointer v)?> then\nplay sound (Meow v) until done",
+      "lang": "scratch",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-036",
+      "origin": "authored",
+      "week": 0,
+      "type": "find_the_bug",
+      "lesson_id": "w00-l08",
+      "concept_ids": [
+        "w00-c-parameter-input"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored",
+      "prompt_fa": "(کد تألیفی) این بلوک همیشه ۳ بار میو می‌کند، هر عددی بدهی. چرا؟",
+      "answer": {
+        "key_points_fa": [
+          "ورودی n داخل تعریف استفاده نشده",
+          "repeat باید (n) بگیرد نه (3)"
+        ]
+      },
+      "explanation_fa": "در نسخهٔ درس‌نامه repeat (n) است.",
+      "code": "define meow n times\nrepeat (3)\n play sound [meow v] until done\n wait (1) seconds",
+      "lang": "scratch",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-037",
+      "origin": "authored",
+      "week": 0,
+      "type": "find_the_bug",
+      "lesson_id": "w00-l07",
+      "concept_ids": [
+        "w00-c-variable"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored",
+      "prompt_fa": "(کد تألیفی) گربه همیشه «hello, answer» می‌گوید. مشکل؟",
+      "answer": {
+        "key_points_fa": [
+          "answer به‌صورت متن تایپ شده، نه بلوک متغیر"
+        ]
+      },
+      "explanation_fa": "در درس‌نامه (answer) بلوک گرد متغیر است.",
+      "code": "when green flag clicked\nask [What's your name?] and wait\nsay (join [hello,] [answer])",
+      "lang": "scratch",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-038",
+      "origin": "authored",
+      "week": 0,
+      "type": "find_the_bug",
+      "lesson_id": "w00-l10",
+      "concept_ids": [
+        "w00-c-thread"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored",
+      "prompt_fa": "(کد تألیفی) زباله می‌افتد ولی هرگز با رسیدن به Oscar به بالا برنمی‌گردد. چرا؟",
+      "answer": {
+        "key_points_fa": [
+          "forever اول هرگز تمام نمی‌شود، پس forever دوم اجرا نمی‌شود",
+          "باید در دو اسکریپت جدا باشند"
+        ]
+      },
+      "explanation_fa": "درس‌نامه این دو را دو اسکریپت جدا با پرچم سبز می‌نویسد.",
+      "code": "when green flag clicked\nset drag mode [draggable v]\ngo to top\nforever\n  change y by (-1)\nend\nforever\n  if <touching [Oscar v] ?> then\n    go to top\n  end\nend",
+      "lang": "scratch",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-039",
+      "origin": "authored",
+      "week": 0,
+      "type": "find_the_bug",
+      "lesson_id": "w00-l10",
+      "concept_ids": [
+        "w00-c-movement-collision"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored",
+      "prompt_fa": "(کد تألیفی) اسپرایت از دیوار راست عبور می‌کند و بیرون می‌رود. مشکل؟",
+      "answer": {
+        "key_points_fa": [
+          "برای دیوار راست باید change x by (-1) باشد"
+        ]
+      },
+      "explanation_fa": "در درس‌نامه دیوار راست x را یک واحد کم می‌کند.",
+      "code": "define feel for walls\nif <touching (left wall v) ?> then\nchange x by (1)\nend\nif <touching (right wall v) ?> then\nchange x by (1)\nend",
+      "lang": "scratch",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-040",
+      "origin": "authored",
+      "week": 0,
+      "type": "ordering",
+      "lesson_id": "w00-l06",
+      "concept_ids": [
+        "w00-c-event"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-0#hello-world",
+      "prompt_fa": "بلوک‌ها را به ترتیب درست برای برنامهٔ hello, world بچین.",
+      "answer": {
+        "order": [
+          "b",
+          "a"
+        ]
+      },
+      "explanation_fa": "رویداد اول، سپس say.",
+      "items": [
+        {
+          "id": "a",
+          "text_fa": "say [hello, world]"
+        },
+        {
+          "id": "b",
+          "text_fa": "when green flag clicked"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-041",
+      "origin": "authored",
+      "week": 0,
+      "type": "ordering",
+      "lesson_id": "w00-l07",
+      "concept_ids": [
+        "w00-c-variable"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#hello-you",
+      "prompt_fa": "ترتیب اجرای hello1 را بچین.",
+      "answer": {
+        "order": [
+          "c",
+          "b",
+          "a"
+        ]
+      },
+      "explanation_fa": "رویداد ← پرسش ← گفتن.",
+      "items": [
+        {
+          "id": "a",
+          "text_fa": "say (join [hello,] (answer))"
+        },
+        {
+          "id": "b",
+          "text_fa": "ask [What's your name?] and wait"
+        },
+        {
+          "id": "c",
+          "text_fa": "when green flag clicked"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-042",
+      "origin": "authored",
+      "week": 0,
+      "type": "ordering",
+      "lesson_id": "w00-l04",
+      "concept_ids": [
+        "w00-c-running-time"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#algorithms",
+      "prompt_fa": "روش‌های دفترچهٔ تلفن را از کندترین به سریع‌ترین (برای n بزرگ) مرتب کن.",
+      "answer": {
+        "order": [
+          "b",
+          "c",
+          "a"
+        ]
+      },
+      "explanation_fa": "n > n/2 > log₂ n.",
+      "items": [
+        {
+          "id": "a",
+          "text_fa": "log₂ n"
+        },
+        {
+          "id": "b",
+          "text_fa": "n"
+        },
+        {
+          "id": "c",
+          "text_fa": "n/2"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-043",
+      "origin": "authored",
+      "week": 0,
+      "type": "ordering",
+      "lesson_id": "w00-l05",
+      "concept_ids": [
+        "w00-c-pseudocode"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#pseudocode",
+      "prompt_fa": "خط‌های آغاز شبه‌کد دفترچه را مرتب کن.",
+      "answer": {
+        "order": [
+          "b",
+          "c",
+          "a"
+        ]
+      },
+      "explanation_fa": "همان ترتیب خطوط ۱ تا ۳ درس‌نامه.",
+      "items": [
+        {
+          "id": "a",
+          "text_fa": "Look at page"
+        },
+        {
+          "id": "b",
+          "text_fa": "Pick up phone book"
+        },
+        {
+          "id": "c",
+          "text_fa": "Open to middle of phone book"
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w00-q-044",
+      "origin": "authored",
+      "week": 0,
+      "type": "practical",
+      "lesson_id": "w00-l08",
+      "concept_ids": [
+        "w00-c-parameter-input"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#meow-loops-and-abstraction",
+      "prompt_fa": "در Scratch یک بلوک سفارشی با یک ورودی بساز که کاری را n بار تکرار کند (غیر از میو). آن را با دو عدد مختلف امتحان کن.",
+      "answer": {
+        "self_check_fa": [
+          "ورودی داخل تعریف استفاده شده",
+          "با دو عدد مختلف رفتار متفاوت دیدم"
+        ],
+        "evaluation": "self_or_mentor"
+      },
+      "explanation_fa": "این همان مهارتی است که پرابلم‌ست ۰ می‌خواهد. پروژهٔ پرابلم‌ست را کپی نکن؛ این تمرین جداست.",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-045",
+      "origin": "authored",
+      "week": 0,
+      "type": "practical",
+      "lesson_id": "w00-l09",
+      "concept_ids": [
+        "w00-c-forever-loop"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-0#conditionals",
+      "prompt_fa": "یک اسپرایت بساز که وقتی ماوس رویش است رنگ یا لباسش عوض شود و وقتی دور شد برگردد.",
+      "answer": {
+        "self_check_fa": [
+          "از forever استفاده شد",
+          "از if … else استفاده شد",
+          "حالت اولیه تنظیم شد"
+        ],
+        "evaluation": "self_or_mentor"
+      },
+      "explanation_fa": "مشابه الگوی Oscar در درس‌نامه.",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w00-q-046",
+      "origin": "authored",
+      "week": 0,
+      "type": "practical",
+      "lesson_id": "w00-l10",
+      "concept_ids": [
+        "w00-c-incremental-development"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-pset-0-scratch#starting-from-scratch",
+      "prompt_fa": "برای ایدهٔ پروژهٔ خودت یک «نقشهٔ الزامات» بنویس و اولین اسکریپت قابل اجرا را بساز و ذخیره کن.",
+      "answer": {
+        "self_check_fa": [
+          "هر پنج الزام رسمی نقشه دارند",
+          "اولین اسکریپت اجرا شد",
+          "File > Save now زده شد"
+        ],
+        "evaluation": "self_or_mentor"
+      },
+      "explanation_fa": "گام‌های کوچک طبق صفحهٔ رسمی.",
+      "tags": [],
+      "auto_gradable": false
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w00-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l01",
+      "title_fa": "تمرین درس 1",
+      "item_ids": [
+        "w00-q-001"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l02",
+      "title_fa": "تمرین درس 2",
+      "item_ids": [
+        "w00-q-002",
+        "w00-q-003",
+        "w00-q-015",
+        "w00-q-023",
+        "w00-q-024"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l03",
+      "title_fa": "تمرین درس 3",
+      "item_ids": [
+        "w00-q-004",
+        "w00-q-005",
+        "w00-q-006",
+        "w00-q-016",
+        "w00-q-017",
+        "w00-q-025"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l04",
+      "title_fa": "تمرین درس 4",
+      "item_ids": [
+        "w00-q-007",
+        "w00-q-008",
+        "w00-q-018",
+        "w00-q-026",
+        "w00-q-042"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l05",
+      "title_fa": "تمرین درس 5",
+      "item_ids": [
+        "w00-q-009",
+        "w00-q-010",
+        "w00-q-019",
+        "w00-q-043"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l06",
+      "title_fa": "تمرین درس 6",
+      "item_ids": [
+        "w00-q-011",
+        "w00-q-020",
+        "w00-q-032",
+        "w00-q-040"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l07",
+      "title_fa": "تمرین درس 7",
+      "item_ids": [
+        "w00-q-012",
+        "w00-q-027",
+        "w00-q-029",
+        "w00-q-037",
+        "w00-q-041"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l08",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l08",
+      "title_fa": "تمرین درس 8",
+      "item_ids": [
+        "w00-q-013",
+        "w00-q-028",
+        "w00-q-030",
+        "w00-q-031",
+        "w00-q-036",
+        "w00-q-044"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l09",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l09",
+      "title_fa": "تمرین درس 9",
+      "item_ids": [
+        "w00-q-021",
+        "w00-q-033",
+        "w00-q-035",
+        "w00-q-045"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-qz-l10",
+      "kind": "lesson_practice",
+      "lesson_id": "w00-l10",
+      "title_fa": "تمرین درس 10",
+      "item_ids": [
+        "w00-q-014",
+        "w00-q-022",
+        "w00-q-034",
+        "w00-q-038",
+        "w00-q-039",
+        "w00-q-046"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w00-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۰",
+      "item_ids": [
+        "w00-q-001",
+        "w00-q-003",
+        "w00-q-023",
+        "w00-q-005",
+        "w00-q-017",
+        "w00-q-026",
+        "w00-q-007",
+        "w00-q-010",
+        "w00-q-043",
+        "w00-q-032",
+        "w00-q-011",
+        "w00-q-012",
+        "w00-q-041",
+        "w00-q-013",
+        "w00-q-031",
+        "w00-q-021",
+        "w00-q-033",
+        "w00-q-014",
+        "w00-q-034"
+      ],
+      "item_pool_ids": [
+        "w00-q-001",
+        "w00-q-002",
+        "w00-q-003",
+        "w00-q-004",
+        "w00-q-005",
+        "w00-q-006",
+        "w00-q-007",
+        "w00-q-008",
+        "w00-q-009",
+        "w00-q-010",
+        "w00-q-011",
+        "w00-q-012",
+        "w00-q-013",
+        "w00-q-014",
+        "w00-q-015",
+        "w00-q-016",
+        "w00-q-017",
+        "w00-q-018",
+        "w00-q-019",
+        "w00-q-020",
+        "w00-q-021",
+        "w00-q-022",
+        "w00-q-023",
+        "w00-q-024",
+        "w00-q-025",
+        "w00-q-026",
+        "w00-q-027",
+        "w00-q-028",
+        "w00-q-029",
+        "w00-q-030",
+        "w00-q-031",
+        "w00-q-032",
+        "w00-q-033",
+        "w00-q-034",
+        "w00-q-040",
+        "w00-q-041",
+        "w00-q-042",
+        "w00-q-043"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 19,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% and a larger test. See docs/proposals."
+      }
+    }
+  ]
+}

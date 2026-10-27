@@ -1,0 +1,617 @@
+{
+  "$schema": "../schemas/glossary.schema.json",
+  "version": "0.1.0",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "conventions": {
+    "ezafe": "ـهٔ (as in the newest KB templates)",
+    "digits": "Persian digits in prose; Latin digits inside code, binary and ASCII values",
+    "zwnj": "required (می‌شود، فلش‌کارت)",
+    "arabic_letters_forbidden": [
+      "U+064A ARABIC LETTER YEH (use U+06CC)",
+      "U+0643 ARABIC LETTER KAF (use U+06A9)"
+    ],
+    "first_use": "Persian term followed by the English term in parentheses on first use in each document"
+  },
+  "origin": "authored",
+  "terms": [
+    {
+      "id": "g-ai-fundamentals",
+      "fa": "هوش مصنوعی و اصول پایه",
+      "en": "AI and fundamentals",
+      "concept_id": "w00-c-ai-fundamentals",
+      "kind": "concept",
+      "source_ref": "src-notes-0#welcome"
+    },
+    {
+      "id": "g-academic-honesty-ai",
+      "fa": "سیاست صداقت علمی دربارهٔ هوش مصنوعی",
+      "en": "Academic honesty policy on AI",
+      "concept_id": "w00-c-academic-honesty-ai",
+      "kind": "concept",
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy"
+    },
+    {
+      "id": "g-ide",
+      "fa": "محیط توسعهٔ یکپارچه",
+      "en": "integrated development environment (IDE)",
+      "concept_id": "w00-c-ide",
+      "kind": "concept",
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy"
+    },
+    {
+      "id": "g-problem-solving",
+      "fa": "حل مسئله: ورودی، خروجی، جعبهٔ سیاه",
+      "en": "problem solving: input, output, black box",
+      "concept_id": "w00-c-problem-solving",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-computational-thinking",
+      "fa": "تفکر محاسباتی",
+      "en": "computational thinking",
+      "concept_id": "w00-c-computational-thinking",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-unary",
+      "fa": "یکانی (پایهٔ ۱)",
+      "en": "unary (base-1)",
+      "concept_id": "w00-c-unary",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-decimal",
+      "fa": "دهدهی (پایهٔ ۱۰)",
+      "en": "decimal (base-10)",
+      "concept_id": "w00-c-decimal",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-binary",
+      "fa": "دودویی (پایهٔ ۲)",
+      "en": "binary (base-2)",
+      "concept_id": "w00-c-binary",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-bit",
+      "fa": "بیت",
+      "en": "bit",
+      "concept_id": "w00-c-bit",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-transistor",
+      "fa": "ترانزیستور",
+      "en": "transistor",
+      "concept_id": "w00-c-transistor",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-byte",
+      "fa": "بایت",
+      "en": "byte",
+      "concept_id": "w00-c-byte",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-ascii",
+      "fa": "اَسکی",
+      "en": "ASCII",
+      "concept_id": "w00-c-ascii",
+      "kind": "concept",
+      "source_ref": "src-notes-0#ascii"
+    },
+    {
+      "id": "g-unicode",
+      "fa": "یونیکد",
+      "en": "Unicode",
+      "concept_id": "w00-c-unicode",
+      "kind": "concept",
+      "source_ref": "src-notes-0#unicode"
+    },
+    {
+      "id": "g-rgb",
+      "fa": "RGB (قرمز، سبز، آبی)",
+      "en": "RGB",
+      "concept_id": "w00-c-rgb",
+      "kind": "concept",
+      "source_ref": "src-notes-0#rgb"
+    },
+    {
+      "id": "g-pixel",
+      "fa": "پیکسل",
+      "en": "pixel",
+      "concept_id": "w00-c-pixel",
+      "kind": "concept",
+      "source_ref": "src-notes-0#rgb"
+    },
+    {
+      "id": "g-media-representation",
+      "fa": "نمایش ویدئو و موسیقی",
+      "en": "representing video and music",
+      "concept_id": "w00-c-media-representation",
+      "kind": "concept",
+      "source_ref": "src-notes-0#rgb"
+    },
+    {
+      "id": "g-context-interpretation",
+      "fa": "تفسیر بیت‌ها وابسته به زمینه",
+      "en": "context determines interpretation",
+      "concept_id": "w00-c-context-interpretation",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-algorithm",
+      "fa": "الگوریتم",
+      "en": "algorithm",
+      "concept_id": "w00-c-algorithm",
+      "kind": "concept",
+      "source_ref": "src-notes-0#algorithms"
+    },
+    {
+      "id": "g-running-time",
+      "fa": "زمان اجرا",
+      "en": "running time",
+      "concept_id": "w00-c-running-time",
+      "kind": "concept",
+      "source_ref": "src-notes-0#algorithms"
+    },
+    {
+      "id": "g-big-o",
+      "fa": "نماد O بزرگ",
+      "en": "big-O notation",
+      "concept_id": "w00-c-big-o",
+      "kind": "concept",
+      "source_ref": "src-notes-0#algorithms"
+    },
+    {
+      "id": "g-correctness-vs-design",
+      "fa": "درستی در برابر طراحی خوب",
+      "en": "correctness vs design",
+      "concept_id": "w00-c-correctness-vs-design",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-pseudocode",
+      "fa": "شبه‌کد",
+      "en": "pseudocode",
+      "concept_id": "w00-c-pseudocode",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-function",
+      "fa": "تابع",
+      "en": "function",
+      "concept_id": "w00-c-function",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-conditional",
+      "fa": "شرط",
+      "en": "conditional",
+      "concept_id": "w00-c-conditional",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-boolean-expression",
+      "fa": "عبارت بولی",
+      "en": "boolean expression",
+      "concept_id": "w00-c-boolean-expression",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-loop",
+      "fa": "حلقه",
+      "en": "loop",
+      "concept_id": "w00-c-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-corner-case",
+      "fa": "حالت مرزی",
+      "en": "corner case",
+      "concept_id": "w00-c-corner-case",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-abstraction",
+      "fa": "انتزاع",
+      "en": "abstraction",
+      "concept_id": "w00-c-abstraction",
+      "kind": "concept",
+      "source_ref": "src-notes-0#whats-ahead"
+    },
+    {
+      "id": "g-compiler",
+      "fa": "کامپایلر",
+      "en": "compiler",
+      "concept_id": "w00-c-compiler",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-scratch-interface",
+      "fa": "محیط Scratch: پالت بلوک‌ها، ناحیهٔ برنامه، صحنه",
+      "en": "Scratch interface: blocks palette, programming area, stage",
+      "concept_id": "w00-c-scratch-interface",
+      "kind": "concept",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-sprite",
+      "fa": "اسپرایت",
+      "en": "sprite",
+      "concept_id": "w00-c-sprite",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-coordinates",
+      "fa": "دستگاه مختصات Scratch",
+      "en": "Scratch coordinate system",
+      "concept_id": "w00-c-coordinates",
+      "kind": "concept",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-event",
+      "fa": "رویداد",
+      "en": "event",
+      "concept_id": "w00-c-event",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-argument",
+      "fa": "آرگومان (ورودی تابع)",
+      "en": "argument (input)",
+      "concept_id": "w00-c-argument",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-world"
+    },
+    {
+      "id": "g-side-effect",
+      "fa": "اثر جانبی",
+      "en": "side effect",
+      "concept_id": "w00-c-side-effect",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-world"
+    },
+    {
+      "id": "g-variable",
+      "fa": "متغیر",
+      "en": "variable",
+      "concept_id": "w00-c-variable",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-you"
+    },
+    {
+      "id": "g-return-value",
+      "fa": "مقدار بازگشتی",
+      "en": "return value",
+      "concept_id": "w00-c-return-value",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-you"
+    },
+    {
+      "id": "g-string-join",
+      "fa": "رشته و پیوند دادن رشته‌ها",
+      "en": "string, join",
+      "concept_id": "w00-c-string-join",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-you"
+    },
+    {
+      "id": "g-custom-block",
+      "fa": "بلوک سفارشی (تابع خودمان)",
+      "en": "custom block (define)",
+      "concept_id": "w00-c-custom-block",
+      "kind": "concept",
+      "source_ref": "src-notes-0#meow-loops-and-abstraction"
+    },
+    {
+      "id": "g-parameter-input",
+      "fa": "ورودی بلوک سفارشی",
+      "en": "custom block input (parameter)",
+      "concept_id": "w00-c-parameter-input",
+      "kind": "concept",
+      "source_ref": "src-notes-0#meow-loops-and-abstraction"
+    },
+    {
+      "id": "g-forever-loop",
+      "fa": "حلقهٔ همیشگی",
+      "en": "forever loop",
+      "concept_id": "w00-c-forever-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-0#conditionals"
+    },
+    {
+      "id": "g-costume",
+      "fa": "لباس (کاستوم)",
+      "en": "costume",
+      "concept_id": "w00-c-costume",
+      "kind": "concept",
+      "source_ref": "src-notes-0#oscartime"
+    },
+    {
+      "id": "g-thread",
+      "fa": "اسکریپت‌های هم‌زمان (ریسه)",
+      "en": "threads: scripts running in parallel",
+      "concept_id": "w00-c-thread",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-incremental-development",
+      "fa": "توسعهٔ گام‌به‌گام",
+      "en": "incremental development (baby steps)",
+      "concept_id": "w00-c-incremental-development",
+      "kind": "concept",
+      "source_ref": "src-pset-0-scratch#starting-from-scratch"
+    },
+    {
+      "id": "g-movement-collision",
+      "fa": "حرکت و برخورد با دیوار",
+      "en": "movement and wall collision",
+      "concept_id": "w00-c-movement-collision",
+      "kind": "concept",
+      "source_ref": "src-notes-0#ivys-hardest-game"
+    },
+    {
+      "id": "g-boolean-operators",
+      "fa": "عملگر بولی «یا»",
+      "en": "boolean operator or",
+      "concept_id": "w00-c-boolean-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-0#ivys-hardest-game"
+    },
+    {
+      "id": "g-ui-knowledge-base",
+      "fa": "پایگاه دانش",
+      "en": "knowledge base",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-week",
+      "fa": "هفته",
+      "en": "week",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-topics",
+      "fa": "مباحث",
+      "en": "topics",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-official-source",
+      "fa": "منبع رسمی",
+      "en": "official source",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-assignment",
+      "fa": "تکلیف",
+      "en": "assignment",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-problem",
+      "fa": "مسئله",
+      "en": "problem",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-problem-set",
+      "fa": "پرابلم‌ست",
+      "en": "problem set",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-required",
+      "fa": "اجباری",
+      "en": "required",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-practice",
+      "fa": "تمرینی",
+      "en": "practice",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-flashcard",
+      "fa": "فلش‌کارت",
+      "en": "flashcard",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-quiz",
+      "fa": "کوییز",
+      "en": "quiz",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-timed-challenge",
+      "fa": "چالش زمان‌دار",
+      "en": "timed challenge",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-streak",
+      "fa": "استریک",
+      "en": "streak",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-leaderboard",
+      "fa": "رتبه‌بندی",
+      "en": "leaderboard",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-certificate-path",
+      "fa": "مسیر مدرک",
+      "en": "certificate path",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-mark-as-read",
+      "fa": "من خواندم",
+      "en": "mark as read",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-weekly-goal",
+      "fa": "هدف هفتگی",
+      "en": "weekly goal",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-achievement",
+      "fa": "دستاورد",
+      "en": "achievement",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-badge",
+      "fa": "نشان",
+      "en": "badge",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-xp",
+      "fa": "XP",
+      "en": "XP (experience points)",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-mastery",
+      "fa": "تسلط",
+      "en": "mastery",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-spaced-review",
+      "fa": "مرور فاصله‌دار",
+      "en": "spaced review",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-learning-unit",
+      "fa": "واحد آموزشی",
+      "en": "learning unit",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-micro-lesson",
+      "fa": "درس کوتاه",
+      "en": "micro-lesson",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-daily-mission",
+      "fa": "مأموریت روزانه",
+      "en": "daily mission",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-x-block",
+      "fa": "بلوک",
+      "en": "block",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-script",
+      "fa": "اسکریپت",
+      "en": "script",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-stage",
+      "fa": "صحنه",
+      "en": "stage",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-green-flag",
+      "fa": "پرچم سبز",
+      "en": "green flag",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-string",
+      "fa": "رشته",
+      "en": "string",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-source-code",
+      "fa": "کد منبع",
+      "en": "source code",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-syntax",
+      "fa": "نحو",
+      "en": "syntax",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-bug",
+      "fa": "اشکال (باگ)",
+      "en": "bug",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    }
+  ]
+}

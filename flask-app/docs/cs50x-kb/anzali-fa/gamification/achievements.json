@@ -1,0 +1,213 @@
+{
+  "$schema": "../schemas/achievement.schema.json",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "status": "proposal",
+  "disclaimer": "Suggested by CS50x Anzali; configurable; NOT a CS50 rule and has no effect on official CS50 grades or certificate.",
+  "ui": {
+    "icon_set": "lucide",
+    "badge_variant_enum": [
+      "crimson",
+      "success",
+      "warning",
+      "muted"
+    ],
+    "no_emoji": true
+  },
+  "achievements": [
+    {
+      "id": "w00-ach-first-unit",
+      "title_fa": "نخستین گام",
+      "description_fa": "اولین واحد را مسلط شدی.",
+      "criteria": {
+        "type": "units_mastered_gte",
+        "value": 1
+      },
+      "icon": "footprints",
+      "badge_variant": "muted",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "consistency"
+    },
+    {
+      "id": "w00-ach-binary",
+      "title_fa": "دودویی‌خوان",
+      "description_fa": "درس ۲ (دودویی) را کامل و بدون بیش از یک سرنخ در هر واحد مسلط شدی.",
+      "criteria": {
+        "type": "lesson_mastered_max_hints",
+        "lesson_id": "w00-l02",
+        "max_hints_per_unit": 1
+      },
+      "icon": "binary",
+      "badge_variant": "crimson",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-representation",
+      "title_fa": "مترجم بیت‌ها",
+      "description_fa": "درس ۳ (متن، رنگ و رسانه) را مسلط شدی.",
+      "criteria": {
+        "type": "lesson_mastered",
+        "lesson_id": "w00-l03"
+      },
+      "icon": "palette",
+      "badge_variant": "crimson",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-algorithm",
+      "title_fa": "نصف‌کن",
+      "description_fa": "درس ۴ را مسلط شدی و سؤال‌های log₂ n را درست پاسخ دادی.",
+      "criteria": {
+        "type": "all_of",
+        "conditions": [
+          {
+            "type": "lesson_mastered",
+            "lesson_id": "w00-l04"
+          },
+          {
+            "type": "items_correct",
+            "item_concept": "w00-c-big-o",
+            "min": 2
+          }
+        ]
+      },
+      "icon": "split",
+      "badge_variant": "crimson",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-pseudocode",
+      "title_fa": "شبه‌کدنویس",
+      "description_fa": "تمرین شبه‌کد درس ۵ با روبریک پذیرفته شد.",
+      "criteria": {
+        "type": "exercise_accepted",
+        "exercise_id": "w00-l05-u01-ex"
+      },
+      "icon": "file-text",
+      "badge_variant": "crimson",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-abstraction",
+      "title_fa": "انتزاع‌گر",
+      "description_fa": "هر دو واحد بلوک سفارشی (درس ۸، واحد ۲ و ۳) را مسلط شدی.",
+      "criteria": {
+        "type": "units_mastered",
+        "unit_ids": [
+          "w00-l08-u02",
+          "w00-l08-u03"
+        ]
+      },
+      "icon": "blocks",
+      "badge_variant": "crimson",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-debugger",
+      "title_fa": "اشکال‌یاب",
+      "description_fa": "همهٔ سؤال‌های find-the-bug را درست تحلیل کردی.",
+      "criteria": {
+        "type": "items_correct_by_type",
+        "item_type": "find_the_bug",
+        "min": 5
+      },
+      "icon": "bug",
+      "badge_variant": "success",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-week-mastery",
+      "title_fa": "تسلط بر هفتهٔ ۰",
+      "description_fa": "آزمون تسلط را با حداقل ۸۰٪ گذراندی.",
+      "criteria": {
+        "type": "quiz_score_gte",
+        "quiz_id": "w00-mt-final",
+        "value": 0.8
+      },
+      "icon": "award",
+      "badge_variant": "success",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-recall",
+      "title_fa": "حافظهٔ پایدار",
+      "description_fa": "نرخ یادآوری فلش‌کارت‌های هفته به ۸۰٪ رسید (۲۰ مرور آخر).",
+      "criteria": {
+        "type": "rolling_recall_rate_gte",
+        "value": 0.8,
+        "window": 20
+      },
+      "icon": "brain",
+      "badge_variant": "success",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-reviewer",
+      "title_fa": "مرورگر پیوسته",
+      "description_fa": "۵ روز مرور فلش‌کارت در یک هفتهٔ ISO.",
+      "criteria": {
+        "type": "review_days_this_iso_week_gte",
+        "value": 5
+      },
+      "icon": "calendar-check",
+      "badge_variant": "warning",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "consistency"
+    },
+    {
+      "id": "w00-ach-builder",
+      "title_fa": "سازندهٔ Scratch",
+      "description_fa": "چک‌لیست پرابلم‌ست را کامل کردی و تحویل را در پنل ثبت کردی.",
+      "criteria": {
+        "type": "all_of",
+        "conditions": [
+          {
+            "type": "activity_completed",
+            "activity_id": "w00-a-ps-check"
+          },
+          {
+            "type": "activity_completed",
+            "activity_id": "w00-a-ps-submit"
+          }
+        ]
+      },
+      "icon": "hammer",
+      "badge_variant": "success",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    },
+    {
+      "id": "w00-ach-explorer",
+      "title_fa": "کاوشگر",
+      "description_fa": "دست‌کم دو چالش اختیاری هفته پذیرفته شد.",
+      "criteria": {
+        "type": "activities_completed_of_type_gte",
+        "activity_type": "optional_challenge",
+        "value": 2
+      },
+      "icon": "compass",
+      "badge_variant": "warning",
+      "xp_bonus": 0,
+      "week": 0,
+      "basis": "mastery"
+    }
+  ]
+}

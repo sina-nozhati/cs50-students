@@ -368,4 +368,65 @@
     padding-inline-start: 0.75rem;
   }
   .kb-toc a { font-weight: 600; }
+
+  /* ─── Callout Component (Phase 1) ─── */
+  .kb-callout {
+    background: var(--canvas);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--crimson);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .kb-callout-info {
+    background: #fff;
+    border-color: rgba(165, 28, 48, 0.2);
+    border-right: 4px solid var(--crimson);
+  }
+  .kb-callout-tip {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    border-right: 4px solid #16a34a;
+  }
+  .kb-callout-warning {
+    background: #fffbeb;
+    border-color: #fde68a;
+    border-right: 4px solid var(--warning);
+  }
+  .kb-callout-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--crimson);
+    margin-bottom: 0.35rem;
+  }
+  .kb-callout-tip .kb-callout-title { color: #16a34a; }
+  .kb-callout-warning .kb-callout-title { color: var(--warning); }
+  .kb-callout-content > *:last-child { margin-bottom: 0; }
+
+  /* ─── Mermaid Text Fallback (Phase 1) ─── */
+  .kb-mermaid-fallback {
+    background: #1e1e1e;
+    color: #f5f5f5;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 1.25rem 0;
+    overflow: hidden;
+  }
+  .kb-mermaid-header {
+    background: #2a2a2a;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  .kb-mermaid-code {
+    padding: 0.85rem 1.1rem;
+    margin: 0;
+    font-size: 0.8rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    overflow-x: auto;
+  }
 </style>

@@ -1,0 +1,305 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l06",
+  "type": "lesson",
+  "week": 0,
+  "order": 6,
+  "stage_id": "w00-s3",
+  "title_fa": "محیط Scratch، رویداد و «hello, world»",
+  "title_en": "Scratch interface, events and hello world",
+  "note_ids": [
+    "w00-n10",
+    "w00-n11"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l05"
+  ],
+  "concept_ids": [
+    "w00-c-scratch-interface",
+    "w00-c-sprite",
+    "w00-c-ide",
+    "w00-c-coordinates",
+    "w00-c-event",
+    "w00-c-function",
+    "w00-c-argument",
+    "w00-c-side-effect"
+  ],
+  "objective_ids": [
+    "w00-o06",
+    "w00-o07"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l06-u01",
+      "order": 1,
+      "title_fa": "سه بخش محیط Scratch",
+      "concept_ids": [
+        "w00-c-scratch-interface",
+        "w00-c-sprite",
+        "w00-c-ide"
+      ],
+      "objective_ids": [
+        "w00-o06"
+      ],
+      "note_id": "w00-n10",
+      "source_refs": [
+        "src-notes-0#scratch",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "Scratch زبان برنامه‌نویسی بصری MIT است. در محیط آن، سمت چپ پالت بلوک‌هاست، کنارش ناحیه‌ای که بلوک‌ها را در آن می‌کشی و برنامه می‌سازی، و سمت راست «صحنه» که گربه آنجاست و برنامه‌ات آنجا جان می‌گیرد.",
+        "note_id": "w00-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n10"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "[پالت بلوک‌ها] → [ناحیهٔ برنامه] → [صحنه]\n(در رابط فارسی Scratch ترتیب ممکن است آینه‌ای نمایش داده شود.)",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "طرح تألیفی؛ تصویر رسمی در درس‌نامه آمده است."
+      },
+      "check": {
+        "id": "w00-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برنامه کجا «جان می‌گیرد» و اجرا دیده می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "صحنه",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "پالت بلوک‌ها",
+            "correct": false,
+            "feedback_fa": "پالت جای انتخاب بلوک‌هاست."
+          },
+          {
+            "id": "c",
+            "text_fa": "ناحیهٔ برنامه",
+            "correct": false,
+            "feedback_fa": "آنجا بلوک‌ها را کنار هم می‌گذاری؛ نتیجه روی صحنه دیده می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l06-u01-ex",
+        "type": "practical",
+        "origin": "authored",
+        "prompt_fa": "در scratch.mit.edu یک پروژهٔ تازه باز کن و هر سه بخش را پیدا کن. یک اسپرایت دوم هم اضافه کن.",
+        "expected": {
+          "self_check_fa": [
+            "سه بخش را پیدا کردم",
+            "اسپرایت دوم اضافه شد"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی؛ آمادهٔ اولین برنامه هستی.",
+          "incorrect_fa": "اگر گیر کردی، تصویر محیط در یادداشت ۱۰ را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l06-u02",
+      "order": 2,
+      "title_fa": "دستگاه مختصات صحنه",
+      "concept_ids": [
+        "w00-c-coordinates"
+      ],
+      "objective_ids": [
+        "w00-o06"
+      ],
+      "note_id": "w00-n10",
+      "source_refs": [
+        "src-notes-0#scratch",
+        "src-notes-0#oscartime",
+        "src-transcript-0",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "مرکز صحنه مختصات `(0,0)` است و گربه در ابتدا همان‌جاست. طبق سخنرانی، بالای صحنه `y = 180` و لبه‌های چپ و راست `x = -240` و `x = 240` هستند.",
+        "note_id": "w00-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-trash-fall",
+        "lang": "scratch",
+        "content": "when green flag clicked\nset drag mode [draggable v]\ngo to x: (pick random (0) to (240)) y: (180)\nforever\n  change y by (-1)\nend",
+        "source_ref": "src-notes-0#oscartime",
+        "explain_fa": "زباله همیشه از y = 180 (بالای صحنه) و x تصادفی بین 0 تا 240 (نیمهٔ راست) شروع می‌کند."
+      },
+      "check": {
+        "id": "w00-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "نقطهٔ `(0,0)` کجاست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "مرکز صحنه",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "گوشهٔ بالا-چپ",
+            "correct": false,
+            "feedback_fa": "در Scratch مبدأ در مرکز است، نه گوشه."
+          },
+          {
+            "id": "c",
+            "text_fa": "پایین صحنه",
+            "correct": false,
+            "feedback_fa": "پایین صحنه y منفی دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l06-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "اسپرایتی در `(0,0)` است و بلوک `change y by (-1)` را ۱۰ بار اجرا می‌کند. مختصاتش چه می‌شود؟",
+        "expected": {
+          "answer": "(0,-10)"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ y کم شد پس پایین رفت.",
+          "incorrect_fa": "x تغییری نکرده است؛ فقط y هر بار یکی کم می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l06-u03",
+      "order": 3,
+      "title_fa": "رویداد، تابع، آرگومان و اثر جانبی",
+      "concept_ids": [
+        "w00-c-event",
+        "w00-c-function",
+        "w00-c-argument",
+        "w00-c-side-effect"
+      ],
+      "objective_ids": [
+        "w00-o07"
+      ],
+      "note_id": "w00-n11",
+      "source_refs": [
+        "src-notes-0#hello-world",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "بلوک «when green flag clicked» یک رویداد است که برنامه را شروع می‌کند. ورودی `hello, world` به تابع `say` داده می‌شود و «اثر جانبی» اجرای آن تابع این است که گربه `hello, world` می‌گوید.",
+        "note_id": "w00-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-hello0",
+        "lang": "scratch",
+        "content": "when green flag clicked\nsay [hello, world]",
+        "source_ref": "src-notes-0#hello-world",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در این برنامه `hello, world` چه نقشی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "آرگومان (ورودی) تابع say",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "رویداد",
+            "correct": false,
+            "feedback_fa": "رویداد «when green flag clicked» است."
+          },
+          {
+            "id": "c",
+            "text_fa": "مقدار بازگشتی",
+            "correct": false,
+            "feedback_fa": "say چیزی برنمی‌گرداند؛ اثر جانبی دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l06-u03-ex",
+        "type": "practical",
+        "origin": "authored",
+        "prompt_fa": "برنامهٔ hello, world را بساز و اجرا کن، سپس متن را به یک جملهٔ فارسی تغییر بده.",
+        "expected": {
+          "self_check_fa": [
+            "با پرچم سبز اجرا شد",
+            "گربه جملهٔ جدید را گفت"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی.",
+          "incorrect_fa": "آیا بلوک say زیر رویداد پرچم سبز چسبیده است؟"
+        },
+        "hints_fa": [
+          "دو بلوک باید به هم قفل شوند، نه اینکه جدا کنار هم باشند."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

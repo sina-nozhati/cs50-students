@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/note.schema.json",
+  "title": "Markdown document front matter (notes, overview, summary, guides)",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "title",
+    "lang",
+    "source_type",
+    "origin",
+    "license",
+    "attribution",
+    "retrieved_at",
+    "review_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(w00-(n\\d{2}|fa|summary|ps-scratch)|anzali-course-overview)$"
+    },
+    "type": {
+      "enum": [
+        "note",
+        "week-overview",
+        "week-summary",
+        "problem-set-guide",
+        "course-overview"
+      ]
+    },
+    "lang": {
+      "const": "fa"
+    },
+    "source_type": {
+      "enum": [
+        "translated-rewritten",
+        "authored",
+        "official"
+      ]
+    },
+    "origin": {
+      "enum": [
+        "official",
+        "translated-rewritten",
+        "authored",
+        "inference",
+        "external",
+        "internal",
+        "mixed"
+      ]
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "concept_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w00-c-[a-z0-9-]+$"
+      },
+      "minItems": 0
+    },
+    "retrieved_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+03:30$"
+    },
+    "verified_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+03:30$"
+    },
+    "review_status": {
+      "enum": [
+        "draft-needs-human-review",
+        "reviewed"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

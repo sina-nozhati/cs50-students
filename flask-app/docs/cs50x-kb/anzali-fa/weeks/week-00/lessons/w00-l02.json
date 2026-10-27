@@ -1,0 +1,379 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l02",
+  "type": "lesson",
+  "week": 0,
+  "order": 2,
+  "stage_id": "w00-s1",
+  "title_fa": "حل مسئله و دودویی",
+  "title_en": "Problem solving and binary",
+  "note_ids": [
+    "w00-n03"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l01"
+  ],
+  "concept_ids": [
+    "w00-c-problem-solving",
+    "w00-c-computational-thinking",
+    "w00-c-unary",
+    "w00-c-binary",
+    "w00-c-bit",
+    "w00-c-decimal",
+    "w00-c-byte",
+    "w00-c-transistor"
+  ],
+  "objective_ids": [
+    "w00-o01"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l02-u01",
+      "order": 1,
+      "title_fa": "ورودی، خروجی و جعبهٔ سیاه",
+      "concept_ids": [
+        "w00-c-problem-solving",
+        "w00-c-computational-thinking"
+      ],
+      "objective_ids": [
+        "w00-o01"
+      ],
+      "note_id": "w00-n03",
+      "source_refs": [
+        "src-notes-0#computer-science-and-problem-solving",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "برنامه‌نویسی یعنی گرفتن ورودی و ساختن خروجی، یعنی حل یک مسئله. آنچه بین ورودی و خروجی رخ می‌دهد «جعبهٔ سیاه» است و تمرکز این دوره همان است.",
+        "note_id": "w00-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "flowchart-black-box",
+        "lang": "text",
+        "content": "flowchart LR\n    in[\"input\"] --> BOX[\" ??? \"]\n    BOX --> out[\"output\"]",
+        "source_ref": "src-notes-0#computer-science-and-problem-solving",
+        "explain_fa": "این نمودار در منبع با Mermaid رسم شده است. در پنل به‌صورت متن کد نمایش داده می‌شود."
+      },
+      "check": {
+        "id": "w00-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در مثال حضور و غیاب کلاس، ورودی و خروجی چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "ورودی: دانش‌آموزان حاضر؛ خروجی: تعداد آن‌ها",
+            "correct": true,
+            "feedback_fa": "درست. شمردن، همان «جعبهٔ سیاه» بین این دو است."
+          },
+          {
+            "id": "b",
+            "text_fa": "ورودی: تعداد؛ خروجی: دانش‌آموزان",
+            "correct": false,
+            "feedback_fa": "برعکس است. ما از افراد شروع می‌کنیم و به عدد می‌رسیم."
+          },
+          {
+            "id": "c",
+            "text_fa": "ورودی و خروجی هر دو «انگشت‌ها» هستند",
+            "correct": false,
+            "feedback_fa": "انگشت‌ها فقط ابزار شمردن (یکانی) هستند، نه ورودی یا خروجی مسئله."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l02-u01-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "برای مسئلهٔ «پیدا کردن بزرگ‌ترین عدد در یک فهرست» ورودی و خروجی را بنویس.",
+        "expected": {
+          "accept_fa": [
+            "ورودی: فهرست اعداد؛ خروجی: بزرگ‌ترین عدد"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "درست؛ تعریف دقیق ورودی و خروجی اولین قدم حل مسئله است.",
+          "incorrect_fa": "ورودی چیزی است که به برنامه می‌دهیم، خروجی چیزی که می‌خواهیم بگیریم. دوباره امتحان کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l02-u02",
+      "order": 2,
+      "title_fa": "یکانی، دودویی و بیت",
+      "concept_ids": [
+        "w00-c-unary",
+        "w00-c-binary",
+        "w00-c-bit",
+        "w00-c-decimal"
+      ],
+      "objective_ids": [
+        "w00-o01"
+      ],
+      "note_id": "w00-n03",
+      "source_refs": [
+        "src-notes-0#computer-science-and-problem-solving",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "شمردن با یک انگشت برای هر نفر «یکانی» (پایهٔ ۱) است. کامپیوترها با «دودویی» (پایهٔ ۲) می‌شمارند. «بیت» از binary digit می‌آید و یک صفر یا یک است: خاموش یا روشن.",
+        "note_id": "w00-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "bits-header",
+        "lang": "text",
+        "content": "4 2 1",
+        "source_ref": "src-notes-0#computer-science-and-problem-solving",
+        "explain_fa": "ارزش مکانی سه لامپ: چهارها، دوها، یک‌ها."
+      },
+      "check": {
+        "id": "w00-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "یک بیت چند مقدار ممکن دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "۲ (صفر یا یک)",
+            "correct": true,
+            "feedback_fa": "درست. مثل یک لامپ: خاموش یا روشن."
+          },
+          {
+            "id": "b",
+            "text_fa": "۱۰",
+            "correct": false,
+            "feedback_fa": "۱۰ رقم مربوط به دهدهی است، نه یک بیت."
+          },
+          {
+            "id": "c",
+            "text_fa": "۸",
+            "correct": false,
+            "feedback_fa": "۸ تعداد بیت‌های یک بایت است، نه مقادیر یک بیت."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l02-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "با سه لامپ و ارزش‌های 4 2 1، الگوی `1 0 1` چه عددی است؟",
+        "expected": {
+          "answer": "5"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: ۴ + ۱ = ۵.",
+          "incorrect_fa": "هر لامپ روشن ارزش خودش را اضافه می‌کند: ستون ۴ و ستون ۱ روشن‌اند."
+        },
+        "hints_fa": [
+          "ارزش ستون‌های روشن را جمع کن."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l02-u03",
+      "order": 3,
+      "title_fa": "تبدیل دهدهی ↔ دودویی تا ۲۵۵",
+      "concept_ids": [
+        "w00-c-binary",
+        "w00-c-byte"
+      ],
+      "objective_ids": [
+        "w00-o01"
+      ],
+      "note_id": "w00-n03",
+      "source_refs": [
+        "src-notes-0#computer-science-and-problem-solving",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "با سه بیت می‌توان تا ۷ شمرد (`111`). برای ۸ به بیت چهارم نیاز است (`1000`). کامپیوترها معمولاً از ۸ بیت، یعنی یک بایت، استفاده می‌کنند: `00000101` همان ۵ است و `11111111` همان ۲۵۵.",
+        "note_id": "w00-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "bits-1000",
+        "lang": "text",
+        "content": "8 4 2 1\n1 0 0 0",
+        "source_ref": "src-notes-0#computer-science-and-problem-solving",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بزرگ‌ترین عدد با ۸ بیت (بدون علامت) چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "255",
+            "correct": true,
+            "feedback_fa": "درست: 128+64+32+16+8+4+2+1 = 255. درس‌نامه هم `11111111` را ۲۵۵ می‌داند."
+          },
+          {
+            "id": "b",
+            "text_fa": "256",
+            "correct": false,
+            "feedback_fa": "۲۵۶ «تعداد الگوها» است (۰ تا ۲۵۵)، نه بزرگ‌ترین عدد."
+          },
+          {
+            "id": "c",
+            "text_fa": "8",
+            "correct": false,
+            "feedback_fa": "۸ تعداد بیت‌هاست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l02-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "عدد ۶۵ را به دودویی ۸ بیتی بنویس.",
+        "expected": {
+          "answer": "01000001"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ این همان الگوی حرف `A` در ASCII است (درس بعد).",
+          "incorrect_fa": "ستون‌های 128 64 32 16 8 4 2 1 را بنویس و از بزرگ به کوچک ببین کدام‌ها جا می‌شوند: 64 + 1."
+        },
+        "hints_fa": [
+          "۶۵ = ۶۴ + ۱"
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l02-u04",
+      "order": 4,
+      "title_fa": "ترانزیستور، لامپ و بایت",
+      "concept_ids": [
+        "w00-c-transistor",
+        "w00-c-byte"
+      ],
+      "objective_ids": [
+        "w00-o01"
+      ],
+      "note_id": "w00-n03",
+      "source_refs": [
+        "src-notes-0#computer-science-and-problem-solving",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "درون دستگاه‌ها میلیون‌ها «لامپ» استعاری به نام ترانزیستور هست که روشن و خاموش می‌شوند. هشت بیت را یک بایت می‌نامیم.",
+        "note_id": "w00-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n03"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "| 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |\n| --- | --- | --- | --- | --- | --- | --- | --- |\n| 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 |\n\n→ 8 + 2 = 10",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "جدول تألیفی با همان قالب جدول درس‌نامه."
+      },
+      "check": {
+        "id": "w00-l02-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ترانزیستورها در این درس نمایندهٔ چه هستند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "کلیدهای روشن/خاموش که بیت‌ها را نگه می‌دارند",
+            "correct": true,
+            "feedback_fa": "درست. درس‌نامه آن‌ها را لامپ‌های استعاری درون دستگاه می‌نامد."
+          },
+          {
+            "id": "b",
+            "text_fa": "حروف الفبا",
+            "correct": false,
+            "feedback_fa": "حروف با استانداردهایی مثل ASCII نگاشت می‌شوند؛ ترانزیستور سخت‌افزار است."
+          },
+          {
+            "id": "c",
+            "text_fa": "پیکسل‌های تصویر",
+            "correct": false,
+            "feedback_fa": "پیکسل نقطهٔ رنگی تصویر است، نه سخت‌افزار ذخیرهٔ بیت."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l02-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "الگوی `00001010` چه عددی است؟",
+        "expected": {
+          "answer": "10"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "ستون‌های ۸ و ۲ روشن‌اند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

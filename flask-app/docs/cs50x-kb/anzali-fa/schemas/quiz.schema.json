@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/quiz.schema.json",
+  "title": "Quiz items and quizzes",
+  "type": "object",
+  "required": [
+    "week",
+    "items",
+    "quizzes",
+    "disclaimer_fa"
+  ],
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/item"
+      },
+      "minItems": 1
+    },
+    "quizzes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "item_ids",
+          "pass_threshold",
+          "gates_progress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-(qz-l\\d{2}|mt-final)$"
+          },
+          "kind": {
+            "enum": [
+              "lesson_practice",
+              "mastery_test"
+            ]
+          },
+          "item_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "pass_threshold": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "origin",
+        "week",
+        "lesson_id",
+        "concept_ids",
+        "difficulty",
+        "source_ref",
+        "prompt_fa",
+        "answer",
+        "explanation_fa",
+        "auto_gradable"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^w00-q-\\d{3}$"
+        },
+        "type": {
+          "enum": [
+            "mcq",
+            "true_false",
+            "short_answer",
+            "predict_output",
+            "find_the_bug",
+            "ordering",
+            "practical"
+          ]
+        },
+        "origin": {
+          "const": "authored"
+        },
+        "lesson_id": {
+          "type": "string",
+          "pattern": "^w00-l\\d{2}$"
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "minItems": 1
+        },
+        "difficulty": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "source_ref": {
+          "type": "string",
+          "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+        },
+        "prompt_fa": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explanation_fa": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code_origin": {
+          "enum": [
+            "authored"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "mcq"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "options"
+            ],
+            "properties": {
+              "answer": {
+                "type": "object",
+                "required": [
+                  "correct_option_ids"
+                ],
+                "properties": {},
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ordering"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "items"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "predict_output"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "code",
+              "lang"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "find_the_bug"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "code",
+              "code_origin"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "true_false"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "answer": {
+                "type": "object",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

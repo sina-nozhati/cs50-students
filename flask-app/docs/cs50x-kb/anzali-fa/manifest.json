@@ -1,0 +1,340 @@
+{
+  "name": "cs50x-anzali-kb-week0",
+  "version": "0.1.0-pilot",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "scope": "Week 0 only",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "counts": {
+    "notes": 16,
+    "lessons": 10,
+    "units": 33,
+    "flashcards": 49,
+    "quiz_items": 46,
+    "quiz_items_by_type": {
+      "mcq": 14,
+      "true_false": 8,
+      "short_answer": 6,
+      "predict_output": 6,
+      "find_the_bug": 5,
+      "ordering": 4,
+      "practical": 3
+    },
+    "quizzes": 11,
+    "activities": 33,
+    "achievements": 12,
+    "concepts": 46,
+    "glossary_terms": 79,
+    "sources": 42,
+    "discrepancies": 10,
+    "schemas": 16
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "f503f91ab85398d4620c0139a7984bb3a83c58d960804cb0b18b7030e9a6541c",
+      "bytes": 3506
+    },
+    {
+      "path": "curriculum/course-overview.fa.md",
+      "sha256": "c3c9d1b65d71ed9ca591d0099156fad0d5babab7a98146756762e9abf6532aa6",
+      "bytes": 5200
+    },
+    {
+      "path": "curriculum/glossary.fa.json",
+      "sha256": "3d457e9e4137020d4a67b54e5fa5539d326bcc38552ce6eb69994060936cd79c",
+      "bytes": 16497
+    },
+    {
+      "path": "curriculum/learning-map.json",
+      "sha256": "e11997ce6c4c3fc7a9e53b4a65d7490a52f6e43fe000c069997b291813880d28",
+      "bytes": 19259
+    },
+    {
+      "path": "gamification/achievements.json",
+      "sha256": "339c67f4c1b753ca1cf42fe93284ea3f17618e0de5c615601092f2ec80bec8ce",
+      "bytes": 6066
+    },
+    {
+      "path": "gamification/rules.json",
+      "sha256": "6488eef1e790b47c300f4626c4c987a1501da7dbdf04a6ff31c2afe202a48f4c",
+      "bytes": 6409
+    },
+    {
+      "path": "gamification/xp-config.json",
+      "sha256": "9875746f175f0066fc575ade46a6767236d44860c76dd1c642e08d02e7e0f5d9",
+      "bytes": 6168
+    },
+    {
+      "path": "integration/index.fragment.json",
+      "sha256": "5aa1c2dbe368851b793d40e4805bb688276a2e152ad21a106939259aa8beb7b9",
+      "bytes": 14078
+    },
+    {
+      "path": "schemas/achievement.schema.json",
+      "sha256": "7296284930d49f49a269124d5cbd1d1079526c3822b5d6e9a92531287da36156",
+      "bytes": 1176
+    },
+    {
+      "path": "schemas/activity.schema.json",
+      "sha256": "80d59fbb0a7e98b3e9d6745853fbd032cc5d7b45393dc351caeb6a3ad30885db",
+      "bytes": 2180
+    },
+    {
+      "path": "schemas/coverage-report.schema.json",
+      "sha256": "b92080619128db13dc5304a203b5703d6ee3e6d743c5c657fa1ae251a19e3073",
+      "bytes": 757
+    },
+    {
+      "path": "schemas/curriculum.schema.json",
+      "sha256": "116536b35b3d3df140edc43def3b7934333ebb83dec7b99534f1bf5b8d27356d",
+      "bytes": 1743
+    },
+    {
+      "path": "schemas/flashcard.schema.json",
+      "sha256": "1b7ede0d42c15b1cd826094e5e17f766d9c574b80038ee5b41bc20c7b55d07a4",
+      "bytes": 2864
+    },
+    {
+      "path": "schemas/gamification-rules.schema.json",
+      "sha256": "b011ecf943662af449bf50b5cf40de1012e6bb283d5538905e45f9a206a853ba",
+      "bytes": 449
+    },
+    {
+      "path": "schemas/glossary.schema.json",
+      "sha256": "f3ed5441686475d2eb54b84fc7ece50ab9728f8e0fa65996b558cff1e956b05d",
+      "bytes": 1222
+    },
+    {
+      "path": "schemas/index-fragment.schema.json",
+      "sha256": "5a0d3dd13faba855ded20ac65b73d87da5236583a5ec907a975eb5ec60180ad6",
+      "bytes": 1175
+    },
+    {
+      "path": "schemas/learning-map.schema.json",
+      "sha256": "66e57083967dae8f01f188ab5c998d0d124174c29cb205bbfdefcbd23d7d7a50",
+      "bytes": 2854
+    },
+    {
+      "path": "schemas/lesson.schema.json",
+      "sha256": "ac70fd272c8dc0eb2c9b5c683d0bf43367806eeeeff0c04268d9cc332b427d78",
+      "bytes": 8730
+    },
+    {
+      "path": "schemas/manifest.schema.json",
+      "sha256": "64f884d8ec973639aa60db757ac2fcde56c3a81b85b540fc7d274a803434903a",
+      "bytes": 597
+    },
+    {
+      "path": "schemas/note.schema.json",
+      "sha256": "ba935a39c51d94be8182fe73bf9760efba328b79423d3b7c6e5bd31a1c334349",
+      "bytes": 1825
+    },
+    {
+      "path": "schemas/problem-set.schema.json",
+      "sha256": "1e19f359e03050db3ef5c72d9775a88664ce849b2be363cb6dcbadfaf8b2f45f",
+      "bytes": 1781
+    },
+    {
+      "path": "schemas/quiz.schema.json",
+      "sha256": "4e9884df2686d2588453cffa9be450e9c875bbd2a68ed0c0b8541d1ca4fc6f67",
+      "bytes": 4938
+    },
+    {
+      "path": "schemas/sources.schema.json",
+      "sha256": "8ab4d015a72e5ea16c785a7d0b99a3f51ba18ec794607e5c75707f773ab6def2",
+      "bytes": 2736
+    },
+    {
+      "path": "schemas/xp-config.schema.json",
+      "sha256": "012d8eeb6faed3b656047fde06214bc863d04f59ea4c1247d3bb46de8e7d461a",
+      "bytes": 1554
+    },
+    {
+      "path": "validation/coverage-report.json",
+      "sha256": "3d83961218b8cd9cd38a94ff7f314bf76facf5a6b4daba7812982457806da0d0",
+      "bytes": 15562
+    },
+    {
+      "path": "validation/unresolved-items.md",
+      "sha256": "ccecd57467e90a019f5a3278aa86d83106154f52418f0a71c79ab3d2cea7dbd3",
+      "bytes": 5152
+    },
+    {
+      "path": "weeks/week-00/activities.json",
+      "sha256": "b2d6689a816f66259037308e7a33c67828c7d25d07f87fc4a1de4a4935afbaf4",
+      "bytes": 29318
+    },
+    {
+      "path": "weeks/week-00/curriculum.json",
+      "sha256": "88b02ae071ba76e290d599801df0b6e6060b054380557adf584d1eef0843732b",
+      "bytes": 8962
+    },
+    {
+      "path": "weeks/week-00/flashcards.json",
+      "sha256": "1e6be8ba0e31a01d12c533c6c5f4187d310f8fa988703412b0c933a4c9836e80",
+      "bytes": 37123
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l01.json",
+      "sha256": "5b6e8a114bef8720c3ddaaefbdcffe85b61e3a5b83c992f0a9348faf41c33110",
+      "bytes": 10604
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l02.json",
+      "sha256": "95608fb1aee124bbaee27c4eea2c22952146387f4b6dc7c36ee3b4f5b16dd51f",
+      "bytes": 15275
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l03.json",
+      "sha256": "9f216e7ee4822a0fbf15873f0d7e4ddbc669ad7efefe95020b751d413d8e8f48",
+      "bytes": 14836
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l04.json",
+      "sha256": "9697de5c2c8ce4367fb668ee8813d970818c863913379b8275ebfd806d036e98",
+      "bytes": 12269
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l05.json",
+      "sha256": "983ef5919e1a519fe4a0af2c0da4a6fd06d7312025268e8e09d1690229a16693",
+      "bytes": 12515
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l06.json",
+      "sha256": "7c7457ed6f1fa4f09a419ad16c0bc418f93b6b58ed49bfbf7950c191ab4638f6",
+      "bytes": 11863
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l07.json",
+      "sha256": "492071b2993c5817d587f5c5b35089e027f149e734c544506bcadee9d2b68ad8",
+      "bytes": 10913
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l08.json",
+      "sha256": "bd2a93e226d7128a17d28c033c7f55f399bc3af4a4528c760a9aa03e004e86c7",
+      "bytes": 11556
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l09.json",
+      "sha256": "ecdfbaea606742dacbcbe5277151a22684197c98e32a8713253025bb5fa20d71",
+      "bytes": 11172
+    },
+    {
+      "path": "weeks/week-00/lessons/w00-l10.json",
+      "sha256": "d36b61ce3a272f77f344eed8bc50086e868c68cb6f4335e0d408a0a0da649ec5",
+      "bytes": 18354
+    },
+    {
+      "path": "weeks/week-00/notes/01-welcome.fa.md",
+      "sha256": "fbdb4c03e8dea5efa1015eb872f2d26e6ab9cc1e58f7bc36861f0f0a5874b49a",
+      "bytes": 7859
+    },
+    {
+      "path": "weeks/week-00/notes/02-vscode-chat-py.fa.md",
+      "sha256": "982f3f63d12a66b38f30b21c7e28555869cd8539b615cdf552e9c82addd4e9a0",
+      "bytes": 8981
+    },
+    {
+      "path": "weeks/week-00/notes/03-problem-solving-binary.fa.md",
+      "sha256": "5db9ed38f5906e2d4de996def4bcf0de2f1026b31ecb4e519e26b1640f35ee0a",
+      "bytes": 9721
+    },
+    {
+      "path": "weeks/week-00/notes/04-ascii.fa.md",
+      "sha256": "67d3a0fa31a9079ed2c2f602d64a0fd7db90bd8601e3d2e633d75fca90f7479c",
+      "bytes": 6996
+    },
+    {
+      "path": "weeks/week-00/notes/05-unicode.fa.md",
+      "sha256": "148605fd5873bc3e8f56c1cdaaaef03663ac6649e6ef465019014ac37e3d22cf",
+      "bytes": 7046
+    },
+    {
+      "path": "weeks/week-00/notes/06-rgb-media.fa.md",
+      "sha256": "acda66a618ddcaddcc3cb803f41551298cf404146b08b1ba2d31cd9a9f9b456e",
+      "bytes": 7764
+    },
+    {
+      "path": "weeks/week-00/notes/07-algorithms.fa.md",
+      "sha256": "49291d54e6a8531b3940af12be0a0877dd20dcc1009d6dfa9bb24b6ca824de7d",
+      "bytes": 8566
+    },
+    {
+      "path": "weeks/week-00/notes/08-pseudocode.fa.md",
+      "sha256": "6cde483d24dfa4891b77f3f0d3b6da70ad479320b52c72bff6e3b84671adacde",
+      "bytes": 8457
+    },
+    {
+      "path": "weeks/week-00/notes/09-whats-ahead.fa.md",
+      "sha256": "2f052ed0ead6013b41c76bf72292f712dc922a4282fa7258e6a73753a6207675",
+      "bytes": 7064
+    },
+    {
+      "path": "weeks/week-00/notes/10-scratch-interface.fa.md",
+      "sha256": "6123134f4d92e66786ddc811a21e2ced74edcb1931174ed1990e57bd082275f0",
+      "bytes": 7234
+    },
+    {
+      "path": "weeks/week-00/notes/11-hello-world.fa.md",
+      "sha256": "d15df27874d11c885103fab8a9458d1ef1754c17c6081138a4520829514412d3",
+      "bytes": 7193
+    },
+    {
+      "path": "weeks/week-00/notes/12-hello-you.fa.md",
+      "sha256": "158a29670a1a96a344f495274d3af62e2d78094df6b8865f7144b5bf68b0021a",
+      "bytes": 7880
+    },
+    {
+      "path": "weeks/week-00/notes/13-meow-loops-abstraction.fa.md",
+      "sha256": "4a9dd9f8cf65846cfc96fc09dbb510c552a0b91f5f92a16f2d88f64f8862607d",
+      "bytes": 9665
+    },
+    {
+      "path": "weeks/week-00/notes/14-conditionals.fa.md",
+      "sha256": "e9d4de470c1870ab20ba8043cb5d2b992057d4ca6e567131f660b1ad12e6bfa4",
+      "bytes": 7349
+    },
+    {
+      "path": "weeks/week-00/notes/15-oscartime.fa.md",
+      "sha256": "8b2af03213575aa1339d31decb8f4cd3421eb7d8fd50df9755469b911197251d",
+      "bytes": 11238
+    },
+    {
+      "path": "weeks/week-00/notes/16-ivys-hardest-game.fa.md",
+      "sha256": "1cd04434c584f8a719cb9e058e04ead5eb557f4c973aa221c36b8e843cffecc6",
+      "bytes": 9164
+    },
+    {
+      "path": "weeks/week-00/overview.fa.md",
+      "sha256": "98601165d5a9dc61df0a2e975b0cdfce1bc920b4656e4c8ceea9edb431687c6d",
+      "bytes": 12070
+    },
+    {
+      "path": "weeks/week-00/problem-sets/starting-from-scratch.fa.md",
+      "sha256": "a09ee73db535006f19324462400e0c328dc044baec4c6f2eaaf08d6363b57727",
+      "bytes": 17811
+    },
+    {
+      "path": "weeks/week-00/problem-sets/starting-from-scratch.json",
+      "sha256": "09f3e20545f9692fed9cd45045a1c542da74a332942da2fb770e058b6491444d",
+      "bytes": 10111
+    },
+    {
+      "path": "weeks/week-00/quizzes.json",
+      "sha256": "b6affba763a1e95d4afc1aa36ef5e2bb1fc98a349dd56587af4bf910ad2fb24f",
+      "bytes": 45212
+    },
+    {
+      "path": "weeks/week-00/sources.json",
+      "sha256": "d09cb4404b80a5ecf0392b41512e9cd74d213b92f427222ff972c6adf530e982",
+      "bytes": 22326
+    },
+    {
+      "path": "weeks/week-00/summary.fa.md",
+      "sha256": "4cfe14c93e5b47ade0b6bf00754c94654a1b439e179b6f7d009c7e293ae5b126",
+      "bytes": 4810
+    }
+  ]
+}

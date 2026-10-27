@@ -1,0 +1,291 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l08",
+  "type": "lesson",
+  "week": 0,
+  "order": 8,
+  "stage_id": "w00-s3",
+  "title_fa": "حلقه و بلوک سفارشی",
+  "title_en": "Loops and custom blocks",
+  "note_ids": [
+    "w00-n13"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l07"
+  ],
+  "concept_ids": [
+    "w00-c-loop",
+    "w00-c-custom-block",
+    "w00-c-abstraction",
+    "w00-c-parameter-input"
+  ],
+  "objective_ids": [
+    "w00-o08",
+    "w00-o11"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l07"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l08-u01",
+      "order": 1,
+      "title_fa": "تکرار → repeat",
+      "concept_ids": [
+        "w00-c-loop"
+      ],
+      "objective_ids": [
+        "w00-o08"
+      ],
+      "note_id": "w00-n13",
+      "source_refs": [
+        "src-notes-0#meow-loops-and-abstraction",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "وقتی می‌بینی یک کار را بارها پشت هم نوشته‌ای، احتمالاً می‌توانی هنرمندانه‌تر بنویسی. بلوک `repeat` همان کار را بدون تکرار کد انجام می‌دهد.",
+        "note_id": "w00-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-meow0",
+        "lang": "scratch",
+        "content": "when green flag clicked\nplay sound (Meow v) until done\nwait (1) seconds\nplay sound (Meow v) until done\nwait (1) seconds\nplay sound (Meow v) until done",
+        "source_ref": "src-notes-0#meow-loops-and-abstraction",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l08-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بهترین بازنویسی برنامهٔ بالا چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یک repeat (3) با play sound و wait داخلش",
+            "correct": true,
+            "feedback_fa": "درست؛ همان نسخهٔ بعدی درس‌نامه."
+          },
+          {
+            "id": "b",
+            "text_fa": "کپی کردن سه‌بارهٔ کل اسکریپت",
+            "correct": false,
+            "feedback_fa": "تکرار بیشتر، طراحی بدتر."
+          },
+          {
+            "id": "c",
+            "text_fa": "حذف wait",
+            "correct": false,
+            "feedback_fa": "رفتار برنامه عوض می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l08-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "در نسخهٔ repeat، گربه چند بار میو می‌کند و بعد از آخرین میو هم یک ثانیه صبر می‌کند؟",
+        "expected": {
+          "answer_fa": "۳ بار؛ بله، چون wait داخل حلقه است و بعد از میوی سوم هم اجرا می‌شود."
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ این تفاوت کوچک با نسخهٔ بدون حلقه است.",
+          "incorrect_fa": "بلوک‌های داخل repeat را بشمار؛ wait هم داخل حلقه است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l08-u02",
+      "order": 2,
+      "title_fa": "define: بلوک خودت",
+      "concept_ids": [
+        "w00-c-custom-block",
+        "w00-c-abstraction"
+      ],
+      "objective_ids": [
+        "w00-o08"
+      ],
+      "note_id": "w00-n13",
+      "source_refs": [
+        "src-notes-0#meow-loops-and-abstraction",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "با بلوک `define` تابع خودت را می‌سازی. اینجا `meow` صدا پخش می‌کند و یک ثانیه صبر می‌کند، و برنامهٔ اصلی فقط می‌گوید «سه بار meow».",
+        "note_id": "w00-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-define-meow",
+        "lang": "scratch",
+        "content": "define meow\nplay sound (Meow v) until done\nwait (1) seconds\n\nwhen green flag clicked\nrepeat (3)\nmeow",
+        "source_ref": "src-notes-0#meow-loops-and-abstraction",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l08-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فایدهٔ اصلی بلوک meow چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پنهان کردن جزئیات پشت یک نام معنادار (انتزاع)",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "سریع‌تر کردن پخش صدا",
+            "correct": false,
+            "feedback_fa": "سرعت تغییری نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "حذف نیاز به رویداد",
+            "correct": false,
+            "feedback_fa": "هنوز پرچم سبز لازم است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l08-u02-ex",
+        "type": "practical",
+        "origin": "authored",
+        "prompt_fa": "یک بلوک سفارشی با نامی معنادار بساز (مثلاً «بپر») که چند بلوک حرکت را دربر بگیرد، و آن را در یک repeat صدا بزن.",
+        "expected": {
+          "self_check_fa": [
+            "Make a Block استفاده شد",
+            "نام بلوک توصیف کار است",
+            "در حلقه صدا زده شد"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی.",
+          "incorrect_fa": "پالت My Blocks را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l08-u03",
+      "order": 3,
+      "title_fa": "ورودی بلوک سفارشی: meow n times",
+      "concept_ids": [
+        "w00-c-parameter-input"
+      ],
+      "objective_ids": [
+        "w00-o08",
+        "w00-o11"
+      ],
+      "note_id": "w00-n13",
+      "source_refs": [
+        "src-notes-0#meow-loops-and-abstraction",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "بلوک سفارشی می‌تواند ورودی بگیرد: `n` از «meow n times» به تابع داده می‌شود و تعداد تکرار را تعیین می‌کند. پرابلم‌ست ۰ دقیقاً چنین بلوکی می‌خواهد: بلوک سفارشی با حداقل یک ورودی.",
+        "note_id": "w00-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-meow-n-times",
+        "lang": "scratch",
+        "content": "define meow n times\nrepeat (n)\n play sound [meow v] until done\n wait (1) seconds",
+        "source_ref": "src-notes-0#meow-loops-and-abstraction",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l08-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر بنویسی `meow (5) times`، داخل تعریف n چند است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "5",
+            "correct": true,
+            "feedback_fa": "درست؛ آرگومان 5 به پارامتر n داده می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "3",
+            "correct": false,
+            "feedback_fa": "3 در نسخهٔ قبلی ثابت بود."
+          },
+          {
+            "id": "c",
+            "text_fa": "n همیشه 1 است",
+            "correct": false,
+            "feedback_fa": "n هر مقداری است که هنگام صدا زدن می‌دهی."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l08-u03-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "بلوکی تعریف شده به نام `jump h` ولی داخلش همیشه `change y by (10)` آمده است. مشکل چیست؟",
+        "expected": {
+          "answer_fa": "ورودی h داخل تعریف استفاده نشده؛ باید به‌جای 10 از h استفاده شود."
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ این اشتباه رایج در پرابلم‌ست ۰ است.",
+          "incorrect_fa": "ورودی تعریف‌شده کجا به کار رفته است؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

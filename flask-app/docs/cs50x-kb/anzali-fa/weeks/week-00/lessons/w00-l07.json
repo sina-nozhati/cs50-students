@@ -1,0 +1,289 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l07",
+  "type": "lesson",
+  "week": 0,
+  "order": 7,
+  "stage_id": "w00-s3",
+  "title_fa": "ورودی کاربر، متغیر و مقدار بازگشتی",
+  "title_en": "Input, variables and return values",
+  "note_ids": [
+    "w00-n12"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l06"
+  ],
+  "concept_ids": [
+    "w00-c-variable",
+    "w00-c-return-value",
+    "w00-c-string-join",
+    "w00-c-side-effect"
+  ],
+  "objective_ids": [
+    "w00-o07"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l07-u01",
+      "order": 1,
+      "title_fa": "ask و متغیر answer",
+      "concept_ids": [
+        "w00-c-variable"
+      ],
+      "objective_ids": [
+        "w00-o07"
+      ],
+      "note_id": "w00-n12",
+      "source_refs": [
+        "src-notes-0#hello-you",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "تابع `ask` از کاربر می‌پرسد `What's your name?` و پاسخ را در متغیری به نام `answer` نگه می‌دارد.",
+        "note_id": "w00-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-hello1",
+        "lang": "scratch",
+        "content": "when green flag clicked\nask [What's your name?] and wait\nsay (join [hello,] (answer))",
+        "source_ref": "src-notes-0#hello-you",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "پاسخ کاربر کجا ذخیره می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "در متغیر answer",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "در تابع say",
+            "correct": false,
+            "feedback_fa": "say فقط نمایش می‌دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "در رویداد پرچم سبز",
+            "correct": false,
+            "feedback_fa": "رویداد فقط شروع‌کننده است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l07-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "اگر کاربر بنویسد `Sina`، گربه چه می‌گوید؟",
+        "expected": {
+          "answer": "hello, Sina"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "join دو رشته را کنار هم می‌گذارد: «hello,» و answer."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l07-u02",
+      "order": 2,
+      "title_fa": "join و مقدار بازگشتی",
+      "concept_ids": [
+        "w00-c-return-value",
+        "w00-c-string-join"
+      ],
+      "objective_ids": [
+        "w00-o07"
+      ],
+      "note_id": "w00-n12",
+      "source_refs": [
+        "src-notes-0#hello-you",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "`join` دو رشته را ترکیب می‌کند و نتیجه را **برمی‌گرداند**، مثلاً `hello, David`. این مقدار بازگشتی به `say` داده می‌شود و say اثر جانبی گفتن را ایجاد می‌کند.",
+        "note_id": "w00-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-hello1",
+        "lang": "scratch",
+        "content": "when green flag clicked\nask [What's your name?] and wait\nsay (join [hello,] (answer))",
+        "source_ref": "src-notes-0#hello-you",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "تفاوت join و say چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "join مقدار برمی‌گرداند؛ say اثر جانبی دارد",
+            "correct": true,
+            "feedback_fa": "درست؛ همین تمایز در درس‌نامه آمده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "هر دو اثر جانبی دارند",
+            "correct": false,
+            "feedback_fa": "join چیزی روی صحنه نشان نمی‌دهد؛ فقط مقدار می‌سازد."
+          },
+          {
+            "id": "c",
+            "text_fa": "say مقدار برمی‌گرداند",
+            "correct": false,
+            "feedback_fa": "say نتیجه را نمایش می‌دهد و چیزی برنمی‌گرداند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l07-u02-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "کسی نوشته `say (join [hello,] [answer])`، یعنی answer را تایپ کرده به‌جای بلوک گرد answer. خروجی چه می‌شود و مشکل کجاست؟",
+        "expected": {
+          "answer_fa": "گربه همیشه «hello, answer» می‌گوید، چون کلمهٔ answer تایپ شده، نه خود متغیر."
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ متن ثابت با متغیر فرق دارد.",
+          "incorrect_fa": "آیا داخل join متن نوشته شده یا بلوک گرد متغیر کشیده شده؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l07-u03",
+      "order": 3,
+      "title_fa": "speak: همان ورودی، اثر جانبی دیگر",
+      "concept_ids": [
+        "w00-c-side-effect"
+      ],
+      "objective_ids": [
+        "w00-o07"
+      ],
+      "note_id": "w00-n12",
+      "source_refs": [
+        "src-notes-0#hello-you",
+        "src-transcript-0",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "می‌توان همان مقدار join را به تابع `speak` داد تا به‌جای حباب گفتار، صدا پخش شود. speak از افزونهٔ Text to Speech می‌آید (سخنرانی).",
+        "note_id": "w00-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-hello2-speak",
+        "lang": "scratch",
+        "content": "when green flag clicked\nask [What's your name?] and wait\nspeak (join [hello,] (answer))",
+        "source_ref": "src-notes-0#hello-you",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چه چیزی بین hello1 و hello2 عوض شد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فقط تابع پایانی: say به speak",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "رویداد شروع",
+            "correct": false,
+            "feedback_fa": "رویداد همان پرچم سبز است."
+          },
+          {
+            "id": "c",
+            "text_fa": "سؤال ask",
+            "correct": false,
+            "feedback_fa": "سؤال همان است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l07-u03-ex",
+        "type": "practical",
+        "origin": "authored",
+        "prompt_fa": "افزونهٔ Text to Speech را اضافه کن و برنامهٔ hello2 را بساز.",
+        "expected": {
+          "self_check_fa": [
+            "افزونه اضافه شد",
+            "برنامه نام را با صدا گفت"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی.",
+          "incorrect_fa": "دکمهٔ افزودن افزونه پایین پالت بلوک‌هاست."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}
