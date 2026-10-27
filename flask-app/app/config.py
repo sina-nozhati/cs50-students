@@ -27,10 +27,14 @@ class Config:
 
     LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
 
-    # Upload settings (stored under static/ so Nginx can serve them directly)
+    # آپلودها روی دیسک زیر static/downloads — اما Nginx این مسیر را مسدود می‌کند.
+    # دانلود فقط از روت /resources/file/<id>/download با لاگین انجام می‌شود.
     UPLOAD_FOLDER = os.path.join(BASE_DIR, "..", "static", "downloads")
     MAX_CONTENT_LENGTH = 30 * 1024 * 1024  # 30 MB max upload size
     ALLOWED_EXTENSIONS = {"pdf", "zip"}
+    # محدودیت نرخ ورود: حداکثر تلاش در پنجرهٔ زمانی (ثانیه)
+    LOGIN_RATE_LIMIT = 10
+    LOGIN_RATE_WINDOW_SECONDS = 300
 
 
 class TestingConfig(Config):

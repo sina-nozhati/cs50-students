@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png -->
+        <link href="/static/49a1a858-favicon-32x32.png" rel="icon" type="image/png">
+
+        <script>
+            window.FontAwesomeConfig = { autoReplaceSvg: false };
+        </script>
+
+        <link href="/static/dist/main.css?1791864566" rel="stylesheet">
+        <script src="/static/dist/main.js?1791864566"></script>
+
+        <!-- Rouge CSS will be loaded dynamically based on theme -->
+
+        <script>
+
+            
+
+    $(function() {
+
+        // Ensure all elements are styled the same
+        $('pre').addClass('p-3');
+        $('table').addClass('table');
+
+        // Shrink H2s
+        $('h2').addClass('h6');
+
+        // Add toggles
+        $('div.section').each(function(index, element) {
+
+            // Prepare switch
+            const $section = $(element);
+            const id = 'switch-' + $section.attr('data-for');
+            const $switch = $(
+                '<div class="form-check form-switch mb-4">' +
+                '<input id="' + id + '" class="form-check-input" type="checkbox">' +
+                '<label class="form-check-label" for="' + id + '">less comfortable</label>' +
+                '</div>'
+            );
+
+            // Find comfort levels
+            const $less = $section.find('[data-less]');
+            const $more = $section.find('[data-more]');
+
+            // If a less-comfortable section exists, check it by default
+            if ($less.length) {
+                $switch.find('input').prop('checked', true);
+            }
+
+            // If only one comfort level exists, disable switch
+            if (!$less.length || !$more.length) {
+                $switch.find('input').prop('disabled', true);
+            }
+
+            // Listen for changes
+            $switch.find('input').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $less.removeClass('d-none');
+                    $more.addClass('d-none');
+                }
+                else {
+                    $less.addClass('d-none');
+                    $more.removeClass('d-none');
+                }
+            }).trigger('change');
+
+            // Add switch to DOM section has less-comfy level
+            if ($section.find('[data-less]').length) {
+                $section.prepend($switch);
+            }
+        });
+
+        // Hide sections
+        $('[data-hide]').each(function(index, element) {
+            const $button = $('<button class="btn btn-outline-primary btn-sm" type="button">Show</button>');
+            const id = $(element).attr('data-for');
+            $(element).before($button);
+            $button.on('click', function() {
+                $(element).show();
+                $(this).remove();
+            });
+            if (id) {
+                $button.attr('data-for', id);
+                $('#' + id).children('a').on('click', function() {
+                    $button.trigger('click');
+                });
+            }
+            $(element).hide();
+        });
+
+        // Show section if in hash
+        $(window).on('hashchange', function() {
+            const id = window.location.hash.slice(1);
+            if (id) {
+                $('button[data-for="' + id + '"]').trigger('click');
+            }
+        });
+        $(window).trigger('hashchange');
+    });
+
+
+
+        </script>
+
+        <script>
+
+            function getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                loadRougeCSS(theme);
+            }
+
+            function loadRougeCSS(theme) {
+                // Remove existing Rouge CSS
+                document.querySelectorAll('link[id^="rouge-css"]').forEach(el => el.remove());
+
+                // Load appropriate Rouge CSS file
+                const rougeCSSFile = theme === 'dark' ? 'rouge-dark.css' : 'rouge-light.css';
+                const link = document.createElement('link');
+                link.id = 'rouge-css-' + theme;
+                link.rel = 'stylesheet';
+                link.href = '/static/dist/' + rougeCSSFile + '?1791864566';
+                document.head.appendChild(link);
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                setTheme(getSystemTheme());
+            });
+
+            // Initialize theme based on system preference
+            setTheme(getSystemTheme());
+
+        </script>
+        <script>
+
+            $(function() {
+
+                // Add borders to tables
+                $('.table').addClass('table-bordered');
+
+                // Enable popovers
+                $('[data-bs-toggle="popover"]').each(function(index, element) {
+                    new bootstrap.Popover(element, {
+                        boundary: 'viewport',
+                        html: true,
+                        placement: 'bottom',
+                        trigger: 'focus'
+                    });
+                });
+
+                // Ensure all elements are styled the same
+                $('h1').addClass('border-bottom fw-bold h2 mb-3 pb-2 pt-4');
+                $('h2').addClass('fw-bold h3');
+
+                // Ensure last heading can be anchored atop page
+                $(window).resize(function() {
+                    const top = $('h1').last().offset().top;
+                    const margin = $(window).height() - ($('body').outerHeight() - top);
+                    $('body').css('margin-bottom', Math.max(0, Math.ceil(margin)) + 'px');
+                });
+                $(window).trigger('resize');
+
+                // Reveal body
+                $('body').removeClass('invisible');
+            });
+
+        </script>
+
+        <style>
+
+            /* CSS Custom Properties for Theme */
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #212529;
+                --border-color: #dee2e6;
+                --code-bg: #f8f9fa;
+                --popover-highlight: rgb(252, 237, 193);
+                --table-border: #dee2e6;
+                --nav-bg: #343a40;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #0d6efd;
+                --btn-outline-primary-hover: #0b5ed7;
+                --container-bg: inherit;
+            }
+
+            [data-bs-theme="dark"] {
+                --bg-color: #212529;
+                --text-color: #ffffff;
+                --border-color: #495057;
+                --code-bg: #2d3339;
+                --popover-highlight: rgb(139, 117, 61);
+                --table-border: #495057;
+                --nav-bg: #1a1d20;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #6ea8fe;
+                --btn-outline-primary-hover: #9ec5fe;
+                --container-bg: var(--bg-color);
+            }
+
+            /* Apply theme colors */
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+            }
+
+            .navbar {
+                background-color: var(--nav-bg) !important;
+            }
+
+            /* Style popovers */
+            .popover {
+                font-family: inherit;
+                max-width: 100%;
+                background-color: var(--container-bg);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-header {
+                background-color: var(--code-bg);
+                border-bottom-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-body {
+                color: var(--text-color);
+            }
+
+            /* Wrap long words (and URLs, whether linked or not), especially on mobile,
+            but not in buttons and not in tables, which should instead scroll horizontally */
+            * {
+                word-break: break-word;
+            }
+            button, table * {
+                word-break: normal;
+            }
+
+            /* Remove underlining */
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            nav a:hover {
+                text-decoration: none;
+            }
+
+            /* Match Gmail's yellow */
+            a[data-bs-toggle=popover] {
+                border-bottom: 2px solid var(--popover-highlight);
+                box-shadow: inset 0 -2px 0 var(--popover-highlight);
+                cursor: help;
+            }
+            a[data-bs-toggle=popover]:hover {
+                background-color: var(--popover-highlight);
+            }
+
+            /* Match pre tags */
+            code {
+                color: inherit;
+            }
+
+            /* A la Jekyll theme */
+            code, pre {
+                background-color: var(--code-bg);
+                border: 1px solid var(--border-color);
+                padding: calc(.2rem - 3px) 0.2rem;
+            }
+            pre code {
+                background-color: initial;
+                border: initial;
+                padding: initial;
+            }
+
+            /* Don't shrink these */
+            code, pre {
+                font-size: inherit;
+            }
+
+            /* Don't italicize */
+            dl dt {
+                font-style: normal;
+            }
+
+            /* Don't fill viewport */
+            .table {
+                width: inherit;
+                --bs-table-bg: var(--bg-color);
+                --bs-table-border-color: var(--table-border);
+            }
+
+            /* Form elements theming */
+            .form-control {
+                background-color: var(--bg-color);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .form-control:focus {
+                background-color: var(--bg-color);
+                border-color: var(--btn-outline-primary);
+                color: var(--text-color);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-control:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            .form-control::placeholder {
+                color: var(--text-color);
+                opacity: 0.6;
+            }
+
+            /* Button theming */
+            .btn-outline-primary {
+                color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .btn-outline-primary:hover,
+            .btn-outline-primary:focus {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            /* Form check elements */
+            .form-check-input:checked {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .form-check-input:focus {
+                border-color: var(--btn-outline-primary);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-check-input:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            /* Smooth theme transition */
+            *, *::before, *::after {
+                transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            }
+
+            /* Enhanced code block styling - Rouge handles syntax colors */
+            .highlight pre {
+                background-color: var(--code-bg) !important;
+                border: 1px solid var(--border-color) !important;
+            }
+
+            /* Ensure non-highlighted code blocks work with themes */
+            [data-bs-theme="dark"] pre:not(.highlight) code {
+                color: #f8f8f2;
+            }
+
+            [data-bs-theme="light"] pre:not(.highlight) code {
+                color: #000000;
+            }
+
+        </style>
+
+        <style>
+
+            
+
+    /* Match dl and p */
+    button {
+        margin-bottom: 1rem;
+    }
+
+    /* Ensure syntax-highlighted code scrolls on iOS, https://stackoverflow.com/a/49592093 */
+    pre code {
+        white-space: pre;
+        word-wrap: normal;
+    }
+    pre code span {
+        white-space: nowrap;
+    }
+
+    
+
+        </style>
+
+        <title>fscanf - CS50 Manual Pages</title>
+
+    </head>
+
+    <body class="font-monospace invisible pb-5">
+
+        <nav class="bg-dark navbar navbar-dark navbar-expand-xl px-4">
+            <a class="navbar-brand" href="/"><i class="fas fa-list pe-3"></i>CS50 Manual Pages</a>
+        </nav>
+
+        <div class="container-fluid mt-2 px-4">
+            
+
+    <h1 id='name'><a href='#name'>NAME</a></h1><div class='section' data-for='name'><div data-less>
+
+<p>fscanf - get input from a file</p>
+
+</div><div data-more>
+<p>scanf, fscanf, vscanf, vfscanf - input FILE format conversion</p>
+</div></div><h1 id='library'><a href='#library'>LIBRARY</a></h1><div data-for='library' data-hide><div class='section' data-for='library'><div data-more>
+<p>Standard C library (<code>libc</code>, <code>-lc</code>)</p>
+</div></div></div><h1 id='synopsis'><a href='#synopsis'>SYNOPSIS</a></h1><div class='section' data-for='synopsis'><div data-less>
+
+<h2 id="header-file">Header File</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"><br></span></code></pre></div></div>
+
+<h2 id="prototype">Prototype</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">fscanf</span><span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="n">stream</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span>
+</code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">...</code> represents zero or more additional arguments.</p>
+
+</div><div data-more>
+<pre><code><a data-bs-content='Be sure this line is atop your own code.' data-bs-toggle='popover' tabindex='0'>#include &lt;stdio.h&gt;</a>
+int scanf(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict format, ...);
+int fscanf(FILE *restrict stream,
+ <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict format, ...);
+<a data-bs-content='Be sure this line is atop your own code.' data-bs-toggle='popover' tabindex='0'>#include &lt;stdarg.h&gt;</a>
+int vscanf(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict format, va_list ap);
+int vfscanf(FILE *restrict stream,
+ <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict format, va_list ap);</code></pre>
+<blockquote>
+<p>Feature Test Macro Requirements for glibc (see
+<a href='/7/feature_test_macros'>feature_test_macros</a>(7)):</p>
+</blockquote>
+<p><a href='vscanf'>vscanf</a>(), <a href='vfscanf'>vfscanf</a>():</p>
+<pre><code>    _ISOC99_SOURCE || _POSIX_C_SOURCE &gt;= 200112L</code></pre>
+</div></div><h1 id='description'><a href='#description'>DESCRIPTION</a></h1><div class='section' data-for='description'><div data-less>
+
+<p>This function “scans” a file for values of specified types. It expects as input the pointer to a <code class="language-plaintext highlighter-rouge">FILE</code> that was returned by <a href="fopen">fopen</a>, a “format string” that specifies what to expect, and zero or more subsequent arguments, each of which should be a location in memory. The format string should typically contain “conversion specifications,” placeholders that begin with <code class="language-plaintext highlighter-rouge">%</code> that specify what types of values to expect. Subsequent arguments will be assigned those values. For instance, if <code class="language-plaintext highlighter-rouge">file</code> is a pointer to a <code class="language-plaintext highlighter-rouge">FILE</code> that was returned by <a href="fopen">fopen</a> and <code class="language-plaintext highlighter-rouge">n</code> is an <code class="language-plaintext highlighter-rouge">int</code>, this function can get an <code class="language-plaintext highlighter-rouge">int</code> using <code class="language-plaintext highlighter-rouge">%i</code>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"%i"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Among this function’s supported conversion specifications are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Conversion Specification</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%c</code></td>
+      <td><code class="language-plaintext highlighter-rouge">char</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%lf</code></td>
+      <td><code class="language-plaintext highlighter-rouge">double</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%f</code></td>
+      <td><code class="language-plaintext highlighter-rouge">float</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%i</code></td>
+      <td><code class="language-plaintext highlighter-rouge">int</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">%li</code></td>
+      <td><code class="language-plaintext highlighter-rouge">long</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To get a single word (i.e., a sequence of non-whitespace characters), use <code class="language-plaintext highlighter-rouge">%s</code>. But it is only safe to use this function to get a word from a file using <code class="language-plaintext highlighter-rouge">%s</code> if that word is of some maximal length. For instance, if <code class="language-plaintext highlighter-rouge">file</code> is a pointer to a <code class="language-plaintext highlighter-rouge">FILE</code> that was returned by <a href="fopen">fopen</a> and <code class="language-plaintext highlighter-rouge">buffer</code> is an array of 3 bytes, this function could be used to get <code class="language-plaintext highlighter-rouge">"hi"</code>, including its <code class="language-plaintext highlighter-rouge">'\0'</code>, but not <code class="language-plaintext highlighter-rouge">"hi!"</code>, as follows:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"%s"</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+</code></pre></div></div>
+
+</div><div data-more>
+<p>The <a href='scanf'>scanf</a>() family of functions scans formatted
+input like <a href='/3/sscanf'>sscanf</a>(3), but read from a <code>FILE</code>. It
+is very difficult to use these functions correctly, and it is preferable
+to read entire lines with <a href='/3/fgets'>fgets</a>(3) or
+<a href='/3/getline'>getline</a>(3) and parse them later with
+<a href='/3/sscanf'>sscanf</a>(3) or more specialized functions such as
+<a href='/3/strtol'>strtol</a>(3).</p>
+<p>The <a href='scanf'>scanf</a>() function reads input from the standard
+input stream <code>stdin</code> and <a href='fscanf'>fscanf</a>() reads input
+from the stream pointer <code>stream</code>.</p>
+<p>The <a href='vfscanf'>vfscanf</a>() function is analogous to
+<a href='/3/vfprintf'>vfprintf</a>(3) and reads input from the stream pointer
+<code>stream</code> using a variable argument list of pointers (see
+<a href='/3/stdarg'>stdarg</a>(3). The <a href='vscanf'>vscanf</a>() function is
+analogous to <a href='/3/vprintf'>vprintf</a>(3) and reads from the standard
+input.</p>
+</div></div><h1 id='return-value'><a href='#return-value'>RETURN VALUE</a></h1><div class='section' data-for='return-value'><div data-less>
+
+<p>This function returns the number of arguments that were assigned values or <code class="language-plaintext highlighter-rouge">EOF</code>, a constant defined in <code class="language-plaintext highlighter-rouge">stdio.h</code>, if the end of the file has been reached.</p>
+
+</div><div data-more>
+<p>On success, these functions return the number of input items
+successfully matched and assigned; this can be fewer than provided for,
+or even zero, in the event of an early matching failure.</p>
+<p>The value <strong>EOF</strong> is returned if the end of input is
+reached before either the first successful conversion or a matching
+failure occurs. <strong>EOF</strong> is also returned if a read error
+occurs, in which case the error indicator for the stream (see
+<a href='/3/ferror'>ferror</a>(3)) is set, and <code>errno</code> is set to
+indicate the error.</p>
+</div></div><h1 id='examples'><a href='#examples'>EXAMPLES</a></h1><div class='section' data-for='examples'><div data-less>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"><br></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">file</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">"hi.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">file</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+        <span class="n">fscanf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s">"%s"</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+        <span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div></div></div><h1 id='errors'><a href='#errors'>ERRORS</a></h1><div data-for='errors' data-hide><div class='section' data-for='errors'><div data-more>
+<dl>
+<dt><strong>EAGAIN</strong></dt>
+<dd>
+<p>The file descriptor underlying <code>stream</code> is marked nonblocking,
+and the read operation would block.</p>
+</dd>
+<dt><strong>EBADF</strong></dt>
+<dd>
+<p>The file descriptor underlying <code>stream</code> is invalid, or not
+open for reading.</p>
+</dd>
+<dt><strong>EILSEQ</strong></dt>
+<dd>
+<p>Input byte sequence does not form a valid character.</p>
+</dd>
+<dt><strong>EINTR</strong></dt>
+<dd>
+<p>The read operation was interrupted by a signal; see
+<a href='/7/signal'>signal</a>(7).</p>
+</dd>
+<dt><strong>EINVAL</strong></dt>
+<dd>
+<p>Not enough arguments; or <code>format</code> is NULL.</p>
+</dd>
+<dt><strong>ENOMEM</strong></dt>
+<dd>
+<p>Out of memory.</p>
+</dd>
+</dl>
+</div></div></div><h1 id='attributes'><a href='#attributes'>ATTRIBUTES</a></h1><div data-for='attributes' data-hide><div class='section' data-for='attributes'><div data-more>
+<p>For an explanation of the terms used in this section, see
+<a href='/7/attributes'>attributes</a>(7).</p>
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;">Interface</td>
+<td style="text-align: left;">Attribute</td>
+<td style="text-align: left;">Value</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p><a href='scanf'>scanf</a>(),
+<a href='fscanf'>fscanf</a>(), <a href='vscanf'>vscanf</a>(),
+<a href='vfscanf'>vfscanf</a>()</p></td>
+<td style="text-align: left;">Thread safety</td>
+<td style="text-align: left;">MT-Safe locale</td>
+</tr>
+</tbody>
+</table>
+</div></div></div><h1 id='standards'><a href='#standards'>STANDARDS</a></h1><div data-for='standards' data-hide><div class='section' data-for='standards'><div data-more>
+<p>C11, POSIX.1-2008.</p>
+</div></div></div><h1 id='history'><a href='#history'>HISTORY</a></h1><div data-for='history' data-hide><div class='section' data-for='history'><div data-more>
+<p>C99, POSIX.1-2001.</p>
+</div></div></div><h1 id='caveats'><a href='#caveats'>CAVEATS</a></h1><div data-for='caveats' data-hide><div class='section' data-for='caveats'><div data-more>
+<p>These functions make it difficult to distinguish newlines from other
+white space, This is especially problematic with line-buffered input,
+like the standard input stream.</p>
+<p>These functions can't report errors after the last non-suppressed
+conversion specification.</p>
+</div></div></div><h1 id='bugs'><a href='#bugs'>BUGS</a></h1><div data-for='bugs' data-hide><div class='section' data-for='bugs'><div data-more>
+<p>It is impossible to accurately know how many characters these
+functions have consumed from the input stream, since they only report
+the number of successful conversions. For example, if the input is
+"123\n a", <code>scanf("%d %d", &amp;a, &amp;b)</code> will consume the
+digits, the newline, and the space, but not the letter a. This makes it
+difficult to recover from invalid input.</p>
+</div></div></div><h1 id='see-also'><a href='#see-also'>SEE ALSO</a></h1><div class='section' data-for='see-also'><div data-more>
+<p><a href='/3/fgets'>fgets</a>(3), <a href='/3/getline'>getline</a>(3),
+<a href='/3/sscanf'>sscanf</a>(3)</p></div></div>
+
+
+        </div>
+
+    </body>
+
+</html>

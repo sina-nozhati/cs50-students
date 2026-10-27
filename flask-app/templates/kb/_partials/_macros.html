@@ -1,0 +1,54 @@
+{# ماکروهای پایگاه دانش #}
+
+{% macro link_chip(label, href, icon='external') %}
+{% if href %}
+<a href="{{ href }}" target="_blank" rel="noopener noreferrer" class="kb-link-chip">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+  {{ label }}
+</a>
+{% endif %}
+{% endmacro %}
+
+{% macro variant_badge(variant) %}
+{% if variant == 'required' %}
+<span class="kb-chip">اجباری</span>
+{% elif variant == 'practice' %}
+<span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-[var(--slate)]">تمرینی</span>
+{% elif variant == 'choose_less' %}
+<span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-800">کمتر سخت</span>
+{% elif variant == 'choose_more' %}
+<span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold bg-crimson-tint text-crimson">سخت‌تر</span>
+{% endif %}
+{% endmacro %}
+
+{% macro problem_card(p) %}
+<article class="card-harvard p-5 h-full flex flex-col gap-3">
+  <div class="flex flex-wrap items-start justify-between gap-2">
+    <h3 class="font-bold text-base">
+      <a href="{{ p.url }}" target="_blank" rel="noopener noreferrer" class="hover:text-crimson cursor-pointer underline-offset-2 hover:underline">
+        {{ p.name }}
+      </a>
+    </h3>
+    {{ variant_badge(p.variant) }}
+  </div>
+  <p class="text-sm text-[var(--slate)] leading-relaxed flex-1">{{ p.summary_fa }}</p>
+  <div class="text-xs text-[var(--slate)]">
+    <span class="font-semibold">زبان:</span> {{ p.lang }}
+    {% if p.files %}
+    · <span class="font-semibold">فایل‌ها:</span>
+    <span class="num" dir="ltr">{{ p.files|join(', ') }}</span>
+    {% endif %}
+  </div>
+  {% if p.check50_slug %}
+  <div>
+    <p class="text-xs font-semibold mb-1 text-[var(--slate)]">check50 / submit50</p>
+    <code class="kb-code">check50 {{ p.check50_slug }}</code>
+    <code class="kb-code mt-1">submit50 {{ p.check50_slug }}</code>
+  </div>
+  {% endif %}
+  <a href="{{ p.url }}" target="_blank" rel="noopener noreferrer"
+     class="text-sm font-bold text-crimson hover:underline cursor-pointer self-start">
+    صفحهٔ رسمی مسئله
+  </a>
+</article>
+{% endmacro %}

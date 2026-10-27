@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}پایگاه دانش CS50x 2026{% endblock %}
+
+{% block content %}
+<header class="mb-8">
+  <p class="text-sm font-semibold text-crimson mb-1">CS50x Anzali · 2026</p>
+  <h1 class="text-2xl sm:text-3xl font-extrabold">پایگاه دانش دوره</h1>
+  <p class="text-[var(--slate)] mt-2 max-w-2xl text-sm sm:text-base">
+    مباحث هر جلسه، پرابلم‌ست‌ها، دستورهای check50/submit50 و راهنمای فارسی — با لینک به منابع رسمی هاروارد.
+  </p>
+</header>
+
+<section class="card-harvard p-5 sm:p-6 mb-8 border-r-4 border-crimson">
+  <h2 class="kb-section-title">گواهی و مهلت</h2>
+  <ul class="space-y-2 text-sm text-[var(--slate)]">
+    <li><span class="font-semibold text-ink">مهلت:</span> {{ certificate.deadline_display_fa }} ({{ certificate.deadline_tehran_label }})</li>
+    <li><span class="font-semibold text-ink">حداقل نمره:</span> {{ certificate.min_score_percent }}٪ در هر مسئلهٔ اجباری و پروژهٔ نهایی</li>
+    <li><span class="font-semibold text-ink">نمره‌دهی:</span> {{ certificate.scoring }}</li>
+    <li>{{ certificate.resubmit }}</li>
+    <li>{{ certificate.choose_one_rule }}</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="kb-section-title">نقشهٔ جلسات</h2>
+  {% if weeks %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {% for w in weeks %}
+    <a href="{{ url_for('kb.week_page', week=w.number) }}"
+       class="card-harvard p-5 block hover:border-crimson cursor-pointer transition-colors duration-200 border border-transparent focus-visible:outline focus-visible:outline-2 focus-visible:outline-crimson">
+      <div class="flex items-center justify-between gap-2 mb-2">
+        <span class="text-xs font-bold text-crimson num">
+          {% if w.number == 71 %}AI{% elif w.number == 99 %}Final{% else %}هفته {{ w.number }}{% endif %}
+        </span>
+        {% if not w.has_pset %}
+        <span class="text-[10px] font-semibold text-[var(--slate)] bg-gray-100 px-2 py-0.5 rounded">بدون پرابلم‌ست</span>
+        {% else %}
+        <span class="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">{{ w.problems|length }} مسئله</span>
+        {% endif %}
+      </div>
+      <h3 class="font-bold text-lg">{{ w.title_fa }}</h3>
+      <p class="text-xs text-[var(--slate)] mt-1" dir="ltr">{{ w.title_en }}</p>
+      <p class="text-xs text-[var(--slate)] mt-3 line-clamp-2">{{ w.topics[:4]|join(' · ') }}</p>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="card-harvard p-8 text-center text-[var(--slate)]">
+    هنوز هفتهٔ منتشرشده‌ای نیست. از پنل ادمین هفته‌ها را منتشر کنید.
+  </div>
+  {% endif %}
+</section>
+
+<footer class="mt-10 text-xs text-[var(--slate)] border-t border-[var(--border)] pt-4">
+  {{ certificate.license_note }} ·
+  <a href="{{ certificate.license_url }}" class="text-crimson hover:underline" target="_blank" rel="noopener">مجوز</a>
+</footer>
+{% endblock %}

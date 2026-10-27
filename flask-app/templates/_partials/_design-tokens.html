@@ -237,4 +237,135 @@
     .no-print { display: none !important; }
     .card-harvard { box-shadow: none; border-color: #ccc; }
   }
+
+  /* ─── Knowledge Base (from design-system + Crimson brand lock) ─── */
+  .kb-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--crimson-tint);
+    color: var(--crimson-dark);
+    border: 1px solid rgba(165, 28, 48, 0.15);
+  }
+  .kb-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .kb-section-title::before {
+    content: "";
+    width: 0.35rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--crimson);
+    flex-shrink: 0;
+  }
+  .kb-link-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--ink);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+  }
+  .kb-link-chip:hover {
+    border-color: var(--crimson);
+    background: var(--crimson-tint);
+    color: var(--crimson-dark);
+  }
+  .kb-link-chip:focus-visible {
+    outline: 2px solid var(--crimson);
+    outline-offset: 2px;
+  }
+  .kb-code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    direction: ltr;
+    text-align: left;
+    background: #1E1E1E;
+    color: #F5F5F5;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .kb-choice-banner {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--warning);
+    margin-bottom: 0.5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .kb-link-chip, .btn-crimson, .card-harvard { transition: none !important; }
+  }
+
+  /* KB prose — documentation reading experience */
+  .kb-prose {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+  .kb-prose h1, .kb-prose h2, .kb-prose h3, .kb-prose h4 {
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+  .kb-prose h2 { font-size: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.35rem; }
+  .kb-prose h3 { font-size: 1.1rem; color: var(--crimson-dark); }
+  .kb-prose p, .kb-prose ul, .kb-prose ol { margin-bottom: 0.85rem; }
+  .kb-prose ul, .kb-prose ol { padding-inline-start: 1.25rem; }
+  .kb-prose a { color: var(--crimson); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .kb-prose a:hover { color: var(--crimson-dark); }
+  .kb-prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    direction: ltr;
+    unicode-bidi: isolate;
+    background: var(--crimson-tint);
+    padding: 0.1em 0.35em;
+    border-radius: 0.25rem;
+  }
+  .kb-prose pre {
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: isolate;
+    background: #1E1E1E;
+    color: #F5F5F5;
+    padding: 1rem 1.1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+  .kb-prose pre code { background: transparent; color: inherit; padding: 0; }
+  .kb-prose blockquote {
+    border-inline-start: 3px solid var(--crimson);
+    padding-inline-start: 1rem;
+    color: var(--slate);
+    margin: 1rem 0;
+  }
+  .kb-prose table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.875rem; }
+  .kb-prose th, .kb-prose td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; }
+  .kb-prose th { background: var(--crimson-tint); }
+  .kb-official { border-inline-start: 3px solid var(--crimson); padding-inline-start: 0.75rem; }
+  .kb-generated {
+    background: linear-gradient(to left, var(--crimson-tint) 0%, #fff 45%);
+    border-inline-start: 3px solid var(--crimson-dark);
+    padding-inline-start: 0.75rem;
+  }
+  .kb-toc a { font-weight: 600; }
 </style>

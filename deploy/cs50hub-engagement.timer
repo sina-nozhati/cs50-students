@@ -1,0 +1,12 @@
+[Unit]
+Description=Run CS50x Anzali Engagement Assessment Daily
+Requires=cs50hub-engagement.service
+
+[Timer]
+# دو بار در روز در ساعات ۱۰:۳۰ صبح و ۱۸:۰۰ عصر به وقت تهران
+OnCalendar=*-*-* 07:00:00 UTC
+OnCalendar=*-*-* 14:30:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

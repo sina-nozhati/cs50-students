@@ -1,102 +1,182 @@
-{# صفحه‌ی یکپارچه هفته — تم هاروارد (Crimson).
-   نمایش محتوای آموزشی (URL خارجی در iframe یا HTML خام) + منابع.
-#}
 {% extends "base.html" %}
-{% block title %}{{ title }}{% endblock %}
+{% from "kb/_partials/_macros.html" import link_chip %}
+
+{% block title %}{% if week_data %}{{ week_data.title_fa }}{% else %}{{ title }}{% endif %}{% endblock %}
 
 {% block content %}
-<header class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-    <div>
-        <h1 class="text-2xl font-bold flex items-center gap-2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-            {{ title }}
-        </h1>
-        <p class="text-[var(--slate)] text-sm mt-1">مطالعه این بخش به شما ۵ XP می‌دهد.</p>
-    </div>
-    {% if content_url %}
-    <a href="{{ content_url }}" target="_blank" rel="noopener noreferrer" 
-       class="btn-crimson inline-flex items-center justify-center gap-2 text-sm px-4 py-2 self-start sm:self-auto">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        باز کردن در صفحه جدید
-    </a>
+<nav class="mb-4 text-sm">
+  <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer inline-flex items-center gap-1">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    پایگاه دانش
+  </a>
+</nav>
+
+{% if week_data %}
+<header class="card-harvard p-6 sm:p-8 mb-6 bg-gradient-to-l from-crimson-tint/40 to-white">
+  <div class="flex flex-wrap items-center gap-2 mb-3">
+    <span class="kb-chip num">
+      {% if week == 71 %}هفته AI{% elif week == 99 %}پروژه نهایی{% else %}هفته {{ week }}{% endif %}
+    </span>
+    {% if week_data.source_url %}
+    <a href="{{ week_data.source_url }}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-crimson hover:underline cursor-pointer">منبع رسمی</a>
     {% endif %}
+  </div>
+  <h1 class="text-2xl sm:text-3xl font-extrabold">{{ week_data.title_fa }}</h1>
+  <p class="text-[var(--slate)] mt-1" dir="ltr">{{ week_data.title_en }}</p>
 </header>
 
-{# ─── محتوای آموزشی هفته ─── #}
-{% if content_url %}
-<div class="card-harvard overflow-hidden bg-white mb-6" style="height: 70vh; min-height: 500px;">
-    <iframe src="{{ content_url }}" class="w-full h-full border-0" title="محتوای هفته"></iframe>
-</div>
-{% elif content_html %}
-<article class="kb-content card-harvard card-accent p-6 sm:p-8 mb-6">
-    {{ content_html|safe }}
-</article>
-{% else %}
-<article class="card-harvard p-8 text-center mb-6">
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5" class="mx-auto mb-3" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
-    <p class="text-[var(--slate)]">محتوای این هفته به‌زودی اضافه می‌شود.</p>
-</article>
+{% if week_data.topics %}
+<section class="mb-6">
+  <h2 class="kb-section-title">برچسب‌ها / مباحث</h2>
+  <div class="flex flex-wrap gap-2">
+    {% for t in week_data.topics[:12] %}
+    <span class="kb-chip">{{ t }}</span>
+    {% endfor %}
+  </div>
+</section>
 {% endif %}
 
-{# ─── دکمه XP ─── #}
+{% set ns = namespace(has_official_link=false) %}
+{% if week_data.source_url or week_data.source_urls %}
+{% set ns.has_official_link = true %}
+{% endif %}
+{% for c in week_data.children %}
+  {% if c.source_url %}{% set ns.has_official_link = true %}{% endif %}
+{% endfor %}
+
+{% if ns.has_official_link %}
+<section class="mb-8">
+  <h2 class="kb-section-title">لینک‌های رسمی</h2>
+  <div class="flex flex-wrap gap-2">
+    {{ link_chip('صفحهٔ هفته', week_data.source_url) }}
+    {% for url in week_data.source_urls or [] %}
+      {% if url != week_data.source_url %}
+      {{ link_chip('منبع', url) }}
+      {% endif %}
+    {% endfor %}
+    {% for c in week_data.children %}
+      {% if c.source_url %}
+      {{ link_chip(c.title, c.source_url) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="mb-8">
+  <h2 class="kb-section-title">محتوای این هفته</h2>
+  {% if week_data.children %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    {% for c in week_data.children %}
+    <a href="{{ url_for('kb.doc_page', doc_id=c.id) }}"
+       class="card-harvard p-4 flex items-start gap-3 hover:border-crimson border border-transparent cursor-pointer transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-crimson">
+      <span class="text-xs font-bold uppercase tracking-wide text-crimson shrink-0 mt-0.5">{{ c.type }}</span>
+      <div class="min-w-0">
+        <p class="font-bold text-sm leading-snug">{{ c.title }}</p>
+        {% if c.child_count %}
+        <p class="text-xs text-[var(--slate)] mt-1">{{ c.child_count }} زیرمورد</p>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-sm text-[var(--slate)]">فرزند مستقیمی در درخت KB ثبت نشده؛ سند هفته را پایین ببینید.</p>
+  {% endif %}
+</section>
+
+{% if week_data.rendered and week_data.rendered.has_generated %}
+<section class="mb-8">
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">راهنمای فارسی / چک‌لیست (GENERATED)</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson)] text-white">GENERATED</span>
+  </div>
+  <div class="kb-prose kb-generated card-harvard p-5 sm:p-6">
+    {{ week_data.rendered.generated_html|safe }}
+  </div>
+</section>
+{% endif %}
+
+{% if week_data.rendered and week_data.rendered.has_official %}
+<section class="mb-8">
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">خلاصهٔ رسمی هفته (OFFICIAL)</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">OFFICIAL</span>
+  </div>
+  <div class="kb-prose kb-official card-harvard p-5 sm:p-6">
+    {{ week_data.rendered.official_html|safe }}
+  </div>
+</section>
+{% elif week_data.rendered and week_data.rendered.full_html and not week_data.rendered.has_generated %}
+<section class="mb-8">
+  <div class="kb-prose card-harvard p-5 sm:p-6">
+    {{ week_data.rendered.full_html|safe }}
+  </div>
+</section>
+{% endif %}
+
+{% else %}
+<header class="mb-6"><h1 class="text-2xl font-bold">{{ title }}</h1></header>
+{% if content_html %}
+<article class="kb-prose card-harvard p-6 mb-6">{{ content_html|safe }}</article>
+{% elif content_url %}
+<iframe src="{{ content_url }}" class="w-full card-harvard mb-6" style="height:70vh" title="محتوا"></iframe>
+{% endif %}
+{% endif %}
+
+{% if exercises %}
+<section class="mb-8">
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">تمرین‌های تعاملی و قطعه‌کد جاافتاده</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-amber-600 text-white">INTERACTIVE CODE</span>
+  </div>
+  <div class="space-y-4">
+    {% for ex in exercises %}
+      {% set attempt = exercise_attempts.get(ex.id) if exercise_attempts else None %}
+      {% set exercise = ex %}
+      {% include "kb/_partials/_exercise_card.html" %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% if can_mark_read %}
 {% set awarded = already_read %}
 {% set first_read = False %}
 <div class="mb-8" id="read-button-wrapper">
-    {% include "kb/_read_button.html" with context %}
+  {% include "kb/_read_button.html" with context %}
 </div>
 {% endif %}
 
-{# ─── منابع دانلود ─── #}
-<section class="mt-10">
-    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        منابع دانلود
-    </h2>
-    
-    {% if files %}
-    <div class="card-harvard overflow-hidden">
-        <table class="w-full text-right">
-            <thead>
-                <tr class="bg-crimson text-white text-sm">
-                    <th class="px-4 py-3 font-semibold w-12 text-center">نوع</th>
-                    <th class="px-4 py-3 font-semibold">عنوان فایل</th>
-                    <th class="px-4 py-3 font-semibold text-center w-24">دانلود</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for file in files %}
-                <tr class="border-t border-[var(--border)] hover:bg-crimson-tint/20 transition-colors align-middle">
-                    <td class="px-4 py-3 text-center">
-                        {% if file.category == 'slides' %}
-                            <svg class="w-5 h-5 text-orange-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                        {% elif file.category == 'notes' %}
-                            <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
-                        {% elif file.category == 'src' %}
-                            <svg class="w-5 h-5 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                        {% elif file.category == 'pset' %}
-                            <svg class="w-5 h-5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                        {% else %}
-                            <svg class="w-5 h-5 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-                        {% endif %}
-                    </td>
-                    <td class="px-4 py-3 font-semibold text-sm">{{ file.display_name }}</td>
-                    <td class="px-4 py-3 text-center">
-                        <a href="{{ url_for('resources.download', resource_id=file.id) }}" 
-                           class="inline-flex items-center justify-center w-8 h-8 rounded-full text-crimson hover:bg-crimson hover:text-white transition-colors"
-                           title="دانلود مستقیم">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% else %}
-    <div class="card-harvard p-6 text-center">
-        <p class="text-[var(--slate)] text-sm">هیچ فایلی برای دانلود در این هفته منتشر نشده است.</p>
-    </div>
-    {% endif %}
+<section class="mt-6 mb-8">
+  <h2 class="kb-section-title">منابع دانلود پنل</h2>
+  {% if files %}
+  <div class="card-harvard overflow-hidden">
+    <table class="w-full text-right text-sm">
+      <thead><tr class="bg-crimson text-white"><th class="px-4 py-3">عنوان</th><th class="px-4 py-3 text-center w-28">دانلود</th></tr></thead>
+      <tbody>
+        {% for file in files %}
+        <tr class="border-t border-[var(--border)]">
+          <td class="px-4 py-3">{{ file.display_name }}</td>
+          <td class="px-4 py-3 text-center">
+            <a href="{{ url_for('resources.download', resource_id=file.id) }}" class="text-crimson font-bold hover:underline cursor-pointer">دانلود</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <p class="text-sm text-[var(--slate)]">فایل دانلودی ثبت نشده است.</p>
+  {% endif %}
 </section>
+
+<footer class="text-xs text-[var(--slate)] border-t border-[var(--border)] pt-4 space-y-1">
+  <p>{% if week_data %}{{ week_data.attribution }}{% else %}CS50x 2026 © David J. Malan, Harvard University{% endif %}</p>
+  <p>
+    {{ certificate.license_note }} ·
+    <a href="{{ certificate.license_url }}" class="text-crimson hover:underline" target="_blank" rel="noopener">مجوز CC BY-NC-SA 4.0</a>
+    — استفاده غیرتجاری آموزشی.
+  </p>
+</footer>
 {% endblock %}

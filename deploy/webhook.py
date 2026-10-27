@@ -22,7 +22,8 @@ from flask import Flask, request, abort
 
 app = Flask(__name__)
 
-WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET", "cs50-anzali-webhook-secret")
+# بدون مقدار پیش‌فرض — secret باید فقط از محیط امن بیاید (هرگز در کد هاردکد نشود).
+WEBHOOK_SECRET = os.environ.get("WEBHOOK_SECRET")
 DEPLOY_SCRIPT = "/var/www/cs50hub/deploy/deploy.sh"
 
 logging.basicConfig(
@@ -34,9 +35,14 @@ logging.basicConfig(
 
 def verify_signature(payload, signature):
     """Verify the GitHub webhook signature."""
-    if not signature:
+    if not WEBHOOK_SECRET or not signature:
         return False
-    sha_name, signature_hash = signature.split("=")
+    try:
+        sha_name, signature_hash = signature.split("=")
+    except ValueError:
+        return False
+    if sha_name != "sha256":
+        return False
     mac = hmac.new(
         WEBHOOK_SECRET.encode("utf-8"),
         msg=payload,

@@ -1,34 +1,80 @@
-"""داشبورد تحلیلی برای ادمین."""
+"""داشبورد تحلیلی برای ادمین — شاخص‌های آموزشی FR-10."""
 from datetime import datetime, timedelta
+from statistics import median
+
 from sqlalchemy import func
 
 from app import db
 from app.models import User, Assignment, Submission, XPLog, WeekProgress, Week
 
+
 def get_overview() -> dict:
     """آمار کلی داشبورد را برمی‌گرداند."""
     total_students = User.query.filter_by(is_admin=False).count()
     active_assignments = Assignment.query.filter_by(is_active=True).count()
-    
+
     today = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
     start_of_week = today - timedelta(days=today.weekday())
-    
+
     submissions_today = Submission.query.filter(Submission.submitted_at >= today).count()
     submissions_week = Submission.query.filter(Submission.submitted_at >= start_of_week).count()
-    
+
     avg_xp_result = db.session.query(func.avg(User.xp)).filter(User.is_admin.is_(False)).scalar()
     avg_xp = int(avg_xp_result) if avg_xp_result else 0
-    
+
     total_xp_awarded = db.session.query(func.sum(XPLog.amount)).scalar() or 0
-    
+
+    timing = get_submission_timing_stats()
+    feedback = get_median_feedback_hours()
+
     return {
         "total_students": total_students,
         "active_assignments": active_assignments,
         "submissions_today": submissions_today,
         "submissions_week": submissions_week,
         "avg_xp": avg_xp,
-        "total_xp_awarded": total_xp_awarded
+        "total_xp_awarded": total_xp_awarded,
+        "on_time_count": timing["on_time"],
+        "late_count": timing["late"],
+        "ungraded_count": timing["ungraded"],
+        "median_feedback_hours": feedback,
     }
+
+
+def get_submission_timing_stats() -> dict:
+    """تعداد تحویل به‌موقع / دیر / بدون نمره."""
+    on_time = late = ungraded = 0
+    rows = (
+        db.session.query(Submission, Assignment)
+        .join(Assignment, Submission.assignment_id == Assignment.id)
+        .all()
+    )
+    for sub, assignment in rows:
+        if sub.grade is None:
+            ungraded += 1
+        if sub.submitted_at and assignment.due_date:
+            if sub.submitted_at <= assignment.due_date:
+                on_time += 1
+            else:
+                late += 1
+    return {"on_time": on_time, "late": late, "ungraded": ungraded}
+
+
+def get_median_feedback_hours() -> float | None:
+    """میانهٔ ساعت بین تحویل و نمره‌دهی (فقط رکوردهای graded_at)."""
+    deltas = []
+    graded = Submission.query.filter(
+        Submission.grade.isnot(None),
+        Submission.graded_at.isnot(None),
+        Submission.submitted_at.isnot(None),
+    ).all()
+    for s in graded:
+        delta = (s.graded_at - s.submitted_at).total_seconds() / 3600.0
+        if delta >= 0:
+            deltas.append(delta)
+    if not deltas:
+        return None
+    return round(median(deltas), 1)
 
 def get_assignment_stats() -> list[dict]:
     """آمار هر تکلیف را برمی‌گرداند."""

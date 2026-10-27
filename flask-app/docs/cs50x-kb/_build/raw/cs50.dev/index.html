@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:description" content="CS50's adaptation of Codespaces for students and teachers">
+        <meta property="og:image" content="https://cs50.dev/static/dependencies-1.png">
+        <meta property="og:image:height" content="820">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="1093">
+        <meta property="og:title" content="Visual Studio Code for CS50">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://cs50.dev/">
+
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:creator" content="@cs50">
+        <meta property="twitter:description" content="CS50's adaptation of Codespaces for students and teachers">
+        <meta property="twitter:image" content="https://cs50.dev/static/dependencies-1.png">
+        <meta property="twitter:site" content="@cs50">
+        <meta property="twitter:title" content="Visual Studio Code for CS50">
+
+        <!-- https://code.visualstudio.com/ -->
+        <link href="/static/favicon.ico" rel="icon" type="image/ico">
+
+        <script>
+            window.FontAwesomeConfig = { autoReplaceSvg: false };
+        </script>
+
+        <link href="/static/dist/main.css?1792210013" rel="stylesheet">
+        <script src="/static/dist/main.js?1792210013"></script>
+
+        <!-- https://getbootstrap.com/docs/5.3/customize/color-modes/#javascript -->
+        <script>
+
+            function getPreferredTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function setTheme(theme) {
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark')
+                }
+                else {
+                    document.documentElement.setAttribute('data-bs-theme', theme)
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                setTheme(getPreferredTheme());
+            });
+            setTheme(getPreferredTheme());
+
+        </script>
+
+        <script>
+
+            const LOCALES = [["English", "en", "en_US.utf8"], ["Chinese", "zh-cn", "zh_CN.utf8"], ["Chinese", "zh-tw", "zh_TW.utf8"], ["French", "fr", "fr_FR.utf8"], ["German", "de", "de_DE.utf8"], ["Italian", "it", "it_IT.utf8"], ["Spanish", "es", "es_ES.utf8"], ["Japanese", "ja", "ja_JP.utf8"], ["Korean", "ko", "ko_KR.utf8"], ["Russian", "ru", "ru_RU.utf8"], ["Portuguese", "pt-br", "pt_BR.utf8"], ["Turkish", "tr", "tr_TR.utf8"], ["Polish", "pl", "pl_PL.utf8"], ["Czech", "cs", "cs_CZ.utf8"]];
+
+            $(function() {
+
+                // Supported
+                const BROWSERS = {
+                    chrome: {
+                        href: 'https://www.google.com/chrome/',
+                        name: 'Chrome',
+                        recommended: true,
+                        version: '103'
+                    },
+                    edge: {
+                        href: 'https://www.microsoft.com/edge',
+                        name: 'Edge',
+                        recommended: true,
+                        version: '103'
+                    },
+                    firefox: {
+                        href: 'https://www.mozilla.org/firefox/',
+                        name: 'Firefox',
+                        version: '103'
+                    },
+                    safari: {
+                        href: 'https://support.apple.com/downloads/safari',
+                        name: 'Safari',
+                        recommended: false, // Don't recommend upgrading Safari (and, in turn, macOS)
+                        version: '16.6'
+                    }
+                };
+
+                // Parse User-Agent
+                const browser = bowser.getParser(window.navigator.userAgent);
+
+                // If mobile
+                if (browser.is('mobile')) {
+                    $('#mobile').removeClass('d-none');
+                    return;
+                }
+
+                // If supported
+                for (let key in BROWSERS) {
+                    const checkTree = {};
+                    checkTree[key] = '>=' + BROWSERS[key].version;
+                    if (browser.satisfies(checkTree)) {
+                        return;
+                    }
+                }
+
+                // If recommended but outdated
+                for (let key in BROWSERS) {
+                    if (BROWSERS[key].recommended) {
+                        const checkTree = {};
+                        checkTree[key] = '<' + BROWSERS[key].version;
+                        if (browser.satisfies(checkTree)) {
+                            $('#browser').html(BROWSERS[key].name);
+                            $('#href').attr('href', BROWSERS[key].href);
+                            $('#outdated').removeClass('d-none');
+                            $('form[action="/open"] > button').attr('disabled', '');
+                            return;
+                        }
+                    }
+                }
+
+                // If unsupported
+                const browsers = [];
+                for (let key in BROWSERS) {
+                    if (BROWSERS[key].recommended) {
+                        const $a = $('<a>').addClass('alert-link text-decoration-none').attr('href', BROWSERS[key].href).html(BROWSERS[key].name);
+                        browsers.push($a.prop('outerHTML'));
+                    }
+                }
+                const lf = new Intl.ListFormat('en', {type: 'disjunction'}); // https://stackoverflow.com/a/53883742
+                $('#browsers').html(lf.format(browsers));
+                $('#unsupported').removeClass('d-none');
+                $('form[action="/open"] > button').attr('disabled', '');
+                return;
+            });
+
+            $(function() {
+
+                // Infer user's locale
+                const languages = navigator.languages || [navigator.language];
+                outer: for (let language of languages) {
+                    for (let locale of LOCALES) {
+
+                        // Compare language-region, then just language
+                        if (language === locale[1] || language.split('-')[0] === locale[1].split('-')[0]) {
+                            $('input[name="lang"]').val(locale[2]);
+                            break outer;
+                        }
+                    }
+                }
+
+                // Guess user's time zone
+                $('input[name="tz"]').val(moment.tz.guess(true));
+
+                // Disable button once clicked
+                $('form').on('submit', function() {
+                    $('form button .fa-github').addClass('fa-spin');
+                    $('form button').attr('disabled', '');
+                    window.setTimeout(function() {
+                        $('form button').removeAttr('disabled');
+                        $('form button .fa-github').removeClass('fa-spin');
+                    }, 30000);
+                });
+            });
+
+        </script>
+
+        <style>
+
+            .btn-success:focus {
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .container {
+                max-width: 960px;
+            }
+
+            a:not(.dropdown-item) {
+                text-decoration: none;
+            }
+
+            a:hover:not(.dropdown-item) {
+                text-decoration-line: underline;
+                text-decoration-style: solid;
+                text-underline-offset: 3px;
+            }
+
+            h1 a {
+                font-weight: 500;
+            }
+
+            h1 img {
+                height: 1em;
+                width: initial;
+            }
+
+            #codespace {
+                max-width: 100%;
+                width: 480px;
+            }
+
+        </style>
+
+        <title>Visual Studio Code for CS50</title>
+
+    </head>
+
+    <body>
+        <div class="container px-4 py-5">
+            <h1 class="display-6">
+                <a class="text-body text-decoration-none" href="/">
+                    <span class="d-none d-md-inline">Visual Studio Code</span><span class="d-md-none">VS Code</span>
+                    <small class="text-muted">for CS50</small>
+                </a>
+                <img alt="CS50 duck debugger" class="align-bottom mb-1 ps-1" data-bs-title="quack" data-bs-toggle="tooltip" src="/static/ddb50.gif">
+            </h1>
+            <p class="lead lh-sm mb-1">
+                CS50's adaptation of <a class="fw-bold text-success" href="https://github.com/features/codespaces">Codespaces</a> for students and teachers
+            </p>
+            <details class="mb-3 small">
+                <summary class="mb-2"><span class="ps-1">with these features</span></summary>
+                <ul class="mb-2">
+                    <li><strong>Bash</strong>, using <code>bash</code></li>
+                    <li><strong>C</strong>, using <code>clang</code> or <code>gcc</code></li>
+                    <li><strong>C++</strong>, using <code>clang</code> or <code>g++</code></li>
+                    <li><strong>Docker</strong>, using <code>docker</code>
+                    <li><strong>Flask</strong>, using <code>flask</code></li>
+                    <li><strong>HTML, CSS, and JavaScript</strong>, using <code>http-server</code></li>
+                    <li><strong>Java</strong>, using <code>javac</code> and <code>java</code></li>
+                    <li><strong>Lua</strong>, using <code>lua</code></li>
+                    <li><strong>Node.js</strong>, using <code>node</code></li>
+                    <li><strong>Python</strong>, using <code>python</code></li>
+                    <li><strong>R</strong>, using <code>R</code> and <code>rstudio</code></li>
+                    <li><strong>Ruby</strong>, using <code>ruby</code></li>
+                    <li><strong>SQLite</strong>, using <code>sqlite3</code></li>
+                    <li><strong>X Window System</strong>, using <code>x11vnc</code> and <code>novnc_proxy</code></li>
+                </ul>
+                <p class="mb-2">
+                    Localized for
+                    Chinese, Czech, English, French, German, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, and Turkish.
+                </p>
+                <p class="mb-2">
+                Environments are based on <a class="text-success" href="https://cs50.readthedocs.io/cs50/codespace/">cs50/codespace</a>, which is based on <a class="text-success" href="https://cs50.readthedocs.io/cs50/cli/">cs50/cli</a>, which is based on Ubuntu 24.04. Other software can be installed with <code>apt</code>, <code>gem</code>, <code>npm</code>, and <code>pip</code>. Email <a class="text-success" href="mailto:sysadmins@cs50.harvard.edu">sysadmins@cs50.harvard.edu</a> with questions.
+                </p>
+            </details>
+            
+            <div class="alert alert-danger d-inline-block d-none mb-3 small" id="mobile" role="alert">
+                You seem to be on a mobile device. Best to use a laptop or desktop!
+            </div>
+            <div class="alert alert-danger d-inline-block d-none mb-3 small" id="outdated" role="alert">
+                You seem to be using an outdated version of <span id="browser"></span>. To log in, <a class="alert-link" id="href">download and install the latest version</a>.
+            </div>
+            <div class="alert alert-danger d-inline-block d-none mb-3 small" id="unsupported" role="alert">
+                You seem to be using an <a class="alert-link" href="https://docs.github.com/en/codespaces/the-githubdev-web-based-editor#known-limitations">unsupported browser</a>. To log in, download and install the latest version of <span id="browsers"></span>.
+            </div>
+            <main>
+                <div class="mb-4">
+                    <div class="btn-group mb-3">
+                        <form action="/open" method="post">
+                            <input name="lang" type="hidden">
+                            <input name="tz" type="hidden">
+                            <button autofocus class="btn btn-success rounded-end-0" type="submit">
+                                <i class="fa-brands fa-github"></i>
+                                <span class="ps-1">Log&nbsp;In</span>
+                            </button>
+                        </form>
+                        <button aria-expanded="false" class="btn btn-success dropdown-toggle dropdown-toggle-split me-2" data-bs-reference="parent" data-bs-toggle="dropdown" type="button">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <div class="align-middle d-block d-sm-inline mt-2">
+                            or browse <a class="fw-bold text-success" href="https://cs50.readthedocs.io/cs50.dev/">documentation</a>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <form action="/connect" method="post">
+                                    <input name="lang" type="hidden">
+                                    <input name="tz" type="hidden">
+                                    <button class="dropdown-item" type="submit">
+                                        <i class="fa-solid fa-up-right-from-square pe-1"></i>
+                                        Open in VS Code Desktop
+                                    </button>
+                                </form>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="/restart">
+                                    <i class="fa-solid fa-power-off pe-1"></i>
+                                    Restart Codespace
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><span class="dropdown-item-text fw-bold small text-muted">Backups</span></li>
+                            <li><a class="dropdown-item" href="/commits">Commits</a></li>
+                            <li><a class="dropdown-item" href="/repo">Repository</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <img alt="Codespaces" class="rounded shadow-lg" id="codespace" src="/static/dependencies-3.png"> <!-- https://github.com/features/codespaces -->
+            </main>
+        </div>
+
+        <div class="fade modal" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statuspage widget -->
+        <script src="https://g9mp5m2251ps.statuspage.io/embed/script.js"></script>
+
+        <script>
+
+            // https://getbootstrap.com/docs/5.3/components/tooltips/#enable-tooltips
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+        </script>
+
+    </body>
+
+</html>

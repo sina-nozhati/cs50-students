@@ -58,13 +58,16 @@ def week_files(week: int):
 
 @bp.route("/file/<int:resource_id>/download")
 def download(resource_id: int):
-    """دانلود مستقیم فایل از static/downloads/weekN/FILENAME.
+    """دانلود فایل فقط از مسیر مجوزدار (لاگین + منتشرشده).
 
-    send_from_directory امن است و از path traversal جلوگیری میکند.
+    فایل‌ها روی دیسک در UPLOAD_FOLDER هستند اما Nginx مسیر
+    /static/downloads را سرو نمی‌کند — دسترسی فقط از اینجا ممکن است.
+    send_from_directory از path traversal جلوگیری می‌کند.
     """
-    res = res_service.get_or_404(resource_id)
+    res = res_service.get_published_or_404(resource_id)
     directory = os.path.join(current_app.config["UPLOAD_FOLDER"], f"week{res.week}")
-    # download_name با display_name فارسی تا مرورگر نام زیبا نشان دهد
+    if not os.path.isfile(os.path.join(directory, res.filename)):
+        abort(404)
     ext = res.filename.rsplit(".", 1)[-1] if "." in res.filename else "bin"
     return send_from_directory(
         directory,

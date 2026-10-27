@@ -10,8 +10,8 @@ from flask import abort
 from app import db
 from app.models import User, WeekProgress, Assignment, Submission, XPLog, Week
 
-# تعداد پیش‌فرض کل هفته‌های دوره (در صورت خالی بودن DB)
-TOTAL_WEEKS = 10
+# تعداد پیش‌فرض واحدهای دوره (0–10 + AI + Final) در صورت خالی بودن DB
+TOTAL_WEEKS = 13
 
 
 def get_user_stats(user_id: int) -> dict:
@@ -44,13 +44,14 @@ def get_user_stats(user_id: int) -> dict:
 
 
 def get_certificate_progress(user_id: int) -> dict:
-    """پیشرفت کاربر به سمت مدرک CS50 را محاسبه میکند.
+    """پیشرفت کاربر به سمت مدرک را محاسبه میکند.
 
-    یک هفته «تکمیل‌شده» محسوب میشود وقتی quiz_completed=True باشد.
+    معیار فعلی (تا قبل از کوییز): هفته وقتی تکمیل است که kb_read=True باشد.
     درصد = (هفته‌های تکمیل‌شده / total_weeks) × ۱۰۰.
+    وابستگی اجباری به quiz_completed وجود ندارد.
 
     Returns:
-        dict: completed_weeks (int), total_weeks, percent, current_week.
+        dict: completed_weeks, total_weeks, percent, current_week, criterion.
     """
     total_weeks = Week.query.count() or TOTAL_WEEKS
     completed = WeekProgress.query.filter_by(
@@ -59,23 +60,91 @@ def get_certificate_progress(user_id: int) -> dict:
 
     percent = int((completed / total_weeks) * 100) if total_weeks else 0
 
-    # هفته‌ی فعلی = اولین هفته‌ای که هنوز kb_read نیست
-    last_completed = (
-        WeekProgress.query.filter_by(user_id=user_id, kb_read=True)
-        .order_by(WeekProgress.week.desc())
-        .first()
+    # هفته‌ی فعلی: ترجیحاً اولین هفتهٔ منتشرشدهٔ نخوانده؛
+    # اگر جدول Week خالی باشد، از WeekProgress (سازگار با تست‌ها) استفاده می‌شود.
+    published = (
+        Week.query.filter_by(is_published=True).order_by(Week.number.asc()).all()
     )
-    current_week = (last_completed.week + 1) if last_completed else 0
-    # محدود به بازه‌ی دوره
-    if current_week > total_weeks - 1:
-        current_week = total_weeks - 1
+    if published:
+        current_week = published[0].number
+        for w in published:
+            wp = WeekProgress.query.filter_by(user_id=user_id, week=w.number).first()
+            if wp is None or not wp.kb_read:
+                current_week = w.number
+                break
+        else:
+            current_week = published[-1].number
+    else:
+        last_completed = (
+            WeekProgress.query.filter_by(user_id=user_id, kb_read=True)
+            .order_by(WeekProgress.week.desc())
+            .first()
+        )
+        current_week = (last_completed.week + 1) if last_completed else 0
+        if current_week > total_weeks - 1:
+            current_week = total_weeks - 1
 
     return {
         "completed_weeks": completed,
         "total_weeks": total_weeks,
         "percent": percent,
         "current_week": current_week,
+        "criterion": "kb_read",
     }
+
+
+def get_recent_feedback(user_id: int, limit: int = 5) -> list[dict]:
+    """آخرین بازخوردهای نمره‌دهی‌شده برای داشبورد."""
+    rows = (
+        Submission.query.filter(
+            Submission.student_id == user_id,
+            Submission.grade.isnot(None),
+        )
+        .order_by(Submission.id.desc())
+        .limit(limit)
+        .all()
+    )
+    result = []
+    for s in rows:
+        result.append(
+            {
+                "assignment_title": s.assignment.title if s.assignment else "تکلیف",
+                "grade": s.grade,
+                "feedback": s.feedback,
+                "graded_at": s.graded_at,
+                "week": s.assignment.week if s.assignment else None,
+            }
+        )
+    return result
+
+
+def get_open_assignments(user_id: int, limit: int = 5) -> list[dict]:
+    """تکالیف فعال که هنوز تحویل نشده‌اند (یا بدون نمره)."""
+    assignments = (
+        Assignment.query.filter_by(is_active=True)
+        .order_by(Assignment.due_date.asc())
+        .all()
+    )
+    result = []
+    for a in assignments:
+        sub = Submission.query.filter_by(
+            student_id=user_id, assignment_id=a.id
+        ).first()
+        if sub is not None and sub.grade is not None:
+            continue
+        result.append(
+            {
+                "id": a.id,
+                "title": a.title,
+                "week": a.week,
+                "due_date": a.due_date,
+                "submitted": sub is not None,
+                "grade": sub.grade if sub else None,
+            }
+        )
+        if len(result) >= limit:
+            break
+    return result
 
 
 def get_upcoming_assignments(user_id: int, limit: int = 3) -> list[dict]:

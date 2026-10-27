@@ -13,6 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}CS50x انزلی{% endblock %} · Anzali CS50x</title>
 
+    {# PWA Manifest & Meta Tags #}
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#A51C30">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon-192.png') }}">
+
     {# فاوآیکون لوگوی اردک CS50x #}
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/duck-logo.png') }}">
@@ -79,9 +86,9 @@
                     <div class="hidden md:flex items-center gap-8">
                         {% if current_user.is_authenticated %}
                             {% set nav_items = [
-                                ('داشبورد', 'main.dashboard', 'dashboard'),
+                                ('داشبورد', 'main.dashboard', 'main'),
+                                ('پایگاه دانش', 'kb.index', 'kb'),
                                 ('تکالیف', 'assignments.index', 'assignments'),
-                                ('منابع', 'resources.index', 'resources'),
                                 ('رتبه‌بندی', 'gamification.leaderboard', 'gamification'),
                             ] %}
                             {% for label, endpoint, section in nav_items %}
@@ -206,14 +213,14 @@
     {% if current_user.is_authenticated %}
     <nav class="fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-[var(--border)] z-50 flex md:hidden justify-around items-center px-4 safe-bottom">
         {% set bottom_nav = [
-            ('داشبورد', 'main.dashboard', 'dashboard', '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>'),
+            ('داشبورد', 'main.dashboard', 'main.dashboard', '<rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>'),
+            ('دانش', 'kb.index', 'kb', '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
             ('تکالیف', 'assignments.index', 'assignments', '<path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/>'),
-            ('منابع', 'resources.index', 'resources', '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'),
-            ('رتبه‌بندی', 'gamification.leaderboard', 'gamification', '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>'),
+            ('رتبه', 'gamification.leaderboard', 'gamification', '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>'),
         ] %}
         {% for label, endpoint, section, icon_path in bottom_nav %}
         <a href="{{ url_for(endpoint) }}"
-           class="bottom-nav-link {% if request.endpoint and request.endpoint.startswith(section) %}bottom-nav-link--active{% endif %}">
+           class="bottom-nav-link {% if request.endpoint == section or (request.endpoint and request.endpoint.startswith(section if '.' not in section else section.split('.')[0])) %}bottom-nav-link--active{% endif %}">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{{ icon_path|safe }}</svg>
             <span>{{ label }}</span>
         </a>
@@ -221,6 +228,14 @@
     </nav>
     {% endif %}
 
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/static/sw.js')
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

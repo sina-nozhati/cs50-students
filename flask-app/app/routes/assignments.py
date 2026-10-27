@@ -63,30 +63,50 @@ def week_assignments(week: int):
 @bp.route("/<int:assignment_id>/submit", methods=["POST"])
 @login_required
 def submit(assignment_id: int):
-    """ثبت لینک گیت‌هاب بهعنوان تحویل تکلیف.
+    """ثبت یا به‌روزرسانی لینک GitHub.
 
-    امنیت: قبل از ثبت، بررسی می‌کنیم که این کاربر قبلاً این تکلیف را تحویل نکرده باشد.
-    این جلوی تحویل چندباره و کسب بی‌نهایت XP را می‌گیرد.
+    سیاست:
+      - تحویل اول: ثبت + XP به‌موقع (اگر مهلت نگذشته)
+      - resubmit: تا قبل از نمره‌دهی می‌توان لینک را عوض کرد؛ XP مجدد نیست
+      - بعد از نمره: تغییر لینک مجاز نیست
     """
-    # بررسی تحویل قبلی — جلوگیری از تقلب XP
+    import re
+
+    github_url = request.form.get("github_url", "").strip()
+    if not re.match(r"^https://github\.com/[\w.-]+/[\w.-]+/?.*$", github_url):
+        flash("لینک گیت‌هاب معتبر نیست. لطفاً لینک دقیق مخزن را وارد کنید.", "error")
+        from app import db
+        assignment = db.session.get(Assignment, assignment_id)
+        week = assignment.week if assignment else None
+        if week is not None:
+            return redirect(url_for("assignments.week_assignments", week=week))
+        return redirect(url_for("assignments.index"))
+
+    from app import db
+    assignment = db.session.get(Assignment, assignment_id)
+    if assignment is None:
+        abort(404)
+
     existing = Submission.query.filter_by(
         student_id=current_user.id, assignment_id=assignment_id
     ).first()
-    if existing is not None:
-        flash("شما قبلاً این تکلیف را تحویل داده‌اید.", "warning")
-        return redirect(url_for("assignments.index"))
 
-    github_url = request.form.get("github_url", "").strip()
-    # اعتبارسنجی بهتر: باید با آدرس گیت‌هاب شروع شود و شامل نام کاربری و مخزن باشد (حداقل دو بخش بعد از اسلش)
-    import re
-    if not re.match(r"^https://github\.com/[\w.-]+/[\w.-]+/?.*$", github_url):
-        flash("لینک گیت‌هاب معتبر نیست. لطفاً لینک دقیق مخزن را وارد کنید.", "error")
-        return redirect(url_for("assignments.index"))
+    if existing is not None:
+        if existing.grade is not None:
+            flash("این تکلیف نمره‌دهی شده و لینک قابل تغییر نیست.", "warning")
+        else:
+            sub_service.update_submission_url(
+                student_id=current_user.id,
+                assignment_id=assignment_id,
+                github_url=github_url,
+            )
+            flash("لینک تحویل به‌روزرسانی شد (بدون XP مجدد).", "success")
+        return redirect(url_for("assignments.week_assignments", week=assignment.week))
 
     sub_service.create_submission(
         student_id=current_user.id,
         assignment_id=assignment_id,
         github_url=github_url,
     )
-    flash("تحویل با موفقیت ثبت شد! ۲۰ XP گرفتید.", "success")
-    return redirect(url_for("assignments.index"))
+    flash("تحویل با موفقیت ثبت شد!", "success")
+    return redirect(url_for("assignments.week_assignments", week=assignment.week))

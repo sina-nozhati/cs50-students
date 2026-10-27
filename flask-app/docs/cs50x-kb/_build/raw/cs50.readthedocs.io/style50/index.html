@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="style50" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://cs50.readthedocs.io/style50/" />
+  
+<meta property="og:description" content="style50 is a command-line tool with which you can check your code for consistency with CS50’s style guide(for C). If your code isn’t styled consistently, style50 will summarize the changes you shou..." />
+  
+<meta property="og:image" content="https://cs50.readthedocs.io/_images/2ep2od.jpg" />
+  
+<meta property="og:image:alt" content="ALL THE DOCS" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>style50 &mdash; CS50 Docs</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="/_static/custom.css?1790806731" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="/_static/custom.js?1790806731"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="submit50" href="../submit50/" />
+    <link rel="prev" title="render50" href="../render50/" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cs50" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/style50/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../" class="icon icon-home"> CS50 Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/dining/">Dining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/map/">Map</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Command-Line Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli50/"><code class="docutils literal notranslate"><span class="pre">cli50</span></code></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help50/"><code class="docutils literal notranslate"><span class="pre">help50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render50/"><code class="docutils literal notranslate"><span class="pre">render50</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">style50</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modes">Modes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#character"><code class="docutils literal notranslate"><span class="pre">character</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#split"><code class="docutils literal notranslate"><span class="pre">split</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unified"><code class="docutils literal notranslate"><span class="pre">unified</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrading">Upgrading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../submit50/"><code class="docutils literal notranslate"><span class="pre">submit50</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docker Images</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/check/"><code class="docutils literal notranslate"><span class="pre">cs50/check</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/cli/"><code class="docutils literal notranslate"><span class="pre">cs50/cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/server/"><code class="docutils literal notranslate"><span class="pre">cs50/server</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/cs50/">cs50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/lib50/">lib50</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Style Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../style/c/">C</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://peps.python.org/pep-0008/">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../themes/jekyll/">Jekyll</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Third-Party Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../heroku/">Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/"><code class="docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminal/">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoom/">Zoom</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Web Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.ai/">CS50.ai</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../certificates.cs50.io/">CS50 Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forms.cs50.io/">CS50 Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id.cs50.io/">CS50 ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.cs50.io/">CS50 Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render.cs50.io/">CS50 Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time.cs50.io/">CS50 Time Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vault.cs50.io/">CS50 Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.cs50.io/">CS50 Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.codes/">CS50’s QR Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.dev/">Visual Studio Code for CS50</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CS50 Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="docutils literal notranslate"><span class="pre">style50</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/style50.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="style50">
+<h1><code class="docutils literal notranslate"><span class="pre">style50</span></code><a class="headerlink" href="#style50" title="Permalink to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">style50</span></code> is a command-line tool with which you can check your code for consistency with <a class="reference internal" href="../style/c/"><span class="doc std std-doc">CS50’s style guide</span></a> (for C). If your code isn’t styled consistently, <code class="docutils literal notranslate"><span class="pre">style50</span></code> will summarize the changes you should make to your code, as by highlighting in <span class="bg-green p-1 text-white">green</span> characters you should add and highlighting in <span class="bg-red p-1 text-white">red</span> characters you should delete.</p>
+<p>For instance, consider the code below, wherein the call to <code class="docutils literal notranslate"><span class="pre">printf</span></code> isn’t properly indented.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+printf("hello, world\n");
+}
+</pre></div>
+</div>
+<p>Given that code as input, <code class="docutils literal notranslate"><span class="pre">style50</span></code> will output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>#include &lt;stdio.h&gt;
+<br>int main(void)
+{
+<span style="background-color: #00cc00">    </span>printf("hello, world\n");
+}</pre></div></div>
+<p>wherein highlighted are four spaces that should be added for style’s sake.</p>
+<p>On the other hand, consider the code below, wherein the curly braces are unnecessarily indented.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+
+int main(void)
+    {
+    printf("hello, world\n");
+    }
+</pre></div>
+</div>
+<p>Given that code as input, <code class="docutils literal notranslate"><span class="pre">style50</span></code> will output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>#include &lt;stdio.h&gt;
+<br>int main(void)
+<span style="background-color: red">    </span>{
+    printf("hello, world\n");
+<span style="background-color: red">    </span>}</pre></div></div>
+<p>wherein highlighted are four spaces that should be deleted for style’s sake.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<p>To check your code’s style, execute</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 file
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">file</span></code> is the (path to some) file whose style you’d like to check.</p>
+<section id="modes">
+<h3>Modes<a class="headerlink" href="#modes" title="Permalink to this heading"></a></h3>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">style50</span></code> operates in <a class="reference internal" href="#character"><span class="std std-doc"><code class="docutils literal notranslate"><span class="pre">character</span></code></span></a> mode, but you can specify other modes with <code class="docutils literal notranslate"><span class="pre">-o</span></code> or <code class="docutils literal notranslate"><span class="pre">--output</span></code>.</p>
+<p>Consider the (poorly styled) file below, <code class="docutils literal notranslate"><span class="pre">hello.c</span></code>, for a look at these modes.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#include &lt;stdio.h&gt;
+
+int main(void)
+    {
+printf("hello, world\n");
+    }
+</pre></div>
+</div>
+<section id="character">
+<h4><code class="docutils literal notranslate"><span class="pre">character</span></code><a class="headerlink" href="#character" title="Permalink to this heading"></a></h4>
+<p>In <code class="docutils literal notranslate"><span class="pre">character</span></code> mode, <code class="docutils literal notranslate"><span class="pre">style50</span></code> compares its input against CS50’s style guide character by character. Were you to run</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 --output character hello.c
+</pre></div>
+</div>
+<p>or just</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 -o character hello.c
+</pre></div>
+</div>
+<p>or even just</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 hello.c
+</pre></div>
+</div>
+<p>you would see the below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>#include &lt;stdio.h&gt;
+<br>int main(void)
+<span style="background-color: #00cc00">{\n</span>
+    <span style="background-color: red">{\n</span>
+<span style="background-color: #00cc00">    </span>printf("hello, world\n");
+<span style="background-color: red">    </span>}</pre></div></div>
+</section>
+<section id="split">
+<h4><code class="docutils literal notranslate"><span class="pre">split</span></code><a class="headerlink" href="#split" title="Permalink to this heading"></a></h4>
+<p>In <code class="docutils literal notranslate"><span class="pre">split</span></code> mode, <code class="docutils literal notranslate"><span class="pre">style50</span></code> displays its input and output side by side. Were you to run</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 --output split hello.c
+</pre></div>
+</div>
+<p>or just</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 -o split hello.c
+</pre></div>
+</div>
+<p>you would see the below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>#include &lt;stdio.h&gt;               #include &lt;stdio.h&gt;
+<br>int main(void)                   int main(void)
+    <span style="color: red">{</span>                            <span style="color: #00cc00">{</span>
+printf("hello, world\n");        <span style="background-color: #00cc00">    </span>printf("hello, world\n");
+    <span style="color: red">}</span>                            <span style="color: #00cc00">}</span></pre></div></div>
+</section>
+<section id="unified">
+<h4><code class="docutils literal notranslate"><span class="pre">unified</span></code><a class="headerlink" href="#unified" title="Permalink to this heading"></a></h4>
+<p>In <code class="docutils literal notranslate"><span class="pre">unified</span></code> mode, <code class="docutils literal notranslate"><span class="pre">style50</span></code> displays its output line by line, akin to <a class="reference external" href="https://git-scm.com/docs/git-diff"><code class="docutils literal notranslate"><span class="pre">git-diff</span></code></a>. Were you to run</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 --output unified hello.c
+</pre></div>
+</div>
+<p>or just</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>style50 -o unified hello.c
+</pre></div>
+</div>
+<p>you would see the below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre>  #include &lt;stdio.h&gt;
+<br>  int main(void)
+<span style="color: red">-     {</span>
+<span style="color: #00cc00">+ {</span>
+<span style="color: red">- printf("hello, world\n");</span>
+<span style="color: #00cc00">+     printf("hello, world\n");</span>
+<span style="color: red">-     }</span>
+<span style="color: #00cc00">+ }</span></pre></div></div>
+</section>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">style50</span></code> is already installed for you in <a class="reference external" href="https://cs50.dev/">CS50 Codespace</a>, so no need to install it yourself; simply use it as directed!</p>
+<p>If you’d like to install <code class="docutils literal notranslate"><span class="pre">style50</span></code> on your own Mac or PC, so that you can check your code’s style without using CS50 Codespace, you’ll need a command-line environment:</p>
+<ul class="simple">
+<li><p>If running Linux or the like, you already have one! Open a terminal window in your usual way.</p></li>
+<li><p>If running Mac OS, you already have one! Open <strong>Applications &gt; Utilities &gt; Terminal</strong>.</p></li>
+<li><p>If running Windows, you’ll need to install the <a class="reference external" href="https://msdn.microsoft.com/commandline/wsl/about">Windows Subsystem for Linux</a>, which is only supported on Windows 10. Once installed, <a class="reference external" href="https://blogs.windows.com/buildingapps/2016/03/30/run-bash-on-ubuntu-on-windows/">run <code class="docutils literal notranslate"><span class="pre">bash</span></code></a>.</p></li>
+</ul>
+<p>To install <code class="docutils literal notranslate"><span class="pre">style50</span></code> within that command-line environment:</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://www.python.org/downloads/">Install Python</a> 2.7 or higher, if not already installed.</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">pip</span></code>, as via</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo easy_install pip
+</pre></div>
+</div>
+<p>if not already installed.</p>
+</li>
+<li><p>Execute</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pip3 install style50
+</pre></div>
+</div>
+<p>to install <code class="docutils literal notranslate"><span class="pre">style50</span></code> itself.</p>
+</li>
+<li><p>Install <a class="reference external" href="http://astyle.sourceforge.net/">Artistic Style 3.0</a>. If running a Debian-based operating system (e.g., Ubuntu Linux), simply run</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>apt-get update
+apt-get install astyle
+</pre></div>
+</div>
+<p>to install CS50’s own compiled version of <code class="docutils literal notranslate"><span class="pre">astyle</span></code>.</p>
+</li>
+</ol>
+</section>
+<section id="upgrading">
+<h2>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this heading"></a></h2>
+<p>Execute</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>sudo pip install --upgrade style50
+</pre></div>
+</div>
+<p>to upgrade <code class="docutils literal notranslate"><span class="pre">style50</span></code>, once installed.</p>
+</section>
+<section id="source-code">
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/cs50/style50">https://github.com/cs50/style50</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

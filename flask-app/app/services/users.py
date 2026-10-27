@@ -18,6 +18,7 @@ def list_all_students() -> list[dict]:
             "username": s.username,
             "xp": s.xp or 0,
             "streak": s.streak or 0,
+            "is_active": getattr(s, "is_active", True),
             "submissions_count": Submission.query.filter_by(student_id=s.id).count(),
             "last_activity": last_log.timestamp if last_log else None
         })
@@ -53,18 +54,32 @@ def update_user(user_id: int, username: str | None = None, password: str | None 
         user.password_hash = generate_password_hash(password)
         
     if xp_adjustment != 0:
-        # برای تغییر XP، بهتر است از سرویس xp استفاده کنیم تا لاگ هم ثبت شود
+        # reason یکتا تا award ایدمپوتنت مانع تنظیمات متوالی ادمین نشود
+        stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
         if xp_adjustment > 0:
-            xp_service.award(user.id, xp_adjustment, "Admin adjustment")
+            xp_service.award(user.id, xp_adjustment, f"admin:adjust:+:{stamp}")
         else:
-            # فعلا متد کاهش نداریم در صورت نیاز می‌شود مستقیما کم کرد
-            # فرض می‌کنیم متد جایگزین داریم یا مستقیم ویرایش می‌کنیم:
             user.xp = max(0, (user.xp or 0) + xp_adjustment)
-            log = XPLog(user_id=user.id, amount=xp_adjustment, reason="Admin penalty")
+            log = XPLog(
+                user_id=user.id,
+                amount=xp_adjustment,
+                reason=f"admin:adjust:-:{stamp}",
+            )
             db.session.add(log)
-            
+
     db.session.commit()
     return user
+
+
+def set_active(user_id: int, active: bool) -> User:
+    """فعال/غیرفعال کردن حساب بدون حذف داده."""
+    user = db.session.get(User, user_id)
+    if not user:
+        abort(404)
+    user.is_active = active
+    db.session.commit()
+    return user
+
 
 def delete_user(user_id: int) -> None:
     """کاربر را حذف می‌کند (وابستگی‌ها توسط دیتابیس کسکید حذف می‌شوند)."""

@@ -1,0 +1,626 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="Seminars - CS50x 2026">
+
+        <link href="../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>Seminars - CS50x 2026</title>
+
+
+    <meta property="og:description" content="Led by CS50’s own staff, seminars are an opportunity to dive more deeply into a topic of interest! How to Predict the Future with AI, One Word at a Time...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../practice/"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="./">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="../faqs/">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <h1 class="no_toc" id="seminars">Seminars</h1>
+
+<p>Led by CS50’s own staff, seminars are an opportunity to dive more deeply into a topic of interest!</p>
+
+<ul class="small" id="markdown-toc">
+  <li><a href="#how-to-predict-the-future-with-ai-one-word-at-a-time" id="markdown-toc-how-to-predict-the-future-with-ai-one-word-at-a-time">How to Predict the Future with AI, One Word at a Time</a></li>
+  <li>
+<a href="#2024-archive" id="markdown-toc-2024-archive">2024 Archive</a>    <ul>
+      <li><a href="#data-science-and-machine-learning-in-python" id="markdown-toc-data-science-and-machine-learning-in-python">Data Science and Machine Learning in Python</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#2023-archive" id="markdown-toc-2023-archive">2023 Archive</a>    <ul>
+      <li><a href="#flying-the-nest-setting-up-your-local-development-environment" id="markdown-toc-flying-the-nest-setting-up-your-local-development-environment">Flying the Nest: Setting Up Your Local Development Environment</a></li>
+      <li><a href="#how-to-use-git-and-github" id="markdown-toc-how-to-use-git-and-github">How To Use Git and GitHub</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#2022-archive" id="markdown-toc-2022-archive">2022 Archive</a>    <ul>
+      <li><a href="#python-for-data-science" id="markdown-toc-python-for-data-science">Python for Data Science</a></li>
+      <li><a href="#introduction-to-nodejs-using-server-side-javascript" id="markdown-toc-introduction-to-nodejs-using-server-side-javascript">Introduction to Node.js: Using Server-Side JavaScript</a></li>
+      <li><a href="#introduction-to-ios-development" id="markdown-toc-introduction-to-ios-development">Introduction to iOS Development</a></li>
+      <li><a href="#getting-started-with-ai-for-medical-imaging-exploring-cxr-foundation-from-google-health-ai" id="markdown-toc-getting-started-with-ai-for-medical-imaging-exploring-cxr-foundation-from-google-health-ai">Getting Started with AI for Medical Imaging: Exploring CXR Foundation from Google Health AI</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#2021-archive" id="markdown-toc-2021-archive">2021 Archive</a>    <ul>
+      <li><a href="#foldabledual-screen-form-factors" id="markdown-toc-foldabledual-screen-form-factors">Foldable/Dual-Screen Form Factors</a></li>
+      <li><a href="#collaboration-and-version-control-with-git" id="markdown-toc-collaboration-and-version-control-with-git">Collaboration and Version Control with Git</a></li>
+      <li>
+<a href="#developing-your-project-locally-with-vs-code" id="markdown-toc-developing-your-project-locally-with-vs-code">Developing Your Project Locally with VS Code</a>        <ul>
+          <li><a href="#mac" id="markdown-toc-mac">Mac</a></li>
+          <li><a href="#windows" id="markdown-toc-windows">Windows</a></li>
+        </ul>
+      </li>
+      <li><a href="#making-small-scale-2d-games-with-l%C3%B6ve-2d-and-lua" id="markdown-toc-making-small-scale-2d-games-with-löve-2d-and-lua">Making Small-Scale 2D Games with LÖVE 2D and Lua</a></li>
+      <li><a href="#react-native-for-ios-app-development" id="markdown-toc-react-native-for-ios-app-development">React Native for iOS App Development</a></li>
+      <li><a href="#introduction-to-machine-learning" id="markdown-toc-introduction-to-machine-learning">Introduction to Machine Learning</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="how-to-predict-the-future-with-ai-one-word-at-a-time">How to Predict the Future with AI, One Word at a Time</h2>
+
+<p>With Sein Yun ’26 and Mohamed Zidan Cassim ’26</p>
+<ul>
+  <li data-marker="*">Slides
+    <ul>
+      <li data-marker="*"><a href="https://cdn.cs50.net/2025/fall/seminars/predict_future/predict_future.pdf">PDF</a></li>
+    </ul>
+  </li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/NGEEN0BzH-s">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/NGEEN0BzH-s">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2024-archive">2024 Archive</h2>
+
+<h3 id="data-science-and-machine-learning-in-python">Data Science and Machine Learning in Python</h3>
+
+<p>With Chris Perez ’26</p>
+
+<ul>
+  <li data-marker="*">Slides
+    <ul>
+      <li data-marker="*"><a href="https://docs.google.com/presentation/d/1n75zqw969SWNSWef-WbL7y2C2GVT22zugrqfXGkYccI/edit?usp=sharing">Google Slides</a></li>
+      <li data-marker="*"><a href="https://cdn.cs50.net/2024/fall/seminars/lights_data_action/lights_data_action.pdf">PDF</a></li>
+    </ul>
+  </li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/nNfGWwlxCyE">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/nNfGWwlxCyE?si=9qnqovLGJE4EqFDx">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2023-archive">2023 Archive</h2>
+
+<h3 id="flying-the-nest-setting-up-your-local-development-environment">Flying the Nest: Setting Up Your Local Development Environment</h3>
+
+<p>With Andrew Holmes ’24</p>
+
+<p><em>In this short seminar, I’ll walk you through the process of flying the Codespaces nest and setting up your laptop for local development. I will focus on setting up tools that we’ve used in CS50, such as VSCode, Python and Git (behind the scenes!). Towards the end, I’ll also briefly talk about some other tools you may want to look into yourself that I can’t cover in detail here, and give some general guidance for next steps!</em></p>
+
+<ul>
+  <li data-marker="*">Slides
+    <ul>
+      <li data-marker="*"><a href="https://cdn.cs50.net/2023/fall/seminars/flying_the_nest/flying_the_nest.pdf">Google Slides</a></li>
+    </ul>
+  </li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/vQd_fxzCIs0">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://www.youtube.com/watch?v=vQd_fxzCIs0">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="how-to-use-git-and-github">How To Use Git and GitHub</h3>
+
+<p>With Sein Yun ’26 and Mohamed Zidan Cassim ’26</p>
+
+<p><em>The differences between Git and GitHub, command line usage, how to clone a repository for working on projects, and how to collaborate on code using push/pull/merge.</em></p>
+
+<ul>
+  <li data-marker="*">Slides
+    <ul>
+      <li data-marker="*"><a href="https://docs.google.com/presentation/d/13IqVl-f0nX9g257NRvprIf7tZdFhtMdpQoC2jSDfeHk/edit?usp=sharing">Google Slides</a></li>
+    </ul>
+  </li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/cspx7YSvp5Q">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://www.youtube.com/watch?v=cspx7YSvp5Q">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2022-archive">2022 Archive</h2>
+
+<h3 id="python-for-data-science">Python for Data Science</h3>
+
+<p>With Amulya Garimella ’25</p>
+
+<p><em>Learn the basics of data science, the typical workflows data scientists use, and see examples of some relevant packages and techniques (including <code class="language-plaintext highlighter-rouge">pandas</code>, <code class="language-plaintext highlighter-rouge">seaborn</code>, <code class="language-plaintext highlighter-rouge">matplotlib</code>, and statistics packages!).</em></p>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1iF_-TG8GS1M0nTmMvoHswlvRQIzNcIR8IAtIoU7Cdh8/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Source Code
+    <ul>
+      <li data-marker="*"><a href="https://cdn.cs50.net/2022/fall/seminars/python_for_data_science/datascience.ipynb"><code class="language-plaintext highlighter-rouge">datascience.ipynb</code></a></li>
+      <li data-marker="*"><a href="https://cdn.cs50.net/2022/fall/seminars/python_for_data_science/datascience_answers.ipynb"><code class="language-plaintext highlighter-rouge">datascience_answers.ipynb</code></a></li>
+      <li data-marker="*"><a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"><code class="language-plaintext highlighter-rouge">iris.data</code></a></li>
+    </ul>
+  </li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/JE81X23PxiA?start=32&amp;end=1980">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/JE81X23PxiA?start=32&amp;end=1980">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction-to-nodejs-using-server-side-javascript">Introduction to Node.js: Using Server-Side JavaScript</h3>
+
+<p>With Nathalie Acosta ’25</p>
+
+<p><em>Interested in the world of JavaScript? Join us to learn how you can use JavaScript to power your applications!</em></p>
+
+<ul>
+  <li data-marker="*"><a href="https://cdn.cs50.net/2022/fall/seminars/node/node_slides.pdf">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/Qao10iN0lvU?start=40&amp;end=2057">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/Qao10iN0lvU">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction-to-ios-development">Introduction to iOS Development</h3>
+
+<p>With Kamryn Ohly ’25</p>
+
+<p><em>Interested in getting started with mobile app and iOS development? Have access to an Apple computer? If so, join our seminar on an introduction to Xcode and the Swift programming language. In this seminar, we will be going over the basics of Xcode and how to implement Swift to create iOS apps you can simulate directly on your phone! We will be learning the basics of Swift (loops, functions, dictionaries/arrays, classes &amp; objects) and building a short Buzzfeed style quiz game using Xcode storyboards. Once we understand the basics of iOS development with Xcode, we will also briefly talk about (and provide external tutorials + examples) on how to extend this introductory knowledge to implementing databases, APIs, using Apple’s AR, and how to launch your App for beta testing and to the App Store!</em></p>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1CKel42CO8vBGujooxUpxE6rd1Qs7UxUlXnUv6K9JCRs/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/Bq-9dZp_Asw?start=55&amp;end=2730">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/Bq-9dZp_Asw">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="getting-started-with-ai-for-medical-imaging-exploring-cxr-foundation-from-google-health-ai">Getting Started with AI for Medical Imaging: Exploring CXR Foundation from Google Health AI</h3>
+
+<p>with Andrew Sellergren ’08</p>
+
+<p><em>Artificial intelligence (AI) for computer vision is growing in both popularity and usefulness on a daily basis. In fields like healthcare, AI for medical imaging is poised to save millions of lives over the next few decades. But it’s still hard to know how to get started with it, particularly if you don’t have access to large computational resources or datasets. Recently, Google Health AI published research and released a tool called CXR Foundation that enable you to get started with creating machine learning models for disease detection on chest x-rays (CXRs), of which there are over a billion taken every year. With CXR Foundation, we showed that it’s possible to train models that can diagnose tuberculosis or predict the severity of COVID-19 using only a few hundred images. How does CXR Foundation work? In this tech talk, we’ll explain the research we did to create the model and walk through code to train your own!</em></p>
+
+<dl>
+  <dt>About Andrew</dt>
+  <dd>I’m a software engineer at Google, but I studied chemistry in college. I joined Google as an analyst in 2010 and transferred into software engineering in 2014. My CS journey started like many of yours, taking CS50! I took CS50 my senior year, the first year that David taught it (though neither of us will admit when that was). It was CS50 that gave me the confidence and skills to learn any new CS concept that I have ever wanted, including ML which I began learning 3 years ago.</dd>
+</dl>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1zO16tFBb-hp2taVUy3-TPBgyNYmhHV2z/edit?usp=sharing&amp;ouid=102563015068560881523&amp;rtpof=true&amp;sd=true">Slides</a></li>
+  <li data-marker="-">Source Code
+    <ul>
+      <li data-marker="*">
+<a href="https://colab.research.google.com/github/Google-Health/imaging-research/blob/master/cxr-foundation/CXR_Foundation_Demo.ipynb">Google Colab</a>, but submit <a href="https://forms.gle/SJBSawfDw19JZRA59">this form</a> first</li>
+    </ul>
+  </li>
+  <li data-marker="*"><a href="https://cs50.smugmug.com/Mosaics/i-HNrMznM/A">Souvenir Photo</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/QnDuVI8YO1I">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/QnDuVI8YO1I">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2021-archive">2021 Archive</h2>
+
+<h3 id="foldabledual-screen-form-factors">Foldable/Dual-Screen Form Factors</h3>
+
+<p>Thinking about CS50 final project ideas, come learn about foldable mobile devices from the developers at Microsoft. Foldable mobile devices facilitate unique user experiences, especially around multitasking and pen input. Learn about the dual-screen Surface Duo 2 and how to build web apps that can adapt to two screens using web standard CSS and JavaScript. You can build and test fold-aware designs on the desktop, and optionally test with an Android emulator. You can even ship progressive web apps (PWAs) via Google Play, like any other Android app.</p>
+
+<ul>
+  <li data-marker="*"><a href="https://cdn.cs50.net/2021/fall/seminars/foldable_dual-screen_form-factors/foldable_dual-screen_form-factors.pdf">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/Qx4oysjcyPg">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/Qx4oysjcyPg">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="collaboration-and-version-control-with-git">Collaboration and Version Control with Git</h3>
+
+<p>Have you wondered how you might work with your final project team without all sitting at the same device and taking turns typing code? Have you ever created a <code class="language-plaintext highlighter-rouge">Backup_4.zip</code> as you worked on a problem set to ensure you have a working version to revert to if you messed things up? Ever landed on a GitHub repository and had no idea how to download the files? Join us to learn how the pros handle these situations using an incredibly powerful command-line tool called Git!</p>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1l0CeTIbtpe3WNJZ3ee5CTB5lMkzIln4B1RyvChdH9FQ/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/S-gBbnBDUhA">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/S-gBbnBDUhA">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="developing-your-project-locally-with-vs-code">Developing Your Project Locally with VS Code</h3>
+
+<p>Join us to learn how use VS Code locally (and offline!) on your own computer, unlocking new development possibilities! We’ll walk you through how to create your own development environment with Python, SQLite, and more, so that you can work with some of the most common technologies used in CS50 final projects.</p>
+
+<h4 id="mac">Mac</h4>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1Iri2bzLMn9ZjeFROcVafaI4G4Gmqv96OFa2hPfDGUD0/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/TZ6c7y8N64k">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/TZ6c7y8N64k">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="windows">Windows</h4>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1I4XQ0f68zIrs-gX7CWgFk_LneLJN8-hMwmL181fW7_s/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/9yzQCgIdL-Y">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/9yzQCgIdL-Y">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="making-small-scale-2d-games-with-löve-2d-and-lua">Making Small-Scale 2D Games with LÖVE 2D and Lua</h3>
+
+<p>Have you ever wanted to know how to create 2D games for profit or pleasure? In this one-hour session, you will learn (a) how to design a small-scope game that can be created within fourteen days, (b) how to get started using the LÖVE 2D framework to create your 2D game, and (c) how to avoid the three landmines of small-scope game design. For less comfortable and more comfortable programmers alike, this session will help you see the overarching steps to creating your 2d game.</p>
+
+<ul>
+  <li data-marker="*"><a href="https://cdn.cs50.net/2021/fall/seminars/2d_games/MakingSmallScale2dGamesWithLOVE.pdf">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/iOA5YspoJDM">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://youtu.be/iOA5YspoJDM">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="react-native-for-ios-app-development">React Native for iOS App Development</h3>
+
+<p>What do apps like Facebook, Instagram, Discord, and Skype have in common? They were all developed with React Native! If you’re interested in making an iOS app for your final project, this is a seminar you won’t want to miss. HSA DEV Managing Director Paul Song and HSA DEV Software Engineer Catherine Deskur will introduce you to the basics of creating, styling, and debugging a React Native iOS app.</p>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1raWVWszKkAV9RMRXWU1bQegvJmnkKMm18Lef7oGXXv0/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://vault.cs50.io/64e08949-cd44-4f9c-9fec-c26838a6679b">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://vault.cs50.io/3352f7ee-753c-422e-b796-2a698ec88124">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="introduction-to-machine-learning">Introduction to Machine Learning</h3>
+
+<p>Interested in applying machine learning in your CS50 Final Project? We are hosting a seminar to give a brief overview of machine learning, implementations of machine learning models in Python, and finding good datasets for your ML model! Look forward to seeing you in our seminar soon!</p>
+
+<ul>
+  <li data-marker="*"><a href="https://docs.google.com/presentation/d/1xV_Tffw3FF0hTzn26inK6zp95i1zSm0m6E9Eq74PhP4/edit?usp=sharing">Slides</a></li>
+  <li data-marker="-">Video
+    <ul>
+      <li data-marker="*"><a href="https://video.cs50.io/b_ZVSvAHLKQ">CS50 Video Player</a></li>
+      <li data-marker="*"><a href="https://www.youtube.com/watch?v=b_ZVSvAHLKQ">YouTube</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

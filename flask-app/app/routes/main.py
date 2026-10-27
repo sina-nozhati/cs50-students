@@ -5,10 +5,13 @@
     /dashboard   — داشبورد دانش‌آموز (login_required)
     /health      — uptime monitoring (عمومی)
 """
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, redirect, url_for, flash, request
 from flask_login import login_required, current_user
 
 from app.services import progress as progress_service
+from app.services import notifications as notif_service
+from app.services import streak as streak_service
+from app.services import events as event_service
 
 bp = Blueprint("main", __name__)
 
@@ -28,17 +31,52 @@ def index():
 def dashboard():
     """داشبورد دانش‌آموز — فقط کاربران واردشده.
 
-    خلاصه‌ی کامل: پیشرفت مدرک، آمار (XP/استریک/تکالیف)، تکالیف نزدیک، هفته‌ی فعلی.
+    خلاصه‌ی کامل: پیشرفت مدرک، آمار، تکالیف باز، بازخورد جدید، اعلان‌ها.
     """
     stats = progress_service.get_user_stats(current_user.id)
     certificate = progress_service.get_certificate_progress(current_user.id)
-    upcoming = progress_service.get_upcoming_assignments(current_user.id, limit=3)
+    upcoming = progress_service.get_open_assignments(current_user.id, limit=5)
     rank = progress_service.get_class_rank(current_user.id)
+    recent_feedback = progress_service.get_recent_feedback(current_user.id, limit=5)
+    notifications = notif_service.list_for_user(current_user.id, limit=8)
+    unread_notifications = notif_service.unread_count(current_user.id)
 
-    # هفته‌های منتشرشده — برای نقشه راه (مسیر یادگیری)
     from app.models import Week
-    all_weeks = Week.query.order_by(Week.number).all()
-    weeks_data = [{"number": w.number, "title": w.title, "is_published": w.is_published} for w in all_weeks]
+    from app.content.loader import list_weeks as content_weeks
+    # ترتیب نمایش مانند کاتالوگ محتوا؛ فقط هفته‌های موجود در DB
+    db_map = {w.number: w for w in Week.query.all()}
+    weeks_data = []
+    for item in content_weeks():
+        w = db_map.get(item["number"])
+        if w is None:
+            continue
+        weeks_data.append({
+            "number": w.number,
+            "title": item["title_fa"],
+            "is_published": w.is_published,
+            "has_pset": item.get("has_pset", True),
+        })
+
+    from app.models import WeekProgress
+    wp = WeekProgress.query.filter_by(
+        user_id=current_user.id, week=certificate["current_week"], kb_read=True
+    ).first()
+    weekly_goal = {
+        "week": certificate["current_week"],
+        "done": wp is not None,
+        "label": f"مطالعهٔ پایگاه دانش هفته {certificate['current_week']}",
+    }
+
+    # ثبت رویداد ورود به داشبورد با تشخیص منبع ورود (اخلاقی و بدون ردگیری سخت‌افزاری)
+    ref = request.args.get("ref", "direct")
+    event_service.log_event(
+        user_id=current_user.id,
+        event_type="app_open",
+        payload={"entry_point": ref}
+    )
+
+    streak_history = streak_service.get_streak_history(current_user.id, days=7)
+    xp_history = progress_service.get_xp_history(current_user.id, limit=5)
 
     return render_template(
         "dashboard/index.html",
@@ -47,7 +85,35 @@ def dashboard():
         upcoming=upcoming,
         rank=rank,
         weeks_data=weeks_data,
+        recent_feedback=recent_feedback,
+        notifications=notifications,
+        unread_notifications=unread_notifications,
+        weekly_goal=weekly_goal,
+        streak_history=streak_history,
+        xp_history=xp_history,
     )
+
+
+@bp.route("/notifications/<int:notification_id>/read", methods=["POST"])
+@login_required
+def mark_notification_read(notification_id: int):
+    notif_service.mark_read(notification_id, current_user.id)
+    next_url = request.form.get("next") or url_for("main.dashboard")
+    return redirect(next_url)
+
+
+@bp.route("/notifications/read-all", methods=["POST"])
+@login_required
+def mark_all_notifications_read():
+    count = notif_service.mark_all_read(current_user.id)
+    flash(f"{count} اعلان به‌عنوان خوانده علامت خورد.", "info")
+    return redirect(url_for("main.dashboard"))
+
+
+@bp.route("/offline")
+def offline():
+    """صفحه حالت آفلاین برای Service Worker PWA."""
+    return render_template("errors/offline.html")
 
 
 @bp.route("/health")

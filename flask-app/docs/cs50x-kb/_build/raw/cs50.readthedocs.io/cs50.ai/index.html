@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="CS50.ai" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://cs50.readthedocs.io/cs50.ai/" />
+  
+<meta property="og:description" content="CS50.ai is an adaptation of ChatGPT for students and teachers at cs50.ai; it’s also built into Visual Studio Code for CS50 at cs50.dev. Otherwise known as the CS50 Duck, CS50.ai supports rubber duc..." />
+  
+<meta property="og:image" content="https://cs50.readthedocs.io/_images/2ep2od.jpg" />
+  
+<meta property="og:image:alt" content="ALL THE DOCS" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS50.ai &mdash; CS50 Docs</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="/_static/custom.css?1790806731" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="/_static/custom.js?1790806731"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="CS50 Certificates" href="../certificates.cs50.io/" />
+    <link rel="prev" title="Zoom" href="../zoom/" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cs50" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/cs50.ai/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../" class="icon icon-home"> CS50 Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/dining/">Dining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/map/">Map</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Command-Line Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli50/"><code class="docutils literal notranslate"><span class="pre">cli50</span></code></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help50/"><code class="docutils literal notranslate"><span class="pre">help50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render50/"><code class="docutils literal notranslate"><span class="pre">render50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style50/"><code class="docutils literal notranslate"><span class="pre">style50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submit50/"><code class="docutils literal notranslate"><span class="pre">submit50</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docker Images</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/check/"><code class="docutils literal notranslate"><span class="pre">cs50/check</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/cli/"><code class="docutils literal notranslate"><span class="pre">cs50/cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/server/"><code class="docutils literal notranslate"><span class="pre">cs50/server</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/cs50/">cs50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/lib50/">lib50</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Style Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../style/c/">C</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://peps.python.org/pep-0008/">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../themes/jekyll/">Jekyll</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Third-Party Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../heroku/">Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/"><code class="docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminal/">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoom/">Zoom</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Web Apps</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CS50.ai</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#talks">Talks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#teaching-cs50-with-ai">Teaching CS50 with AI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improving-cs50-with-ai">Improving CS50 with AI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#publications">Publications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../certificates.cs50.io/">CS50 Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forms.cs50.io/">CS50 Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id.cs50.io/">CS50 ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.cs50.io/">CS50 Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render.cs50.io/">CS50 Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time.cs50.io/">CS50 Time Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vault.cs50.io/">CS50 Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.cs50.io/">CS50 Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.codes/">CS50’s QR Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.dev/">Visual Studio Code for CS50</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CS50 Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+      <li>CS50.ai</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cs50.ai.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cs50-ai">
+<h1>CS50.ai<a class="headerlink" href="#cs50-ai" title="Permalink to this heading"></a></h1>
+<p>CS50.ai is an adaptation of <a class="reference external" href="https://chatgpt.com/">ChatGPT</a> for students and teachers at <a class="reference external" href="https://cs50.ai/">cs50.ai</a>; it’s also built into <a class="reference external" href="https://cs50.dev/">Visual Studio Code for CS50</a> at <a class="reference external" href="https://cs50.dev/">cs50.dev</a>. Otherwise known as the CS50 Duck, CS50.ai supports <a class="reference external" href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">rubber duck debugging</a> and is thus a “duck debugger,” or <code class="docutils literal notranslate"><span class="pre">ddb</span></code> for short, an homage to <a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Debugger">GDB</a>.</p>
+<p>Whereas ChatGPT itself is all too helpful nowadays—all too willing to provide outright answers to problems—CS50.ai is designed to behave more like a good tutor, leading students toward answers rather than spoiling them outright. It aspires to provide students with “office hours” 24/7, approximating a 1:1 student-to-teacher (well, student-to-duck) ratio.</p>
+<p>Across <a class="reference external" href="https://cs50.harvard.edu/x/courses/">CS50’s courses</a>, it is unreasonable (i.e., academically dishonest) to use AI-based software other than CS50’s own (e.g., ChatGPT, Claude, Copilot, Gemini, et al.) that suggests or completes answers to questions or lines of code, except when explicitly allowed by a course. But it is reasonable to use CS50’s own AI-based software, including the CS50 Duck in <a class="reference external" href="https://cs50.ai/">cs50.ai</a> and <a class="reference external" href="https://cs50.dev/">cs50.dev</a>.</p>
+<section id="talks">
+<h2>Talks<a class="headerlink" href="#talks" title="Permalink to this heading"></a></h2>
+<section id="teaching-cs50-with-ai">
+<h3>Teaching CS50 with AI<a class="headerlink" href="#teaching-cs50-with-ai" title="Permalink to this heading"></a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ggshaJcOc6Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+<section id="improving-cs50-with-ai">
+<h3>Improving CS50 with AI<a class="headerlink" href="#improving-cs50-with-ai" title="Permalink to this heading"></a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KNUFNTj-yMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+</section>
+<section id="publications">
+<h2>Publications<a class="headerlink" href="#publications" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Rongxin Liu, Carter Zenke, Charlie Liu, Andrew Holmes, Patrick Thornton, and David J. Malan. 2024. <a class="reference external" href="https://cs.harvard.edu/malan/publications/V1fp0567-liu.pdf">Teaching CS50 with AI: Leveraging Generative Artificial Intelligence in Computer Science Education</a>. In Proceedings of the 55th ACM Technical Symposium on Computer Science Education V. 1 (SIGCSE 2024). Association for Computing Machinery, New York, NY, USA, 750–756. <a class="reference external" href="https://doi.org/10.1145/3626252.3630938">https://doi.org/10.1145/3626252.3630938</a></p></li>
+<li><p>Rongxin Liu, Julianna Zhao, Benjamin Xu, Christopher Perez, Yuliia Zhukovets, and David J. Malan. 2025. <a class="reference external" href="https://cs.harvard.edu/malan/publications/fp0627-liu.pdf">Improving AI in CS50: Leveraging Human Feedback for Better Learning</a>. In Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 1 (SIGCSETS 2025). Association for Computing Machinery, New York, NY, USA, 715–721. <a class="reference external" href="https://dl.acm.org/doi/10.1145/3641554.3701945">https://doi.org/10.1145/3641554.3701945</a></p></li>
+</ul>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h2>
+<p>Special thanks to CS50’s friends at <a class="reference external" href="https://github.com/">GitHub</a>, <a class="reference external" href="https://www.microsoft.com/">Microsoft</a>, and <a class="reference external" href="https://openai.com/">OpenAI</a> for their support of this duck!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

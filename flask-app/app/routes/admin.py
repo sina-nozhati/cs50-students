@@ -45,6 +45,8 @@ from app.services import assignments_admin as assignments_service
 from app.services import analytics as analytics_service
 from app.services import submissions as sub_service
 from app.services import progress as progress_service
+from app.services import engagement as engagement_service
+from app.services import notifications as notif_service
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -83,12 +85,13 @@ def _allowed_file(filename: str) -> bool:
 @bp.route("/")
 @admin_required
 def index():
-    """داشبورد تحلیلی — آمار کلی، هشدارها، وضعیت هفته‌ها."""
+    """داشبورد تحلیلی — آمار کلی، هشدارها، وضعیت هفته‌ها و ریسک ریزش."""
     overview = analytics_service.get_overview()
     assignment_stats = analytics_service.get_assignment_stats()
     weekly_progress = analytics_service.get_weekly_progress_overview()
     low_engagement = analytics_service.get_low_engagement_students(days=3)
     top_performers = analytics_service.get_top_performers(limit=5)
+    students_at_risk = engagement_service.get_students_at_risk()
 
     # تعداد تحویل‌های بدون نمره
     ungraded_count = Submission.query.filter(Submission.grade.is_(None)).count()
@@ -101,7 +104,30 @@ def index():
         low_engagement=low_engagement,
         top_performers=top_performers,
         ungraded_count=ungraded_count,
+        students_at_risk=students_at_risk,
     )
+
+
+@bp.route("/engagement/message", methods=["POST"])
+@admin_required
+def send_mentor_message():
+    """ارسال پیام تشویقی و راهنمایی مستقیم از طرف مدرس به دانش‌آموز (کاملاً دستی، بدون ارسال خودکار)."""
+    user_id = request.form.get("user_id", type=int)
+    title = request.form.get("title", "پیام راهنمایی از طرف مدرس 💡")
+    body = request.form.get("body", "").strip()
+
+    if not user_id or not body:
+        flash("متن پیام و شناسه دانش‌آموز الزامی است.", "error")
+        return redirect(url_for("admin.index"))
+
+    notif_service.create(
+        user_id=user_id,
+        title=title,
+        body=body,
+        link="/dashboard"
+    )
+    flash("پیام راهنمایی با موفقیت برای دانش‌آموز ارسال شد.", "success")
+    return redirect(url_for("admin.index"))
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -166,6 +192,24 @@ def users_edit(user_id: int):
             return redirect(url_for("admin.users_edit", user_id=user_id))
 
     return render_template("admin/user_form.html", user=user, edit_mode=True)
+
+
+@bp.route("/users/<int:user_id>/toggle-active", methods=["POST"])
+@admin_required
+def users_toggle_active(user_id: int):
+    """فعال/غیرفعال کردن حساب بدون حذف داده."""
+    from app.models import User
+    user = db.session.get(User, user_id)
+    if not user or user.is_admin:
+        flash("کاربر یافت نشد.", "error")
+        return redirect(url_for("admin.users_list"))
+    new_state = not getattr(user, "is_active", True)
+    users_service.set_active(user_id, new_state)
+    flash(
+        f"حساب «{user.username}» {'فعال' if new_state else 'غیرفعال'} شد.",
+        "success",
+    )
+    return redirect(url_for("admin.users_list"))
 
 
 @bp.route("/users/<int:user_id>/delete", methods=["POST"])

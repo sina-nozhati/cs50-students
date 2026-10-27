@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png -->
+        <link href="/static/49a1a858-favicon-32x32.png" rel="icon" type="image/png">
+
+        <script>
+            window.FontAwesomeConfig = { autoReplaceSvg: false };
+        </script>
+
+        <link href="/static/dist/main.css?1791864566" rel="stylesheet">
+        <script src="/static/dist/main.js?1791864566"></script>
+
+        <!-- Rouge CSS will be loaded dynamically based on theme -->
+
+        <script>
+
+            
+
+    $(function() {
+
+        // Ensure all elements are styled the same
+        $('pre').addClass('p-3');
+        $('table').addClass('table');
+
+        // Shrink H2s
+        $('h2').addClass('h6');
+
+        // Add toggles
+        $('div.section').each(function(index, element) {
+
+            // Prepare switch
+            const $section = $(element);
+            const id = 'switch-' + $section.attr('data-for');
+            const $switch = $(
+                '<div class="form-check form-switch mb-4">' +
+                '<input id="' + id + '" class="form-check-input" type="checkbox">' +
+                '<label class="form-check-label" for="' + id + '">less comfortable</label>' +
+                '</div>'
+            );
+
+            // Find comfort levels
+            const $less = $section.find('[data-less]');
+            const $more = $section.find('[data-more]');
+
+            // If a less-comfortable section exists, check it by default
+            if ($less.length) {
+                $switch.find('input').prop('checked', true);
+            }
+
+            // If only one comfort level exists, disable switch
+            if (!$less.length || !$more.length) {
+                $switch.find('input').prop('disabled', true);
+            }
+
+            // Listen for changes
+            $switch.find('input').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $less.removeClass('d-none');
+                    $more.addClass('d-none');
+                }
+                else {
+                    $less.addClass('d-none');
+                    $more.removeClass('d-none');
+                }
+            }).trigger('change');
+
+            // Add switch to DOM section has less-comfy level
+            if ($section.find('[data-less]').length) {
+                $section.prepend($switch);
+            }
+        });
+
+        // Hide sections
+        $('[data-hide]').each(function(index, element) {
+            const $button = $('<button class="btn btn-outline-primary btn-sm" type="button">Show</button>');
+            const id = $(element).attr('data-for');
+            $(element).before($button);
+            $button.on('click', function() {
+                $(element).show();
+                $(this).remove();
+            });
+            if (id) {
+                $button.attr('data-for', id);
+                $('#' + id).children('a').on('click', function() {
+                    $button.trigger('click');
+                });
+            }
+            $(element).hide();
+        });
+
+        // Show section if in hash
+        $(window).on('hashchange', function() {
+            const id = window.location.hash.slice(1);
+            if (id) {
+                $('button[data-for="' + id + '"]').trigger('click');
+            }
+        });
+        $(window).trigger('hashchange');
+    });
+
+
+
+        </script>
+
+        <script>
+
+            function getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                loadRougeCSS(theme);
+            }
+
+            function loadRougeCSS(theme) {
+                // Remove existing Rouge CSS
+                document.querySelectorAll('link[id^="rouge-css"]').forEach(el => el.remove());
+
+                // Load appropriate Rouge CSS file
+                const rougeCSSFile = theme === 'dark' ? 'rouge-dark.css' : 'rouge-light.css';
+                const link = document.createElement('link');
+                link.id = 'rouge-css-' + theme;
+                link.rel = 'stylesheet';
+                link.href = '/static/dist/' + rougeCSSFile + '?1791864566';
+                document.head.appendChild(link);
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                setTheme(getSystemTheme());
+            });
+
+            // Initialize theme based on system preference
+            setTheme(getSystemTheme());
+
+        </script>
+        <script>
+
+            $(function() {
+
+                // Add borders to tables
+                $('.table').addClass('table-bordered');
+
+                // Enable popovers
+                $('[data-bs-toggle="popover"]').each(function(index, element) {
+                    new bootstrap.Popover(element, {
+                        boundary: 'viewport',
+                        html: true,
+                        placement: 'bottom',
+                        trigger: 'focus'
+                    });
+                });
+
+                // Ensure all elements are styled the same
+                $('h1').addClass('border-bottom fw-bold h2 mb-3 pb-2 pt-4');
+                $('h2').addClass('fw-bold h3');
+
+                // Ensure last heading can be anchored atop page
+                $(window).resize(function() {
+                    const top = $('h1').last().offset().top;
+                    const margin = $(window).height() - ($('body').outerHeight() - top);
+                    $('body').css('margin-bottom', Math.max(0, Math.ceil(margin)) + 'px');
+                });
+                $(window).trigger('resize');
+
+                // Reveal body
+                $('body').removeClass('invisible');
+            });
+
+        </script>
+
+        <style>
+
+            /* CSS Custom Properties for Theme */
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #212529;
+                --border-color: #dee2e6;
+                --code-bg: #f8f9fa;
+                --popover-highlight: rgb(252, 237, 193);
+                --table-border: #dee2e6;
+                --nav-bg: #343a40;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #0d6efd;
+                --btn-outline-primary-hover: #0b5ed7;
+                --container-bg: inherit;
+            }
+
+            [data-bs-theme="dark"] {
+                --bg-color: #212529;
+                --text-color: #ffffff;
+                --border-color: #495057;
+                --code-bg: #2d3339;
+                --popover-highlight: rgb(139, 117, 61);
+                --table-border: #495057;
+                --nav-bg: #1a1d20;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #6ea8fe;
+                --btn-outline-primary-hover: #9ec5fe;
+                --container-bg: var(--bg-color);
+            }
+
+            /* Apply theme colors */
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+            }
+
+            .navbar {
+                background-color: var(--nav-bg) !important;
+            }
+
+            /* Style popovers */
+            .popover {
+                font-family: inherit;
+                max-width: 100%;
+                background-color: var(--container-bg);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-header {
+                background-color: var(--code-bg);
+                border-bottom-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-body {
+                color: var(--text-color);
+            }
+
+            /* Wrap long words (and URLs, whether linked or not), especially on mobile,
+            but not in buttons and not in tables, which should instead scroll horizontally */
+            * {
+                word-break: break-word;
+            }
+            button, table * {
+                word-break: normal;
+            }
+
+            /* Remove underlining */
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            nav a:hover {
+                text-decoration: none;
+            }
+
+            /* Match Gmail's yellow */
+            a[data-bs-toggle=popover] {
+                border-bottom: 2px solid var(--popover-highlight);
+                box-shadow: inset 0 -2px 0 var(--popover-highlight);
+                cursor: help;
+            }
+            a[data-bs-toggle=popover]:hover {
+                background-color: var(--popover-highlight);
+            }
+
+            /* Match pre tags */
+            code {
+                color: inherit;
+            }
+
+            /* A la Jekyll theme */
+            code, pre {
+                background-color: var(--code-bg);
+                border: 1px solid var(--border-color);
+                padding: calc(.2rem - 3px) 0.2rem;
+            }
+            pre code {
+                background-color: initial;
+                border: initial;
+                padding: initial;
+            }
+
+            /* Don't shrink these */
+            code, pre {
+                font-size: inherit;
+            }
+
+            /* Don't italicize */
+            dl dt {
+                font-style: normal;
+            }
+
+            /* Don't fill viewport */
+            .table {
+                width: inherit;
+                --bs-table-bg: var(--bg-color);
+                --bs-table-border-color: var(--table-border);
+            }
+
+            /* Form elements theming */
+            .form-control {
+                background-color: var(--bg-color);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .form-control:focus {
+                background-color: var(--bg-color);
+                border-color: var(--btn-outline-primary);
+                color: var(--text-color);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-control:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            .form-control::placeholder {
+                color: var(--text-color);
+                opacity: 0.6;
+            }
+
+            /* Button theming */
+            .btn-outline-primary {
+                color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .btn-outline-primary:hover,
+            .btn-outline-primary:focus {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            /* Form check elements */
+            .form-check-input:checked {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .form-check-input:focus {
+                border-color: var(--btn-outline-primary);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-check-input:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            /* Smooth theme transition */
+            *, *::before, *::after {
+                transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            }
+
+            /* Enhanced code block styling - Rouge handles syntax colors */
+            .highlight pre {
+                background-color: var(--code-bg) !important;
+                border: 1px solid var(--border-color) !important;
+            }
+
+            /* Ensure non-highlighted code blocks work with themes */
+            [data-bs-theme="dark"] pre:not(.highlight) code {
+                color: #f8f8f2;
+            }
+
+            [data-bs-theme="light"] pre:not(.highlight) code {
+                color: #000000;
+            }
+
+        </style>
+
+        <style>
+
+            
+
+    /* Match dl and p */
+    button {
+        margin-bottom: 1rem;
+    }
+
+    /* Ensure syntax-highlighted code scrolls on iOS, https://stackoverflow.com/a/49592093 */
+    pre code {
+        white-space: pre;
+        word-wrap: normal;
+    }
+    pre code span {
+        white-space: nowrap;
+    }
+
+    
+
+        </style>
+
+        <title>fgets - CS50 Manual Pages</title>
+
+    </head>
+
+    <body class="font-monospace invisible pb-5">
+
+        <nav class="bg-dark navbar navbar-dark navbar-expand-xl px-4">
+            <a class="navbar-brand" href="/"><i class="fas fa-list pe-3"></i>CS50 Manual Pages</a>
+        </nav>
+
+        <div class="container-fluid mt-2 px-4">
+            
+
+    <h1 id='name'><a href='#name'>NAME</a></h1><div class='section' data-for='name'><div data-more>
+<p>fgetc, fgets, getc, getchar, ungetc - input of characters and
+strings</p>
+</div></div><h1 id='library'><a href='#library'>LIBRARY</a></h1><div data-for='library' data-hide><div class='section' data-for='library'><div data-more>
+<p>Standard C library (<code>libc</code>, <code>-lc</code>)</p>
+</div></div></div><h1 id='synopsis'><a href='#synopsis'>SYNOPSIS</a></h1><div class='section' data-for='synopsis'><div data-more>
+<pre><code><a data-bs-content='Be sure this line is atop your own code.' data-bs-toggle='popover' tabindex='0'>#include &lt;stdio.h&gt;</a>
+int fgetc(FILE *stream);
+int getc(FILE *stream);
+int getchar(void);
+<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>fgets(char s[restrict .size], int size, FILE *restrict stream);
+int ungetc(int c, FILE *stream);</code></pre>
+</div></div><h1 id='description'><a href='#description'>DESCRIPTION</a></h1><div class='section' data-for='description'><div data-more>
+<p><a href='fgetc'>fgetc</a>() reads the next character from
+<code>stream</code> and returns it as an <code>unsigned char</code> cast to an
+<code>int</code>, or <strong>EOF</strong> on end of file or error.</p>
+<p><a href='getc'>getc</a>() is equivalent to <a href='fgetc'>fgetc</a>()
+except that it may be implemented as a macro which evaluates
+<code>stream</code> more than once.</p>
+<p><a href='getchar'>getchar</a>() is equivalent to
+<strong><a href='getc'>getc</a>(</strong><code>stdin</code><strong>)</strong><code>.</code></p>
+<p><a href='fgets'>fgets</a>() reads in at most one less than <code>size</code>
+characters from <code>stream</code> and stores them into the buffer pointed
+to by <code>s</code>. Reading stops after an <strong>EOF</strong> or a
+newline. If a newline is read, it is stored into the buffer. A
+terminating null byte ('\0') is stored after the last character in the
+buffer.</p>
+<p><a href='ungetc'>ungetc</a>() pushes <code>c</code> back to <code>stream</code>,
+cast to <code>unsigned char</code>, where it is available for subsequent
+read operations. Pushed-back characters will be returned in reverse
+order; only one pushback is guaranteed.</p>
+<p>Calls to the functions described here can be mixed with each other
+and with calls to other input functions from the <code>stdio</code> library
+for the same input stream.</p>
+<p>For nonlocking counterparts, see
+<a href='/3/unlocked_stdio'>unlocked_stdio</a>(3).</p>
+</div></div><h1 id='return-value'><a href='#return-value'>RETURN VALUE</a></h1><div class='section' data-for='return-value'><div data-more>
+<p><a href='fgetc'>fgetc</a>(), <a href='getc'>getc</a>(), and
+<a href='getchar'>getchar</a>() return the character read as an <em>unsigned
+char</em> cast to an <code>int</code> or <strong>EOF</strong> on end of file
+or error.</p>
+<p><a href='fgets'>fgets</a>() returns <code>s</code> on success, and NULL on
+error or when end of file occurs while no characters have been read.</p>
+<p><a href='ungetc'>ungetc</a>() returns <code>c</code> on success, or
+<strong>EOF</strong> on error.</p>
+</div></div><h1 id='attributes'><a href='#attributes'>ATTRIBUTES</a></h1><div data-for='attributes' data-hide><div class='section' data-for='attributes'><div data-more>
+<p>For an explanation of the terms used in this section, see
+<a href='/7/attributes'>attributes</a>(7).</p>
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;">Interface</td>
+<td style="text-align: left;">Attribute</td>
+<td style="text-align: left;">Value</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p><a href='fgetc'>fgetc</a>(),
+<a href='fgets'>fgets</a>(), <a href='getc'>getc</a>(),
+<a href='getchar'>getchar</a>(), <a href='ungetc'>ungetc</a>()</p></td>
+<td style="text-align: left;">Thread safety</td>
+<td style="text-align: left;">MT-Safe</td>
+</tr>
+</tbody>
+</table>
+</div></div></div><h1 id='standards'><a href='#standards'>STANDARDS</a></h1><div data-for='standards' data-hide><div class='section' data-for='standards'><div data-more>
+<p>C11, POSIX.1-2008.</p>
+</div></div></div><h1 id='history'><a href='#history'>HISTORY</a></h1><div data-for='history' data-hide><div class='section' data-for='history'><div data-more>
+<p>POSIX.1-2001, C89.</p>
+</div></div></div><h1 id='notes'><a href='#notes'>NOTES</a></h1><div data-for='notes' data-hide><div class='section' data-for='notes'><div data-more>
+<p>It is not advisable to mix calls to input functions from the
+<code>stdio</code> library with low-level calls to <a href='/2/read'>read</a>(2)
+for the file descriptor associated with the input stream; the results
+will be undefined and very probably not what you want.</p>
+</div></div></div><h1 id='see-also'><a href='#see-also'>SEE ALSO</a></h1><div class='section' data-for='see-also'><div data-more>
+<p><a href='/2/read'>read</a>(2), <a href='/2/write'>write</a>(2),
+<a href='/3/ferror'>ferror</a>(3), <a href='/3/fgetwc'>fgetwc</a>(3),
+<a href='/3/fgetws'>fgetws</a>(3), <a href='/3/fopen'>fopen</a>(3),
+<a href='/3/fread'>fread</a>(3), <a href='/3/fseek'>fseek</a>(3),
+<a href='/3/getline'>getline</a>(3), <a href='/3/gets'>gets</a>(3),
+<a href='/3/getwchar'>getwchar</a>(3), <a href='/3/puts'>puts</a>(3),
+<a href='/3/scanf'>scanf</a>(3), <a href='/3/ungetwc'>ungetwc</a>(3),
+<a href='/3/unlocked_stdio'>unlocked_stdio</a>(3),
+<a href='/7/feature_test_macros'>feature_test_macros</a>(7)</p></div></div>
+
+
+        </div>
+
+    </body>
+
+</html>

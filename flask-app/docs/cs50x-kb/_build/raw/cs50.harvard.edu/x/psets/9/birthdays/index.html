@@ -1,0 +1,662 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="Birthdays - CS50x 2026">
+
+        <link href="../../../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../../../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../../../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../../../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../../../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../../../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../../../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../../../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../../../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../../../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../../../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>Birthdays - CS50x 2026</title>
+
+
+    <meta property="og:description" content="Problem to Solve Create a web application to keep track of friends’ birthdays. Getting Started Understanding In app.py, you’ll find the start of a Flask web...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../../../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="../../..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../../../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../../../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../../../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../../../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../../../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../../../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../../../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../../../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../../../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../../../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../../../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../../../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../../../practice/"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../../../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="../../../seminars/">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../../../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="../../../faqs/">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../../../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../../../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../../../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <h1 id="birthdays">Birthdays</h1>
+
+<p><img src="birthdays.png" alt="screenshot of birthdays website"></p>
+
+<h2 id="problem-to-solve">Problem to Solve</h2>
+
+<p>Create a web application to keep track of friends’ birthdays.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<details><summary>Download the distribution code</summary><p>Open <a href="https://cs50.dev/">cs50.dev</a>.</p>
+
+<p>Start by clicking inside your terminal window, then execute <code class="language-plaintext highlighter-rouge">cd</code> by itself. You should find that its “prompt” resembles the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$
+</code></pre></div></div>
+
+<p>Click inside of that terminal window and then execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://cdn.cs50.net/2026/x/psets/9/birthdays.zip
+</code></pre></div></div>
+
+<p>followed by Enter in order to download a ZIP called <code class="language-plaintext highlighter-rouge">birthdays.zip</code> in your codespace. Take care not to overlook the space between <code class="language-plaintext highlighter-rouge">wget</code> and the following URL, or any other character for that matter!</p>
+
+<p>Now execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip birthdays.zip
+</code></pre></div></div>
+
+<p>to create a folder called <code class="language-plaintext highlighter-rouge">birthdays</code>. You no longer need the ZIP file, so you can execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm birthdays.zip
+</code></pre></div></div>
+
+<p>and respond with “y” followed by Enter at the prompt to remove the ZIP file you downloaded.</p>
+
+<p>Now type</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd birthdays
+</code></pre></div></div>
+
+<p>followed by Enter to move yourself into (i.e., open) that directory. Your prompt should now resemble the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>birthdays/ $
+</code></pre></div></div>
+
+<p>If all was successful, you should execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls
+</code></pre></div></div>
+
+<p>and you should see the following files and folders:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app.py  birthdays.db  static/  templates/
+</code></pre></div></div>
+
+<p>If you run into any trouble, follow these same steps again and see if you can determine where you went wrong!</p></details>
+
+<h2 id="understanding">Understanding</h2>
+
+<p>In <code class="language-plaintext highlighter-rouge">app.py</code>, you’ll find the start of a Flask web application. The application has one route (<code class="language-plaintext highlighter-rouge">/</code>) that accepts both <code class="language-plaintext highlighter-rouge">POST</code> requests (after the <code class="language-plaintext highlighter-rouge">if</code>) and <code class="language-plaintext highlighter-rouge">GET</code> requests (after the <code class="language-plaintext highlighter-rouge">else</code>). Currently, when the <code class="language-plaintext highlighter-rouge">/</code> route is requested via <code class="language-plaintext highlighter-rouge">GET</code>, the <code class="language-plaintext highlighter-rouge">index.html</code> template is rendered. When the <code class="language-plaintext highlighter-rouge">/</code> route is requested via <code class="language-plaintext highlighter-rouge">POST</code>, the user is redirected back to <code class="language-plaintext highlighter-rouge">/</code> via <code class="language-plaintext highlighter-rouge">GET</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">birthdays.db</code> is a SQLite database with one table, <code class="language-plaintext highlighter-rouge">birthdays</code>, that has four columns: <code class="language-plaintext highlighter-rouge">id</code>, <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">month</code>, and <code class="language-plaintext highlighter-rouge">day</code>. There are a few rows already in this table, though ultimately your web application will support the ability to insert rows into this table!</p>
+
+<p>In the <code class="language-plaintext highlighter-rouge">static</code> directory is a <code class="language-plaintext highlighter-rouge">styles.css</code> file containing the CSS code for this web application. No need to edit this file, though you’re welcome to if you’d like!</p>
+
+<p>In the <code class="language-plaintext highlighter-rouge">templates</code> directory is an <code class="language-plaintext highlighter-rouge">index.html</code> file that will be rendered when the user views your web application.</p>
+
+<h2 id="implementation-details">Implementation Details</h2>
+
+<p>Complete the implementation of a web application to let users store and keep track of birthdays.</p>
+
+<ul>
+  <li data-marker="*">When the <code class="language-plaintext highlighter-rouge">/</code> route is requested via <code class="language-plaintext highlighter-rouge">GET</code>, your web application should display, in a table, all of the people in your database along with their birthdays.
+    <ul>
+      <li data-marker="*">First, in <code class="language-plaintext highlighter-rouge">app.py</code>, add logic in your <code class="language-plaintext highlighter-rouge">GET</code> request handling to query the <code class="language-plaintext highlighter-rouge">birthdays.db</code> database for all birthdays. Pass all of that data to your <code class="language-plaintext highlighter-rouge">index.html</code> template.</li>
+      <li data-marker="*">Then, in <code class="language-plaintext highlighter-rouge">index.html</code>, add logic to render each birthday as a row in the table. Each row should have two columns: one column for the person’s name and another column for the person’s birthday.</li>
+    </ul>
+  </li>
+  <li data-marker="*">When the <code class="language-plaintext highlighter-rouge">/</code> route is requested via <code class="language-plaintext highlighter-rouge">POST</code>, your web application should add a new birthday to your database and then re-render the index page.
+    <ul>
+      <li data-marker="*">First, in <code class="language-plaintext highlighter-rouge">index.html</code>, add an HTML form. The form should let users type in a name, a birthday month, and a birthday day. Be sure the form submits to <code class="language-plaintext highlighter-rouge">/</code> (its “action”) with a method of <code class="language-plaintext highlighter-rouge">post</code>.</li>
+      <li data-marker="*">Then, in <code class="language-plaintext highlighter-rouge">app.py</code>, add logic in your <code class="language-plaintext highlighter-rouge">POST</code> request handling to <code class="language-plaintext highlighter-rouge">INSERT</code> a new row into the <code class="language-plaintext highlighter-rouge">birthdays</code> table based on the data supplied by the user.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Optionally, you may also:</p>
+
+<ul>
+  <li data-marker="*">Add the ability to delete and/or edit birthday entries.</li>
+  <li data-marker="*">Add any additional features of your choosing!</li>
+</ul>
+
+<h2 id="hints">Hints</h2>
+
+<details><summary>Create a form via which users can submit birthdays</summary><p>In <code class="language-plaintext highlighter-rouge">index.html</code>, notice the following TODO:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- TODO: Create a form for users to submit a name, a month, and a day --&gt;</span>
+</code></pre></div></div>
+
+<p>Recall that, to create a form, you can use the <code class="language-plaintext highlighter-rouge">form</code> HTML element. You can create a <code class="language-plaintext highlighter-rouge">form</code> HTML element with the following opening and closing tags:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>Of course, a form still needs input fields (and a button via which the user can submit the form!). Recall that  HTML <code class="language-plaintext highlighter-rouge">input</code> elements create, among other things, input boxes within a form. You can specify their <code class="language-plaintext highlighter-rouge">type</code> attribute to allow them to accept <code class="language-plaintext highlighter-rouge">text</code> or <code class="language-plaintext highlighter-rouge">number</code>s. Also give the <code class="language-plaintext highlighter-rouge">input</code> elements a <code class="language-plaintext highlighter-rouge">name</code> attribute so you can differentiate them.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"month"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"day"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>Your form might benefit from a button the user could click to submit their data. Add an <code class="language-plaintext highlighter-rouge">input</code> element of type <code class="language-plaintext highlighter-rouge">submit</code>, which will allow the user to do just that. If you’d like the button itself to have explanatory text, try setting the <code class="language-plaintext highlighter-rouge">value</code> attribute.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"month"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"day"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Add Birthday"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>Where will the user’s data be submitted? Currently, nowhere! Recall that you can specify a form’s <code class="language-plaintext highlighter-rouge">action</code> attribute to dictate which route should be requested after the form is submitted. The form data will be submitted along with the resulting request. The <code class="language-plaintext highlighter-rouge">method</code> attribute specifies which HTTP request method to use when submitting the form.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"month"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"day"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Add Birthday"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>With that, your form should be perfectly functional, though it could still be improved! Consider adding <code class="language-plaintext highlighter-rouge">placeholder</code> values to spruce things up a bit:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">placeholder=</span><span class="s">"Name"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"month"</span> <span class="na">placeholder=</span><span class="s">"Month"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"day"</span> <span class="na">placeholder=</span><span class="s">"Day"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Add Birthday"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>And consider adding some <em>client-side validation</em>, to ensure the user cooperates with the intent of your form. For example, an <code class="language-plaintext highlighter-rouge">input</code> field of type <code class="language-plaintext highlighter-rouge">number</code> can also have a <code class="language-plaintext highlighter-rouge">min</code> and <code class="language-plaintext highlighter-rouge">max</code> attribute specified, which determine the minimum and maximum value a user can enter.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">placeholder=</span><span class="s">"Name"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"month"</span> <span class="na">placeholder=</span><span class="s">"Month"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">max=</span><span class="s">"12"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"day"</span> <span class="na">placeholder=</span><span class="s">"Day"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">max=</span><span class="s">"31"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Add Birthday"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div></details>
+
+<details><summary>Add a user's form submission to the database</summary><p>In <code class="language-plaintext highlighter-rouge">app.py</code>, notice the following TODO:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># TODO: Add the user's entry into the database
+</span></code></pre></div></div>
+
+<p>Recall that Flask has some handy methods to access form data submitted via <code class="language-plaintext highlighter-rouge">POST</code>! In particular:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Access form data
+</span><span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">NAME</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">NAME</code> refers to the <code class="language-plaintext highlighter-rouge">name</code> attribute of the particular <code class="language-plaintext highlighter-rouge">input</code> element with submitted data. If your <code class="language-plaintext highlighter-rouge">input</code> elements were named <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">month</code>, and <code class="language-plaintext highlighter-rouge">day</code>, you could access (and store!) their values respectively with the following:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Access form data
+</span><span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">month</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">day</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now the values submitted by the user in the <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">month</code>, and <code class="language-plaintext highlighter-rouge">day</code> input elements are available to you as Python variables.</p>
+
+<p>The next step is to add these values to your database! Thanks to this particular line</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">db</span> <span class="o">=</span> <span class="nc">SQL</span><span class="p">(</span><span class="sh">"</span><span class="s">sqlite:///birthdays.db</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">app.py</code> has already established a connection to <code class="language-plaintext highlighter-rouge">birthdays.db</code> under the name <code class="language-plaintext highlighter-rouge">db</code>. You can now execute SQL queries by calling <code class="language-plaintext highlighter-rouge">db.execute</code> with a valid SQL query. If you wanted to add Carter’s birthday on January 1st, you might run the following SQL statement:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">birthdays</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="k">month</span><span class="p">,</span> <span class="k">day</span><span class="p">)</span> <span class="k">VALUES</span><span class="p">(</span><span class="s1">'Carter'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Configure <code class="language-plaintext highlighter-rouge">app.py</code> to run that same query, but with placeholders for the values to insert, as follows:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Access form data
+</span><span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">month</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">day</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Insert data into database
+</span><span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)</span><span class="sh">"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And that should do it! Try submitting the form, opening <code class="language-plaintext highlighter-rouge">birthdays.db</code>, and using a <code class="language-plaintext highlighter-rouge">SELECT</code> query to view the contents of the <code class="language-plaintext highlighter-rouge">birthdays</code> table. You should see the submitted form data available to you.</p>
+
+<p>As you create more advanced applications, you’ll also want to add <em>server-side validation</em>: that is, a way to check whether the user’s data is valid <em>before</em> doing anything else! One of the first validations you might make is whether the user submitted any data at all! Should you try to retrieve form data with <code class="language-plaintext highlighter-rouge">request.form.get</code> where the user didn’t submit any, <code class="language-plaintext highlighter-rouge">request.form.get</code> will return an empty string. You can check for this value in Python as follows:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Access form data
+</span><span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">month</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">month</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">month</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">day</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">day</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">day</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Insert data into database
+</span><span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)</span><span class="sh">"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, you won’t insert a row until you’re sure the user has provided all the data you need.</p>
+
+<p>A few more things could still go wrong! What if the user doesn’t, in fact, provide a numeric value for <code class="language-plaintext highlighter-rouge">month</code> or <code class="language-plaintext highlighter-rouge">day</code>? One way to check is to <code class="language-plaintext highlighter-rouge">try</code> to convert the value to an integer with <code class="language-plaintext highlighter-rouge">int</code> and, if the conversion fails, to redirect the user back to the homepage.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Access form data
+</span><span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">month</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">month</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">month</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">day</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">day</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">day</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Insert data into database
+</span><span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)</span><span class="sh">"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And even if the user has entered a number, best to check it’s in the right range!</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Access form data
+</span><span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">month</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">month</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">month</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">month</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="n">day</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">day</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">day</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+<span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">day</span> <span class="o">&gt;</span> <span class="mi">31</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nf">redirect</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Insert data into database
+</span><span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">INSERT INTO birthdays (name, month, day) VALUES(?, ?, ?)</span><span class="sh">"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</code></pre></div></div></details>
+
+<details><summary>Render birthdays in <code>birthdays.db</code></summary><p>Once a user can submit birthdays and store them in <code class="language-plaintext highlighter-rouge">birthdays.db</code>, your next task is to ensure those birthdays are rendered in <code class="language-plaintext highlighter-rouge">index.html</code>.</p>
+
+<p>First, you’ll need to retrieve all birthdays from <code class="language-plaintext highlighter-rouge">birthdays.db</code>. You could so with the SQL query:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">birthdays</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>See the following TODO in <code class="language-plaintext highlighter-rouge">app.py</code>:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># TODO: Display the entries in the database on index.html
+</span></code></pre></div></div>
+
+<p>Consider configuring <code class="language-plaintext highlighter-rouge">app.py</code> to run this SQL query each time the page is loaded with a <code class="language-plaintext highlighter-rouge">GET</code> request:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Query for all birthdays
+</span><span class="n">birthdays</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">SELECT * FROM birthdays</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, all birthdays in the <code class="language-plaintext highlighter-rouge">birthdays</code> table of <code class="language-plaintext highlighter-rouge">birthdays.db</code> are available to you in a Python variable named <code class="language-plaintext highlighter-rouge">birthdays</code>. In particular, the results of the SQL query are stored as a list of dictionaries. Each dictionary represents one row returned by the query, and each key in the dictionary corresponds to a column name of the <code class="language-plaintext highlighter-rouge">birthdays</code> table (i.e., “name”, “month”, and “day”).</p>
+
+<p>To render these birthdays in <code class="language-plaintext highlighter-rouge">index.html</code>, you can rely on Flask’s <code class="language-plaintext highlighter-rouge">render_template</code> function. You can specify that <code class="language-plaintext highlighter-rouge">index.html</code> should be rendered with the <code class="language-plaintext highlighter-rouge">birthdays</code> variable by specifying a keyword argument, also called <code class="language-plaintext highlighter-rouge">birthdays</code>, and setting it equal to the <code class="language-plaintext highlighter-rouge">birthdays</code> variable you just recently created.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Query for all birthdays
+</span><span class="n">birthdays</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nf">execute</span><span class="p">(</span><span class="sh">"</span><span class="s">SELECT * FROM birthdays</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Render birthdays page
+</span><span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="sh">"</span><span class="s">index.html</span><span class="sh">"</span><span class="p">,</span> <span class="n">birthdays</span><span class="o">=</span><span class="n">birthdays</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To be clear, the name on the left-hand side of the <code class="language-plaintext highlighter-rouge">=</code>, <code class="language-plaintext highlighter-rouge">birthdays</code>, is the name under which you can access the birthdays data within <code class="language-plaintext highlighter-rouge">index.html</code> itself.</p>
+
+<p>Now that <code class="language-plaintext highlighter-rouge">index.html</code> is being rendered with access to the birthdays data, you can use Jinja to render the data properly. Jinja, like Python, can loop through elements of a list. And Jinja, like Python, can access elements a dictionary by their keys. In this case, the Jinja syntax to do so is the name of the dictionary, followed by a <code class="language-plaintext highlighter-rouge">.</code>, then the name of the key to access.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% for birthday in birthdays %}
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;</span>{{ birthday.name }}<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td&gt;</span>{{ birthday.month }}/{{ birthday.day }}<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+{% endfor %}
+</code></pre></div></div>
+
+<p>And that’s it! Try reloading the page to see the birthdays rendered.</p></details>
+
+<h3 id="walkthrough">Walkthrough</h3>
+
+<div class="alert" data-alert="primary" role="alert"><p>This video was recorded when the course was still using CS50 IDE for writing code. Though the interface may look different from your codespace, the behavior of the two environments should be largely similar!</p></div>
+
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" src="https://video.cs50.io/HXwvj8x1Fcs"></iframe>
+
+<details><summary>Not sure how to solve?</summary><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" data-src="https://video.cs50.io/lVwv4o8vmvI"></iframe></details>
+
+<h3 id="testing">Testing</h3>
+
+<p>No <code class="language-plaintext highlighter-rouge">check50</code> for this problem set! But be sure to test your web application by adding some birthdays and ensuring that the data appears in your table as expected.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">flask run</code> in your terminal while in your <code class="language-plaintext highlighter-rouge">birthdays</code> directory to start a web server that serves your Flask application.</p>
+
+<h2 id="how-to-submit">How to Submit</h2>
+
+<p>In your terminal, execute the below to submit your work, answering the prompts that come up as well.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>submit50 cs50/problems/2026/x/birthdays
+</code></pre></div></div>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../../../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

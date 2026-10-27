@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png -->
+        <link href="/static/49a1a858-favicon-32x32.png" rel="icon" type="image/png">
+
+        <script>
+            window.FontAwesomeConfig = { autoReplaceSvg: false };
+        </script>
+
+        <link href="/static/dist/main.css?1791864566" rel="stylesheet">
+        <script src="/static/dist/main.js?1791864566"></script>
+
+        <!-- Rouge CSS will be loaded dynamically based on theme -->
+
+        <script>
+
+            
+
+    $(function() {
+
+        // Ensure all elements are styled the same
+        $('pre').addClass('p-3');
+        $('table').addClass('table');
+
+        // Shrink H2s
+        $('h2').addClass('h6');
+
+        // Add toggles
+        $('div.section').each(function(index, element) {
+
+            // Prepare switch
+            const $section = $(element);
+            const id = 'switch-' + $section.attr('data-for');
+            const $switch = $(
+                '<div class="form-check form-switch mb-4">' +
+                '<input id="' + id + '" class="form-check-input" type="checkbox">' +
+                '<label class="form-check-label" for="' + id + '">less comfortable</label>' +
+                '</div>'
+            );
+
+            // Find comfort levels
+            const $less = $section.find('[data-less]');
+            const $more = $section.find('[data-more]');
+
+            // If a less-comfortable section exists, check it by default
+            if ($less.length) {
+                $switch.find('input').prop('checked', true);
+            }
+
+            // If only one comfort level exists, disable switch
+            if (!$less.length || !$more.length) {
+                $switch.find('input').prop('disabled', true);
+            }
+
+            // Listen for changes
+            $switch.find('input').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $less.removeClass('d-none');
+                    $more.addClass('d-none');
+                }
+                else {
+                    $less.addClass('d-none');
+                    $more.removeClass('d-none');
+                }
+            }).trigger('change');
+
+            // Add switch to DOM section has less-comfy level
+            if ($section.find('[data-less]').length) {
+                $section.prepend($switch);
+            }
+        });
+
+        // Hide sections
+        $('[data-hide]').each(function(index, element) {
+            const $button = $('<button class="btn btn-outline-primary btn-sm" type="button">Show</button>');
+            const id = $(element).attr('data-for');
+            $(element).before($button);
+            $button.on('click', function() {
+                $(element).show();
+                $(this).remove();
+            });
+            if (id) {
+                $button.attr('data-for', id);
+                $('#' + id).children('a').on('click', function() {
+                    $button.trigger('click');
+                });
+            }
+            $(element).hide();
+        });
+
+        // Show section if in hash
+        $(window).on('hashchange', function() {
+            const id = window.location.hash.slice(1);
+            if (id) {
+                $('button[data-for="' + id + '"]').trigger('click');
+            }
+        });
+        $(window).trigger('hashchange');
+    });
+
+
+
+        </script>
+
+        <script>
+
+            function getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                loadRougeCSS(theme);
+            }
+
+            function loadRougeCSS(theme) {
+                // Remove existing Rouge CSS
+                document.querySelectorAll('link[id^="rouge-css"]').forEach(el => el.remove());
+
+                // Load appropriate Rouge CSS file
+                const rougeCSSFile = theme === 'dark' ? 'rouge-dark.css' : 'rouge-light.css';
+                const link = document.createElement('link');
+                link.id = 'rouge-css-' + theme;
+                link.rel = 'stylesheet';
+                link.href = '/static/dist/' + rougeCSSFile + '?1791864566';
+                document.head.appendChild(link);
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                setTheme(getSystemTheme());
+            });
+
+            // Initialize theme based on system preference
+            setTheme(getSystemTheme());
+
+        </script>
+        <script>
+
+            $(function() {
+
+                // Add borders to tables
+                $('.table').addClass('table-bordered');
+
+                // Enable popovers
+                $('[data-bs-toggle="popover"]').each(function(index, element) {
+                    new bootstrap.Popover(element, {
+                        boundary: 'viewport',
+                        html: true,
+                        placement: 'bottom',
+                        trigger: 'focus'
+                    });
+                });
+
+                // Ensure all elements are styled the same
+                $('h1').addClass('border-bottom fw-bold h2 mb-3 pb-2 pt-4');
+                $('h2').addClass('fw-bold h3');
+
+                // Ensure last heading can be anchored atop page
+                $(window).resize(function() {
+                    const top = $('h1').last().offset().top;
+                    const margin = $(window).height() - ($('body').outerHeight() - top);
+                    $('body').css('margin-bottom', Math.max(0, Math.ceil(margin)) + 'px');
+                });
+                $(window).trigger('resize');
+
+                // Reveal body
+                $('body').removeClass('invisible');
+            });
+
+        </script>
+
+        <style>
+
+            /* CSS Custom Properties for Theme */
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #212529;
+                --border-color: #dee2e6;
+                --code-bg: #f8f9fa;
+                --popover-highlight: rgb(252, 237, 193);
+                --table-border: #dee2e6;
+                --nav-bg: #343a40;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #0d6efd;
+                --btn-outline-primary-hover: #0b5ed7;
+                --container-bg: inherit;
+            }
+
+            [data-bs-theme="dark"] {
+                --bg-color: #212529;
+                --text-color: #ffffff;
+                --border-color: #495057;
+                --code-bg: #2d3339;
+                --popover-highlight: rgb(139, 117, 61);
+                --table-border: #495057;
+                --nav-bg: #1a1d20;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #6ea8fe;
+                --btn-outline-primary-hover: #9ec5fe;
+                --container-bg: var(--bg-color);
+            }
+
+            /* Apply theme colors */
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+            }
+
+            .navbar {
+                background-color: var(--nav-bg) !important;
+            }
+
+            /* Style popovers */
+            .popover {
+                font-family: inherit;
+                max-width: 100%;
+                background-color: var(--container-bg);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-header {
+                background-color: var(--code-bg);
+                border-bottom-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-body {
+                color: var(--text-color);
+            }
+
+            /* Wrap long words (and URLs, whether linked or not), especially on mobile,
+            but not in buttons and not in tables, which should instead scroll horizontally */
+            * {
+                word-break: break-word;
+            }
+            button, table * {
+                word-break: normal;
+            }
+
+            /* Remove underlining */
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            nav a:hover {
+                text-decoration: none;
+            }
+
+            /* Match Gmail's yellow */
+            a[data-bs-toggle=popover] {
+                border-bottom: 2px solid var(--popover-highlight);
+                box-shadow: inset 0 -2px 0 var(--popover-highlight);
+                cursor: help;
+            }
+            a[data-bs-toggle=popover]:hover {
+                background-color: var(--popover-highlight);
+            }
+
+            /* Match pre tags */
+            code {
+                color: inherit;
+            }
+
+            /* A la Jekyll theme */
+            code, pre {
+                background-color: var(--code-bg);
+                border: 1px solid var(--border-color);
+                padding: calc(.2rem - 3px) 0.2rem;
+            }
+            pre code {
+                background-color: initial;
+                border: initial;
+                padding: initial;
+            }
+
+            /* Don't shrink these */
+            code, pre {
+                font-size: inherit;
+            }
+
+            /* Don't italicize */
+            dl dt {
+                font-style: normal;
+            }
+
+            /* Don't fill viewport */
+            .table {
+                width: inherit;
+                --bs-table-bg: var(--bg-color);
+                --bs-table-border-color: var(--table-border);
+            }
+
+            /* Form elements theming */
+            .form-control {
+                background-color: var(--bg-color);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .form-control:focus {
+                background-color: var(--bg-color);
+                border-color: var(--btn-outline-primary);
+                color: var(--text-color);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-control:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            .form-control::placeholder {
+                color: var(--text-color);
+                opacity: 0.6;
+            }
+
+            /* Button theming */
+            .btn-outline-primary {
+                color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .btn-outline-primary:hover,
+            .btn-outline-primary:focus {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            /* Form check elements */
+            .form-check-input:checked {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .form-check-input:focus {
+                border-color: var(--btn-outline-primary);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-check-input:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            /* Smooth theme transition */
+            *, *::before, *::after {
+                transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            }
+
+            /* Enhanced code block styling - Rouge handles syntax colors */
+            .highlight pre {
+                background-color: var(--code-bg) !important;
+                border: 1px solid var(--border-color) !important;
+            }
+
+            /* Ensure non-highlighted code blocks work with themes */
+            [data-bs-theme="dark"] pre:not(.highlight) code {
+                color: #f8f8f2;
+            }
+
+            [data-bs-theme="light"] pre:not(.highlight) code {
+                color: #000000;
+            }
+
+        </style>
+
+        <style>
+
+            
+
+    /* Match dl and p */
+    button {
+        margin-bottom: 1rem;
+    }
+
+    /* Ensure syntax-highlighted code scrolls on iOS, https://stackoverflow.com/a/49592093 */
+    pre code {
+        white-space: pre;
+        word-wrap: normal;
+    }
+    pre code span {
+        white-space: nowrap;
+    }
+
+    
+
+        </style>
+
+        <title>pow - CS50 Manual Pages</title>
+
+    </head>
+
+    <body class="font-monospace invisible pb-5">
+
+        <nav class="bg-dark navbar navbar-dark navbar-expand-xl px-4">
+            <a class="navbar-brand" href="/"><i class="fas fa-list pe-3"></i>CS50 Manual Pages</a>
+        </nav>
+
+        <div class="container-fluid mt-2 px-4">
+            
+
+    <h1 id='name'><a href='#name'>NAME</a></h1><div class='section' data-for='name'><div data-less>
+
+<p>pow - raise a number to a power</p>
+
+</div><div data-more>
+<p>pow, powf, powl - power functions</p>
+</div></div><h1 id='library'><a href='#library'>LIBRARY</a></h1><div data-for='library' data-hide><div class='section' data-for='library'><div data-more>
+<p>Math library (<code>libm</code>, <code>-lm</code>)</p>
+</div></div></div><h1 id='synopsis'><a href='#synopsis'>SYNOPSIS</a></h1><div class='section' data-for='synopsis'><div data-less>
+
+<h2 id="header-file">Header File</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"><br></span></code></pre></div></div>
+
+<h2 id="prototype">Prototype</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">);</span>
+</code></pre></div></div>
+
+</div><div data-more>
+<pre><code><a data-bs-content='Be sure this line is atop your own code.' data-bs-toggle='popover' tabindex='0'>#include &lt;math.h&gt;</a>
+double pow(double x, double y);
+float powf(float x, float y);
+long double powl(long double x, long double y);</code></pre>
+<blockquote>
+<p>Feature Test Macro Requirements for glibc (see
+<a href='/7/feature_test_macros'>feature_test_macros</a>(7)):</p>
+</blockquote>
+<p><a href='powf'>powf</a>(), <a href='powl'>powl</a>():</p>
+<pre><code>    _ISOC99_SOURCE || _POSIX_C_SOURCE &gt;= 200112L
+        || /* Since glibc 2.19: */ _DEFAULT_SOURCE
+        || /* glibc &lt;= 2.19: */ _BSD_SOURCE || _SVID_SOURCE</code></pre>
+</div></div><h1 id='description'><a href='#description'>DESCRIPTION</a></h1><div class='section' data-for='description'><div data-less>
+
+<p>This function raises <code class="language-plaintext highlighter-rouge">x</code> to the power of <code class="language-plaintext highlighter-rouge">y</code>.</p>
+
+</div><div data-more>
+<p>These functions return the value of <code>x</code> raised to the power of
+<code>y</code>.</p>
+</div></div><h1 id='return-value'><a href='#return-value'>RETURN VALUE</a></h1><div class='section' data-for='return-value'><div data-less>
+
+<p>This function returns, as a <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">x</code> raised to the power of <code class="language-plaintext highlighter-rouge">y</code>.</p>
+
+</div><div data-more>
+<p>On success, these functions return the value of <code>x</code> to the
+power of <code>y</code>.</p>
+<p>If the result overflows, a range error occurs, and the functions
+return <strong>HUGE_VAL</strong>, <strong>HUGE_VALF</strong>, or
+<strong>HUGE_VALL</strong>, respectively, with the mathematically
+correct sign.</p>
+<p>If result underflows, and is not representable, a range error occurs,
+and 0.0 with the appropriate sign is returned.</p>
+<p>If <code>x</code> is +0 or -0, and <code>y</code> is an odd integer less than
+0, a pole error occurs and <strong>HUGE_VAL</strong>,
+<strong>HUGE_VALF</strong>, or <strong>HUGE_VALL</strong>, is returned,
+with the same sign as <code>x</code>.</p>
+<p>If <code>x</code> is +0 or -0, and <code>y</code> is less than 0 and not an
+odd integer, a pole error occurs and +<strong>HUGE_VAL</strong>,
++<strong>HUGE_VALF</strong>, or +<strong>HUGE_VALL</strong>, is
+returned.</p>
+<p>If <code>x</code> is +0 (-0), and <code>y</code> is an odd integer greater
+than 0, the result is +0 (-0).</p>
+<p>If <code>x</code> is 0, and <code>y</code> greater than 0 and not an odd
+integer, the result is +0.</p>
+<p>If <code>x</code> is -1, and <code>y</code> is positive infinity or negative
+infinity, the result is 1.0.</p>
+<p>If <code>x</code> is +1, the result is 1.0 (even if <code>y</code> is a
+NaN).</p>
+<p>If <code>y</code> is 0, the result is 1.0 (even if <code>x</code> is a
+NaN).</p>
+<p>If <code>x</code> is a finite value less than 0, and <code>y</code> is a
+finite noninteger, a domain error occurs, and a NaN is returned.</p>
+<p>If the absolute value of <code>x</code> is less than 1, and <code>y</code> is
+negative infinity, the result is positive infinity.</p>
+<p>If the absolute value of <code>x</code> is greater than 1, and <code>y</code>
+is negative infinity, the result is +0.</p>
+<p>If the absolute value of <code>x</code> is less than 1, and <code>y</code> is
+positive infinity, the result is +0.</p>
+<p>If the absolute value of <code>x</code> is greater than 1, and <code>y</code>
+is positive infinity, the result is positive infinity.</p>
+<p>If <code>x</code> is negative infinity, and <code>y</code> is an odd integer
+less than 0, the result is -0.</p>
+<p>If <code>x</code> is negative infinity, and <code>y</code> less than 0 and
+not an odd integer, the result is +0.</p>
+<p>If <code>x</code> is negative infinity, and <code>y</code> is an odd integer
+greater than 0, the result is negative infinity.</p>
+<p>If <code>x</code> is negative infinity, and <code>y</code> greater than 0 and
+not an odd integer, the result is positive infinity.</p>
+<p>If <code>x</code> is positive infinity, and <code>y</code> less than 0, the
+result is +0.</p>
+<p>If <code>x</code> is positive infinity, and <code>y</code> greater than 0,
+the result is positive infinity.</p>
+<p>Except as specified above, if <code>x</code> or <code>y</code> is a NaN, the
+result is a NaN.</p>
+</div></div><h1 id='example'><a href='#example'>EXAMPLE</a></h1><div class='section' data-for='example'><div data-less>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"><br>#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"><br></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"A 32-bit integer can store %li possible values.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">32</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div></div></div><h1 id='errors'><a href='#errors'>ERRORS</a></h1><div data-for='errors' data-hide><div class='section' data-for='errors'><div data-more>
+<p>See <a href='/7/math_error'>math_error</a>(7) for information on how to
+determine whether an error has occurred when calling these
+functions.</p>
+<p>The following errors can occur:</p>
+<dl>
+<dt>Domain error: <code>x</code> is negative, and <code>y</code> is a finite
+noninteger</dt>
+<dd>
+<p><code>errno</code> is set to <strong>EDOM</strong>. An invalid
+floating-point exception (<strong>FE_INVALID</strong>) is raised.</p>
+</dd>
+<dt>Pole error: <code>x</code> is zero, and <code>y</code> is negative</dt>
+<dd>
+<p><code>errno</code> is set to <strong>ERANGE</strong> (but see BUGS). A
+divide-by-zero floating-point exception (<strong>FE_DIVBYZERO</strong>)
+is raised.</p>
+</dd>
+<dt>Range error: the result overflows</dt>
+<dd>
+<p><code>errno</code> is set to <strong>ERANGE</strong>. An overflow
+floating-point exception (<strong>FE_OVERFLOW</strong>) is raised.</p>
+</dd>
+<dt>Range error: the result underflows</dt>
+<dd>
+<p><code>errno</code> is set to <strong>ERANGE</strong>. An underflow
+floating-point exception (<strong>FE_UNDERFLOW</strong>) is raised.</p>
+</dd>
+</dl>
+</div></div></div><h1 id='attributes'><a href='#attributes'>ATTRIBUTES</a></h1><div data-for='attributes' data-hide><div class='section' data-for='attributes'><div data-more>
+<p>For an explanation of the terms used in this section, see
+<a href='/7/attributes'>attributes</a>(7).</p>
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;">Interface</td>
+<td style="text-align: left;">Attribute</td>
+<td style="text-align: left;">Value</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p><a href='pow'>pow</a>(),
+<a href='powf'>powf</a>(), <a href='powl'>powl</a>()</p></td>
+<td style="text-align: left;">Thread safety</td>
+<td style="text-align: left;">MT-Safe</td>
+</tr>
+</tbody>
+</table>
+</div></div></div><h1 id='standards'><a href='#standards'>STANDARDS</a></h1><div data-for='standards' data-hide><div class='section' data-for='standards'><div data-more>
+<p>C11, POSIX.1-2008.</p>
+</div></div></div><h1 id='history'><a href='#history'>HISTORY</a></h1><div data-for='history' data-hide><div class='section' data-for='history'><div data-more>
+<p>C99, POSIX.1-2001.</p>
+<p>The variant returning <code>double</code> also conforms to SVr4, 4.3BSD,
+C89.</p>
+</div></div></div><h1 id='bugs'><a href='#bugs'>BUGS</a></h1><div data-for='bugs' data-hide><div class='section' data-for='bugs'><div data-more>
+<h2 id="historical-bugs-now-fixed">Historical bugs (now fixed)</h2>
+<p>Before glibc 2.28, on some architectures (e.g., x86-64)
+<a href='pow'>pow</a>() may be more than 10,000 times slower for some
+inputs than for other nearby inputs. This affects only
+<a href='pow'>pow</a>(), and not <a href='powf'>powf</a>() nor
+<a href='powl'>powl</a>(). This problem was fixed in glibc 2.28.</p>
+<p>A number of bugs in the glibc implementation of
+<a href='pow'>pow</a>() were fixed in glibc 2.16.</p>
+<p>In glibc 2.9 and earlier, when a pole error occurs, <code>errno</code> is
+set to <strong>EDOM</strong> instead of the POSIX-mandated
+<strong>ERANGE</strong>. Since glibc 2.10, glibc does the right
+thing.</p>
+<p>In glibc 2.3.2 and earlier, when an overflow or underflow error
+occurs, glibc's <a href='pow'>pow</a>() generates a bogus invalid
+floating-point exception (<strong>FE_INVALID</strong>) in addition to
+the overflow or underflow exception.</p>
+</div></div></div><h1 id='see-also'><a href='#see-also'>SEE ALSO</a></h1><div class='section' data-for='see-also'><div data-more>
+<p><a href='/3/cbrt'>cbrt</a>(3), <a href='/3/cpow'>cpow</a>(3),
+<a href='/3/sqrt'>sqrt</a>(3)</p></div></div>
+
+
+        </div>
+
+    </body>
+
+</html>

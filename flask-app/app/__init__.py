@@ -69,12 +69,17 @@ def create_app(config_object: str = "app.config.Config") -> Flask:
     with app.app_context():
         from app import models  # noqa: F401 — ثبت مدلها با SQLAlchemy
         db.create_all()
+        _ensure_sqlite_columns()
 
     # logging سبک به stdout (systemd journal آن را جمع می‌کند)
     logging.basicConfig(
         level=app.config.get("LOG_LEVEL", "INFO"),
         format="%(asctime)s %(levelname)s %(name)s %(message)s",
     )
+
+    # ثبت دستورات CLI
+    from app.cli import register_cli_commands
+    register_cli_commands(app)
 
     # ثبت صفحه‌ی خطای سفارشی (404 — صفحه یافت نشد)
     from flask import render_template
@@ -83,3 +88,23 @@ def create_app(config_object: str = "app.config.Config") -> Flask:
         return render_template("errors/404.html"), 404
 
     return app
+
+
+def _ensure_sqlite_columns() -> None:
+    """افزودن ستون‌های جدید به SQLite موجود (بدون Alembic).
+
+    create_all جداول جدید می‌سازد ولی ستون به جدول قدیمی اضافه نمی‌کند.
+    """
+    uri = str(db.engine.url)
+    if not uri.startswith("sqlite"):
+        return
+    alters = [
+        ("user", "is_active", "ALTER TABLE user ADD COLUMN is_active BOOLEAN NOT NULL DEFAULT 1"),
+        ("submission", "graded_at", "ALTER TABLE submission ADD COLUMN graded_at DATETIME"),
+    ]
+    with db.engine.begin() as conn:
+        for table, column, sql in alters:
+            cols = conn.exec_driver_sql(f"PRAGMA table_info({table})").fetchall()
+            names = {row[1] for row in cols}
+            if column not in names and cols:
+                conn.exec_driver_sql(sql)
