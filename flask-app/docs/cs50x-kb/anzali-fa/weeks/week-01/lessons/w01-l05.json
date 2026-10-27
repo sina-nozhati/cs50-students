@@ -1,0 +1,350 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l05",
+  "type": "lesson",
+  "week": 1,
+  "order": 5,
+  "stage_id": "w01-s2",
+  "title_fa": "انواع داده و کدهای قالب",
+  "title_en": "Types and format codes",
+  "note_ids": [
+    "w01-n10",
+    "w01-n11"
+  ],
+  "related_doc_ids": [
+    "w01-sh-data-types"
+  ],
+  "prerequisite_lesson_ids": [
+    "w01-l03"
+  ],
+  "concept_ids": [
+    "w01-c-data-types",
+    "w01-c-void",
+    "w01-c-type-sizes",
+    "w01-c-format-codes"
+  ],
+  "objective_ids": [
+    "w01-o05",
+    "w01-o11"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l05-u01",
+      "order": 1,
+      "title_fa": "انواع داده در C",
+      "concept_ids": [
+        "w01-c-data-types",
+        "w01-c-void"
+      ],
+      "objective_ids": [
+        "w01-o05"
+      ],
+      "note_id": "w01-n10",
+      "source_refs": [
+        "src-notes-1#types",
+        "src-short-data-types",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "در C هنگام ساختن متغیر باید نوع (type) آن را بگویی: `bool` (درست/نادرست)، `char` (یک نویسه)، `float` و `double` (عدد اعشاری)، `int` (عدد صحیح)، `long` (عدد صحیح بزرگ‌تر) و `string` (رشته، از کتابخانهٔ CS50). ویدئوی کوتاه Data Types توضیح می‌دهد `void` یعنی «هیچ»: تابعی که ورودی یا خروجی ندارد.",
+        "note_id": "w01-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "types-list",
+        "lang": "text",
+        "content": "bool\nchar\nfloat\nint\nlong\nstring\n...",
+        "source_ref": "src-notes-1#types",
+        "explain_fa": "فهرست رسمی انواع از درس‌نامه."
+      },
+      "check": {
+        "id": "w01-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای ذخیرهٔ «آیا کاربر موافق است؟» کدام نوع طبیعی‌تر است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "bool",
+            "correct": true,
+            "feedback_fa": "درست. bool فقط true یا false است."
+          },
+          {
+            "id": "b",
+            "text_fa": "float",
+            "correct": false,
+            "feedback_fa": "float برای عدد اعشاری است."
+          },
+          {
+            "id": "c",
+            "text_fa": "string",
+            "correct": false,
+            "feedback_fa": "string ممکن است، ولی برای درست/نادرست bool دقیق‌تر است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l05-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "برای هر داده نوع مناسب را بنویس: (۱) تعداد دانشجویان (۲) حرف اول نام (۳) میانگین نمره (۴) نام کامل",
+        "expected": {
+          "answers": {
+            "1": "int",
+            "2": "char",
+            "3": "float",
+            "4": "string"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "به این فکر کن: عدد صحیح، یک نویسه، عدد اعشاری یا متن؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l05-u02",
+      "order": 2,
+      "title_fa": "اندازهٔ انواع و بازه",
+      "concept_ids": [
+        "w01-c-type-sizes"
+      ],
+      "objective_ids": [
+        "w01-o05",
+        "w01-o11"
+      ],
+      "note_id": "w01-n10",
+      "source_refs": [
+        "src-notes-1#types",
+        "src-anzali-authored-1",
+        "src-short-data-types"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Data Types می‌گوید `int` چهار بایت است، `char` یک بایت، `float` چهار بایت و `double` هشت بایت. درس‌نامه هم می‌گوید `long` عددهای بسیار بزرگ‌تری از `int` را نگه می‌دارد. اندازهٔ محدود یعنی بازهٔ محدود: هر نوع فقط تا عدد مشخصی را نگه می‌دارد.",
+        "note_id": "w01-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n10"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "char   -> 1 byte\nint    -> 4 bytes\nfloat  -> 4 bytes\ndouble -> 8 bytes",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "خلاصهٔ تألیفی از ویدئوی کوتاه Data Types."
+      },
+      "check": {
+        "id": "w01-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا گاهی `long` به‌جای `int` لازم است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون long عددهای بسیار بزرگ‌تری از int را نگه می‌دارد",
+            "correct": true,
+            "feedback_fa": "درست. درس‌نامه در بخش سرریز همین را نشان می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون long اعشار دارد",
+            "correct": false,
+            "feedback_fa": "long هم عدد صحیح است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون int منفی نمی‌پذیرد",
+            "correct": false,
+            "feedback_fa": "int منفی را هم می‌پذیرد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l05-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: یک char دقیقاً یک بایت حافظه می‌گیرد.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "طبق ویدئوی کوتاه، char یک بایت است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l05-u03",
+      "order": 3,
+      "title_fa": "کدهای قالب",
+      "concept_ids": [
+        "w01-c-format-codes"
+      ],
+      "objective_ids": [
+        "w01-o05"
+      ],
+      "note_id": "w01-n11",
+      "source_refs": [
+        "src-notes-1#format-codes",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "هر نوع، کد قالب (format code) خودش را در printf دارد: `%c` برای char، `%f` برای float یا double، `%i` برای int، `%li` برای long و `%s` برای string. کد قالب نادرست خروجی اشتباه یا هشدار کامپایل می‌دهد.",
+        "note_id": "w01-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "format-codes",
+        "lang": "text",
+        "content": "%c\n%f\n%i\n%li\n%s",
+        "source_ref": "src-notes-1#format-codes",
+        "explain_fa": "فهرست رسمی کدهای قالب."
+      },
+      "check": {
+        "id": "w01-l05-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای چاپ یک متغیر long کدام کد قالب درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "%li",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "%i",
+            "correct": false,
+            "feedback_fa": "%i برای int است."
+          },
+          {
+            "id": "c",
+            "text_fa": "%l",
+            "correct": false,
+            "feedback_fa": "کد قالب long در درس‌نامه %li است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l05-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "کدهای قالب را در این قطعهٔ تألیفی پر کن.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "int age = 20;\nfloat gpa = 3.5;\nchar grade = 'A';\nprintf(\"[[b1]] [[b2]] [[b3]]\\n\", age, gpa, grade);",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "%i",
+              "%d"
+            ],
+            "hint_fa": "age از نوع int است.",
+            "wrong_feedback": {
+              "%f": "%f برای عدد اعشاری است.",
+              "%s": "%s برای رشته است."
+            },
+            "default_wrong_fa": "کد قالب int را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "%f"
+            ],
+            "hint_fa": "gpa از نوع float است.",
+            "wrong_feedback": {
+              "%i": "%i برای int است؛ gpa اعشاری است."
+            },
+            "default_wrong_fa": "کد قالب float را بنویس."
+          },
+          {
+            "id": "b3",
+            "accepted": [
+              "%c"
+            ],
+            "hint_fa": "grade یک نویسه است.",
+            "wrong_feedback": {
+              "%s": "%s برای رشته است؛ grade یک char است."
+            },
+            "default_wrong_fa": "کد قالب char را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "%i",
+            "%d"
+          ],
+          "b2": [
+            "%f"
+          ],
+          "b3": [
+            "%c"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. ترتیب کدهای قالب باید با ترتیب آرگومان‌ها یکی باشد.",
+          "incorrect_fa": "هر جای‌نگهدار به ترتیب با یک آرگومان جفت می‌شود."
+        },
+        "hints_fa": [
+          "%d هم در C برای int معتبر است، اما درس‌نامه %i را به کار می‌برد."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

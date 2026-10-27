@@ -1,0 +1,357 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l03",
+  "type": "lesson",
+  "week": 1,
+  "order": 3,
+  "stage_id": "w01-s2",
+  "title_fa": "سرآیند، کتابخانه و ورودی کاربر",
+  "title_en": "Headers, libraries and user input",
+  "note_ids": [
+    "w01-n06",
+    "w01-n07"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w01-l02"
+  ],
+  "concept_ids": [
+    "w01-c-header-file",
+    "w01-c-library",
+    "w01-c-manual-pages",
+    "w01-c-cs50-library",
+    "w01-c-get-string",
+    "w01-c-variable-declaration",
+    "w01-c-assignment-operator",
+    "w01-c-placeholder"
+  ],
+  "objective_ids": [
+    "w01-o04",
+    "w01-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l03-u01",
+      "order": 1,
+      "title_fa": "#include و کتابخانه",
+      "concept_ids": [
+        "w01-c-header-file",
+        "w01-c-library",
+        "w01-c-manual-pages"
+      ],
+      "objective_ids": [
+        "w01-o04"
+      ],
+      "note_id": "w01-n06",
+      "source_refs": [
+        "src-notes-1#header-files-and-cs50-manual-pages",
+        "src-notes-1#from-scratch-to-c",
+        "src-manual",
+        "src-section-1",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "`#include <stdio.h>` به کامپایلر می‌گوید از فایل سرآیند (header file) کتابخانهٔ ورودی/خروجی استاندارد استفاده کن؛ `printf` آنجاست. کتابخانه (library) مجموعه‌ای از توابع آماده است. برای دیدن توابع و شیوهٔ استفاده از آن‌ها به manual.cs50.io برو.",
+        "note_id": "w01-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-restored",
+        "lang": "c",
+        "content": "// A program that says hello to the world\n\n#include <stdio.h>\n\nint main(void)\n{\n    printf(\"hello, world\\n\");\n}",
+        "source_ref": "src-notes-1#from-scratch-to-c",
+        "explain_fa": "hello.c کامل با #include."
+      },
+      "check": {
+        "id": "w01-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر `#include <stdio.h>` را حذف کنی و printf را صدا بزنی چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "کامپایلر خطا می‌دهد که printf اعلان نشده است",
+            "correct": true,
+            "feedback_fa": "درست. جلسهٔ حل تمرین هم همین خطا را نشان داد."
+          },
+          {
+            "id": "b",
+            "text_fa": "برنامه بدون مشکل اجرا می‌شود",
+            "correct": false,
+            "feedback_fa": "کامپایلر بدون سرآیند printf را نمی‌شناسد."
+          },
+          {
+            "id": "c",
+            "text_fa": "فقط \\n کار نمی‌کند",
+            "correct": false,
+            "feedback_fa": "مشکل کل تابع printf است، نه فقط \\n."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l03-u01-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "نام وب‌سایتی را بنویس که CS50 برای راهنمای توابع کتابخانه‌ها معرفی می‌کند.",
+        "expected": {
+          "accept": [
+            "manual.cs50.io",
+            "https://manual.cs50.io"
+          ]
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. صفحه‌های راهنما (manual pages) دوست همیشگی تو هستند.",
+          "incorrect_fa": "در درس‌نامه آمده است: manual. ..."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l03-u02",
+      "order": 2,
+      "title_fa": "کتابخانهٔ CS50 و get_string",
+      "concept_ids": [
+        "w01-c-cs50-library",
+        "w01-c-get-string"
+      ],
+      "objective_ids": [
+        "w01-o04"
+      ],
+      "note_id": "w01-n06",
+      "source_refs": [
+        "src-notes-1#header-files-and-cs50-manual-pages",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "کتابخانهٔ CS50 (با `#include <cs50.h>`) توابعی مثل `get_string`، `get_int`، `get_char`، `get_float` و `get_long` دارد. هر کدام از کاربر ورودی می‌گیرد و آن را **برمی‌گرداند** (return).",
+        "note_id": "w01-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cs50-get-functions",
+        "lang": "text",
+        "content": "get_char\nget_double\nget_float\nget_int\nget_long\nget_string",
+        "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+        "explain_fa": "فهرست رسمی توابع get_*."
+      },
+      "check": {
+        "id": "w01-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای گرفتن یک عدد صحیح از کاربر کدام تابع مناسب است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "get_int",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "get_string",
+            "correct": false,
+            "feedback_fa": "get_string متن برمی‌گرداند، نه عدد."
+          },
+          {
+            "id": "c",
+            "text_fa": "printf",
+            "correct": false,
+            "feedback_fa": "printf چاپ می‌کند، ورودی نمی‌گیرد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l03-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "برای هر ورودی تابع مناسب را انتخاب کن: (۱) نام شهر (۲) سن (۳) پاسخ y یا n (۴) قیمت با اعشار",
+        "expected": {
+          "answers": {
+            "1": "get_string",
+            "2": "get_int",
+            "3": "get_char",
+            "4": "get_float"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. نوع داده تعیین می‌کند کدام get_* را صدا بزنی.",
+          "incorrect_fa": "به نوع هر ورودی فکر کن: متن، عدد صحیح، یک نویسه یا عدد اعشاری."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l03-u03",
+      "order": 3,
+      "title_fa": "متغیر و جای‌نگهدار %s",
+      "concept_ids": [
+        "w01-c-variable-declaration",
+        "w01-c-assignment-operator",
+        "w01-c-placeholder"
+      ],
+      "objective_ids": [
+        "w01-o05"
+      ],
+      "note_id": "w01-n07",
+      "source_refs": [
+        "src-notes-1#hello-you",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "در `string answer = get_string(\"What's your name? \");` نوع (`string`)، نام متغیر (`answer`) و عملگر انتساب (`=`) را می‌بینی: مقدار سمت راست در متغیر سمت چپ ذخیره می‌شود. برای چاپ مقدار متغیر، جای‌نگهدار `%s` را در متن می‌گذاری و متغیر را بعد از کاما می‌دهی.",
+        "note_id": "w01-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-answer-wrong",
+        "lang": "c",
+        "content": "// get_string and printf with incorrect placeholder\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    string answer = get_string(\"What's your name? \");\n    printf(\"hello, answer\\n\");\n}",
+        "source_ref": "src-notes-1#hello-you",
+        "explain_fa": "نسخهٔ رسمی نادرست: کلمهٔ answer عیناً چاپ می‌شود."
+      },
+      "check": {
+        "id": "w01-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا نسخهٔ بالا به‌جای نام کاربر، کلمهٔ answer را چاپ می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون answer داخل نقل‌قول است و جای‌نگهدار %s و آرگومان دوم ندارد",
+            "correct": true,
+            "feedback_fa": "درست. متن داخل نقل‌قول عیناً چاپ می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون get_string کار نمی‌کند",
+            "correct": false,
+            "feedback_fa": "get_string درست کار می‌کند؛ مشکل در printf است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون باید int answer بنویسیم",
+            "correct": false,
+            "feedback_fa": "نام یک متن است، پس string درست است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l03-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی‌ها را در این قطعهٔ تألیفی پر کن تا شهر کاربر چاپ شود.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "[[b1]] city = get_string(\"City: \");\nprintf(\"You live in [[b2]]\\n\", [[b3]]);",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "string"
+            ],
+            "hint_fa": "نام شهر چه نوعی است؟",
+            "wrong_feedback": {
+              "int": "شهر عدد نیست؛ متن است.",
+              "char": "char فقط یک نویسه است."
+            },
+            "default_wrong_fa": "نوع متن در کتابخانهٔ CS50 را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "%s"
+            ],
+            "hint_fa": "جای‌نگهدار رشته",
+            "wrong_feedback": {
+              "%i": "%i برای int است.",
+              "%c": "%c برای یک نویسه است."
+            },
+            "default_wrong_fa": "جای‌نگهدار رشته را بنویس."
+          },
+          {
+            "id": "b3",
+            "accepted": [
+              "city"
+            ],
+            "hint_fa": "کدام متغیر باید جایگزین جای‌نگهدار شود؟",
+            "wrong_feedback": {
+              "\"city\"": "با نقل‌قول، متن city چاپ می‌شود، نه مقدار متغیر.",
+              "City": "C به بزرگی و کوچکی حروف حساس است."
+            },
+            "default_wrong_fa": "نام متغیر را بدون نقل‌قول بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "string"
+          ],
+          "b2": [
+            "%s"
+          ],
+          "b3": [
+            "city"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. نوع، جای‌نگهدار و آرگومان باید با هم جور باشند.",
+          "incorrect_fa": "هر جای‌نگهدار %s یک آرگومان از نوع string لازم دارد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

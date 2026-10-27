@@ -612,6 +612,736 @@
       "en": "bug",
       "kind": "term",
       "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-w01-scratch-to-c",
+      "fa": "انتقال بلوک‌های سازنده از Scratch به C",
+      "en": "carrying building blocks from Scratch to C",
+      "concept_id": "w01-c-scratch-to-c",
+      "kind": "concept",
+      "source_ref": "src-notes-1#welcome",
+      "week": 1
+    },
+    {
+      "id": "g-w01-source-code",
+      "fa": "کد منبع",
+      "en": "source code",
+      "concept_id": "w01-c-source-code",
+      "kind": "concept",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1
+    },
+    {
+      "id": "g-w01-machine-code",
+      "fa": "کد ماشین",
+      "en": "machine code",
+      "concept_id": "w01-c-machine-code",
+      "kind": "concept",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1
+    },
+    {
+      "id": "g-w01-compiler",
+      "fa": "کامپایلر و کامپایل کردن",
+      "en": "compiler / compiling",
+      "concept_id": "w01-c-compiler",
+      "kind": "concept",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1
+    },
+    {
+      "id": "g-w01-ide-regions",
+      "fa": "بخش‌های VS Code: کاوشگر فایل، ویرایشگر، ترمینال",
+      "en": "VS Code regions: file explorer, text editor, terminal",
+      "concept_id": "w01-c-ide-regions",
+      "kind": "concept",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1
+    },
+    {
+      "id": "g-w01-gui-cli",
+      "fa": "رابط گرافیکی و رابط خط فرمان",
+      "en": "GUI vs CLI",
+      "concept_id": "w01-c-gui-cli",
+      "kind": "concept",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1
+    },
+    {
+      "id": "g-w01-code-make-run",
+      "fa": "چرخهٔ code، make و اجرا با ./",
+      "en": "the code → make → ./ cycle",
+      "concept_id": "w01-c-code-make-run",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-world",
+      "week": 1
+    },
+    {
+      "id": "g-w01-main",
+      "fa": "تابع main",
+      "en": "the main function",
+      "concept_id": "w01-c-main",
+      "kind": "concept",
+      "source_ref": "src-transcript-1",
+      "week": 1
+    },
+    {
+      "id": "g-w01-printf",
+      "fa": "تابع printf",
+      "en": "printf",
+      "concept_id": "w01-c-printf",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-syntax",
+      "fa": "نحو C: نقطه‌ویرگول، پرانتز، آکولاد و نقل‌قول",
+      "en": "C syntax: semicolons, parentheses, braces, quotes",
+      "concept_id": "w01-c-syntax",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-escape-sequence",
+      "fa": "دنبالهٔ گریز",
+      "en": "escape sequence",
+      "concept_id": "w01-c-escape-sequence",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-recompile",
+      "fa": "کامپایل دوباره پس از هر تغییر",
+      "en": "recompiling after every change",
+      "concept_id": "w01-c-recompile",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-header-file",
+      "fa": "فایل سرآیند و #include",
+      "en": "header file / #include",
+      "concept_id": "w01-c-header-file",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-library",
+      "fa": "کتابخانه",
+      "en": "library",
+      "concept_id": "w01-c-library",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-manual-pages",
+      "fa": "صفحه‌های راهنما (manual.cs50.io)",
+      "en": "manual pages",
+      "concept_id": "w01-c-manual-pages",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-cs50-library",
+      "fa": "کتابخانهٔ CS50 و توابع get_*",
+      "en": "CS50 library (get_* functions)",
+      "concept_id": "w01-c-cs50-library",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-get-string",
+      "fa": "get_string و مقدار بازگشتی",
+      "en": "get_string and its return value",
+      "concept_id": "w01-c-get-string",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-variable-declaration",
+      "fa": "اعلان متغیر با نوع",
+      "en": "declaring a typed variable",
+      "concept_id": "w01-c-variable-declaration",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-assignment-operator",
+      "fa": "عملگر انتساب =",
+      "en": "assignment operator =",
+      "concept_id": "w01-c-assignment-operator",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-placeholder",
+      "fa": "جای‌نگهدار %s",
+      "en": "the %s placeholder",
+      "concept_id": "w01-c-placeholder",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-linux-commands",
+      "fa": "فرمان‌های پایهٔ لینوکس",
+      "en": "basic Linux commands",
+      "concept_id": "w01-c-linux-commands",
+      "kind": "concept",
+      "source_ref": "src-notes-1#linux",
+      "week": 1
+    },
+    {
+      "id": "g-w01-paths-navigation",
+      "fa": "پوشهٔ جاری، پوشهٔ والد و خانه (. .. ~ pwd)",
+      "en": "current/parent/home directory (. .. ~ pwd)",
+      "concept_id": "w01-c-paths-navigation",
+      "kind": "concept",
+      "source_ref": "src-short-command-line",
+      "week": 1
+    },
+    {
+      "id": "g-w01-if-else",
+      "fa": "if و else در C",
+      "en": "if / else in C",
+      "concept_id": "w01-c-if-else",
+      "kind": "concept",
+      "source_ref": "src-notes-1#conditionals",
+      "week": 1
+    },
+    {
+      "id": "g-w01-else-if-chain",
+      "fa": "زنجیرهٔ else if و شاخه‌های ناسازگار",
+      "en": "else-if chains and mutually exclusive branches",
+      "concept_id": "w01-c-else-if-chain",
+      "kind": "concept",
+      "source_ref": "src-notes-1#conditionals",
+      "week": 1
+    },
+    {
+      "id": "g-w01-switch",
+      "fa": "دستور switch",
+      "en": "switch statement",
+      "concept_id": "w01-c-switch",
+      "kind": "concept",
+      "source_ref": "src-short-conditional-statements",
+      "week": 1
+    },
+    {
+      "id": "g-w01-ternary",
+      "fa": "عملگر سه‌تایی ?:",
+      "en": "ternary operator ?:",
+      "concept_id": "w01-c-ternary",
+      "kind": "concept",
+      "source_ref": "src-short-conditional-statements",
+      "week": 1
+    },
+    {
+      "id": "g-w01-data-types",
+      "fa": "انواع داده در C",
+      "en": "C data types",
+      "concept_id": "w01-c-data-types",
+      "kind": "concept",
+      "source_ref": "src-notes-1#types",
+      "week": 1
+    },
+    {
+      "id": "g-w01-type-sizes",
+      "fa": "اندازهٔ انواع (بایت) و بازه",
+      "en": "type sizes and ranges",
+      "concept_id": "w01-c-type-sizes",
+      "kind": "concept",
+      "source_ref": "src-short-data-types",
+      "week": 1
+    },
+    {
+      "id": "g-w01-void",
+      "fa": "void: نبودِ ورودی یا خروجی",
+      "en": "void",
+      "concept_id": "w01-c-void",
+      "kind": "concept",
+      "source_ref": "src-short-data-types",
+      "week": 1
+    },
+    {
+      "id": "g-w01-format-codes",
+      "fa": "کدهای قالب",
+      "en": "format codes",
+      "concept_id": "w01-c-format-codes",
+      "kind": "concept",
+      "source_ref": "src-notes-1#format-codes",
+      "week": 1
+    },
+    {
+      "id": "g-w01-increment",
+      "fa": "افزایش و کاهش (+= ++ --)",
+      "en": "increment / decrement",
+      "concept_id": "w01-c-increment",
+      "kind": "concept",
+      "source_ref": "src-notes-1#variables",
+      "week": 1
+    },
+    {
+      "id": "g-w01-relational-operators",
+      "fa": "عملگرهای مقایسه‌ای",
+      "en": "relational operators",
+      "concept_id": "w01-c-relational-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-1#comparec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-get-int",
+      "fa": "get_int",
+      "en": "get_int",
+      "concept_id": "w01-c-get-int",
+      "kind": "concept",
+      "source_ref": "src-notes-1#comparec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-comments",
+      "fa": "توضیح (comment) با //",
+      "en": "comments (//)",
+      "concept_id": "w01-c-comments",
+      "kind": "concept",
+      "source_ref": "src-notes-1#comparec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-char",
+      "fa": "نوع char و نقل‌قول تکی",
+      "en": "char and single quotes",
+      "concept_id": "w01-c-char",
+      "kind": "concept",
+      "source_ref": "src-notes-1#agreec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-equality-vs-assignment",
+      "fa": "== در برابر =",
+      "en": "== vs =",
+      "concept_id": "w01-c-equality-vs-assignment",
+      "kind": "concept",
+      "source_ref": "src-notes-1#agreec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-logical-operators",
+      "fa": "عملگرهای منطقی && || !",
+      "en": "logical operators && || !",
+      "concept_id": "w01-c-logical-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-1#agreec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-while-loop",
+      "fa": "حلقهٔ while",
+      "en": "while loop",
+      "concept_id": "w01-c-while-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-for-loop",
+      "fa": "حلقهٔ for",
+      "en": "for loop",
+      "concept_id": "w01-c-for-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-zero-indexing",
+      "fa": "شمارش از صفر",
+      "en": "counting from zero",
+      "concept_id": "w01-c-zero-indexing",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-infinite-loop",
+      "fa": "حلقهٔ بی‌پایان و control-C",
+      "en": "infinite loop and control-C",
+      "concept_id": "w01-c-infinite-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-do-while",
+      "fa": "حلقهٔ do while",
+      "en": "do-while loop",
+      "concept_id": "w01-c-do-while",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-input-validation",
+      "fa": "اعتبارسنجی ورودی و درخواست دوباره",
+      "en": "input validation / re-prompting",
+      "concept_id": "w01-c-input-validation",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-break-continue",
+      "fa": "break و continue",
+      "en": "break and continue",
+      "concept_id": "w01-c-break-continue",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-function-definition",
+      "fa": "تعریف تابع",
+      "en": "defining a function",
+      "concept_id": "w01-c-function-definition",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-prototype",
+      "fa": "پیش‌نمونهٔ تابع",
+      "en": "function prototype",
+      "concept_id": "w01-c-prototype",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-parameter",
+      "fa": "پارامتر تابع در C",
+      "en": "function parameters in C",
+      "concept_id": "w01-c-parameter",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-scope",
+      "fa": "حوزهٔ متغیر",
+      "en": "scope",
+      "concept_id": "w01-c-scope",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-return-value",
+      "fa": "مقدار بازگشتی و return",
+      "en": "return values and return",
+      "concept_id": "w01-c-return-value",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-correctness-design-style",
+      "fa": "درستی، طراحی، سبک (check50، design50، style50)",
+      "en": "correctness, design, style",
+      "concept_id": "w01-c-correctness-design-style",
+      "kind": "concept",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1
+    },
+    {
+      "id": "g-w01-nested-loops",
+      "fa": "حلقه‌های تودرتو",
+      "en": "nested loops",
+      "concept_id": "w01-c-nested-loops",
+      "kind": "concept",
+      "source_ref": "src-notes-1#mario",
+      "week": 1
+    },
+    {
+      "id": "g-w01-constant",
+      "fa": "ثابت با const",
+      "en": "constants (const)",
+      "concept_id": "w01-c-constant",
+      "kind": "concept",
+      "source_ref": "src-notes-1#mario",
+      "week": 1
+    },
+    {
+      "id": "g-w01-helper-function",
+      "fa": "تابع کمکی برای زیرمسئله",
+      "en": "helper functions",
+      "concept_id": "w01-c-helper-function",
+      "kind": "concept",
+      "source_ref": "src-notes-1#mario",
+      "week": 1
+    },
+    {
+      "id": "g-w01-magic-numbers",
+      "fa": "عدد جادویی و #define",
+      "en": "magic numbers and #define",
+      "concept_id": "w01-c-magic-numbers",
+      "kind": "concept",
+      "source_ref": "src-short-magic-numbers",
+      "week": 1
+    },
+    {
+      "id": "g-w01-arithmetic-operators",
+      "fa": "عملگرهای حسابی و باقی‌مانده %",
+      "en": "arithmetic operators and modulo",
+      "concept_id": "w01-c-arithmetic-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-integer-overflow",
+      "fa": "سرریز عدد صحیح",
+      "en": "integer overflow",
+      "concept_id": "w01-c-integer-overflow",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-truncation",
+      "fa": "بریدن بخش اعشاری در تقسیم صحیح",
+      "en": "truncation",
+      "concept_id": "w01-c-truncation",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-type-casting",
+      "fa": "تبدیل نوع (casting)",
+      "en": "type casting",
+      "concept_id": "w01-c-type-casting",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-floating-point-imprecision",
+      "fa": "عدم دقت اعداد اعشاری",
+      "en": "floating-point imprecision",
+      "concept_id": "w01-c-floating-point-imprecision",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-debugging-errors",
+      "fa": "خواندن پیام خطای کامپایلر",
+      "en": "reading compiler error messages",
+      "concept_id": "w01-c-debugging-errors",
+      "kind": "concept",
+      "source_ref": "src-pset-1#advice",
+      "week": 1
+    },
+    {
+      "id": "g-w01-x-compiler",
+      "fa": "کامپایلر",
+      "en": "compiler",
+      "kind": "term",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1,
+      "also_in_week_0": true
+    },
+    {
+      "id": "g-w01-x-terminal",
+      "fa": "ترمینال",
+      "en": "terminal",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-command-line",
+      "fa": "خط فرمان",
+      "en": "command line",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-text-editor",
+      "fa": "ویرایشگر متن",
+      "en": "text editor",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-file-explorer",
+      "fa": "کاوشگر فایل",
+      "en": "file explorer",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-prompt",
+      "fa": "اعلان ترمینال",
+      "en": "prompt",
+      "kind": "term",
+      "source_ref": "src-notes-1#hello-world",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-directory",
+      "fa": "پوشه",
+      "en": "directory (folder)",
+      "kind": "term",
+      "source_ref": "src-notes-1#linux",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-format-code",
+      "fa": "کد قالب",
+      "en": "format code",
+      "kind": "term",
+      "source_ref": "src-notes-1#format-codes",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-semicolon",
+      "fa": "نقطه‌ویرگول",
+      "en": "semicolon",
+      "kind": "term",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-curly-brace",
+      "fa": "آکولاد",
+      "en": "curly brace",
+      "kind": "term",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-indentation",
+      "fa": "تورفتگی",
+      "en": "indentation",
+      "kind": "term",
+      "source_ref": "src-style-guide-c",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-overflow",
+      "fa": "سرریز",
+      "en": "overflow",
+      "kind": "term",
+      "source_ref": "src-notes-1#operators",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-precision",
+      "fa": "دقت",
+      "en": "precision",
+      "kind": "term",
+      "source_ref": "src-notes-1#operators",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-function-call",
+      "fa": "فراخوانی تابع",
+      "en": "function call",
+      "kind": "term",
+      "source_ref": "src-notes-1#functions",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-argument",
+      "fa": "آرگومان",
+      "en": "argument",
+      "kind": "term",
+      "source_ref": "src-notes-1#functions",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-return",
+      "fa": "بازگشت",
+      "en": "return",
+      "kind": "term",
+      "source_ref": "src-notes-1#functions",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-standard-i-o-library",
+      "fa": "کتابخانهٔ استاندارد ورودی/خروجی",
+      "en": "standard I/O library (stdio)",
+      "kind": "term",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-check50",
+      "fa": "check50",
+      "en": "check50",
+      "kind": "term",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-style50",
+      "fa": "style50",
+      "en": "style50",
+      "kind": "term",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-submit50",
+      "fa": "submit50",
+      "en": "submit50",
+      "kind": "term",
+      "source_ref": "src-pset-1#what-to-do",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-design50",
+      "fa": "design50",
+      "en": "design50",
+      "kind": "term",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1,
+      "also_in_week_0": false
     }
-  ]
+  ],
+  "count": 160
 }

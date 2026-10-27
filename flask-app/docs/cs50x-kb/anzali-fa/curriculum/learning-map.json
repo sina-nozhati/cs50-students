@@ -1,7 +1,7 @@
 {
   "$schema": "../schemas/learning-map.schema.json",
-  "version": "0.1.0",
-  "generated_at": "2026-10-18T08:00:00+03:30",
+  "version": "0.2.0",
+  "generated_at": "2026-10-27T09:00:00+03:30",
   "origin": "authored",
   "note": "The concept graph and prerequisite edges were authored by CS50x Anzali from the order and dependencies in the official notes. They are a pedagogical inference, not a CS50 artifact.",
   "weeks": [
@@ -87,6 +87,103 @@
           ]
         }
       ]
+    },
+    {
+      "week": 1,
+      "title_fa": "هفتهٔ ۱ — C",
+      "title_en": "Week 1 C",
+      "stages": [
+        {
+          "id": "w01-s1",
+          "title_fa": "ابزار و نخستین برنامه",
+          "concepts": [
+            "w01-c-scratch-to-c",
+            "w01-c-source-code",
+            "w01-c-machine-code",
+            "w01-c-compiler",
+            "w01-c-ide-regions",
+            "w01-c-gui-cli",
+            "w01-c-code-make-run",
+            "w01-c-main",
+            "w01-c-debugging-errors",
+            "w01-c-printf",
+            "w01-c-syntax",
+            "w01-c-escape-sequence",
+            "w01-c-recompile"
+          ]
+        },
+        {
+          "id": "w01-s2",
+          "title_fa": "ورودی، لینوکس، انواع و متغیرها",
+          "concepts": [
+            "w01-c-header-file",
+            "w01-c-library",
+            "w01-c-manual-pages",
+            "w01-c-cs50-library",
+            "w01-c-get-string",
+            "w01-c-variable-declaration",
+            "w01-c-assignment-operator",
+            "w01-c-placeholder",
+            "w01-c-linux-commands",
+            "w01-c-paths-navigation",
+            "w01-c-data-types",
+            "w01-c-void",
+            "w01-c-type-sizes",
+            "w01-c-format-codes",
+            "w01-c-increment"
+          ]
+        },
+        {
+          "id": "w01-s3",
+          "title_fa": "شرط، منطق و حلقه",
+          "concepts": [
+            "w01-c-if-else",
+            "w01-c-else-if-chain",
+            "w01-c-relational-operators",
+            "w01-c-get-int",
+            "w01-c-comments",
+            "w01-c-switch",
+            "w01-c-ternary",
+            "w01-c-char",
+            "w01-c-equality-vs-assignment",
+            "w01-c-logical-operators",
+            "w01-c-while-loop",
+            "w01-c-for-loop",
+            "w01-c-zero-indexing",
+            "w01-c-infinite-loop",
+            "w01-c-break-continue",
+            "w01-c-do-while",
+            "w01-c-input-validation"
+          ]
+        },
+        {
+          "id": "w01-s4",
+          "title_fa": "تابع، طراحی و Mario",
+          "concepts": [
+            "w01-c-function-definition",
+            "w01-c-prototype",
+            "w01-c-parameter",
+            "w01-c-scope",
+            "w01-c-return-value",
+            "w01-c-correctness-design-style",
+            "w01-c-nested-loops",
+            "w01-c-constant",
+            "w01-c-magic-numbers",
+            "w01-c-helper-function"
+          ]
+        },
+        {
+          "id": "w01-s5",
+          "title_fa": "محدودیت‌های عددی",
+          "concepts": [
+            "w01-c-arithmetic-operators",
+            "w01-c-integer-overflow",
+            "w01-c-truncation",
+            "w01-c-type-casting",
+            "w01-c-floating-point-imprecision"
+          ]
+        }
+      ]
     }
   ],
   "concepts": [
@@ -96,7 +193,8 @@
       "label_en": "AI and fundamentals",
       "note_id": "w00-n01",
       "source_ref": "src-notes-0#welcome",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-academic-honesty-ai",
@@ -104,7 +202,8 @@
       "label_en": "Academic honesty policy on AI",
       "note_id": "w00-n02",
       "source_ref": "src-notes-0#visual-studio-code-and-chatpy",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-ide",
@@ -112,7 +211,8 @@
       "label_en": "integrated development environment (IDE)",
       "note_id": "w00-n02",
       "source_ref": "src-notes-0#visual-studio-code-and-chatpy",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-problem-solving",
@@ -120,7 +220,8 @@
       "label_en": "problem solving: input, output, black box",
       "note_id": "w00-n03",
       "source_ref": "src-notes-0#computer-science-and-problem-solving",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-computational-thinking",
@@ -128,7 +229,8 @@
       "label_en": "computational thinking",
       "note_id": "w00-n03",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-unary",
@@ -136,7 +238,8 @@
       "label_en": "unary (base-1)",
       "note_id": "w00-n03",
       "source_ref": "src-notes-0#computer-science-and-problem-solving",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-decimal",
@@ -144,7 +247,8 @@
       "label_en": "decimal (base-10)",
       "note_id": "w00-n03",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-binary",
@@ -152,7 +256,8 @@
       "label_en": "binary (base-2)",
       "note_id": "w00-n03",
       "source_ref": "src-notes-0#computer-science-and-problem-solving",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-bit",
@@ -160,7 +265,8 @@
       "label_en": "bit",
       "note_id": "w00-n03",
       "source_ref": "src-notes-0#computer-science-and-problem-solving",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-transistor",
@@ -168,7 +274,8 @@
       "label_en": "transistor",
       "note_id": "w00-n03",
       "source_ref": "src-notes-0#computer-science-and-problem-solving",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-byte",
@@ -176,7 +283,8 @@
       "label_en": "byte",
       "note_id": "w00-n03",
       "source_ref": "src-notes-0#computer-science-and-problem-solving",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-ascii",
@@ -184,7 +292,8 @@
       "label_en": "ASCII",
       "note_id": "w00-n04",
       "source_ref": "src-notes-0#ascii",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-unicode",
@@ -192,7 +301,8 @@
       "label_en": "Unicode",
       "note_id": "w00-n05",
       "source_ref": "src-notes-0#unicode",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-rgb",
@@ -200,7 +310,8 @@
       "label_en": "RGB",
       "note_id": "w00-n06",
       "source_ref": "src-notes-0#rgb",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-pixel",
@@ -208,7 +319,8 @@
       "label_en": "pixel",
       "note_id": "w00-n06",
       "source_ref": "src-notes-0#rgb",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-media-representation",
@@ -216,7 +328,8 @@
       "label_en": "representing video and music",
       "note_id": "w00-n06",
       "source_ref": "src-notes-0#rgb",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-context-interpretation",
@@ -224,7 +337,8 @@
       "label_en": "context determines interpretation",
       "note_id": "w00-n06",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-algorithm",
@@ -232,7 +346,8 @@
       "label_en": "algorithm",
       "note_id": "w00-n07",
       "source_ref": "src-notes-0#algorithms",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-running-time",
@@ -240,7 +355,8 @@
       "label_en": "running time",
       "note_id": "w00-n07",
       "source_ref": "src-notes-0#algorithms",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-big-o",
@@ -248,7 +364,8 @@
       "label_en": "big-O notation",
       "note_id": "w00-n07",
       "source_ref": "src-notes-0#algorithms",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-correctness-vs-design",
@@ -256,7 +373,8 @@
       "label_en": "correctness vs design",
       "note_id": "w00-n07",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-pseudocode",
@@ -264,7 +382,8 @@
       "label_en": "pseudocode",
       "note_id": "w00-n08",
       "source_ref": "src-notes-0#pseudocode",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-function",
@@ -272,7 +391,8 @@
       "label_en": "function",
       "note_id": "w00-n08",
       "source_ref": "src-notes-0#pseudocode",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-conditional",
@@ -280,7 +400,8 @@
       "label_en": "conditional",
       "note_id": "w00-n08",
       "source_ref": "src-notes-0#pseudocode",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-boolean-expression",
@@ -288,7 +409,8 @@
       "label_en": "boolean expression",
       "note_id": "w00-n08",
       "source_ref": "src-notes-0#pseudocode",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-loop",
@@ -296,7 +418,8 @@
       "label_en": "loop",
       "note_id": "w00-n08",
       "source_ref": "src-notes-0#pseudocode",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-corner-case",
@@ -304,7 +427,8 @@
       "label_en": "corner case",
       "note_id": "w00-n08",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-abstraction",
@@ -312,7 +436,8 @@
       "label_en": "abstraction",
       "note_id": "w00-n09",
       "source_ref": "src-notes-0#whats-ahead",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-compiler",
@@ -320,7 +445,8 @@
       "label_en": "compiler",
       "note_id": "w00-n09",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-scratch-interface",
@@ -328,7 +454,8 @@
       "label_en": "Scratch interface: blocks palette, programming area, stage",
       "note_id": "w00-n10",
       "source_ref": "src-notes-0#scratch",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-sprite",
@@ -336,7 +463,8 @@
       "label_en": "sprite",
       "note_id": "w00-n10",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-coordinates",
@@ -344,7 +472,8 @@
       "label_en": "Scratch coordinate system",
       "note_id": "w00-n10",
       "source_ref": "src-notes-0#scratch",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-event",
@@ -352,7 +481,8 @@
       "label_en": "event",
       "note_id": "w00-n11",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-argument",
@@ -360,7 +490,8 @@
       "label_en": "argument (input)",
       "note_id": "w00-n11",
       "source_ref": "src-notes-0#hello-world",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-side-effect",
@@ -368,7 +499,8 @@
       "label_en": "side effect",
       "note_id": "w00-n11",
       "source_ref": "src-notes-0#hello-world",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-variable",
@@ -376,7 +508,8 @@
       "label_en": "variable",
       "note_id": "w00-n12",
       "source_ref": "src-notes-0#hello-you",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-return-value",
@@ -384,7 +517,8 @@
       "label_en": "return value",
       "note_id": "w00-n12",
       "source_ref": "src-notes-0#hello-you",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-string-join",
@@ -392,7 +526,8 @@
       "label_en": "string, join",
       "note_id": "w00-n12",
       "source_ref": "src-notes-0#hello-you",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-custom-block",
@@ -400,7 +535,8 @@
       "label_en": "custom block (define)",
       "note_id": "w00-n13",
       "source_ref": "src-notes-0#meow-loops-and-abstraction",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-parameter-input",
@@ -408,7 +544,8 @@
       "label_en": "custom block input (parameter)",
       "note_id": "w00-n13",
       "source_ref": "src-notes-0#meow-loops-and-abstraction",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-forever-loop",
@@ -416,7 +553,8 @@
       "label_en": "forever loop",
       "note_id": "w00-n14",
       "source_ref": "src-notes-0#conditionals",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-costume",
@@ -424,7 +562,8 @@
       "label_en": "costume",
       "note_id": "w00-n15",
       "source_ref": "src-notes-0#oscartime",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-thread",
@@ -432,7 +571,8 @@
       "label_en": "threads: scripts running in parallel",
       "note_id": "w00-n15",
       "source_ref": "src-transcript-0",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-incremental-development",
@@ -440,7 +580,8 @@
       "label_en": "incremental development (baby steps)",
       "note_id": "w00-n15",
       "source_ref": "src-pset-0-scratch#starting-from-scratch",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-movement-collision",
@@ -448,7 +589,8 @@
       "label_en": "movement and wall collision",
       "note_id": "w00-n16",
       "source_ref": "src-notes-0#ivys-hardest-game",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
     },
     {
       "id": "w00-c-boolean-operators",
@@ -456,7 +598,548 @@
       "label_en": "boolean operator or",
       "note_id": "w00-n16",
       "source_ref": "src-notes-0#ivys-hardest-game",
-      "origin": "official"
+      "origin": "official",
+      "week": 0
+    },
+    {
+      "id": "w01-c-scratch-to-c",
+      "label_fa": "انتقال بلوک‌های سازنده از Scratch به C",
+      "label_en": "carrying building blocks from Scratch to C",
+      "note_id": "w01-n01",
+      "source_ref": "src-notes-1#welcome",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-source-code",
+      "label_fa": "کد منبع",
+      "label_en": "source code",
+      "note_id": "w01-n02",
+      "source_ref": "src-notes-1#source-code",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-machine-code",
+      "label_fa": "کد ماشین",
+      "label_en": "machine code",
+      "note_id": "w01-n02",
+      "source_ref": "src-notes-1#source-code",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-compiler",
+      "label_fa": "کامپایلر و کامپایل کردن",
+      "label_en": "compiler / compiling",
+      "note_id": "w01-n02",
+      "source_ref": "src-notes-1#source-code",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-ide-regions",
+      "label_fa": "بخش‌های VS Code: کاوشگر فایل، ویرایشگر، ترمینال",
+      "label_en": "VS Code regions: file explorer, text editor, terminal",
+      "note_id": "w01-n03",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-gui-cli",
+      "label_fa": "رابط گرافیکی و رابط خط فرمان",
+      "label_en": "GUI vs CLI",
+      "note_id": "w01-n03",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-code-make-run",
+      "label_fa": "چرخهٔ code، make و اجرا با ./",
+      "label_en": "the code → make → ./ cycle",
+      "note_id": "w01-n04",
+      "source_ref": "src-notes-1#hello-world",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-main",
+      "label_fa": "تابع main",
+      "label_en": "the main function",
+      "note_id": "w01-n04",
+      "source_ref": "src-transcript-1",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-printf",
+      "label_fa": "تابع printf",
+      "label_en": "printf",
+      "note_id": "w01-n05",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-syntax",
+      "label_fa": "نحو C: نقطه‌ویرگول، پرانتز، آکولاد و نقل‌قول",
+      "label_en": "C syntax: semicolons, parentheses, braces, quotes",
+      "note_id": "w01-n05",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-escape-sequence",
+      "label_fa": "دنبالهٔ گریز",
+      "label_en": "escape sequence",
+      "note_id": "w01-n05",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-recompile",
+      "label_fa": "کامپایل دوباره پس از هر تغییر",
+      "label_en": "recompiling after every change",
+      "note_id": "w01-n05",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-header-file",
+      "label_fa": "فایل سرآیند و #include",
+      "label_en": "header file / #include",
+      "note_id": "w01-n06",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-library",
+      "label_fa": "کتابخانه",
+      "label_en": "library",
+      "note_id": "w01-n06",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-manual-pages",
+      "label_fa": "صفحه‌های راهنما (manual.cs50.io)",
+      "label_en": "manual pages",
+      "note_id": "w01-n06",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-cs50-library",
+      "label_fa": "کتابخانهٔ CS50 و توابع get_*",
+      "label_en": "CS50 library (get_* functions)",
+      "note_id": "w01-n06",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-get-string",
+      "label_fa": "get_string و مقدار بازگشتی",
+      "label_en": "get_string and its return value",
+      "note_id": "w01-n07",
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-variable-declaration",
+      "label_fa": "اعلان متغیر با نوع",
+      "label_en": "declaring a typed variable",
+      "note_id": "w01-n07",
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-assignment-operator",
+      "label_fa": "عملگر انتساب =",
+      "label_en": "assignment operator =",
+      "note_id": "w01-n07",
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-placeholder",
+      "label_fa": "جای‌نگهدار %s",
+      "label_en": "the %s placeholder",
+      "note_id": "w01-n07",
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-linux-commands",
+      "label_fa": "فرمان‌های پایهٔ لینوکس",
+      "label_en": "basic Linux commands",
+      "note_id": "w01-n08",
+      "source_ref": "src-notes-1#linux",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-paths-navigation",
+      "label_fa": "پوشهٔ جاری، پوشهٔ والد و خانه (. .. ~ pwd)",
+      "label_en": "current/parent/home directory (. .. ~ pwd)",
+      "note_id": "w01-sh-command-line",
+      "source_ref": "src-short-command-line",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-if-else",
+      "label_fa": "if و else در C",
+      "label_en": "if / else in C",
+      "note_id": "w01-n09",
+      "source_ref": "src-notes-1#conditionals",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-else-if-chain",
+      "label_fa": "زنجیرهٔ else if و شاخه‌های ناسازگار",
+      "label_en": "else-if chains and mutually exclusive branches",
+      "note_id": "w01-n09",
+      "source_ref": "src-notes-1#conditionals",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-switch",
+      "label_fa": "دستور switch",
+      "label_en": "switch statement",
+      "note_id": "w01-sh-conditional-statements",
+      "source_ref": "src-short-conditional-statements",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-ternary",
+      "label_fa": "عملگر سه‌تایی ?:",
+      "label_en": "ternary operator ?:",
+      "note_id": "w01-sh-conditional-statements",
+      "source_ref": "src-short-conditional-statements",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-data-types",
+      "label_fa": "انواع داده در C",
+      "label_en": "C data types",
+      "note_id": "w01-n10",
+      "source_ref": "src-notes-1#types",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-type-sizes",
+      "label_fa": "اندازهٔ انواع (بایت) و بازه",
+      "label_en": "type sizes and ranges",
+      "note_id": "w01-sh-data-types",
+      "source_ref": "src-short-data-types",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-void",
+      "label_fa": "void: نبودِ ورودی یا خروجی",
+      "label_en": "void",
+      "note_id": "w01-sh-data-types",
+      "source_ref": "src-short-data-types",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-format-codes",
+      "label_fa": "کدهای قالب",
+      "label_en": "format codes",
+      "note_id": "w01-n11",
+      "source_ref": "src-notes-1#format-codes",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-increment",
+      "label_fa": "افزایش و کاهش (+= ++ --)",
+      "label_en": "increment / decrement",
+      "note_id": "w01-n12",
+      "source_ref": "src-notes-1#variables",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-relational-operators",
+      "label_fa": "عملگرهای مقایسه‌ای",
+      "label_en": "relational operators",
+      "note_id": "w01-n13",
+      "source_ref": "src-notes-1#comparec",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-get-int",
+      "label_fa": "get_int",
+      "label_en": "get_int",
+      "note_id": "w01-n13",
+      "source_ref": "src-notes-1#comparec",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-comments",
+      "label_fa": "توضیح (comment) با //",
+      "label_en": "comments (//)",
+      "note_id": "w01-n13",
+      "source_ref": "src-notes-1#comparec",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-char",
+      "label_fa": "نوع char و نقل‌قول تکی",
+      "label_en": "char and single quotes",
+      "note_id": "w01-n14",
+      "source_ref": "src-notes-1#agreec",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-equality-vs-assignment",
+      "label_fa": "== در برابر =",
+      "label_en": "== vs =",
+      "note_id": "w01-n14",
+      "source_ref": "src-notes-1#agreec",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-logical-operators",
+      "label_fa": "عملگرهای منطقی && || !",
+      "label_en": "logical operators && || !",
+      "note_id": "w01-n14",
+      "source_ref": "src-notes-1#agreec",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-while-loop",
+      "label_fa": "حلقهٔ while",
+      "label_en": "while loop",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-for-loop",
+      "label_fa": "حلقهٔ for",
+      "label_en": "for loop",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-zero-indexing",
+      "label_fa": "شمارش از صفر",
+      "label_en": "counting from zero",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-infinite-loop",
+      "label_fa": "حلقهٔ بی‌پایان و control-C",
+      "label_en": "infinite loop and control-C",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-do-while",
+      "label_fa": "حلقهٔ do while",
+      "label_en": "do-while loop",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-input-validation",
+      "label_fa": "اعتبارسنجی ورودی و درخواست دوباره",
+      "label_en": "input validation / re-prompting",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-break-continue",
+      "label_fa": "break و continue",
+      "label_en": "break and continue",
+      "note_id": "w01-n15",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-function-definition",
+      "label_fa": "تعریف تابع",
+      "label_en": "defining a function",
+      "note_id": "w01-n16",
+      "source_ref": "src-notes-1#functions",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-prototype",
+      "label_fa": "پیش‌نمونهٔ تابع",
+      "label_en": "function prototype",
+      "note_id": "w01-n16",
+      "source_ref": "src-notes-1#functions",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-parameter",
+      "label_fa": "پارامتر تابع در C",
+      "label_en": "function parameters in C",
+      "note_id": "w01-n16",
+      "source_ref": "src-notes-1#functions",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-scope",
+      "label_fa": "حوزهٔ متغیر",
+      "label_en": "scope",
+      "note_id": "w01-n16",
+      "source_ref": "src-notes-1#functions",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-return-value",
+      "label_fa": "مقدار بازگشتی و return",
+      "label_en": "return values and return",
+      "note_id": "w01-n16",
+      "source_ref": "src-notes-1#functions",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-correctness-design-style",
+      "label_fa": "درستی، طراحی، سبک (check50، design50، style50)",
+      "label_en": "correctness, design, style",
+      "note_id": "w01-n17",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-nested-loops",
+      "label_fa": "حلقه‌های تودرتو",
+      "label_en": "nested loops",
+      "note_id": "w01-n18",
+      "source_ref": "src-notes-1#mario",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-constant",
+      "label_fa": "ثابت با const",
+      "label_en": "constants (const)",
+      "note_id": "w01-n18",
+      "source_ref": "src-notes-1#mario",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-helper-function",
+      "label_fa": "تابع کمکی برای زیرمسئله",
+      "label_en": "helper functions",
+      "note_id": "w01-n18",
+      "source_ref": "src-notes-1#mario",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-magic-numbers",
+      "label_fa": "عدد جادویی و #define",
+      "label_en": "magic numbers and #define",
+      "note_id": "w01-sh-magic-numbers",
+      "source_ref": "src-short-magic-numbers",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-arithmetic-operators",
+      "label_fa": "عملگرهای حسابی و باقی‌مانده %",
+      "label_en": "arithmetic operators and modulo",
+      "note_id": "w01-n19",
+      "source_ref": "src-notes-1#operators",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-integer-overflow",
+      "label_fa": "سرریز عدد صحیح",
+      "label_en": "integer overflow",
+      "note_id": "w01-n19",
+      "source_ref": "src-notes-1#operators",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-truncation",
+      "label_fa": "بریدن بخش اعشاری در تقسیم صحیح",
+      "label_en": "truncation",
+      "note_id": "w01-n19",
+      "source_ref": "src-notes-1#operators",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-type-casting",
+      "label_fa": "تبدیل نوع (casting)",
+      "label_en": "type casting",
+      "note_id": "w01-n19",
+      "source_ref": "src-notes-1#operators",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-floating-point-imprecision",
+      "label_fa": "عدم دقت اعداد اعشاری",
+      "label_en": "floating-point imprecision",
+      "note_id": "w01-n19",
+      "source_ref": "src-notes-1#operators",
+      "origin": "official",
+      "week": 1
+    },
+    {
+      "id": "w01-c-debugging-errors",
+      "label_fa": "خواندن پیام خطای کامپایلر",
+      "label_en": "reading compiler error messages",
+      "note_id": "w01-n04",
+      "source_ref": "src-pset-1#advice",
+      "origin": "official",
+      "week": 1
     }
   ],
   "edges": [
@@ -714,6 +1397,534 @@
       "from": "w00-c-boolean-expression",
       "to": "w00-c-boolean-operators",
       "type": "prerequisite"
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w01-c-scratch-to-c",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-loop",
+      "to": "w01-c-scratch-to-c",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-conditional",
+      "to": "w01-c-scratch-to-c",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-variable",
+      "to": "w01-c-scratch-to-c",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-scratch-to-c",
+      "to": "w01-c-source-code",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-binary",
+      "to": "w01-c-machine-code",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-source-code",
+      "to": "w01-c-compiler",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-machine-code",
+      "to": "w01-c-compiler",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-compiler",
+      "to": "w01-c-compiler",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-ide",
+      "to": "w01-c-ide-regions",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-ide-regions",
+      "to": "w01-c-gui-cli",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-compiler",
+      "to": "w01-c-code-make-run",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-ide-regions",
+      "to": "w01-c-code-make-run",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-event",
+      "to": "w01-c-main",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-function",
+      "to": "w01-c-printf",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-argument",
+      "to": "w01-c-printf",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-printf",
+      "to": "w01-c-syntax",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-printf",
+      "to": "w01-c-escape-sequence",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-code-make-run",
+      "to": "w01-c-recompile",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-printf",
+      "to": "w01-c-header-file",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-header-file",
+      "to": "w01-c-library",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-library",
+      "to": "w01-c-manual-pages",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-library",
+      "to": "w01-c-cs50-library",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-cs50-library",
+      "to": "w01-c-get-string",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-return-value",
+      "to": "w01-c-get-string",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-variable",
+      "to": "w01-c-variable-declaration",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w01-c-variable-declaration",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w01-c-assignment-operator",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-printf",
+      "to": "w01-c-placeholder",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-get-string",
+      "to": "w01-c-placeholder",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-gui-cli",
+      "to": "w01-c-linux-commands",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-linux-commands",
+      "to": "w01-c-paths-navigation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-conditional",
+      "to": "w01-c-if-else",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-boolean-expression",
+      "to": "w01-c-if-else",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-if-else",
+      "to": "w01-c-else-if-chain",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-else-if-chain",
+      "to": "w01-c-switch",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-if-else",
+      "to": "w01-c-ternary",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-bit",
+      "to": "w01-c-data-types",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-byte",
+      "to": "w01-c-data-types",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w01-c-type-sizes",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w01-c-void",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-placeholder",
+      "to": "w01-c-format-codes",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w01-c-format-codes",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-assignment-operator",
+      "to": "w01-c-increment",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-boolean-expression",
+      "to": "w01-c-relational-operators",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-cs50-library",
+      "to": "w01-c-get-int",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-syntax",
+      "to": "w01-c-comments",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w01-c-char",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-ascii",
+      "to": "w01-c-char",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-assignment-operator",
+      "to": "w01-c-equality-vs-assignment",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-relational-operators",
+      "to": "w01-c-equality-vs-assignment",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-relational-operators",
+      "to": "w01-c-logical-operators",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-boolean-operators",
+      "to": "w01-c-logical-operators",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-loop",
+      "to": "w01-c-while-loop",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-increment",
+      "to": "w01-c-while-loop",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-relational-operators",
+      "to": "w01-c-while-loop",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-while-loop",
+      "to": "w01-c-for-loop",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-while-loop",
+      "to": "w01-c-zero-indexing",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-while-loop",
+      "to": "w01-c-infinite-loop",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-forever-loop",
+      "to": "w01-c-infinite-loop",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-while-loop",
+      "to": "w01-c-do-while",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-do-while",
+      "to": "w01-c-input-validation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-get-int",
+      "to": "w01-c-input-validation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-infinite-loop",
+      "to": "w01-c-break-continue",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-custom-block",
+      "to": "w01-c-function-definition",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-main",
+      "to": "w01-c-function-definition",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-function-definition",
+      "to": "w01-c-prototype",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-function-definition",
+      "to": "w01-c-parameter",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-parameter-input",
+      "to": "w01-c-parameter",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w01-c-scope",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-function-definition",
+      "to": "w01-c-scope",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-function-definition",
+      "to": "w01-c-return-value",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-return-value",
+      "to": "w01-c-return-value",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-correctness-vs-design",
+      "to": "w01-c-correctness-design-style",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-for-loop",
+      "to": "w01-c-nested-loops",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w01-c-constant",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-parameter",
+      "to": "w01-c-helper-function",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-nested-loops",
+      "to": "w01-c-helper-function",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-constant",
+      "to": "w01-c-magic-numbers",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-header-file",
+      "to": "w01-c-magic-numbers",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w01-c-arithmetic-operators",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-type-sizes",
+      "to": "w01-c-integer-overflow",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-arithmetic-operators",
+      "to": "w01-c-integer-overflow",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-arithmetic-operators",
+      "to": "w01-c-truncation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-truncation",
+      "to": "w01-c-type-casting",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-type-casting",
+      "to": "w01-c-floating-point-imprecision",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-type-sizes",
+      "to": "w01-c-floating-point-imprecision",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-code-make-run",
+      "to": "w01-c-debugging-errors",
+      "type": "prerequisite",
+      "cross_week": false
     }
   ]
 }

@@ -1,0 +1,326 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l10",
+  "type": "lesson",
+  "week": 1,
+  "order": 10,
+  "stage_id": "w01-s4",
+  "title_fa": "توابع",
+  "title_en": "Functions",
+  "note_ids": [
+    "w01-n16"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w01-l09"
+  ],
+  "concept_ids": [
+    "w01-c-function-definition",
+    "w01-c-prototype",
+    "w01-c-parameter",
+    "w01-c-scope",
+    "w01-c-return-value"
+  ],
+  "objective_ids": [
+    "w01-o09",
+    "w01-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l09"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l10-u01",
+      "order": 1,
+      "title_fa": "تعریف تابع و پیش‌نمونه",
+      "concept_ids": [
+        "w01-c-function-definition",
+        "w01-c-prototype"
+      ],
+      "objective_ids": [
+        "w01-o09"
+      ],
+      "note_id": "w01-n16",
+      "source_refs": [
+        "src-notes-1#functions",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "می‌توانی تابع خودت را بسازی، مثل `void meow(void)`. چون C از بالا به پایین خوانده می‌شود، اگر تعریف تابع پایین‌تر از main باشد باید بالای فایل **پیش‌نمونه** (prototype) آن را بنویسی تا کامپایلر بشناسدش.",
+        "note_id": "w01-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-abstraction",
+        "lang": "c",
+        "content": "// Abstraction\n\n#include <stdio.h>\n\nvoid meow(void);\n\nint main(void)\n{\n    for (int i = 0; i < 3; i++)\n    {\n        meow();\n    }\n}\n\n// Meow once\nvoid meow(void)\n{\n    printf(\"meow\\n\");\n}",
+        "source_ref": "src-notes-1#functions",
+        "explain_fa": "نسخهٔ رسمی با پیش‌نمونه."
+      },
+      "check": {
+        "id": "w01-l10-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خط `void meow(void);` بالای main چه نقشی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پیش‌نمونه است و به کامپایلر می‌گوید چنین تابعی بعداً تعریف می‌شود",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "تابع را صدا می‌زند",
+            "correct": false,
+            "feedback_fa": "صدا زدن `meow();` است، بدون void."
+          },
+          {
+            "id": "c",
+            "text_fa": "تابع را حذف می‌کند",
+            "correct": false,
+            "feedback_fa": "چنین کاری انجام نمی‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l10-u01-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی کامپایل نمی‌شود. چرا؟\n\n#include <stdio.h>\n\nint main(void)\n{\n    bark();\n}\n\nvoid bark(void)\n{\n    printf(\"woof\\n\");\n}",
+        "expected": {
+          "bug": "missing prototype",
+          "fix": "void bark(void); above main"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: پیش‌نمونه لازم است.",
+          "incorrect_fa": "کامپایلر هنگام رسیدن به bark() هنوز آن را ندیده است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l10-u02",
+      "order": 2,
+      "title_fa": "پارامتر و حوزه",
+      "concept_ids": [
+        "w01-c-parameter",
+        "w01-c-scope"
+      ],
+      "objective_ids": [
+        "w01-o09"
+      ],
+      "note_id": "w01-n16",
+      "source_refs": [
+        "src-notes-1#functions",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "با پارامتر، `void meow(int n)` می‌تواند هر تعداد بار meow کند. متغیر فقط داخل آکولادهایی که در آن تعریف شده وجود دارد؛ این «حوزه» (scope) است. `n` در main و `n` در meow دو متغیر جدا هستند.",
+        "note_id": "w01-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-scope",
+        "lang": "c",
+        "content": "// Demonstrates scope\n\n#include <stdio.h>\n\nvoid meow(int n);\n\nint main(void)\n{\n    int n = 3;\n    meow(n);\n}\n\n// Meow some number of times\nvoid meow(int n)\n{\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#functions",
+        "explain_fa": "نسخهٔ رسمی دربارهٔ حوزه."
+      },
+      "check": {
+        "id": "w01-l10-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در نسخهٔ رسمی، آیا n داخل meow همان n داخل main است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "نه؛ مقدارش کپی شده ولی دو متغیر جدا در دو حوزه‌اند",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "بله، همان متغیر است",
+            "correct": false,
+            "feedback_fa": "هر تابع حوزهٔ خودش را دارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "n در meow تعریف نشده",
+            "correct": false,
+            "feedback_fa": "n پارامتر meow است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l10-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی‌ها را پر کن تا این تابع تألیفی یک خط از ستاره‌ها به طول دلخواه چاپ کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "void stars([[b1]] count)\n{\n    for (int i = 0; i < [[b2]]; i++)\n    {\n        printf(\"*\");\n    }\n    printf(\"\\n\");\n}",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "int"
+            ],
+            "hint_fa": "نوع پارامتر",
+            "wrong_feedback": {
+              "void": "void یعنی ورودی ندارد؛ اینجا یک عدد ورودی داریم.",
+              "string": "تعداد یک عدد صحیح است."
+            },
+            "default_wrong_fa": "نوع عدد صحیح را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "count"
+            ],
+            "hint_fa": "حلقه باید به اندازهٔ پارامتر تکرار شود.",
+            "wrong_feedback": {
+              "n": "در این تابع پارامتر n نیست؛ نامش count است.",
+              "3": "عدد ثابت تابع را بی‌انعطاف می‌کند."
+            },
+            "default_wrong_fa": "نام پارامتر را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "int"
+          ],
+          "b2": [
+            "count"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. این تابع با هر عددی کار می‌کند.",
+          "incorrect_fa": "پارامتر را در امضای تابع ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l10-u03",
+      "order": 3,
+      "title_fa": "مقدار بازگشتی",
+      "concept_ids": [
+        "w01-c-return-value"
+      ],
+      "objective_ids": [
+        "w01-o09",
+        "w01-o08"
+      ],
+      "note_id": "w01-n16",
+      "source_refs": [
+        "src-notes-1#functions",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "تابعی که خروجی دارد نوع خروجی را پیش از نامش می‌گوید، مثل `int get_positive_int(void)`، و با `return` مقدار را برمی‌گرداند. در نسخهٔ رسمی، گرفتن ورودی معتبر به تابعی جدا منتقل شده تا main خواناتر شود.",
+        "note_id": "w01-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-return",
+        "lang": "c",
+        "content": "// Return value\n\n#include <cs50.h>\n#include <stdio.h>\n\nint get_positive_int(void);\nvoid meow(int n);\n\nint main(void)\n{\n    int n = get_positive_int();\n    meow(n);\n}\n\n// Get number of meows\nint get_positive_int(void)\n{\n    int n;\n    do\n    {\n        n = get_int(\"Number: \");\n    }\n    while (n < 1);\n    return n;\n}\n\n// Meow some number of times\nvoid meow(int n)\n{\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#functions",
+        "explain_fa": "نسخهٔ رسمی با مقدار بازگشتی."
+      },
+      "check": {
+        "id": "w01-l10-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا `get_positive_int` نوع int دارد ولی meow نوع void؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون get_positive_int یک عدد برمی‌گرداند و meow فقط چاپ می‌کند",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون meow پارامتر دارد",
+            "correct": false,
+            "feedback_fa": "پارامتر ربطی به نوع خروجی ندارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "فرقی ندارد",
+            "correct": false,
+            "feedback_fa": "نوع خروجی برای کامپایلر مهم است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l10-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟\n\n#include <stdio.h>\n\nint twice(int x);\n\nint main(void)\n{\n    printf(\"%i\\n\", twice(4));\n}\n\nint twice(int x)\n{\n    return x * 2;\n}",
+        "expected": {
+          "output": "8\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "twice مقدار x * 2 را برمی‌گرداند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -21,6 +21,8 @@
     /admin/weeks/<n>/toggle            — (POST) انتشار/مخفی هفته
 """
 import os
+import tempfile
+from pathlib import Path
 from datetime import datetime
 from functools import wraps
 
@@ -47,6 +49,7 @@ from app.services import submissions as sub_service
 from app.services import progress as progress_service
 from app.services import engagement as engagement_service
 from app.services import notifications as notif_service
+from app.services import kb_admin
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -588,3 +591,55 @@ def weeks_toggle(week_number: int):
     else:
         flash("هفته مخفی شد — دانش‌آموزان دیگر به آن دسترسی ندارند.", "info")
     return redirect(url_for("admin.weeks_list"))
+
+
+@bp.route("/kb-packages")
+@admin_required
+def kb_packages_dashboard():
+    """داشبورد مدیریت و وضعیت بسته‌های هفتگی پایگاه دانش (KB)."""
+    weeks_status = kb_admin.get_all_weeks_kb_status()
+    return render_template("admin/kb_packages.html", weeks_status=weeks_status)
+
+
+@bp.route("/kb-packages/upload", methods=["POST"])
+@admin_required
+def kb_packages_upload():
+    """دریافت و استخراج فایل فشرده بسته هفته و ادغام آن در پایگاه دانش."""
+    uploaded = request.files.get("package_file")
+    target_week_raw = request.form.get("target_week")
+    target_week = int(target_week_raw) if target_week_raw and target_week_raw.strip().isdigit() else None
+
+    if not uploaded or not uploaded.filename:
+        flash("لطفاً یک فایل فشرده بسته هفتگی (.tar.gz, .zip) انتخاب کنید.", "error")
+        return redirect(url_for("admin.kb_packages_dashboard"))
+
+    filename = secure_filename(uploaded.filename) or "kb_package.tar.gz"
+    lower_name = filename.lower()
+    if not (lower_name.endswith(".tar.gz") or lower_name.endswith(".tgz") or lower_name.endswith(".tar") or lower_name.endswith(".zip")):
+        flash("فرمت فایل معتبر نیست. لطفاً فایل با پسوند .tar.gz یا .zip آپلود کنید.", "error")
+        return redirect(url_for("admin.kb_packages_dashboard"))
+
+    with tempfile.NamedTemporaryFile(suffix="_" + filename, delete=False) as tmp:
+        uploaded.save(tmp.name)
+        tmp_path = Path(tmp.name)
+
+    try:
+        result = kb_admin.install_kb_package(tmp_path, target_week=target_week)
+        if result.get("success"):
+            flash(
+                f"بسته هفته {result['week']} با موفقیت نصب و ادغام شد! "
+                f"({result['notes_count']} یادداشت درس، {result['flashcards_count']} فلش‌کارت، "
+                f"{result['quiz_count']} سوال آزمون، {result['glossary_count']} اصطلاح واژه‌نامه)",
+                "success",
+            )
+        else:
+            flash(f"خطا در نصب بسته: {result.get('error', 'خطای ناشناخته')}", "error")
+    finally:
+        try:
+            if tmp_path.exists():
+                tmp_path.unlink()
+        except Exception:
+            pass
+
+    return redirect(url_for("admin.kb_packages_dashboard"))
+

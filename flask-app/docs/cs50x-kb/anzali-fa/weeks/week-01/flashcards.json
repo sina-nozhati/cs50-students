@@ -1,0 +1,1667 @@
+{
+  "$schema": "../../schemas/flashcard.schema.json",
+  "week": 1,
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "origin": "authored",
+  "note": "Cards are authored by CS50x Anzali from official content (source_ref). Per-user SRS state belongs in the database; the srs block is only the initial template (Leitner box 1 / SM-2 defaults from gamification/xp-config.json /srs).",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "cards": [
+    {
+      "id": "w01-fc-001",
+      "concept_id": "w01-c-scratch-to-c",
+      "note_id": "w01-n01",
+      "front_fa": "کدام بلوک‌های سازندهٔ Scratch در C هم هستند؟",
+      "back_fa": "تابع، شرط، حلقه و متغیر؛ فقط شکل نوشتنشان عوض می‌شود.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "scratch"
+      ],
+      "source_ref": "src-notes-1#welcome",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-002",
+      "concept_id": "w01-c-source-code",
+      "note_id": "w01-n02",
+      "front_fa": "کد منبع (source code) چیست؟",
+      "back_fa": "کدی که انسان می‌نویسد و می‌خواند، مثل محتوای `hello.c`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "compile"
+      ],
+      "source_ref": "src-notes-1#source-code",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-003",
+      "concept_id": "w01-c-machine-code",
+      "note_id": "w01-n02",
+      "front_fa": "کد ماشین (machine code) چیست؟",
+      "back_fa": "صفر و یک‌هایی که کامپیوتر مستقیم اجرا می‌کند.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "compile"
+      ],
+      "source_ref": "src-notes-1#source-code",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-004",
+      "concept_id": "w01-c-compiler",
+      "note_id": "w01-n02",
+      "front_fa": "کامپایلر (compiler) چه می‌کند؟",
+      "back_fa": "کد منبع را به کد ماشین تبدیل می‌کند.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "compile"
+      ],
+      "source_ref": "src-notes-1#source-code",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-005",
+      "concept_id": "w01-c-ide-regions",
+      "note_id": "w01-n03",
+      "front_fa": "سه بخش اصلی VS Code در CS50 کدام‌اند؟",
+      "back_fa": "کاوشگر فایل (file explorer)، ویرایشگر متن و ترمینال (رابط خط فرمان).",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "tools"
+      ],
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-006",
+      "concept_id": "w01-c-gui-cli",
+      "note_id": "w01-n03",
+      "front_fa": "فرق GUI و CLI چیست؟",
+      "back_fa": "GUI رابط گرافیکی با پنجره و دکمه است؛ CLI رابط خط فرمان است که در آن فرمان تایپ می‌کنیم.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "tools"
+      ],
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-007",
+      "concept_id": "w01-c-code-make-run",
+      "note_id": "w01-n04",
+      "front_fa": "سه فرمانِ نوشتن، کامپایل و اجرای `hello` کدام‌اند؟",
+      "back_fa": "`code hello.c`، سپس `make hello`، سپس `./hello`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "tools"
+      ],
+      "source_ref": "src-notes-1#hello-world",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-008",
+      "concept_id": "w01-c-main",
+      "note_id": "w01-n04",
+      "front_fa": "وقتی برنامهٔ C اجرا می‌شود، کدام تابع اول اجرا می‌شود؟",
+      "back_fa": "`main`؛ مثل بلوک «when green flag clicked» در Scratch.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "functions"
+      ],
+      "source_ref": "src-transcript-1",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-009",
+      "concept_id": "w01-c-printf",
+      "note_id": "w01-n05",
+      "front_fa": "`printf` چه می‌کند؟",
+      "back_fa": "متن قالب‌بندی‌شده را روی صفحه چاپ می‌کند (f یعنی formatted).",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "output"
+      ],
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-010",
+      "concept_id": "w01-c-syntax",
+      "note_id": "w01-n05",
+      "front_fa": "در C بیشتر دستورها با چه نشانه‌ای تمام می‌شوند؟",
+      "back_fa": "با نقطه‌ویرگول `;`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "syntax"
+      ],
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-011",
+      "concept_id": "w01-c-escape-sequence",
+      "note_id": "w01-n05",
+      "front_fa": "`\\n` در `printf` چه می‌کند؟",
+      "back_fa": "به خط تازه می‌رود؛ بدون آن اعلان ترمینال کنار خروجی می‌آید.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "output"
+      ],
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-012",
+      "concept_id": "w01-c-escape-sequence",
+      "note_id": "w01-n05",
+      "front_fa": "چطور خودِ نویسهٔ `\"` را داخل رشته چاپ کنیم؟",
+      "back_fa": "با دنبالهٔ گریز `\\\"`.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "output"
+      ],
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-013",
+      "concept_id": "w01-c-recompile",
+      "note_id": "w01-n05",
+      "front_fa": "بعد از تغییر `hello.c`، چرا اجرای `./hello` تغییر را نشان نمی‌دهد؟",
+      "back_fa": "چون هنوز دوباره کامپایل نکرده‌ای؛ باید دوباره `make hello` بزنی.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "tools"
+      ],
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-014",
+      "concept_id": "w01-c-header-file",
+      "note_id": "w01-n06",
+      "front_fa": "خط `#include <stdio.h>` چه کار می‌کند؟",
+      "back_fa": "فایل سرآیند stdio.h را می‌آورد تا کامپایلر توابعی مثل `printf` را بشناسد.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "libraries"
+      ],
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-015",
+      "concept_id": "w01-c-library",
+      "note_id": "w01-n06",
+      "front_fa": "کتابخانه (library) چیست؟",
+      "back_fa": "مجموعه‌ای از کد آماده که دیگران نوشته‌اند و می‌توانیم از آن استفاده کنیم.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "libraries"
+      ],
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-016",
+      "concept_id": "w01-c-manual-pages",
+      "note_id": "w01-n06",
+      "front_fa": "راهنمای توابع C برای CS50 کجاست؟",
+      "back_fa": "در manual.cs50.io (صفحه‌های راهنما یا manual pages).",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "libraries"
+      ],
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-017",
+      "concept_id": "w01-c-cs50-library",
+      "note_id": "w01-n06",
+      "front_fa": "برای استفاده از `get_string` کدام سرآیند را باید include کرد؟",
+      "back_fa": "`cs50.h`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "libraries"
+      ],
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-018",
+      "concept_id": "w01-c-get-string",
+      "note_id": "w01-n07",
+      "front_fa": "`get_string` چه برمی‌گرداند؟",
+      "back_fa": "رشته‌ای که کاربر تایپ کرده؛ آن را در یک متغیر `string` می‌گذاریم.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "input"
+      ],
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-019",
+      "concept_id": "w01-c-variable-declaration",
+      "note_id": "w01-n07",
+      "front_fa": "در C هنگام ساختن متغیر چه چیزی را باید گفت که در Scratch لازم نبود؟",
+      "back_fa": "نوع داده‌اش را، مثل `string answer` یا `int x`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "variables"
+      ],
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-020",
+      "concept_id": "w01-c-assignment-operator",
+      "note_id": "w01-n07",
+      "front_fa": "`=` در C چه معنایی دارد؟",
+      "back_fa": "انتساب: مقدار سمت راست را در متغیر سمت چپ می‌گذارد. برابری نیست.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "variables"
+      ],
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-021",
+      "concept_id": "w01-c-placeholder",
+      "note_id": "w01-n07",
+      "front_fa": "در `printf(\"hello, %s\\n\", answer);` نقش `%s` چیست؟",
+      "back_fa": "جای‌نگهدار (placeholder) رشته؛ مقدار `answer` جای آن چاپ می‌شود.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "output"
+      ],
+      "source_ref": "src-notes-1#hello-you",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-022",
+      "concept_id": "w01-c-linux-commands",
+      "note_id": "w01-n08",
+      "front_fa": "فرمان `ls` چه می‌کند؟",
+      "back_fa": "فایل‌های پوشهٔ جاری را فهرست می‌کند.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "linux"
+      ],
+      "source_ref": "src-notes-1#linux",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-023",
+      "concept_id": "w01-c-linux-commands",
+      "note_id": "w01-n08",
+      "front_fa": "فرق `mv` و `cp` چیست؟",
+      "back_fa": "`mv` جابه‌جا یا تغییرنام می‌دهد؛ `cp` کپی می‌سازد.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "linux"
+      ],
+      "source_ref": "src-notes-1#linux",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-024",
+      "concept_id": "w01-c-linux-commands",
+      "note_id": "w01-n08",
+      "front_fa": "با کدام فرمان پوشهٔ تازه می‌سازیم و با کدام واردش می‌شویم؟",
+      "back_fa": "`mkdir` برای ساختن، `cd` برای ورود.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "linux"
+      ],
+      "source_ref": "src-notes-1#linux",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-025",
+      "concept_id": "w01-c-paths-navigation",
+      "note_id": "w01-sh-command-line",
+      "front_fa": "`..` و `~` در مسیرها یعنی چه؟",
+      "back_fa": "`..` پوشهٔ والد است و `~` پوشهٔ خانه (home).",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "linux"
+      ],
+      "source_ref": "src-short-command-line",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-026",
+      "concept_id": "w01-c-if-else",
+      "note_id": "w01-n09",
+      "front_fa": "اگر شرط `if` نادرست باشد، کدام بخش اجرا می‌شود؟",
+      "back_fa": "بخش `else`، اگر نوشته شده باشد.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "conditionals"
+      ],
+      "source_ref": "src-notes-1#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-027",
+      "concept_id": "w01-c-else-if-chain",
+      "note_id": "w01-n09",
+      "front_fa": "چرا در مقایسهٔ دو عدد، `else if (x == y)` آخر لازم نیست؟",
+      "back_fa": "اگر x نه کمتر و نه بیشتر از y باشد، حتماً برابرند؛ یک `else` کافی است و یک مقایسه کم می‌شود.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "conditionals",
+        "design"
+      ],
+      "source_ref": "src-notes-1#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-028",
+      "concept_id": "w01-c-switch",
+      "note_id": "w01-sh-conditional-statements",
+      "front_fa": "اگر در `switch` بعد از یک `case` دستور `break` نباشد چه می‌شود؟",
+      "back_fa": "اجرا به caseهای بعدی هم «می‌افتد» (fall through).",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "conditionals"
+      ],
+      "source_ref": "src-short-conditional-statements",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-029",
+      "concept_id": "w01-c-ternary",
+      "note_id": "w01-sh-conditional-statements",
+      "front_fa": "`int x = (expr) ? 5 : 6;` چه می‌کند؟",
+      "back_fa": "اگر expr درست باشد x برابر ۵ می‌شود، وگرنه ۶.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "conditionals"
+      ],
+      "source_ref": "src-short-conditional-statements",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-030",
+      "concept_id": "w01-c-data-types",
+      "note_id": "w01-n10",
+      "front_fa": "چند نوع داده‌ای که درس‌نامهٔ هفتهٔ ۱ نام می‌برد کدام‌اند؟",
+      "back_fa": "`bool`، `char`، `float`، `int`، `long`، `string` و … (درس‌نامه).",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "types"
+      ],
+      "source_ref": "src-notes-1#types",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-031",
+      "concept_id": "w01-c-type-sizes",
+      "note_id": "w01-sh-data-types",
+      "front_fa": "طبق ویدئوی Data Types، `int` و `char` چند بایت‌اند؟",
+      "back_fa": "`int` چهار بایت و `char` یک بایت.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "types"
+      ],
+      "source_ref": "src-short-data-types",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-032",
+      "concept_id": "w01-c-type-sizes",
+      "note_id": "w01-sh-data-types",
+      "front_fa": "طبق ویدئوی Data Types، `double` چند بایت است؟",
+      "back_fa": "هشت بایت؛ دقت بیشتری از `float` چهاربایتی دارد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "types"
+      ],
+      "source_ref": "src-short-data-types",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-033",
+      "concept_id": "w01-c-void",
+      "note_id": "w01-sh-data-types",
+      "front_fa": "`void` در `int main(void)` یعنی چه؟",
+      "back_fa": "یعنی این تابع هیچ ورودی (آرگومان) نمی‌گیرد.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "types",
+        "functions"
+      ],
+      "source_ref": "src-short-data-types",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-034",
+      "concept_id": "w01-c-format-codes",
+      "note_id": "w01-n11",
+      "front_fa": "کد قالب `int`، `long`، `float` و `char` در printf چیست؟",
+      "back_fa": "`%i`، `%li`، `%f` و `%c`.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "output",
+        "types"
+      ],
+      "source_ref": "src-notes-1#format-codes",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-035",
+      "concept_id": "w01-c-increment",
+      "note_id": "w01-n12",
+      "front_fa": "سه راه افزودن ۱ به `counter` کدام‌اند؟",
+      "back_fa": "`counter = counter + 1;`، `counter += 1;` و `counter++;`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "variables"
+      ],
+      "source_ref": "src-notes-1#variables",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-036",
+      "concept_id": "w01-c-relational-operators",
+      "note_id": "w01-n13",
+      "front_fa": "عملگرهای مقایسه‌ای C را نام ببر.",
+      "back_fa": "`<`، `>`، `<=`، `>=`، `==` و `!=`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "operators"
+      ],
+      "source_ref": "src-notes-1#comparec",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-037",
+      "concept_id": "w01-c-get-int",
+      "note_id": "w01-n13",
+      "front_fa": "`get_int` با ورودی غیرعددی چه می‌کند؟",
+      "back_fa": "دوباره می‌پرسد تا کاربر یک عدد صحیح وارد کند.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "input"
+      ],
+      "source_ref": "src-manual",
+      "origin": "authored",
+      "content_basis": "official-manual",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-038",
+      "concept_id": "w01-c-comments",
+      "note_id": "w01-n13",
+      "front_fa": "توضیح (comment) در C چطور نوشته می‌شود و چه فایده‌ای دارد؟",
+      "back_fa": "با `//`؛ برای خواننده توضیح می‌دهد و کامپایلر آن را نادیده می‌گیرد.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "style"
+      ],
+      "source_ref": "src-notes-1#comparec",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-039",
+      "concept_id": "w01-c-char",
+      "note_id": "w01-n14",
+      "front_fa": "در C نویسهٔ تکی را با چه نقل‌قولی می‌نویسیم؟",
+      "back_fa": "نقل‌قول تکی: `'y'`. رشته‌ها با نقل‌قول دوتایی‌اند.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "types"
+      ],
+      "source_ref": "src-notes-1#agreec",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-040",
+      "concept_id": "w01-c-equality-vs-assignment",
+      "note_id": "w01-n14",
+      "front_fa": "فرق `c == 'y'` و `c = 'y'` چیست؟",
+      "back_fa": "اولی مقایسه می‌کند؛ دومی مقدار `'y'` را در c می‌گذارد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "operators"
+      ],
+      "source_ref": "src-notes-1#agreec",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-041",
+      "concept_id": "w01-c-logical-operators",
+      "note_id": "w01-n14",
+      "front_fa": "`||` و `&&` به چه معنا هستند؟",
+      "back_fa": "`||` یعنی «یا» و `&&` یعنی «و».",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "operators"
+      ],
+      "source_ref": "src-notes-1#agreec",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-042",
+      "concept_id": "w01-c-while-loop",
+      "note_id": "w01-n15",
+      "front_fa": "`while` تا کی تکرار می‌کند؟",
+      "back_fa": "تا وقتی شرطش درست است؛ شرط پیش از هر دور بررسی می‌شود.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-043",
+      "concept_id": "w01-c-for-loop",
+      "note_id": "w01-n15",
+      "front_fa": "سه بخش داخل پرانتز `for` کدام‌اند؟",
+      "back_fa": "مقدار اولیه، شرط و به‌روزرسانی؛ مثل `int i = 0; i < 3; i++`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-044",
+      "concept_id": "w01-c-zero-indexing",
+      "note_id": "w01-n15",
+      "front_fa": "چرا برنامه‌نویس‌ها معمولاً از ۰ می‌شمارند؟",
+      "back_fa": "قراردادی رایج در C است؛ با `i = 0` و `i < 3` بدنه دقیقاً سه بار اجرا می‌شود.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-045",
+      "concept_id": "w01-c-infinite-loop",
+      "note_id": "w01-n15",
+      "front_fa": "برنامه‌ای که در حلقهٔ بی‌پایان گیر کرده را چطور متوقف کنیم؟",
+      "back_fa": "با control-C در ترمینال.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-046",
+      "concept_id": "w01-c-do-while",
+      "note_id": "w01-n15",
+      "front_fa": "فرق اصلی `do while` با `while` چیست؟",
+      "back_fa": "`do while` بدنه را دست‌کم یک بار اجرا می‌کند و بعد شرط را می‌سنجد.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-047",
+      "concept_id": "w01-c-input-validation",
+      "note_id": "w01-n15",
+      "front_fa": "چرا برای اعتبارسنجی ورودی `do while` بهتر از یک `if` است؟",
+      "back_fa": "`if` فقط یک بار دوباره می‌پرسد؛ حلقه تا وقتی ورودی نامعتبر است می‌پرسد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "loops",
+        "input"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-048",
+      "concept_id": "w01-c-break-continue",
+      "note_id": "w01-n15",
+      "front_fa": "`break` و `continue` در حلقه چه می‌کنند؟",
+      "back_fa": "`break` از حلقه بیرون می‌رود؛ `continue` به دور بعدی می‌پرد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-049",
+      "concept_id": "w01-c-function-definition",
+      "note_id": "w01-n16",
+      "front_fa": "در `void meow(void)` دو `void` چه می‌گویند؟",
+      "back_fa": "اولی: تابع چیزی برنمی‌گرداند. دومی: ورودی نمی‌گیرد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "functions"
+      ],
+      "source_ref": "src-notes-1#functions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-050",
+      "concept_id": "w01-c-prototype",
+      "note_id": "w01-n16",
+      "front_fa": "پیش‌نمونهٔ تابع (prototype) چرا بالای `main` می‌آید؟",
+      "back_fa": "تا کامپایلر پیش از استفاده بداند تابع وجود دارد، حتی اگر تعریفش پایین فایل باشد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "functions"
+      ],
+      "source_ref": "src-notes-1#functions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-051",
+      "concept_id": "w01-c-parameter",
+      "note_id": "w01-n16",
+      "front_fa": "در `void meow(int n)` نقش `n` چیست؟",
+      "back_fa": "پارامتر است: عددی که تابع هنگام فراخوانی می‌گیرد، مثلاً `meow(3)`.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "functions"
+      ],
+      "source_ref": "src-notes-1#functions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-052",
+      "concept_id": "w01-c-scope",
+      "note_id": "w01-n16",
+      "front_fa": "حوزهٔ متغیر (scope) یعنی چه؟",
+      "back_fa": "متغیر فقط داخل آکولادهایی که در آن تعریف شده در دسترس است.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "functions"
+      ],
+      "source_ref": "src-notes-1#functions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-053",
+      "concept_id": "w01-c-return-value",
+      "note_id": "w01-n16",
+      "front_fa": "`return n;` در تابعی با نوع `int` چه می‌کند؟",
+      "back_fa": "مقدار n را به جایی که تابع را صدا زده برمی‌گرداند.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "functions"
+      ],
+      "source_ref": "src-notes-1#functions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-054",
+      "concept_id": "w01-c-correctness-design-style",
+      "note_id": "w01-n17",
+      "front_fa": "کدام ابزار درستی، کدام طراحی و کدام سبک را بررسی می‌کند؟",
+      "back_fa": "check50 درستی، design50 طراحی و style50 سبک.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "tools",
+        "design"
+      ],
+      "source_ref": "src-notes-1#correctness-design-style",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-055",
+      "concept_id": "w01-c-nested-loops",
+      "note_id": "w01-n18",
+      "front_fa": "یک شبکهٔ ۳ در ۳ از `#` با چه ساختاری چاپ می‌شود؟",
+      "back_fa": "دو حلقهٔ تودرتو: بیرونی برای ردیف‌ها، درونی برای ستون‌ها، و `\\n` بعد از هر ردیف.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "loops"
+      ],
+      "source_ref": "src-notes-1#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-056",
+      "concept_id": "w01-c-constant",
+      "note_id": "w01-n18",
+      "front_fa": "`const int n = 3;` چه تضمینی می‌دهد؟",
+      "back_fa": "مقدار n بعداً قابل تغییر نیست؛ تغییرش خطای کامپایل می‌دهد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "variables"
+      ],
+      "source_ref": "src-notes-1#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-057",
+      "concept_id": "w01-c-helper-function",
+      "note_id": "w01-n18",
+      "front_fa": "چرا در Mario درس‌نامه تابع کمکی ساخته شد؟",
+      "back_fa": "برای جدا کردن یک زیرمسئله (چاپ یک ردیف) تا `main` ساده‌تر و خواناتر شود.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "functions",
+        "design"
+      ],
+      "source_ref": "src-notes-1#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-058",
+      "concept_id": "w01-c-magic-numbers",
+      "note_id": "w01-sh-magic-numbers",
+      "front_fa": "عدد جادویی (magic number) چیست؟",
+      "back_fa": "عددی که بی‌توضیح در کد آمده؛ بهتر است اسمی معنادار بگیرد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "style"
+      ],
+      "source_ref": "src-short-magic-numbers",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-059",
+      "concept_id": "w01-c-magic-numbers",
+      "note_id": "w01-sh-magic-numbers",
+      "front_fa": "در ویدئوی Magic Numbers برای نام‌گذاری ثابت از چه استفاده شد؟",
+      "back_fa": "از `#define`؛ درس‌نامهٔ ۲۰۲۶ از `const` استفاده می‌کند (دو راه).",
+      "difficulty": 3,
+      "tags": [
+        "week-1",
+        "style"
+      ],
+      "source_ref": "src-short-magic-numbers",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-060",
+      "concept_id": "w01-c-arithmetic-operators",
+      "note_id": "w01-n19",
+      "front_fa": "`%` در C چه می‌کند؟",
+      "back_fa": "باقی‌ماندهٔ تقسیم را می‌دهد؛ مثلاً `7 % 2` برابر ۱ است.",
+      "difficulty": 1,
+      "tags": [
+        "week-1",
+        "operators"
+      ],
+      "source_ref": "src-notes-1#operators",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-061",
+      "concept_id": "w01-c-integer-overflow",
+      "note_id": "w01-n19",
+      "front_fa": "سرریز عدد صحیح (integer overflow) چیست؟",
+      "back_fa": "وقتی عدد از بیشترین مقدار نوعش بیشتر شود و مقدار غلط (مثلاً منفی) شود.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "limits"
+      ],
+      "source_ref": "src-notes-1#operators",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-062",
+      "concept_id": "w01-c-integer-overflow",
+      "note_id": "w01-n19",
+      "front_fa": "در برنامهٔ دوبرابر کردن دلار، چرا به `long` رفتیم؟",
+      "back_fa": "چون `int` زود سرریز می‌کند و `long` مقدارهای بسیار بزرگ‌تری نگه می‌دارد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "limits"
+      ],
+      "source_ref": "src-notes-1#operators",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-063",
+      "concept_id": "w01-c-truncation",
+      "note_id": "w01-n19",
+      "front_fa": "چرا `7 / 2` با دو int برابر ۳ است؟",
+      "back_fa": "تقسیم دو عدد صحیح بخش اعشاری را دور می‌اندازد (truncation).",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "limits"
+      ],
+      "source_ref": "src-notes-1#operators",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-064",
+      "concept_id": "w01-c-type-casting",
+      "note_id": "w01-n19",
+      "front_fa": "`(float) x / y` چه می‌کند؟",
+      "back_fa": "x را پیش از تقسیم به float تبدیل می‌کند تا نتیجه بخش اعشاری داشته باشد.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "limits"
+      ],
+      "source_ref": "src-notes-1#operators",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-065",
+      "concept_id": "w01-c-floating-point-imprecision",
+      "note_id": "w01-n19",
+      "front_fa": "در درس‌نامه، چرا تقسیم ۱ بر ۳ با `float` و `%.50f` دقیق ۰٫۳۳۳… چاپ نمی‌شود؟",
+      "back_fa": "با تعداد محدود بیت نمی‌توان همهٔ اعداد اعشاری را دقیق نمایش داد.",
+      "difficulty": 3,
+      "tags": [
+        "week-1",
+        "limits"
+      ],
+      "source_ref": "src-notes-1#operators",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w01-fc-066",
+      "concept_id": "w01-c-debugging-errors",
+      "note_id": "w01-n04",
+      "front_fa": "وقتی `make` چند خطا نشان می‌دهد، از کدام شروع کنیم؟",
+      "back_fa": "از اولین خطا؛ خطاهای بعدی اغلب نتیجهٔ همان اولی‌اند.",
+      "difficulty": 2,
+      "tags": [
+        "week-1",
+        "debugging"
+      ],
+      "source_ref": "src-anzali-authored-1",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    }
+  ]
+}

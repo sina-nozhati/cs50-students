@@ -1,0 +1,477 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l09",
+  "type": "lesson",
+  "week": 1,
+  "order": 9,
+  "stage_id": "w01-s3",
+  "title_fa": "حلقه‌ها",
+  "title_en": "Loops",
+  "note_ids": [
+    "w01-n15"
+  ],
+  "related_doc_ids": [
+    "w01-sh-loops"
+  ],
+  "prerequisite_lesson_ids": [
+    "w01-l06",
+    "w01-l07"
+  ],
+  "concept_ids": [
+    "w01-c-while-loop",
+    "w01-c-for-loop",
+    "w01-c-zero-indexing",
+    "w01-c-infinite-loop",
+    "w01-c-break-continue",
+    "w01-c-do-while",
+    "w01-c-input-validation"
+  ],
+  "objective_ids": [
+    "w01-o07",
+    "w01-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l06",
+      "w01-l07"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l09-u01",
+      "order": 1,
+      "title_fa": "حلقهٔ while",
+      "concept_ids": [
+        "w01-c-while-loop"
+      ],
+      "objective_ids": [
+        "w01-o07"
+      ],
+      "note_id": "w01-n15",
+      "source_refs": [
+        "src-notes-1#loops-and-meowc",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "به‌جای سه بار نوشتن `printf(\"meow\\n\");` می‌توان حلقه نوشت. در `while` یک شمارنده می‌سازی، تا وقتی شرط درست است بدنه اجرا می‌شود و در هر دور شمارنده عوض می‌شود. اگر شمارنده عوض نشود، حلقه هرگز تمام نمی‌شود.",
+        "note_id": "w01-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-while-down",
+        "lang": "c",
+        "content": "// Better design\n\n#include <stdio.h>\n\nint main(void)\n{\n    int i = 3;\n    while (i > 0)\n    {\n        printf(\"meow\\n\");\n        i--;\n    }\n}",
+        "source_ref": "src-notes-1#loops-and-meowc",
+        "explain_fa": "نسخهٔ رسمی شمارش معکوس."
+      },
+      "check": {
+        "id": "w01-l09-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در نسخهٔ رسمی بالا، بدنهٔ حلقه چند بار اجرا می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "۳ بار",
+            "correct": true,
+            "feedback_fa": "درست: i برابر ۳، ۲ و ۱."
+          },
+          {
+            "id": "b",
+            "text_fa": "۴ بار",
+            "correct": false,
+            "feedback_fa": "وقتی i به ۰ برسد شرط i > 0 نادرست است."
+          },
+          {
+            "id": "c",
+            "text_fa": "بی‌نهایت",
+            "correct": false,
+            "feedback_fa": "i-- شمارنده را کم می‌کند، پس حلقه تمام می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l09-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nint i = 1;\nwhile (i <= 3)\n{\n    printf(\"%i\\n\", i);\n    i++;\n}",
+        "expected": {
+          "output": "1\n2\n3\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "i از ۱ شروع می‌شود و تا ۳ (با خودش) ادامه دارد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l09-u02",
+      "order": 2,
+      "title_fa": "حلقهٔ for و شمارش از صفر",
+      "concept_ids": [
+        "w01-c-for-loop",
+        "w01-c-zero-indexing"
+      ],
+      "objective_ids": [
+        "w01-o07"
+      ],
+      "note_id": "w01-n15",
+      "source_refs": [
+        "src-notes-1#loops-and-meowc",
+        "src-short-loops",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "`for (int i = 0; i < 3; i++)` همان کار را فشرده‌تر می‌کند: مقداردهی اولیه، شرط و به‌روزرسانی در یک خط. برنامه‌نویس‌ها معمولاً از ۰ می‌شمارند؛ از ۰ تا کمتر از ۳ یعنی سه دور.",
+        "note_id": "w01-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-for",
+        "lang": "c",
+        "content": "// Better design\n\n#include <stdio.h>\n\nint main(void)\n{\n    for (int i = 0; i < 3; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#loops-and-meowc",
+        "explain_fa": "نسخهٔ رسمی for."
+      },
+      "check": {
+        "id": "w01-l09-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`for (int i = 0; i < 5; i++)` چند دور اجرا می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "۵",
+            "correct": true,
+            "feedback_fa": "درست: ۰ تا ۴."
+          },
+          {
+            "id": "b",
+            "text_fa": "۶",
+            "correct": false,
+            "feedback_fa": "i < 5 یعنی ۵ خودش شامل نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "۴",
+            "correct": false,
+            "feedback_fa": "از ۰ شروع می‌شود، پس پنج مقدار داریم."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l09-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی‌ها را پر کن تا این حلقهٔ تألیفی دقیقاً ۴ بار «woof» چاپ کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "for (int i = [[b1]]; i [[b2]] 4; i[[b3]])\n{\n    printf(\"woof\\n\");\n}",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "0"
+            ],
+            "hint_fa": "معمولاً از کجا می‌شماریم؟",
+            "wrong_feedback": {
+              "1": "با شروع از ۱ و i < 4 فقط ۳ دور داری."
+            },
+            "default_wrong_fa": "شروع رایج در C را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "<"
+            ],
+            "hint_fa": "تا کمتر از ۴",
+            "wrong_feedback": {
+              "<=": "با <= و شروع از ۰، ۵ دور می‌شود."
+            },
+            "default_wrong_fa": "عملگر «کوچک‌تر از» را بنویس."
+          },
+          {
+            "id": "b3",
+            "accepted": [
+              "++"
+            ],
+            "hint_fa": "در هر دور یکی اضافه شود.",
+            "wrong_feedback": {
+              "--": "با -- شمارنده کم می‌شود و حلقه بی‌پایان می‌شود."
+            },
+            "default_wrong_fa": "افزایش یک‌واحدی را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "0"
+          ],
+          "b2": [
+            "<"
+          ],
+          "b3": [
+            "++"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. این الگوی استاندارد «n بار تکرار» است.",
+          "incorrect_fa": "الگو: از ۰، تا کمتر از n، یکی‌یکی بالا."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l09-u03",
+      "order": 3,
+      "title_fa": "حلقهٔ بی‌پایان، break و continue",
+      "concept_ids": [
+        "w01-c-infinite-loop",
+        "w01-c-break-continue"
+      ],
+      "objective_ids": [
+        "w01-o07"
+      ],
+      "note_id": "w01-n15",
+      "source_refs": [
+        "src-notes-1#loops-and-meowc",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "`while (true)` حلقه‌ای بی‌پایان است؛ برای توقف برنامه در ترمینال control-C را بزن. `break` از حلقه بیرون می‌آید و `continue` بقیهٔ دور فعلی را رها می‌کند و به دور بعد می‌رود.",
+        "note_id": "w01-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-continue-break",
+        "lang": "c",
+        "content": "// Uses a loop with continue/break.\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    int n;\n    while (true)\n    {\n        n = get_int(\"What's n? \");\n        if (n < 0)\n        {\n            continue;\n        }\n        else\n        {\n            break;\n        }\n    }\n\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#loops-and-meowc",
+        "explain_fa": "نسخهٔ رسمی با continue و break."
+      },
+      "check": {
+        "id": "w01-l09-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در نسخهٔ رسمی بالا، اگر کاربر -2 وارد کند چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "continue اجرا می‌شود و دوباره پرسیده می‌شود",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "break اجرا می‌شود",
+            "correct": false,
+            "feedback_fa": "break فقط وقتی n منفی نباشد اجرا می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامه -2 بار meow می‌گوید",
+            "correct": false,
+            "feedback_fa": "حلقهٔ for با n منفی اصلاً اجرا نمی‌شود، ولی تا اینجا نمی‌رسیم."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l09-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: برای متوقف‌کردن یک حلقهٔ بی‌پایان در ترمینال می‌توان control-C زد.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "درس‌نامه control-C را برای این کار معرفی می‌کند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l09-u04",
+      "order": 4,
+      "title_fa": "do while و اعتبارسنجی ورودی",
+      "concept_ids": [
+        "w01-c-do-while",
+        "w01-c-input-validation"
+      ],
+      "objective_ids": [
+        "w01-o07",
+        "w01-o08"
+      ],
+      "note_id": "w01-n15",
+      "source_refs": [
+        "src-notes-1#loops-and-meowc",
+        "src-short-loops",
+        "src-section-1",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه نشان می‌دهد یک if تنها برای ورودی نامعتبر طراحی ضعیفی است، چون فقط یک بار دوباره می‌پرسد. `do while` بدنه را **دست‌کم یک بار** اجرا می‌کند و تا وقتی شرط درست است تکرار می‌کند؛ مناسب‌ترین ابزار برای «بپرس تا ورودی معتبر شود».",
+        "note_id": "w01-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "meow-do-while",
+        "lang": "c",
+        "content": "// Uses a do-while loop instead.\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    int n;\n    do\n    {\n        n = get_int(\"What's n? \");\n    }\n    while (n < 0);\n\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#loops-and-meowc",
+        "explain_fa": "نسخهٔ رسمی do while."
+      },
+      "check": {
+        "id": "w01-l09-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فرق اصلی do while با while چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "بدنهٔ do while دست‌کم یک بار اجرا می‌شود، چون شرط در پایان بررسی می‌شود",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "do while سریع‌تر است",
+            "correct": false,
+            "feedback_fa": "تفاوت در زمان بررسی شرط است، نه سرعت."
+          },
+          {
+            "id": "c",
+            "text_fa": "do while شرط ندارد",
+            "correct": false,
+            "feedback_fa": "شرطش بعد از while در پایان می‌آید."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l09-u04-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا این برنامهٔ تألیفی تا وقتی کاربر عددی بین ۱ تا ۱۰ نداده، دوباره بپرسد.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "int n;"
+          },
+          {
+            "id": "p2",
+            "code": "do"
+          },
+          {
+            "id": "p3",
+            "code": "{"
+          },
+          {
+            "id": "p4",
+            "code": "    n = get_int(\"1-10: \");"
+          },
+          {
+            "id": "p5",
+            "code": "}"
+          },
+          {
+            "id": "p6",
+            "code": "while (n < 1 || n > 10);"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "while (n >= 1 && n <= 10);",
+            "why_wrong_fa": "این شرط حلقه را برای ورودی معتبر تکرار می‌کند، یعنی برعکس."
+          },
+          {
+            "id": "d2",
+            "code": "int n = get_int(\"1-10: \");",
+            "why_wrong_fa": "n باید پیش از do اعلان شود تا شرط while به آن دسترسی داشته باشد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست. شرط while یعنی «ورودی هنوز نامعتبر است».",
+          "incorrect_fa": "شرط پایانی باید درست باشد وقتی ورودی **نامعتبر** است."
+        },
+        "hints_fa": [
+          "متغیری که در شرط while به کار می‌رود باید بیرون از آکولادهای do اعلان شود."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

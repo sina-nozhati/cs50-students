@@ -1,0 +1,838 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 1,
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-1",
+      "url": "https://cs50.harvard.edu/x/weeks/1/",
+      "title": "Week 1 C (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:09:56+03:30",
+      "verified_at": "2026-10-27T06:27:52+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "91744361e9e66f1fad4cd9fb3441f21d5f077df4527281707cb96080d55f5781"
+      },
+      "anchors": [
+        "week-1-c"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/week.md",
+      "notes": "Topic line and media list. Re-fetched 2026-10-27; main text identical to the Task 1 copy."
+    },
+    {
+      "id": "src-notes-1",
+      "url": "https://cs50.harvard.edu/x/notes/1/",
+      "title": "Lecture 1 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30",
+      "verified_at": "2026-10-27T06:27:31+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "a39056954f645e106c597b06fadc9f810086b8299a2feae9471d76d2ec702940"
+      },
+      "anchors": [
+        "agreec",
+        "comparec",
+        "conditionals",
+        "correctness-design-style",
+        "format-codes",
+        "from-scratch-to-c",
+        "functions",
+        "header-files-and-cs50-manual-pages",
+        "hello-world",
+        "hello-you",
+        "lecture-1",
+        "linux",
+        "loops-and-meowc",
+        "mario",
+        "operators",
+        "source-code",
+        "summing-up",
+        "types",
+        "variables",
+        "visual-studio-code-for-cs50",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/lecture.md",
+      "notes": "All 21 sections read in full; 56 code blocks copied verbatim into examples1.py. Re-fetched 2026-10-27; main text identical."
+    },
+    {
+      "id": "src-transcript-1",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/lang/en/lecture1.txt",
+      "title": "Lecture 1 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:44+03:30",
+      "verified_at": "2026-10-27T06:27:31+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/transcripts/lecture-en.txt",
+      "notes": "Spoken text with transcription errors. Cited only for content absent from the notes and labelled «از سخنرانی»."
+    },
+    {
+      "id": "src-srt-1",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/lang/en/lecture1.srt",
+      "title": "Lecture 1 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-27T06:27:31+03:30",
+      "verified_at": "2026-10-27T06:27:31+03:30",
+      "local_copy": "_tools/refetch/week1/srt/lecture1.srt",
+      "notes": "Used only to derive chapter start times (origin: inference for chapter titles; timestamps are real)."
+    },
+    {
+      "id": "src-video-1",
+      "url": "https://video.cs50.io/SlqjA04_dpk",
+      "title": "Lecture 1 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30",
+      "notes": "Also https://youtu.be/SlqjA04_dpk ; Portuguese eepzDoovmAw, Spanish 7hxVvUoo-PI."
+    },
+    {
+      "id": "src-audio-1",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/lecture1.mp3",
+      "title": "Lecture 1 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-slides-1-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/lecture1.pdf",
+      "title": "Lecture 1 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-1-google",
+      "url": "https://docs.google.com/presentation/d/1dwmy6Vm-fzKdUShsAhmHMPwE_O6LfA6o9EgMN_zWmvs/edit?usp=sharing",
+      "title": "Lecture 1 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-src1-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/src1.zip",
+      "title": "Lecture 1 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:44+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/source-code/README.md",
+      "notes": "Code in the notes was used (verbatim); the zip itself is linked, not repackaged."
+    },
+    {
+      "id": "src-src1-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/src1/",
+      "title": "Lecture 1 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-src1-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/1/src1.pdf",
+      "title": "Lecture 1 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-section-1",
+      "url": "https://cs50.harvard.edu/x/sections/1/",
+      "title": "Section 1",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:19+03:30",
+      "verified_at": "2026-10-27T06:27:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "3b08a0863446ba5a8967129137fee3ced6b32eff1d6bfaa1f2ad6439449e3bcd"
+      },
+      "anchors": [
+        "week-1-c"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/sections.md"
+    },
+    {
+      "id": "src-section-1-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/1/lang/en/section1.txt",
+      "title": "Section 1 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30",
+      "verified_at": "2026-10-27T06:27:31+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary; chapter times from section1.srt."
+    },
+    {
+      "id": "src-section-1-video",
+      "url": "https://video.cs50.io/8N5ZpIh9gzM",
+      "title": "Section 1 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30",
+      "notes": "Also https://youtu.be/8N5ZpIh9gzM"
+    },
+    {
+      "id": "src-section-1-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/1/section1.pdf",
+      "title": "Section 1 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-section-1-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/1/src1.zip",
+      "title": "Section 1 source code (hello.c, contacts.c, mario.c)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/section-code/files/",
+      "notes": "Stored in the Task-1 KB but NOT reproduced here: mario.c is a near-solution of the left-aligned pyramid (policy: link only)."
+    },
+    {
+      "id": "src-pset-1",
+      "url": "https://cs50.harvard.edu/x/psets/1/",
+      "title": "Problem Set 1",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:20+03:30",
+      "verified_at": "2026-10-27T06:27:36+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f831a867ef246b69082d7586f3f55157352a1e0103fd36d7e7badca80b5de464"
+      },
+      "anchors": [
+        "problem-set-1",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/README.md"
+    },
+    {
+      "id": "src-pset-1-world",
+      "url": "https://cs50.harvard.edu/x/psets/1/world/",
+      "title": "Hello, World",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:14+03:30",
+      "verified_at": "2026-10-27T06:27:42+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "315f9d92ca76f06798d07724638e3d970ebebfcce072d3ee9436a2a5549169ed"
+      },
+      "anchors": [
+        "hello-world",
+        "problem-to-solve",
+        "demo",
+        "how-to-begin",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/world.md"
+    },
+    {
+      "id": "src-pset-1-me",
+      "url": "https://cs50.harvard.edu/x/psets/1/me/",
+      "title": "Hello, It's Me",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:15+03:30",
+      "verified_at": "2026-10-27T06:27:41+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "88ed136ab485b5df21b542a46822ea6a0671abaea1960d8c7467673c2579972c"
+      },
+      "anchors": [
+        "hello-its-me",
+        "problem-to-solve",
+        "demo",
+        "how-to-begin",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/me.md"
+    },
+    {
+      "id": "src-pset-1-mario-less",
+      "url": "https://cs50.harvard.edu/x/psets/1/mario/less/",
+      "title": "Mario (Feeling Less Comfortable)",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:16+03:30",
+      "verified_at": "2026-10-27T06:27:39+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "0631225a9ef41e6b922e1cb29a198aa8d4108e68482e3a0dfcddaf09a9a03d8d"
+      },
+      "anchors": [
+        "mario",
+        "problem-to-solve",
+        "demo",
+        "advice",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/mario-less.md"
+    },
+    {
+      "id": "src-pset-1-mario-more",
+      "url": "https://cs50.harvard.edu/x/psets/1/mario/more/",
+      "title": "Mario (Feeling More Comfortable)",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:17+03:30",
+      "verified_at": "2026-10-27T06:27:40+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "64bf4ed4df4e52a44bbc17a514950114559c2d0e2d36212af7cc42ce3a025f36"
+      },
+      "anchors": [
+        "mario",
+        "problem-to-solve",
+        "walkthrough",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/mario-more.md"
+    },
+    {
+      "id": "src-pset-1-cash",
+      "url": "https://cs50.harvard.edu/x/psets/1/cash/",
+      "title": "Cash",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:18+03:30",
+      "verified_at": "2026-10-27T06:27:37+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "421e9272a0bb805f6e1b51246d271aa376513dd5ef81ad75de33377580391883"
+      },
+      "anchors": [
+        "cash",
+        "problem-to-solve",
+        "demo",
+        "greedy-algorithms",
+        "advice",
+        "how-to-test",
+        "correctness",
+        "style"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/cash.md"
+    },
+    {
+      "id": "src-pset-1-credit",
+      "url": "https://cs50.harvard.edu/x/psets/1/credit/",
+      "title": "Credit",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:19+03:30",
+      "verified_at": "2026-10-27T06:27:38+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "08fff52771897efdc323ccca2cbd6507908b1665ee1f96cecced42126a6492c5"
+      },
+      "anchors": [
+        "credit",
+        "problem-to-solve",
+        "luhns-algorithm",
+        "implementation-details",
+        "walkthrough",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/psets/credit.md"
+    },
+    {
+      "id": "src-practice-debug",
+      "url": "https://cs50.harvard.edu/x/practice/debug/",
+      "title": "Debug",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:49+03:30",
+      "verified_at": "2026-10-27T06:27:32+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "afbda304271b03459e8a7b4e1e774df309fcb8740e8150fb4abefad3a4c53365"
+      },
+      "anchors": [
+        "debug",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/practice/debug.md"
+    },
+    {
+      "id": "src-practice-half",
+      "url": "https://cs50.harvard.edu/x/practice/half/",
+      "title": "Half",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:50+03:30",
+      "verified_at": "2026-10-27T06:27:33+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "6ec0f1070f50b00705fe97f8d79d8154f15fc0ead07eec653c1f5860ebaa6198"
+      },
+      "anchors": [
+        "half",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/practice/half.md"
+    },
+    {
+      "id": "src-practice-prime",
+      "url": "https://cs50.harvard.edu/x/practice/prime/",
+      "title": "Prime",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:51+03:30",
+      "verified_at": "2026-10-27T06:27:34+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "a1db24ec36ed91cc779e7963deae0f17054470f7aecdf33f914ff0c4fe340400"
+      },
+      "anchors": [
+        "prime",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/practice/prime.md"
+    },
+    {
+      "id": "src-short-data-types",
+      "url": "https://cs50.harvard.edu/x/shorts/data_types/",
+      "title": "Short: Data Types (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:01+03:30",
+      "verified_at": "2026-10-27T06:27:47+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "96c03e60074e9d4bd209ea0d61f551f10d8a31eca22a6e46a9bee5130c8d45b2"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/shorts/data-types.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/data_types/lang/en/data_types.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/data_types/lang/en/data_types.srt. Video https://youtu.be/Fc9htmvVZ9U. Slides https://cdn.cs50.net/2017/fall/shorts/data_types/data_types.pdf (link only). Recorded 2017 in CS50 IDE."
+    },
+    {
+      "id": "src-short-operators",
+      "url": "https://cs50.harvard.edu/x/shorts/operators/",
+      "title": "Short: Operators (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:03+03:30",
+      "verified_at": "2026-10-27T06:27:51+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "1f1914bfb0e67905596eb852540b9801f3721f80437d6df5231ff6406c11b8d3"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/shorts/operators.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/operators/lang/en/operators.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/operators/lang/en/operators.srt. Video https://youtu.be/f1xZf4iJDWE. Slides https://cdn.cs50.net/2017/fall/shorts/operators/operators.pdf (link only). Recorded 2017 in CS50 IDE."
+    },
+    {
+      "id": "src-short-conditional-statements",
+      "url": "https://cs50.harvard.edu/x/shorts/conditional_statements/",
+      "title": "Short: Conditional Statements (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:05+03:30",
+      "verified_at": "2026-10-27T06:27:46+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "a6e98e1be1f2ac9c0f948f124bd0668e3fc3a7a57b851794a2d4cacd93652c90"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/shorts/conditional-statements.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/conditional_statements/lang/en/conditional_statements.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/conditional_statements/lang/en/conditional_statements.srt. Video https://youtu.be/1wsaV5nVC7g. Slides https://cdn.cs50.net/2017/fall/shorts/conditional_statements/conditional_statements.pdf (link only). Recorded 2017 in CS50 IDE."
+    },
+    {
+      "id": "src-short-loops",
+      "url": "https://cs50.harvard.edu/x/shorts/loops/",
+      "title": "Short: Loops (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:07+03:30",
+      "verified_at": "2026-10-27T06:27:49+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "fd72f2d4c75241d292b27f73bac455da823ca3ff56419310299e9ace235ffbf7"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/shorts/loops.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/loops/lang/en/loops.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/loops/lang/en/loops.srt. Video https://youtu.be/WgX8e_O7eG8. Slides https://cdn.cs50.net/2017/fall/shorts/loops/loops.pdf (link only). Recorded 2017 in CS50 IDE."
+    },
+    {
+      "id": "src-short-command-line",
+      "url": "https://cs50.harvard.edu/x/shorts/command_line/",
+      "title": "Short: Command Line (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:09+03:30",
+      "verified_at": "2026-10-27T06:27:45+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "03f074798cc049d62140669d4d53c00d58da26290cab965d0640eda4be46bb8f"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/shorts/command-line.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/command_line/lang/en/command_line.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/command_line/lang/en/command_line.srt. Video https://youtu.be/BnJ013X02b8. Slides https://cdn.cs50.net/2017/fall/shorts/command_line/command_line.pdf (link only). Recorded 2017 in CS50 IDE."
+    },
+    {
+      "id": "src-short-magic-numbers",
+      "url": "https://cs50.harvard.edu/x/shorts/magic_numbers/",
+      "title": "Short: Magic Numbers (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:40:58+03:30",
+      "verified_at": "2026-10-27T06:27:50+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "86f60c62744fb1f6a000e15791cfe2dddb9423ba783bb0582489256776d44005"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-01-c/shorts/magic-numbers.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/magic_numbers/lang/en/magic_numbers.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/magic_numbers/lang/en/magic_numbers.srt. Video https://youtu.be/vK_naJkrtjc. Slides https://cdn.cs50.net/2017/fall/shorts/magic_numbers/magic_numbers.pdf (link only). Recorded 2017 in CS50 IDE."
+    },
+    {
+      "id": "src-manual",
+      "url": "https://manual.cs50.io",
+      "title": "CS50 Manual Pages",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-style-guide-c",
+      "url": "https://cs50.readthedocs.io/style/c/",
+      "title": "CS50 style guide for C (linked from Problem Set 1 'Advice')",
+      "source_type": "course-page",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-style50-modes",
+      "url": "https://cs50.readthedocs.io/style50/",
+      "title": "style50 modes (linked from World)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-cs50-dev",
+      "url": "https://cs50.dev/",
+      "title": "cs50.dev (Visual Studio Code for CS50)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-submit-cs50",
+      "url": "https://submit.cs50.io",
+      "title": "submit.cs50.io",
+      "source_type": "submission",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-time-cs50-deadline-1",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 1 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-communities",
+      "url": "https://cs50.harvard.edu/x/communities/",
+      "title": "CS50x communities",
+      "source_type": "course-page",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-paypal-test-cards",
+      "url": "https://developer.paypal.com/api/nvp-soap/payflow/integration-guide/test-transactions/#standard-test-cards",
+      "title": "PayPal test card numbers (linked from Credit)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-wiki-kernighan",
+      "url": "https://en.wikipedia.org/wiki/Brian_Kernighan",
+      "title": "Wikipedia: Brian Kernighan (linked from World)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-wiki-mario",
+      "url": "https://en.wikipedia.org/wiki/Super_Mario_Bros.",
+      "title": "Wikipedia: Super Mario Bros. (linked from Mario)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-wiki-prime",
+      "url": "https://en.wikipedia.org/wiki/Prime_number",
+      "title": "Wikipedia: Prime number (linked from Prime)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:18+03:30"
+    },
+    {
+      "id": "src-anzali-authored-1",
+      "url": "urn:cs50x-anzali:authored:week-01",
+      "title": "Material authored by CS50x Anzali for Week 1 (examples marked تألیفی, exercises, flashcards, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-27T09:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-1",
+      "url": "urn:cs50x-anzali:inference:week-01",
+      "title": "Editorial inferences for Week 1 (chapter boundaries derived from official .srt cue times; concept graph)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-27T09:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d11",
+      "topic": "Mario (less): upper bound of height",
+      "a": {
+        "source": "src-pset-1-mario-less#problem-to-solve",
+        "value": "re-prompt only if input is not greater than 0"
+      },
+      "b": {
+        "source": "src-pset-1-mario-less#walkthrough",
+        "value": "walkthrough video says re-prompt if less than 1 or greater than 8"
+      },
+      "status": "consistent",
+      "note": "The official page itself says the spec only requires re-prompting below 1. The guide follows the spec."
+    },
+    {
+      "id": "d12",
+      "topic": "Cash: allowed input",
+      "a": {
+        "source": "src-pset-1-cash#problem-to-solve",
+        "value": "'prompt the user for an int greater than 0'"
+      },
+      "b": {
+        "source": "src-pset-1-cash#how-to-test",
+        "value": "'Re-prompt ... if their input is not greater than or equal to 0'; test: input 0 -> output 0"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Official text is internally inconsistent; the tests and the advice code (cents < 0) accept 0. The guide tells learners to follow the How to Test list and check50."
+    },
+    {
+      "id": "d13",
+      "topic": "Shorts recorded in 2017",
+      "a": {
+        "source": "src-short-command-line",
+        "value": "CS50 IDE, prompt ~/workspace, /home/ubuntu"
+      },
+      "b": {
+        "source": "src-notes-1#visual-studio-code-for-cs50",
+        "value": "2026 course uses cs50.dev (VS Code in the cloud)"
+      },
+      "status": "complementary",
+      "note": "Commands are the same; environment names differ."
+    },
+    {
+      "id": "d14",
+      "topic": "Magic Numbers short vs 2026 notes",
+      "a": {
+        "source": "src-short-magic-numbers",
+        "value": "#define for symbolic constants"
+      },
+      "b": {
+        "source": "src-notes-1#mario",
+        "value": "const int n = 3;"
+      },
+      "status": "complementary"
+    },
+    {
+      "id": "d15",
+      "topic": "Practice problems: dated slugs and URLs",
+      "a": {
+        "source": "src-practice-debug#how-to-test-your-code",
+        "value": "check50 cs50/labs/2023/x/debug"
+      },
+      "b": {
+        "source": "src-practice-debug#getting-started",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/1/debug.c"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Same pattern for half and prime. Copied exactly as published; not 'corrected'."
+    },
+    {
+      "id": "d16",
+      "topic": "Credit: underlined digits",
+      "a": {
+        "source": "src-pset-1-credit#luhns-algorithm",
+        "value": "'let's first underline every other digit' (underline styling on the page)"
+      },
+      "b": {
+        "source": "src-notes-1",
+        "value": "Task-1 text extraction lost the underline formatting"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The guide describes the rule in words and links the official page."
+    },
+    {
+      "id": "d17",
+      "topic": "Week topics vs notes",
+      "a": {
+        "source": "src-week-1#week-1-c",
+        "value": "Topics include Syntax Highlighting, Comments, Pseudocode, Constants"
+      },
+      "b": {
+        "source": "src-notes-1",
+        "value": "Syntax highlighting is mentioned only in the transcript; pseudocode appears as comments in compare/agree examples"
+      },
+      "status": "complementary"
+    },
+    {
+      "id": "d18",
+      "topic": "design50",
+      "a": {
+        "source": "src-notes-1#correctness-design-style",
+        "value": "'You can evaluate the design of your code using design50'"
+      },
+      "b": {
+        "source": "src-pset-1-world#how-to-test",
+        "value": "pset pages list check50 and style50 only"
+      },
+      "status": "complementary"
+    },
+    {
+      "id": "d19",
+      "topic": "Real-world overflow examples",
+      "a": {
+        "source": "src-transcript-1",
+        "value": "Boeing 787 power-loss advisory after 248 days; Y2K two-digit years"
+      },
+      "b": {
+        "source": "src-notes-1#operators",
+        "value": "'We examined some examples of disasters ...' (no details)"
+      },
+      "status": "complementary",
+      "note": "Details are transcript-only and labelled «از سخنرانی»."
+    }
+  ]
+}

@@ -1,0 +1,394 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l12",
+  "type": "lesson",
+  "week": 1,
+  "order": 12,
+  "stage_id": "w01-s5",
+  "title_fa": "عملگرها و محدودیت‌های عددی",
+  "title_en": "Operators and numeric limits",
+  "note_ids": [
+    "w01-n19"
+  ],
+  "related_doc_ids": [
+    "w01-sh-operators"
+  ],
+  "prerequisite_lesson_ids": [
+    "w01-l06"
+  ],
+  "concept_ids": [
+    "w01-c-arithmetic-operators",
+    "w01-c-integer-overflow",
+    "w01-c-truncation",
+    "w01-c-type-casting",
+    "w01-c-floating-point-imprecision"
+  ],
+  "objective_ids": [
+    "w01-o11"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l12-u01",
+      "order": 1,
+      "title_fa": "عملگرهای حسابی و باقی‌مانده",
+      "concept_ids": [
+        "w01-c-arithmetic-operators"
+      ],
+      "objective_ids": [
+        "w01-o11"
+      ],
+      "note_id": "w01-n19",
+      "source_refs": [
+        "src-notes-1#operators",
+        "src-short-operators",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "عملگرهای حسابی C: `+`، `-`، `*`، `/` و `%` (باقی‌ماندهٔ تقسیم). مثلاً `13 % 4` برابر `1` است. ماشین‌حساب درس‌نامه با جمع دو ورودی شروع می‌شود.",
+        "note_id": "w01-n19",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n19"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "calc-add",
+        "lang": "c",
+        "content": "// Addition with int, without third variable\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user for x\n    int x = get_int(\"What's x? \");\n\n    // Prompt user for y\n    int y = get_int(\"What's y? \");\n\n    // Perform addition\n    printf(\"%i\\n\", x + y);\n}",
+        "source_ref": "src-notes-1#operators",
+        "explain_fa": "نسخهٔ رسمی جمع."
+      },
+      "check": {
+        "id": "w01-l12-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`17 % 5` چند است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "2",
+            "correct": true,
+            "feedback_fa": "درست: ۱۷ = ۳×۵ + ۲."
+          },
+          {
+            "id": "b",
+            "text_fa": "3",
+            "correct": false,
+            "feedback_fa": "۳ خارج‌قسمت است، نه باقی‌مانده."
+          },
+          {
+            "id": "c",
+            "text_fa": "3.4",
+            "correct": false,
+            "feedback_fa": "% باقی‌مانده را می‌دهد، نه تقسیم اعشاری."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l12-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nprintf(\"%i %i\\n\", 20 % 6, 9 % 3);",
+        "expected": {
+          "output": "2 0\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "باقی‌ماندهٔ ۲۰ بر ۶ و ۹ بر ۳ را حساب کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l12-u02",
+      "order": 2,
+      "title_fa": "سرریز عدد صحیح",
+      "concept_ids": [
+        "w01-c-integer-overflow"
+      ],
+      "objective_ids": [
+        "w01-o11"
+      ],
+      "note_id": "w01-n19",
+      "source_refs": [
+        "src-notes-1#operators",
+        "src-transcript-1",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "چون int تعداد محدودی بیت دارد، اگر مدام دو برابرش کنی سرانجام از بیشینه (۲۱۴۷۴۸۳۶۴۷) می‌گذرد و عددی غلط، حتی منفی، می‌بینی. `long` این مشکل را به تعویق می‌اندازد ولی حذف نمی‌کند. از سخنرانی: باگ Boeing 787 پس از ۲۴۸ روز روشن‌ماندن و مسئلهٔ Y2K نمونه‌های واقعی محدودیت بیت‌ها بودند.",
+        "note_id": "w01-n19",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n19"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "overflow-int",
+        "lang": "c",
+        "content": "// Overflow \n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    int dollars = 1;\n    while (true)\n    {\n        char c = get_char(\"Here's $%i. Double it and give to next person? \", dollars);\n        if (c == 'y')\n        {\n            dollars *= 2;\n        }\n        else\n        {\n            break;\n        }\n    }\n    printf(\"Here's $%i.\\n\", dollars);\n}",
+        "source_ref": "src-notes-1#operators",
+        "explain_fa": "نسخهٔ رسمی دوبرابرکردن دلار."
+      },
+      "check": {
+        "id": "w01-l12-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا تغییر int به long سرریز را «حذف» نمی‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "long هم تعداد بیت محدودی دارد؛ فقط دیرتر سرریز می‌شود",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "long اعشاری است",
+            "correct": false,
+            "feedback_fa": "long عدد صحیح است."
+          },
+          {
+            "id": "c",
+            "text_fa": "long سرریز را حذف می‌کند",
+            "correct": false,
+            "feedback_fa": "درس‌نامه صریحاً می‌گوید فقط به تعویق می‌اندازد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l12-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در C اگر int از بیشینه‌اش بگذرد، برنامه همیشه با پیام خطا متوقف می‌شود.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ نادرست است. ممکن است بی‌صدا عدد غلط بدهد.",
+          "incorrect_fa": "درس‌نامه عدد منفی عجیب را نشان می‌دهد، نه پیام خطا."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l12-u03",
+      "order": 3,
+      "title_fa": "بریدن و تبدیل نوع",
+      "concept_ids": [
+        "w01-c-truncation",
+        "w01-c-type-casting"
+      ],
+      "objective_ids": [
+        "w01-o11"
+      ],
+      "note_id": "w01-n19",
+      "source_refs": [
+        "src-notes-1#operators",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "تقسیم دو int بخش اعشاری را دور می‌ریزد (بریدن یا truncation): `7 / 2` برابر `3` است، نه `3.5`. با تبدیل نوع (casting) مثل `(float) x / y` تقسیم به‌صورت اعشاری انجام می‌شود.",
+        "note_id": "w01-n19",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n19"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "calc-cast",
+        "lang": "c",
+        "content": "// Casting\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user for x\n    int x = get_int(\"What's x? \");\n\n    // Prompt user for y\n    int y = get_int(\"What's y? \");\n\n    // Divide x by y\n    printf(\"%f\\n\", (float) x / y);\n}",
+        "source_ref": "src-notes-1#operators",
+        "explain_fa": "نسخهٔ رسمی با casting."
+      },
+      "check": {
+        "id": "w01-l12-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`7 / 2` در C (هر دو int) چند است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "3",
+            "correct": true,
+            "feedback_fa": "درست؛ ۰٫۵ بریده می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "3.5",
+            "correct": false,
+            "feedback_fa": "برای ۳٫۵ باید یکی را به float تبدیل کنی."
+          },
+          {
+            "id": "c",
+            "text_fa": "4",
+            "correct": false,
+            "feedback_fa": "C گرد نمی‌کند؛ می‌برد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l12-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا این قطعهٔ تألیفی 2.500000 چاپ کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "int a = 5;\nint b = 2;\nprintf(\"%f\\n\", [[b1]] a / b);",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "(float)",
+              "(double)"
+            ],
+            "hint_fa": "یکی از عملوندها را پیش از تقسیم اعشاری کن.",
+            "wrong_feedback": {
+              "float": "تبدیل نوع داخل پرانتز نوشته می‌شود: (float)",
+              "(int)": "int همان بریدن را تکرار می‌کند."
+            },
+            "default_wrong_fa": "تبدیل به نوع اعشاری را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "(float)",
+            "(double)"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "نحو تبدیل نوع: (نوع) عبارت"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l12-u04",
+      "order": 4,
+      "title_fa": "عدم دقت اعداد اعشاری",
+      "concept_ids": [
+        "w01-c-floating-point-imprecision"
+      ],
+      "objective_ids": [
+        "w01-o11"
+      ],
+      "note_id": "w01-n19",
+      "source_refs": [
+        "src-notes-1#operators",
+        "src-short-data-types",
+        "src-transcript-1",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه با `%.50f` تا ۵۰ رقم اعشار چاپ می‌کند و رقم‌های غیرمنتظره ظاهر می‌شوند. از سخنرانی: برای ۱ تقسیم بر ۳ به‌جای ۰٫۳۳۳... بی‌پایان، رقم‌های عجیبی دیده می‌شود. کامپیوتر با تعداد محدودی بیت نمی‌تواند همهٔ عددهای حقیقی را دقیق نشان دهد.",
+        "note_id": "w01-n19",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n19"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "calc-float",
+        "lang": "c",
+        "content": "// Floats\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user for x\n    float x = get_float(\"What's x? \");\n\n    // Prompt user for y\n    float y = get_float(\"What's y? \");\n\n    // Divide x by y\n    printf(\"%.50f\\n\", x / y);\n}",
+        "source_ref": "src-notes-1#operators",
+        "explain_fa": "نسخهٔ رسمی با ۵۰ رقم اعشار."
+      },
+      "check": {
+        "id": "w01-l12-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا 1/3 با `%.50f` دقیقاً ۰٫۳۳۳... تا آخر چاپ نمی‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون float با بیت‌های محدود فقط تقریبی از عدد را نگه می‌دارد",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون printf اشکال دارد",
+            "correct": false,
+            "feedback_fa": "printf همان مقدار ذخیره‌شده را چاپ می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون باید int به کار ببریم",
+            "correct": false,
+            "feedback_fa": "int اصلاً اعشار ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l12-u04-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: مقایسهٔ دو float با == همیشه قابل اعتماد است.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ نادرست است. به‌خاطر عدم دقت، ممکن است دو مقدار «برابر» کمی فرق کنند.",
+          "incorrect_fa": "عدم دقت یعنی مقدار ذخیره‌شده تقریبی است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

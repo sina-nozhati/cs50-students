@@ -1,0 +1,639 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w01-curriculum",
+  "week": 1,
+  "title_fa": "هفتهٔ ۱ — C",
+  "title_en": "Week 1 — C",
+  "panel_week_number": 1,
+  "kb_parent_node": "week-1",
+  "hub_doc_id": "w01-fa",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-1",
+    "src-notes-1",
+    "src-section-1",
+    "src-pset-1"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w01-o01",
+    "w01-o02",
+    "w01-o03",
+    "w01-o04",
+    "w01-o05",
+    "w01-o06",
+    "w01-o07",
+    "w01-o08",
+    "w01-o09",
+    "w01-o10",
+    "w01-o11",
+    "w01-o12"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب بخش‌های درس‌نامهٔ رسمی پیروی می‌کند، با دو جابه‌جایی آموزشی: لینوکس (بخش ۸) زودتر و مستقل از شرط‌ها آمده و انواع داده و کدهای قالب (بخش‌های ۱۰ و ۱۱) پیش از شرط‌ها آمده‌اند تا compare.c با get_int و %i خوانا باشد. پیش‌نیازها با learning-map.json سازگارند.",
+  "stages": [
+    {
+      "id": "w01-s1",
+      "lesson_ids": [
+        "w01-l01",
+        "w01-l02"
+      ]
+    },
+    {
+      "id": "w01-s2",
+      "lesson_ids": [
+        "w01-l03",
+        "w01-l04",
+        "w01-l05",
+        "w01-l06"
+      ]
+    },
+    {
+      "id": "w01-s3",
+      "lesson_ids": [
+        "w01-l07",
+        "w01-l08",
+        "w01-l09"
+      ]
+    },
+    {
+      "id": "w01-s4",
+      "lesson_ids": [
+        "w01-l10",
+        "w01-l11"
+      ]
+    },
+    {
+      "id": "w01-s5",
+      "lesson_ids": [
+        "w01-l12"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w01-l01",
+      "order": 1,
+      "file": "lessons/w01-l01.json",
+      "title_fa": "از Scratch به C: ابزار و نخستین برنامه",
+      "stage_id": "w01-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w01-l01-u01",
+        "w01-l01-u02",
+        "w01-l01-u03",
+        "w01-l01-u04"
+      ],
+      "note_ids": [
+        "w01-n01",
+        "w01-n02",
+        "w01-n03",
+        "w01-n04"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w01-l02",
+      "order": 2,
+      "file": "lessons/w01-l02.json",
+      "title_fa": "printf، نحو و دنبالهٔ گریز",
+      "stage_id": "w01-s1",
+      "prerequisite_lesson_ids": [
+        "w01-l01"
+      ],
+      "unit_ids": [
+        "w01-l02-u01",
+        "w01-l02-u02"
+      ],
+      "note_ids": [
+        "w01-n05"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w01-l03",
+      "order": 3,
+      "file": "lessons/w01-l03.json",
+      "title_fa": "سرآیند، کتابخانه و ورودی کاربر",
+      "stage_id": "w01-s2",
+      "prerequisite_lesson_ids": [
+        "w01-l02"
+      ],
+      "unit_ids": [
+        "w01-l03-u01",
+        "w01-l03-u02",
+        "w01-l03-u03"
+      ],
+      "note_ids": [
+        "w01-n06",
+        "w01-n07"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w01-l04",
+      "order": 4,
+      "file": "lessons/w01-l04.json",
+      "title_fa": "لینوکس و خط فرمان",
+      "stage_id": "w01-s2",
+      "prerequisite_lesson_ids": [
+        "w01-l01"
+      ],
+      "unit_ids": [
+        "w01-l04-u01",
+        "w01-l04-u02"
+      ],
+      "note_ids": [
+        "w01-n08"
+      ],
+      "related_doc_ids": [
+        "w01-sh-command-line"
+      ]
+    },
+    {
+      "id": "w01-l05",
+      "order": 5,
+      "file": "lessons/w01-l05.json",
+      "title_fa": "انواع داده و کدهای قالب",
+      "stage_id": "w01-s2",
+      "prerequisite_lesson_ids": [
+        "w01-l03"
+      ],
+      "unit_ids": [
+        "w01-l05-u01",
+        "w01-l05-u02",
+        "w01-l05-u03"
+      ],
+      "note_ids": [
+        "w01-n10",
+        "w01-n11"
+      ],
+      "related_doc_ids": [
+        "w01-sh-data-types"
+      ]
+    },
+    {
+      "id": "w01-l06",
+      "order": 6,
+      "file": "lessons/w01-l06.json",
+      "title_fa": "متغیر، انتساب و افزایش",
+      "stage_id": "w01-s2",
+      "prerequisite_lesson_ids": [
+        "w01-l05"
+      ],
+      "unit_ids": [
+        "w01-l06-u01"
+      ],
+      "note_ids": [
+        "w01-n12"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w01-l07",
+      "order": 7,
+      "file": "lessons/w01-l07.json",
+      "title_fa": "شرط‌ها و مقایسه",
+      "stage_id": "w01-s3",
+      "prerequisite_lesson_ids": [
+        "w01-l05"
+      ],
+      "unit_ids": [
+        "w01-l07-u01",
+        "w01-l07-u02",
+        "w01-l07-u03",
+        "w01-l07-u04"
+      ],
+      "note_ids": [
+        "w01-n09",
+        "w01-n13"
+      ],
+      "related_doc_ids": [
+        "w01-sh-conditional-statements"
+      ]
+    },
+    {
+      "id": "w01-l08",
+      "order": 8,
+      "file": "lessons/w01-l08.json",
+      "title_fa": "نویسه‌ها و عملگرهای منطقی",
+      "stage_id": "w01-s3",
+      "prerequisite_lesson_ids": [
+        "w01-l07"
+      ],
+      "unit_ids": [
+        "w01-l08-u01",
+        "w01-l08-u02"
+      ],
+      "note_ids": [
+        "w01-n14"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w01-l09",
+      "order": 9,
+      "file": "lessons/w01-l09.json",
+      "title_fa": "حلقه‌ها",
+      "stage_id": "w01-s3",
+      "prerequisite_lesson_ids": [
+        "w01-l06",
+        "w01-l07"
+      ],
+      "unit_ids": [
+        "w01-l09-u01",
+        "w01-l09-u02",
+        "w01-l09-u03",
+        "w01-l09-u04"
+      ],
+      "note_ids": [
+        "w01-n15"
+      ],
+      "related_doc_ids": [
+        "w01-sh-loops"
+      ]
+    },
+    {
+      "id": "w01-l10",
+      "order": 10,
+      "file": "lessons/w01-l10.json",
+      "title_fa": "توابع",
+      "stage_id": "w01-s4",
+      "prerequisite_lesson_ids": [
+        "w01-l09"
+      ],
+      "unit_ids": [
+        "w01-l10-u01",
+        "w01-l10-u02",
+        "w01-l10-u03"
+      ],
+      "note_ids": [
+        "w01-n16"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w01-l11",
+      "order": 11,
+      "file": "lessons/w01-l11.json",
+      "title_fa": "درستی، طراحی، سبک و Mario",
+      "stage_id": "w01-s4",
+      "prerequisite_lesson_ids": [
+        "w01-l10"
+      ],
+      "unit_ids": [
+        "w01-l11-u01",
+        "w01-l11-u02",
+        "w01-l11-u03",
+        "w01-l11-u04"
+      ],
+      "note_ids": [
+        "w01-n17",
+        "w01-n18"
+      ],
+      "related_doc_ids": [
+        "w01-sh-magic-numbers"
+      ]
+    },
+    {
+      "id": "w01-l12",
+      "order": 12,
+      "file": "lessons/w01-l12.json",
+      "title_fa": "عملگرها و محدودیت‌های عددی",
+      "stage_id": "w01-s5",
+      "prerequisite_lesson_ids": [
+        "w01-l06"
+      ],
+      "unit_ids": [
+        "w01-l12-u01",
+        "w01-l12-u02",
+        "w01-l12-u03",
+        "w01-l12-u04"
+      ],
+      "note_ids": [
+        "w01-n19"
+      ],
+      "related_doc_ids": [
+        "w01-sh-operators"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "w01-n01",
+      "file": "notes/01-welcome.fa.md",
+      "official_anchor": "welcome"
+    },
+    {
+      "id": "w01-n02",
+      "file": "notes/02-source-code.fa.md",
+      "official_anchor": "source-code"
+    },
+    {
+      "id": "w01-n03",
+      "file": "notes/03-vscode.fa.md",
+      "official_anchor": "visual-studio-code-for-cs50"
+    },
+    {
+      "id": "w01-n04",
+      "file": "notes/04-hello-world.fa.md",
+      "official_anchor": "hello-world"
+    },
+    {
+      "id": "w01-n05",
+      "file": "notes/05-from-scratch-to-c.fa.md",
+      "official_anchor": "from-scratch-to-c"
+    },
+    {
+      "id": "w01-n06",
+      "file": "notes/06-header-files.fa.md",
+      "official_anchor": "header-files-and-cs50-manual-pages"
+    },
+    {
+      "id": "w01-n07",
+      "file": "notes/07-hello-you.fa.md",
+      "official_anchor": "hello-you"
+    },
+    {
+      "id": "w01-n08",
+      "file": "notes/08-linux.fa.md",
+      "official_anchor": "linux"
+    },
+    {
+      "id": "w01-n09",
+      "file": "notes/09-conditionals.fa.md",
+      "official_anchor": "conditionals"
+    },
+    {
+      "id": "w01-n10",
+      "file": "notes/10-types.fa.md",
+      "official_anchor": "types"
+    },
+    {
+      "id": "w01-n11",
+      "file": "notes/11-format-codes.fa.md",
+      "official_anchor": "format-codes"
+    },
+    {
+      "id": "w01-n12",
+      "file": "notes/12-variables.fa.md",
+      "official_anchor": "variables"
+    },
+    {
+      "id": "w01-n13",
+      "file": "notes/13-compare.fa.md",
+      "official_anchor": "comparec"
+    },
+    {
+      "id": "w01-n14",
+      "file": "notes/14-agree.fa.md",
+      "official_anchor": "agreec"
+    },
+    {
+      "id": "w01-n15",
+      "file": "notes/15-loops-meow.fa.md",
+      "official_anchor": "loops-and-meowc"
+    },
+    {
+      "id": "w01-n16",
+      "file": "notes/16-functions.fa.md",
+      "official_anchor": "functions"
+    },
+    {
+      "id": "w01-n17",
+      "file": "notes/17-correctness-design-style.fa.md",
+      "official_anchor": "correctness-design-style"
+    },
+    {
+      "id": "w01-n18",
+      "file": "notes/18-mario.fa.md",
+      "official_anchor": "mario"
+    },
+    {
+      "id": "w01-n19",
+      "file": "notes/19-operators.fa.md",
+      "official_anchor": "operators"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-1.fa.md",
+    "shorts": [
+      {
+        "id": "w01-sh-data-types",
+        "file": "shorts/data-types.fa.md"
+      },
+      {
+        "id": "w01-sh-operators",
+        "file": "shorts/operators.fa.md"
+      },
+      {
+        "id": "w01-sh-conditional-statements",
+        "file": "shorts/conditional-statements.fa.md"
+      },
+      {
+        "id": "w01-sh-loops",
+        "file": "shorts/loops.fa.md"
+      },
+      {
+        "id": "w01-sh-command-line",
+        "file": "shorts/command-line.fa.md"
+      },
+      {
+        "id": "w01-sh-magic-numbers",
+        "file": "shorts/magic-numbers.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w01-ps-world",
+        "file": "problem-sets/world.fa.md"
+      },
+      {
+        "id": "w01-ps-me",
+        "file": "problem-sets/me.fa.md"
+      },
+      {
+        "id": "w01-ps-mario-less",
+        "file": "problem-sets/mario-less.fa.md"
+      },
+      {
+        "id": "w01-ps-mario-more",
+        "file": "problem-sets/mario-more.fa.md"
+      },
+      {
+        "id": "w01-ps-cash",
+        "file": "problem-sets/cash.fa.md"
+      },
+      {
+        "id": "w01-ps-credit",
+        "file": "problem-sets/credit.fa.md"
+      },
+      {
+        "id": "w01-pr-debug",
+        "file": "problem-sets/debug.fa.md"
+      },
+      {
+        "id": "w01-pr-half",
+        "file": "problem-sets/half.fa.md"
+      },
+      {
+        "id": "w01-pr-prime",
+        "file": "problem-sets/prime.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w01-mt-final",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w01-ps-world",
+      "kind": "pset",
+      "file": "problem-sets/world.json",
+      "guide": "problem-sets/world.fa.md",
+      "unlock_after_lesson": "w01-l02"
+    },
+    {
+      "id": "w01-ps-me",
+      "kind": "pset",
+      "file": "problem-sets/me.json",
+      "guide": "problem-sets/me.fa.md",
+      "unlock_after_lesson": "w01-l03"
+    },
+    {
+      "id": "w01-ps-mario-less",
+      "kind": "pset",
+      "file": "problem-sets/mario-less.json",
+      "guide": "problem-sets/mario-less.fa.md",
+      "unlock_after_lesson": "w01-l11"
+    },
+    {
+      "id": "w01-ps-mario-more",
+      "kind": "pset",
+      "file": "problem-sets/mario-more.json",
+      "guide": "problem-sets/mario-more.fa.md",
+      "unlock_after_lesson": "w01-l11"
+    },
+    {
+      "id": "w01-ps-cash",
+      "kind": "pset",
+      "file": "problem-sets/cash.json",
+      "guide": "problem-sets/cash.fa.md",
+      "unlock_after_lesson": "w01-l12"
+    },
+    {
+      "id": "w01-ps-credit",
+      "kind": "pset",
+      "file": "problem-sets/credit.json",
+      "guide": "problem-sets/credit.fa.md",
+      "unlock_after_lesson": "w01-l12"
+    },
+    {
+      "id": "w01-pr-debug",
+      "kind": "practice",
+      "file": "problem-sets/debug.json",
+      "guide": "problem-sets/debug.fa.md",
+      "unlock_after_lesson": "w01-l03"
+    },
+    {
+      "id": "w01-pr-half",
+      "kind": "practice",
+      "file": "problem-sets/half.json",
+      "guide": "problem-sets/half.fa.md",
+      "unlock_after_lesson": "w01-l12"
+    },
+    {
+      "id": "w01-pr-prime",
+      "kind": "practice",
+      "file": "problem-sets/prime.json",
+      "guide": "problem-sets/prime.fa.md",
+      "unlock_after_lesson": "w01-l10"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی: World انجام شود؛ Me تحویل شود؛ یکی از Mario less/more؛ یکی از Cash/Credit. اگر هر دو نسخه تحویل شود نمرهٔ بالاتر حساب می‌شود.",
+    "groups": [
+      {
+        "required": [
+          "w01-ps-world"
+        ],
+        "submit": false
+      },
+      {
+        "required": [
+          "w01-ps-me"
+        ],
+        "submit": true
+      },
+      {
+        "one_of": [
+          "w01-ps-mario-less",
+          "w01-ps-mario-more"
+        ],
+        "submit": true
+      },
+      {
+        "one_of": [
+          "w01-ps-cash",
+          "w01-ps-credit"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w01-pr-debug",
+      "w01-pr-half",
+      "w01-pr-prime"
+    ],
+    "source_ref": "src-pset-1#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids_any_of_groups": true,
+        "note": "checklists of World, Me, the chosen Mario and the chosen Cash/Credit"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w01-ps-me"
+        ],
+        "plus_one_of": [
+          [
+            "w01-ps-mario-less",
+            "w01-ps-mario-more"
+          ],
+          [
+            "w01-ps-cash",
+            "w01-ps-credit"
+          ]
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند."
+  }
+}

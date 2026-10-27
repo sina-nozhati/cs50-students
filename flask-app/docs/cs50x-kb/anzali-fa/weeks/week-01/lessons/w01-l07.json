@@ -1,0 +1,457 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l07",
+  "type": "lesson",
+  "week": 1,
+  "order": 7,
+  "stage_id": "w01-s3",
+  "title_fa": "شرط‌ها و مقایسه",
+  "title_en": "Conditionals and comparison",
+  "note_ids": [
+    "w01-n09",
+    "w01-n13"
+  ],
+  "related_doc_ids": [
+    "w01-sh-conditional-statements"
+  ],
+  "prerequisite_lesson_ids": [
+    "w01-l05"
+  ],
+  "concept_ids": [
+    "w01-c-if-else",
+    "w01-c-else-if-chain",
+    "w01-c-relational-operators",
+    "w01-c-get-int",
+    "w01-c-comments",
+    "w01-c-switch",
+    "w01-c-ternary"
+  ],
+  "objective_ids": [
+    "w01-o06",
+    "w01-o10",
+    "w01-o12"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l07-u01",
+      "order": 1,
+      "title_fa": "if و else",
+      "concept_ids": [
+        "w01-c-if-else"
+      ],
+      "objective_ids": [
+        "w01-o06"
+      ],
+      "note_id": "w01-n09",
+      "source_refs": [
+        "src-notes-1#conditionals",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "شرط در C داخل پرانتز می‌آید و بدنه داخل آکولاد. اگر شرط درست باشد بدنهٔ if اجرا می‌شود، وگرنه بدنهٔ else.",
+        "note_id": "w01-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cond-if-else",
+        "lang": "c",
+        "content": "// Conditionals that are mutually exclusive\n\nif (x < y)\n{\n    printf(\"x is less than y\\n\");\n}\nelse\n{\n    printf(\"x is not less than y\\n\");\n}",
+        "source_ref": "src-notes-1#conditionals",
+        "explain_fa": "نمونهٔ رسمی if/else."
+      },
+      "check": {
+        "id": "w01-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر x برابر ۵ و y برابر ۵ باشد، در نمونهٔ if/else بالا کدام شاخه اجرا می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "else، چون x < y نادرست است",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "if",
+            "correct": false,
+            "feedback_fa": "۵ کوچک‌تر از ۵ نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "هیچ‌کدام",
+            "correct": false,
+            "feedback_fa": "در if/else همیشه دقیقاً یکی اجرا می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l07-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nint t = 30;\nif (t > 25)\n{\n    printf(\"hot\\n\");\n}\nelse\n{\n    printf(\"ok\\n\");\n}",
+        "expected": {
+          "output": "hot\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "۳۰ بزرگ‌تر از ۲۵ است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l07-u02",
+      "order": 2,
+      "title_fa": "زنجیرهٔ else if و طراحی بهتر",
+      "concept_ids": [
+        "w01-c-else-if-chain",
+        "w01-c-relational-operators"
+      ],
+      "objective_ids": [
+        "w01-o06",
+        "w01-o10"
+      ],
+      "note_id": "w01-n09",
+      "source_refs": [
+        "src-notes-1#conditionals",
+        "src-short-conditional-statements",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه نشان می‌دهد سه if جداگانه برای کوچک‌تر، بزرگ‌تر و برابر «پرسش غیرضروری» می‌پرسد. با `else if` و `else` به محض یافتن شاخهٔ درست بقیه بررسی نمی‌شوند. برای برابری از `==` استفاده کن.",
+        "note_id": "w01-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cond-compare",
+        "lang": "c",
+        "content": "// Compare integers\n\nif (x < y)\n{\n    printf(\"x is less than y\\n\");\n}\nelse if (x > y)\n{\n    printf(\"x is greater than y\\n\");\n}\nelse\n{\n    printf(\"x is equal to y\\n\");\n}",
+        "source_ref": "src-notes-1#conditionals",
+        "explain_fa": "نسخهٔ رسمی بهتر با else if."
+      },
+      "check": {
+        "id": "w01-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا نسخهٔ else if طراحی بهتری از سه if جدا دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون وقتی یک شاخه درست بود، بقیهٔ شرط‌ها بی‌دلیل بررسی نمی‌شوند",
+            "correct": true,
+            "feedback_fa": "درست. این یعنی طراحی (design) بهتر."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون خروجی متفاوتی می‌دهد",
+            "correct": false,
+            "feedback_fa": "خروجی یکسان است؛ تفاوت در کارایی است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون سه if خطای کامپایل دارد",
+            "correct": false,
+            "feedback_fa": "سه if کامپایل می‌شود؛ فقط طراحی ضعیف‌تری دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l07-u02-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا این برنامهٔ تألیفی بگوید عدد مثبت، منفی یا صفر است.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "if (n > 0)"
+          },
+          {
+            "id": "p2",
+            "code": "{"
+          },
+          {
+            "id": "p3",
+            "code": "    printf(\"positive\\n\");"
+          },
+          {
+            "id": "p4",
+            "code": "}"
+          },
+          {
+            "id": "p5",
+            "code": "else if (n < 0)"
+          },
+          {
+            "id": "p6",
+            "code": "{"
+          },
+          {
+            "id": "p7",
+            "code": "    printf(\"negative\\n\");"
+          },
+          {
+            "id": "p8",
+            "code": "}"
+          },
+          {
+            "id": "p9",
+            "code": "else"
+          },
+          {
+            "id": "p10",
+            "code": "{"
+          },
+          {
+            "id": "p11",
+            "code": "    printf(\"zero\\n\");"
+          },
+          {
+            "id": "p12",
+            "code": "}"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "if (n = 0)",
+            "why_wrong_fa": "= انتساب است، نه مقایسه."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6",
+            "p7",
+            "p8",
+            "p9",
+            "p10",
+            "p11",
+            "p12"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "ترتیب if، else if، else را رعایت کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l07-u03",
+      "order": 3,
+      "title_fa": "compare.c با get_int",
+      "concept_ids": [
+        "w01-c-get-int",
+        "w01-c-comments"
+      ],
+      "objective_ids": [
+        "w01-o06",
+        "w01-o12"
+      ],
+      "note_id": "w01-n13",
+      "source_refs": [
+        "src-notes-1#comparec",
+        "src-short-conditional-statements",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "در compare.c دو عدد با `get_int` گرفته و مقایسه می‌شوند. خط‌هایی که با `//` شروع می‌شوند توضیح (comment) هستند: کامپایلر آن‌ها را نادیده می‌گیرد، ولی برای خوانندهٔ انسانی مفیدند و شبه‌کد (pseudocode) برنامه را نشان می‌دهند.",
+        "note_id": "w01-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "compare1",
+        "lang": "c",
+        "content": "// Conditionals\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user for integers\n    int x = get_int(\"What's x? \");\n    int y = get_int(\"What's y? \");\n\n    // Compare integers\n    if (x < y)\n    {\n        printf(\"x is less than y\\n\");\n    }\n    else if (x > y)\n    {\n        printf(\"x is greater than y\\n\");\n    }\n    else\n    {\n        printf(\"x is equal to y\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#comparec",
+        "explain_fa": "compare.c رسمی با توضیح‌ها."
+      },
+      "check": {
+        "id": "w01-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کامپایلر با خط `// Prompt user for integers` چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "نادیده‌اش می‌گیرد",
+            "correct": true,
+            "feedback_fa": "درست؛ توضیح فقط برای انسان است."
+          },
+          {
+            "id": "b",
+            "text_fa": "آن را چاپ می‌کند",
+            "correct": false,
+            "feedback_fa": "فقط printf چاپ می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطا می‌دهد",
+            "correct": false,
+            "feedback_fa": "// توضیح معتبر در C است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l07-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "یک توضیح (comment) شبه‌کدی بنویس که بالای خطی بیاید که از کاربر سن را می‌پرسد.",
+        "expected": {
+          "rubric_fa": [
+            "با // شروع شود",
+            "کار خط بعد را به زبان ساده بگوید"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی.",
+          "incorrect_fa": "توضیح با // شروع می‌شود و هدف کد را می‌گوید، نه جزئیات نحو را."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l07-u04",
+      "order": 4,
+      "title_fa": "switch و عملگر سه‌تایی",
+      "concept_ids": [
+        "w01-c-switch",
+        "w01-c-ternary"
+      ],
+      "objective_ids": [
+        "w01-o06"
+      ],
+      "note_id": "w01-n09",
+      "source_refs": [
+        "src-notes-1#conditionals",
+        "src-anzali-authored-1",
+        "src-short-conditional-statements"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Conditional Statements دو ابزار دیگر هم معرفی می‌کند. `switch` مقدار یک متغیر را با چند `case` مقایسه می‌کند و بدون `break` اجرا به case بعدی «می‌ریزد» (fall through). عملگر سه‌تایی `?:` یک if/else کوتاه برای انتخاب بین دو مقدار است. درس‌نامهٔ ۲۰۲۶ این دو را آموزش نمی‌دهد؛ دانستنشان برای خواندن کد دیگران مفید است.",
+        "note_id": "w01-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n09"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "int x = 5;\nint y = (x > 3) ? 10 : 20;\nprintf(\"%i\\n\", y);",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "نمونهٔ تألیفی بر پایهٔ ویدئوی کوتاه."
+      },
+      "check": {
+        "id": "w01-l07-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی نمونهٔ تألیفی بالا چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "10",
+            "correct": true,
+            "feedback_fa": "درست؛ شرط درست است و مقدار پیش از : انتخاب می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "20",
+            "correct": false,
+            "feedback_fa": "۲۰ وقتی انتخاب می‌شود که شرط نادرست باشد."
+          },
+          {
+            "id": "c",
+            "text_fa": "5",
+            "correct": false,
+            "feedback_fa": "y مقدار انتخاب‌شده را می‌گیرد، نه x را."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l07-u04-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در switch اگر break را از پایان یک case حذف کنی، اجرا به case بعدی ادامه پیدا می‌کند.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ این همان fall through است.",
+          "incorrect_fa": "ویدئوی کوتاه همین رفتار را نشان می‌دهد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

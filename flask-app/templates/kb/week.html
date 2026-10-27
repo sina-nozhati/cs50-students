@@ -157,6 +157,53 @@
   </section>
   {% endif %}
 
+  {% if week_data.has_fa and week_data.fa_sections %}
+  <section class="mb-8" id="section-sections">
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <h2 class="kb-section-title mb-0">جلسه حل تمرین و رفع اشکال (Section)</h2>
+      <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-900">سکشن فارسی</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+      {% for sec in week_data.fa_sections %}
+      <a href="{{ url_for('kb.doc_page', doc_id=sec.id) }}"
+         class="card-harvard p-4 sm:p-5 flex items-start gap-3.5 hover:border-amber-500 hover:bg-amber-50/30 border border-[var(--border)] cursor-pointer transition-all duration-200 group">
+        <span class="w-8 h-8 rounded-xl bg-amber-100 text-amber-900 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        <div class="min-w-0 flex-1">
+          <p class="font-bold text-sm leading-snug group-hover:text-amber-900 transition-colors">{{ sec.title }}</p>
+          <span class="text-[11px] text-[var(--slate)] mt-1.5 block">جلسه تعاملی حل مسئله و کدنویسی عملی</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if week_data.has_fa and week_data.fa_shorts %}
+  <section class="mb-8" id="section-shorts">
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <h2 class="kb-section-title mb-0">مباحث تکمیلی و ویدیوهای کوتاه (Shorts)</h2>
+      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson-tint text-crimson num">{{ week_data.fa_shorts|length }} مبحث</span>
+    </div>
+    <p class="text-xs text-[var(--slate)] mb-4">راهنماهای متمرکز بر مفاهیم بنیادین هفته با توضیحات و کدنویسی فارسی.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      {% for sh in week_data.fa_shorts %}
+      <a href="{{ url_for('kb.doc_page', doc_id=sh.id) }}"
+         class="card-harvard p-3.5 flex items-center gap-3 hover:border-crimson hover:bg-crimson-tint/20 border border-[var(--border)] cursor-pointer transition-all duration-200 group">
+        <span class="w-7 h-7 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center shrink-0 group-hover:bg-crimson group-hover:text-white transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </span>
+        <div class="min-w-0 flex-1">
+          <p class="font-bold text-xs leading-snug group-hover:text-crimson transition-colors truncate">{{ sh.title }}</p>
+          <span class="text-[10px] text-[var(--slate)]">مبحث تکمیلی</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {% if week_data.has_fa and week_data.rendered_fa_summary %}
   <section class="mb-8">
     <div class="flex items-center gap-2 mb-3">
@@ -437,8 +484,34 @@
 {# TAB 5: راهنمای پروژه، فایل‌ها و سورس‌کدها                           #}
 {# ══════════════════════════════════════════════════════════════════ #}
 <div id="tab-sources" class="kb-tab-content hidden">
-  {# راهنمای Problem Set #}
-  {% if week_data.fa_pset %}
+  {# راهنمای Problem Setها و تمرین‌ها #}
+  {% if week_data.fa_psets and week_data.fa_psets|length > 1 %}
+  <section class="mb-8">
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <h2 class="kb-section-title mb-0">راهنماهای فارسی مسائل و تمرین‌ها (Problem Sets & Practice)</h2>
+      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson text-white num">{{ week_data.fa_psets|length }} تمرین</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5">
+      {% for ps in week_data.fa_psets %}
+      <a href="{{ url_for('kb.doc_page', doc_id=ps.id) }}"
+         class="card-harvard p-4 flex flex-col justify-between border-r-4 border-crimson hover:bg-crimson-tint/20 transition-all cursor-pointer group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded {% if 'practice' in ps.type or 'pr-' in ps.id %}bg-blue-50 text-blue-700{% else %}bg-crimson-tint text-crimson{% endif %}">
+              {{ 'تمرین مقدماتی' if ('practice' in ps.type or 'pr-' in ps.id) else 'پرابلم‌ست رسمی' }}
+            </span>
+          </div>
+          <h4 class="font-bold text-xs sm:text-sm text-[var(--ink)] group-hover:text-crimson transition-colors">{{ ps.title }}</h4>
+        </div>
+        <div class="mt-3 pt-2.5 border-t border-[var(--border)] flex items-center justify-between text-[11px] text-crimson font-semibold">
+          <span>مشاهده راهنما</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% elif week_data.fa_pset %}
   <section class="mb-8">
     <h2 class="kb-section-title">راهنمای فارسی پرابلم‌ست (Problem Set)</h2>
     <a href="{{ url_for('kb.doc_page', doc_id=week_data.fa_pset.id) }}"

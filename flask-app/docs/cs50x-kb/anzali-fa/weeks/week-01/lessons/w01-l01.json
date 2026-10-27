@@ -1,0 +1,425 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l01",
+  "type": "lesson",
+  "week": 1,
+  "order": 1,
+  "stage_id": "w01-s1",
+  "title_fa": "از Scratch به C: ابزار و نخستین برنامه",
+  "title_en": "From Scratch to C: tools and first program",
+  "note_ids": [
+    "w01-n01",
+    "w01-n02",
+    "w01-n03",
+    "w01-n04"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w01-c-scratch-to-c",
+    "w01-c-source-code",
+    "w01-c-machine-code",
+    "w01-c-compiler",
+    "w01-c-ide-regions",
+    "w01-c-gui-cli",
+    "w01-c-code-make-run",
+    "w01-c-main",
+    "w01-c-debugging-errors"
+  ],
+  "objective_ids": [
+    "w01-o01",
+    "w01-o02",
+    "w01-o12"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w00-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۰ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l01-u01",
+      "order": 1,
+      "title_fa": "همان بلوک‌ها، زبانی تازه",
+      "concept_ids": [
+        "w01-c-scratch-to-c"
+      ],
+      "objective_ids": [
+        "w01-o01"
+      ],
+      "note_id": "w01-n01",
+      "source_refs": [
+        "src-notes-1#welcome",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "طبق درس‌نامه، بلوک‌های سازنده‌ای که در Scratch دیدی (تابع، شرط، حلقه و متغیر) در C هم هستند؛ فقط حالا به‌جای کشیدن بلوک، متن می‌نویسی. این هفته «سیل‌آسا» است و طبیعی است که همه‌چیز یک‌باره جا نیفتد.",
+        "note_id": "w01-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n01"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "Scratch                      C\nwhen green flag clicked  ->  int main(void)\nsay hello, world         ->  printf(\"hello, world\\n\");",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "جدول تطبیق تألیفی؛ معادل‌ها در درس‌نامه آمده‌اند."
+      },
+      "check": {
+        "id": "w01-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام جمله دربارهٔ هفتهٔ ۱ درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "مفاهیم Scratch مثل حلقه و شرط در C هم وجود دارند و فقط شکل نوشتنشان عوض می‌شود.",
+            "correct": true,
+            "feedback_fa": "درست. ایده‌ها همان‌اند؛ نحو (syntax) تازه است."
+          },
+          {
+            "id": "b",
+            "text_fa": "C هیچ ارتباطی با Scratch ندارد و همه‌چیز از صفر شروع می‌شود.",
+            "correct": false,
+            "feedback_fa": "نه. درس‌نامه صریحاً می‌گوید بلوک‌های سازندهٔ Scratch را در C به کار می‌بری."
+          },
+          {
+            "id": "c",
+            "text_fa": "در C نمی‌توان تابع یا حلقه نوشت.",
+            "correct": false,
+            "feedback_fa": "اتفاقاً این هفته هر دو را در C می‌نویسی."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l01-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مفهوم Scratch را به معادلش در C وصل کن: (۱) when green flag clicked (۲) say (۳) repeat",
+        "expected": {
+          "answers": {
+            "1": "int main(void)",
+            "2": "printf",
+            "3": "loop (for/while)"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ همین تطبیق، پل تو از Scratch به C است.",
+          "incorrect_fa": "دوباره به جدول نمونه نگاه کن: main نقطهٔ شروع است و printf چیزی را نشان می‌دهد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l01-u02",
+      "order": 2,
+      "title_fa": "کد منبع، کد ماشین و کامپایلر",
+      "concept_ids": [
+        "w01-c-source-code",
+        "w01-c-machine-code",
+        "w01-c-compiler"
+      ],
+      "objective_ids": [
+        "w01-o01"
+      ],
+      "note_id": "w01-n02",
+      "source_refs": [
+        "src-notes-1#source-code",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "کدی که انسان می‌نویسد «کد منبع» (source code) است. کامپیوتر فقط «کد ماشین» (machine code)، یعنی صفر و یک، را می‌فهمد. «کامپایلر» (compiler) برنامه‌ای است که کد منبع را به کد ماشین تبدیل می‌کند.",
+        "note_id": "w01-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "flowchart-compiler",
+        "lang": "text",
+        "content": "flowchart LR\n    in[\"source code\"] --> BOX[\" compiler \"]\n    BOX --> out[\"machine code\"]",
+        "source_ref": "src-notes-1#source-code",
+        "explain_fa": "این نمودار در منبع با Mermaid رسم شده و اینجا به‌صورت متن آمده است."
+      },
+      "check": {
+        "id": "w01-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ورودی و خروجی کامپایلر چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "ورودی: کد منبع؛ خروجی: کد ماشین",
+            "correct": true,
+            "feedback_fa": "درست. کامپایلر مترجم کد انسان‌خوان به صفر و یک است."
+          },
+          {
+            "id": "b",
+            "text_fa": "ورودی: کد ماشین؛ خروجی: کد منبع",
+            "correct": false,
+            "feedback_fa": "برعکس است. ما کد منبع می‌نویسیم و کامپیوتر کد ماشین اجرا می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "ورودی: ترمینال؛ خروجی: VS Code",
+            "correct": false,
+            "feedback_fa": "این‌ها محیط کار هستند، نه ورودی و خروجی کامپایلر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l01-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «کد منبع» یا «کد ماشین» علامت بزن: (۱) printf(\"hi\\n\"); (۲) 01001000 01101001 (۳) فایل hello.c",
+        "expected": {
+          "answers": {
+            "1": "source",
+            "2": "machine",
+            "3": "source"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. hello.c کد منبع است و خروجی make کد ماشین است.",
+          "incorrect_fa": "کد منبع را انسان می‌خواند و می‌نویسد؛ کد ماشین فقط صفر و یک است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l01-u03",
+      "order": 3,
+      "title_fa": "VS Code و خط فرمان",
+      "concept_ids": [
+        "w01-c-ide-regions",
+        "w01-c-gui-cli"
+      ],
+      "objective_ids": [
+        "w01-o02"
+      ],
+      "note_id": "w01-n03",
+      "source_refs": [
+        "src-notes-1#visual-studio-code-for-cs50",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "VS Code برای CS50 (در cs50.dev) سه بخش اصلی دارد: کاوشگر فایل (file explorer) برای دیدن فایل‌ها، ویرایشگر متن برای نوشتن کد و پنجرهٔ ترمینال برای وارد کردن فرمان. رابط گرافیکی (GUI) با کلیک کار می‌کند و رابط خط فرمان (CLI) با تایپ فرمان.",
+        "note_id": "w01-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n03"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "کاوشگر فایل  -> دیدن و مدیریت فایل‌ها و پوشه‌ها (GUI)\nویرایشگر     -> نوشتن hello.c\nترمینال      -> اجرای code، make و ./hello (CLI)",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "خلاصهٔ تألیفی بخش‌های محیط."
+      },
+      "check": {
+        "id": "w01-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فرمان make hello را کجا تایپ می‌کنی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "در پنجرهٔ ترمینال",
+            "correct": true,
+            "feedback_fa": "درست. ترمینال رابط خط فرمان است."
+          },
+          {
+            "id": "b",
+            "text_fa": "داخل فایل hello.c",
+            "correct": false,
+            "feedback_fa": "hello.c کد منبع است؛ فرمان‌ها در ترمینال اجرا می‌شوند."
+          },
+          {
+            "id": "c",
+            "text_fa": "در کاوشگر فایل",
+            "correct": false,
+            "feedback_fa": "کاوشگر فایل فقط فایل‌ها را نشان می‌دهد و فرمان اجرا نمی‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l01-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر کار را به «GUI» یا «CLI» نسبت بده: (۱) کلیک روی یک فایل در کاوشگر (۲) تایپ ls در ترمینال (۳) تایپ make hello",
+        "expected": {
+          "answers": {
+            "1": "GUI",
+            "2": "CLI",
+            "3": "CLI"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. هر فرمانی که تایپ می‌کنی از CLI است.",
+          "incorrect_fa": "GUI یعنی کلیک و پنجره؛ CLI یعنی تایپ فرمان."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l01-u04",
+      "order": 4,
+      "title_fa": "چرخهٔ code، make و ./",
+      "concept_ids": [
+        "w01-c-code-make-run",
+        "w01-c-main",
+        "w01-c-debugging-errors"
+      ],
+      "objective_ids": [
+        "w01-o01",
+        "w01-o12"
+      ],
+      "note_id": "w01-n04",
+      "source_refs": [
+        "src-notes-1#hello-world",
+        "src-pset-1#advice",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "طبق درس‌نامه، با `code hello.c` فایل را می‌سازی، با `make hello` آن را کامپایل می‌کنی و با `./hello` اجرا می‌کنی. `int main(void)` نقطهٔ شروع برنامه است. اگر کامپایلر خطا داد، از **اولین** خطا شروع کن.",
+        "note_id": "w01-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cmds-code-make-run",
+        "lang": "text",
+        "content": "code hello.c\n\nmake hello\n\n./hello",
+        "source_ref": "src-notes-1#hello-world",
+        "explain_fa": "سه فرمان رسمی درس‌نامه."
+      },
+      "check": {
+        "id": "w01-l01-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بعد از `make hello`، کدام فایل تازه در پوشه ساخته می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "hello (برنامهٔ اجرایی، کد ماشین)",
+            "correct": true,
+            "feedback_fa": "درست. make از hello.c فایل اجرایی hello را می‌سازد."
+          },
+          {
+            "id": "b",
+            "text_fa": "hello.c",
+            "correct": false,
+            "feedback_fa": "hello.c را خودت با code ساخته بودی؛ make آن را کامپایل می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "hello.exe",
+            "correct": false,
+            "feedback_fa": "در محیط لینوکسی cs50.dev پسوند .exe ساخته نمی‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l01-u04-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "فرمان‌ها را به ترتیب درست بچین تا برنامهٔ hello ساخته و اجرا شود.",
+        "lang": "bash",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "code hello.c"
+          },
+          {
+            "id": "p2",
+            "code": "make hello"
+          },
+          {
+            "id": "p3",
+            "code": "./hello"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "make hello.c",
+            "why_wrong_fa": "نام برنامه را بدون .c به make می‌دهیم."
+          },
+          {
+            "id": "d2",
+            "code": "./hello.c",
+            "why_wrong_fa": "فایل منبع اجرا نمی‌شود؛ فایل اجرایی را اجرا می‌کنیم."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: نوشتن، کامپایل، اجرا.",
+          "incorrect_fa": "اول باید فایل منبع وجود داشته باشد، بعد کامپایل شود، بعد اجرا."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -548,7 +548,7 @@
       "id": "week-1",
       "type": "week",
       "title": "Week 1 — C",
-      "path": "weeks/week-01-c/week.md",
+      "path": "anzali-fa/weeks/week-01/summary.fa.md",
       "parent": "course",
       "children": [
         "week-1-lecture",
@@ -563,7 +563,8 @@
         "pset-1",
         "practice-1-debug",
         "practice-1-half",
-        "practice-1-prime"
+        "practice-1-prime",
+        "w01-fa"
       ],
       "week": 1,
       "order": 1,
@@ -9155,6 +9156,820 @@
       "status": "draft-needs-human-review",
       "tags": [
         "anzali-fa"
+      ]
+    },
+    {
+      "id": "w01-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۱ — C (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-01/overview.fa.md",
+      "parent": "week-1",
+      "children": [
+        "w01-n01",
+        "w01-n02",
+        "w01-n03",
+        "w01-n04",
+        "w01-n05",
+        "w01-n06",
+        "w01-n07",
+        "w01-n08",
+        "w01-n09",
+        "w01-n10",
+        "w01-n11",
+        "w01-n12",
+        "w01-n13",
+        "w01-n14",
+        "w01-n15",
+        "w01-n16",
+        "w01-n17",
+        "w01-n18",
+        "w01-n19",
+        "w01-summary",
+        "w01-sec",
+        "w01-sh-data-types",
+        "w01-sh-operators",
+        "w01-sh-conditional-statements",
+        "w01-sh-loops",
+        "w01-sh-command-line",
+        "w01-sh-magic-numbers",
+        "w01-ps-world",
+        "w01-ps-me",
+        "w01-ps-mario-less",
+        "w01-ps-mario-more",
+        "w01-ps-cash",
+        "w01-ps-credit",
+        "w01-pr-debug",
+        "w01-pr-half",
+        "w01-pr-prime"
+      ],
+      "week": 1,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/1/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/1/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n01",
+      "type": "anzali-note",
+      "title": "خوش آمدید: از Scratch به C (Welcome!)",
+      "path": "anzali-fa/weeks/week-01/notes/01-welcome.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#welcome",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#welcome"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n02",
+      "type": "anzali-note",
+      "title": "کد منبع، کد ماشین و کامپایلر (Source Code)",
+      "path": "anzali-fa/weeks/week-01/notes/02-source-code.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#source-code",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#source-code"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n03",
+      "type": "anzali-note",
+      "title": "VS Code برای CS50: فایل‌ها، ویرایشگر و ترمینال (Visual Studio Code for CS50)",
+      "path": "anzali-fa/weeks/week-01/notes/03-vscode.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#visual-studio-code-for-cs50",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#visual-studio-code-for-cs50"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n04",
+      "type": "anzali-note",
+      "title": "سلام دنیا در C: نوشتن، کامپایل و اجرا (Hello World)",
+      "path": "anzali-fa/weeks/week-01/notes/04-hello-world.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#hello-world",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#hello-world"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n05",
+      "type": "anzali-note",
+      "title": "از Scratch به C: printf و دنبالهٔ گریز (From Scratch to C)",
+      "path": "anzali-fa/weeks/week-01/notes/05-from-scratch-to-c.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#from-scratch-to-c",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#from-scratch-to-c"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n06",
+      "type": "anzali-note",
+      "title": "فایل‌های سرآیند، کتابخانه‌ها و راهنمای CS50 (Header Files and CS50 Manual Pages)",
+      "path": "anzali-fa/weeks/week-01/notes/06-header-files.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#header-files-and-cs50-manual-pages",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#header-files-and-cs50-manual-pages"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n07",
+      "type": "anzali-note",
+      "title": "سلام به تو: get_string، متغیر و جای‌نگهدار (Hello, You)",
+      "path": "anzali-fa/weeks/week-01/notes/07-hello-you.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#hello-you",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#hello-you"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n08",
+      "type": "anzali-note",
+      "title": "لینوکس و فرمان‌های ترمینال (Linux)",
+      "path": "anzali-fa/weeks/week-01/notes/08-linux.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#linux",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#linux"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n09",
+      "type": "anzali-note",
+      "title": "شرط‌ها در C (Conditionals)",
+      "path": "anzali-fa/weeks/week-01/notes/09-conditionals.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#conditionals",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#conditionals"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n10",
+      "type": "anzali-note",
+      "title": "انواع داده در C (Types)",
+      "path": "anzali-fa/weeks/week-01/notes/10-types.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#types",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#types"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n11",
+      "type": "anzali-note",
+      "title": "کدهای قالب در printf (Format Codes)",
+      "path": "anzali-fa/weeks/week-01/notes/11-format-codes.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#format-codes",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#format-codes"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n12",
+      "type": "anzali-note",
+      "title": "متغیرها، انتساب و افزایش (Variables)",
+      "path": "anzali-fa/weeks/week-01/notes/12-variables.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#variables",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#variables"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n13",
+      "type": "anzali-note",
+      "title": "compare.c: مقایسهٔ دو عدد صحیح (compare.c)",
+      "path": "anzali-fa/weeks/week-01/notes/13-compare.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#comparec",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#comparec"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n14",
+      "type": "anzali-note",
+      "title": "agree.c: نویسه‌ها و عملگرهای منطقی (agree.c)",
+      "path": "anzali-fa/weeks/week-01/notes/14-agree.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#agreec",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#agreec"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n15",
+      "type": "anzali-note",
+      "title": "حلقه‌ها و meow.c (Loops and meow.c)",
+      "path": "anzali-fa/weeks/week-01/notes/15-loops-meow.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#loops-and-meowc",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#loops-and-meowc"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n16",
+      "type": "anzali-note",
+      "title": "توابع: انتزاع، پارامتر، حوزه و مقدار بازگشتی (Functions)",
+      "path": "anzali-fa/weeks/week-01/notes/16-functions.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#functions",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#functions"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n17",
+      "type": "anzali-note",
+      "title": "درستی، طراحی و سبک (Correctness, Design, Style)",
+      "path": "anzali-fa/weeks/week-01/notes/17-correctness-design-style.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#correctness-design-style",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#correctness-design-style"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n18",
+      "type": "anzali-note",
+      "title": "Mario: حلقه‌های تودرتو، ثابت و تابع کمکی (Mario)",
+      "path": "anzali-fa/weeks/week-01/notes/18-mario.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#mario",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#mario"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-n19",
+      "type": "anzali-note",
+      "title": "عملگرها، سرریز، بریدن و عدم دقت اعشار (Operators)",
+      "path": "anzali-fa/weeks/week-01/notes/19-operators.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#operators",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#operators"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۱ (Summing Up)",
+      "path": "anzali-fa/weeks/week-01/summary.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/notes/1/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/1/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۱ (Section 1)",
+      "path": "anzali-fa/weeks/week-01/section/section-1.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/sections/1/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/1/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sh-data-types",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: انواع داده (Data Types)",
+      "path": "anzali-fa/weeks/week-01/shorts/data-types.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/shorts/data_types/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/data_types/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sh-operators",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: عملگرها (Operators)",
+      "path": "anzali-fa/weeks/week-01/shorts/operators.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/shorts/operators/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/operators/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sh-conditional-statements",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: دستورهای شرطی (Conditional Statements)",
+      "path": "anzali-fa/weeks/week-01/shorts/conditional-statements.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 24,
+      "source_url": "https://cs50.harvard.edu/x/shorts/conditional_statements/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/conditional_statements/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sh-loops",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: حلقه‌ها (Loops)",
+      "path": "anzali-fa/weeks/week-01/shorts/loops.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 25,
+      "source_url": "https://cs50.harvard.edu/x/shorts/loops/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/loops/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sh-command-line",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: خط فرمان لینوکس (Command Line)",
+      "path": "anzali-fa/weeks/week-01/shorts/command-line.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 26,
+      "source_url": "https://cs50.harvard.edu/x/shorts/command_line/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/command_line/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-sh-magic-numbers",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: عددهای جادویی (Magic Numbers)",
+      "path": "anzali-fa/weeks/week-01/shorts/magic-numbers.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 27,
+      "source_url": "https://cs50.harvard.edu/x/shorts/magic_numbers/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/magic_numbers/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-ps-world",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای سلام، دنیا",
+      "path": "anzali-fa/weeks/week-01/problem-sets/world.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/psets/1/world/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/1/world/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-ps-me",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای سلام، منم",
+      "path": "anzali-fa/weeks/week-01/problem-sets/me.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 29,
+      "source_url": "https://cs50.harvard.edu/x/psets/1/me/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/1/me/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-ps-mario-less",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای ماریو (نسخهٔ آسان‌تر)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/mario-less.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 30,
+      "source_url": "https://cs50.harvard.edu/x/psets/1/mario/less/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/1/mario/less/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-ps-mario-more",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای ماریو (نسخهٔ چالشی‌تر)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/mario-more.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 31,
+      "source_url": "https://cs50.harvard.edu/x/psets/1/mario/more/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/1/mario/more/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-ps-cash",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای پول خرد (Cash)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/cash.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 32,
+      "source_url": "https://cs50.harvard.edu/x/psets/1/cash/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/1/cash/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-ps-credit",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای کارت اعتباری (Credit)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/credit.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 33,
+      "source_url": "https://cs50.harvard.edu/x/psets/1/credit/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/1/credit/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-pr-debug",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای اشکال‌زدایی (Debug)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/debug.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 34,
+      "source_url": "https://cs50.harvard.edu/x/practice/debug/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/practice/debug/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-pr-half",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای نصف صورت‌حساب (Half)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/half.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 35,
+      "source_url": "https://cs50.harvard.edu/x/practice/half/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/practice/half/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
+      ]
+    },
+    {
+      "id": "w01-pr-prime",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای عددهای اول (Prime)",
+      "path": "anzali-fa/weeks/week-01/problem-sets/prime.fa.md",
+      "parent": "w01-fa",
+      "children": [],
+      "week": 1,
+      "order": 36,
+      "source_url": "https://cs50.harvard.edu/x/practice/prime/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/practice/prime/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-1"
       ]
     }
   ]

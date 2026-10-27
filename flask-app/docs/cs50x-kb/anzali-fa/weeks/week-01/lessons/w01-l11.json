@@ -1,0 +1,384 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l11",
+  "type": "lesson",
+  "week": 1,
+  "order": 11,
+  "stage_id": "w01-s4",
+  "title_fa": "درستی، طراحی، سبک و Mario",
+  "title_en": "Correctness, design, style and Mario",
+  "note_ids": [
+    "w01-n17",
+    "w01-n18"
+  ],
+  "related_doc_ids": [
+    "w01-sh-magic-numbers"
+  ],
+  "prerequisite_lesson_ids": [
+    "w01-l10"
+  ],
+  "concept_ids": [
+    "w01-c-correctness-design-style",
+    "w01-c-nested-loops",
+    "w01-c-constant",
+    "w01-c-magic-numbers",
+    "w01-c-helper-function"
+  ],
+  "objective_ids": [
+    "w01-o12",
+    "w01-o10",
+    "w01-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l10"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l11-u01",
+      "order": 1,
+      "title_fa": "سه محور کیفیت کد",
+      "concept_ids": [
+        "w01-c-correctness-design-style"
+      ],
+      "objective_ids": [
+        "w01-o12"
+      ],
+      "note_id": "w01-n17",
+      "source_refs": [
+        "src-notes-1#correctness-design-style",
+        "src-anzali-authored-1",
+        "src-section-1",
+        "src-style-guide-c"
+      ],
+      "reading": {
+        "text_fa": "کد را روی سه محور می‌سنجند: **درستی** (آیا کار خواسته‌شده را می‌کند؟ با `check50`)، **طراحی** (آیا خوب و بدون تکرار نوشته شده؟ با `design50`) و **سبک** (آیا خوانا و مرتب است؟ با `style50`).",
+        "note_id": "w01-n17",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n17"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "check50  -> correctness\ndesign50 -> design\nstyle50  -> style",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "جدول تألیفی بر پایهٔ درس‌نامه."
+      },
+      "check": {
+        "id": "w01-l11-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام ابزار فاصله‌گذاری و تورفتگی کدت را بررسی می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "style50",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "check50",
+            "correct": false,
+            "feedback_fa": "check50 درستی را می‌سنجد."
+          },
+          {
+            "id": "c",
+            "text_fa": "make",
+            "correct": false,
+            "feedback_fa": "make کامپایل می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l11-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر بازخورد را به یک محور نسبت بده: (۱) «برای ورودی ۰ خروجی غلط است» (۲) «این سه خط تکراری را با حلقه بنویس» (۳) «آکولاد را در خط خودش بگذار»",
+        "expected": {
+          "answers": {
+            "1": "correctness",
+            "2": "design",
+            "3": "style"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "درستی = نتیجه؛ طراحی = ساختار؛ سبک = ظاهر."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l11-u02",
+      "order": 2,
+      "title_fa": "حلقه‌های تودرتو",
+      "concept_ids": [
+        "w01-c-nested-loops"
+      ],
+      "objective_ids": [
+        "w01-o10"
+      ],
+      "note_id": "w01-n18",
+      "source_refs": [
+        "src-notes-1#mario",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه برای ساختن یک شبکهٔ ۳ در ۳ از آجرها حلقه‌ای درون حلقهٔ دیگر می‌گذارد: حلقهٔ بیرونی ردیف‌ها و حلقهٔ درونی ستون‌ها را می‌شمارد. بعد از هر ردیف یک `\\n` چاپ می‌شود.",
+        "note_id": "w01-n18",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n18"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "mario-grid",
+        "lang": "c",
+        "content": "// Prints a 3-by-3 grid of bricks with nested loops\n\n#include <stdio.h>\n\nint main(void)\n{\n    for (int i = 0; i < 3; i++)\n    {\n        for (int j = 0; j < 3; j++)\n        {\n            printf(\"#\");\n        }\n        printf(\"\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#mario",
+        "explain_fa": "نسخهٔ رسمی شبکهٔ ۳ در ۳."
+      },
+      "check": {
+        "id": "w01-l11-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در نسخهٔ رسمی، printf(\"#\") در مجموع چند بار اجرا می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "۹ بار",
+            "correct": true,
+            "feedback_fa": "درست: ۳ ردیف × ۳ ستون."
+          },
+          {
+            "id": "b",
+            "text_fa": "۶ بار",
+            "correct": false,
+            "feedback_fa": "ضرب کن، نه جمع."
+          },
+          {
+            "id": "c",
+            "text_fa": "۳ بار",
+            "correct": false,
+            "feedback_fa": "حلقهٔ درونی در هر دور بیرونی سه بار اجرا می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l11-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nfor (int i = 0; i < 2; i++)\n{\n    for (int j = 0; j < 4; j++)\n    {\n        printf(\"*\");\n    }\n    printf(\"\\n\");\n}",
+        "expected": {
+          "output": "****\n****\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: ۲ ردیف ۴تایی.",
+          "incorrect_fa": "حلقهٔ بیرونی ردیف‌ها (۲) و درونی ستون‌ها (۴) است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l11-u03",
+      "order": 3,
+      "title_fa": "ثابت و عدد جادویی",
+      "concept_ids": [
+        "w01-c-constant",
+        "w01-c-magic-numbers"
+      ],
+      "objective_ids": [
+        "w01-o10"
+      ],
+      "note_id": "w01-n18",
+      "source_refs": [
+        "src-notes-1#mario",
+        "src-short-magic-numbers",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه با `const int n = 3;` اندازه را یک بار تعریف می‌کند تا به‌جای تکرار عدد ۳ در چند جا، یک نام معنادار داشته باشی و نتوانی تصادفاً عوضش کنی. ویدئوی کوتاه Magic Numbers به عددهای بی‌نام در کد «عدد جادویی» می‌گوید و `#define` را هم معرفی می‌کند.",
+        "note_id": "w01-n18",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n18"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "mario-grid-const",
+        "lang": "c",
+        "content": "// Prints a 3-by-3 grid of bricks with nested loops using a constant\n\n#include <stdio.h>\n\nint main(void)\n{\n    const int n = 3;\n    for (int i = 0; i < n; i++)\n    {\n        for (int j = 0; j < n; j++)\n        {\n            printf(\"#\");\n        }\n        printf(\"\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#mario",
+        "explain_fa": "نسخهٔ رسمی با const."
+      },
+      "check": {
+        "id": "w01-l11-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا `const int n = 3;` طراحی بهتری از نوشتن ۳ در دو حلقه است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "اندازه یک جا تعریف می‌شود و تغییرش آسان و امن است",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "برنامه سریع‌تر می‌شود",
+            "correct": false,
+            "feedback_fa": "هدف خوانایی و نگهداری است."
+          },
+          {
+            "id": "c",
+            "text_fa": "const لازم است تا حلقه کار کند",
+            "correct": false,
+            "feedback_fa": "بدون const هم کار می‌کند، ولی طراحی ضعیف‌تری دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l11-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "در این قطعهٔ تألیفی عدد جادویی کدام است و چه نامی برایش پیشنهاد می‌کنی؟\n\nfor (int i = 0; i < 7; i++)\n{\n    printf(\"day\\n\");\n}",
+        "expected": {
+          "accept_fa": [
+            "7؛ مثلاً DAYS_PER_WEEK یا days"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "درست. یک نام معنادار کد را خودتوضیح می‌کند.",
+          "incorrect_fa": "عددی را پیدا کن که معنایش از کد پیدا نیست."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l11-u04",
+      "order": 4,
+      "title_fa": "تابع کمکی برای زیرمسئله",
+      "concept_ids": [
+        "w01-c-helper-function"
+      ],
+      "objective_ids": [
+        "w01-o10",
+        "w01-o09"
+      ],
+      "note_id": "w01-n18",
+      "source_refs": [
+        "src-notes-1#mario",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "در نسخهٔ نهایی درس‌نامه، چاپ یک ردیف به تابع کمکی جدایی منتقل می‌شود. این یعنی مسئلهٔ بزرگ را به زیرمسئله‌های کوچک بشکنی و هر کدام را یک بار حل کنی.",
+        "note_id": "w01-n18",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n18"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "mario-helper",
+        "lang": "c",
+        "content": "// Helper function\n\n#include <stdio.h>\n\nvoid print_row(int width);\n\nint main(void)\n{\n    const int n = 3;\n    for (int i = 0; i < n; i++)\n    {\n        print_row(n);\n    }\n}\n\nvoid print_row(int width)\n{\n    for (int i = 0; i < width; i++)\n    {\n        printf(\"#\");\n    }\n    printf(\"\\n\");\n}",
+        "source_ref": "src-notes-1#mario",
+        "explain_fa": "نسخهٔ رسمی با تابع کمکی (مربع، نه هرم پرابلم‌ست)."
+      },
+      "check": {
+        "id": "w01-l11-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "مزیت اصلی جدا کردن چاپ ردیف در یک تابع چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "main کوتاه‌تر و خواناتر می‌شود و آن کار قابل استفادهٔ دوباره است",
+            "correct": true,
+            "feedback_fa": "درست؛ این انتزاع (abstraction) است."
+          },
+          {
+            "id": "b",
+            "text_fa": "برنامه کم‌حافظه‌تر می‌شود",
+            "correct": false,
+            "feedback_fa": "هدف خوانایی است."
+          },
+          {
+            "id": "c",
+            "text_fa": "بدون آن کامپایل نمی‌شود",
+            "correct": false,
+            "feedback_fa": "بدون تابع کمکی هم کامپایل می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l11-u04-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "برنامه‌ای تألیفی را تصور کن که یک جدول ضرب ۵ در ۵ چاپ می‌کند. یک زیرمسئله نام ببر که می‌تواند تابع کمکی شود و پارامترش چه باشد.",
+        "expected": {
+          "rubric_fa": [
+            "زیرمسئلهٔ مشخص (مثلاً چاپ یک ردیف)",
+            "پارامتر معنادار (مثلاً شمارهٔ ردیف)"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی.",
+          "incorrect_fa": "به کاری فکر کن که برای هر ردیف تکرار می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

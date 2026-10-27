@@ -1,0 +1,170 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-pr-prime",
+  "kind": "practice",
+  "week": 1,
+  "title_en": "Prime",
+  "title_fa": "عددهای اول (Prime)",
+  "guide_doc_id": "w01-pr-prime",
+  "guide_file": "prime.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/practice/prime/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w01-pr-prime-r1",
+        "text_fa": "تابع بولی prime را کامل کن.",
+        "text_en": "complete the Boolean function, `prime`, which tests if a number is prime, and returns true if it is, and false if it is not.",
+        "source_ref": "src-practice-prime#getting-started"
+      },
+      {
+        "id": "w01-pr-prime-r2",
+        "text_fa": "main بازه را با هر دو سر شامل بررسی می‌کند.",
+        "text_en": "iterates through the range specified by the user, with both ends inclusive",
+        "source_ref": "src-practice-prime#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/prime",
+      "style50": "style50 prime.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/1/prime.c"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی: بازهٔ ۱ تا ۱۰۰",
+        "text": "prime/ $ ./prime\nMinimum: 1\nMaximum: 100\n2\n3\n5\n7\n11\n13\n17\n19\n23\n29\n31\n37\n41\n43\n47\n53\n59\n61\n67\n71\n73\n79\n83\n89\n97",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/prime",
+      "style50": "style50 prime.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [
+      "w01-m-prime-numbers",
+      "w01-m-prime-demo"
+    ],
+    "discrepancy_ids": [
+      "d15"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-for-loop",
+      "w01-c-arithmetic-operators",
+      "w01-c-function-definition",
+      "w01-c-return-value",
+      "w01-c-data-types",
+      "w01-c-else-if-chain"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l09",
+      "w01-l10",
+      "w01-l12"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-for-loop",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u02"
+      },
+      {
+        "concept_id": "w01-c-arithmetic-operators",
+        "note_id": "w01-n19",
+        "lesson_id": "w01-l12",
+        "unit_id": "w01-l12-u01"
+      },
+      {
+        "concept_id": "w01-c-function-definition",
+        "note_id": "w01-n16",
+        "lesson_id": "w01-l10",
+        "unit_id": "w01-l10-u01"
+      },
+      {
+        "concept_id": "w01-c-return-value",
+        "note_id": "w01-n16",
+        "lesson_id": "w01-l10",
+        "unit_id": "w01-l10-u03"
+      },
+      {
+        "concept_id": "w01-c-data-types",
+        "note_id": "w01-n10",
+        "lesson_id": "w01-l05",
+        "unit_id": "w01-l05-u01"
+      },
+      {
+        "concept_id": "w01-c-else-if-chain",
+        "note_id": "w01-n09",
+        "lesson_id": "w01-l07",
+        "unit_id": "w01-l07-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "صفحهٔ رسمی یادآوری می‌کند باقی‌مانده (`%`) به کار می‌آید."
+      },
+      {
+        "n": 2,
+        "hint_fa": "طبق تعریف ۱ اول نیست و تنها عدد اول زوج ۲ است."
+      },
+      {
+        "n": 3,
+        "hint_fa": "تابع بولی می‌تواند به محض یافتن یک مقسوم‌علیه، فوراً false برگرداند."
+      }
+    ],
+    "common_mistakes_fa": [
+      "اول شمردن ۱",
+      "بررسی تقسیم بر خود عدد",
+      "برگرداندن true پیش از بررسی همهٔ مقسوم‌علیه‌ها"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-pr-prime-c01",
+        "text_fa": "۱ اول شمرده نمی‌شود.",
+        "maps_to": "w01-pr-prime-r1"
+      },
+      {
+        "id": "w01-pr-prime-c02",
+        "text_fa": "۲ اول شمرده می‌شود.",
+        "maps_to": "w01-pr-prime-r1"
+      },
+      {
+        "id": "w01-pr-prime-c03",
+        "text_fa": "خروجی بازهٔ ۱ تا ۱۰۰ با نمونهٔ رسمی یکی است.",
+        "maps_to": "w01-pr-prime-r1"
+      },
+      {
+        "id": "w01-pr-prime-c04",
+        "text_fa": "بازه‌ای کوچک مثل ۱۰ تا ۲۰ را هم با دست بررسی کرده‌ام.",
+        "maps_to": "w01-pr-prime-r2"
+      },
+      {
+        "id": "w01-pr-prime-c05",
+        "text_fa": "check50 و style50 را اجرا کرده‌ام.",
+        "maps_to": "check50"
+      }
+    ],
+    "thought_question_fa": "آیا می‌توانی الگوریتم یافتن اعداد اول را کاراتر کنی؟ راه دیگری برای تولید اعداد اول به ذهنت می‌رسد؟",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

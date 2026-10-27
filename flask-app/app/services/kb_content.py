@@ -79,6 +79,9 @@ def week_payload(site_number: int) -> dict | None:
     rendered_fa_overview = None
     rendered_fa_summary = None
     fa_notes = []
+    fa_shorts = []
+    fa_sections = []
+    fa_psets = []
     fa_pset = None
 
     if fa_hub:
@@ -87,7 +90,7 @@ def week_payload(site_number: int) -> dict | None:
         if fa_overview_path:
             rendered_fa_overview = md_render.load_and_render(fa_overview_path)
 
-        # استخراج زیرگره‌های فارسی (یادداشت‌ها، جمع‌بندی، پرابلم‌ست)
+        # استخراج زیرگره‌های فارسی (یادداشت‌ها، جمع‌بندی، پرابلم‌ست، شورت‌ها و سکشن‌ها)
         for c in kb_repo.children_of(fa_hub["id"]):
             ctype = c.get("type") or ""
             cid = c.get("id") or ""
@@ -102,14 +105,33 @@ def week_payload(site_number: int) -> dict | None:
                 p_sum = kb_repo.resolve_path(c)
                 if p_sum:
                     rendered_fa_summary = md_render.load_and_render(p_sum)
-            elif ctype == "problem-set" or "ps-" in cid:
-                fa_pset = {
+            elif ctype == "anzali-short":
+                fa_shorts.append({
                     "id": cid,
                     "title": c.get("title") or cid,
+                    "order": c.get("order", 99),
+                    "source_url": c.get("source_url"),
+                })
+            elif ctype == "anzali-section":
+                fa_sections.append({
+                    "id": cid,
+                    "title": c.get("title") or cid,
+                    "order": c.get("order", 99),
+                    "source_url": c.get("source_url"),
+                })
+            elif ctype in ("anzali-pset-guide", "anzali-practice-guide", "problem-set") or "-ps-" in cid or "-pr-" in cid or "ps-" in cid:
+                pset_item = {
+                    "id": cid,
+                    "title": c.get("title") or cid,
+                    "type": ctype,
                     "source_url": c.get("source_url"),
                 }
+                fa_psets.append(pset_item)
+                if fa_pset is None:
+                    fa_pset = pset_item
 
         fa_notes.sort(key=lambda x: x["order"])
+        fa_shorts.sort(key=lambda x: x["order"])
 
     children = []
     for c in kb_repo.children_of(node["id"]):
@@ -145,6 +167,9 @@ def week_payload(site_number: int) -> dict | None:
         "rendered_fa_summary": rendered_fa_summary,
         "rendered_en": rendered_en,
         "fa_notes": fa_notes,
+        "fa_shorts": fa_shorts,
+        "fa_sections": fa_sections,
+        "fa_psets": fa_psets,
         "fa_pset": fa_pset,
         "license": "CC BY-NC-SA 4.0",
         "attribution": "CS50x 2026 © David J. Malan, Harvard University",
