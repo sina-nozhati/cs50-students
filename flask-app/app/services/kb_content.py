@@ -208,6 +208,27 @@ def get_document(doc_id: str) -> dict | None:
             "rendered": counterpart_rendered,
         }
 
+    # ناوبری هوشمند قبلی و بعدی برای یادداشت‌های درسی
+    siblings_nav = None
+    if parent and (node.get("type") == "anzali-note" or nid.startswith(("w00-n", "w01-n", "w02-n"))):
+        all_notes = [
+            c for c in kb_repo.children_of(parent["id"])
+            if c.get("type") == "anzali-note" or (c.get("id") or "").startswith(("w00-n", "w01-n", "w02-n"))
+        ]
+        all_notes.sort(key=lambda x: x.get("order", 99))
+        note_ids = [n["id"] for n in all_notes]
+        if nid in note_ids:
+            idx = note_ids.index(nid)
+            prev_node = all_notes[idx - 1] if idx > 0 else None
+            next_node = all_notes[idx + 1] if idx < len(all_notes) - 1 else None
+            siblings_nav = {
+                "prev": {"id": prev_node["id"], "title": prev_node.get("title")} if prev_node else None,
+                "next": {"id": next_node["id"], "title": next_node.get("title")} if next_node else None,
+                "current_index": idx + 1,
+                "total_count": len(all_notes),
+                "progress_pct": int(((idx + 1) / len(all_notes)) * 100) if all_notes else 0,
+            }
+
     return {
         "id": node["id"],
         "title": node.get("title") or node["id"],
@@ -219,6 +240,7 @@ def get_document(doc_id: str) -> dict | None:
         "site_number": site_n,
         "is_fa": is_fa,
         "counterpart": counterpart,
+        "siblings_nav": siblings_nav,
         "children": [
             {
                 "id": c["id"],

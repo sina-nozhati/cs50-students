@@ -166,3 +166,70 @@ graph TD
         # بررسی وجود fallback متنی برای دیاگرام mermaid
         assert "kb-mermaid-fallback" in html
         assert "A --&gt; B" in html or "A --> B" in html
+
+
+class TestInteractiveKbFeatures:
+    def test_siblings_navigation(self):
+        doc1 = kb_service.get_document("w00-n01")
+        assert doc1 is not None
+        nav1 = doc1.get("siblings_nav")
+        assert nav1 is not None
+        assert nav1["prev"] is None
+        assert nav1["next"] is not None
+        assert nav1["next"]["id"] == "w00-n02"
+        assert nav1["current_index"] == 1
+        assert nav1["total_count"] == 16
+
+        doc2 = kb_service.get_document("w00-n02")
+        assert doc2 is not None
+        nav2 = doc2.get("siblings_nav")
+        assert nav2 is not None
+        assert nav2["prev"]["id"] == "w00-n01"
+        assert nav2["next"]["id"] == "w00-n03"
+        assert nav2["current_index"] == 2
+
+    def test_interactive_service_loaders(self, app):
+        from app.services import kb_interactive
+        cards = kb_interactive.load_flashcards_for_week(0)
+        assert len(cards) > 0
+        assert "front_fa" in cards[0]
+        assert "back_fa" in cards[0]
+
+        quizzes = kb_interactive.load_quizzes_for_week(0)
+        assert len(quizzes) > 0
+        assert "prompt_fa" in quizzes[0]
+
+        glossary = kb_interactive.load_glossary_for_week(0)
+        assert len(glossary) > 0
+        assert "fa" in glossary[0]
+        assert "en" in glossary[0]
+
+        faqs = kb_interactive.load_faqs_for_week(0)
+        assert len(faqs) > 0
+        assert "q" in faqs[0]
+        assert "a" in faqs[0]
+
+    def test_quiz_submission_and_scoring(self, app, client):
+        with app.app_context():
+            u = User(username="quiz_student", password_hash=generate_password_hash("pw"))
+            db.session.add(u)
+            db.session.add(Week(number=0, title="Scratch", is_published=True))
+            db.session.commit()
+            uid = u.id
+
+        client.post("/login", data={"username": "quiz_student", "password": "pw"})
+
+        # ارسال پاسخ صحیح به اولین سوال (w00-q-001 پاسخ صحیح 'a' است: CS50 Duck)
+        res = client.post("/kb/week/0/quiz/submit", data={"question_id": "w00-q-001", "answer": "a"})
+        assert res.status_code == 200
+        json_data = res.get_json()
+        assert json_data["success"] is True
+        assert json_data["is_correct"] is True
+        assert json_data["current_score"] >= 1
+
+        # ارسال مرور فلش‌کارت
+        fc_res = client.post("/kb/week/0/flashcard/review", data={"card_id": "w00-fc-001", "rating": "good"})
+        assert fc_res.status_code == 200
+        fc_json = fc_res.get_json()
+        assert fc_json["success"] is True
+        assert fc_json["box_number"] == 2

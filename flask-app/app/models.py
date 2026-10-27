@@ -188,6 +188,26 @@ class ExerciseAttempt(db.Model):
     )
 
 
+class FlashcardProgress(db.Model):
+    """وضعیت مرور فلش‌کارت دانش‌آموز بر اساس جعبه لایتنر و فواصل زمانی SM-2."""
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(
+        db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    week = db.Column(db.Integer, nullable=False, index=True)
+    card_id = db.Column(db.String(50), nullable=False, index=True)
+    box_number = db.Column(db.Integer, default=1, nullable=False)  # 1..5
+    repetitions = db.Column(db.Integer, default=0, nullable=False)
+    interval_days = db.Column(db.Integer, default=1, nullable=False)
+    ease_factor = db.Column(db.Float, default=2.5, nullable=False)
+    next_review = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, index=True)
+    last_reviewed = db.Column(db.DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        db.UniqueConstraint("user_id", "card_id", name="uq_user_card"),
+    )
+
+
 class StreakFreeze(db.Model):
     """فریز استریک برای روزهای اضطراری یا غیبت موجه."""
     id = db.Column(db.Integer, primary_key=True)

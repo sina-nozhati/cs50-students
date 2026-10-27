@@ -4,191 +4,509 @@
 {% block title %}{% if week_data %}{{ week_data.title_fa }}{% else %}{{ title }}{% endif %}{% endblock %}
 
 {% block content %}
-<nav class="mb-4 text-sm">
-  <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer inline-flex items-center gap-1">
+<nav class="mb-4 text-sm" aria-label="مسیر راهنما">
+  <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer inline-flex items-center gap-1.5 font-semibold">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-    پایگاه دانش
+    پایگاه دانش CS50x
   </a>
 </nav>
 
 {% if week_data %}
-<header class="card-harvard p-6 sm:p-8 mb-6 bg-gradient-to-l from-crimson-tint/40 to-white">
-  <div class="flex flex-wrap items-center gap-2 mb-3">
-    <span class="kb-chip num">
-      {% if week == 71 %}هفته AI{% elif week == 99 %}پروژه نهایی{% else %}هفته {{ week }}{% endif %}
-    </span>
-    {% if week_data.source_url %}
-    <a href="{{ week_data.source_url }}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-crimson hover:underline cursor-pointer">منبع رسمی</a>
-    {% endif %}
-  </div>
-  <h1 class="text-2xl sm:text-3xl font-extrabold">{{ week_data.title_fa }}</h1>
-  <p class="text-[var(--slate)] mt-1" dir="ltr">{{ week_data.title_en }}</p>
-</header>
-
-{% if week_data.topics %}
-<section class="mb-6">
-  <h2 class="kb-section-title">برچسب‌ها / مباحث</h2>
-  <div class="flex flex-wrap gap-2">
-    {% for t in week_data.topics[:12] %}
-    <span class="kb-chip">{{ t }}</span>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
-{# ─── بخش ۱: یادداشت‌های درس به زبان فارسی (در صورت وجود بسته فارسی) ─── #}
-{% if week_data.has_fa and week_data.fa_notes %}
-<section class="mb-8">
-  <div class="flex items-center justify-between gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">یادداشت‌های درس (فارسی و گام‌به‌گام)</h2>
-    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white num">{{ week_data.fa_notes|length }} بخش</span>
-  </div>
-  <p class="text-xs text-[var(--slate)] mb-4">متن آموزشی بومی‌سازی‌شده منطبق با مباحث تدریس‌شده در لکچر رسمی CS50.</p>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-    {% for note in week_data.fa_notes %}
-    <a href="{{ url_for('kb.doc_page', doc_id=note.id) }}"
-       class="card-harvard p-4 flex items-start gap-3 hover:border-crimson hover:bg-crimson-tint/20 border border-[var(--border)] cursor-pointer transition-all duration-200 group">
-      <span class="w-7 h-7 rounded-full bg-crimson-tint text-crimson font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 num group-hover:bg-crimson group-hover:text-white transition-colors">
-        {{ loop.index }}
-      </span>
-      <div class="min-w-0 flex-1">
-        <p class="font-bold text-sm leading-snug group-hover:text-crimson transition-colors">{{ note.title }}</p>
-        <span class="text-[11px] text-[var(--slate)] mt-1 inline-flex items-center gap-1">
-          مطالعه یادداشت
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        </span>
-      </div>
-    </a>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
-{# ─── بخش ۲: راهنمای پروژه و تمرین‌های هفتگی ─── #}
-{% if week_data.fa_pset %}
-<section class="mb-8">
-  <h2 class="kb-section-title">راهنمای فارسی پرابلم‌ست (Problem Set)</h2>
-  <a href="{{ url_for('kb.doc_page', doc_id=week_data.fa_pset.id) }}"
-     class="card-harvard p-5 flex items-center justify-between border-r-4 border-crimson hover:bg-crimson-tint/20 transition-all cursor-pointer">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center font-bold">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+{# ─── بخش ۱: هدر هویت هفته (Hero Crimson Banner) ─── #}
+<header class="rounded-2xl p-6 sm:p-8 mb-6 bg-gradient-to-br from-crimson to-crimson-dark text-white shadow-md relative overflow-hidden">
+  <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div class="flex items-start gap-4">
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 border border-white/20 text-white flex items-center justify-center font-extrabold text-2xl sm:text-3xl shrink-0 num shadow-inner">
+        {% if week == 71 %}AI{% elif week == 99 %}★{% else %}{{ week }}{% endif %}
       </div>
       <div>
-        <h3 class="font-bold text-sm text-[var(--ink)]">{{ week_data.fa_pset.title }}</h3>
-        <p class="text-xs text-[var(--slate)] mt-0.5">راهنمای گام‌به‌گام صورت مسئله، الزامات رسمی و چک‌لیست خودارزیابی</p>
+        <div class="flex flex-wrap items-center gap-2 mb-1.5">
+          <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/25 num">
+            {% if week == 71 %}هفته هوش مصنوعی{% elif week == 99 %}پروژه نهایی{% else %}هفته {{ week }}{% endif %}
+          </span>
+          {% if week_data.source_url %}
+          <a href="{{ week_data.source_url }}" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-1 text-xs font-semibold text-white/90 hover:text-white underline underline-offset-2 cursor-pointer">
+            <span>منبع رسمی هاروارد</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          {% endif %}
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">{{ week_data.title_fa }}</h1>
+        <p class="text-white/75 mt-1 font-mono text-xs sm:text-sm" dir="ltr">{{ week_data.title_en }}</p>
       </div>
     </div>
-    <span class="btn-crimson text-xs py-2 px-4 shrink-0">ورود به راهنما</span>
-  </a>
-</section>
-{% endif %}
 
-{% set ns = namespace(has_official_link=false) %}
-{% if week_data.source_url or week_data.source_urls %}
-{% set ns.has_official_link = true %}
-{% endif %}
-{% for c in week_data.children %}
-  {% if c.source_url %}{% set ns.has_official_link = true %}{% endif %}
-{% endfor %}
+    {# ویجت پیشرفت کلی هفته #}
+    <div class="bg-black/20 backdrop-blur-md rounded-xl p-4 border border-white/15 min-w-[220px]">
+      <div class="flex items-center justify-between text-xs text-white/90 font-semibold mb-2">
+        <span>پیشرفت یادگیری هفته</span>
+        <span class="num text-sm font-extrabold">{{ interactive_summary.progress_pct if interactive_summary else 0 }}٪</span>
+      </div>
+      <div class="w-full bg-white/20 rounded-full h-2.5 overflow-hidden">
+        <div class="bg-white h-full rounded-full transition-all duration-500" style="width: {{ interactive_summary.progress_pct if interactive_summary else 0 }}%;"></div>
+      </div>
+      <div class="mt-2.5 flex items-center justify-between text-[11px] text-white/75">
+        <span class="flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full {% if interactive_summary and interactive_summary.kb_read %}bg-emerald-400{% else %}bg-white/40{% endif %}"></span>
+          جزوه
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full {% if interactive_summary and interactive_summary.flashcards_reviewed %}bg-emerald-400{% else %}bg-white/40{% endif %}"></span>
+          فلش‌کارت
+        </span>
+        <span class="flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full {% if interactive_summary and interactive_summary.quiz_completed %}bg-emerald-400{% else %}bg-white/40{% endif %}"></span>
+          آزمون
+        </span>
+      </div>
+    </div>
+  </div>
 
-{% if ns.has_official_link %}
-<section class="mb-8">
-  <h2 class="kb-section-title">لینک‌های رسمی</h2>
-  <div class="flex flex-wrap gap-2">
-    {{ link_chip('صفحهٔ هفته', week_data.source_url) }}
-    {% for url in week_data.source_urls or [] %}
-      {% if url != week_data.source_url %}
-      {{ link_chip('منبع', url) }}
-      {% endif %}
+  {% if week_data.topics %}
+  <div class="mt-5 pt-4 border-t border-white/15 flex flex-wrap gap-2 items-center">
+    <span class="text-xs text-white/70 font-semibold">مباحث:</span>
+    {% for t in week_data.topics[:10] %}
+    <span class="inline-flex px-2.5 py-0.5 rounded-md text-xs font-medium bg-white/15 text-white border border-white/20">{{ t }}</span>
     {% endfor %}
-    {% for c in week_data.children %}
-      {% if c.source_url %}
-      {{ link_chip(c.title, c.source_url) }}
-      {% endif %}
-    {% endfor %}
   </div>
-</section>
-{% endif %}
+  {% endif %}
+</header>
 
-{# ─── بخش ۳: خلاصه و نمای کلی هفته ─── #}
-{% if week_data.has_fa and week_data.rendered_fa_overview %}
-<section class="mb-8">
-  <div class="flex items-center gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">نمای کلی و مسیر یادگیری هفته</h2>
-    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">راهنمای فارسی</span>
-  </div>
-  <div class="kb-prose card-harvard p-5 sm:p-6">
-    {{ week_data.rendered_fa_overview.full_html|safe }}
-  </div>
-</section>
-{% endif %}
+{# ─── بخش ۲: نوار افقی تب‌ها (Horizontal Navigation Tabs) ─── #}
+<nav class="kb-tab-bar mb-6 sticky top-2 z-20 bg-[var(--canvas)]/95 backdrop-blur-md py-1" aria-label="تب‌های آموزشی">
+  <button type="button" class="kb-tab-btn active" data-tab="tab-notes" onclick="switchKbTab('tab-notes')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span>یادداشت‌ها و نقشه</span>
+    {% if week_data.fa_notes %}
+    <span class="inline-flex px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-white/20 text-current num">{{ week_data.fa_notes|length }}</span>
+    {% endif %}
+  </button>
 
-{# ─── بخش ۴: جمع‌بندی هفته (در صورت وجود) ─── #}
-{% if week_data.has_fa and week_data.rendered_fa_summary %}
-<section class="mb-8">
-  <div class="flex items-center gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">جمع‌بندی هفته (مرور سریع مفاهیم)</h2>
-    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson-dark)] text-white">خلاصه فارسی</span>
-  </div>
-  <div class="kb-prose card-harvard p-5 sm:p-6">
-    {{ week_data.rendered_fa_summary.full_html|safe }}
-  </div>
-</section>
-{% endif %}
+  <button type="button" class="kb-tab-btn" data-tab="tab-flashcards" onclick="switchKbTab('tab-flashcards')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+    <span>فلش‌کارت‌های لایتنر</span>
+    {% if flashcards %}
+    <span class="inline-flex px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-crimson-tint text-crimson num">{{ flashcards|length }}</span>
+    {% endif %}
+  </button>
 
-{# ─── بخش ۵: متن رسمی انگلیسی (قابل دسترسی با دکمه آکاردئون) ─── #}
-{% if week_data.has_fa and week_data.rendered_en and (week_data.rendered_en.official_html or week_data.rendered_en.full_html) %}
-<section class="mb-8">
-  <details class="card-harvard p-4 sm:p-5 group">
-    <summary class="cursor-pointer font-bold text-sm text-[var(--slate)] hover:text-crimson flex items-center justify-between select-none">
-      <span class="flex items-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        متن اصلی انگلیسی (English Reference — Official)
-      </span>
-      <span class="text-xs bg-gray-100 group-open:bg-crimson group-open:text-white px-2.5 py-1 rounded transition-colors">مشاهده متن انگلیسی</span>
-    </summary>
-    <div class="mt-4 pt-4 border-t border-[var(--border)] kb-prose" dir="ltr">
-      {% if week_data.rendered_en.official_html %}
-        {{ week_data.rendered_en.official_html|safe }}
-      {% else %}
-        {{ week_data.rendered_en.full_html|safe }}
+  <button type="button" class="kb-tab-btn" data-tab="tab-quiz" onclick="switchKbTab('tab-quiz')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span>آزمون تسلط و کوییز</span>
+    {% if interactive_summary and interactive_summary.quiz_score is defined %}
+    <span class="inline-flex px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 num">{{ interactive_summary.quiz_score }}/{{ interactive_summary.quiz_total }}</span>
+    {% endif %}
+  </button>
+
+  <button type="button" class="kb-tab-btn" data-tab="tab-glossary" onclick="switchKbTab('tab-glossary')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    <span>واژه‌نامه و پرسش‌وپاسخ</span>
+  </button>
+
+  <button type="button" class="kb-tab-btn" data-tab="tab-sources" onclick="switchKbTab('tab-sources')">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+    <span>راهنمای پروژه و دانلود</span>
+  </button>
+</nav>
+
+{# ══════════════════════════════════════════════════════════════════ #}
+{# TAB 1: یادداشت‌های درس و نمای کلی هفته                            #}
+{# ══════════════════════════════════════════════════════════════════ #}
+<div id="tab-notes" class="kb-tab-content">
+  {% if week_data.has_fa and week_data.rendered_fa_overview %}
+  <section class="mb-8">
+    <div class="flex items-center gap-2 mb-3">
+      <h2 class="kb-section-title mb-0">نمای کلی و مسیر یادگیری هفته</h2>
+      <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">راهنمای فارسی</span>
+    </div>
+    <div class="kb-prose card-harvard p-5 sm:p-7 leading-relaxed">
+      {{ week_data.rendered_fa_overview.full_html|safe }}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if week_data.has_fa and week_data.fa_notes %}
+  <section class="mb-8" id="section-notes">
+    <div class="flex items-center justify-between gap-2 mb-3">
+      <h2 class="kb-section-title mb-0">یادداشت‌های درس (فارسی و گام‌به‌گام)</h2>
+      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson text-white num">{{ week_data.fa_notes|length }} مبحث</span>
+    </div>
+    <p class="text-xs text-[var(--slate)] mb-4">متن آموزشی بومی‌سازی‌شده منطبق با مباحث تدریس‌شده در لکچر رسمی CS50.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+      {% for note in week_data.fa_notes %}
+      <a href="{{ url_for('kb.doc_page', doc_id=note.id) }}"
+         class="card-harvard p-4 sm:p-5 flex items-start gap-3.5 hover:border-crimson hover:bg-crimson-tint/25 border border-[var(--border)] cursor-pointer transition-all duration-200 group relative">
+        <span class="w-8 h-8 rounded-xl bg-crimson-tint text-crimson font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 num group-hover:bg-crimson group-hover:text-white transition-colors">
+          {{ loop.index }}
+        </span>
+        <div class="min-w-0 flex-1">
+          <p class="font-bold text-sm leading-snug group-hover:text-crimson transition-colors">{{ note.title }}</p>
+          <div class="mt-2 flex items-center justify-between text-[11px] text-[var(--slate)]">
+            <span class="inline-flex items-center gap-1 font-semibold text-crimson">
+              مطالعه یادداشت
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </span>
+            <span class="text-gray-400">بخش {{ loop.index }} از {{ week_data.fa_notes|length }}</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if week_data.has_fa and week_data.rendered_fa_summary %}
+  <section class="mb-8">
+    <div class="flex items-center gap-2 mb-3">
+      <h2 class="kb-section-title mb-0">جمع‌بندی هفته (مرور سریع مفاهیم)</h2>
+      <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson-dark)] text-white">خلاصه فارسی</span>
+    </div>
+    <div class="kb-prose card-harvard p-5 sm:p-7 leading-relaxed">
+      {{ week_data.rendered_fa_summary.full_html|safe }}
+    </div>
+  </section>
+  {% endif %}
+</div>
+
+{# ══════════════════════════════════════════════════════════════════ #}
+{# TAB 2: فلش‌کارت‌های تعاملی لایتنر                                 #}
+{# ══════════════════════════════════════════════════════════════════ #}
+<div id="tab-flashcards" class="kb-tab-content hidden">
+  <section class="mb-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+      <div>
+        <h2 class="kb-section-title mb-1">فلش‌کارت‌های هوشمند لایتنر (Spaced Repetition)</h2>
+        <p class="text-xs text-[var(--slate)]">مرور دوره‌ای مفاهیم کلیدی هفته برای تثبیت حافظهٔ بلندمدت.</p>
+      </div>
+      {# آمار جعبه‌های ۵گانه #}
+      {% if interactive_summary and interactive_summary.boxes %}
+      <div class="flex items-center gap-1.5 text-xs bg-white p-2 rounded-xl border border-[var(--border)] shadow-sm">
+        <span class="text-[11px] text-[var(--slate)] font-semibold me-1">جعبه‌ها:</span>
+        {% for b_idx in range(1, 6) %}
+        <span class="px-2 py-0.5 rounded-md font-bold num text-[10px] {% if b_idx == 5 %}bg-emerald-100 text-emerald-800{% elif b_idx == 1 %}bg-crimson-tint text-crimson{% else %}bg-gray-100 text-gray-700{% endif %}" title="جعبه {{ b_idx }}">
+          ج{{ b_idx }}: {{ interactive_summary.boxes.get(b_idx, 0) }}
+        </span>
+        {% endfor %}
+      </div>
       {% endif %}
     </div>
-  </details>
-</section>
-{% elif not week_data.has_fa and week_data.rendered %}
-{# برای هفته‌هایی که هنوز بسته فارسی ندارند، متن انگلیسی را مستقیم نشان بده #}
-{% if week_data.rendered.has_generated %}
-<section class="mb-8">
-  <div class="flex items-center gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">راهنمای فارسی / چک‌لیست (GENERATED)</h2>
-    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson)] text-white">GENERATED</span>
-  </div>
-  <div class="kb-prose kb-generated card-harvard p-5 sm:p-6">
-    {{ week_data.rendered.generated_html|safe }}
-  </div>
-</section>
-{% endif %}
 
-{% if week_data.rendered.has_official %}
-<section class="mb-8">
-  <div class="flex items-center gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">خلاصهٔ رسمی هفته (OFFICIAL)</h2>
-    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">OFFICIAL</span>
-  </div>
-  <div class="kb-prose kb-official card-harvard p-5 sm:p-6">
-    {{ week_data.rendered.official_html|safe }}
-  </div>
-</section>
-{% elif week_data.rendered.full_html and not week_data.rendered.has_generated %}
-<section class="mb-8">
-  <div class="kb-prose card-harvard p-5 sm:p-6">
-    {{ week_data.rendered.full_html|safe }}
-  </div>
-</section>
-{% endif %}
-{% endif %}
+    {% if flashcards %}
+    <div class="max-w-2xl mx-auto">
+      {# کنترل‌گر شماره کارت #}
+      <div class="flex items-center justify-between mb-3 text-xs text-[var(--slate)] px-1">
+        <span id="fc-counter" class="font-bold">کارت <strong class="num text-crimson" id="fc-current-idx">۱</strong> از <strong class="num">{{ flashcards|length }}</strong></span>
+        <span class="text-gray-400">کلیک روی کارت برای چرخش ۳D ↺</span>
+      </div>
+
+      {# صحنه ۳D کارت #}
+      <div class="fc-scene mb-4">
+        {% for card in flashcards %}
+        <div class="fc-card {% if loop.index > 1 %}hidden{% endif %}" id="fc-item-{{ loop.index0 }}" data-card-id="{{ card.id }}" onclick="toggleFlashcard(this)">
+          {# روی کارت #}
+          <div class="fc-face fc-front">
+            <div class="flex items-center justify-between">
+              <span class="badge-crimson num">کارت {{ loop.index }}</span>
+              <span class="text-[11px] text-gray-400">جعبهٔ {{ card.box_number }}</span>
+            </div>
+            <div class="my-auto py-6 text-center">
+              <h3 class="text-lg sm:text-xl font-extrabold text-[var(--ink)] leading-relaxed">{{ card.front_fa }}</h3>
+            </div>
+            <div class="text-center text-xs text-crimson font-semibold">
+              برای دیدن پاسخ کلیک کنید ↺
+            </div>
+          </div>
+
+          {# پشت کارت #}
+          <div class="fc-face fc-back">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">پاسخ تشریحی</span>
+              {% if card.note_id %}
+              <a href="{{ url_for('kb.doc_page', doc_id=card.note_id) }}" class="text-xs text-crimson hover:underline" onclick="event.stopPropagation()">مطالعه در درس‌نامه ↗</a>
+              {% endif %}
+            </div>
+            <div class="my-auto py-6 text-center">
+              <p class="text-sm sm:text-base font-bold text-[var(--ink)] leading-relaxed">{{ card.back_fa }}</p>
+            </div>
+            <div class="text-center text-xs text-gray-400">
+              سطح تسلط خود را انتخاب کنید ↓
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      {# نتیجه مرور با HTMX / اسکریپت #}
+      <div id="fc-review-result" class="mb-4"></div>
+
+      {# دکمه‌های بازخورد لایتنر #}
+      <div class="grid grid-cols-3 gap-2.5 mb-4">
+        <button type="button" onclick="submitFlashcardReview('again')"
+                class="btn-soft-crimson text-xs sm:text-sm py-2.5 text-center flex-col sm:flex-row justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          <span>نیاز به مرور</span>
+        </button>
+        <button type="button" onclick="submitFlashcardReview('good')"
+                class="btn-outline-crimson text-xs sm:text-sm py-2.5 text-center flex-col sm:flex-row justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          <span>خوب بود</span>
+        </button>
+        <button type="button" onclick="submitFlashcardReview('easy')"
+                class="btn-crimson text-xs sm:text-sm py-2.5 text-center flex-col sm:flex-row justify-center bg-emerald-700 hover:bg-emerald-800 border-none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>کاملاً بلدم</span>
+        </button>
+      </div>
+
+      {# ناوبری بین کارت‌ها #}
+      <div class="flex items-center justify-between pt-3 border-t border-[var(--border)] text-xs font-semibold">
+        <button type="button" onclick="navFlashcard(-1)" class="btn-soft-crimson text-xs py-1.5 px-3">
+          ← قبلی
+        </button>
+        <button type="button" onclick="navFlashcard(1)" class="btn-soft-crimson text-xs py-1.5 px-3">
+          بعدی →
+        </button>
+      </div>
+    </div>
+    {% else %}
+    <p class="text-sm text-[var(--slate)] card-harvard p-6 text-center">فلش‌کارتی برای این هفته ثبت نشده است.</p>
+    {% endif %}
+  </section>
+</div>
+
+{# ══════════════════════════════════════════════════════════════════ #}
+{# TAB 3: آزمون تسلط و چالش‌های تعاملی                                #}
+{# ══════════════════════════════════════════════════════════════════ #}
+<div id="tab-quiz" class="kb-tab-content hidden">
+  <section class="mb-8">
+    <div class="card-harvard p-5 sm:p-6 mb-6 bg-gradient-to-l from-crimson-tint/50 to-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h2 class="text-lg font-bold text-[var(--ink)] mb-1">آزمون تسلط هفته (چهارگزینه‌ای و جای خالی)</h2>
+        <p class="text-xs text-[var(--slate)]">برای تکمیل تسلط بر مباحث هفته، به سوالات زیر پاسخ دهید (حد نصاب قبولی: ۸۰٪).</p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <div class="text-left">
+          <span class="text-xs text-[var(--slate)] block">نمره ثبت‌شده:</span>
+          <span class="text-lg font-extrabold text-crimson num">
+            <strong id="quiz-header-score">{{ interactive_summary.quiz_score if interactive_summary else 0 }}</strong> / {{ interactive_summary.quiz_total if interactive_summary else 5 }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    {# لیست سوالات کوییز #}
+    {% if quizzes %}
+    <div class="space-y-6 max-w-3xl mx-auto mb-8">
+      {% for q in quizzes %}
+      <div class="card-harvard p-5 sm:p-6" id="quiz-box-{{ q.id }}">
+        <div class="flex items-center justify-between mb-3">
+          <span class="badge-crimson num">سوال {{ loop.index }}</span>
+          <span class="text-xs text-gray-400">
+            {% if q.type == 'mcq' %}چهارگزینه‌ای{% elif q.type == 'true_false' %}درست / نادرست{% else %}پر کردن جای خالی{% endif %}
+          </span>
+        </div>
+
+        <h3 class="text-base sm:text-lg font-bold text-[var(--ink)] mb-4 leading-snug">{{ q.prompt_fa }}</h3>
+
+        {# فرمت گزینه‌ای #}
+        {% if q.options %}
+        <div class="space-y-2 mb-3">
+          {% for opt in q.options %}
+          <button type="button"
+                  onclick="submitQuizAnswer('{{ week }}', '{{ q.id }}', '{{ opt.id }}')"
+                  class="quiz-option-card group {% if q.attempted and q.submitted_answer == opt.id %}{% if q.is_correct %}border-emerald-500 bg-emerald-50{% else %}border-crimson bg-crimson-tint{% endif %}{% endif %}">
+            <span class="font-medium text-xs sm:text-sm text-[var(--ink)] group-hover:text-crimson transition-colors">{{ opt.text_fa }}</span>
+            <span class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center text-xs font-bold text-gray-500 group-hover:border-crimson group-hover:text-crimson">
+              {{ opt.id|upper }}
+            </span>
+          </button>
+          {% endfor %}
+        </div>
+        {% else %}
+        {# فرمت جای خالی / ورودی متنی #}
+        <form onsubmit="event.preventDefault(); submitQuizInput('{{ week }}', '{{ q.id }}');" class="flex gap-2 mb-3">
+          <input type="text" id="quiz-input-{{ q.id }}"
+                 class="form-input flex-1 font-mono text-left dir-ltr"
+                 placeholder="پاسخ یا خروجی کد را بنویسید..."
+                 value="{{ q.submitted_answer or '' }}"
+                 style="font-size: 16px;" />
+          <button type="submit" class="btn-crimson shrink-0">بررسی پاسخ</button>
+        </form>
+        {% endif %}
+
+        {# ناحیه فیدبک #}
+        <div id="quiz-result-{{ q.id }}">
+          {% if q.attempted %}
+          <div class="mt-2 text-xs font-semibold {% if q.is_correct %}text-emerald-700{% else %}text-crimson{% endif %}">
+            {% if q.is_correct %}✓ قبلاً به این سؤال پاسخ صحیح داده‌اید.{% else %}✗ آخرین پاسخ شما نادرست بود.{% endif %}
+            {% if q.explanation_fa %}<p class="text-[var(--slate)] font-normal mt-1">{{ q.explanation_fa }}</p>{% endif %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {# چالش‌های کدنویسی تکمیلی #}
+    {% if exercises %}
+    <div class="mt-8 pt-6 border-t border-[var(--border)]">
+      <div class="flex items-center gap-2 mb-4">
+        <h3 class="kb-section-title mb-0">چالش‌های تکمیلی کد جاافتاده</h3>
+        <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-amber-600 text-white">INTERACTIVE CODE</span>
+      </div>
+      <div class="space-y-4 max-w-3xl mx-auto">
+        {% for ex in exercises %}
+          {% set attempt = exercise_attempts.get(ex.id) if exercise_attempts else None %}
+          {% set exercise = ex %}
+          {% include "kb/_partials/_exercise_card.html" %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </section>
+</div>
+
+{# ══════════════════════════════════════════════════════════════════ #}
+{# TAB 4: واژه‌نامه تخصصی و پرسش‌وپاسخ (Q&A)                         #}
+{# ══════════════════════════════════════════════════════════════════ #}
+<div id="tab-glossary" class="kb-tab-content hidden">
+  {# بخش واژه‌نامه #}
+  <section class="mb-10">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+      <div>
+        <h2 class="kb-section-title mb-1">واژه‌نامه و اصطلاحات تخصصی</h2>
+        <p class="text-xs text-[var(--slate)]">معادل‌های مصوب و مفاهیم فنی تدریس‌شده در این هفته.</p>
+      </div>
+      <div class="relative min-w-[220px]">
+        <input type="text" id="glossary-search-input" onkeyup="filterGlossary()"
+               class="form-input text-xs pe-8" placeholder="جست‌وجوی اصطلاح..." style="font-size: 16px;" />
+        <svg class="w-4 h-4 text-gray-400 absolute left-2.5 top-3.5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+    </div>
+
+    {% if glossary %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3" id="glossary-grid">
+      {% for item in glossary %}
+      <div class="card-harvard p-4 glossary-item hover:border-crimson transition-all">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="font-extrabold text-sm text-[var(--ink)] glossary-fa">{{ item.fa }}</span>
+        </div>
+        <div class="text-xs font-mono text-crimson dir-ltr text-left glossary-en" dir="ltr">{{ item.en }}</div>
+        {% if item.concept_id %}
+        <span class="inline-block mt-2 text-[10px] text-gray-400 font-mono">{{ item.concept_id }}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-sm text-[var(--slate)] card-harvard p-6 text-center">اصطلاحی برای این هفته در سامانه ثبت نشده است.</p>
+    {% endif %}
+  </section>
+
+  {# بخش پرسش‌وپاسخ (Q&A / FAQs) #}
+  <section class="mb-8">
+    <h2 class="kb-section-title mb-3">پرسش‌ها و پاسخ‌های پرتکرار (Q&A)</h2>
+    <div class="space-y-3 max-w-3xl">
+      {% for faq in faqs %}
+      <details class="card-harvard p-4 sm:p-5 group border border-[var(--border)]">
+        <summary class="flex items-center justify-between cursor-pointer font-bold text-sm text-[var(--ink)] hover:text-crimson select-none">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-crimson shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            {{ faq.q }}
+          </span>
+          <span class="text-xs text-crimson font-bold group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="mt-3 pt-3 border-t border-[var(--border)] text-xs sm:text-sm text-[var(--slate)] leading-relaxed">
+          <p>{{ faq.a }}</p>
+          {% if faq.tag %}
+          <div class="mt-2.5">
+            <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-semibold bg-crimson-tint text-crimson">{{ faq.tag }}</span>
+          </div>
+          {% endif %}
+        </div>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{# ══════════════════════════════════════════════════════════════════ #}
+{# TAB 5: راهنمای پروژه، فایل‌ها و سورس‌کدها                           #}
+{# ══════════════════════════════════════════════════════════════════ #}
+<div id="tab-sources" class="kb-tab-content hidden">
+  {# راهنمای Problem Set #}
+  {% if week_data.fa_pset %}
+  <section class="mb-8">
+    <h2 class="kb-section-title">راهنمای فارسی پرابلم‌ست (Problem Set)</h2>
+    <a href="{{ url_for('kb.doc_page', doc_id=week_data.fa_pset.id) }}"
+       class="card-harvard p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-r-4 border-crimson hover:bg-crimson-tint/20 transition-all cursor-pointer">
+      <div class="flex items-center gap-3.5">
+        <div class="w-12 h-12 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center font-bold shrink-0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-base text-[var(--ink)]">{{ week_data.fa_pset.title }}</h3>
+          <p class="text-xs text-[var(--slate)] mt-1">راهنمای گام‌به‌گام صورت مسئله، الزامات رسمی، نحوه ارسال و چک‌لیست خودارزیابی</p>
+        </div>
+      </div>
+      <span class="btn-crimson text-xs py-2.5 px-5 shrink-0">ورود به راهنما</span>
+    </a>
+  </section>
+  {% endif %}
+
+  {# منابع دانلود پنل کارت‌محور #}
+  <section class="mb-8">
+    <h2 class="kb-section-title">منابع و فایل‌های دانلودی</h2>
+    {% if files %}
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+      {% for file in files %}
+      <div class="card-harvard p-4 flex items-center justify-between gap-3 border border-[var(--border)]">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-10 h-10 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <div class="min-w-0">
+            <h4 class="font-bold text-xs sm:text-sm text-[var(--ink)] truncate">{{ file.display_name }}</h4>
+            <span class="text-[11px] text-[var(--slate)]">فایل ضمیمهٔ کلاس</span>
+          </div>
+        </div>
+        <a href="{{ url_for('resources.download', resource_id=file.id) }}"
+           class="btn-outline-crimson text-xs py-2 px-3.5 shrink-0 cursor-pointer">
+          دانلود
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-sm text-[var(--slate)] card-harvard p-6 text-center">فایل دانلودی برای این هفته ثبت نشده است.</p>
+    {% endif %}
+  </section>
+
+  {# آکاردئون متن رسمی انگلیسی هاروارد #}
+  {% if week_data.has_fa and week_data.rendered_en and (week_data.rendered_en.official_html or week_data.rendered_en.full_html) %}
+  <section class="mb-8">
+    <details class="card-harvard p-4 sm:p-5 group">
+      <summary class="cursor-pointer font-bold text-sm text-[var(--slate)] hover:text-crimson flex items-center justify-between select-none">
+        <span class="flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          متن اصلی انگلیسی (English Reference — Official)
+        </span>
+        <span class="text-xs bg-gray-100 group-open:bg-crimson group-open:text-white px-2.5 py-1 rounded transition-colors">مشاهده متن انگلیسی</span>
+      </summary>
+      <div class="mt-4 pt-4 border-t border-[var(--border)] kb-prose" dir="ltr">
+        {% if week_data.rendered_en.official_html %}
+          {{ week_data.rendered_en.official_html|safe }}
+        {% else %}
+          {{ week_data.rendered_en.full_html|safe }}
+        {% endif %}
+      </div>
+    </details>
+  </section>
+  {% endif %}
+</div>
 
 {% else %}
 <header class="mb-6"><h1 class="text-2xl font-bold">{{ title }}</h1></header>
@@ -199,59 +517,165 @@
 {% endif %}
 {% endif %}
 
-{% if exercises %}
-<section class="mb-8">
-  <div class="flex items-center gap-2 mb-3">
-    <h2 class="kb-section-title mb-0">تمرین‌های تعاملی و قطعه‌کد جاافتاده</h2>
-    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-amber-600 text-white">INTERACTIVE CODE</span>
-  </div>
-  <div class="space-y-4">
-    {% for ex in exercises %}
-      {% set attempt = exercise_attempts.get(ex.id) if exercise_attempts else None %}
-      {% set exercise = ex %}
-      {% include "kb/_partials/_exercise_card.html" %}
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
+{# ─── بخش اکشن پایانی (Climax CTA) ─── #}
 {% if can_mark_read %}
 {% set awarded = already_read %}
 {% set first_read = False %}
-<div class="mb-8" id="read-button-wrapper">
+<div class="mb-8 mt-10 p-5 rounded-2xl bg-white border border-[var(--border)] text-center shadow-sm" id="read-button-wrapper">
+  <p class="text-xs text-[var(--slate)] mb-3">مطالعهٔ این هفته را به پایان رسانده‌اید؟ برای ثبت در کارنامه دکمهٔ زیر را بزنید.</p>
   {% include "kb/_read_button.html" with context %}
 </div>
 {% endif %}
 
-<section class="mt-6 mb-8">
-  <h2 class="kb-section-title">منابع دانلود پنل</h2>
-  {% if files %}
-  <div class="card-harvard overflow-hidden">
-    <table class="w-full text-right text-sm">
-      <thead><tr class="bg-crimson text-white"><th class="px-4 py-3">عنوان</th><th class="px-4 py-3 text-center w-28">دانلود</th></tr></thead>
-      <tbody>
-        {% for file in files %}
-        <tr class="border-t border-[var(--border)]">
-          <td class="px-4 py-3">{{ file.display_name }}</td>
-          <td class="px-4 py-3 text-center">
-            <a href="{{ url_for('resources.download', resource_id=file.id) }}" class="text-crimson font-bold hover:underline cursor-pointer">دانلود</a>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+{# ─── بخش لینک‌های رسمی هاروارد و فوتر ─── #}
+{% if week_data %}
+<footer class="mt-12 pt-6 border-t-2 border-[var(--border)] space-y-4">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <div class="flex flex-wrap gap-2">
+      {{ link_chip('صفحهٔ رسمی هفته', week_data.source_url) }}
+      {% for url in week_data.source_urls or [] %}
+        {% if url != week_data.source_url %}
+        {{ link_chip('منبع کمکی', url) }}
+        {% endif %}
+      {% endfor %}
+      {% for c in week_data.children %}
+        {% if c.source_url %}
+        {{ link_chip(c.title, c.source_url) }}
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
-  {% else %}
-  <p class="text-sm text-[var(--slate)]">فایل دانلودی ثبت نشده است.</p>
-  {% endif %}
-</section>
 
-<footer class="text-xs text-[var(--slate)] border-t border-[var(--border)] pt-4 space-y-1">
-  <p>{% if week_data %}{{ week_data.attribution }}{% else %}CS50x 2026 © David J. Malan, Harvard University{% endif %}</p>
-  <p>
-    {{ certificate.license_note }} ·
-    <a href="{{ certificate.license_url }}" class="text-crimson hover:underline" target="_blank" rel="noopener">مجوز CC BY-NC-SA 4.0</a>
-    — استفاده غیرتجاری آموزشی.
-  </p>
+  <div class="text-xs text-[var(--slate)] space-y-1">
+    <p>{{ week_data.attribution }}</p>
+    <p>
+      {{ certificate.license_note }} ·
+      <a href="{{ certificate.license_url }}" class="text-crimson hover:underline" target="_blank" rel="noopener">مجوز CC BY-NC-SA 4.0</a>
+      — استفاده آموزشی غیرتجاری برای CS50x انزلی.
+    </p>
+  </div>
 </footer>
+{% endif %}
+
+<script>
+  // ─── اسکریپت جابه‌جایی تب‌ها با حس روان ───
+  function switchKbTab(tabId) {
+    document.querySelectorAll('.kb-tab-content').forEach(function(el) {
+      el.classList.add('hidden');
+    });
+    document.querySelectorAll('.kb-tab-btn').forEach(function(btn) {
+      btn.classList.remove('active');
+    });
+    var target = document.getElementById(tabId);
+    if (target) {
+      target.classList.remove('hidden');
+    }
+    var activeBtn = document.querySelector('.kb-tab-btn[data-tab="' + tabId + '"]');
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+    }
+    window.location.hash = tabId;
+  }
+
+  // هماهنگی با هش URL در هنگام لود
+  window.addEventListener('DOMContentLoaded', function() {
+    var hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) {
+      switchKbTab(hash);
+    }
+  });
+
+  // ─── اسکریپت فلش‌کارت‌های سه‌بعدی ───
+  var currentFcIndex = 0;
+  var totalFcCards = {{ flashcards|length if flashcards else 0 }};
+
+  function toggleFlashcard(cardEl) {
+    cardEl.classList.toggle('is-flipped');
+  }
+
+  function navFlashcard(delta) {
+    if (totalFcCards === 0) return;
+    var currentCard = document.getElementById('fc-item-' + currentFcIndex);
+    if (currentCard) {
+      currentCard.classList.add('hidden');
+      currentCard.classList.remove('is-flipped');
+    }
+    currentFcIndex = (currentFcIndex + delta + totalFcCards) % totalFcCards;
+    var nextCard = document.getElementById('fc-item-' + currentFcIndex);
+    if (nextCard) {
+      nextCard.classList.remove('hidden');
+    }
+    var idxDisplay = document.getElementById('fc-current-idx');
+    if (idxDisplay) {
+      idxDisplay.textContent = currentFcIndex + 1;
+    }
+    document.getElementById('fc-review-result').innerHTML = '';
+  }
+
+  function submitFlashcardReview(rating) {
+    if (totalFcCards === 0) return;
+    var cardEl = document.getElementById('fc-item-' + currentFcIndex);
+    if (!cardEl) return;
+    var cardId = cardEl.getAttribute('data-card-id');
+    var weekNum = {{ week }};
+
+    var fd = new FormData();
+    fd.append('card_id', cardId);
+    fd.append('rating', rating);
+
+    fetch('/kb/week/' + weekNum + '/flashcard/review', {
+      method: 'POST',
+      body: fd,
+      headers: { 'HX-Request': 'true' }
+    })
+    .then(function(res) { return res.text(); })
+    .then(function(html) {
+      document.getElementById('fc-review-result').innerHTML = html;
+      setTimeout(function() { navFlashcard(1); }, 900);
+    })
+    .catch(function(err) { console.error(err); });
+  }
+
+  // ─── اسکریپت آزمون و کوییز ───
+  function submitQuizAnswer(week, questionId, optionId) {
+    var fd = new FormData();
+    fd.append('question_id', questionId);
+    fd.append('answer', optionId);
+
+    fetch('/kb/week/' + week + '/quiz/submit', {
+      method: 'POST',
+      body: fd,
+      headers: { 'HX-Request': 'true' }
+    })
+    .then(function(res) { return res.text(); })
+    .then(function(html) {
+      var resBox = document.getElementById('quiz-result-' + questionId);
+      if (resBox) {
+        resBox.innerHTML = html;
+      }
+    })
+    .catch(function(err) { console.error(err); });
+  }
+
+  function submitQuizInput(week, questionId) {
+    var input = document.getElementById('quiz-input-' + questionId);
+    if (!input) return;
+    submitQuizAnswer(week, questionId, input.value);
+  }
+
+  // ─── اسکریپت فیلتر زنده واژه‌نامه ───
+  function filterGlossary() {
+    var q = (document.getElementById('glossary-search-input').value || '').toLowerCase().trim();
+    var items = document.querySelectorAll('.glossary-item');
+    items.forEach(function(item) {
+      var fa = item.querySelector('.glossary-fa').textContent.toLowerCase();
+      var en = item.querySelector('.glossary-en').textContent.toLowerCase();
+      if (fa.indexOf(q) !== -1 || en.indexOf(q) !== -1) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+</script>
 {% endblock %}
