@@ -39,7 +39,7 @@ from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 
 from app import db
-from app.models import Resource, Submission, Assignment, User, Course, KBPackageInstall
+from app.models import Resource, Submission, Assignment, User, Course, Cohort, Enrollment, KBPackageInstall
 from app.services import resources as res_service
 from app.services import weeks as weeks_service
 from app.services import users as users_service
@@ -151,10 +151,21 @@ def users_list():
 @bp.route("/users/create", methods=["GET", "POST"])
 @admin_required
 def users_create():
-    """ثبت دانش‌آموز جدید."""
+    """ثبت دانش‌آموز جدید با پشتیبانی چنددوره‌ای، تلگرام، نقش و گیمیفیکیشن اولیه."""
+    cohorts = Cohort.query.filter_by(status="active").order_by(Cohort.year.desc(), Cohort.id.desc()).all()
+    if not cohorts:
+        cohorts = Cohort.query.order_by(Cohort.id.desc()).all()
+
     if request.method == "POST":
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "").strip()
+        telegram_id = request.form.get("telegram_id", "").strip() or None
+        is_admin = request.form.get("is_admin") in ("true", "1", "on")
+        is_active = request.form.get("is_active", "1") in ("true", "1", "on")
+        initial_xp = request.form.get("initial_xp", 0, type=int) or 0
+        initial_streak = request.form.get("initial_streak", 0, type=int) or 0
+        cohort_id = request.form.get("cohort_id", type=int)
+        cohort_role = request.form.get("cohort_role", "student")
 
         if not username or not password:
             flash("نام کاربری و رمز عبور الزامی است.", "error")
@@ -165,40 +176,84 @@ def users_create():
             return redirect(request.url)
 
         try:
-            users_service.create_user(username, password)
-            flash(f"دانش‌آموز «{username}» با موفقیت ثبت شد.", "success")
+            users_service.create_user(
+                username=username,
+                password=password,
+                telegram_id=telegram_id,
+                is_admin=is_admin,
+                is_active=is_active,
+                initial_xp=initial_xp,
+                initial_streak=initial_streak,
+                cohort_id=cohort_id,
+                cohort_role=cohort_role,
+            )
+            flash(f"کاربر «{username}» با موفقیت ثبت و به سامانه اضافه شد.", "success")
             return redirect(url_for("admin.users_list"))
-        except ValueError:
-            flash("این نام کاربری قبلاً استفاده شده.", "error")
+        except ValueError as e:
+            msg = str(e)
+            if "Telegram" in msg:
+                flash("این شناسه تلگرام قبلاً برای کاربر دیگری ثبت شده است.", "error")
+            else:
+                flash("این نام کاربری قبلاً استفاده شده است.", "error")
             return redirect(request.url)
 
-    return render_template("admin/user_form.html", user=None, edit_mode=False)
+    return render_template(
+        "admin/user_form.html",
+        user=None,
+        edit_mode=False,
+        cohorts=cohorts,
+    )
 
 
 @bp.route("/users/<int:user_id>/edit", methods=["GET", "POST"])
 @admin_required
 def users_edit(user_id: int):
-    """ویرایش اطلاعات دانش‌آموز."""
-    from app.models import User
+    """ویرایش اطلاعات دانش‌آموز با پشتیبانی تلگرام، نقش، وضعیت و دوره."""
     user = db.session.get(User, user_id)
     if not user:
         flash("کاربر یافت نشد.", "error")
         return redirect(url_for("admin.users_list"))
 
+    cohorts = Cohort.query.order_by(Cohort.year.desc(), Cohort.id.desc()).all()
+    current_enrollment = Enrollment.query.filter_by(user_id=user.id, is_primary=True).first()
+
     if request.method == "POST":
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "").strip() or None
+        telegram_id = request.form.get("telegram_id", "").strip() or None
+        is_admin = request.form.get("is_admin") in ("true", "1", "on")
+        is_active = request.form.get("is_active") in ("true", "1", "on")
         xp_adj = request.form.get("xp_adjustment", 0, type=int)
+        cohort_id = request.form.get("cohort_id", type=int)
 
         try:
-            users_service.update_user(user_id, username=username, password=password, xp_adjustment=xp_adj)
+            users_service.update_user(
+                user_id,
+                username=username,
+                password=password,
+                telegram_id=telegram_id,
+                is_admin=is_admin,
+                is_active=is_active,
+                xp_adjustment=xp_adj,
+                cohort_id=cohort_id,
+            )
             flash(f"اطلاعات کاربر به‌روزرسانی شد.", "success")
             return redirect(url_for("admin.users_list"))
         except ValueError as e:
-            flash("این نام کاربری قبلاً توسط شخص دیگری ثبت شده است.", "error")
+            msg = str(e)
+            if "Telegram" in msg:
+                flash("این شناسه تلگرام قبلاً برای کاربر دیگری ثبت شده است.", "error")
+            else:
+                flash("این نام کاربری قبلاً توسط شخص دیگری ثبت شده است.", "error")
             return redirect(url_for("admin.users_edit", user_id=user_id))
 
-    return render_template("admin/user_form.html", user=user, edit_mode=True)
+    return render_template(
+        "admin/user_form.html",
+        user=user,
+        edit_mode=True,
+        cohorts=cohorts,
+        current_enrollment=current_enrollment,
+    )
 
 
 @bp.route("/users/<int:user_id>/toggle-active", methods=["POST"])

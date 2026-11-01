@@ -24,22 +24,80 @@ def list_all_students() -> list[dict]:
         })
     return result
 
-def create_user(username: str, password: str) -> User:
-    """کاربر جدید ایجاد می‌کند."""
+def create_user(
+    username: str,
+    password: str,
+    telegram_id: str | None = None,
+    is_admin: bool = False,
+    is_active: bool = True,
+    initial_xp: int = 0,
+    initial_streak: int = 0,
+    cohort_id: int | None = None,
+    cohort_role: str = "student",
+    cohort_status: str = "active",
+) -> User:
+    """کاربر جدید ایجاد می‌کند با پشتیبانی از تلگرام، نقش، وضعیت و عضویت در دوره."""
     existing = User.query.filter_by(username=username).first()
     if existing:
         raise ValueError("Username already exists")
-    
+
+    clean_tg = None
+    if telegram_id:
+        clean_tg = telegram_id.strip().lstrip("@")
+        if clean_tg:
+            existing_tg = User.query.filter_by(telegram_id=clean_tg).first()
+            if existing_tg:
+                raise ValueError("Telegram ID already exists")
+        else:
+            clean_tg = None
+
     user = User(
         username=username,
-        password_hash=generate_password_hash(password)
+        password_hash=generate_password_hash(password),
+        telegram_id=clean_tg,
+        is_admin=is_admin,
+        is_active=is_active,
+        xp=max(0, initial_xp),
+        streak=max(0, initial_streak),
     )
     db.session.add(user)
     db.session.commit()
+
+    if initial_xp > 0:
+        stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
+        log = XPLog(
+            user_id=user.id,
+            amount=initial_xp,
+            reason=f"admin:initial:+:{stamp}",
+        )
+        db.session.add(log)
+        db.session.commit()
+
+    if cohort_id:
+        from app.services import cohorts as cohort_service
+        try:
+            cohort_service.enroll_student_in_cohort(
+                user_id=user.id,
+                cohort_id=cohort_id,
+                role=cohort_role or "student",
+                is_primary=True,
+            )
+        except Exception:
+            pass
+
     return user
 
-def update_user(user_id: int, username: str | None = None, password: str | None = None, xp_adjustment: int = 0) -> User:
-    """رمز عبور، نام کاربری یا XP کاربر را آپدیت می‌کند."""
+def update_user(
+    user_id: int,
+    username: str | None = None,
+    password: str | None = None,
+    telegram_id: str | None = None,
+    is_admin: bool | None = None,
+    is_active: bool | None = None,
+    xp_adjustment: int = 0,
+    cohort_id: int | None = None,
+) -> User:
+    """رمز عبور، نام کاربری، تلگرام، نقش یا XP کاربر را آپدیت می‌کند."""
     user = db.session.get(User, user_id)
     if not user:
         abort(404)
@@ -49,6 +107,22 @@ def update_user(user_id: int, username: str | None = None, password: str | None 
         if existing:
             raise ValueError("Username already exists")
         user.username = username
+
+    if telegram_id is not None:
+        clean_tg = telegram_id.strip().lstrip("@") if telegram_id else None
+        if clean_tg and clean_tg != user.telegram_id:
+            existing_tg = User.query.filter_by(telegram_id=clean_tg).first()
+            if existing_tg:
+                raise ValueError("Telegram ID already exists")
+            user.telegram_id = clean_tg
+        elif not clean_tg:
+            user.telegram_id = None
+
+    if is_admin is not None:
+        user.is_admin = is_admin
+
+    if is_active is not None:
+        user.is_active = is_active
         
     if password:
         user.password_hash = generate_password_hash(password)
@@ -66,6 +140,21 @@ def update_user(user_id: int, username: str | None = None, password: str | None 
                 reason=f"admin:adjust:-:{stamp}",
             )
             db.session.add(log)
+
+    if cohort_id:
+        from app.models import Enrollment
+        from app.services import cohorts as cohort_service
+        existing_enr = Enrollment.query.filter_by(user_id=user.id, cohort_id=cohort_id).first()
+        if not existing_enr:
+            try:
+                cohort_service.enroll_student_in_cohort(
+                    user_id=user.id,
+                    cohort_id=cohort_id,
+                    role="student",
+                    is_primary=True,
+                )
+            except Exception:
+                pass
 
     db.session.commit()
     return user

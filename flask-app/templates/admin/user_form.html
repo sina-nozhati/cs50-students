@@ -1,53 +1,426 @@
 {% extends "admin/admin_base.html" %}
 
-{% block title %}{% if edit_mode %}ویرایش کاربر{% else %}افزودن دانش‌آموز{% endif %}{% endblock %}
-{% block page_title %}{% if edit_mode %}ویرایش کاربر{% else %}افزودن دانش‌آموز{% endif %}{% endblock %}
+{% block title %}{% if edit_mode %}ویرایش کاربر «{{ user.username }}»{% else %}ثبت دانش‌آموز جدید{% endif %}{% endblock %}
+{% block page_title %}{% if edit_mode %}ویرایش کاربر{% else %}ثبت دانش‌آموز جدید{% endif %}{% endblock %}
 
 {% block content %}
-<div class="max-w-2xl mx-auto">
-    <div class="card-harvard p-6 sm:p-8">
-        <form action="" method="POST" class="space-y-6">
-            
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+<div class="max-w-4xl mx-auto space-y-6">
 
-            
-            <div class="space-y-2">
-                <label for="username" class="block font-semibold text-[var(--ink)]">نام کاربری</label>
-                <input type="text" id="username" name="username" class="form-input" 
-                       value="{{ user.username if user else '' }}" required dir="ltr">
-            </div>
-
-            <div class="space-y-2">
-                <label for="password" class="block font-semibold text-[var(--ink)]">رمز عبور {% if edit_mode %}<span class="text-sm font-normal text-[var(--slate)]">(برای عدم تغییر خالی بگذارید)</span>{% endif %}</label>
-                <input type="password" id="password" name="password" class="form-input" {% if not edit_mode %}required{% endif %} dir="ltr">
-            </div>
-
-            {% if edit_mode %}
-            <div class="grid grid-cols-2 gap-4">
-                <div class="p-4 bg-[var(--canvas)] border border-[var(--border)] rounded-lg text-center">
-                    <span class="block text-sm text-[var(--slate)] mb-1">XP فعلی</span>
-                    <span class="text-xl font-bold num text-[var(--crimson)]">{{ user.xp }}</span>
+    {# ─── نوار مسیر و عنوان صفحه (Breadcrumb & Header) ─── #}
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border)]">
+        <div>
+            <nav class="flex items-center gap-1.5 text-xs text-[var(--slate)] mb-2" aria-label="Breadcrumb">
+                <a href="{{ url_for('admin.index') }}" class="hover:text-crimson transition-colors">پنل مدیریت</a>
+                <span class="text-black/30 dark:text-white/30">/</span>
+                <a href="{{ url_for('admin.users_list') }}" class="hover:text-crimson transition-colors">مدیریت کاربران</a>
+                <span class="text-black/30 dark:text-white/30">/</span>
+                <span class="font-bold text-[var(--ink)]">{% if edit_mode %}ویرایش «{{ user.username }}»{% else %}ثبت کاربر جدید{% endif %}</span>
+            </nav>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-2xl bg-crimson-tint text-crimson flex items-center justify-center shadow-sm">
+                    {% if edit_mode %}
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                    </svg>
+                    {% else %}
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="8.5" cy="7" r="4"/>
+                        <line x1="20" y1="8" x2="20" y2="14"/>
+                        <line x1="23" y1="11" x2="17" y2="11"/>
+                    </svg>
+                    {% endif %}
                 </div>
-                <div class="p-4 bg-[var(--canvas)] border border-[var(--border)] rounded-lg text-center">
-                    <span class="block text-sm text-[var(--slate)] mb-1">استریک فعلی</span>
-                    <span class="text-xl font-bold num text-[var(--amber)]">{{ user.streak }}</span>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-black text-[var(--ink)] tracking-tight">
+                        {% if edit_mode %}ویرایش حساب کاربری{% else %}افزودن و ثبت‌نام دانش‌آموز جدید{% endif %}
+                    </h1>
+                    <p class="text-xs text-[var(--slate)] mt-0.5">
+                        {% if edit_mode %}به‌روزرسانی گذرواژه، تلگرام، دوره و دسترسی‌های کاربر{% else %}ایجاد حساب هویتی، انتساب به دوره آموزشی و تنظیمات اولیه پیشرفت{% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <a href="{{ url_for('admin.users_list') }}"
+               class="px-3.5 py-2 rounded-xl text-xs font-semibold text-[var(--slate)] bg-white dark:bg-[#1A1A1F] border border-[var(--border)] hover:bg-gray-50 dark:hover:bg-white/5 transition inline-flex items-center gap-1.5 shadow-sm">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                بازگشت به لیست کاربران
+            </a>
+        </div>
+    </div>
+
+    {# ─── فرم اصلی با استانداردهای Emil Kowalski و کارت‌های تفکیک‌شده ─── #}
+    <form method="POST" action="" class="space-y-6" id="userForm" autocomplete="off">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+        {# ─── بخش ۱: اطلاعات هویتی و امنیتی ─── #}
+        <section class="card-harvard p-5 sm:p-6 space-y-5 bg-white dark:bg-[#1A1A1F] rounded-2xl border border-[var(--border)] shadow-sm">
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-sm font-bold text-[var(--ink)]">اطلاعات هویتی و امنیتی</h2>
+                        <span class="text-[11px] text-[var(--slate)]">شناسه کاربری و گذرواژه ورود به سامانه</span>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400">بخش ۱ از ۴</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {# فیلد نام کاربری #}
+                <div class="space-y-1.5">
+                    <label for="username" class="block text-xs font-bold text-[var(--ink)]">
+                        نام کاربری (Username) <span class="text-crimson">*</span>
+                    </label>
+                    <div class="relative">
+                        <input type="text"
+                               id="username"
+                               name="username"
+                               value="{{ user.username if user else '' }}"
+                               required
+                               dir="ltr"
+                               placeholder="e.g. sinanozhati"
+                               class="w-full text-xs font-mono py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-left text-[var(--ink)] outline-none">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-400">
+                            <span class="text-xs font-mono font-bold">@</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-[var(--slate)]">فقط حروف کوچک انگلیسی، ارقام و علامت _ مجاز است.</p>
+                </div>
+
+                {# فیلد رمز عبور با قابلیت Show/Hide و بررسی طول #}
+                <div class="space-y-1.5">
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-xs font-bold text-[var(--ink)]">
+                            رمز عبور (Password) {% if not edit_mode %}<span class="text-crimson">*</span>{% endif %}
+                        </label>
+                        {% if edit_mode %}
+                        <span class="text-[10px] text-[var(--slate)] font-medium">خالی = بدون تغییر</span>
+                        {% endif %}
+                    </div>
+                    <div class="relative">
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               {% if not edit_mode %}required{% endif %}
+                               dir="ltr"
+                               placeholder="••••••••"
+                               minlength="4"
+                               class="w-full text-xs font-mono py-2.5 px-3 pl-10 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-left text-[var(--ink)] outline-none">
+                        {# دکمه فیزیکی تغییر وضعیت دیده‌شدن رمز (Eye Toggle) طبق اصول Emil #}
+                        <button type="button"
+                                id="togglePasswordBtn"
+                                aria-label="نمایش یا پنهان کردن رمز عبور"
+                                class="absolute inset-y-0 left-0 flex items-center px-3 text-gray-400 hover:text-crimson active:scale-95 transition-transform cursor-pointer outline-none">
+                            <svg id="eyeIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            <svg id="eyeOffIcon" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                                <line x1="1" y1="1" x2="23" y2="23"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="text-[11px] text-[var(--slate)]">حداقل ۴ کاراکتر جهت حفظ امنیت حساب کاربری.</p>
                 </div>
             </div>
 
-            <div class="space-y-2">
-                <label for="xp_adjustment" class="block font-semibold text-[var(--ink)]">تغییر دستی XP (اختیاری)</label>
-                <p class="text-sm text-[var(--slate)] mb-2">برای افزایش عدد مثبت (مثلاً 10) و برای کاهش عدد منفی (مثلاً -5) وارد کنید.</p>
-                <input type="number" id="xp_adjustment" name="xp_adjustment" class="form-input num" dir="ltr" placeholder="0">
+            {# فیلد شناسه تلگرام #}
+            <div class="pt-2 border-t border-[var(--border)]/60">
+                <div class="max-w-md space-y-1.5">
+                    <label for="telegram_id" class="block text-xs font-bold text-[var(--ink)] flex items-center justify-between">
+                        <span>شناسه تلگرام (Telegram ID - اختیاری)</span>
+                        <span class="text-[11px] text-[var(--slate)] font-normal">برای نوتیفیکیشن‌ها و ربات کلاس</span>
+                    </label>
+                    <div class="relative">
+                        <input type="text"
+                               id="telegram_id"
+                               name="telegram_id"
+                               value="{{ user.telegram_id if user and user.telegram_id else '' }}"
+                               dir="ltr"
+                               placeholder="username_without_at"
+                               class="w-full text-xs font-mono py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-left text-[var(--ink)] outline-none">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-sky-500">
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-[var(--slate)]">شناسه تلگرام بدون علامت @ وارد شود.</p>
+                </div>
+            </div>
+        </section>
+
+        {# ─── بخش ۲: نقش و دسترسی در سامانه ─── #}
+        <section class="card-harvard p-5 sm:p-6 space-y-5 bg-white dark:bg-[#1A1A1F] rounded-2xl border border-[var(--border)] shadow-sm">
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-950/40 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-sm font-bold text-[var(--ink)]">نقش و وضعیت دسترسی</h2>
+                        <span class="text-[11px] text-[var(--slate)]">تعیین نوع حساب کاربری و مجوز ورود</span>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-400">بخش ۲ از ۴</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 items-start">
+                {# انتخابگر نقش با Segmented Radio Cards #}
+                <div class="space-y-2">
+                    <span class="block text-xs font-bold text-[var(--ink)]">نقش در پلتفرم</span>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <label class="relative flex flex-col p-3 rounded-xl border-2 cursor-pointer transition-all select-none hover:border-crimson/50"
+                               :class="!isAdmin ? 'border-crimson bg-crimson-tint/15 text-crimson' : 'border-[var(--border)] bg-gray-50/50 dark:bg-[#151518] text-[var(--slate)]'">
+                            <input type="radio" name="is_admin" value="0" class="sr-only" {% if not user or not user.is_admin %}checked{% endif %} id="roleStudent">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-bold text-xs text-[var(--ink)]">دانش‌آموز</span>
+                                <svg class="w-4 h-4 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                            </div>
+                            <span class="text-[10px] text-[var(--slate)] leading-tight">دسترسی عادی به پنل درس، تکالیف و پایگاه دانش</span>
+                        </label>
+
+                        <label class="relative flex flex-col p-3 rounded-xl border-2 cursor-pointer transition-all select-none hover:border-crimson/50"
+                               :class="isAdmin ? 'border-crimson bg-crimson-tint/15 text-crimson' : 'border-[var(--border)] bg-gray-50/50 dark:bg-[#151518] text-[var(--slate)]'">
+                            <input type="radio" name="is_admin" value="1" class="sr-only" {% if user and user.is_admin %}checked{% endif %} id="roleAdmin">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-bold text-xs text-[var(--ink)]">مدیر سامانه</span>
+                                <svg class="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <span class="text-[10px] text-[var(--slate)] leading-tight">دسترسی به تمام بخش‌های مدیریت، نمرات و آپلود بسته</span>
+                        </label>
+                    </div>
+                </div>
+
+                {# وضعیت حساب کاربری (سوئیچ ضامن فعال) #}
+                <div class="space-y-2">
+                    <span class="block text-xs font-bold text-[var(--ink)]">وضعیت فعالیت حساب</span>
+                    <label class="flex items-center justify-between p-3.5 rounded-xl border border-[var(--border)] bg-gray-50/50 dark:bg-[#151518] cursor-pointer hover:bg-gray-100/50 dark:hover:bg-white/5 transition-all">
+                        <div class="space-y-0.5">
+                            <span class="block text-xs font-bold text-[var(--ink)]">حساب کاربری فعال است</span>
+                            <span class="block text-[11px] text-[var(--slate)]">در صورت غیرفعال بودن، کاربر امکان لاگین نخواهد داشت.</span>
+                        </div>
+                        <input type="checkbox"
+                               name="is_active"
+                               value="1"
+                               {% if not user or user.is_active %}checked{% endif %}
+                               class="w-4 h-4 text-crimson rounded border-[var(--border)] focus:ring-crimson accent-crimson cursor-pointer">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        {# ─── بخش ۳: انتساب به دوره و نوبت برگزاری (Multi-Course Cohort) ─── #}
+        <section class="card-harvard p-5 sm:p-6 space-y-5 bg-white dark:bg-[#1A1A1F] rounded-2xl border border-[var(--border)] shadow-sm">
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-sm font-bold text-[var(--ink)]">انتساب به نوبت برگزاری دوره (Cohort)</h2>
+                        <span class="text-[11px] text-[var(--slate)]">سازگار با ساختار چنددوره‌ای سامانه آموزشی انزلی</span>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400">بخش ۳ از ۴</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {# نوبت برگزاری #}
+                <div class="space-y-1.5">
+                    <label for="cohort_id" class="block text-xs font-bold text-[var(--ink)]">
+                        نوبت دوره آموزشی
+                    </label>
+                    <select id="cohort_id"
+                            name="cohort_id"
+                            class="w-full text-xs py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-[var(--ink)] outline-none">
+                        <option value="">بدون انتساب به دوره (کاربر عمومی/مستقل)</option>
+                        {% for c in cohorts %}
+                        <option value="{{ c.id }}" {% if current_enrollment and current_enrollment.cohort_id == c.id %}selected{% elif not edit_mode and loop.first %}selected{% endif %}>
+                            {{ c.name }} (سال {{ c.year }}{% if c.season %} - فصل {{ c.season }}{% endif %})
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <p class="text-[11px] text-[var(--slate)]">دانش‌آموز به کوریکیلوم و برنامه‌ریزی این نوبت متصل خواهد شد.</p>
+                </div>
+
+                {# نقش در دوره #}
+                <div class="space-y-1.5">
+                    <label for="cohort_role" class="block text-xs font-bold text-[var(--ink)]">
+                        نقش آموزشی در این دوره
+                    </label>
+                    <select id="cohort_role"
+                            name="cohort_role"
+                            class="w-full text-xs py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-[var(--ink)] outline-none">
+                        <option value="student" {% if not current_enrollment or current_enrollment.role == 'student' %}selected{% endif %}>دانش‌آموز (Student)</option>
+                        <option value="ta" {% if current_enrollment and current_enrollment.role == 'ta' %}selected{% endif %}>دستیار آموزشی / منتور (TA)</option>
+                        <option value="observer" {% if current_enrollment and current_enrollment.role == 'observer' %}selected{% endif %}>ناظر / مستمع آزاد (Observer)</option>
+                    </select>
+                    <p class="text-[11px] text-[var(--slate)]">تعیین نوع تعامل دانش‌آموز در رتبه‌بندی و تکالیف این دوره.</p>
+                </div>
+            </div>
+        </section>
+
+        {# ─── بخش ۴: گیمیفیکیشن و پیشرفت اولیه ─── #}
+        <section class="card-harvard p-5 sm:p-6 space-y-5 bg-white dark:bg-[#1A1A1F] rounded-2xl border border-[var(--border)] shadow-sm">
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--border)]">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </span>
+                    <div>
+                        <h2 class="text-sm font-bold text-[var(--ink)]">گیمیفیکیشن و پیشرفت (XP & Streak)</h2>
+                        <span class="text-[11px] text-[var(--slate)]">امتیاز تجربه و تداوم یادگیری در جدول رتبه‌بندی</span>
+                    </div>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400">بخش ۴ از ۴</span>
+            </div>
+
+            {% if not edit_mode %}
+            {# حالت ثبت‌نام کاربر جدید: تنظیم XP و استریک آغازین #}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="space-y-1.5">
+                    <label for="initial_xp" class="block text-xs font-bold text-[var(--ink)] flex items-center justify-between">
+                        <span>امتیاز تجربه آغازین (Initial XP)</span>
+                        <span class="text-xs font-mono font-bold text-crimson num" id="xpPreview">0 XP</span>
+                    </label>
+                    <input type="number"
+                           id="initial_xp"
+                           name="initial_xp"
+                           value="0"
+                           min="0"
+                           step="5"
+                           dir="ltr"
+                           class="w-full text-xs font-mono py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-left text-[var(--ink)] outline-none num">
+                    <div class="flex items-center gap-1.5 pt-1">
+                        <span class="text-[10px] text-[var(--slate)]">پیش‌فرض‌های سریع:</span>
+                        <button type="button" onclick="setPresetValue('initial_xp', 0)" class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 dark:bg-white/10 hover:bg-gray-200 text-[var(--slate)] transition">0</button>
+                        <button type="button" onclick="setPresetValue('initial_xp', 25)" class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 hover:bg-amber-100 transition">+25 (خوش‌آمد)</button>
+                        <button type="button" onclick="setPresetValue('initial_xp', 50)" class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400 hover:bg-blue-100 transition">+50 (شروع قوی)</button>
+                    </div>
+                </div>
+
+                <div class="space-y-1.5">
+                    <label for="initial_streak" class="block text-xs font-bold text-[var(--ink)] flex items-center justify-between">
+                        <span>استریک روزانه آغازین (Initial Streak)</span>
+                        <span class="text-xs font-mono font-bold text-amber-600 num" id="streakPreview">0 روز</span>
+                    </label>
+                    <input type="number"
+                           id="initial_streak"
+                           name="initial_streak"
+                           value="0"
+                           min="0"
+                           dir="ltr"
+                           class="w-full text-xs font-mono py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-left text-[var(--ink)] outline-none num">
+                    <div class="flex items-center gap-1.5 pt-1">
+                        <span class="text-[10px] text-[var(--slate)]">پیش‌فرض‌های سریع:</span>
+                        <button type="button" onclick="setPresetValue('initial_streak', 0)" class="text-[10px] font-bold px-2 py-0.5 rounded bg-gray-100 dark:bg-white/10 hover:bg-gray-200 text-[var(--slate)] transition">0 روز</button>
+                        <button type="button" onclick="setPresetValue('initial_streak', 1)" class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 hover:bg-amber-100 transition">1 روز</button>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            {# حالت ویرایش: نمایش آمار فعلی + فیلد تعدیل دستی XP #}
+            <div class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-3.5 bg-gray-50/80 dark:bg-[#151518] border border-[var(--border)] rounded-xl text-center">
+                        <span class="block text-[11px] font-medium text-[var(--slate)] mb-1">XP فعلی کاربر</span>
+                        <span class="text-2xl font-black text-crimson num">{{ user.xp or 0 }}</span>
+                        <span class="text-[10px] text-[var(--slate)] block mt-0.5">امتیاز در تابلوی امتیازات</span>
+                    </div>
+                    <div class="p-3.5 bg-gray-50/80 dark:bg-[#151518] border border-[var(--border)] rounded-xl text-center">
+                        <span class="block text-[11px] font-medium text-[var(--slate)] mb-1">استریک فعلی</span>
+                        <span class="text-2xl font-black text-amber-600 num">{{ user.streak or 0 }}</span>
+                        <span class="text-[10px] text-[var(--slate)] block mt-0.5">روز متوالی یادگیری</span>
+                    </div>
+                </div>
+
+                <div class="space-y-1.5 pt-2 border-t border-[var(--border)]">
+                    <label for="xp_adjustment" class="block text-xs font-bold text-[var(--ink)]">
+                        تعدیل دستی XP (اختیاری)
+                    </label>
+                    <p class="text-[11px] text-[var(--slate)]">برای افزایش عدد مثبت (مثلاً 20) و برای کسر امتیاز عدد منفی (مثلاً -10) وارد کنید.</p>
+                    <input type="number"
+                           id="xp_adjustment"
+                           name="xp_adjustment"
+                           dir="ltr"
+                           placeholder="0"
+                           class="w-full sm:w-64 text-xs font-mono py-2.5 px-3 bg-gray-50/50 dark:bg-[#151518] border border-[var(--border)] rounded-xl focus:border-crimson focus:bg-white dark:focus:bg-[#1A1A1F] focus:ring-1 focus:ring-crimson transition-all text-left text-[var(--ink)] outline-none num">
+                </div>
             </div>
             {% endif %}
+        </section>
 
-            <div class="pt-4 flex items-center justify-end gap-3 border-t border-[var(--border)]">
-                <a href="/admin/users" class="px-4 py-2 rounded-lg text-[var(--slate)] hover:bg-gray-100 transition min-h-[40px] flex items-center">انصراف</a>
-                <button type="submit" class="btn-crimson min-w-[120px]">
-                    {% if edit_mode %}ذخیره تغییرات{% else %}افزودن کاربر{% endif %}
+        {# ─── نوار پایینی دکمه‌های اقدام (Tactile Action Bar) ─── #}
+        <div class="flex items-center justify-between gap-4 p-4 rounded-2xl bg-white dark:bg-[#1A1A1F] border border-[var(--border)] shadow-sm sticky bottom-4 z-20 backdrop-blur-md bg-white/90 dark:bg-[#1A1A1F]/90">
+            <a href="{{ url_for('admin.users_list') }}"
+               class="px-5 py-2.5 rounded-xl text-xs font-bold text-[var(--slate)] hover:bg-gray-100 dark:hover:bg-white/5 active:scale-[0.985] transition-transform">
+                انصراف
+            </a>
+
+            <div class="flex items-center gap-3">
+                <button type="submit"
+                        class="btn-crimson py-2.5 px-6 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm transition-transform active:translate-y-[2px] active:scale-[0.985]">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span>{% if edit_mode %}ذخیره و اعمال تغییرات{% else %}ثبت نهایی و ایجاد دانش‌آموز{% endif %}</span>
                 </button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+
 </div>
+
+{# ─── اسکریپت تعاملی سبک (Emil Micro-Interactions) ─── #}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ۱. کنترل ضامن نمایش / مخفی‌سازی رمز عبور
+        const toggleBtn = document.getElementById('togglePasswordBtn');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+        const eyeOffIcon = document.getElementById('eyeOffIcon');
+
+        if (toggleBtn && passwordInput) {
+            toggleBtn.addEventListener('click', function() {
+                const isPassword = passwordInput.getAttribute('type') === 'password';
+                passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+                if (eyeIcon && eyeOffIcon) {
+                    eyeIcon.classList.toggle('hidden', isPassword);
+                    eyeOffIcon.classList.toggle('hidden', !isPassword);
+                }
+            });
+        }
+
+        // ۲. پیش‌نمایش زنده XP و Streak
+        const xpInput = document.getElementById('initial_xp');
+        const xpPreview = document.getElementById('xpPreview');
+        if (xpInput && xpPreview) {
+            xpInput.addEventListener('input', function() {
+                const val = parseInt(this.value, 10) || 0;
+                xpPreview.textContent = val + ' XP';
+            });
+        }
+
+        const streakInput = document.getElementById('initial_streak');
+        const streakPreview = document.getElementById('streakPreview');
+        if (streakInput && streakPreview) {
+            streakInput.addEventListener('input', function() {
+                const val = parseInt(this.value, 10) || 0;
+                streakPreview.textContent = val + ' روز';
+            });
+        }
+    });
+
+    // ۳. تابع تنظیم سریع مقادیر پیش‌فرض
+    function setPresetValue(inputId, value) {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.value = value;
+            input.dispatchEvent(new Event('input'));
+        }
+    }
+</script>
 {% endblock %}

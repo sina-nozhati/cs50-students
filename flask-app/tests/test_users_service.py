@@ -41,6 +41,49 @@ class TestCreateUser:
             with pytest.raises(ValueError):
                 users_service.create_user("ali", "otherpass")
 
+    def test_create_user_with_full_features(self, app):
+        from app.models import Cohort, Enrollment
+        with app.app_context():
+            cohort = Cohort.query.first()
+            if not cohort:
+                from app.models import Course
+                course = Course(code="test_c", title="Test Course")
+                db.session.add(course)
+                db.session.commit()
+                cohort = Cohort(course_id=course.id, name="Cohort 1", code="c1")
+                db.session.add(cohort)
+                db.session.commit()
+
+            user = users_service.create_user(
+                username="reza",
+                password="pass",
+                telegram_id="@reza_cs50",
+                is_admin=True,
+                is_active=True,
+                initial_xp=50,
+                initial_streak=3,
+                cohort_id=cohort.id,
+                cohort_role="ta",
+            )
+            assert user.id is not None
+            assert user.username == "reza"
+            assert user.telegram_id == "reza_cs50"
+            assert user.is_admin is True
+            assert user.is_active is True
+            assert user.xp == 50
+            assert user.streak == 3
+
+            enr = Enrollment.query.filter_by(user_id=user.id, cohort_id=cohort.id).first()
+            assert enr is not None
+            assert enr.role == "ta"
+
+    def test_create_user_duplicate_telegram_raises(self, app):
+        with app.app_context():
+            users_service.create_user("u1", "pass1", telegram_id="tg_user")
+            with pytest.raises(ValueError) as exc:
+                users_service.create_user("u2", "pass2", telegram_id="@tg_user")
+            assert "Telegram" in str(exc.value)
+
 
 class TestListStudents:
     """تست لیست دانش‌آموزان."""
