@@ -59,15 +59,20 @@
         --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
       }
 
+      html, * {
+        -webkit-tap-highlight-color: transparent;
+      }
+
       body {
         font-family: 'Vazirmatn', -apple-system, sans-serif;
-        background-color: #F5F5F7;
+        background-color: #F8F9FB;
         color: #1D1D1F;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         user-select: none;
         -webkit-user-select: none;
         touch-action: manipulation;
+        overscroll-behavior-y: contain;
       }
 
       /* ─── صریح‌سازی قطعی جهت‌های LTR و RTL (BiDi Isolation) ─── */
@@ -96,19 +101,22 @@
         justify-content: center;
         border-radius: 18px;
         font-weight: 800;
-        transition: transform 120ms var(--ease-out), background-color 150ms ease, opacity 120ms ease, box-shadow 150ms ease;
+        transition: transform 100ms var(--ease-out), background-color 150ms ease, opacity 120ms ease, box-shadow 100ms ease;
         cursor: pointer;
         outline: none;
         touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
         min-height: 52px;
       }
       .apple-btn:active:not(:disabled) {
-        transform: scale(0.97);
+        transform: translateY(3px) scale(0.985);
       }
       .apple-btn:disabled {
-        opacity: 0.4;
+        opacity: 0.45;
         cursor: not-allowed;
         transform: none !important;
+        box-shadow: none !important;
       }
 
       /* 3D Tactile Buttons */
@@ -137,9 +145,9 @@
         box-shadow: 0 1px 0 #C42B23, 0 2px 4px rgba(255, 59, 48, 0.2);
       }
 
-      /* Token Pill Buttons (English code tags) */
+      /* Token Pill Buttons (3D Tactile code tags) */
       .token-pill {
-        font-family: 'Fira Code', monospace;
+        font-family: 'Fira Code', 'JetBrains Mono', monospace;
         direction: ltr !important;
         text-align: center !important;
         unicode-bidi: isolate;
@@ -147,26 +155,29 @@
         align-items: center;
         justify-content: center;
         min-height: 48px;
-        padding: 0.75rem 1.25rem;
+        min-width: 58px;
+        padding: 0.65rem 1.25rem;
         background: #FFFFFF;
-        border: 2px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
+        border: 2px solid #E2E8F0;
+        box-shadow: 0 4px 0 #CBD5E1, 0 4px 10px rgba(0, 0, 0, 0.05);
         border-radius: 16px;
         font-weight: 700;
-        font-size: 1.05rem;
-        transition: transform 120ms var(--ease-out), border-color 150ms ease, background-color 150ms ease, box-shadow 120ms ease;
+        font-size: 1.1rem;
+        transition: transform 100ms var(--ease-out), border-color 150ms ease, background-color 150ms ease, box-shadow 100ms ease;
         cursor: pointer;
-        color: #1D1D1F;
+        color: #0F172A;
         touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
       }
       .token-pill:hover {
-        border-color: #0071E3;
-        background-color: #FAFAFC;
-        box-shadow: 0 3px 0 #0071E3, 0 6px 12px rgba(0, 113, 227, 0.12);
+        border-color: #38BDF8;
+        background-color: #F8FAFC;
+        box-shadow: 0 4px 0 #0284C7, 0 6px 14px rgba(2, 132, 199, 0.15);
       }
       .token-pill:active {
-        transform: translateY(2px) scale(0.96);
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+        transform: translateY(3px) scale(0.97);
+        box-shadow: 0 1px 0 #CBD5E1;
       }
 
       /* Interactive Drop Slot in Code */
@@ -176,32 +187,36 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 72px;
-        min-height: 44px;
-        padding: 0.25rem 0.85rem;
-        margin: 0.25rem 0.4rem;
-        border-radius: 12px;
-        font-family: 'Fira Code', monospace;
+        min-width: 64px;
+        height: 34px;
+        padding: 0.15rem 0.65rem;
+        margin: 0 0.35rem;
+        border-radius: 10px;
+        font-family: 'Fira Code', 'JetBrains Mono', monospace;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1;
         transition: transform 120ms var(--ease-out), background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
         vertical-align: middle;
         cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
       }
       .code-slot.empty {
-        background: rgba(255, 255, 255, 0.12);
-        border: 2px dashed rgba(255, 255, 255, 0.45);
-        color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px dashed rgba(255, 255, 255, 0.4);
+        color: rgba(255, 255, 255, 0.55);
       }
       .code-slot.empty:hover {
-        border-color: rgba(255, 255, 255, 0.85);
-        background: rgba(255, 255, 255, 0.18);
+        border-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.14);
       }
       .code-slot.filled {
         background: #0071E3;
-        border: 2px solid #0071E3;
+        border: 2px solid #38BDF8;
         color: #FFFFFF;
-        box-shadow: 0 3px 8px rgba(0, 113, 227, 0.4);
+        box-shadow: 0 2px 8px rgba(0, 113, 227, 0.45);
       }
       .code-slot.filled:active {
         transform: scale(0.95);
@@ -271,7 +286,7 @@
       }
     </style>
 </head>
-<body class="h-full flex flex-col justify-between overflow-x-hidden antialiased">
+<body class="min-h-[100dvh] flex flex-col justify-between overflow-x-hidden antialiased">
 
 {# ─── ایزوله‌سازی کامل داده‌های JSON برای جلوگیری از تداخل اتریبیوت‌های HTML ─── #}
 <script id="practice-challenges-data" type="application/json">
@@ -279,14 +294,14 @@
 </script>
 
 <div x-data="practiceApp({{ week }}, {{ user_xp }}, {{ user_streak }})"
-     class="flex flex-col min-h-screen justify-between relative">
+     class="flex flex-col min-h-[100dvh] justify-between relative">
 
   {# ─── نوار بالای صفحه (Apple Frosted Glass Header) ─── #}
-  <header class="w-full backdrop-blur-xl bg-[#F5F5F7]/90 border-b border-black/[0.06] sticky top-0 z-30 transition-all duration-200">
+  <header class="w-full backdrop-blur-xl bg-[#F8F9FB]/90 border-b border-black/[0.06] sticky top-0 z-30 transition-all duration-200 pt-[env(safe-area-inset-top)]">
     <div class="max-w-2xl mx-auto px-4 h-16 flex items-center justify-between gap-3 sm:gap-4">
 
       {# دکمه خروج #}
-      <a href="{{ url_for('kb.week_page', week=week) }}"
+      <a href="{{ url_for('kb.week_page', week=week) if week else url_for('main.dashboard') }}"
          class="w-10 h-10 rounded-full flex items-center justify-center text-apple-secondary hover:text-apple-ink hover:bg-black/[0.05] transition-colors"
          title="خروج از تمرین"
          aria-label="خروج">
@@ -303,18 +318,21 @@
         </div>
       </div>
 
-      {# جون‌ها / قلب‌ها با بازخورد الاستیک #}
+      {# جون‌ها / قلب‌ها با آیکون وکتور کارتونی سه‌بعدی و بازخورد الاستیک #}
       <div class="flex items-center gap-1.5 px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm"
            :class="{'animate-shake-heart': isShaking}">
-        <svg class="w-5 h-5 text-apple-red fill-current" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        <svg class="w-5 h-5 text-rose-500 fill-rose-500 drop-shadow-sm inline-block shrink-0" viewBox="0 0 24 24">
+          <path stroke="#BE123C" stroke-width="1.2" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          <ellipse cx="8" cy="7.5" rx="2" ry="1.2" fill="white" opacity="0.45" transform="rotate(-30 8 7.5)"/>
         </svg>
         <span class="font-extrabold text-sm text-apple-ink num" x-text="hearts"></span>
       </div>
 
-      {# نشانگر XP #}
+      {# نشانگر XP با آیکون آذرخش وکتور کارتونی #}
       <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm">
-        <span class="text-apple-orange font-bold text-xs">⚡</span>
+        <svg class="w-4 h-4 text-amber-500 fill-amber-400 drop-shadow-sm inline-block shrink-0" viewBox="0 0 24 24">
+          <path stroke="#D97706" stroke-width="1.5" stroke-linejoin="round" d="M13 2L3 14h8l-2 8 11-12h-8l3-8z" />
+        </svg>
         <span class="font-bold text-xs text-apple-ink num" x-text="earnedXp + ' XP'"></span>
       </div>
 
@@ -331,19 +349,25 @@
          x-transition:enter-end="opacity-100 scale-100"
          class="text-center py-6">
 
-      <div class="w-24 h-24 mx-auto mb-6 bg-apple-green-tint text-apple-green rounded-3xl flex items-center justify-center shadow-sm border border-apple-green/20">
-        <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+      <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-b from-amber-50 to-amber-100 text-amber-600 rounded-3xl flex items-center justify-center shadow-md border-2 border-amber-300">
+        <svg class="w-12 h-12" viewBox="0 0 24 24">
+          <path fill="#FBBF24" stroke="#B45309" stroke-width="1.5" stroke-linejoin="round" d="M6 3h12v7a6 6 0 01-12 0V3z"/>
+          <path fill="none" stroke="#B45309" stroke-width="1.5" stroke-linecap="round" d="M6 5H3a2 2 0 00-2 2v1a4 4 0 004 4h1M18 5h3a2 2 0 012 2v1a4 4 0 01-4 4h-1"/>
+          <path fill="#F59E0B" stroke="#B45309" stroke-width="1.5" stroke-linejoin="round" d="M10 16h4v3h-4v-3z"/>
+          <path fill="#D97706" stroke="#92400E" stroke-width="1.5" stroke-linejoin="round" d="M7 19h10v2a1 1 0 01-1 1H8a1 1 0 01-1-1v-2z"/>
         </svg>
       </div>
 
-      <h2 class="text-3xl font-black text-apple-ink mb-2 tracking-tight">تبریک! جلسه کامل شد 🎉</h2>
+      <h2 class="text-3xl font-black text-apple-ink mb-2 tracking-tight">تبریک! جلسه کامل شد</h2>
       <p class="text-apple-secondary text-base mb-8 font-medium">تمام چالش‌های این مرحله را با موفقیت پشت سر گذاشتی.</p>
 
       <div class="grid grid-cols-2 gap-4 max-w-xs mx-auto mb-8">
         <div class="bg-white border border-black/[0.06] rounded-2xl p-4 shadow-sm">
           <div class="text-xs text-apple-secondary font-medium mb-1">XP کسب‌شده</div>
-          <div class="text-2xl font-black text-apple-orange flex items-center justify-center gap-1 num">
+          <div class="text-2xl font-black text-apple-orange flex items-center justify-center gap-1.5 num">
+            <svg class="w-5 h-5 text-amber-500 fill-amber-400 inline-block shrink-0" viewBox="0 0 24 24">
+              <path stroke="#D97706" stroke-width="1.5" stroke-linejoin="round" d="M13 2L3 14h8l-2 8 11-12h-8l3-8z" />
+            </svg>
             <span>+</span>
             <span x-text="earnedXp"></span>
             <span class="text-xs font-bold text-apple-secondary">XP</span>
@@ -351,15 +375,18 @@
         </div>
         <div class="bg-white border border-black/[0.06] rounded-2xl p-4 shadow-sm">
           <div class="text-xs text-apple-secondary font-medium mb-1">استریک روزانه</div>
-          <div class="text-2xl font-black text-apple-red flex items-center justify-center gap-1 num">
-            <span>🔥</span>
+          <div class="text-2xl font-black text-apple-red flex items-center justify-center gap-1.5 num">
+            <svg class="w-6 h-6 inline-block shrink-0" viewBox="0 0 24 24">
+              <path fill="#F97316" stroke="#C2410C" stroke-width="1.5" stroke-linejoin="round" d="M12 22c4.97 0 9-3.8 9-8.5C21 7 14 3 12 2 10 3 3 7 3 13.5 3 18.2 7.03 22 12 22z"/>
+              <path fill="#FDE047" stroke="#EA580C" stroke-width="1" stroke-linejoin="round" d="M12 20c2.5 0 4.5-2 4.5-4.5 0-3-3-5.5-4.5-6.5-1.5 1-4.5 3.5-4.5 6.5 0 2.5 2 4.5 4.5 4.5z"/>
+            </svg>
             <span x-text="streak"></span>
             <span class="text-xs font-bold text-apple-secondary">روز</span>
           </div>
         </div>
       </div>
 
-      <a href="{{ url_for('kb.week_page', week=week) }}"
+      <a href="{{ url_for('kb.week_page', week=week) if week else url_for('main.dashboard') }}"
          class="apple-btn btn-tactile-primary w-full max-w-xs py-3.5 text-base font-extrabold shadow-sm">
         ادامه به درسنامه
       </a>
@@ -378,46 +405,80 @@
                   x-text="'چالش ' + (currentIndex + 1) + ' از ' + totalChallenges"></span>
           </div>
           <h3 class="text-xl sm:text-2xl font-black text-apple-ink leading-snug"
-              x-text="currentChallenge.title"></h3>
+              x-text="currentChallenge.title || currentChallenge.prompt_fa || 'چالش کدنویسی'"></h3>
           <p class="text-base text-apple-secondary mt-2 font-medium leading-relaxed"
-             x-text="currentChallenge.instruction"></p>
+             x-text="currentChallenge.instruction || currentChallenge.prompt_fa || ''"></p>
         </div>
 
-        {# ─── تیپ ۱: انتخاب توکن و جای‌گذاری مستقیم در کد (Token Tap with Explicit LTR Slots) ─── #}
+        {# ─── تیپ ۱: انتخاب توکن و جای‌گذاری مستقیم در کد (Token Tap with Line-by-Line Code & Inline Slots) ─── #}
         <template x-if="currentChallenge.type === 'token_tap'">
           <div class="space-y-6">
 
-            {# پنجره نمایش کد با جهت قطعی LTR و فلکس چپ‌به‌راست #}
-            <div dir="ltr" class="code-editor-surface bg-[#1E1E24] text-white p-5 sm:p-6 rounded-2xl shadow-xl border border-black/10 text-base sm:text-lg overflow-x-auto">
-              <div class="flex flex-wrap items-center justify-start gap-y-2.5 [direction:ltr]" dir="ltr">
-                <template x-for="(segment, sIdx) in promptSegments" :key="sIdx">
-                  <span class="inline-flex items-center [direction:ltr]" dir="ltr">
-                    {# قطعه کد انگلیسی #}
-                    <span dir="ltr" class="text-gray-100 font-mono whitespace-pre" x-text="segment"></span>
+            {# پنجره نمایش کد با استایل macOS و رندر سطر به سطر #}
+            <div dir="ltr" class="code-editor-surface bg-[#18181B] text-white rounded-2xl shadow-xl overflow-hidden border border-white/10 [direction:ltr]">
+              {# نوار بالای ادیتور شبیه macOS #}
+              <div class="px-4 py-2.5 bg-[#121215] flex items-center justify-between border-b border-white/[0.08] [direction:ltr]" dir="ltr">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50 inline-block shadow-sm"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50 inline-block shadow-sm"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50 inline-block shadow-sm"></span>
+                </div>
+                <span class="text-xs font-mono text-zinc-400 font-medium">code_challenge.py</span>
+                <span class="text-[11px] font-sans text-zinc-400 font-bold bg-white/5 px-2.5 py-0.5 rounded-full" dir="rtl">چیدن توکن</span>
+              </div>
 
-                    {# جای خالی تعاملی درون‌خطی #}
-                    <template x-if="sIdx < slots.length">
-                      <button type="button"
-                              dir="ltr"
-                              @click="clearSlot(sIdx)"
-                              class="code-slot [direction:ltr]"
-                              :class="slots[sIdx] ? 'filled' : 'empty'"
-                              :title="slots[sIdx] ? 'برای بازگشت به بانک کلیک کنید' : 'جای خالی'">
-                        <span x-show="slots[sIdx]" x-text="slots[sIdx]" dir="ltr"></span>
-                        <span x-show="!slots[sIdx]" class="font-sans text-xs opacity-70 select-none" dir="rtl">خالی</span>
-                      </button>
-                    </template>
-                  </span>
-                </template>
+              {# بدنه خطوط کد با جهت صریح LTR #}
+              <div class="p-4 sm:p-5 font-mono text-sm sm:text-base leading-relaxed [direction:ltr] overflow-x-auto" dir="ltr">
+                <div class="min-w-full space-y-1">
+                  <template x-for="line in codeLines" :key="line.lineNum">
+                    <div class="flex items-center gap-2 [direction:ltr] py-0.5 min-h-[36px]" dir="ltr">
+                      {# شماره سطر #}
+                      <span class="w-6 text-zinc-500 select-none text-xs text-right pr-1 num shrink-0 font-mono" x-text="line.lineNum"></span>
+
+                      {# سطر بدون جای خالی #}
+                      <template x-if="!line.hasSlots">
+                        <span class="text-zinc-100 font-mono whitespace-pre [direction:ltr]" x-text="line.text"></span>
+                      </template>
+
+                      {# سطر دارای جای خالی #}
+                      <template x-if="line.hasSlots">
+                        <div class="inline-flex items-center flex-wrap gap-y-1 [direction:ltr]" dir="ltr">
+                          <template x-for="(seg, sIdx) in line.segments" :key="sIdx">
+                            <span class="inline-flex items-center [direction:ltr]" dir="ltr">
+                              <template x-if="seg.type === 'text'">
+                                <span class="text-zinc-100 font-mono whitespace-pre [direction:ltr]" x-text="seg.text"></span>
+                              </template>
+                              <template x-if="seg.type === 'slot'">
+                                <button type="button"
+                                        dir="ltr"
+                                        @click="clearSlot(seg.slotIndex)"
+                                        class="code-slot [direction:ltr]"
+                                        :class="slots[seg.slotIndex] ? 'filled' : 'empty'"
+                                        :title="slots[seg.slotIndex] ? 'برای بازگشت به بانک کلیک کنید' : 'جای خالی'">
+                                  <span x-show="slots[seg.slotIndex]" x-text="slots[seg.slotIndex]" dir="ltr"></span>
+                                  <span x-show="!slots[seg.slotIndex]" class="font-sans text-xs opacity-70 select-none" dir="rtl">خالی</span>
+                                </button>
+                              </template>
+                            </span>
+                          </template>
+                        </div>
+                      </template>
+                    </div>
+                  </template>
+                </div>
               </div>
             </div>
 
-            <p class="text-xs text-apple-secondary text-center rtl-surface" dir="rtl">
-              💡 برای پر کردن جای خالی، روی گزینه‌های زیر کلیک کنید. برای خالی کردن، روی جای خالی کلیک کنید.
-            </p>
+            {# راهنمای تعاملی با آیکون وکتور کارتونی #}
+            <div class="flex items-center justify-center gap-2 text-xs text-apple-secondary text-center rtl-surface" dir="rtl">
+              <svg class="w-4 h-4 text-amber-500 fill-amber-400 drop-shadow-sm inline-block shrink-0" viewBox="0 0 24 24">
+                <path stroke="#B45309" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6m-5 3h4M12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7z"/>
+              </svg>
+              <span>برای پر کردن جای خالی، روی گزینه‌های زیر کلیک کنید. برای خالی کردن، روی جای خالی کلیک کنید.</span>
+            </div>
 
-            {# بانک گزینه‌ها (توکن‌های کد به صورت LTR) #}
-            <div class="bg-white/80 backdrop-blur-sm border border-black/[0.06] rounded-2xl p-4 sm:p-5 shadow-sm">
+            {# بانک گزینه‌ها (توکن‌های کد ۳بعدی به صورت LTR) #}
+            <div class="bg-white/90 backdrop-blur-md border border-black/[0.08] rounded-2xl p-4 sm:p-5 shadow-sm">
               <div class="text-xs font-bold text-apple-secondary mb-3 rtl-surface" dir="rtl">بانک توکن‌ها:</div>
               <div dir="ltr" class="ltr-surface flex flex-wrap gap-3 justify-center py-1 [direction:ltr]">
                 <template x-for="(tok, idx) in availableTokens" :key="idx">
@@ -516,9 +577,12 @@
               </div>
             </div>
 
-            <p class="text-xs text-apple-secondary text-center rtl-surface" dir="rtl">
-              💡 روی خطی که دارای خطا است کلیک کنید تا قرمز شود.
-            </p>
+            <div class="flex items-center justify-center gap-2 text-xs text-apple-secondary text-center rtl-surface" dir="rtl">
+              <svg class="w-4 h-4 text-amber-500 fill-amber-400 drop-shadow-sm inline-block shrink-0" viewBox="0 0 24 24">
+                <path stroke="#B45309" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6m-5 3h4M12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7z"/>
+              </svg>
+              <span>روی خطی که دارای خطا است کلیک کنید تا قرمز شود.</span>
+            </div>
           </div>
         </template>
 
@@ -538,13 +602,53 @@
           </div>
         </template>
 
-        {# دکمه و باکس راهنمایی (RTL) #}
+        {# ─── تیپ ۵: چندگزینه‌ای و درست/نادرست (MCQ & True/False Cards) ─── #}
+        <template x-if="currentChallenge.type === 'mcq' || currentChallenge.type === 'true_false'">
+          <div class="space-y-4">
+            {# صورت سوال کدی اگر وجود دارد #}
+            <template x-if="currentChallenge.code">
+              <div dir="ltr" class="code-editor-surface bg-[#18181B] text-white p-4 rounded-2xl shadow-md border border-white/10 text-sm sm:text-base overflow-x-auto mb-4">
+                <pre class="font-mono whitespace-pre [direction:ltr]" x-text="currentChallenge.code"></pre>
+              </div>
+            </template>
+
+            {# کارت‌های گزینه‌ها با رفتار فیزیکی و لمسی #}
+            <div class="grid grid-cols-1 gap-3">
+              <template x-for="(opt, oIdx) in (currentChallenge.options || defaultTfOptions)" :key="opt.id">
+                <button type="button"
+                        @click="selectedMcqOption = opt.id"
+                        class="w-full text-right p-4 rounded-2xl border-2 transition-all flex items-center justify-between gap-3 text-apple-ink cursor-pointer touch-manipulation select-none active:scale-[0.985]"
+                        :class="selectedMcqOption === opt.id
+                          ? 'bg-blue-50/90 border-apple-blue shadow-md scale-[1.01]'
+                          : 'bg-white border-black/[0.08] hover:border-black/20 shadow-sm'">
+                  <div class="flex items-center gap-3 flex-1">
+                    <span class="w-8 h-8 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 shadow-sm"
+                          :class="selectedMcqOption === opt.id ? 'bg-apple-blue text-white' : 'bg-black/[0.05] text-apple-secondary'"
+                          x-text="['A', 'B', 'C', 'D', 'E'][oIdx] || (oIdx + 1)"></span>
+                    <span class="text-base font-semibold"
+                          :class="{'font-mono text-left [direction:ltr]': opt.text_is_code}"
+                          :dir="opt.text_is_code ? 'ltr' : 'rtl'"
+                          x-text="opt.text_fa || opt.text || opt.id"></span>
+                  </div>
+                  <div class="w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0"
+                       :class="selectedMcqOption === opt.id ? 'border-apple-blue bg-apple-blue' : 'border-black/20'">
+                    <div x-show="selectedMcqOption === opt.id" class="w-2 h-2 rounded-full bg-white"></div>
+                  </div>
+                </button>
+              </template>
+            </div>
+          </div>
+        </template>
+
+        {# دکمه و باکس راهنمایی (RTL) با آیکون وکتور #}
         <div class="mt-5 flex justify-end rtl-surface" dir="rtl">
           <button type="button"
                   @click="showHint = !showHint; if(showHint) hintsCount++;"
-                  class="text-xs sm:text-sm text-apple-blue font-bold hover:underline inline-flex items-center gap-1.5 transition-colors">
+                  class="text-xs sm:text-sm text-apple-blue font-bold hover:underline inline-flex items-center gap-1.5 transition-colors cursor-pointer select-none">
             <span>نیاز به راهنمایی داری؟</span>
-            <span>💡</span>
+            <svg class="w-4 h-4 text-apple-blue fill-apple-blue/20 inline-block shrink-0" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6m-5 3h4M12 2a7 7 0 00-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 001 1h6a1 1 0 001-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 00-7-7z"/>
+            </svg>
           </button>
         </div>
 
@@ -555,7 +659,7 @@
              x-transition:enter-end="opacity-100 translate-y-0"
              class="mt-3 p-4 bg-amber-50/90 border border-amber-200/90 rounded-2xl text-xs sm:text-sm text-amber-900 leading-relaxed backdrop-blur-sm rtl-surface">
           <span class="font-bold">راهنمایی:</span>
-          <span x-text="currentChallenge.hint"></span>
+          <span x-text="currentChallenge.hint || currentChallenge.hint_fa || ''"></span>
         </div>
 
       </div>
@@ -563,7 +667,7 @@
   </main>
 
   {# ─── نوار پایینی و بنر پاسخ (Apple-Grade Feedback Drawer) ─── #}
-  <footer class="w-full backdrop-blur-xl border-t border-black/[0.06] sticky bottom-0 z-30 transition-colors duration-250 pb-[env(safe-area-inset-bottom)]"
+  <footer class="w-full backdrop-blur-xl border-t border-black/[0.06] sticky bottom-0 z-30 transition-colors duration-250 pb-[calc(1rem+env(safe-area-inset-bottom))]"
           :class="{
             'bg-emerald-50/95 border-emerald-500/40': feedbackStatus === 'correct',
             'bg-rose-50/95 border-rose-500/40': feedbackStatus === 'incorrect',
@@ -585,7 +689,7 @@
               </svg>
             </div>
             <div>
-              <h4 class="font-black text-apple-green-dark text-lg">آفرین! دقیقاً درسته 🎉</h4>
+              <h4 class="font-black text-apple-green-dark text-lg">آفرین! دقیقاً درسته</h4>
               <p class="text-xs sm:text-sm text-apple-ink/90 mt-1 leading-relaxed" x-text="currentExplanation"></p>
             </div>
           </div>
@@ -599,7 +703,7 @@
               </svg>
             </div>
             <div>
-              <h4 class="font-black text-apple-red text-lg">دقت کن! اشتباه شد ❌</h4>
+              <h4 class="font-black text-apple-red text-lg">دقت کن! اشتباه شد</h4>
               <p class="text-xs sm:text-sm text-apple-ink/90 mt-1 leading-relaxed" x-text="currentExplanation"></p>
             </div>
           </div>
@@ -667,10 +771,13 @@ function practiceApp(week, initialXp, initialStreak) {
     startTime: Date.now(),
     incorrectCount: 0,
 
-    // Token Tap with Inline Slots
-    promptSegments: [],
+    // Token Tap with Line-by-Line Code & Inline Slots
+    codeLines: [],
     slots: [], // آرایه توکن‌های قرار گرفته در هر جای خالی
     availableTokens: [],
+
+    // MCQ & True/False
+    selectedMcqOption: null,
 
     // Parsons
     parsonsSelected: [],
@@ -699,13 +806,21 @@ function practiceApp(week, initialXp, initialStreak) {
       return Math.round((this.currentIndex / this.totalChallenges) * 100);
     },
 
+    get defaultTfOptions() {
+      return [
+        { id: 'true', text_fa: 'درست (True)' },
+        { id: 'false', text_fa: 'نادرست (False)' }
+      ];
+    },
+
     getBadgeLabel(type) {
       const map = {
         'token_tap': 'چیدن توکن',
         'parsons': 'مرتب‌سازی خطوط',
         'spot_bug': 'شکار باگ',
         'predict_output': 'پیش‌بینی خروجی',
-        'mcq': 'چندگزینه‌ای'
+        'mcq': 'چندگزینه‌ای',
+        'true_false': 'درست یا نادرست'
       };
       return map[type] || 'چالش کد';
     },
@@ -715,23 +830,45 @@ function practiceApp(week, initialXp, initialStreak) {
       this.currentExplanation = '';
       this.showHint = false;
       this.hintsCount = 0;
+      this.selectedMcqOption = null;
 
       const ch = this.currentChallenge;
       if (!ch) return;
 
       if (ch.type === 'token_tap') {
-        const rawPrompt = ch.prompt || '';
-        this.promptSegments = rawPrompt.split('___');
-        const numSlots = Math.max(1, this.promptSegments.length - 1);
+        const rawCode = ch.prompt || ch.code || '';
+        const lines = rawCode.split('\n');
+        let globalSlotIdx = 0;
+
+        this.codeLines = lines.map((lineStr, lineIdx) => {
+          if (lineStr.includes('___')) {
+            const parts = lineStr.split('___');
+            const segments = [];
+            for (let p = 0; p < parts.length; p++) {
+              segments.push({ type: 'text', text: parts[p] });
+              if (p < parts.length - 1) {
+                segments.push({ type: 'slot', slotIndex: globalSlotIdx });
+                globalSlotIdx++;
+              }
+            }
+            return { lineNum: lineIdx + 1, hasSlots: true, segments: segments };
+          } else {
+            return { lineNum: lineIdx + 1, hasSlots: false, text: lineStr };
+          }
+        });
+
+        const numSlots = Math.max(1, globalSlotIdx);
         this.slots = new Array(numSlots).fill(null);
-        this.availableTokens = ch.token_bank ? [...ch.token_bank] : [];
+        this.availableTokens = ch.token_bank ? [...ch.token_bank] : (ch.tokens ? [...ch.tokens] : []);
       } else if (ch.type === 'parsons') {
         this.parsonsSelected = [];
-        this.parsonsAvailable = ch.scrambled_lines ? [...ch.scrambled_lines] : [];
+        this.parsonsAvailable = ch.scrambled_lines ? [...ch.scrambled_lines] : (ch.lines ? [...ch.lines] : []);
       } else if (ch.type === 'spot_bug') {
         this.selectedBugLine = null;
       } else if (ch.type === 'predict_output') {
         this.typedAnswer = '';
+      } else if (ch.type === 'mcq' || ch.type === 'true_false') {
+        this.selectedMcqOption = null;
       }
     },
 
@@ -742,7 +879,7 @@ function practiceApp(week, initialXp, initialStreak) {
         return this.slots.length > 0 && this.slots.every(s => s !== null);
       }
       if (ch.type === 'parsons') {
-        return this.parsonsSelected.length === (ch.scrambled_lines ? ch.scrambled_lines.length : 0);
+        return this.parsonsSelected.length === (ch.scrambled_lines ? ch.scrambled_lines.length : (ch.lines ? ch.lines.length : 0));
       }
       if (ch.type === 'spot_bug') {
         return this.selectedBugLine !== null;
@@ -750,10 +887,14 @@ function practiceApp(week, initialXp, initialStreak) {
       if (ch.type === 'predict_output') {
         return this.typedAnswer.trim().length > 0;
       }
+      if (ch.type === 'mcq' || ch.type === 'true_false') {
+        return this.selectedMcqOption !== null;
+      }
       return true;
     },
 
     fillNextSlot(tok, bankIdx) {
+      if (this.feedbackStatus !== null) return;
       const emptySlotIdx = this.slots.findIndex(s => s === null);
       if (emptySlotIdx !== -1) {
         this.slots[emptySlotIdx] = tok;
@@ -762,6 +903,7 @@ function practiceApp(week, initialXp, initialStreak) {
     },
 
     clearSlot(slotIdx) {
+      if (this.feedbackStatus !== null) return;
       const tok = this.slots[slotIdx];
       if (tok !== null) {
         this.slots[slotIdx] = null;
@@ -860,25 +1002,40 @@ function practiceApp(week, initialXp, initialStreak) {
       if (ch.type === 'token_tap') {
         userAnswer = this.slots;
       } else if (ch.type === 'parsons') {
-        userAnswer = this.parsonsSelected.map(l => l.id);
+        userAnswer = this.parsonsSelected.map(l => l.id || l.text);
       } else if (ch.type === 'spot_bug') {
         userAnswer = this.selectedBugLine;
       } else if (ch.type === 'predict_output') {
         userAnswer = this.typedAnswer.trim();
+      } else if (ch.type === 'mcq' || ch.type === 'true_false') {
+        userAnswer = this.selectedMcqOption;
       }
 
+      const isGlobalPractice = (!this.week || this.week === 0);
+      const submitEndpoint = isGlobalPractice ? '/practice/answer' : `/kb/week/${this.week}/practice/submit`;
+
+      const postPayload = isGlobalPractice
+        ? {
+            session_id: (ch.session_id || ''),
+            question_id: ch.id,
+            challenge_id: ch.id,
+            answer: userAnswer,
+            hints_used: this.hintsCount
+          }
+        : {
+            challenge_id: ch.id,
+            answer: userAnswer,
+            hints_used: this.hintsCount
+          };
+
       try {
-        const resp = await fetch(`/kb/week/${this.week}/practice/submit`, {
+        const resp = await fetch(submitEndpoint, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': this.csrfToken,
           },
-          body: JSON.stringify({
-            challenge_id: ch.id,
-            answer: userAnswer,
-            hints_used: this.hintsCount
-          })
+          body: JSON.stringify(postPayload)
         });
 
         if (!resp.ok) {
@@ -890,12 +1047,12 @@ function practiceApp(week, initialXp, initialStreak) {
 
         if (result.is_correct) {
           this.feedbackStatus = 'correct';
-          this.currentExplanation = result.explanation;
+          this.currentExplanation = result.explanation_fa || result.explanation || result.feedback_fa || 'پاسخ شما کاملاً صحیح است!';
           this.earnedXp += (result.xp_awarded || 0);
           this.playSuccessSound();
         } else {
           this.feedbackStatus = 'incorrect';
-          this.currentExplanation = result.explanation;
+          this.currentExplanation = result.feedback_fa || result.explanation_fa || result.explanation || 'پاسخ نادرست است. دوباره تلاش کنید.';
           this.incorrectCount++;
           this.hearts = Math.max(0, this.hearts - 1);
           this.isShaking = true;
@@ -922,9 +1079,12 @@ function practiceApp(week, initialXp, initialStreak) {
           });
         }
 
+        const isGlobalPractice = (!this.week || this.week === 0);
+        const completeEndpoint = isGlobalPractice ? '/practice/finish' : `/kb/week/${this.week}/practice/complete`;
+
         try {
           const timeSpent = Math.round((Date.now() - this.startTime) / 1000);
-          const resp = await fetch(`/kb/week/${this.week}/practice/complete`, {
+          const resp = await fetch(completeEndpoint, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
