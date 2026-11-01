@@ -1,0 +1,336 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l06",
+  "type": "lesson",
+  "week": 4,
+  "order": 6,
+  "stage_id": "w04-s3",
+  "title_fa": "جابه‌جایی، چیدمان حافظه و scanf",
+  "title_en": "Swapping, memory layout and scanf",
+  "note_ids": [
+    "w04-n12",
+    "w04-n13",
+    "w04-n14"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w04-l02",
+    "w04-l05"
+  ],
+  "concept_ids": [
+    "w04-c-swap-by-pointer",
+    "w04-c-memory-layout",
+    "w04-c-stack-frame",
+    "w04-c-overflow",
+    "w04-c-scanf",
+    "w04-c-scanf-string-danger"
+  ],
+  "objective_ids": [
+    "w04-o08",
+    "w04-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w04-l02",
+      "w04-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l06-u01",
+      "order": 1,
+      "title_fa": "swap با اشاره‌گر",
+      "concept_ids": [
+        "w04-c-swap-by-pointer"
+      ],
+      "objective_ids": [
+        "w04-o08"
+      ],
+      "note_id": "w04-n12",
+      "source_refs": [
+        "src-notes-4#swapping",
+        "src-transcript-4",
+        "src-short-call-stacks",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`swap(int a, int b)` فقط کپی‌ها را جابه‌جا می‌کند، چون C آرگومان‌ها را با مقدار می‌فرستد. نسخهٔ درست نشانی‌ها را می‌گیرد: `swap(int *a, int *b)`، با `swap(&x, &y)` صدا زده می‌شود و در بدنه با `*a` و `*b` کار می‌کند، با یک متغیر موقت مثل لیوان خالی در نمایش Olivia.",
+        "note_id": "w04-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "swap1",
+        "lang": "c",
+        "content": "// Swaps two integers using pointers\n\n#include <stdio.h>\n\nvoid swap(int *a, int *b);\n\nint main(void)\n{\n    int x = 1;\n    int y = 2;\n\n    printf(\"x is %i, y is %i\\n\", x, y);\n    swap(&x, &y);\n    printf(\"x is %i, y is %i\\n\", x, y);\n}\n\nvoid swap(int *a, int *b)\n{\n    int tmp = *a;\n    *a = *b;\n    *b = tmp;\n}",
+        "source_ref": "src-notes-4#swapping",
+        "explain_fa": "کد رسمی swap با اشاره‌گر."
+      },
+      "check": {
+        "id": "w04-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `swap0.c` (نسخهٔ بدون اشاره‌گر) خروجی خط دوم چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "x is 1, y is 2",
+            "correct": true,
+            "feedback_fa": "درست. swap فقط کپی‌ها را عوض کرد."
+          },
+          {
+            "id": "b",
+            "text_fa": "x is 2, y is 1",
+            "correct": false,
+            "feedback_fa": "این خروجی swap1 است."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای کامپایل",
+            "correct": false,
+            "feedback_fa": "swap0 کامپایل و اجرا می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l06-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌های بدنهٔ swap با اشاره‌گر را به ترتیب درست بچین (کد رسمی swap1).",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "int tmp = *a;",
+            "text": "int tmp = *a;"
+          },
+          {
+            "id": "p2",
+            "code": "*a = *b;",
+            "text": "*a = *b;"
+          },
+          {
+            "id": "p3",
+            "code": "*b = tmp;",
+            "text": "*b = tmp;"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "a = b;",
+            "why_wrong_fa": "این فقط اشاره‌گر محلی a را عوض می‌کند، نه x در main."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "اول مقدار *a را در tmp نگه دار."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l06-u02",
+      "order": 2,
+      "title_fa": "stack، heap و سرریز",
+      "concept_ids": [
+        "w04-c-memory-layout",
+        "w04-c-stack-frame",
+        "w04-c-overflow"
+      ],
+      "objective_ids": [
+        "w04-o08"
+      ],
+      "note_id": "w04-n12",
+      "source_refs": [
+        "src-notes-4#swapping",
+        "src-anzali-authored-4",
+        "src-notes-4#overflow",
+        "src-short-call-stacks",
+        "src-transcript-4"
+      ],
+      "reading": {
+        "text_fa": "در تصویر درس‌نامه حافظه از بالا به پایین این‌طور است: کد ماشین، globals، heap و stack. `malloc` از heap می‌دهد و هر فراخوانی تابع یک قاب روی stack می‌گذارد؛ قاب‌های `main` و `swap` جدا هستند. heap overflow یعنی دست زدن به حافظهٔ heap که مال تو نیست و stack overflow یعنی فراخوانی‌های بیش از حد. هر دو buffer overflow هستند.",
+        "note_id": "w04-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n12"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "machine code\nglobals\nheap      (malloc; grows down in the picture)\n   ...\nstack     (frames: main, swap, ...; grows up)",
+        "source_ref": "src-anzali-authored-4",
+        "explain_fa": "طرح تألیفی از تصویر رسمی درس‌نامه."
+      },
+      "check": {
+        "id": "w04-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بازگشتی که هیچ‌وقت به حالت پایه نمی‌رسد بیشتر به کدام خطا می‌انجامد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "stack overflow",
+            "correct": true,
+            "feedback_fa": "درست: قاب‌ها بی‌پایان روی stack جمع می‌شوند."
+          },
+          {
+            "id": "b",
+            "text_fa": "heap overflow",
+            "correct": false,
+            "feedback_fa": "این تابع malloc نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "memory leak",
+            "correct": false,
+            "feedback_fa": "نشت یعنی free نکردن حافظهٔ malloc."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l06-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را به stack یا heap نسبت بده: (۱) قاب تابع `swap` (۲) بلوک `malloc(3 * sizeof(int))`",
+        "expected": {
+          "answers": {
+            "1": "stack",
+            "2": "heap"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "به تصویر چیدمان حافظه فکر کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l06-u03",
+      "order": 3,
+      "title_fa": "scanf و خطر رشته‌ها",
+      "concept_ids": [
+        "w04-c-scanf",
+        "w04-c-scanf-string-danger"
+      ],
+      "objective_ids": [
+        "w04-o09"
+      ],
+      "note_id": "w04-n14",
+      "source_refs": [
+        "src-notes-4#scanf",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`scanf(\"%i\", &n)` عدد را در نشانی `n` می‌نویسد؛ `&` لازم است چون `scanf` باید بداند کجا بنویسد. برای رشته `scanf(\"%s\", s)` نمی‌داند `s` چقدر جا دارد. با `char s[4];` کلمهٔ `cat` جا می‌شود، اما کلمهٔ بلندتر بیرون از آرایه نوشته می‌شود. درس‌نامه این کد را صریحاً ناامن می‌خواند.",
+        "note_id": "w04-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "get1",
+        "lang": "c",
+        "content": "// Gets an int from user using scanf\n\n#include <stdio.h>\n\nint main(void)\n{\n    int n;\n    printf(\"n: \");\n    scanf(\"%i\", &n);\n    printf(\"n: %i\\n\", n);\n}",
+        "source_ref": "src-notes-4#scanf",
+        "explain_fa": "کد رسمی get_int با scanf."
+      },
+      "check": {
+        "id": "w04-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا در `scanf(\"%i\", &n)` علامت `&` لازم است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون scanf باید نشانی n را داشته باشد تا در آن بنویسد",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون n یک رشته است",
+            "correct": false,
+            "feedback_fa": "n یک int است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون بدون & عدد منفی خوانده نمی‌شود",
+            "correct": false,
+            "feedback_fa": "ربطی به علامت ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l06-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: با `char s[4];` و `scanf(\"%s\", s);` ورودی `cats` امن است.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: cats با \\0 پنج بایت لازم دارد.",
+          "incorrect_fa": "\\0 را هم بشمار."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

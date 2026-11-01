@@ -1,0 +1,265 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w03-l04",
+  "type": "lesson",
+  "week": 3,
+  "order": 4,
+  "stage_id": "w03-s2",
+  "title_fa": "دفترچهٔ تلفن و struct",
+  "title_en": "Phonebook and structs",
+  "note_ids": [
+    "w03-n08",
+    "w03-n09"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w03-l03"
+  ],
+  "concept_ids": [
+    "w03-c-parallel-arrays",
+    "w03-c-numbers-as-strings",
+    "w03-c-struct",
+    "w03-c-dot-notation",
+    "w03-c-array-of-structs",
+    "w03-c-encapsulation"
+  ],
+  "objective_ids": [
+    "w03-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w03-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "units": [
+    {
+      "id": "w03-l04-u01",
+      "order": 1,
+      "title_fa": "آرایه‌های موازی",
+      "concept_ids": [
+        "w03-c-parallel-arrays",
+        "w03-c-numbers-as-strings"
+      ],
+      "objective_ids": [
+        "w03-o06"
+      ],
+      "note_id": "w03-n08",
+      "source_refs": [
+        "src-notes-3#phonebookc",
+        "src-transcript-3",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "در `phonebook.c` نسخهٔ اول، نام‌ها در یک آرایه و شماره‌ها در آرایه‌ای دیگر هستند و فقط با یک اندیس مشترک به هم ربط دارند. این کار می‌کند، اما طراحی شکننده‌ای است: اگر ترتیب یکی را عوض کنی، جفت‌ها به‌هم می‌ریزند. شماره‌ها را رشته نگه می‌داریم چون ممکن است `+` یا `-` یا صفر اول داشته باشند.",
+        "note_id": "w03-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook0",
+        "lang": "c",
+        "content": "// Implements a phone book without structs\n\n#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    // Arrays of strings\n    string names[] = {\"Kelly\", \"David\", \"John\"};\n    string numbers[] = {\"+1-617-495-1000\", \"+1-617-495-1000\", \"+1-949-468-2750\"};\n\n    // Search for name\n    string name = get_string(\"Name: \");\n    for (int i = 0; i < 3; i++)\n    {\n        if (strcmp(names[i], name) == 0)\n        {\n            printf(\"Found %s\\n\", numbers[i]);\n            return 0;\n        }\n    }\n    printf(\"Not found\\n\");\n    return 1;\n}",
+        "source_ref": "src-notes-3#phonebookc",
+        "explain_fa": "کد رسمی phonebook.c با دو آرایه."
+      },
+      "check": {
+        "id": "w03-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ضعف اصلی طراحی آرایه‌های موازی چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "ارتباط نام و شماره فقط به یکسان ماندن ترتیب دو آرایه بستگی دارد",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "کامپایل نمی‌شود",
+            "correct": false,
+            "feedback_fa": "کامپایل می‌شود و کار می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "strcmp با آن کار نمی‌کند",
+            "correct": false,
+            "feedback_fa": "strcmp مشکلی ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l04-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در phonebook.c شماره‌های تلفن از نوع int هستند.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: از نوع string هستند.",
+          "incorrect_fa": "به اعلان numbers نگاه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l04-u02",
+      "order": 2,
+      "title_fa": "typedef struct",
+      "concept_ids": [
+        "w03-c-struct",
+        "w03-c-dot-notation",
+        "w03-c-array-of-structs",
+        "w03-c-encapsulation"
+      ],
+      "objective_ids": [
+        "w03-o06"
+      ],
+      "note_id": "w03-n09",
+      "source_refs": [
+        "src-notes-3#structs",
+        "src-section-3",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "با `typedef struct` نوع دادهٔ تازه‌ای می‌سازیم که چند فیلد مرتبط را کنار هم نگه می‌دارد. در درس‌نامه، `person` فیلدهای `name` و `number` دارد. با نماد نقطه به هر فیلد دسترسی داریم: `people[0].name`. حالا نام و شماره هر نفر همیشه با هم‌اند.",
+        "note_id": "w03-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "person-struct",
+        "lang": "c",
+        "content": "typedef struct\n{\n    string name;\n    string number;\n} person;",
+        "source_ref": "src-notes-3#structs",
+        "explain_fa": "تعریف رسمی person."
+      },
+      "check": {
+        "id": "w03-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای خواندن شمارهٔ دومین نفر در آرایهٔ `people` کدام عبارت درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "people[1].number",
+            "correct": true,
+            "feedback_fa": "درست. اندیس از صفر شروع می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "people[2].number",
+            "correct": false,
+            "feedback_fa": "این سومین نفر است."
+          },
+          {
+            "id": "c",
+            "text_fa": "people.number[1]",
+            "correct": false,
+            "feedback_fa": "اول خانهٔ آرایه را انتخاب کن، بعد فیلد را."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l04-u02-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا این قطعهٔ تألیفی یک نوع `point` با دو فیلد int تعریف کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "typedef struct",
+            "text": "typedef struct"
+          },
+          {
+            "id": "p2",
+            "code": "{",
+            "text": "{"
+          },
+          {
+            "id": "p3",
+            "code": "    int x;",
+            "text": "    int x;"
+          },
+          {
+            "id": "p4",
+            "code": "    int y;",
+            "text": "    int y;"
+          },
+          {
+            "id": "p5",
+            "code": "}",
+            "text": "}"
+          },
+          {
+            "id": "p6",
+            "code": "point;",
+            "text": "point;"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "struct point;",
+            "why_wrong_fa": "این فقط یک اعلان پیشاپیش است و فیلدها را تعریف نمی‌کند."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "الگوی typedef struct درس‌نامه را دنبال کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

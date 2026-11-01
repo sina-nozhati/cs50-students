@@ -1,0 +1,468 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l07",
+  "type": "lesson",
+  "week": 7,
+  "order": 7,
+  "stage_id": "w07-s7",
+  "title_fa": "شرایط رقابتی و تزریق SQL",
+  "title_en": "Race conditions and SQL injection",
+  "note_ids": [
+    "w07-n11",
+    "w07-n12"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w07-l06"
+  ],
+  "concept_ids": [
+    "w07-c-race-condition",
+    "w07-c-atomic-update",
+    "w07-c-transaction",
+    "w07-c-sql-injection",
+    "w07-c-sql-comment",
+    "w07-c-fstring-sql-danger",
+    "w07-c-never-trust-input",
+    "w07-c-placeholder-qmark"
+  ],
+  "objective_ids": [
+    "w07-o09",
+    "w07-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w07-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l07-u01",
+      "order": 1,
+      "title_fa": "شرایط رقابتی",
+      "concept_ids": [
+        "w07-c-race-condition",
+        "w07-c-atomic-update"
+      ],
+      "objective_ids": [
+        "w07-o09"
+      ],
+      "note_id": "w07-n11",
+      "source_refs": [
+        "src-notes-7#race-conditions",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه مثال لایک‌های یک پست را می‌آورد: اگر برنامه اول تعداد لایک را بخواند، در پایتون یکی اضافه کند و بعد بنویسد، دو کاربر هم‌زمان ممکن است هر دو همان عدد قدیمی را بخوانند و یکی از لایک‌ها گم شود. به این وضعیت شرایط رقابتی (race condition) می‌گویند. نوشتن کل کار در یک دستور، مثل `UPDATE posts SET likes = likes + 1 WHERE id = 1` ، این فاصلهٔ خواندن و نوشتن را از بین می‌برد.",
+        "note_id": "w07-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n11"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "UPDATE posts SET likes = likes + 1 WHERE id = 1;\nSELECT likes FROM posts WHERE id = 1;",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "به‌روزرسانی در یک دستور روی پایگاه دادهٔ تمرینی posts (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "posts",
+        "run_output": "11\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "دو کاربر هم‌زمان لایک می‌زنند. برنامه برای هر کدام `likes` را می‌خواند (هر دو ۱۰ می‌خوانند)، یکی اضافه می‌کند و نتیجه را می‌نویسد. مقدار نهایی چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`11`، چون هر دو ۱۱ را نوشتند و یک لایک گم شد.",
+            "correct": true,
+            "feedback_fa": "درست. این همان شرایط رقابتی است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`12`، چون دو لایک زده شد.",
+            "correct": false,
+            "feedback_fa": "هر دو مقدار قدیمی ۱۰ را خواندند، پس هر دو ۱۱ نوشتند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطا، چون دو کاربر نمی‌توانند هم‌زمان بنویسند.",
+            "correct": false,
+            "feedback_fa": "پایگاه داده هر دو نوشتن را می‌پذیرد؛ مشکل گم شدن به‌روزرسانی است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l07-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر روش را «در معرض شرایط رقابتی» یا «امن در برابر آن» بنویس: (۱) خواندن `likes` در پایتون، `+ 1` و نوشتن با `UPDATE` جداگانه (۲) `UPDATE posts SET likes = likes + 1 WHERE id = 1` در یک دستور (۳) خواندن و نوشتن داخل یک تراکنش با `BEGIN TRANSACTION` و `COMMIT`",
+        "expected": {
+          "answers": {
+            "1": "در معرض شرایط رقابتی",
+            "2": "امن در برابر آن",
+            "3": "امن در برابر آن"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: میان خواندن و نوشتن فاصله‌ای هست که کاربر دیگری وارد آن شود؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l07-u02",
+      "order": 2,
+      "title_fa": "تراکنش: BEGIN، COMMIT و ROLLBACK",
+      "concept_ids": [
+        "w07-c-transaction"
+      ],
+      "objective_ids": [
+        "w07-o09"
+      ],
+      "note_id": "w07-n11",
+      "source_refs": [
+        "src-notes-7#race-conditions",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "تراکنش چند دستور را یک واحد می‌کند: `BEGIN TRANSACTION` آن را شروع می‌کند، `COMMIT` تغییرها را ماندگار می‌کند و `ROLLBACK` همهٔ تغییرهای از آغاز تراکنش را برمی‌گرداند. در مثال لایک‌ها، خواندن و نوشتن داخل یک تراکنش انجام می‌شود تا کاربر دیگری وسط کار مقدار را تغییر ندهد.",
+        "note_id": "w07-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n11"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "BEGIN TRANSACTION;\nUPDATE posts SET likes = likes + 1 WHERE id = 1;\nCOMMIT;\nSELECT likes FROM posts WHERE id = 1;",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "تراکنش ماندگارشده روی posts (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "posts",
+        "run_output": "11\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`ROLLBACK` چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "همهٔ تغییرهای پس از `BEGIN TRANSACTION` را برمی‌گرداند.",
+            "correct": true,
+            "feedback_fa": "درست. پایگاه داده به حالت پیش از تراکنش برمی‌گردد."
+          },
+          {
+            "id": "b",
+            "text_fa": "فقط آخرین دستور را برمی‌گرداند.",
+            "correct": false,
+            "feedback_fa": "`ROLLBACK` کل تراکنش را برمی‌گرداند، نه یک دستور."
+          },
+          {
+            "id": "c",
+            "text_fa": "تغییرها را ذخیره می‌کند.",
+            "correct": false,
+            "feedback_fa": "ذخیره کردن کار `COMMIT` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l07-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "پست شمارهٔ ۱ در `posts` در آغاز ۱۰ لایک دارد. خروجی این برنامه دقیقاً چیست؟",
+        "expected": {
+          "output": "10\n11"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: تغییر اول برگشت خورد و تغییر دوم ماندگار شد.",
+          "incorrect_fa": "`ROLLBACK` تغییر را پس می‌گیرد و `COMMIT` نگه می‌دارد."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "BEGIN TRANSACTION;\nUPDATE posts SET likes = likes + 1 WHERE id = 1;\nROLLBACK;\nSELECT likes FROM posts WHERE id = 1;\nBEGIN TRANSACTION;\nUPDATE posts SET likes = likes + 1 WHERE id = 1;\nCOMMIT;\nSELECT likes FROM posts WHERE id = 1;",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:posts"
+          },
+          "expected_stdout_exact": "10\n11\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "posts",
+          "order_matters": true
+        },
+        "fixture": "posts"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l07-u03",
+      "order": 3,
+      "title_fa": "حملهٔ تزریق SQL",
+      "concept_ids": [
+        "w07-c-sql-injection",
+        "w07-c-sql-comment",
+        "w07-c-fstring-sql-danger",
+        "w07-c-never-trust-input"
+      ],
+      "objective_ids": [
+        "w07-o10"
+      ],
+      "note_id": "w07-n12",
+      "source_refs": [
+        "src-notes-7#sql-injection-attacks",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "اگر پرس‌وجو با f-string و ورودی کاربر ساخته شود، کاربر می‌تواند خود SQL را عوض کند. درس‌نامه صفحهٔ ورود را مثال می‌زند: اگر نام کاربری `malan'--` وارد شود، نقل‌قول تکی رشته را می‌بندد و `--` بقیهٔ پرس‌وجو، از جمله بررسی گذرواژه، را به توضیح تبدیل می‌کند. پس هرگز ورودی کاربر را مستقیم در رشتهٔ SQL نگذار.",
+        "note_id": "w07-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n12"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "python",
+        "content": "username = input(\"Username: \")\npassword = input(\"Password: \")\n# UNSAFE: user input pasted into SQL with an f-string\nrows = db.execute(f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\")",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "تألیفی: نمونهٔ ناامن برای شناختن الگو؛ هرگز این‌طور ننویس."
+      },
+      "check": {
+        "id": "w07-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در حملهٔ `malan'--` نقش `--` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "بقیهٔ پرس‌وجو، از جمله شرط گذرواژه، را به توضیح SQL تبدیل می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. `--` در SQL توضیح تا پایان سطر است."
+          },
+          {
+            "id": "b",
+            "text_fa": "عدد منفی می‌سازد.",
+            "correct": false,
+            "feedback_fa": "در SQL، `--` شروع توضیح است."
+          },
+          {
+            "id": "c",
+            "text_fa": "نام کاربری را حذف می‌کند.",
+            "correct": false,
+            "feedback_fa": "نام کاربری `malan` می‌ماند؛ بخش گذرواژه حذف می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l07-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "پایگاه دادهٔ `users.db` از روی `fixtures/users.sql` ساخته شده و کاربر `malan` گذرواژهٔ `apple` دارد. کاربر نام `malan'--` و گذرواژهٔ `wrong` را وارد می‌کند. خروجی این برنامهٔ ناامن دقیقاً چیست؟ (اعلان‌های `input` هم چاپ می‌شوند.)",
+        "expected": {
+          "output": "Username: Password: 1"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: شرط گذرواژه توضیح شد و سطر malan با گذرواژهٔ غلط برگشت.",
+          "incorrect_fa": "پرس‌وجوی نهایی را با جاگذاری ورودی بنویس و ببین `--` چه چیزی را حذف می‌کند."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///users.db\")\nusername = input(\"Username: \")\npassword = input(\"Password: \")\nrows = db.execute(f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\")\nprint(len(rows))",
+        "code_origin": "authored",
+        "stdin": "malan'--\nwrong\n",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "malan'--\nwrong\n",
+          "args": [],
+          "files": {
+            "users.db": "fixture:users"
+          },
+          "expected_stdout_exact": "Username: Password: 1\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l07-u04",
+      "order": 4,
+      "title_fa": "جلوگیری با جای‌نگهدار",
+      "concept_ids": [
+        "w07-c-placeholder-qmark",
+        "w07-c-never-trust-input"
+      ],
+      "objective_ids": [
+        "w07-o10"
+      ],
+      "note_id": "w07-n12",
+      "source_refs": [
+        "src-notes-7#sql-injection-attacks",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "راه درست جلوگیری از تزریق SQL همان جای‌نگهدار `?` است: `db.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", username, password)`. کتابخانه نقل‌قول‌های داخل ورودی را خنثی می‌کند، پس `malan'--` فقط یک نام کاربری عجیب است که با هیچ سطری برابر نیست. هر جا ورودی کاربر به پرس‌وجو می‌رسد، از جای‌نگهدار استفاده کن.",
+        "note_id": "w07-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "login-placeholders",
+        "lang": "python",
+        "content": "rows = db.execute(\"SELECT COUNT(*) FROM users WHERE username = ? AND password = ?\", username, password)",
+        "source_ref": "src-notes-7#sql-injection-attacks",
+        "explain_fa": "ورود امن با دو جای‌نگهدار (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l07-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "با پرس‌وجوی امنِ دارای `?` ، ورود `malan'--` با گذرواژهٔ غلط چه نتیجه‌ای دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هیچ سطری برنمی‌گردد، چون کاربری به نام `malan'--` وجود ندارد.",
+            "correct": true,
+            "feedback_fa": "درست. ورودی فقط داده است، نه بخشی از SQL."
+          },
+          {
+            "id": "b",
+            "text_fa": "سطر `malan` برمی‌گردد.",
+            "correct": false,
+            "feedback_fa": "با جای‌نگهدار، `--` دیگر توضیح نیست و شرط گذرواژه سر جایش می‌ماند."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامه خطای نحوی SQL می‌دهد.",
+            "correct": false,
+            "feedback_fa": "کتابخانه نقل‌قول را خنثی می‌کند، پس پرس‌وجو درست اجرا می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l07-u04-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "دو سطر اول برنامه داده شده است:\n\n```python\nfrom cs50 import SQL\ndb = SQL(\"sqlite:///users.db\")\n```\n\nبقیهٔ سطرها را مرتب کن تا برنامه نام کاربری و سپس گذرواژه را بگیرد، امن جست‌وجو کند و تعداد سطرها را چاپ کند. با ورودی `malan'--` و `wrong` خروجی `Username: Password: 0` است.",
+        "lang": "python",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "username = input(\"Username: \")",
+            "text": "username = input(\"Username: \")"
+          },
+          {
+            "id": "p2",
+            "code": "password = input(\"Password: \")",
+            "text": "password = input(\"Password: \")"
+          },
+          {
+            "id": "p3",
+            "code": "rows = db.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", username, password)",
+            "text": "rows = db.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", username, password)"
+          },
+          {
+            "id": "p4",
+            "code": "print(len(rows))",
+            "text": "print(len(rows))"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "rows = db.execute(f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\")",
+            "why_wrong_fa": "با f-string ورودی جزو SQL می‌شود و حمله موفق است (خروجی `1`)."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ]
+        },
+        "indentation_matters": true,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: ورودی‌ها با `?` جدا داده شدند و حمله شکست خورد.",
+          "incorrect_fa": "اول ورودی‌ها را بگیر، بعد پرس‌وجو، بعد چاپ."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "malan'--\nwrong\n",
+          "args": [],
+          "files": {
+            "users.db": "fixture:users"
+          },
+          "expected_stdout_exact": "Username: Password: 0\n",
+          "verified_by": "_tools/qa_questions.py",
+          "check_prefix": "from cs50 import SQL\ndb = SQL(\"sqlite:///users.db\")\n"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

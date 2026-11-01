@@ -16,13 +16,13 @@
 <header class="rounded-2xl p-6 sm:p-8 mb-6 bg-gradient-to-br from-crimson to-crimson-dark text-white shadow-md relative overflow-hidden">
   <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
     <div class="flex items-start gap-4">
-      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 border border-white/20 text-white flex items-center justify-center font-extrabold text-2xl sm:text-3xl shrink-0 num shadow-inner">
-        {% if week == 71 %}AI{% elif week == 99 %}★{% else %}{{ week }}{% endif %}
+      <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/15 border border-white/20 text-white flex items-center justify-center font-extrabold text-xl sm:text-2xl shrink-0 num shadow-inner">
+        {% if week == 71 %}۷.۵{% elif week == 99 %}۹.۵{% else %}{{ week }}{% endif %}
       </div>
       <div>
         <div class="flex flex-wrap items-center gap-2 mb-1.5">
           <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/25 num">
-            {% if week == 71 %}هفته هوش مصنوعی{% elif week == 99 %}پروژه نهایی{% else %}هفته {{ week }}{% endif %}
+            {% if week == 71 %}هفته ۷.۵ — هوش مصنوعی{% elif week == 99 %}هفته ۹.۵ — پروژه نهایی{% else %}هفته {{ week }}{% endif %}
           </span>
           {% if week_data.source_url %}
           <a href="{{ week_data.source_url }}" target="_blank" rel="noopener noreferrer"
@@ -73,6 +73,274 @@
   {% endif %}
 </header>
 
+{# ─── بخش جدید: نقشه مسیر یادگیری گام‌به‌گام هفته (Interactive Learning Path Stepper) ─── #}
+{% set is_step1_done = true %}
+{% set is_step2_done = interactive_summary and interactive_summary.kb_read %}
+{% set is_step3_done = interactive_summary and interactive_summary.practice_done %}
+{% set is_step4_done = interactive_summary and interactive_summary.flashcards_reviewed %}
+{% set is_step5_done = is_step4_done %}
+{% set is_step6_done = interactive_summary and interactive_summary.quiz_completed %}
+
+{# تشخیص گام پیشنهادی فعلی برای دکمه CTA اصلی #}
+{% if not is_step2_done %}
+  {% set current_step_num = 2 %}
+  {% set next_action_tag = "پیشنهاد سیستم برای گام بعدی:" %}
+  {% set next_action_label = "ورود به درسنامه‌ها" %}
+  {% set next_action_desc = "شما بخش مقدمه را بررسی کرده‌اید؛ اکنون یادداشت‌های فنی را مطالعه فرمایید." %}
+  {% set next_action_target = "tab-notes" %}
+  {% set next_action_scroll = "section-notes" %}
+{% elif has_practice and not is_step3_done %}
+  {% set current_step_num = 3 %}
+  {% set next_action_tag = "گام بعدی: تمرین سریع" %}
+  {% set next_action_label = "شروع تمرین ۵ دقیقه‌ای" %}
+  {% set next_action_desc = "تثبیت مفاهیم اساسی بدون نیاز به تایپ کد در ۵ دقیقه تعاملی." %}
+  {% set next_action_url = url_for('kb.practice_page', week=week) %}
+{% elif not is_step4_done and flashcards %}
+  {% set current_step_num = 4 %}
+  {% set next_action_tag = "گام بعدی: تثبیت با لایتنر" %}
+  {% set next_action_label = "مرور فلش‌کارت‌ها" %}
+  {% set next_action_desc = "انتقال اصطلاحات و ساختارهای کلیدی به حافظه بلندمدت با روش لایتنر." %}
+  {% set next_action_target = "tab-flashcards" %}
+{% elif not is_step6_done %}
+  {% set current_step_num = 6 %}
+  {% set next_action_tag = "گام نهایی: ارزیابی تسلط" %}
+  {% set next_action_label = "آغاز آزمون تسلط" %}
+  {% set next_action_desc = "سنجش درک عمیق، ثبت امتیاز در جدول برترین‌ها و کسب نشان تکمیل هفته." %}
+  {% set next_action_target = "tab-quiz" %}
+{% else %}
+  {% set current_step_num = 6 %}
+  {% set next_action_tag = "مراحل هفته تکمیل شد" %}
+  {% set next_action_label = "مرور آزمون و جمع‌بندی" %}
+  {% set next_action_desc = "تمام مراحل آموزشی این هفته با موفقیت گذرانده شدند. برای مرور می‌توانید آزمون را بازبینی کنید." %}
+  {% set next_action_target = "tab-quiz" %}
+{% endif %}
+
+<section class="card-harvard p-5 sm:p-6 mb-6 border border-[var(--border)] shadow-sm relative overflow-hidden backdrop-blur-sm" aria-label="نقشه راه مراحل یادگیری هفته">
+  {# هدر مسیر یادگیری و نشان پیشرفت #}
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-[var(--border)]">
+    <div>
+      <span class="text-xs uppercase tracking-wider font-extrabold text-crimson">نقشه راه آموزشی هفته</span>
+      <h2 class="text-base sm:text-xl font-bold text-[var(--ink)] mt-0.5">مسیر گام‌به‌گام تسلط بر مباحث (Weekly Learning Path)</h2>
+    </div>
+    <div class="text-right sm:text-left">
+      <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        گام‌های هوشمند و ردیابی پیشرفت
+      </span>
+    </div>
+  </div>
+
+  {# شبکه مراحل ۶ گانه (Stepper Grid) #}
+  <div class="grid grid-cols-2 md:grid-cols-6 gap-3 pt-4 mb-4">
+    
+    {# گام ۱: نمای کلی #}
+    <div onclick="jumpToStep('tab-notes', 'section-overview')"
+         class="spring-scale p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between group
+                {% if current_step_num == 1 %}border-crimson bg-crimson-tint/40 ring-2 ring-crimson/20 dark:bg-crimson/15
+                {% elif is_step1_done %}border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-500
+                {% else %}border-[var(--border)] bg-[var(--surface-sunken)] hover:border-[var(--slate)]{% endif %}">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full {{ 'bg-emerald-500 text-slate-950 font-black' if is_step1_done else 'bg-[var(--surface-raised)] text-[var(--slate)] font-bold' }} text-xs flex items-center justify-center">
+            {{ '✓' if is_step1_done else '۱' }}
+          </span>
+          <span class="text-xs px-2 py-0.5 rounded-full {{ 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300' if is_step1_done else 'bg-[var(--surface-raised)] text-[var(--slate)]' }} font-semibold">
+            {{ 'کامل شد' if is_step1_done else 'آغازین' }}
+          </span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--ink)] group-hover:text-crimson transition-colors">۱. نمای کلی</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">اهداف و مقدمه</p>
+      </div>
+      <span class="text-xs font-medium text-crimson mt-2 inline-flex items-center gap-0.5 group-hover:underline">مشاهده</span>
+    </div>
+
+    {# گام ۲: درسنامه‌ها #}
+    <div onclick="jumpToStep('tab-notes', 'section-notes')"
+         class="spring-scale p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between group
+                {% if current_step_num == 2 %}border-crimson bg-crimson-tint/40 ring-2 ring-crimson/30 dark:bg-crimson/15
+                {% elif is_step2_done %}border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-500
+                {% else %}border-[var(--border)] bg-[var(--surface-sunken)] hover:border-[var(--slate)]{% endif %}">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full {{ 'bg-emerald-500 text-slate-950 font-black' if is_step2_done else ('bg-crimson text-white font-black' if current_step_num == 2 else 'bg-[var(--surface-raised)] text-[var(--slate)] font-bold') }} text-xs flex items-center justify-center">
+            {{ '✓' if is_step2_done else '۲' }}
+          </span>
+          <span class="text-xs px-2 py-0.5 rounded-full {{ 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300' if is_step2_done else ('bg-crimson/20 text-crimson font-bold' if current_step_num == 2 else 'bg-[var(--surface-raised)] text-[var(--slate)]') }}">
+            {{ 'کامل شد' if is_step2_done else ('گام فعلی' if current_step_num == 2 else 'درسنامه') }}
+          </span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--ink)] group-hover:text-crimson transition-colors">۲. درسنامه‌ها</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">{{ week_data.fa_notes|length if week_data.fa_notes else 0 }} مبحث فنی</p>
+      </div>
+      <span class="text-xs font-medium text-crimson mt-2 inline-flex items-center gap-0.5 group-hover:underline">مطالعه</span>
+    </div>
+
+    {# گام ۳: بازی تعاملی ۵ دقیقه‌ای #}
+    {% if has_practice %}
+    <a href="{{ url_for('kb.practice_page', week=week) }}"
+       class="spring-scale p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between group
+              {% if current_step_num == 3 %}border-emerald-500 bg-emerald-500/15 ring-2 ring-emerald-400/30
+              {% elif is_step3_done %}border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-500
+              {% else %}border-[var(--border)] bg-[var(--surface-sunken)] hover:border-[var(--slate)]{% endif %}">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full {{ 'bg-emerald-500 text-slate-950 font-black' if is_step3_done else ('bg-[#58CC02] text-white font-black' if current_step_num == 3 else 'bg-[var(--surface-raised)] text-[var(--slate)] font-bold') }} text-xs flex items-center justify-center">
+            {{ '✓' if is_step3_done else '۳' }}
+          </span>
+          <span class="text-xs px-2 py-0.5 rounded-full {{ 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300' if is_step3_done else ('bg-emerald-500/20 text-emerald-600 font-bold' if current_step_num == 3 else 'bg-[var(--surface-raised)] text-[var(--slate)]') }}">
+            {{ 'کامل شد' if is_step3_done else '۵ دقیقه' }}
+          </span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--ink)] group-hover:text-emerald-600 transition-colors">۳. تمرین سریع</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">چالش توکن و کد</p>
+      </div>
+      <span class="text-xs font-medium text-emerald-600 mt-2 inline-flex items-center gap-0.5 group-hover:underline">ورود به بازی</span>
+    </a>
+    {% else %}
+    <div class="p-3.5 rounded-2xl border border-dashed border-[var(--border)] bg-[var(--surface-sunken)] opacity-60 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full bg-[var(--surface-raised)] text-[var(--slate)] text-xs flex items-center justify-center font-bold">۳</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--surface-raised)] text-[var(--slate)]">آینده</span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--slate)]">۳. تمرین سریع</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">به‌زودی</p>
+      </div>
+      <span class="text-xs text-[var(--slate)] mt-2">غیرفعال</span>
+    </div>
+    {% endif %}
+
+    {# گام ۴: فلش‌کارت‌ها #}
+    <div onclick="jumpToStep('tab-flashcards')"
+         class="spring-scale p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between group
+                {% if current_step_num == 4 %}border-crimson bg-crimson-tint/40 ring-2 ring-crimson/30 dark:bg-crimson/15
+                {% elif is_step4_done %}border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-500
+                {% else %}border-[var(--border)] bg-[var(--surface-sunken)] hover:border-[var(--slate)]{% endif %}">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full {{ 'bg-emerald-500 text-slate-950 font-black' if is_step4_done else ('bg-crimson text-white font-black' if current_step_num == 4 else 'bg-[var(--surface-raised)] text-[var(--slate)] font-bold') }} text-xs flex items-center justify-center">
+            {{ '✓' if is_step4_done else '۴' }}
+          </span>
+          <span class="text-xs px-2 py-0.5 rounded-full {{ 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300' if is_step4_done else ('bg-crimson/20 text-crimson font-bold' if current_step_num == 4 else 'bg-[var(--surface-raised)] text-[var(--slate)]') }}">
+            {{ 'کامل شد' if is_step4_done else 'تکرار لایتنر' }}
+          </span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--ink)] group-hover:text-crimson transition-colors">۴. فلش‌کارت‌ها</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">{{ flashcards|length if flashcards else 0 }} کارت هوشمند</p>
+      </div>
+      <span class="text-xs font-medium text-crimson mt-2 inline-flex items-center gap-0.5 group-hover:underline">مرور کارت‌ها</span>
+    </div>
+
+    {# گام ۵: واژه‌نامه #}
+    <div onclick="jumpToStep('tab-glossary')"
+         class="spring-scale p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between group border-[var(--border)] bg-[var(--surface-sunken)] hover:border-[var(--slate)]">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full bg-[var(--surface-raised)] text-[var(--slate)] text-xs flex items-center justify-center font-bold">۵</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--surface-raised)] text-[var(--slate)]">مرجع لغات</span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--ink)] group-hover:text-crimson transition-colors">۵. واژه‌نامه</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">اصطلاحات CS50</p>
+      </div>
+      <span class="text-xs font-medium text-crimson mt-2 inline-flex items-center gap-0.5 group-hover:underline">جستجو و لغات</span>
+    </div>
+
+    {# گام ۶: آزمون تسلط نهایی #}
+    <div onclick="jumpToStep('tab-quiz')"
+         class="spring-scale p-3.5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between group
+                {% if current_step_num == 6 and not is_step6_done %}border-amber-400 bg-amber-400/15 ring-2 ring-amber-300/30
+                {% elif is_step6_done %}border-emerald-500/40 bg-emerald-500/10 hover:border-emerald-500
+                {% else %}border-[var(--border)] bg-[var(--surface-sunken)] hover:border-[var(--slate)]{% endif %}">
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="w-6 h-6 rounded-full {{ 'bg-emerald-500 text-slate-950 font-black' if is_step6_done else ('bg-amber-500 text-white font-black' if current_step_num == 6 else 'bg-[var(--surface-raised)] text-[var(--slate)] font-bold') }} text-xs flex items-center justify-center">
+            {{ '✓' if is_step6_done else '۶' }}
+          </span>
+          <span class="text-xs px-2 py-0.5 rounded-full {{ 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300' if is_step6_done else ('bg-amber-500/20 text-amber-600 dark:text-amber-300 font-bold' if current_step_num == 6 else 'bg-[var(--surface-raised)] text-[var(--slate)]') }}">
+            {{ 'تکمیل شد' if is_step6_done else 'سنجش نهایی' }}
+          </span>
+        </div>
+        <h4 class="text-xs font-bold text-[var(--ink)] group-hover:text-crimson transition-colors">۶. آزمون تسلط</h4>
+        <p class="text-xs text-[var(--slate)] mt-1">
+          {% if is_step6_done %}نمره: {{ interactive_summary.quiz_score }}/{{ interactive_summary.quiz_total }}{% else %}ارزیابی و امتیاز{% endif %}
+        </p>
+      </div>
+      <span class="text-xs font-medium text-amber-600 dark:text-amber-400 mt-2 inline-flex items-center gap-0.5 group-hover:underline">ورود به آزمون</span>
+    </div>
+
+  </div>
+
+  {# ─── بنر پویا و هوشمند اقدام بعدی (Dynamic Action CTA Banner) ─── #}
+  <div class="bg-gradient-to-r from-crimson/10 via-[var(--surface-sunken)] to-[var(--surface-raised)] border border-crimson/30 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3.5 text-right w-full sm:w-auto">
+      <div class="w-12 h-12 rounded-xl bg-crimson/20 border border-crimson/30 text-crimson flex items-center justify-center shrink-0">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+      </div>
+      <div>
+        <div class="text-xs font-extrabold text-crimson">{{ next_action_tag }}</div>
+        <div class="text-sm sm:text-base font-bold text-[var(--ink)] mt-0.5">{{ next_action_label }}</div>
+        <div class="text-xs text-[var(--slate)] mt-0.5">{{ next_action_desc }}</div>
+      </div>
+    </div>
+    
+    <div class="shrink-0 w-full sm:w-auto flex justify-end">
+      {% if next_action_url %}
+        <a href="{{ next_action_url }}" class="spring-scale btn-crimson text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 w-full sm:w-auto justify-center">
+          <span>{{ next_action_label }}</span>
+          <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      {% else %}
+        <button type="button" onclick="jumpToStep('{{ next_action_target }}', '{{ next_action_scroll|default('') }}')" class="spring-scale btn-crimson text-xs sm:text-sm px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 cursor-pointer w-full sm:w-auto justify-center">
+          <span>{{ next_action_label }}</span>
+          <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{# ─── بنر پرتاب تمرین دولینگو (Duo Interactive Practice) - تم استاندارد دارک و لایت ─── #}
+<div class="mb-6 p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-emerald-500/40 bg-gradient-to-r from-emerald-500/10 via-[var(--surface)] to-emerald-500/5 dark:from-emerald-950/40 dark:via-[var(--surface)] dark:to-emerald-950/20 shadow-sm rounded-3xl">
+  <div class="flex items-center gap-3.5">
+    <div class="w-12 h-12 rounded-2xl bg-[#58CC02] text-white flex items-center justify-center shadow-md shrink-0 border-b-4 border-[#46A302] relative overflow-hidden" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" class="drop-shadow-sm">
+        <path d="M18.5 2.5L7 17.2h8l-3.5 12.3L25 14.8h-8l3.5-12.3h-2z" fill="#FFF" stroke="#FFF" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <path d="M17.5 5.5L9.5 16.5h6.5l-2.8 9.5 10.3-10.5h-6.5l2.5-10h-2z" fill="#FFDE00"/>
+        <circle cx="15.5" cy="11.5" r="1.3" fill="#FFF"/>
+      </svg>
+    </div>
+    <div>
+      <div class="flex items-center gap-2">
+        <h3 class="font-extrabold text-base text-[var(--ink)]">تمرین تعاملی ۵ دقیقه‌ای (Duo-Style)</h3>
+        <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">گیمیفای‌شده</span>
+      </div>
+      <p class="text-xs text-[var(--slate)] mt-1">
+        چالش‌های سریع توکن‌چینی، مرتب‌سازی خطوط کد (Parsons) و شکار باگ برای آمادگی قبل از پرابلم‌ست.
+      </p>
+    </div>
+  </div>
+
+  {% if has_practice %}
+  <a href="{{ url_for('kb.practice_page', week=week) }}"
+     class="spring-scale btn-crimson shrink-0 text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-xl shadow-md flex items-center gap-2 text-white hover:opacity-95 cursor-pointer"
+     style="background-color: #58CC02; border-bottom: 3px solid #46A302;">
+    <span>ورود به جلسه تمرین</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+  {% else %}
+  <div class="shrink-0 px-4 py-2.5 rounded-xl bg-[var(--surface-raised)] border border-[var(--border)] text-xs text-[var(--slate)] font-bold flex items-center gap-2 select-none">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>تمرین این هفته به‌زودی فعال می‌شود</span>
+  </div>
+  {% endif %}
+</div>
+
 {# ─── بخش ۲: نوار افقی تب‌ها (Horizontal Navigation Tabs) ─── #}
 <nav class="kb-tab-bar mb-6 sticky top-2 z-20 bg-[var(--canvas)]/95 backdrop-blur-md py-1" aria-label="تب‌های آموزشی">
   <button type="button" class="kb-tab-btn active" data-tab="tab-notes" onclick="switchKbTab('tab-notes')">
@@ -115,7 +383,7 @@
 {# ══════════════════════════════════════════════════════════════════ #}
 <div id="tab-notes" class="kb-tab-content">
   {% if week_data.has_fa and week_data.rendered_fa_overview %}
-  <section class="mb-8">
+  <section class="mb-8" id="section-overview">
     <div class="flex items-center gap-2 mb-3">
       <h2 class="kb-section-title mb-0">نمای کلی و مسیر یادگیری هفته</h2>
       <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">راهنمای فارسی</span>
@@ -125,6 +393,47 @@
     </div>
   </section>
   {% endif %}
+
+  {# ─── بخش ابزارهای تمرینی و یادگیری سریع (Flashcards & Glossary Launchers) ─── #}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+    {# لانچر فلش‌کارت‌ها #}
+    <div onclick="switchKbTab('tab-flashcards')"
+         class="spring-scale card-harvard p-5 sm:p-6 border border-[var(--border)] hover:border-crimson hover:shadow-lg transition-all cursor-pointer group flex items-start gap-4 bg-[var(--surface)] relative overflow-hidden rounded-3xl">
+      <div class="w-14 h-14 rounded-2xl bg-crimson-tint text-crimson flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-crimson/20">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class="font-extrabold text-base text-[var(--ink)] group-hover:text-crimson transition-colors">جعبه لایتنر هوشمند</h3>
+          <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson-tint text-crimson font-mono">{{ flashcards|length if flashcards else 0 }} کارت</span>
+        </div>
+        <p class="text-xs text-[var(--slate)] mt-1.5 leading-relaxed">مرور دوره‌ای و فاصله‌دار مفاهیم کلیدی هفته برای تثبیت دائمی در حافظه بلندمدت با روش لایتنر.</p>
+        <div class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-crimson">
+          <span>ورود به فلش‌کارت‌ها</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    {# لانچر واژه‌نامه تخصصی #}
+    <div onclick="switchKbTab('tab-glossary')"
+         class="spring-scale card-harvard p-5 sm:p-6 border border-[var(--border)] hover:border-amber-500 hover:shadow-lg transition-all cursor-pointer group flex items-start gap-4 bg-[var(--surface)] relative overflow-hidden rounded-3xl">
+      <div class="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-500 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform border border-amber-500/20">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between gap-2">
+          <h3 class="font-extrabold text-base text-[var(--ink)] group-hover:text-amber-500 transition-colors">فرهنگ واژگان تخصصی</h3>
+          <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/20">دوزبانه FA/EN</span>
+        </div>
+        <p class="text-xs text-[var(--slate)] mt-1.5 leading-relaxed">جستجو و مرور اصطلاحات تخصصی، ریشه‌شناسی مفاهیم علوم کامپیوتر و معادل‌های دقیق فارسی.</p>
+        <div class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400">
+          <span>جستجوی اصطلاحات</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
 
   {% if week_data.has_fa and week_data.fa_notes %}
   <section class="mb-8" id="section-notes">
@@ -328,18 +637,45 @@
 {# ══════════════════════════════════════════════════════════════════ #}
 <div id="tab-quiz" class="kb-tab-content hidden">
   <section class="mb-8">
-    <div class="card-harvard p-5 sm:p-6 mb-6 bg-gradient-to-l from-crimson-tint/50 to-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+    <div class="card-harvard p-5 sm:p-6 mb-6 bg-gradient-to-l from-crimson-tint/50 to-white flex flex-col md:flex-row md:items-center justify-between gap-4 border border-crimson/20">
       <div>
-        <h2 class="text-lg font-bold text-[var(--ink)] mb-1">آزمون تسلط هفته (چهارگزینه‌ای و جای خالی)</h2>
-        <p class="text-xs text-[var(--slate)]">برای تکمیل تسلط بر مباحث هفته، به سوالات زیر پاسخ دهید (حد نصاب قبولی: ۸۰٪).</p>
+        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+          <h2 class="text-lg font-bold text-[var(--ink)]">آزمون تسلط هفته (Mastery Quiz)</h2>
+          {% if quiz_meta %}
+          <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold {% if quiz_meta.remaining_attempts == 0 %}bg-rose-100 text-rose-800 border border-rose-200{% else %}bg-amber-100 text-amber-900 border border-amber-200{% endif %}">
+            <span>تلاش {{ quiz_meta.attempt_number }} از ۵</span>
+            {% if quiz_meta.remaining_attempts > 0 %}
+            <span class="text-[11px] opacity-75">({{ quiz_meta.remaining_attempts }} فرصت باقی‌مانده)</span>
+            {% else %}
+            <span class="text-[11px] font-extrabold">(پایان فرصت‌ها)</span>
+            {% endif %}
+          </span>
+          {% endif %}
+        </div>
+        <p class="text-xs text-[var(--slate)]">برای تکمیل تسلط بر مباحث هفته، به ۵ سوال زیر پاسخ دهید (حد نصاب قبولی: ۸۰٪).</p>
       </div>
-      <div class="flex items-center gap-3 shrink-0">
-        <div class="text-left">
-          <span class="text-xs text-[var(--slate)] block">نمره ثبت‌شده:</span>
+      <div class="flex items-center gap-3 shrink-0 flex-wrap">
+        <div class="text-left bg-white/80 px-3.5 py-2 rounded-xl border border-gray-200">
+          <span class="text-[11px] text-[var(--slate)] block">بهترین نمره ثبت‌شده:</span>
           <span class="text-lg font-extrabold text-crimson num">
             <strong id="quiz-header-score">{{ interactive_summary.quiz_score if interactive_summary else 0 }}</strong> / {{ interactive_summary.quiz_total if interactive_summary else 5 }}
           </span>
         </div>
+
+        {% if quiz_meta and quiz_meta.can_retake %}
+        <form action="{{ url_for('kb.retake_quiz', week=week) }}" method="POST" class="inline m-0">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <button type="submit" class="btn-outline-crimson text-xs py-2.5 px-4 rounded-xl font-bold flex items-center gap-1.5 shadow-sm hover:bg-crimson hover:text-white transition-all cursor-pointer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>شروع مجدد آزمون (تلاش {{ quiz_meta.attempt_number + 1 }})</span>
+          </button>
+        </form>
+        {% elif quiz_meta and quiz_meta.remaining_attempts == 0 %}
+        <span class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gray-100 text-gray-500 border border-gray-200 text-xs font-semibold select-none">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+          <span>سقف ۵ تلاش پر شده است</span>
+        </span>
+        {% endif %}
       </div>
     </div>
 
@@ -351,35 +687,85 @@
         <div class="flex items-center justify-between mb-3">
           <span class="badge-crimson num">سوال {{ loop.index }}</span>
           <span class="text-xs text-gray-400">
-            {% if q.type == 'mcq' %}چهارگزینه‌ای{% elif q.type == 'true_false' %}درست / نادرست{% else %}پر کردن جای خالی{% endif %}
+            {% if q.type == 'mcq' %}چهارگزینه‌ای
+            {% elif q.type == 'true_false' %}درست / نادرست
+            {% elif q.type == 'parsons' %}مرتب‌سازی خطوط کد (Parsons)
+            {% elif q.type == 'predict_output' %}پیش‌بینی خروجی کد
+            {% else %}پر کردن جای خالی{% endif %}
           </span>
         </div>
 
         <h3 class="text-base sm:text-lg font-bold text-[var(--ink)] mb-4 leading-snug">{{ q.prompt_fa }}</h3>
 
-        {# فرمت گزینه‌ای #}
+        {# قطعه‌کد برای سوالات پیش‌بینی خروجی #}
+        {% if q.code %}
+        <div class="mb-4 rounded-xl bg-slate-900 border border-slate-800 p-4 text-slate-100 font-mono text-xs text-left overflow-x-auto shadow-inner" dir="ltr">
+          <div class="text-[10px] text-slate-400 mb-2 border-b border-slate-800 pb-1 flex justify-between items-center">
+            <span>{{ q.lang|upper if q.lang else 'C' }}</span>
+            <span class="text-[9px] uppercase tracking-wider">code snippet</span>
+          </div>
+          <pre class="m-0 leading-relaxed"><code>{{ q.code }}</code></pre>
+        </div>
+        {% endif %}
+
+        {# فرمت گزینه‌ای (MCQ / True-False) #}
         {% if q.options %}
         <div class="space-y-2 mb-3">
           {% for opt in q.options %}
           <button type="button"
-                  onclick="submitQuizAnswer('{{ week }}', '{{ q.id }}', '{{ opt.id }}')"
-                  class="quiz-option-card group {% if q.attempted and q.submitted_answer == opt.id %}{% if q.is_correct %}border-emerald-500 bg-emerald-50{% else %}border-crimson bg-crimson-tint{% endif %}{% endif %}">
-            <span class="font-medium text-xs sm:text-sm text-[var(--ink)] group-hover:text-crimson transition-colors">{{ opt.text_fa }}</span>
-            <span class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center text-xs font-bold text-gray-500 group-hover:border-crimson group-hover:text-crimson">
+                  {% if not q.attempted and not q.is_finalized %}onclick="submitQuizAnswer('{{ week }}', '{{ q.id }}', '{{ opt.id }}')"{% endif %}
+                  {% if q.attempted or q.is_finalized %}disabled{% endif %}
+                  class="quiz-option-card group {% if q.attempted and q.submitted_answer == opt.id %}{% if q.is_correct %}border-emerald-500 bg-emerald-50 font-bold{% else %}border-crimson bg-crimson-tint font-bold{% endif %}{% endif %} {% if q.attempted or q.is_finalized %}cursor-not-allowed opacity-85{% endif %}">
+            <span class="font-medium text-xs sm:text-sm text-[var(--ink)] {% if not q.attempted and not q.is_finalized %}group-hover:text-crimson{% endif %} transition-colors">{{ opt.text_fa }}</span>
+            <span class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center text-xs font-bold text-gray-500 {% if not q.attempted and not q.is_finalized %}group-hover:border-crimson group-hover:text-crimson{% endif %}">
               {{ opt.id|upper }}
             </span>
           </button>
           {% endfor %}
         </div>
+
+        {# فرمت مرتب‌سازی پارسونز (Parsons Ordering) #}
+        {% elif q.type == 'parsons' and q.lines %}
+        <div class="mb-4">
+          <p class="text-xs text-[var(--slate)] mb-2 font-medium">با استفاده از دکمه‌های بالا (▲) و پایین (▼)، خطوط کد را به ترتیب صحیح اجرای برنامه مرتب کنید:</p>
+          <ul id="parsons-list-{{ q.id }}" class="space-y-2 mb-3" dir="ltr">
+            {% for line in q.lines %}
+            <li class="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-800"
+                data-line-id="{{ line.id }}" data-index="{{ loop.index0 }}">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="w-5 h-5 rounded-md bg-slate-200 text-slate-600 flex items-center justify-center text-[10px] font-bold shrink-0">{{ loop.index }}</span>
+                <code class="truncate text-left">{{ line.code }}</code>
+              </div>
+              {% if not q.attempted and not q.is_finalized %}
+              <div class="flex items-center gap-1 shrink-0">
+                <button type="button" class="parsons-up px-2 py-1 bg-white hover:bg-slate-100 border border-slate-300 rounded text-slate-700 text-xs font-bold cursor-pointer" onclick="moveParsonsLine('{{ q.id }}', {{ loop.index0 }}, -1)">▲</button>
+                <button type="button" class="parsons-down px-2 py-1 bg-white hover:bg-slate-100 border border-slate-300 rounded text-slate-700 text-xs font-bold cursor-pointer" onclick="moveParsonsLine('{{ q.id }}', {{ loop.index0 }}, 1)">▼</button>
+              </div>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+          {% if not q.attempted and not q.is_finalized %}
+          <button type="button" onclick="submitParsonsOrder('{{ week }}', '{{ q.id }}')"
+                  class="btn-crimson text-xs py-2 px-4 rounded-xl font-bold flex items-center gap-1.5 shadow-sm">
+            <span>ثبت چیدمان و بررسی</span>
+          </button>
+          {% endif %}
+        </div>
+
+        {# فرمت ورودی متنی / پیش‌بینی خروجی / جای خالی #}
         {% else %}
-        {# فرمت جای خالی / ورودی متنی #}
         <form onsubmit="event.preventDefault(); submitQuizInput('{{ week }}', '{{ q.id }}');" class="flex gap-2 mb-3">
           <input type="text" id="quiz-input-{{ q.id }}"
-                 class="form-input flex-1 font-mono text-left dir-ltr"
+                 class="form-input flex-1 font-mono text-left dir-ltr {% if q.attempted or q.is_finalized %}cursor-not-allowed bg-gray-50 opacity-80{% endif %}"
                  placeholder="پاسخ یا خروجی کد را بنویسید..."
                  value="{{ q.submitted_answer or '' }}"
+                 {% if q.attempted or q.is_finalized %}disabled{% endif %}
                  style="font-size: 16px;" />
-          <button type="submit" class="btn-crimson shrink-0">بررسی پاسخ</button>
+          <button type="submit" class="btn-crimson shrink-0 {% if q.attempted or q.is_finalized %}cursor-not-allowed opacity-60{% endif %}"
+                  {% if q.attempted or q.is_finalized %}disabled{% endif %}>
+            بررسی پاسخ
+          </button>
         </form>
         {% endif %}
 
@@ -387,7 +773,7 @@
         <div id="quiz-result-{{ q.id }}">
           {% if q.attempted %}
           <div class="mt-2 text-xs font-semibold {% if q.is_correct %}text-emerald-700{% else %}text-crimson{% endif %}">
-            {% if q.is_correct %}✓ قبلاً به این سؤال پاسخ صحیح داده‌اید.{% else %}✗ آخرین پاسخ شما نادرست بود.{% endif %}
+            {% if q.is_correct %}✓ پاسخ شما در این تلاش ثبت و تایید شده است.{% else %}✗ پاسخ شما در این تلاش نادرست ثبت شد.{% endif %}
             {% if q.explanation_fa %}<p class="text-[var(--slate)] font-normal mt-1">{{ q.explanation_fa }}</p>{% endif %}
           </div>
           {% endif %}
@@ -594,7 +980,7 @@
 {% if can_mark_read %}
 {% set awarded = already_read %}
 {% set first_read = False %}
-<div class="mb-8 mt-10 p-5 rounded-2xl bg-white border border-[var(--border)] text-center shadow-sm" id="read-button-wrapper">
+<div class="mb-8 mt-10 p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] text-center shadow-sm" id="read-button-wrapper">
   <p class="text-xs text-[var(--slate)] mb-3">مطالعهٔ این هفته را به پایان رسانده‌اید؟ برای ثبت در کارنامه دکمهٔ زیر را بزنید.</p>
   {% include "kb/_read_button.html" with context %}
 </div>
@@ -631,6 +1017,21 @@
 {% endif %}
 
 <script>
+  // ─── اسکریپت هدایت مستقیم به مراحل مسیر یادگیری (Learning Path Stepper) ───
+  function jumpToStep(tabId, scrollTargetId) {
+    if (tabId) {
+      switchKbTab(tabId);
+    }
+    if (scrollTargetId) {
+      setTimeout(function() {
+        var el = document.getElementById(scrollTargetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 120);
+    }
+  }
+
   // ─── اسکریپت جابه‌جایی تب‌ها با حس روان ───
   function switchKbTab(tabId) {
     document.querySelectorAll('.kb-tab-content').forEach(function(el) {
@@ -691,15 +1092,20 @@
     if (!cardEl) return;
     var cardId = cardEl.getAttribute('data-card-id');
     var weekNum = {{ week }};
+    var csrfToken = '{{ csrf_token() }}';
 
     var fd = new FormData();
     fd.append('card_id', cardId);
     fd.append('rating', rating);
+    fd.append('csrf_token', csrfToken);
 
     fetch('/kb/week/' + weekNum + '/flashcard/review', {
       method: 'POST',
       body: fd,
-      headers: { 'HX-Request': 'true' }
+      headers: {
+        'HX-Request': 'true',
+        'X-CSRFToken': csrfToken
+      }
     })
     .then(function(res) { return res.text(); })
     .then(function(html) {
@@ -711,14 +1117,19 @@
 
   // ─── اسکریپت آزمون و کوییز ───
   function submitQuizAnswer(week, questionId, optionId) {
+    var csrfToken = '{{ csrf_token() }}';
     var fd = new FormData();
     fd.append('question_id', questionId);
     fd.append('answer', optionId);
+    fd.append('csrf_token', csrfToken);
 
     fetch('/kb/week/' + week + '/quiz/submit', {
       method: 'POST',
       body: fd,
-      headers: { 'HX-Request': 'true' }
+      headers: {
+        'HX-Request': 'true',
+        'X-CSRFToken': csrfToken
+      }
     })
     .then(function(res) { return res.text(); })
     .then(function(html) {
@@ -726,6 +1137,22 @@
       if (resBox) {
         resBox.innerHTML = html;
       }
+      var box = document.getElementById('quiz-box-' + questionId);
+      if (box) {
+        box.querySelectorAll('button, input').forEach(function(el) {
+          el.disabled = true;
+          el.classList.add('cursor-not-allowed', 'opacity-80');
+        });
+      }
+      // به‌روزرسانی نمره هدر
+      fetch('/kb/week/' + week + '/interactive-summary')
+        .then(function(r) { return r.json(); })
+        .then(function(s) {
+          var hs = document.getElementById('quiz-header-score');
+          if (hs && s.quiz_score !== undefined) {
+            hs.textContent = s.quiz_score;
+          }
+        }).catch(function(){});
     })
     .catch(function(err) { console.error(err); });
   }
@@ -734,6 +1161,39 @@
     var input = document.getElementById('quiz-input-' + questionId);
     if (!input) return;
     submitQuizAnswer(week, questionId, input.value);
+  }
+
+  // ─── اسکریپت مرتب‌سازی تعاملی پارسونز (Parsons Ordering) ───
+  function moveParsonsLine(qid, index, direction) {
+    var list = document.getElementById('parsons-list-' + qid);
+    if (!list) return;
+    var items = Array.from(list.children);
+    var targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= items.length) return;
+    if (direction < 0) {
+      list.insertBefore(items[index], items[targetIndex]);
+    } else {
+      list.insertBefore(items[targetIndex], items[index]);
+    }
+    // تنظیم مجدد شماره‌ها و رویداد دکمه‌ها
+    Array.from(list.children).forEach(function(el, i) {
+      el.setAttribute('data-index', i);
+      var numSpan = el.querySelector('span');
+      if (numSpan) numSpan.textContent = i + 1;
+      var upBtn = el.querySelector('.parsons-up');
+      var downBtn = el.querySelector('.parsons-down');
+      if (upBtn) upBtn.onclick = function() { moveParsonsLine(qid, i, -1); };
+      if (downBtn) downBtn.onclick = function() { moveParsonsLine(qid, i, 1); };
+    });
+  }
+
+  function submitParsonsOrder(week, qid) {
+    var list = document.getElementById('parsons-list-' + qid);
+    if (!list) return;
+    var order = Array.from(list.children).map(function(el) {
+      return el.getAttribute('data-line-id');
+    });
+    submitQuizAnswer(week, qid, JSON.stringify(order));
   }
 
   // ─── اسکریپت فیلتر زنده واژه‌نامه ───

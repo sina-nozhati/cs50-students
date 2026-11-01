@@ -1,0 +1,252 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-ps-credit",
+  "kind": "pset",
+  "week": 6,
+  "title_en": "Credit",
+  "title_fa": "کارت اعتباری (Sentimental Credit)",
+  "guide_doc_id": "w06-ps-credit",
+  "guide_file": "credit.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/6/credit/",
+    "index_url": "https://cs50.harvard.edu/x/psets/6/",
+    "submission": "choose-one",
+    "choice_group": "cash-or-credit",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w06-ps-credit-r1",
+        "text_fa": "برنامه‌ای بنویس که شمارهٔ کارت اعتباری را بپرسد و (با `print`) بگوید شمارهٔ معتبر American Express، MasterCard یا Visa است یا نه.",
+        "text_en": "write a program that prompts the user for a credit card number and then reports (via `print`) whether it is a valid American Express, MasterCard, or Visa card number",
+        "source_ref": "src-pset-6-credit#problem-to-solve"
+      },
+      {
+        "id": "w06-ps-credit-r2",
+        "text_fa": "آخرین سطر خروجی باید `AMEX\\n` یا `MASTERCARD\\n` یا `VISA\\n` یا `INVALID\\n` باشد، نه بیشتر و نه کمتر.",
+        "text_en": "we ask that your program's last line of output be `AMEX\\n` or `MASTERCARD\\n` or `VISA\\n` or `INVALID\\n`, nothing more, nothing less",
+        "source_ref": "src-pset-6-credit#specification"
+      },
+      {
+        "id": "w06-ps-credit-r3",
+        "text_fa": "می‌توانی فرض کنی ورودی کاربر فقط رقم است (بدون خط تیره).",
+        "text_en": "you may assume that the user's input will be entirely numeric (i.e., devoid of hyphens, as might be printed on an actual card)",
+        "source_ref": "src-pset-6-credit#specification"
+      },
+      {
+        "id": "w06-ps-credit-r4",
+        "text_fa": "بسته به شیوهٔ پیاده‌سازی، `get_int` یا `get_string` کتابخانهٔ CS50 را برای گرفتن ورودی به کار ببر.",
+        "text_en": "Best to use `get_int` or `get_string` from CS50's library to get users' input, depending on how you to decide to implement this one",
+        "source_ref": "src-pset-6-credit#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/sentimental/credit",
+      "style50": "style50 credit.py",
+      "submit50": "submit50 cs50/problems/2026/x/sentimental/credit",
+      "wget": null
+    },
+    "sample_io": [],
+    "test_texts": [
+      {
+        "text": "378282246310005",
+        "expected": "AMEX",
+        "origin": "official"
+      },
+      {
+        "text": "371449635398431",
+        "expected": "AMEX",
+        "origin": "official"
+      },
+      {
+        "text": "5555555555554444",
+        "expected": "MASTERCARD",
+        "origin": "official"
+      },
+      {
+        "text": "5105105105105100",
+        "expected": "MASTERCARD",
+        "origin": "official"
+      },
+      {
+        "text": "4111111111111111",
+        "expected": "VISA",
+        "origin": "official"
+      },
+      {
+        "text": "4012888888881881",
+        "expected": "VISA",
+        "origin": "official"
+      },
+      {
+        "text": "1234567890",
+        "expected": "INVALID",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/sentimental/credit",
+      "style50": "style50 credit.py",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "QYLr1R1RDLO9QkPF2XFODLkq4",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d106"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-port-c-to-python",
+      "w06-c-cs50-library-py",
+      "w06-c-iterate-string",
+      "w06-c-int-conversion",
+      "w06-c-string-slicing",
+      "w06-c-floor-division",
+      "w06-c-regex-validation"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l01",
+      "w06-l02",
+      "w06-l04",
+      "w06-l05",
+      "w06-l06"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-port-c-to-python",
+        "note_id": "w06-ps-hello",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w06-c-cs50-library-py",
+        "note_id": "w06-n03",
+        "lesson_id": "w06-l01",
+        "unit_id": "w06-l01-u03"
+      },
+      {
+        "concept_id": "w06-c-iterate-string",
+        "note_id": "w06-n09",
+        "lesson_id": "w06-l04",
+        "unit_id": "w06-l04-u02"
+      },
+      {
+        "concept_id": "w06-c-int-conversion",
+        "note_id": "w06-n06",
+        "lesson_id": "w06-l02",
+        "unit_id": "w06-l02-u04"
+      },
+      {
+        "concept_id": "w06-c-string-slicing",
+        "note_id": "w06-sec",
+        "lesson_id": "w06-l06",
+        "unit_id": "w06-l06-u04"
+      },
+      {
+        "concept_id": "w06-c-floor-division",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u01"
+      },
+      {
+        "concept_id": "w06-c-regex-validation",
+        "note_id": "w06-ps-credit",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "الگوریتم Luhn و قاعده‌های طول و رقم‌های آغازین هر شبکه همان‌هایی‌اند که در پرابلم‌ست ۱ پیاده کردی. صفحهٔ رسمی نگاه کردن به کد C خودت را معقول می‌داند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "اول تصمیم بگیر شماره را به شکل عدد نگه داری یا رشته. هر کدام کار با رقم‌ها را به شکل متفاوتی آسان می‌کند: با عدد از `%` و `//`، با رشته از نمایه، برش و پیمایش."
+      },
+      {
+        "n": 3,
+        "hint_fa": "اگر رشته را انتخاب کنی، یادت باشد هر نویسه هنوز `str` است و پیش از جمع زدن باید به عدد تبدیل شود."
+      },
+      {
+        "n": 4,
+        "hint_fa": "در پایتون عدد صحیح سرریز نمی‌کند، پس نگرانی `long` در C این‌جا وجود ندارد."
+      },
+      {
+        "n": 5,
+        "hint_fa": "اختیاری: صفحهٔ رسمی ماژول `re` را برای سنجیدن این‌که ورودی فقط رقم و با طول مناسب است پیشنهاد می‌کند. مستندات `re` را خودت بخوان."
+      },
+      {
+        "n": 6,
+        "hint_fa": "شماره‌هایی بساز که طول یا رقم آغازین درست ولی جمع‌آزمای نادرست دارند، و برعکس، تا هر شاخهٔ برنامه را بیازمایی."
+      }
+    ],
+    "common_mistakes_fa": [
+      "فراموش کردن تبدیل نویسه به عدد و گرفتن خطای `TypeError`",
+      "بررسی نکردن طول یا رقم‌های آغازین پس از گذشتن از Luhn",
+      "شمارش رقم‌ها از سمت اشتباه (Luhn از رقم یکی مانده به آخر شروع می‌کند)",
+      "چاپ متن اضافه به جز چهار واژهٔ خواسته‌شده"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-ps-credit-c01",
+        "text_fa": "فایل `credit.py` در پوشهٔ `sentimental-credit` است و به پایتون نوشته شده.",
+        "maps_to": "w06-ps-credit-r1"
+      },
+      {
+        "id": "w06-ps-credit-c02",
+        "text_fa": "آخرین سطر خروجی دقیقاً یکی از چهار واژهٔ خواسته‌شده است.",
+        "maps_to": "w06-ps-credit-r2"
+      },
+      {
+        "id": "w06-ps-credit-c03",
+        "text_fa": "ورودی را با `get_int` یا `get_string` می‌گیرم.",
+        "maps_to": "w06-ps-credit-r4"
+      },
+      {
+        "id": "w06-ps-credit-c04",
+        "text_fa": "هر هفت آزمون رسمی خروجی درست می‌دهند.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w06-ps-credit-c05",
+        "text_fa": "شماره‌ای با طول درست ولی جمع‌آزمای نادرست `INVALID` می‌گیرد.",
+        "maps_to": "w06-ps-credit-r1"
+      },
+      {
+        "id": "w06-ps-credit-c06",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w06-ps-credit-c07",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w06-ps-credit-c08",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50، style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

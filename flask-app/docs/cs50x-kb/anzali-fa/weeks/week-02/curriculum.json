@@ -1,0 +1,549 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w02-curriculum",
+  "week": 2,
+  "title_fa": "هفتهٔ ۲ — آرایه‌ها",
+  "title_en": "Week 2 — Arrays",
+  "panel_week_number": 2,
+  "kb_parent_node": "week-2",
+  "hub_doc_id": "w02-fa",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-2",
+    "src-notes-2",
+    "src-transcript-2",
+    "src-section-2",
+    "src-pset-2"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w02-o01",
+    "w02-o02",
+    "w02-o03",
+    "w02-o04",
+    "w02-o05",
+    "w02-o06",
+    "w02-o07",
+    "w02-o08",
+    "w02-o09",
+    "w02-o10",
+    "w02-o11",
+    "w02-o12"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند (اشکال‌زدایی، کامپایل، آرایه، رشته، آرگومان خط فرمان، وضعیت خروج، رمزنگاری)، نه از ترتیب فهرست موضوع‌های صفحهٔ هفته (ناهمخوانی d23). ویدئوهای کوتاه Functions و Variables and Scope کنار ثابت و تابع آمده‌اند، چون scores3 اولین تابع کمکی این هفته است. رمزنگاری در درس‌نامه نیست و از سخنرانی آمده است (d24).",
+  "stages": [
+    {
+      "id": "w02-s1",
+      "lesson_ids": [
+        "w02-l01",
+        "w02-l02",
+        "w02-l03"
+      ]
+    },
+    {
+      "id": "w02-s2",
+      "lesson_ids": [
+        "w02-l04",
+        "w02-l05"
+      ]
+    },
+    {
+      "id": "w02-s3",
+      "lesson_ids": [
+        "w02-l06",
+        "w02-l07"
+      ]
+    },
+    {
+      "id": "w02-s4",
+      "lesson_ids": [
+        "w02-l08",
+        "w02-l09"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w02-l01",
+      "order": 1,
+      "file": "lessons/w02-l01.json",
+      "title_fa": "باگ‌ها: خطای کامپایل و printf",
+      "stage_id": "w02-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w02-l01-u01",
+        "w02-l01-u02",
+        "w02-l01-u03"
+      ],
+      "note_ids": [
+        "w02-n01",
+        "w02-n02",
+        "w02-n03",
+        "w02-n04"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w02-l02",
+      "order": 2,
+      "file": "lessons/w02-l02.json",
+      "title_fa": "debug50 و اردک",
+      "stage_id": "w02-s1",
+      "prerequisite_lesson_ids": [
+        "w02-l01"
+      ],
+      "unit_ids": [
+        "w02-l02-u01",
+        "w02-l02-u02",
+        "w02-l02-u03"
+      ],
+      "note_ids": [
+        "w02-n05"
+      ],
+      "related_doc_ids": [
+        "w02-sh-debugging-step-through",
+        "w02-sh-debugging-step-into"
+      ]
+    },
+    {
+      "id": "w02-l03",
+      "order": 3,
+      "file": "lessons/w02-l03.json",
+      "title_fa": "کامپایل: clang و چهار مرحله",
+      "stage_id": "w02-s1",
+      "prerequisite_lesson_ids": [
+        "w02-l01"
+      ],
+      "unit_ids": [
+        "w02-l03-u01",
+        "w02-l03-u02",
+        "w02-l03-u03"
+      ],
+      "note_ids": [
+        "w02-n06",
+        "w02-n07"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w02-l04",
+      "order": 4,
+      "file": "lessons/w02-l04.json",
+      "title_fa": "حافظه و آرایه",
+      "stage_id": "w02-s2",
+      "prerequisite_lesson_ids": [
+        "w02-l03"
+      ],
+      "unit_ids": [
+        "w02-l04-u01",
+        "w02-l04-u02",
+        "w02-l04-u03",
+        "w02-l04-u04"
+      ],
+      "note_ids": [
+        "w02-n08",
+        "w02-n09"
+      ],
+      "related_doc_ids": [
+        "w02-sh-arrays"
+      ]
+    },
+    {
+      "id": "w02-l05",
+      "order": 5,
+      "file": "lessons/w02-l05.json",
+      "title_fa": "آرایه، ثابت و تابع",
+      "stage_id": "w02-s2",
+      "prerequisite_lesson_ids": [
+        "w02-l04"
+      ],
+      "unit_ids": [
+        "w02-l05-u01",
+        "w02-l05-u02",
+        "w02-l05-u03",
+        "w02-l05-u04"
+      ],
+      "note_ids": [
+        "w02-n10"
+      ],
+      "related_doc_ids": [
+        "w02-sh-functions",
+        "w02-sh-variables-and-scope"
+      ]
+    },
+    {
+      "id": "w02-l06",
+      "order": 6,
+      "file": "lessons/w02-l06.json",
+      "title_fa": "نویسه‌ها و رشته‌ها",
+      "stage_id": "w02-s3",
+      "prerequisite_lesson_ids": [
+        "w02-l04"
+      ],
+      "unit_ids": [
+        "w02-l06-u01",
+        "w02-l06-u02",
+        "w02-l06-u03"
+      ],
+      "note_ids": [
+        "w02-n11",
+        "w02-n12",
+        "w02-n13"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w02-l07",
+      "order": 7,
+      "file": "lessons/w02-l07.json",
+      "title_fa": "طول رشته و تبدیل حروف",
+      "stage_id": "w02-s3",
+      "prerequisite_lesson_ids": [
+        "w02-l05",
+        "w02-l06"
+      ],
+      "unit_ids": [
+        "w02-l07-u01",
+        "w02-l07-u02",
+        "w02-l07-u03",
+        "w02-l07-u04"
+      ],
+      "note_ids": [
+        "w02-n14",
+        "w02-n15"
+      ],
+      "related_doc_ids": [
+        "w02-sec"
+      ]
+    },
+    {
+      "id": "w02-l08",
+      "order": 8,
+      "file": "lessons/w02-l08.json",
+      "title_fa": "آرگومان خط فرمان و وضعیت خروج",
+      "stage_id": "w02-s4",
+      "prerequisite_lesson_ids": [
+        "w02-l06"
+      ],
+      "unit_ids": [
+        "w02-l08-u01",
+        "w02-l08-u02",
+        "w02-l08-u03",
+        "w02-l08-u04"
+      ],
+      "note_ids": [
+        "w02-n16",
+        "w02-n17"
+      ],
+      "related_doc_ids": [
+        "w02-sh-command-line-arguments",
+        "w02-sec"
+      ]
+    },
+    {
+      "id": "w02-l09",
+      "order": 9,
+      "file": "lessons/w02-l09.json",
+      "title_fa": "رمزنگاری",
+      "stage_id": "w02-s4",
+      "prerequisite_lesson_ids": [
+        "w02-l07",
+        "w02-l08"
+      ],
+      "unit_ids": [
+        "w02-l09-u01",
+        "w02-l09-u02"
+      ],
+      "note_ids": [
+        "w02-n18"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w02-n01",
+      "file": "notes/01-welcome.fa.md",
+      "official_anchor": "welcome"
+    },
+    {
+      "id": "w02-n02",
+      "file": "notes/02-reading-levels.fa.md",
+      "official_anchor": "reading-levels"
+    },
+    {
+      "id": "w02-n03",
+      "file": "notes/03-compile-errors.fa.md",
+      "official_anchor": "debugging"
+    },
+    {
+      "id": "w02-n04",
+      "file": "notes/04-printf-debugging.fa.md",
+      "official_anchor": "debugging"
+    },
+    {
+      "id": "w02-n05",
+      "file": "notes/05-debug50.fa.md",
+      "official_anchor": "debugging"
+    },
+    {
+      "id": "w02-n06",
+      "file": "notes/06-clang-make.fa.md",
+      "official_anchor": "compiling"
+    },
+    {
+      "id": "w02-n07",
+      "file": "notes/07-four-steps.fa.md",
+      "official_anchor": "compiling"
+    },
+    {
+      "id": "w02-n08",
+      "file": "notes/08-memory-types.fa.md",
+      "official_anchor": "arrays"
+    },
+    {
+      "id": "w02-n09",
+      "file": "notes/09-arrays.fa.md",
+      "official_anchor": "arrays"
+    },
+    {
+      "id": "w02-n10",
+      "file": "notes/10-const-array-params.fa.md",
+      "official_anchor": "arrays"
+    },
+    {
+      "id": "w02-n11",
+      "file": "notes/11-chars-ascii.fa.md",
+      "official_anchor": "strings"
+    },
+    {
+      "id": "w02-n12",
+      "file": "notes/12-string-nul.fa.md",
+      "official_anchor": "strings"
+    },
+    {
+      "id": "w02-n13",
+      "file": "notes/13-arrays-of-strings.fa.md",
+      "official_anchor": "strings"
+    },
+    {
+      "id": "w02-n14",
+      "file": "notes/14-string-length.fa.md",
+      "official_anchor": "string-length"
+    },
+    {
+      "id": "w02-n15",
+      "file": "notes/15-uppercase-ctype.fa.md",
+      "official_anchor": "string-length"
+    },
+    {
+      "id": "w02-n16",
+      "file": "notes/16-command-line-arguments.fa.md",
+      "official_anchor": "command-line-arguments"
+    },
+    {
+      "id": "w02-n17",
+      "file": "notes/17-exit-status.fa.md",
+      "official_anchor": "exit-status"
+    },
+    {
+      "id": "w02-n18",
+      "file": "notes/18-cryptography.fa.md",
+      "official_anchor": "lecture-2"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-2.fa.md",
+    "shorts": [
+      {
+        "id": "w02-sh-functions",
+        "file": "shorts/functions.fa.md"
+      },
+      {
+        "id": "w02-sh-variables-and-scope",
+        "file": "shorts/variables-and-scope.fa.md"
+      },
+      {
+        "id": "w02-sh-debugging-step-through",
+        "file": "shorts/debugging-step-through.fa.md"
+      },
+      {
+        "id": "w02-sh-debugging-step-into",
+        "file": "shorts/debugging-step-into.fa.md"
+      },
+      {
+        "id": "w02-sh-arrays",
+        "file": "shorts/arrays.fa.md"
+      },
+      {
+        "id": "w02-sh-command-line-arguments",
+        "file": "shorts/command-line-arguments.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w02-ps-scrabble",
+        "file": "problem-sets/scrabble.fa.md"
+      },
+      {
+        "id": "w02-ps-readability",
+        "file": "problem-sets/readability.fa.md"
+      },
+      {
+        "id": "w02-ps-caesar",
+        "file": "problem-sets/caesar.fa.md"
+      },
+      {
+        "id": "w02-ps-substitution",
+        "file": "problem-sets/substitution.fa.md"
+      },
+      {
+        "id": "w02-pr-hours",
+        "file": "problem-sets/hours.fa.md"
+      },
+      {
+        "id": "w02-pr-no-vowels",
+        "file": "problem-sets/no-vowels.fa.md"
+      },
+      {
+        "id": "w02-pr-password",
+        "file": "problem-sets/password.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w02-mt-final",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w02-ps-scrabble",
+      "kind": "pset",
+      "file": "problem-sets/scrabble.json",
+      "guide": "problem-sets/scrabble.fa.md",
+      "unlock_after_lesson": "w02-l07"
+    },
+    {
+      "id": "w02-ps-readability",
+      "kind": "pset",
+      "file": "problem-sets/readability.json",
+      "guide": "problem-sets/readability.fa.md",
+      "unlock_after_lesson": "w02-l07"
+    },
+    {
+      "id": "w02-ps-caesar",
+      "kind": "pset",
+      "file": "problem-sets/caesar.json",
+      "guide": "problem-sets/caesar.fa.md",
+      "unlock_after_lesson": "w02-l09"
+    },
+    {
+      "id": "w02-ps-substitution",
+      "kind": "pset",
+      "file": "problem-sets/substitution.json",
+      "guide": "problem-sets/substitution.fa.md",
+      "unlock_after_lesson": "w02-l09"
+    },
+    {
+      "id": "w02-pr-hours",
+      "kind": "practice",
+      "file": "problem-sets/hours.json",
+      "guide": "problem-sets/hours.fa.md",
+      "unlock_after_lesson": "w02-l05"
+    },
+    {
+      "id": "w02-pr-no-vowels",
+      "kind": "practice",
+      "file": "problem-sets/no-vowels.json",
+      "guide": "problem-sets/no-vowels.fa.md",
+      "unlock_after_lesson": "w02-l08"
+    },
+    {
+      "id": "w02-pr-password",
+      "kind": "practice",
+      "file": "problem-sets/password.json",
+      "guide": "problem-sets/password.fa.md",
+      "unlock_after_lesson": "w02-l07"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۲: Scrabble و Readability تحویل شوند و یکی از Caesar یا Substitution. Caesar برای کسانی است که کمتر احساس راحتی می‌کنند و Substitution برای کسانی که بیشتر. طبق همان صفحه، اگر هر دو تحویل شود نمرهٔ بالاتر ثبت می‌شود. تمرین‌های Hours، No Vowels و Password اختیاری‌اند و تحویل ندارند.",
+    "groups": [
+      {
+        "required": [
+          "w02-ps-scrabble"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w02-ps-readability"
+        ],
+        "submit": true
+      },
+      {
+        "one_of": [
+          "w02-ps-caesar",
+          "w02-ps-substitution"
+        ],
+        "submit": true,
+        "choice_group": "caesar-substitution",
+        "if_both": "higher_score_counts",
+        "if_both_origin": "official",
+        "if_both_source_ref": "src-pset-2#what-to-do"
+      }
+    ],
+    "optional_practice": [
+      "w02-pr-hours",
+      "w02-pr-no-vowels",
+      "w02-pr-password"
+    ],
+    "source_ref": "src-pset-2#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids_any_of_groups": true,
+        "note": "checklists of Scrabble, Readability and the chosen Caesar/Substitution"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w02-ps-scrabble",
+          "w02-ps-readability"
+        ],
+        "plus_one_of": [
+          [
+            "w02-ps-caesar",
+            "w02-ps-substitution"
+          ]
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13)."
+  }
+}

@@ -77,7 +77,7 @@
                         <select name="target_week" class="w-full text-xs p-2.5 bg-white border border-[var(--border)] rounded-lg">
                             <option value="">تشخیص خودکار از نام پوشه/مانیفست داخل بسته</option>
                             {% for w in weeks_status %}
-                            <option value="{{ w.number }}">هفته {{ w.number }} — {{ w.title }}</option>
+                            <option value="{{ w.number }}">{% if w.number == 71 %}هفته ۷.۵ — {{ w.title }}{% elif w.number == 99 %}هفته ۹.۵ — {{ w.title }}{% else %}هفته {{ w.number }} — {{ w.title }}{% endif %}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -110,6 +110,7 @@
                         <th class="py-3 px-3 font-semibold">یادداشت‌ها</th>
                         <th class="py-3 px-3 font-semibold">فلش‌کارت‌ها</th>
                         <th class="py-3 px-3 font-semibold">آزمون تسلط</th>
+                        <th class="py-3 px-3 font-semibold">تمرین تعاملی</th>
                         <th class="py-3 px-3 font-semibold">انتشار در سایت</th>
                         <th class="py-3 px-3 font-semibold text-center">عملیات</th>
                     </tr>
@@ -117,7 +118,7 @@
                 <tbody class="divide-y divide-[var(--border)]">
                     {% for w in weeks_status %}
                     <tr class="hover:bg-crimson-tint/15 transition-colors">
-                        <td class="py-3 px-3 font-bold num">هفته {{ w.number }}</td>
+                        <td class="py-3 px-3 font-bold num">{% if w.number == 71 %}هفته ۷.۵{% elif w.number == 99 %}هفته ۹.۵{% else %}هفته {{ w.number }}{% endif %}</td>
                         <td class="py-3 px-3 font-medium text-[var(--ink)]">{{ w.title }}</td>
                         <td class="py-3 px-3">
                             {% if w.has_fa_hub %}
@@ -139,6 +140,13 @@
                         </td>
                         <td class="py-3 px-3 num font-bold {% if w.quiz_count > 0 %}text-blue-800{% else %}text-gray-400{% endif %}">
                             {{ w.quiz_count }} سوال
+                        </td>
+                        <td class="py-3 px-3 num font-bold {% if w.challenges_count > 0 %}text-emerald-700{% else %}text-gray-400{% endif %}">
+                            {% if w.challenges_count > 0 %}
+                            {{ w.challenges_count }} چالش
+                            {% else %}
+                            ندارد
+                            {% endif %}
                         </td>
                         <td class="py-3 px-3">
                             {% if w.is_published %}
@@ -181,7 +189,8 @@
             <li><code class="font-mono text-[var(--ink)]">summary.fa.md</code>: خلاصه‌ی سریع مفاهیم کلیدی هفته.</li>
             <li><code class="font-mono text-[var(--ink)]">notes/XX-*.fa.md</code>: یادداشت‌های گام‌به‌گام لکچر.</li>
             <li><code class="font-mono text-[var(--ink)]">flashcards.json</code>: کارت‌های مرور فعال و سیستم فاصله‌گذاری لایتنر (جعبه‌های ۱ تا ۵).</li>
-            <li><code class="font-mono text-[var(--ink)]">quizzes.json</code>: بانک سوالات چهارگزینه‌ای، درست/نادرست و پرکردنی آزمون تسلط.</li>
+            <li><code class="font-mono text-[var(--ink)]">quizzes.json</code>: بانک سوالات چهارگزینه‌ای، درست/نادرست، پارسونز و پیش‌بینی خروجی آزمون تسلط.</li>
+            <li><code class="font-mono text-[var(--ink)]">challenges.json</code>: چالش‌های تعاملی ۵ دقیقه‌ای (Duo-Style شامل توکن‌چینی، مرتب‌سازی پارسونز و شکار باگ).</li>
             <li><code class="font-mono text-[var(--ink)]">sources.json</code>: پیوندهای اسلایدها، کدهای نمونه، ویدیوها و مراجع رسمی هاروارد.</li>
         </ul>
     </section>

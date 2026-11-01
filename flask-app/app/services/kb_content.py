@@ -47,9 +47,9 @@ def _title_fa(node: dict) -> str:
     n = node.get("site_number")
     title = node.get("title") or ""
     if n == 71:
-        return "هفته هوش مصنوعی"
+        return "هفته ۷.۵ — مبانی هوش مصنوعی"
     if n == 99:
-        return "پروژه نهایی"
+        return "هفته ۹.۵ — پروژه نهایی"
     if isinstance(n, int) and n <= 10:
         # Week 0 — Scratch → هفته ۰ — Scratch
         return title.replace("Week ", "هفته ").replace("Artificial Intelligence — ", "")

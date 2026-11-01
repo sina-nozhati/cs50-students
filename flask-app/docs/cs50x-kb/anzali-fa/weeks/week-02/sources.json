@@ -1,0 +1,836 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 2,
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-style-guide-c",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities",
+    "src-notes-1"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-2",
+      "url": "https://cs50.harvard.edu/x/weeks/2/",
+      "title": "Week 2 Arrays (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:09:57+03:30",
+      "verified_at": "2026-10-28T01:39:18+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "cbc8906b4e97dd55f069eb29c7480afe6c4f78826bcd9fdf43b06dd731ada526"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/2/",
+      "anchors": [
+        "week-2-arrays"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/week.md",
+      "notes": "Topic line (Preprocessing ... Cryptography) and media list. Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-notes-2",
+      "url": "https://cs50.harvard.edu/x/notes/2/",
+      "title": "Lecture 2 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30",
+      "verified_at": "2026-10-28T01:38:59+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "b4f8819ba893adc76cc1e932e8b59637cce266081e1b4bdecd765c7de86ba5a2"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/2/",
+      "anchors": [
+        "arrays",
+        "command-line-arguments",
+        "compiling",
+        "debugging",
+        "exit-status",
+        "lecture-2",
+        "reading-levels",
+        "string-length",
+        "strings",
+        "summing-up",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/lecture.md",
+      "notes": "All sections read in full; code blocks copied verbatim into examples2.py. Cryptography is not in the notes (d24). Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-transcript-2",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/lang/en/lecture2.txt",
+      "title": "Lecture 2 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:50+03:30",
+      "verified_at": "2026-10-28T01:38:59+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/transcripts/lecture-en.txt",
+      "notes": "Spoken text with transcription errors. Cited for content absent from the notes (cryptography, Hopper anecdote, echo $?) and labelled «از سخنرانی»."
+    },
+    {
+      "id": "src-srt-2",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/lang/en/lecture2.srt",
+      "title": "Lecture 2 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-28T01:38:59+03:30",
+      "verified_at": "2026-10-28T01:38:59+03:30",
+      "local_copy": "_tools/refetch/week2/srt/lecture2.srt",
+      "notes": "Used only to derive chapter start times (chapter titles: inference; timestamps real)."
+    },
+    {
+      "id": "src-video-2",
+      "url": "https://video.cs50.io/h5Gc1n8ZuU8",
+      "title": "Lecture 2 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30",
+      "notes": "Also https://youtu.be/h5Gc1n8ZuU8 ; Portuguese vdCJU-1mB-A, Spanish G7erq8mRYdk."
+    },
+    {
+      "id": "src-audio-2",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/lecture2.mp3",
+      "title": "Lecture 2 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-slides-2-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/lecture2.pdf",
+      "title": "Lecture 2 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-2-google",
+      "url": "https://docs.google.com/presentation/d/1_9dmbiA2uAsnYJb3zkb7-U4u36-cIpsYbbiQ_UKWikg/edit?usp=sharing",
+      "title": "Lecture 2 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-src2-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/src2.zip",
+      "title": "Lecture 2 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:50+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/source-code/",
+      "notes": "Code in the notes was used (verbatim); the zip itself is linked, not repackaged."
+    },
+    {
+      "id": "src-src2-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/src2/",
+      "title": "Lecture 2 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-src2-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/2/src2.pdf",
+      "title": "Lecture 2 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-section-2",
+      "url": "https://cs50.harvard.edu/x/sections/2/",
+      "title": "Section 2",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:22+03:30",
+      "verified_at": "2026-10-28T01:39:10+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "1a851d8566f6f15a0c9575499d03f6c3db36ce4b97ab10c43b7a8479d3c8a092"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/2/",
+      "anchors": [
+        "week-2-arrays"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/sections.md"
+    },
+    {
+      "id": "src-section-2-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/2/lang/en/section2.txt",
+      "title": "Section 2 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30",
+      "verified_at": "2026-10-28T01:38:59+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary (presenter: Kelly); chapter times from section2.srt."
+    },
+    {
+      "id": "src-section-2-video",
+      "url": "https://video.cs50.io/ZlJuiMNrzBQ",
+      "title": "Section 2 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30",
+      "notes": "Also https://youtu.be/ZlJuiMNrzBQ"
+    },
+    {
+      "id": "src-section-2-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/2/section2.pdf",
+      "title": "Section 2 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-section-2-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/2/src2.zip",
+      "title": "Section 2 source code (print.c, reverse.c, alphabetical.c, initials.c)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/section-code/files/",
+      "notes": "print.c reproduced verbatim (teaching example, not a pset). reverse.c, alphabetical.c and initials.c are linked only (policy: section exercise solutions; initials.c is close to No Vowels/Caesar argv handling)."
+    },
+    {
+      "id": "src-pset-2",
+      "url": "https://cs50.harvard.edu/x/psets/2/",
+      "title": "Problem Set 2",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:23+03:30",
+      "verified_at": "2026-10-28T01:39:04+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "1b33504071717f2541d84c79606627a9f48293d6946775737a6fab28ccd1ac58"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/2/",
+      "anchors": [
+        "problem-set-2",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/psets/README.md"
+    },
+    {
+      "id": "src-pset-2-scrabble",
+      "url": "https://cs50.harvard.edu/x/psets/2/scrabble/",
+      "title": "Scrabble",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:20+03:30",
+      "verified_at": "2026-10-28T01:39:07+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "3225b59e51cf8f5918dfc5609425d9808b8fd147290a6cb84c2eb9d103e3aed3"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/2/scrabble/",
+      "anchors": [
+        "scrabble",
+        "problem-to-solve",
+        "demo",
+        "advice-and-hints",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/psets/scrabble.md"
+    },
+    {
+      "id": "src-pset-2-readability",
+      "url": "https://cs50.harvard.edu/x/psets/2/readability/",
+      "title": "Readability",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:21+03:30",
+      "verified_at": "2026-10-28T01:39:06+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "5df28ea339ad37d4e6387cf92eedd2e366199e32b54a0dd5f52683a52ee94cdb"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/2/readability/",
+      "anchors": [
+        "readability",
+        "problem-to-solve",
+        "demo",
+        "background",
+        "advice",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/psets/readability.md"
+    },
+    {
+      "id": "src-pset-2-caesar",
+      "url": "https://cs50.harvard.edu/x/psets/2/caesar/",
+      "title": "Caesar",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:22+03:30",
+      "verified_at": "2026-10-28T01:39:05+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "6b8cb2e6d4d92939a2bfd15486e297b78cfb748216bb57a7fc483b567d34a638"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/2/caesar/",
+      "anchors": [
+        "caesar",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "advice",
+        "pseudocode",
+        "counting-command-line-arguments",
+        "checking-the-key",
+        "using-the-key",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/psets/caesar.md"
+    },
+    {
+      "id": "src-pset-2-substitution",
+      "url": "https://cs50.harvard.edu/x/psets/2/substitution/",
+      "title": "Substitution",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:23+03:30",
+      "verified_at": "2026-10-28T01:39:08+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "7ae4a507895e0792c3c41ec1b0372485ce158d11c1d00167355c87a971d3d2da"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/2/substitution/",
+      "anchors": [
+        "substitution",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/psets/substitution.md"
+    },
+    {
+      "id": "src-practice-hours",
+      "url": "https://cs50.harvard.edu/x/practice/hours/",
+      "title": "Hours",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:52+03:30",
+      "verified_at": "2026-10-28T01:39:00+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "7d0047e3732a1f1fe53386ebd81a0b21cfe1ffe9e7d7d70e9cc5b050f6de5136"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/hours/",
+      "anchors": [
+        "hours",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/practice/hours.md"
+    },
+    {
+      "id": "src-practice-no-vowels",
+      "url": "https://cs50.harvard.edu/x/practice/no-vowels/",
+      "title": "No Vowels",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:53+03:30",
+      "verified_at": "2026-10-28T01:39:01+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "3bb9c4e989dacf478d0fb480d0611827d0f93d5add8f834b2e3ba2a15c83e235"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/no-vowels/",
+      "anchors": [
+        "n0-v0w3ls",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/practice/no-vowels.md"
+    },
+    {
+      "id": "src-practice-password",
+      "url": "https://cs50.harvard.edu/x/practice/password/",
+      "title": "Password",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:54+03:30",
+      "verified_at": "2026-10-28T01:39:03+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "91920f0ee3435c06d7ab0250961232b494982a9a0c08f6acea7e6924398f7306"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/password/",
+      "anchors": [
+        "password",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/practice/password.md"
+    },
+    {
+      "id": "src-short-functions",
+      "url": "https://cs50.harvard.edu/x/shorts/functions/",
+      "title": "Short: Functions (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:11+03:30",
+      "verified_at": "2026-10-28T01:39:16+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "5a88f876945e1dd3b7431eb23078aa1d177ffb1398fbd918ed94dc3cbd3cb617"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/shorts/functions.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/functions/lang/en/functions.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/functions/lang/en/functions.srt. Video https://youtu.be/n1glFqt3g38. Slides https://cdn.cs50.net/2017/fall/shorts/functions/functions.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-variables-and-scope",
+      "url": "https://cs50.harvard.edu/x/shorts/variables_and_scope/",
+      "title": "Short: Variables and Scope (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:13+03:30",
+      "verified_at": "2026-10-28T01:39:17+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "4807675346595ffdd9c27ac14dcee127574a8d6f3d6d4b2f052581cd16c995a2"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/shorts/variables-and-scope.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/variables_and_scope/lang/en/variables_and_scope.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/variables_and_scope/lang/en/variables_and_scope.srt. Video https://youtu.be/GiFbdVGjF9I. Slides https://cdn.cs50.net/2017/fall/shorts/variables_and_scope/variables_and_scope.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-debugging-step-through",
+      "url": "https://cs50.harvard.edu/x/shorts/debugging_step_through/",
+      "title": "Short: Debugging step through (2021, Carter)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:15+03:30",
+      "verified_at": "2026-10-28T01:39:15+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "2fc86781100dd84ff5efe3a6e5fe166172b132cd2061eaac97b15e7311a3fccc"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/shorts/debugging-step-through.md",
+      "notes": "Transcript https://cdn.cs50.net/2021/fall/shorts/guess/lang/en/guess.txt read in full; chapters from https://cdn.cs50.net/2021/fall/shorts/guess/lang/en/guess.srt. Video https://youtu.be/---HbbANxDQ. No slides published. Recorded 2021."
+    },
+    {
+      "id": "src-short-debugging-step-into",
+      "url": "https://cs50.harvard.edu/x/shorts/debugging_step_into/",
+      "title": "Short: Debugging step into (2021, Carter)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:17+03:30",
+      "verified_at": "2026-10-28T01:39:13+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "0cc681a3c8a9eac892c75ffe52f28596ce2d9e9fd8ce77e75b314a0a6988ce8f"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/shorts/debugging-step-into.md",
+      "notes": "Transcript https://cdn.cs50.net/2021/fall/shorts/secret/lang/en/secret.txt read in full; chapters from https://cdn.cs50.net/2021/fall/shorts/secret/lang/en/secret.srt. Video https://youtu.be/tk3cl8hyfqM. No slides published. Recorded 2021."
+    },
+    {
+      "id": "src-short-arrays",
+      "url": "https://cs50.harvard.edu/x/shorts/arrays/",
+      "title": "Short: Arrays (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:19+03:30",
+      "verified_at": "2026-10-28T01:39:11+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "344c33d56ed69093909e2ebb4b5809a0f354afb3ef572681d891174f92c34639"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/shorts/arrays.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/arrays/lang/en/arrays.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/arrays/lang/en/arrays.srt. Video https://youtu.be/K1yC1xshF40. Slides https://cdn.cs50.net/2017/fall/shorts/arrays/arrays.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-command-line-arguments",
+      "url": "https://cs50.harvard.edu/x/shorts/command_line_arguments/",
+      "title": "Short: Command-Line Arguments (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:21+03:30",
+      "verified_at": "2026-10-28T01:39:12+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "8312835925a7310449772bee992a35a8a19d143a88eff477d5c0ded73ff27fc6"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-02-arrays/shorts/command-line-arguments.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/command_line_arguments/lang/en/command_line_arguments.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/command_line_arguments/lang/en/command_line_arguments.srt. Video https://youtu.be/AI6Ccfno6Pk. Slides https://cdn.cs50.net/2017/fall/shorts/command_line_arguments/command_line_arguments.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-check50-docs",
+      "url": "https://cs50.readthedocs.io/projects/check50/",
+      "title": "check50 documentation",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-asciitable",
+      "url": "https://www.asciitable.com/",
+      "title": "asciitable.com (linked from Caesar)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-wiki-leet",
+      "url": "https://en.wikipedia.org/wiki/Leet",
+      "title": "Wikipedia: Leet (linked from No Vowels)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-wiki-coleman-liau",
+      "url": "https://en.wikipedia.org/wiki/Coleman%E2%80%93Liau_index",
+      "title": "Wikipedia: Coleman-Liau index",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-time-cs50-deadline-2",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 2 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:21+03:30"
+    },
+    {
+      "id": "src-anzali-authored-2",
+      "url": "urn:cs50x-anzali:authored:week-02",
+      "title": "Material authored by CS50x Anzali for Week 2 (examples marked تألیفی, exercises, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-28T09:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-2",
+      "url": "urn:cs50x-anzali:inference:week-02",
+      "title": "Editorial inferences for Week 2 (chapter boundaries from official .srt cue times; concept graph; topic order)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-28T09:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d20",
+      "topic": "Notes: where data types were introduced",
+      "a": {
+        "source": "src-notes-2#arrays",
+        "value": "'In Week 0, we talked about data types such as bool, int, char, string'"
+      },
+      "b": {
+        "source": "src-notes-1#types",
+        "value": "Types were introduced in Week 1"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The Persian note says 'earlier' and links Week 1."
+    },
+    {
+      "id": "d21",
+      "topic": "Notes: missing link text for the duck",
+      "a": {
+        "source": "src-notes-2#debugging",
+        "value": "'Finally, , also known as the CS50 Duck' (link text missing)"
+      },
+      "b": {
+        "source": "src-cs50-ai",
+        "value": "CS50.ai / CS50 Duck"
+      },
+      "status": "recorded-not-resolved"
+    },
+    {
+      "id": "d22",
+      "topic": "Notes: dangling 'Consider the following:'",
+      "a": {
+        "source": "src-notes-2#debugging",
+        "value": "'The printf statement can be used to debug your code. Consider the following:' followed immediately by another 'Consider the following image'"
+      },
+      "b": {
+        "source": "src-transcript-2",
+        "value": "Lecture shows the mario example"
+      },
+      "status": "recorded-not-resolved"
+    },
+    {
+      "id": "d23",
+      "topic": "Topic order: week page vs notes",
+      "a": {
+        "source": "src-week-2#week-2-arrays",
+        "value": "Preprocessing, Compiling, Assembling, Linking, Debugging, Arrays, ..."
+      },
+      "b": {
+        "source": "src-notes-2",
+        "value": "Notes order: Debugging before Compiling"
+      },
+      "status": "complementary",
+      "note": "Lessons follow the notes/lecture order (debugging first)."
+    },
+    {
+      "id": "d24",
+      "topic": "Cryptography: week page vs notes",
+      "a": {
+        "source": "src-week-2#week-2-arrays",
+        "value": "Topic list ends with Cryptography"
+      },
+      "b": {
+        "source": "src-notes-2",
+        "value": "Notes have no Cryptography section; covered only in the lecture"
+      },
+      "status": "complementary",
+      "note": "Note w02-n18 is built from the transcript and labelled «از سخنرانی»."
+    },
+    {
+      "id": "d25",
+      "topic": "Caesar: key positive vs non-negative; prompt spacing",
+      "a": {
+        "source": "src-pset-2-caesar#problem-to-solve",
+        "value": "'if it is a number, it will be a positive integer'"
+      },
+      "b": {
+        "source": "src-pset-2-caesar#specification",
+        "value": "'a non-negative integer'; 'plaintext:  (with two spaces ...)'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide follows the Specification and check50."
+    },
+    {
+      "id": "d26",
+      "topic": "Password: function name",
+      "a": {
+        "source": "src-practice-password#background",
+        "value": "'validated using a function check'"
+      },
+      "b": {
+        "source": "src-practice-password#getting-started",
+        "value": "'complete the function, valid'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide tells learners to read the name from the distribution code."
+    },
+    {
+      "id": "d27",
+      "topic": "Practice problems: dated slugs",
+      "a": {
+        "source": "src-practice-hours#how-to-test-your-code",
+        "value": "check50 cs50/labs/2023/x/hours"
+      },
+      "b": {
+        "source": "src-practice-hours#getting-started",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/2/hours.c"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Same pattern for no-vowels and password; copied exactly as published."
+    },
+    {
+      "id": "d28",
+      "topic": "ASCII table typography",
+      "a": {
+        "source": "src-notes-2#strings",
+        "value": "ASCII chart renders 34 and 39 as curly quotes"
+      },
+      "b": {
+        "source": "src-asciitable",
+        "value": "ASCII 34 and 39 are straight quotes"
+      },
+      "status": "recorded-not-resolved"
+    },
+    {
+      "id": "d29",
+      "topic": "Shorts recorded 2017/2021",
+      "a": {
+        "source": "src-short-arrays",
+        "value": "CS50 IDE era (2017, Doug Lloyd); 2021 debugging shorts by Carter"
+      },
+      "b": {
+        "source": "src-notes-2",
+        "value": "2026 course uses cs50.dev"
+      },
+      "status": "complementary",
+      "note": "Commands are the same; environment names differ."
+    },
+    {
+      "id": "d30",
+      "topic": "Arrays short: 'passed by reference'",
+      "a": {
+        "source": "src-short-arrays",
+        "value": "'Arrays ... do not follow this rule. Rather, what we call this is passing by reference.'"
+      },
+      "b": {
+        "source": "src-notes-2#arrays",
+        "value": "Notes do not use this term; C technically passes a pointer by value (explained in Week 4)"
+      },
+      "status": "complementary",
+      "note": "Persian text quotes the short and flags the later explanation."
+    },
+    {
+      "id": "d31",
+      "topic": "Typo 'pseudcode'",
+      "a": {
+        "source": "src-pset-2-scrabble#advice-and-hints",
+        "value": "'Let's write some pseudcode as comments'"
+      },
+      "b": {
+        "source": "src-pset-2-readability#advice",
+        "value": "same typo"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Not reproduced; typo only."
+    },
+    {
+      "id": "d32",
+      "topic": "2026 URLs redirect",
+      "a": {
+        "source": "src-notes-2",
+        "value": "https://cs50.harvard.edu/x/2026/notes/2/ returns 302"
+      },
+      "b": {
+        "source": "src-notes-2",
+        "value": "Redirect target https://cs50.harvard.edu/x/notes/2/ (identical main text)"
+      },
+      "status": "consistent",
+      "note": "Sources use the canonical URL; url_2026 kept as alias."
+    },
+    {
+      "id": "d33",
+      "topic": "Scrabble: full solution on the official page",
+      "a": {
+        "source": "src-pset-2-scrabble#advice-and-hints",
+        "value": "Advice section walks to complete code and warns it is a 'full spoiler'"
+      },
+      "b": {
+        "source": "src-anzali-authored-2",
+        "value": "No-solution policy"
+      },
+      "status": "consistent",
+      "note": "Linked only; not reproduced."
+    },
+    {
+      "id": "d34",
+      "topic": "Notes: buggy example comment vs code",
+      "a": {
+        "source": "src-notes-2#debugging",
+        "value": "Comment lists '%s, and second printf argument' as missing"
+      },
+      "b": {
+        "source": "src-notes-2#debugging",
+        "value": "The printf line is printf(\"hello, world\\n\"); the prose explains the intended fix"
+      },
+      "status": "recorded-not-resolved"
+    }
+  ]
+}

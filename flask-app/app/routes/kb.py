@@ -1,4 +1,5 @@
 """پایگاه دانش — بارگذاری از docs/cs50x-kb."""
+import json
 from flask import Blueprint, render_template, abort, redirect, url_for, flash
 from flask_login import login_required, current_user
 
@@ -10,6 +11,7 @@ from app.services import resources as res_service
 from app.services import exercises as exercise_service
 from app.services import events as event_service
 from app.services import kb_interactive
+from app.services import practice as practice_service
 from app.models import WeekProgress
 from flask import request, jsonify
 
@@ -74,6 +76,8 @@ def week_page(week: int):
     glossary = kb_interactive.load_glossary_for_week(week)
     faqs = kb_interactive.load_faqs_for_week(week)
     interactive_summary = kb_interactive.get_week_interactive_summary(current_user.id, week)
+    quiz_meta = interactive_summary.get("attempt_meta", {})
+    has_practice = practice_service.has_practice_session(week)
 
     return render_template(
         "kb/week.html",
@@ -92,8 +96,23 @@ def week_page(week: int):
         glossary=glossary,
         faqs=faqs,
         interactive_summary=interactive_summary,
+        quiz_meta=quiz_meta,
+        has_practice=has_practice,
         certificate=kb_service.certificate(),
     )
+
+
+@bp.route("/week/<int:week>/quiz/retake", methods=["POST"])
+@login_required
+def retake_quiz(week: int):
+    """شروع تلاش مستقل جدید برای کوییز هفتگی (تا سقف ۵ تلاش)."""
+    _get_visible_week_or_404(week)
+    res = kb_interactive.start_new_quiz_attempt(current_user.id, week)
+    if not res.get("success"):
+        flash(res.get("message", "امکان شروع تلاش جدید وجود ندارد."), "warning")
+    else:
+        flash(res.get("message", "تلاش جدید برای آزمون آغاز شد."), "success")
+    return redirect(url_for("kb.week_page", week=week, _anchor="tab-quiz"))
 
 
 @bp.route("/week/<int:week>/quiz/submit", methods=["POST"])
@@ -232,3 +251,69 @@ def mark_read(week: int):
     return render_template(
         "kb/_read_button.html", awarded=True, week=week, first_read=is_first_read
     )
+
+
+@bp.route("/week/<int:week>/practice")
+@login_required
+def practice_page(week: int):
+    """صفحه رانر تمرین تعاملی تمام‌صفحه شبیه دولینگو."""
+    week_obj = _get_visible_week_or_404(week)
+    session_data = practice_service.load_practice_session(week, current_user.id)
+    if not session_data or not session_data.get("challenges"):
+        flash("تمرین تعاملی فعالی برای این هفته یافت نشد.", "warning")
+        return redirect(url_for("kb.week_page", week=week))
+
+    # ثبت رویداد شروع جلسه تمرین
+    event_service.log_event(
+        current_user.id,
+        "session_start",
+        {"week": week, "type": "practice_runner"}
+    )
+
+    return render_template(
+        "kb/practice_runner.html",
+        week=week,
+        week_title=week_obj.title,
+        session_data=session_data,
+        challenges_json=json.dumps(session_data["challenges"], ensure_ascii=False),
+        user_xp=current_user.xp,
+        user_streak=current_user.streak,
+    )
+
+
+@bp.route("/week/<int:week>/practice/submit", methods=["POST"])
+@login_required
+def submit_practice_challenge(week: int):
+    """بررسی و اعتبارسنجی پاسخ یک چالش خاص و اعطای XP."""
+    _get_visible_week_or_404(week)
+    data = request.get_json(silent=True) or request.form.to_dict()
+    challenge_id = data.get("challenge_id")
+    user_answer = data.get("answer")
+    hints_used = int(data.get("hints_used", 0))
+
+    if not challenge_id or user_answer is None:
+        return jsonify({"success": False, "message": "اطلاعات ارسالی ناقص است."}), 400
+
+    result = practice_service.submit_challenge_attempt(
+        user_id=current_user.id,
+        week=week,
+        challenge_id=challenge_id,
+        user_answer=user_answer,
+        hints_used=hints_used,
+    )
+    return jsonify(result)
+
+
+@bp.route("/week/<int:week>/practice/complete", methods=["POST"])
+@login_required
+def complete_practice(week: int):
+    """ثبت اتمام کل جلسه تمرین، محاسبه احتمال بازگشت و ثبت لاگ."""
+    _get_visible_week_or_404(week)
+    summary = request.get_json(silent=True) or {}
+    result = practice_service.complete_practice_session(
+        user_id=current_user.id,
+        week=week,
+        summary=summary,
+    )
+    return jsonify(result)
+

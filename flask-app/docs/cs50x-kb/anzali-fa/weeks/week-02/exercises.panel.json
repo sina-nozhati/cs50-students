@@ -1,0 +1,2074 @@
+{
+  "$schema": "../../schemas/exercise-export.schema.json",
+  "week": 2,
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "origin": "inferred",
+  "review_status": "draft-needs-human-review",
+  "status": "proposal — ExerciseAttempt is not in the local snapshot; field names are inferred from the Cursor Phase-0 audit description",
+  "replaces": "hardcoded fill-in-the-blank exercises (weeks 0-2) reported in services/exercises.py / _exercise_card.html (audit); this file is the data-driven source instead",
+  "exercise_attempt_mapping": {
+    "table": "ExerciseAttempt (inferred)",
+    "fields": {
+      "user_id": "current user",
+      "exercise_id": "exercise_id below (String, <= 40 chars; stable across rebuilds)",
+      "week": "week",
+      "answer_json": "JSON matching answer_shape",
+      "is_correct": "server-side grading result",
+      "score": "0..1 (fill_blank_code: correct_blanks/total_blanks; parsons: 1 if order exact else 0)",
+      "hints_used": "number of hints_fa/hint_fa revealed",
+      "attempt_no": "1-based per (user_id, exercise_id)",
+      "created_at": "UTC timestamp"
+    },
+    "grading_rules": {
+      "fill_blank_code": "each blank: answer.strip() in accepted (exact_after_trim); feedback = wrong_feedback[answer] or default_wrong_fa",
+      "parsons": "submitted order of p-ids equals expected.order; any d-id used => incorrect with its why_wrong_fa; indentation ignored unless indentation_matters",
+      "predict_output": "answer.strip() in answer.accept (exact_after_trim; multi-line compared line by line after trimming each line)",
+      "mcq": "set(selected) == set(correct_option_ids)",
+      "true_false": "value equality",
+      "find_the_bug/short_answer": "not auto-graded: store text, show key_points_fa after submit, mentor or self review"
+    },
+    "xp": "No XP per attempt. Mastery XP comes from unit_mastered / lesson_mastered / mastery_test_passed (gamification/xp-config.json). This avoids double counting with xp.award idempotency.",
+    "legacy": "If the panel keeps its hardcoded exercises for weeks 0-2, map them to these ids by (lesson, type) manually and retire the hardcoded copies; see unresolved-items D11."
+  },
+  "counts": {
+    "total": 109,
+    "auto": 102
+  },
+  "exercises": [
+    {
+      "exercise_id": "w02-l01-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": "w02-l01-u01",
+      "concept_ids": [
+        "w02-c-bottom-up",
+        "w02-c-reading-level"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l01.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l01-u01-ex",
+      "role": "unit_exercise",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": "w02-l01-u01",
+      "concept_ids": [
+        "w02-c-bottom-up",
+        "w02-c-reading-level"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l01.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-l01-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": "w02-l01-u02",
+      "concept_ids": [
+        "w02-c-bug",
+        "w02-c-compile-error"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l01.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l01-u02-ex",
+      "role": "unit_exercise",
+      "type": "find_the_bug",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": "w02-l01-u02",
+      "concept_ids": [
+        "w02-c-bug",
+        "w02-c-compile-error"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "lessons/w02-l01.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "bug_line": 1,
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l01-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": "w02-l01-u03",
+      "concept_ids": [
+        "w02-c-logical-error",
+        "w02-c-printf-debugging"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l01.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l01-u03-ex",
+      "role": "unit_exercise",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": "w02-l01-u03",
+      "concept_ids": [
+        "w02-c-logical-error",
+        "w02-c-printf-debugging"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l01.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l02-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": "w02-l02-u01",
+      "concept_ids": [
+        "w02-c-debugger",
+        "w02-c-breakpoint"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l02.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l02-u01-ex",
+      "role": "unit_exercise",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": "w02-l02-u01",
+      "concept_ids": [
+        "w02-c-debugger",
+        "w02-c-breakpoint"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l02.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-l02-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": "w02-l02-u02",
+      "concept_ids": [
+        "w02-c-step-over-into",
+        "w02-c-strcmp"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l02.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l02-u02-ex",
+      "role": "unit_exercise",
+      "type": "classify",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": "w02-l02-u02",
+      "concept_ids": [
+        "w02-c-step-over-into",
+        "w02-c-strcmp"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l02.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "assignments": {
+          "item": "category"
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l02-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": "w02-l02-u03",
+      "concept_ids": [
+        "w02-c-rubber-duck"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l02.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l02-u03-ex",
+      "role": "unit_exercise",
+      "type": "short_answer",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": "w02-l02-u03",
+      "concept_ids": [
+        "w02-c-rubber-duck"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "lessons/w02-l02.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l03-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": "w02-l03-u01",
+      "concept_ids": [
+        "w02-c-clang",
+        "w02-c-link-flag",
+        "w02-c-make-vs-clang"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l03.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l03-u01-ex",
+      "role": "unit_exercise",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": "w02-l03-u01",
+      "concept_ids": [
+        "w02-c-clang",
+        "w02-c-link-flag",
+        "w02-c-make-vs-clang"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l03.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l03-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": "w02-l03-u02",
+      "concept_ids": [
+        "w02-c-preprocessing",
+        "w02-c-compiling-step"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l03.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l03-u02-ex",
+      "role": "unit_exercise",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": "w02-l03-u02",
+      "concept_ids": [
+        "w02-c-preprocessing",
+        "w02-c-compiling-step"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l03.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-l03-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": "w02-l03-u03",
+      "concept_ids": [
+        "w02-c-assembling",
+        "w02-c-linking"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l03.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l03-u03-ex",
+      "role": "unit_exercise",
+      "type": "parsons",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": "w02-l03-u03",
+      "concept_ids": [
+        "w02-c-assembling",
+        "w02-c-linking"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l03.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "order": [
+          "p1",
+          "p2"
+        ],
+        "used_distractors": []
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u01",
+      "concept_ids": [
+        "w02-c-memory-bytes"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u01-ex",
+      "role": "unit_exercise",
+      "type": "classify",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u01",
+      "concept_ids": [
+        "w02-c-memory-bytes"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "assignments": {
+          "item": "category"
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u02",
+      "concept_ids": [
+        "w02-c-array",
+        "w02-c-array-index"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u02-ex",
+      "role": "unit_exercise",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u02",
+      "concept_ids": [
+        "w02-c-array",
+        "w02-c-array-index"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u03",
+      "concept_ids": [
+        "w02-c-array-loop"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u03-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u03",
+      "concept_ids": [
+        "w02-c-array-loop"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u04-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u04",
+      "concept_ids": [
+        "w02-c-array-init",
+        "w02-c-array-bounds"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/3/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l04-u04-ex",
+      "role": "unit_exercise",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": "w02-l04-u04",
+      "concept_ids": [
+        "w02-c-array-init",
+        "w02-c-array-bounds"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l04.json",
+      "pointer": "/units/3/exercise",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u01",
+      "concept_ids": [
+        "w02-c-global-const"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u01-ex",
+      "role": "unit_exercise",
+      "type": "find_the_bug",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u01",
+      "concept_ids": [
+        "w02-c-global-const"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "bug_line": 1,
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u02",
+      "concept_ids": [
+        "w02-c-array-parameter"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u02-ex",
+      "role": "unit_exercise",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u02",
+      "concept_ids": [
+        "w02-c-array-parameter"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u03",
+      "concept_ids": [
+        "w02-c-function-anatomy",
+        "w02-c-function-benefits"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u03-ex",
+      "role": "unit_exercise",
+      "type": "classify",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u03",
+      "concept_ids": [
+        "w02-c-function-anatomy",
+        "w02-c-function-benefits"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "assignments": {
+          "item": "category"
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u04-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u04",
+      "concept_ids": [
+        "w02-c-local-global",
+        "w02-c-pass-by-value"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/3/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l05-u04-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": "w02-l05-u04",
+      "concept_ids": [
+        "w02-c-local-global",
+        "w02-c-pass-by-value"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l05.json",
+      "pointer": "/units/3/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l06-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": "w02-l06-u01",
+      "concept_ids": [
+        "w02-c-char-ascii"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l06.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l06-u01-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": "w02-l06-u01",
+      "concept_ids": [
+        "w02-c-char-ascii"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l06.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l06-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": "w02-l06-u02",
+      "concept_ids": [
+        "w02-c-string-char-array",
+        "w02-c-nul"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l06.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l06-u02-ex",
+      "role": "unit_exercise",
+      "type": "short_answer",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": "w02-l06-u02",
+      "concept_ids": [
+        "w02-c-string-char-array",
+        "w02-c-nul"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "lessons/w02-l06.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l06-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": "w02-l06-u03",
+      "concept_ids": [
+        "w02-c-array-of-strings"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l06.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l06-u03-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": "w02-l06-u03",
+      "concept_ids": [
+        "w02-c-array-of-strings"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l06.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u01",
+      "concept_ids": [
+        "w02-c-string-length"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u01-ex",
+      "role": "unit_exercise",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u01",
+      "concept_ids": [
+        "w02-c-string-length"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u02",
+      "concept_ids": [
+        "w02-c-strlen",
+        "w02-c-design-efficiency"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u02-ex",
+      "role": "unit_exercise",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u02",
+      "concept_ids": [
+        "w02-c-strlen",
+        "w02-c-design-efficiency"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u03",
+      "concept_ids": [
+        "w02-c-ascii-case"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u03-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u03",
+      "concept_ids": [
+        "w02-c-ascii-case"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u04-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u04",
+      "concept_ids": [
+        "w02-c-ctype"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/3/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l07-u04-ex",
+      "role": "unit_exercise",
+      "type": "short_answer",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": "w02-l07-u04",
+      "concept_ids": [
+        "w02-c-ctype"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "lessons/w02-l07.json",
+      "pointer": "/units/3/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u01",
+      "concept_ids": [
+        "w02-c-argc-argv"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u01-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u01",
+      "concept_ids": [
+        "w02-c-argc-argv"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u02",
+      "concept_ids": [
+        "w02-c-argv0",
+        "w02-c-argv-strings"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u02-ex",
+      "role": "unit_exercise",
+      "type": "classify",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u02",
+      "concept_ids": [
+        "w02-c-argv0",
+        "w02-c-argv-strings"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "assignments": {
+          "item": "category"
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u03-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u03",
+      "concept_ids": [
+        "w02-c-exit-status"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/2/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u03-ex",
+      "role": "unit_exercise",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u03",
+      "concept_ids": [
+        "w02-c-exit-status"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/2/exercise",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u04-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u04",
+      "concept_ids": [
+        "w02-c-echo-status",
+        "w02-c-early-return"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/3/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l08-u04-ex",
+      "role": "unit_exercise",
+      "type": "parsons",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": "w02-l08-u04",
+      "concept_ids": [
+        "w02-c-echo-status",
+        "w02-c-early-return"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l08.json",
+      "pointer": "/units/3/exercise",
+      "answer_shape": {
+        "order": [
+          "p1",
+          "p2"
+        ],
+        "used_distractors": []
+      }
+    },
+    {
+      "exercise_id": "w02-l09-u01-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": "w02-l09-u01",
+      "concept_ids": [
+        "w02-c-cryptography",
+        "w02-c-cipher-key"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l09.json",
+      "pointer": "/units/0/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l09-u01-ex",
+      "role": "unit_exercise",
+      "type": "classify",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": "w02-l09-u01",
+      "concept_ids": [
+        "w02-c-cryptography",
+        "w02-c-cipher-key"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l09.json",
+      "pointer": "/units/0/exercise",
+      "answer_shape": {
+        "assignments": {
+          "item": "category"
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-l09-u02-chk",
+      "role": "unit_check",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": "w02-l09-u02",
+      "concept_ids": [
+        "w02-c-rotation-cipher"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l09.json",
+      "pointer": "/units/1/check",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-l09-u02-ex",
+      "role": "unit_exercise",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": "w02-l09-u02",
+      "concept_ids": [
+        "w02-c-rotation-cipher"
+      ],
+      "grading": "auto",
+      "source_file": "lessons/w02-l09.json",
+      "pointer": "/units/1/exercise",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-001",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-reading-level"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/0",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-002",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-compile-error"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/1",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-003",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-logical-error"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/2",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-004",
+      "role": "quiz_item",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-printf-debugging"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/3",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-q-005",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-bug"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/4",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-006",
+      "role": "quiz_item",
+      "type": "find_the_bug",
+      "week": 2,
+      "lesson_id": "w02-l01",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-compile-error"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "quizzes.json",
+      "pointer": "/items/5",
+      "answer_shape": {
+        "bug_line": 1,
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-007",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-breakpoint"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/6",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-008",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-step-over-into"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/7",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-009",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-step-over-into"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/8",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-010",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-strcmp"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/9",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-011",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l02",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-rubber-duck"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/10",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-012",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-link-flag"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/11",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-013",
+      "role": "quiz_item",
+      "type": "parsons",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-preprocessing"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/12",
+      "answer_shape": {
+        "order": [
+          "p1",
+          "p2"
+        ],
+        "used_distractors": []
+      }
+    },
+    {
+      "exercise_id": "w02-q-014",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-compiling-step"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/13",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-015",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-make-vs-clang"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/14",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-016",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l03",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-linking"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/15",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-017",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-memory-bytes"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/16",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-018",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array-index"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/17",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-019",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/18",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-020",
+      "role": "quiz_item",
+      "type": "fill_blank_code",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array-loop"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/19",
+      "answer_shape": {
+        "blanks": {
+          "b1": "..."
+        }
+      }
+    },
+    {
+      "exercise_id": "w02-q-021",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array-bounds"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/20",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-022",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l04",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array-init"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/21",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-023",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array-parameter"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/22",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-024",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-global-const"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/23",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-025",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-pass-by-value"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/24",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-026",
+      "role": "quiz_item",
+      "type": "find_the_bug",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-pass-by-value"
+      ],
+      "grading": "self_or_mentor",
+      "source_file": "quizzes.json",
+      "pointer": "/items/25",
+      "answer_shape": {
+        "bug_line": 1,
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-027",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-function-anatomy"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/26",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-028",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l05",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-local-global"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/27",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-029",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-char-ascii"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/28",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-030",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-nul"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/29",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-031",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-string-char-array"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/30",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-032",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-nul"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/31",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-033",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l06",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-array-of-strings"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/32",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-034",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-string-length"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/33",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-035",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-strlen"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/34",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-036",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-ascii-case"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/35",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-037",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-ctype"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/36",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-038",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l07",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-design-efficiency"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/37",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-039",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-argc-argv"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/38",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-040",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-argv0"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/39",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-041",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-argv-strings"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/40",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-042",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-exit-status"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/41",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-043",
+      "role": "quiz_item",
+      "type": "predict_output",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-exit-status"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/42",
+      "answer_shape": {
+        "text": "..."
+      }
+    },
+    {
+      "exercise_id": "w02-q-044",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l08",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-echo-status"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/43",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-045",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-cipher-key"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/44",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-046",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-rotation-cipher"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/45",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    },
+    {
+      "exercise_id": "w02-q-047",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-rotation-cipher"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/46",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-048",
+      "role": "quiz_item",
+      "type": "true_false",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-cryptography"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/47",
+      "answer_shape": {
+        "value": true
+      }
+    },
+    {
+      "exercise_id": "w02-q-049",
+      "role": "quiz_item",
+      "type": "mcq",
+      "week": 2,
+      "lesson_id": "w02-l09",
+      "unit_id": null,
+      "concept_ids": [
+        "w02-c-rotation-cipher"
+      ],
+      "grading": "auto",
+      "source_file": "quizzes.json",
+      "pointer": "/items/48",
+      "answer_shape": {
+        "selected_option_ids": [
+          "a"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,849 @@
+{
+  "$schema": "../../schemas/activity.schema.json",
+  "week": 9,
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "origin": "authored",
+  "disclaimer": "Suggested by CS50x Anzali; configurable; NOT a CS50 rule and has no effect on official CS50 grades or certificate.",
+  "activities": [
+    {
+      "id": "w09-a-kb-read",
+      "type": "kb_read",
+      "title_fa": "خواندن نمای کلی هفتهٔ ۹",
+      "objective_fa": "آشنایی با هدف‌ها و نقشهٔ هفته",
+      "completion_condition": {
+        "type": "button_clicked",
+        "button": "من خواندم"
+      },
+      "assessment_criterion": {
+        "type": "none",
+        "note": "Existing panel behaviour; low XP by design."
+      },
+      "xp_event": "kb_week_read",
+      "tracking": {
+        "model": "WeekProgress",
+        "field": "kb_read"
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": false,
+      "origin": "authored"
+    },
+    {
+      "id": "w09-a-l01",
+      "type": "lesson",
+      "title_fa": "درس ۱: سرور خودت: Flask، مسیر و قالب",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l01"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l01"
+    },
+    {
+      "id": "w09-a-l02",
+      "type": "lesson",
+      "title_fa": "درس ۲: فرم‌ها و layout",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l02"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w09-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l02"
+    },
+    {
+      "id": "w09-a-l03",
+      "type": "lesson",
+      "title_fa": "درس ۳: GET و POST، و if در قالب",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l03"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w09-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l03"
+    },
+    {
+      "id": "w09-a-l04",
+      "type": "lesson",
+      "title_fa": "درس ۴: froshims: منو، اعتبارسنجی و redirect",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l04"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w09-l03"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l04"
+    },
+    {
+      "id": "w09-a-l05",
+      "type": "lesson",
+      "title_fa": "درس ۵: Flask و SQL",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l05"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w09-l04"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l05"
+    },
+    {
+      "id": "w09-a-l06",
+      "type": "lesson",
+      "title_fa": "درس ۶: کوکی، جلسه، ورود و سبد خرید",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l06"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w09-l05"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l06"
+    },
+    {
+      "id": "w09-a-l07",
+      "type": "lesson",
+      "title_fa": "درس ۷: جست‌وجو، Ajax و JSON",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w09-l07"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w09-l06"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w09-l07"
+    },
+    {
+      "id": "w09-a-qz01",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۱",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l01"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l01"
+    },
+    {
+      "id": "w09-a-qz02",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۲",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l02"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l02"
+    },
+    {
+      "id": "w09-a-qz03",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۳",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l03"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l03"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l03"
+    },
+    {
+      "id": "w09-a-qz04",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۴",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l04"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l04"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l04"
+    },
+    {
+      "id": "w09-a-qz05",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۵",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l05"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l05"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l05"
+    },
+    {
+      "id": "w09-a-qz06",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۶",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l06"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l06"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l06"
+    },
+    {
+      "id": "w09-a-qz07",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۷",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-qz-l07"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w09-l07"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-qz-l07"
+    },
+    {
+      "id": "w09-a-fc-daily",
+      "type": "spaced_review",
+      "title_fa": "مرور روزانهٔ فلش‌کارت هفتهٔ ۹",
+      "objective_fa": "نگه‌داشتن مفاهیم در حافظهٔ بلندمدت",
+      "completion_condition": {
+        "type": "cards_reviewed_gte",
+        "value": 10,
+        "scope": "due_today"
+      },
+      "assessment_criterion": {
+        "type": "recall_rate_gte",
+        "value": 0.6,
+        "grade_pass": 3
+      },
+      "xp_event": "flashcard_daily_review",
+      "tracking": {
+        "model": "WeekProgress",
+        "field": "flashcards_reviewed",
+        "proposed_model": "FlashcardState"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w09-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "repeatable": "daily"
+    },
+    {
+      "id": "w09-a-fc-recall",
+      "type": "spaced_review",
+      "title_fa": "نرخ یادآوری ۸۰٪ هفتهٔ ۹",
+      "objective_fa": "اثبات یادسپاری پایدار",
+      "completion_condition": {
+        "type": "rolling_recall_rate_gte",
+        "value": 0.8,
+        "window": 20
+      },
+      "assessment_criterion": {
+        "type": "recall_rate_gte",
+        "value": 0.8
+      },
+      "xp_event": "spaced_recall_milestone",
+      "tracking": {
+        "proposed_model": "FlashcardReview"
+      },
+      "unlock": {
+        "rule": "min_reviews",
+        "value": 20
+      },
+      "optional": false,
+      "origin": "authored"
+    },
+    {
+      "id": "w09-a-revisit",
+      "type": "revisit",
+      "title_fa": "بازگشت به مفهوم ضعیف",
+      "objective_fa": "رفع خطاهای تکرارشونده",
+      "completion_condition": {
+        "type": "previously_missed_item_answered_correctly"
+      },
+      "assessment_criterion": {
+        "type": "correct_on_equivalent_item"
+      },
+      "xp_event": "revisit_weak_concept",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "derived": "concepts with >= 2 misses"
+      },
+      "unlock": {
+        "rule": "has_weak_concept"
+      },
+      "optional": false,
+      "origin": "authored",
+      "repeatable": "daily_per_concept"
+    },
+    {
+      "id": "w09-a-mastery",
+      "type": "mastery_test",
+      "title_fa": "آزمون تسلط هفتهٔ ۹",
+      "objective_fa": "اثبات تسلط بر هدف‌های هفته",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w09-mt-final"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "tracking": {
+        "model": "WeekProgress",
+        "fields": [
+          "quiz_score",
+          "quiz_total",
+          "quiz_completed"
+        ]
+      },
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w09-mt-final"
+    },
+    {
+      "id": "w09-a-ps-birthdays-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی زادروزها (Birthdays)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w09-ps-birthdays"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/birthdays.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w09-l05"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w09-ps-birthdays"
+    },
+    {
+      "id": "w09-a-ps-birthdays-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل زادروزها (Birthdays)",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w09-a-ps-birthdays-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w09-ps-birthdays",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 9,
+        "title": "Birthdays",
+        "choice_group": null,
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": "One Assignment per problem; XP is idempotent per assignment (submit:assignment:{id}).",
+        "choice_rule": null,
+        "choice_rule_source_ref": null
+      }
+    },
+    {
+      "id": "w09-a-ps-finance-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی سی‌دلار۵۰ فایننس (C$50 Finance)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w09-ps-finance"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/finance.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w09-l07"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w09-ps-finance"
+    },
+    {
+      "id": "w09-a-ps-finance-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل سی‌دلار۵۰ فایننس (C$50 Finance)",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w09-a-ps-finance-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w09-ps-finance",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 9,
+        "title": "Finance",
+        "choice_group": null,
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": "One Assignment per problem; XP is idempotent per assignment (submit:assignment:{id}).",
+        "choice_rule": null,
+        "choice_rule_source_ref": null
+      }
+    },
+    {
+      "id": "w09-a-pr-helloflask-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی سلام، Flask (Hello, Flask)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w09-pr-helloflask"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/helloflask.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w09-l03"
+        ]
+      },
+      "optional": true,
+      "origin": "authored",
+      "problem_set_id": "w09-pr-helloflask"
+    },
+    {
+      "id": "w09-a-challenges",
+      "type": "challenge_session",
+      "title_fa": "چالش‌های کوتاه هفتهٔ ۹",
+      "objective_fa": "تمرین سریع مفاهیم با token tap، parsons و spot the bug",
+      "completion_condition": {
+        "type": "challenge_session_completed",
+        "file": "challenges.json",
+        "challenges": 16
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.8,
+        "configurable": true,
+        "on": "first_attempts",
+        "config_ref": "gamification/xp-config.json#/challenge_session"
+      },
+      "xp_event": "challenge_session_completed",
+      "tracking": {
+        "proposed_model": "ExerciseAttempt",
+        "see": "exercises.panel.json (role challenge)"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w09-l01"
+        ]
+      },
+      "optional": true,
+      "origin": "authored"
+    }
+  ]
+}

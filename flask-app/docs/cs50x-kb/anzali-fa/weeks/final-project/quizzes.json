@@ -1,0 +1,1194 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 99,
+  "week_slug": "final-project",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها یا پروژهٔ نهایی نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w99-q-001",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-purpose"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#final-project",
+      "prompt_fa": "طبق صفحهٔ رسمی، پروژهٔ نهایی چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "طبق مستندات رسمی CS50، پروژه نهایی نقطه اوج این دوره است که در آن نرم‌افزاری بر پایه طراحی خود دانشجو پیاده‌سازی می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نرم‌افزاری از طراحی خودت که از درس‌های دوره بهره بگیرد.",
+          "feedback_fa": "درست؛ توسعه نرم‌افزاری کاملاً مستقل با طراحی و ایده خودتان."
+        },
+        {
+          "id": "b",
+          "text_fa": "پیاده‌سازی یکی از پرابلم‌ست‌ها با زبانی دیگر.",
+          "feedback_fa": "صفحهٔ رسمی ماهیت پروژه را کاملاً به خودت می‌سپارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "یک آزمون پایانی چندگزینه‌ای.",
+          "feedback_fa": "پروژهٔ نهایی نرم‌افزار است، نه آزمون."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-002",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-purpose"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#final-project",
+      "prompt_fa": "درست یا نادرست: «پروژهٔ نهایی را می‌توان با هر زبانی نوشت.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "طبق راهنمای رسمی دوره، پیاده‌سازی پروژه با هر زبان یا زبان‌های برنامه‌نویسی دلخواه (حتی مواردی که در درس آموزش داده نشده‌اند) مجاز است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-003",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-groups"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#final-project",
+      "prompt_fa": "بزرگ‌ترین گروه مجاز برای پروژهٔ نهایی چند نفر است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پروژه نهایی را می‌توان به صورت فردی یا در گروه‌های دو یا سه نفره (همکاری با یک یا دو همکلاسی) انجام داد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "سه نفر (تو و دو هم‌کلاسی)",
+          "feedback_fa": "درست؛ همکاری با حداکثر دو همکلاسی (گروه سه نفره) مجاز است."
+        },
+        {
+          "id": "b",
+          "text_fa": "دو نفر",
+          "feedback_fa": "می‌توانی با یک یا دو هم‌کلاسی کار کنی."
+        },
+        {
+          "id": "c",
+          "text_fa": "پنج نفر",
+          "feedback_fa": "حد بالا یک یا دو هم‌کلاسی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-004",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-groups"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#final-project",
+      "prompt_fa": "درست یا نادرست: «در گروه، کافی است یک نفر طراحی کند و بقیه فقط ویدئو بسازند.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "در پروژه‌های گروهی، تمام دانشجویان باید سهم برابری در طراحی و پیاده‌سازی کد داشته باشند و تقسیم وظایف نباید به شکلی باشد که فردی از کدنویسی معاف شود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-005",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-groups"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#final-project",
+      "prompt_fa": "پروژهٔ یک‌نفره در مقایسه با یک پرابلم‌ست چقدر کار باید بخواهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "طبق مستندات رسمی، حتی پروژه یک‌نفره هم باید زمان و تلاشی به مراتب بیشتر از هر یک از پرابلم‌ست‌های هفتگی دوره نیاز داشته باشد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "بیش از هر پرابلم‌ست درس",
+          "feedback_fa": "درست؛ کار و زمان پروژه باید فراتر از یک پرابلم‌ست عادی باشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "به اندازهٔ یک پرابلم‌ست معمولی",
+          "feedback_fa": "طبق راهنمای رسمی، وسعت و تلاش پروژه باید بیش از یک پرابلم‌ست باشد."
+        },
+        {
+          "id": "c",
+          "text_fa": "کمتر، چون فقط یک نفر است",
+          "feedback_fa": "حتی در حالت انفرادی هم پروژه باید تلاشی بیش از پرابلم‌ست‌ها بطلبد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-006",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-audit"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#final-project",
+      "prompt_fa": "درست یا نادرست: «کادر CS50 ارسال‌های پروژهٔ نهایی را بازبینی می‌کند.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "کادر آموزشی CS50 تمامی پروژه‌های ارسالی دانشجویان را جهت ارزیابی و تطبیق با استانداردهای دوره بازبینی می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-007",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-ideas"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#ideas",
+      "prompt_fa": "کدام نمونه در فهرست ایده‌های رسمی آمده است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در فهرست ایده‌های پیشنهادی رسمی، توسعه وب‌سایت مبتنی بر پایگاه‌داده، برنامه تعاملی یا بازی به عنوان نمونه ذکر شده است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "برنامهٔ iOS با Swift",
+          "feedback_fa": "درست؛ این نمونهٔ دوم فهرست است."
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامهٔ ویندوز با C#",
+          "feedback_fa": "این نمونه در فهرست رسمی نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "سایت ایستا با PHP",
+          "feedback_fa": "این نمونه در فهرست رسمی نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-008",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l01",
+      "concept_ids": [
+        "w99-c-fp-ideas"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#ideas",
+      "prompt_fa": "درست یا نادرست: «پروژه باید یکی از ایده‌های فهرست رسمی باشد.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "فهرست ایده‌های ارائه‌شده صرفاً جنبه الهام‌بخش و نمونه دارد و شما آزادید هر ایده مستقل دیگری را پیاده‌سازی کنید.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-009",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-outcomes"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "صفحهٔ رسمی پیشنهاد می‌کند برای پروژه کدام سه سطح نتیجه را تعریف کنی؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "راهنما پیشنهاد می‌کند سه سطح نتیجه خوب (Good)، بهتر (Better) و بهترین (Best) را برای مدیریت محدوده پروژه خود مشخص کنید.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خوب، بهتر، بهترین",
+          "feedback_fa": "درست؛ تعیین سه سطح نتیجه خوب، بهتر و بهترین برای مدیریت واقع‌بینانه محدوده پروژه."
+        },
+        {
+          "id": "b",
+          "text_fa": "کم، متوسط، زیاد",
+          "feedback_fa": "واژه‌های رسمی good، better و best‌اند."
+        },
+        {
+          "id": "c",
+          "text_fa": "آلفا، بتا، نهایی",
+          "feedback_fa": "واژه‌های رسمی good، better و best‌اند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-010",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-milestones"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "درست یا نادرست: «صفحهٔ رسمی پیشنهاد می‌کند نقطه‌های عطف (milestones) هدف بگذاری.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "تعیین نقاط عطف (Milestones) زمان‌بندی‌شده کمک می‌کند پروژه به موقع و مرحله‌به‌مرحله به سرانجام برسد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-011",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-questions"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "کدام پرسش در فهرست پرسش‌های پیشنهادی شروع کار آمده است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در بخش شروع کار، بررسی مهارت‌های جدید مورد نیاز، کاربران هدف و نیازهای فنی توصیه شده است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نرم‌افزارت به چه مهارت‌های تازه‌ای نیاز دارد؟",
+          "feedback_fa": "درست؛ بررسی اینکه چه مهارت‌ها یا فناوری‌های جدیدی برای انجام پروژه نیاز دارید."
+        },
+        {
+          "id": "b",
+          "text_fa": "پروژه چند ستاره در GitHub خواهد گرفت؟",
+          "feedback_fa": "این پرسش در فهرست رسمی نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "پروژه چند خط کد خواهد داشت؟",
+          "feedback_fa": "این پرسش در فهرست رسمی نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-012",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-project-dir"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "درست یا نادرست: «ساختن پروژه بیرون از CS50 Codespace مجاز است.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "توسعه پروژه در محیط محلی سیستم خودتان یا هر ابزار توسعه دیگری خارج از CS50 Codespace کاملاً مجاز است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-013",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-ai-allowed"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "استفاده از ChatGPT برای کمک در کد، در کدام کار درس معقول است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "بهره‌گیری از هوش مصنوعی برای راهنمایی، درک خطاها و مشورت فنی صرفاً در پروژه نهایی مجاز است و در پرابلم‌ست‌های قبلی ممنوع بود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فقط در پروژهٔ نهایی",
+          "feedback_fa": "درست؛ استفاده از ابزارهای هوش مصنوعی کمکی صرفاً برای پروژه نهایی مجاز است."
+        },
+        {
+          "id": "b",
+          "text_fa": "در همهٔ پرابلم‌ست‌ها",
+          "feedback_fa": "در پرابلم‌ست‌ها فقط ابزارهای خود CS50 معقول‌اند."
+        },
+        {
+          "id": "c",
+          "text_fa": "در هیچ کار درس",
+          "feedback_fa": "در پروژهٔ نهایی معقول است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-014",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-ai-cite"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "درست یا نادرست: «هر استفادهٔ مهم از هوش مصنوعی در پروژهٔ نهایی را باید در توضیحات کد ذکر کرد.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "در صورت استفاده از ابزارهای هوش مصنوعی، ذکر صریح و ارجاع دقیق بخش‌های مربوطه در کامنت‌های کد و فایل README الزامی است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-015",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-ai-allowed"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#getting-started",
+      "prompt_fa": "درست یا نادرست: «در پروژهٔ نهایی، ابزار هوش مصنوعی می‌تواند جای کار تو را بگیرد، به شرط ذکر منبع.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "هوش مصنوعی باید بهره‌وری شما را افزایش دهد نه اینکه کار اصلی را انجام دهد؛ ماهیت و ساختار پروژه باید کار دست خودتان باشد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-016",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-honesty-cite"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-honesty-99",
+      "prompt_fa": "کدام کار طبق سیاست صداقت تحصیلی معقول است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "استفاده از کتابخانه‌ها و بسته‌های متن‌باز با ذکر منبع آزاد است، اما کپی‌کردن مستقیم کدهای پروژه‌های دیگران خلاف صداقت تحصیلی است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "آوردن چند سطر کد از وب با ذکر منشأ، به شرط آن‌که خود آن سطرها راه‌حل کار تعیین‌شده نباشند",
+          "feedback_fa": "درست؛ این در فهرست Reasonable آمده است."
+        },
+        {
+          "id": "b",
+          "text_fa": "ارسال کار کس دیگر پس از تغییر دادنش",
+          "feedback_fa": "این در فهرست Not Reasonable آمده است."
+        },
+        {
+          "id": "c",
+          "text_fa": "ارسال پروژه‌ای که برای درس دیگری هم ارسال می‌کنی، بدون اجازهٔ صریح",
+          "feedback_fa": "این در فهرست Not Reasonable آمده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-017",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l02",
+      "concept_ids": [
+        "w99-c-fp-version-control"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-99",
+      "prompt_fa": "درست یا نادرست: «صفحهٔ رسمی پروژهٔ نهایی Git را الزامی می‌کند.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "استفاده از سیستم کنترل نسخه گیت یک پیشنهاد فنی ارزشمند برای مدیریت پروژه است اما جزو الزامات اجباری ارسال نیست.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-018",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-video-length"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-1-of-3",
+      "prompt_fa": "حداکثر طول ویدئوی پروژه چقدر است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "طبق راهنمای گام اول ارسال، طول ویدیوی معرفی پروژه نباید از ۳ دقیقه فراتر رود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "۳ دقیقه",
+          "feedback_fa": "درست؛ حداکثر زمان ویدیوی معرفی ۳ دقیقه است."
+        },
+        {
+          "id": "b",
+          "text_fa": "۵ دقیقه",
+          "feedback_fa": "حد رسمی ۳ دقیقه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "۱۰ دقیقه",
+          "feedback_fa": "حد رسمی ۳ دقیقه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-019",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-video-opening"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-1-of-3",
+      "prompt_fa": "کدام مورد در بخش آغازین ویدئو الزامی است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در ابتدای ویدیو، معرفی نام و نام خانوادگی، شهر، کشور، عنوان پروژه و نام کاربری گیت‌هاب و ادکس الزامی است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نام کاربری GitHub و edX",
+          "feedback_fa": "درست؛ ذکر نام کاربری گیت‌هاب و ادکس در بخش آغازین ویدیو الزامی است."
+        },
+        {
+          "id": "b",
+          "text_fa": "شمارهٔ تلفن",
+          "feedback_fa": "شمارهٔ تلفن در فهرست نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "نمرهٔ پرابلم‌ست‌ها",
+          "feedback_fa": "نمره‌ها در فهرست نیستند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-020",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-video-upload"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-1-of-3",
+      "prompt_fa": "درست یا نادرست: «علامت زدن ویدئو به‌عنوان private در YouTube مجاز است.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "ویدیو نباید در حالت خصوصی (Private) آپلود شود تا مصححان دوره بتوانند آن را باز کرده و مشاهده کنند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-021",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-video-upload"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-1-of-3",
+      "prompt_fa": "درست یا نادرست: «علامت زدن ویدئو به‌عنوان unlisted مجاز است.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "تنظیم ویدیو در وضعیت Unlisted (غیرعمومی) کاملاً مجاز است و برای داوری در دسترس خواهد بود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-022",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-readme-name"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "فایل توضیح پروژه باید دقیقاً چه نامی داشته باشد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "فایل مستندات پروژه در گام دوم باید دقیقاً با نام README.md و حروف بزرگ ساخته شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`README.md`",
+          "feedback_fa": "درست؛ نام فایل مستندات باید دقیقاً README.md باشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`DESIGN.md`",
+          "feedback_fa": "صفحهٔ پروژه `README.md` را می‌خواهد (d199)."
+        },
+        {
+          "id": "c",
+          "text_fa": "`readme.txt`",
+          "feedback_fa": "نام باید دقیقاً `README.md` باشد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-023",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-readme-content"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "درست یا نادرست: «README.md باید نشانی ویدئوی گام ۱ را داشته باشد.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "قالب استاندارد مستندات رسمی README شامل سطری مجزا برای درج پیوند ویدیوی دموی یوتیوب است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-024",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-readme-content"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "کدام مورد را صفحهٔ رسمی برای README.md **نمی‌خواهد**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مستندات README باید شامل توضیح معماری پروژه، نحوه اجرا و تصمیمات طراحی باشد نه چسباندن کل سورس‌کد در آن.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فهرست هم‌کلاسی‌هایی که پروژه را آزموده‌اند",
+          "feedback_fa": "درست؛ این در الزامات README.md نیست."
+        },
+        {
+          "id": "b",
+          "text_fa": "توضیح هر فایلی که نوشتی",
+          "feedback_fa": "درست؛ ارائه توضیح کوتاه درباره وظیفه هر یک از فایل‌های پروژه در README ضروری است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چرایی تصمیم‌های طراحی",
+          "feedback_fa": "صفحهٔ رسمی تصمیم‌های طراحی را می‌خواهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-025",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-readme-length"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "درست یا نادرست: «۷۵۰ واژه حداقل سخت و رسمی README.md است.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "حجم حدود ۷۵۰ کلمه راهنمای توصیه‌شده برای کفایت توضیحات است، نه یک محدودیت مکانیکی سفت و سخت.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-026",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-submit50"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "فرمان submit50 را از کجا باید اجرا کرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "دستور ارسال submit50 باید دقیقاً از درون همان پوشه‌ای که فایل‌های پروژه و README.md در آن هستند اجرا شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "از درون پوشهٔ پروژه (یا هر پوشه‌ای که README.md و کد در آن است)",
+          "feedback_fa": "درست؛ دستور باید حتماً از داخل پوشه اصلی پروژه اجرا شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "از هر پوشه‌ای، فرقی نمی‌کند",
+          "feedback_fa": "باید پوشه‌ای باشد که README.md و کد در آن است."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط از پوشهٔ خانه",
+          "feedback_fa": "صفحهٔ رسمی پوشهٔ پروژه را می‌گوید."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-027",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-too-large"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "درست یا نادرست: «اگر پروژه برای ارسال خیلی بزرگ است، می‌توانی همه‌چیز به‌جز README.md را ZIP کنی.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "در پروژه‌های حجیم می‌توان سایر فایل‌ها را زیپ کرد، اما فایل README.md باید حتماً خارج از زیپ و در ریشه پروژه بماند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-028",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-too-large"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-2-of-3",
+      "prompt_fa": "حجم ارسال، طبق صفحهٔ رسمی، باید زیر چه مقداری برود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "حداکثر سقف حجم مجاز برای ارسال از طریق submit50 کمتر از ۱۰۰ مگابایت تعیین شده است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "۱۰۰ مگابایت",
+          "feedback_fa": "درست؛ حجم ارسال باید کمتر از ۱۰۰ مگابایت باشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "۱ گیگابایت",
+          "feedback_fa": "عدد رسمی 100MB است."
+        },
+        {
+          "id": "c",
+          "text_fa": "۱۰ مگابایت",
+          "feedback_fa": "عدد رسمی 100MB است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-029",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-gradebook"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-project-99#step-3-of-3",
+      "prompt_fa": "درست یا نادرست: «درس تا وقتی بنر سبز را در کارنامه نبینی کامل حساب نمی‌شود.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "تا زمانی که در کارنامه رسمی دوره (Gradebook) وضعیت اتمام و نمره ثبت نشود، درس تکمیل‌شده به حساب نمی‌آید.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-030",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-gradebook"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-3-of-3",
+      "prompt_fa": "گواهی edX (Verified) پس از باز کردن کارنامه کی ساخته می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "صدور گواهی رسمی edX پس از تایید تکمیل پروژه در کارنامه، معمولاً ظرف مدت ۳۰ روز انجام می‌پذیرد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "ظرف ۳۰ روز، اگر شرایطش را داری",
+          "feedback_fa": "درست؛ صدور گواهی ادکس حداکثر ظرف ۳۰ روز انجام می‌گیرد."
+        },
+        {
+          "id": "b",
+          "text_fa": "فوری",
+          "feedback_fa": "گواهی رایگان CS50 فوری است؛ edX ظرف ۳۰ روز."
+        },
+        {
+          "id": "c",
+          "text_fa": "پس از یک سال",
+          "feedback_fa": "صفحهٔ رسمی ۳۰ روز می‌گوید."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w99-q-031",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "true_false",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-gradebook"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#step-3-of-3",
+      "prompt_fa": "درست یا نادرست: «اگر پس از ارسال نتیجه‌ای در کارنامه ندیدی، باید فرم را هم دوباره ارسال کنی.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "در صورتی که نیاز به ارسال مجدد کدها پیدا کردید، نیازی به پر کردن دوباره فرم گوگل نیست و ثبت submit50 کفایت می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w99-q-032",
+      "origin": "authored",
+      "week": 99,
+      "week_slug": "final-project",
+      "type": "mcq",
+      "lesson_id": "w99-l03",
+      "concept_ids": [
+        "w99-c-fp-deadline"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-project-99#how-to-submit",
+      "prompt_fa": "مهلت هر سه گام کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تمامی سه مرحله ارسال پروژه نهایی باید تا قبل از پایان مهلت رسمی تقویم آموزشی CS50 تکمیل شوند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`2027-06-30T23:59:00+00:00`",
+          "feedback_fa": "درست؛ همین در صفحهٔ رسمی آمده است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`2026-12-31T23:59:00+00:00`",
+          "feedback_fa": "این مهلت رسمی نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "مهلتی ندارد",
+          "feedback_fa": "صفحهٔ رسمی مهلت دارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w99-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w99-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w99-q-001",
+        "w99-q-002",
+        "w99-q-003",
+        "w99-q-004",
+        "w99-q-005",
+        "w99-q-006",
+        "w99-q-007",
+        "w99-q-008"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w99-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w99-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w99-q-009",
+        "w99-q-010",
+        "w99-q-011",
+        "w99-q-012",
+        "w99-q-013",
+        "w99-q-014",
+        "w99-q-015",
+        "w99-q-016",
+        "w99-q-017"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w99-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w99-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w99-q-018",
+        "w99-q-019",
+        "w99-q-020",
+        "w99-q-021",
+        "w99-q-022",
+        "w99-q-023",
+        "w99-q-024",
+        "w99-q-025",
+        "w99-q-026",
+        "w99-q-027",
+        "w99-q-028",
+        "w99-q-029",
+        "w99-q-030",
+        "w99-q-031",
+        "w99-q-032"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w99-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط پروژهٔ نهایی (راهنما)",
+      "item_ids": [
+        "w99-q-004",
+        "w99-q-005",
+        "w99-q-011",
+        "w99-q-015",
+        "w99-q-019",
+        "w99-q-024"
+      ],
+      "item_pool_ids": [
+        "w99-q-001",
+        "w99-q-002",
+        "w99-q-003",
+        "w99-q-004",
+        "w99-q-005",
+        "w99-q-006",
+        "w99-q-007",
+        "w99-q-008",
+        "w99-q-009",
+        "w99-q-010",
+        "w99-q-011",
+        "w99-q-012",
+        "w99-q-013",
+        "w99-q-014",
+        "w99-q-015",
+        "w99-q-016",
+        "w99-q-017",
+        "w99-q-018",
+        "w99-q-019",
+        "w99-q-020",
+        "w99-q-021",
+        "w99-q-022",
+        "w99-q-023",
+        "w99-q-024",
+        "w99-q-025",
+        "w99-q-026",
+        "w99-q-027",
+        "w99-q-028",
+        "w99-q-029",
+        "w99-q-030",
+        "w99-q-031",
+        "w99-q-032"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 6,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l02",
+  "type": "lesson",
+  "week": 2,
+  "order": 2,
+  "stage_id": "w02-s1",
+  "title_fa": "debug50 و اردک",
+  "title_en": "debug50 and the duck",
+  "note_ids": [
+    "w02-n05"
+  ],
+  "related_doc_ids": [
+    "w02-sh-debugging-step-through",
+    "w02-sh-debugging-step-into"
+  ],
+  "prerequisite_lesson_ids": [
+    "w02-l01"
+  ],
+  "concept_ids": [
+    "w02-c-debugger",
+    "w02-c-breakpoint",
+    "w02-c-step-over-into",
+    "w02-c-strcmp",
+    "w02-c-rubber-duck"
+  ],
+  "objective_ids": [
+    "w02-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l02-u01",
+      "order": 1,
+      "title_fa": "دیباگر و نقطهٔ توقف",
+      "concept_ids": [
+        "w02-c-debugger",
+        "w02-c-breakpoint"
+      ],
+      "objective_ids": [
+        "w02-o03"
+      ],
+      "note_id": "w02-n05",
+      "source_refs": [
+        "src-notes-2#debugging",
+        "src-anzali-authored-2",
+        "src-short-debugging-step-through"
+      ],
+      "reading": {
+        "text_fa": "دیباگر ابزاری است که برنامه را وسط کار نگه می‌دارد. در VS Code نامش `debug50` است. اول کنار شمارهٔ یک خط کلیک کن تا نقطهٔ قرمز نقطهٔ توقف ظاهر شود. بعد `debug50 ./buggy` را اجرا کن. خط متوقف‌شده طلایی می‌شود و متغیرهای محلی بالا سمت چپ دیده می‌شوند.",
+        "note_id": "w02-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n05"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "debug50 ./buggy",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "فرمان رسمی درس‌نامه برای اجرای دیباگر."
+      },
+      "check": {
+        "id": "w02-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "پیش از اجرای debug50 چه کاری لازم است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "گذاشتن دست‌کم یک نقطهٔ توقف کنار شمارهٔ خط",
+            "correct": true,
+            "feedback_fa": "درست. بدون آن، برنامه بی‌توقف اجرا می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "پاک کردن همهٔ printfها",
+            "correct": false,
+            "feedback_fa": "لازم نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "نوشتن clang به‌جای make",
+            "correct": false,
+            "feedback_fa": "debug50 به این ربطی ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l02-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: طبق درس‌نامه، debug50 جای باگ را مستقیماً به تو می‌گوید.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: نمی‌گوید؛ کمک می‌کند آرام شوی و اجرا را گام‌به‌گام ببینی.",
+          "incorrect_fa": "جملهٔ «this tool will not show you where your bug is» را در درس‌نامه ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l02-u02",
+      "order": 2,
+      "title_fa": "Step Over و Step Into",
+      "concept_ids": [
+        "w02-c-step-over-into",
+        "w02-c-strcmp"
+      ],
+      "objective_ids": [
+        "w02-o03"
+      ],
+      "note_id": "w02-n05",
+      "source_refs": [
+        "src-notes-2#debugging",
+        "src-anzali-authored-2",
+        "src-short-debugging-step-into",
+        "src-short-debugging-step-through"
+      ],
+      "reading": {
+        "text_fa": "Step Over اجرا را یک خط جلو می‌برد و اگر آن خط تابعی را صدا بزند، کل تابع را یک‌جا اجرا می‌کند. Step Into وارد همان تابع می‌شود. در ویدئوی کوتاه Step into، Carter با Step Into وارد تابع بررسی گذرواژه شد و دید دو رشته با `==` مقایسه شده‌اند؛ در C باید از `strcmp` استفاده کرد که برای دو رشتهٔ یکسان `0` برمی‌گرداند.",
+        "note_id": "w02-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n05"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "if (strcmp(phrase, password) == 0)",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "خلاصهٔ تألیفی از اصلاح ویدئوی کوتاه Step into."
+      },
+      "check": {
+        "id": "w02-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "باگ داخل تابع print_column است. کدام دکمه را باید بزنی تا درون آن را ببینی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "Step Into",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "Step Over",
+            "correct": false,
+            "feedback_fa": "Step Over کل تابع را بی‌توقف اجرا می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "Stop",
+            "correct": false,
+            "feedback_fa": "Stop اشکال‌زدایی را تمام می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l02-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر کار را به دکمهٔ مناسب نسبت بده: (۱) رفتن به خط بعد در همین تابع (۲) رفتن به درون تابعی که در این خط صدا زده شده",
+        "expected": {
+          "answers": {
+            "1": "Step Over",
+            "2": "Step Into"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "Over یعنی «از رویش رد شو»؛ Into یعنی «واردش شو»."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l02-u03",
+      "order": 3,
+      "title_fa": "اردک پلاستیکی",
+      "concept_ids": [
+        "w02-c-rubber-duck"
+      ],
+      "objective_ids": [
+        "w02-o03"
+      ],
+      "note_id": "w02-n05",
+      "source_refs": [
+        "src-notes-2#debugging",
+        "src-anzali-authored-2",
+        "src-cs50-ai"
+      ],
+      "reading": {
+        "text_fa": "روش سوم اشکال‌زدایی: مسئله و گام‌هایت را بلند برای یک اردک پلاستیکی، یک شیء بی‌جان یا یک آدم توضیح بده. اغلب وسط توضیح خودت اشتباه را می‌بینی. CS50 Duck در CS50.ai و VS Code هم کمکت می‌کند.",
+        "note_id": "w02-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n05"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "1. compiler error message\n2. printf\n3. debug50\n4. rubber duck / CS50 Duck",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "فهرست تألیفی چهار روش اشکال‌زدایی این هفته."
+      },
+      "check": {
+        "id": "w02-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اشکال‌زدایی با اردک پلاستیکی چرا کار می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون توضیح بلند گام‌به‌گام کمک می‌کند خودت اشتباه را ببینی",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون اردک کد را اجرا می‌کند",
+            "correct": false,
+            "feedback_fa": "اردک پلاستیکی چیزی اجرا نمی‌کند!"
+          },
+          {
+            "id": "c",
+            "text_fa": "چون جای debug50 را می‌گیرد",
+            "correct": false,
+            "feedback_fa": "این‌ها مکمل هم‌اند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l02-u03-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "برای یک اردک پلاستیکی، در دو یا سه جمله توضیح بده برنامهٔ buggy.c قرار بود چه کند و چه کرد.",
+        "expected": {
+          "rubric_fa": [
+            "هدف: سه آجر",
+            "رفتار: چهار آجر",
+            "حدس: شرط حلقه"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی؛ همین توضیح نیمی از اشکال‌زدایی است.",
+          "incorrect_fa": "بگو انتظار چه بود، چه دیدی و حدس تو چیست."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

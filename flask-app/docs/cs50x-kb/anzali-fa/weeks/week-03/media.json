@@ -1,0 +1,640 @@
+{
+  "$schema": "../../schemas/media.schema.json",
+  "week": 3,
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "policy": "Inventory only. No media is downloaded or re-hosted; every item is linked to its official URL. Images >= 1 MB are flagged heavy. Persian alt text is a translation of the official alt text unless noted; nobody has visually reviewed the images yet.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w03-m-growth-chart",
+      "kind": "inline-figure",
+      "url": "https://cs50.harvard.edu/x/notes/3/#welcome",
+      "figure_format": "svg",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "(SVG labels) size of problem; time to solve; n; n/2; log2 n",
+      "alt_fa": "نمودار رشد زمان حل بر حسب اندازهٔ مسئله برای n، n/2 و log₂ n",
+      "caption_fa": "سه منحنی: خطی n، نصف آن n/2، و log₂ n که تقریباً صاف می‌ماند.",
+      "alt_basis": "official aria-label or SVG text labels, translated; rendered figure not visually reviewed",
+      "used_in": [
+        "w03-n01"
+      ],
+      "source_ref": "src-notes-3#welcome",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-big-o-chart",
+      "kind": "inline-figure",
+      "url": "https://cs50.harvard.edu/x/notes/3/#running-time",
+      "figure_format": "svg",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "(SVG labels) size of problem; time to solve; O(n); O(n/2); O(log2 n)",
+      "alt_fa": "همان نمودار با برچسب‌های O(n)، O(n/2) و O(log₂ n)",
+      "caption_fa": "همان سه منحنی، این بار با نماد O بزرگ.",
+      "alt_basis": "official aria-label or SVG text labels, translated; rendered figure not visually reviewed",
+      "used_in": [
+        "w03-n04"
+      ],
+      "source_ref": "src-notes-3#running-time",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-lockers-7",
+      "kind": "inline-figure",
+      "url": "https://cs50.harvard.edu/x/notes/3/#linear-search",
+      "figure_format": "html-table",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Array of 7 red boxes indexed 0 through 6",
+      "alt_fa": "آرایه‌ای از هفت جعبهٔ قرمز با اندیس ۰ تا ۶",
+      "caption_fa": "هفت کمد بسته که فقط با باز کردن هر در می‌شود عددش را دید.",
+      "alt_basis": "official aria-label or SVG text labels, translated; rendered figure not visually reviewed",
+      "used_in": [
+        "w03-n02"
+      ],
+      "source_ref": "src-notes-3#linear-search",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-lockers-n",
+      "kind": "inline-figure",
+      "url": "https://cs50.harvard.edu/x/notes/3/#sorting-and-selection-sort",
+      "figure_format": "html-table",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Seven red lockers side by side with the last labeled as n-1",
+      "alt_fa": "هفت کمد قرمز کنار هم که آخری با n-1 برچسب خورده",
+      "caption_fa": "اندیس آخرین کمد n-1 است، نه n.",
+      "alt_basis": "official aria-label or SVG text labels, translated; rendered figure not visually reviewed",
+      "used_in": [
+        "w03-n10"
+      ],
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-fptp-ballot",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/fptp_ballot_1.png",
+      "mime": "image/png",
+      "bytes": 32130,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Five ballots, tie betweeen Alice and Bob",
+      "alt_fa": "پنج برگهٔ رأی با تساوی Alice و Bob",
+      "caption_fa": "در رأی‌گیری اکثریت نسبی ممکن است تساوی پیش بیاید.",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-runoff",
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-runoff#problem-to-solve",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-ranked-ballot-1",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/ranked_ballot_1.png",
+      "mime": "image/png",
+      "bytes": 51561,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Five ballots, with ranked preferences",
+      "alt_fa": "پنج برگهٔ رأی با ترتیب ترجیح",
+      "caption_fa": "در رأی رتبه‌ای هر رأی‌دهنده نامزدها را به ترتیب ترجیح می‌نویسد.",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-runoff",
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-runoff#problem-to-solve",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-ranked-ballot-3",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/ranked_ballot_3.png",
+      "mime": "image/png",
+      "bytes": 89091,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Nine ballots, with ranked preferences",
+      "alt_fa": "نه برگهٔ رأی با ترتیب ترجیح",
+      "caption_fa": "نمونهٔ رسمی برای دور حذفی Runoff.",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-runoff"
+      ],
+      "source_ref": "src-pset-3-runoff#problem-to-solve",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-condorcet",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/condorcet_1.png",
+      "mime": "image/png",
+      "bytes": 91199,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Nine ballots, with ranked preferences",
+      "alt_fa": "نه برگهٔ رأی با ترتیب ترجیح (مثال برندهٔ کندورسه)",
+      "caption_fa": "مثال رسمی Tideman که در آن اکثریت نسبی و ترجیح دوبه‌دو نتیجهٔ متفاوت می‌دهند.",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-tideman#problem-to-solve",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-condorcet-graph",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/condorcet_graph_1.png",
+      "mime": "image/png",
+      "bytes": 35915,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Nine ballots, with ranked preferences",
+      "alt_fa": "گراف ترجیح: پیکان از برندهٔ هر جفت به بازنده (متن جایگزین رسمی تکراری است)",
+      "caption_fa": "گراف ترجیح نامزدها؛ متن جایگزین رسمی به اشتباه همان «نه برگهٔ رأی» است (d47).",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-tideman#background",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-no-condorcet",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/no_condorcet_1.png",
+      "mime": "image/png",
+      "bytes": 99381,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Nine ballots, with ranked preferences",
+      "alt_fa": "برگه‌های رأی و گرافی که چرخه دارد و برندهٔ کندورسه ندارد (متن جایگزین رسمی تکراری است)",
+      "caption_fa": "نمونه‌ای بدون برندهٔ کندورسه (d47).",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-tideman#background",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-lockin",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/psets/3/lockin.png",
+      "mime": "image/png",
+      "bytes": 51215,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Nine ballots, with ranked preferences",
+      "alt_fa": "گراف قفل‌شده پس از افزودن یال‌ها به ترتیب قوت (متن جایگزین رسمی تکراری است)",
+      "caption_fa": "مرحلهٔ قفل کردن یال‌ها در روش Tideman (d47).",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-tideman#background",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-temps-sun",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/practice/temps/Sun.jpeg",
+      "mime": "image/jpeg",
+      "bytes": 57513,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Sun",
+      "alt_fa": "تصویر خورشید",
+      "caption_fa": "تصویر تزئینی صفحهٔ Temps.",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-pr-temps"
+      ],
+      "source_ref": "src-practice-temps#average-high-temperatures",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-snackbar-beach",
+      "kind": "image",
+      "url": "https://cs50.harvard.edu/x/practice/snackbar/beach-g1e2b206d7_1280.jpg",
+      "mime": "image/jpeg",
+      "bytes": 193354,
+      "heavy": false,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "alt_en_official": "Beach Image",
+      "alt_fa": "تصویر ساحل",
+      "caption_fa": "تصویر تزئینی صفحهٔ Snackbar.",
+      "alt_basis": "official alt text translated; image content not visually reviewed",
+      "used_in": [
+        "w03-pr-snackbar"
+      ],
+      "source_ref": "src-practice-snackbar#snackbar",
+      "origin": "official",
+      "license_note": "CS50 material, CC BY-NC-SA 4.0",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-lecture-video",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=6Svu_ae5ebk",
+      "youtube_id": "6Svu_ae5ebk",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی سخنرانی ۳",
+      "caption_fa": "سخنرانی هفتهٔ ۳ (الگوریتم‌ها) با David J. Malan؛ زمان شروع هر بخش در یادداشت‌ها آمده است.",
+      "used_in": [
+        "w03-fa",
+        "w03-n01",
+        "w03-n02",
+        "w03-n03",
+        "w03-n04",
+        "w03-n05",
+        "w03-n06",
+        "w03-n07",
+        "w03-n08",
+        "w03-n09",
+        "w03-n10",
+        "w03-n11",
+        "w03-n12",
+        "w03-n13",
+        "w03-n14"
+      ],
+      "source_ref": "src-video-3",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-section-video",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=r383B4M1EgE",
+      "youtube_id": "r383B4M1EgE",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی جلسهٔ حل تمرین ۳",
+      "caption_fa": "جلسهٔ حل تمرین هفتهٔ ۳؛ فصل‌ها در صفحهٔ جلسه آمده‌اند.",
+      "used_in": [
+        "w03-sec"
+      ],
+      "source_ref": "src-section-3-video",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-linear-search",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=TwsgCHYmbbA",
+      "youtube_id": "TwsgCHYmbbA",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه جست‌وجوی خطی",
+      "caption_fa": "ویدئوی کوتاه «Linear Search» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-linear-search"
+      ],
+      "source_ref": "src-short-linear-search",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-binary-search",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=T98PIp4omUA",
+      "youtube_id": "T98PIp4omUA",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه جست‌وجوی دودویی",
+      "caption_fa": "ویدئوی کوتاه «Binary Search» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-binary-search"
+      ],
+      "source_ref": "src-short-binary-search",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-bubble-sort",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=RT-hUXUWQ2I",
+      "youtube_id": "RT-hUXUWQ2I",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه مرتب‌سازی حبابی",
+      "caption_fa": "ویدئوی کوتاه «Bubble Sort» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-bubble-sort"
+      ],
+      "source_ref": "src-short-bubble-sort",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-selection-sort",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=3hH8kTHFw2A",
+      "youtube_id": "3hH8kTHFw2A",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه مرتب‌سازی انتخابی",
+      "caption_fa": "ویدئوی کوتاه «Selection Sort» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-selection-sort"
+      ],
+      "source_ref": "src-short-selection-sort",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-call-stacks",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=aCPkszeKRa4",
+      "youtube_id": "aCPkszeKRa4",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه پشتهٔ فراخوانی",
+      "caption_fa": "ویدئوی کوتاه «Call Stacks» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-call-stacks"
+      ],
+      "source_ref": "src-short-call-stacks",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-recursion",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=mz6tAJMVmfM",
+      "youtube_id": "mz6tAJMVmfM",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه بازگشت",
+      "caption_fa": "ویدئوی کوتاه «Recursion» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-recursion"
+      ],
+      "source_ref": "src-short-recursion",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-short-merge-sort",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=Ns7tGNbtvV4",
+      "youtube_id": "Ns7tGNbtvV4",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "ویدئوی کوتاه مرتب‌سازی ادغامی",
+      "caption_fa": "ویدئوی کوتاه «Merge Sort» (Doug Lloyd، ۲۰۱۷).",
+      "used_in": [
+        "w03-sh-merge-sort"
+      ],
+      "source_ref": "src-short-merge-sort",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-sort--bhxxw",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=-Bhxxw6JKKY",
+      "youtube_id": "-Bhxxw6JKKY",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "راهنمای گام‌به‌گام (walkthrough) — تشخیص الگوریتم مرتب‌سازی (Sort)",
+      "caption_fa": "راهنمای گام‌به‌گام (walkthrough) مسئلهٔ Sort.",
+      "used_in": [
+        "w03-ps-sort"
+      ],
+      "source_ref": "src-pset-3-sort",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-plurality-ftoapz",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=ftOapzDjEb8",
+      "youtube_id": "ftOapzDjEb8",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "راهنمای گام‌به‌گام (walkthrough) — انتخابات اکثریت نسبی (Plurality)",
+      "caption_fa": "راهنمای گام‌به‌گام (walkthrough) مسئلهٔ Plurality.",
+      "used_in": [
+        "w03-ps-plurality"
+      ],
+      "source_ref": "src-pset-3-plurality",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-plurality-asciinema",
+      "kind": "terminal-recording",
+      "url": "https://asciinema.org/a/o2EXEqiz7iqfDB31wYxBOWjs8",
+      "youtube_id": null,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "نمایش ترمینال انتخابات اکثریت نسبی (Plurality)",
+      "caption_fa": "نمایش ضبط‌شدهٔ ترمینال (asciinema)؛ متن است، نه ویدئو.",
+      "used_in": [
+        "w03-ps-plurality"
+      ],
+      "source_ref": "src-pset-3-plurality",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-runoff--vc5ag",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=-Vc5aGywKxo",
+      "youtube_id": "-Vc5aGywKxo",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "راهنمای گام‌به‌گام (walkthrough) — انتخابات دومرحله‌ای فوری (Runoff)",
+      "caption_fa": "راهنمای گام‌به‌گام (walkthrough) مسئلهٔ Runoff.",
+      "used_in": [
+        "w03-ps-runoff"
+      ],
+      "source_ref": "src-pset-3-runoff",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-runoff-asciinema",
+      "kind": "terminal-recording",
+      "url": "https://asciinema.org/a/4rhSKgaZQsY93RLj0xgu7nwKB",
+      "youtube_id": null,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "نمایش ترمینال انتخابات دومرحله‌ای فوری (Runoff)",
+      "caption_fa": "نمایش ضبط‌شدهٔ ترمینال (asciinema)؛ متن است، نه ویدئو.",
+      "used_in": [
+        "w03-ps-runoff"
+      ],
+      "source_ref": "src-pset-3-runoff",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-tideman-kb83nw",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=kb83NwyYI68",
+      "youtube_id": "kb83NwyYI68",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "راهنمای گام‌به‌گام (walkthrough) — روش تایدمن (Tideman)",
+      "caption_fa": "راهنمای گام‌به‌گام (walkthrough) مسئلهٔ Tideman.",
+      "used_in": [
+        "w03-ps-tideman"
+      ],
+      "source_ref": "src-pset-3-tideman",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-atoi-asciinema",
+      "kind": "terminal-recording",
+      "url": "https://asciinema.org/a/qH1q1cIz2kZEnbl1Mc4CCCcYK",
+      "youtube_id": null,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "نمایش ترمینال atoi بازگشتی (Recursive atoi)",
+      "caption_fa": "نمایش ضبط‌شدهٔ ترمینال (asciinema)؛ متن است، نه ویدئو.",
+      "used_in": [
+        "w03-pr-atoi"
+      ],
+      "source_ref": "src-practice-atoi",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-temps-asciinema",
+      "kind": "terminal-recording",
+      "url": "https://asciinema.org/a/g0UzJMsFC2x5o2KwRHYxJqTs5",
+      "youtube_id": null,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "نمایش ترمینال میانگین دمای بیشینه (Temps)",
+      "caption_fa": "نمایش ضبط‌شدهٔ ترمینال (asciinema)؛ متن است، نه ویدئو.",
+      "used_in": [
+        "w03-pr-temps"
+      ],
+      "source_ref": "src-practice-temps",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-max-asciinema",
+      "kind": "terminal-recording",
+      "url": "https://asciinema.org/a/TSe2Z5ZlnpuN3Od14jNKerLqM",
+      "youtube_id": null,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "نمایش ترمینال بیشینه (Max)",
+      "caption_fa": "نمایش ضبط‌شدهٔ ترمینال (asciinema)؛ متن است، نه ویدئو.",
+      "used_in": [
+        "w03-pr-max"
+      ],
+      "source_ref": "src-practice-max",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-snackbar-asciinema",
+      "kind": "terminal-recording",
+      "url": "https://asciinema.org/a/sNDasPt6uPRp8mWF12ZePqNn1",
+      "youtube_id": null,
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "نمایش ترمینال اسنک‌بار (Snackbar)",
+      "caption_fa": "نمایش ضبط‌شدهٔ ترمینال (asciinema)؛ متن است، نه ویدئو.",
+      "used_in": [
+        "w03-pr-snackbar"
+      ],
+      "source_ref": "src-practice-snackbar",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-slides-pdf",
+      "kind": "slides",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/lecture3.pdf",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "اسلایدهای سخنرانی ۳ (PDF)",
+      "caption_fa": "اسلایدهای سخنرانی ۳ (PDF)",
+      "used_in": [
+        "w03-fa"
+      ],
+      "source_ref": "src-slides-3-pdf",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-audio",
+      "kind": "audio",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/lecture3.mp3",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "صدای سخنرانی ۳ (MP3)",
+      "caption_fa": "صدای سخنرانی ۳ (MP3)",
+      "used_in": [
+        "w03-fa"
+      ],
+      "source_ref": "src-audio-3",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    },
+    {
+      "id": "w03-m-section-slides",
+      "kind": "slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/3/section3.pdf",
+      "download_policy": "link-only",
+      "downloaded": false,
+      "title_fa": "اسلایدهای جلسهٔ حل تمرین ۳ (PDF)",
+      "caption_fa": "اسلایدهای جلسهٔ حل تمرین ۳ (PDF)",
+      "used_in": [
+        "w03-fa"
+      ],
+      "source_ref": "src-section-3-slides",
+      "origin": "official",
+      "review_status": "draft-needs-human-review"
+    }
+  ]
+}

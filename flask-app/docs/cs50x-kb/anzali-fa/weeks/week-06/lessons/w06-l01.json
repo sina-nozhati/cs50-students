@@ -1,0 +1,332 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w06-l01",
+  "type": "lesson",
+  "week": 6,
+  "order": 1,
+  "stage_id": "w06-s1",
+  "title_fa": "از C به پایتون",
+  "title_en": "From C to Python",
+  "note_ids": [
+    "w06-n01",
+    "w06-n02",
+    "w06-n03"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w06-c-python-language",
+    "w06-c-interpreted",
+    "w06-c-run-python",
+    "w06-c-python-syntax-basics",
+    "w06-c-high-level-tradeoff",
+    "w06-c-set",
+    "w06-c-function-call-py",
+    "w06-c-cs50-library-py",
+    "w06-c-import"
+  ],
+  "objective_ids": [
+    "w06-o01",
+    "w06-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/6 or the section code.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w05-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۵ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "units": [
+    {
+      "id": "w06-l01-u01",
+      "order": 1,
+      "title_fa": "زبان تفسیری و اجرای برنامه",
+      "concept_ids": [
+        "w06-c-python-language",
+        "w06-c-interpreted",
+        "w06-c-run-python",
+        "w06-c-python-syntax-basics"
+      ],
+      "objective_ids": [
+        "w06-o01"
+      ],
+      "note_id": "w06-n01",
+      "source_refs": [
+        "src-notes-6#hello-python",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "پایتون زبانی سطح بالا است که روی همان ایده‌های C ساخته شده. C زبانی کامپایلی بود؛ پایتون زبانی تفسیری است: برنامه را جداگانه کامپایل نمی‌کنی، بلکه با `python hello.py` آن را در مفسر پایتون اجرا می‌کنی. در `hello.py` نقطه‌ویرگول و `#include` نیست، `print` خودش سطر را تمام می‌کند و توضیح‌ها با `#` شروع می‌شوند.",
+        "note_id": "w06-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello0",
+        "lang": "python",
+        "content": "# A program that says hello to the world\n\nprint(\"hello, world\")",
+        "source_ref": "src-notes-6#hello-python",
+        "explain_fa": "نسخهٔ رسمی پایتونِ hello از درس‌نامه."
+      },
+      "check": {
+        "id": "w06-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای اجرای برنامهٔ `hello.py` در این درس کدام دستور درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`python hello.py`",
+            "correct": true,
+            "feedback_fa": "درست. مفسر پایتون فایل را می‌خواند و اجرا می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`make hello`",
+            "correct": false,
+            "feedback_fa": "`make` برای کامپایل برنامه‌های C بود؛ پایتون کامپایل جداگانه ندارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`./hello`",
+            "correct": false,
+            "feedback_fa": "فایل اجرایی جداگانه‌ای به نام `hello` ساخته نمی‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در پایتون پیش از اجرای برنامه باید آن را با `make` کامپایل کنی.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: پایتون تفسیری است و برنامه را مستقیم با `python` اجرا می‌کنی.",
+          "incorrect_fa": "به تفاوت زبان کامپایلی و تفسیری فکر کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l01-u02",
+      "order": 2,
+      "title_fa": "بهای زبان سطح بالا",
+      "concept_ids": [
+        "w06-c-high-level-tradeoff",
+        "w06-c-set"
+      ],
+      "objective_ids": [
+        "w06-o01"
+      ],
+      "note_id": "w06-n02",
+      "source_refs": [
+        "src-notes-6#speller",
+        "src-transcript-6",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه Speller را در پایتون با چند سطر پیاده می‌کند: واژه‌ها در یک `set` نگه داشته می‌شوند، `check` با `in` می‌پرسد واژه در مجموعه هست یا نه، و `unload` فقط `True` برمی‌گرداند چون پایتون حافظه را خودش مدیریت می‌کند. بهای این سادگی سرعت است: C فقط سطرهای تو را اجرا می‌کند، اما پایتون کدی را هم که پشت تابع‌های داخلی‌اش پنهان است اجرا می‌کند؛ پس C ممکن است، بسته به کد، سریع‌تر باشد.",
+        "note_id": "w06-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "dictionary",
+        "lang": "python",
+        "content": "# Words in dictionary\nwords = set()\n\ndef check(word):\n    \"\"\"Return true if word is in dictionary else false\"\"\"\n    return word.lower() in words\n\ndef load(dictionary):\n    \"\"\"Load dictionary into memory, returning true if successful else false\"\"\"\n    with open(dictionary) as file:\n        words.update(file.read().splitlines())\n    return True\n\ndef size():\n    \"\"\"Returns number of words in dictionary if loaded else 0 if not yet loaded\"\"\"\n    return len(words)\n\ndef unload():\n    \"\"\"Unloads dictionary from memory, returning true if successful else false\"\"\"\n    return True",
+        "source_ref": "src-notes-6#speller",
+        "explain_fa": "dictionary.py رسمی از درس‌نامه."
+      },
+      "check": {
+        "id": "w06-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `dictionary.py` چرا تابع `unload` فقط `True` برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون پایتون مدیریت حافظه را خودش انجام می‌دهد.",
+            "correct": true,
+            "feedback_fa": "درست. لازم نیست گره‌ها را خودت آزاد کنی."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `set` هرگز نمی‌تواند خالی شود.",
+            "correct": false,
+            "feedback_fa": "مجموعه می‌تواند خالی باشد؛ دلیل، مدیریت خودکار حافظه است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون فایل واژه‌نامه هرگز بسته نمی‌شود.",
+            "correct": false,
+            "feedback_fa": "`with` فایل را خودکار می‌بندد؛ این ربطی به `unload` ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l01-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «مزیت پایتون» یا «بهای پایتون» بنویس: (۱) Speller با چند سطر نوشته می‌شود (۲) ممکن است کندتر از C اجرا شود (۳) لازم نیست حافظه را خودت آزاد کنی (۴) کنترل کمتری بر مدیریت حافظه داری",
+        "expected": {
+          "answers": {
+            "1": "مزیت پایتون",
+            "2": "بهای پایتون",
+            "3": "مزیت پایتون",
+            "4": "بهای پایتون"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: این مورد کار تو را ساده‌تر می‌کند یا چیزی از تو می‌گیرد؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l01-u03",
+      "order": 3,
+      "title_fa": "تابع، کتابخانه و import",
+      "concept_ids": [
+        "w06-c-function-call-py",
+        "w06-c-cs50-library-py",
+        "w06-c-import"
+      ],
+      "objective_ids": [
+        "w06-o02"
+      ],
+      "note_id": "w06-n03",
+      "source_refs": [
+        "src-notes-6#libraries-modules-and-packages",
+        "src-transcript-6",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "فراخوانی تابع در پایتون مثل C است: نام تابع، پرانتز و آرگومان؛ فقط `printf` جای خود را به `print` داده است. کتابخانهٔ CS50 در پایتون هم هست و `get_float`، `get_int` و `get_string` دارد. با `import cs50` تابع را با نام کامل صدا می‌زنی (`cs50.get_int(...)`)؛ با `from cs50 import get_int` می‌توانی مستقیم `get_int(...)` بنویسی. در سخنرانی گفته شد «ماژول» در اصطلاح پایتون همان کتابخانه است.",
+        "note_id": "w06-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "from-cs50",
+        "lang": "python",
+        "content": "from cs50 import get_float, get_int, get_string",
+        "source_ref": "src-notes-6#libraries-modules-and-packages",
+        "explain_fa": "وارد کردن تابع‌های مشخص از کتابخانهٔ CS50 (درس‌نامه)."
+      },
+      "check": {
+        "id": "w06-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر برنامه با `import cs50` شروع شود، کدام فراخوانی درست کار می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`cs50.get_int(\"x: \")`",
+            "correct": true,
+            "feedback_fa": "درست. با `import cs50` نام تابع با پیشوند `cs50.` در دسترس است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`get_int(\"x: \")`",
+            "correct": false,
+            "feedback_fa": "بدون `from cs50 import get_int` نام `get_int` تعریف نشده و `NameError` می‌گیری."
+          },
+          {
+            "id": "c",
+            "text_fa": "`cs50->get_int(\"x: \")`",
+            "correct": false,
+            "feedback_fa": "عملگر `->` مال C است؛ در پایتون از نقطه استفاده می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l01-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا برنامه یک عدد صحیح بگیرد و یکی بیشتر از آن را چاپ کند. با ورودی `4` باید `5` چاپ شود.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "import cs50\n\nn = [[b1]](\"n: \")\nprint(n + 1)",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "cs50.get_int"
+            ],
+            "hint_fa": "برنامه با `import cs50` شروع شده؛ نام تابع را چطور می‌نویسی؟",
+            "wrong_feedback": {
+              "get_int": "با `import cs50` باید پیشوند `cs50.` را بنویسی؛ وگرنه `NameError` می‌گیری.",
+              "cs50.get_float": "`get_float` عدد اعشاری برمی‌گرداند و خروجی `5.0` می‌شود، نه `5`.",
+              "cs50.get_string": "`get_string` رشته برمی‌گرداند و `n + 1` خطای `TypeError` می‌دهد.",
+              "input": "`input` رشته برمی‌گرداند و `n + 1` خطای `TypeError` می‌دهد."
+            },
+            "default_wrong_fa": "از تابع عدد صحیح کتابخانهٔ CS50 با پیشوند `cs50.` استفاده کن."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "cs50.get_int"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `cs50.get_int` عدد صحیح برمی‌گرداند.",
+          "incorrect_fa": "به شکل `import` در سطر اول نگاه کن."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "4\n",
+          "args": [],
+          "expected_stdout_exact": "n: 5\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

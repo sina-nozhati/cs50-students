@@ -1,0 +1,960 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 5,
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-style-guide-c",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities",
+    "src-notes-1"
+  ],
+  "shared_sources_from_week_2": [
+    "src-check50-docs"
+  ],
+  "shared_sources_from_week_3": [
+    "src-notes-3"
+  ],
+  "shared_sources_from_week_4": [
+    "src-notes-4",
+    "src-short-dynamic-memory-allocation"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-5",
+      "url": "https://cs50.harvard.edu/x/weeks/5/",
+      "title": "Week 5 Data Structures (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:00+03:30",
+      "verified_at": "2026-10-28T18:43:00+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "815a5993c7f3ebfbf6d540976db57676c13429965dbbb905a8ed59f66bf4b7c3"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/5/",
+      "anchors": [
+        "week-5-data-structures"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/week.md",
+      "notes": "Topic line (Abstract Data Types ... Tries) and media list; lists eight shorts, none reused from earlier weeks (D38). Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-notes-5",
+      "url": "https://cs50.harvard.edu/x/notes/5/",
+      "title": "Lecture 5 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "verified_at": "2026-10-28T18:42:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "b4d6cafae872619358a23b029aa84586d7d6fcee491e4233b04e29e41a4fac1c"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/5/",
+      "anchors": [
+        "arrays",
+        "data-structures",
+        "hashing-and-hash-tables",
+        "jack-learns-the-facts",
+        "lecture-5",
+        "linked-lists",
+        "queues",
+        "stacks",
+        "summing-up",
+        "trees",
+        "tries",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/lecture.md",
+      "notes": "All sections read in full; 13 code blocks copied verbatim into examples5.py. Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-transcript-5",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/lang/en/lecture5.txt",
+      "title": "Lecture 5 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "verified_at": "2026-10-28T18:42:43+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/transcripts/lecture-en.txt",
+      "notes": "Spoken text with transcription errors. Cited for content absent from the notes (stage demos with volunteers, dictionary ADT, node sizes, list5/list6 discussion) and labelled «از سخنرانی»."
+    },
+    {
+      "id": "src-srt-5",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/lang/en/lecture5.srt",
+      "title": "Lecture 5 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-28T18:42:43+03:30",
+      "verified_at": "2026-10-28T18:42:43+03:30",
+      "local_copy": "_tools/refetch/week5/srt/lecture5.srt",
+      "notes": "Used only to derive chapter start times (chapter titles: inference; timestamps real). Cue times carry a +01:00:00 offset that is subtracted (d70, D39)."
+    },
+    {
+      "id": "src-video-5",
+      "url": "https://video.cs50.io/PmAI76OGE_E",
+      "title": "Lecture 5 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "notes": "Also https://youtu.be/PmAI76OGE_E ; Portuguese pttqNxchp9k, Spanish Q0xvQT87ekA."
+    },
+    {
+      "id": "src-audio-5",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/lecture5.mp3",
+      "title": "Lecture 5 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30"
+    },
+    {
+      "id": "src-slides-5-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/lecture5.pdf",
+      "title": "Lecture 5 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-5-google",
+      "url": "https://docs.google.com/presentation/d/1sIyEI5b48DNa8GT5okXyFu9mdimxGDSHgQdVJM-zRVQ/edit?usp=sharing",
+      "title": "Lecture 5 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30"
+    },
+    {
+      "id": "src-src5-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/src5.zip",
+      "title": "Lecture 5 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/source-code/",
+      "notes": "Code in the notes was used (verbatim); list5.c and list6.c are in the zip but not in the notes (inventory only, d88); the zip itself is linked, not repackaged."
+    },
+    {
+      "id": "src-src5-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/src5/",
+      "title": "Lecture 5 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30"
+    },
+    {
+      "id": "src-src5-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/5/src5.pdf",
+      "title": "Lecture 5 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30"
+    },
+    {
+      "id": "src-jack-learns-the-facts",
+      "url": "https://www.youtube.com/watch?v=ItAG3s6KIEI",
+      "title": "Jack Learns the Facts (Prof. Shannon Duvall, Elon University; video shown in lecture)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "notes": "Linked from src-notes-5#jack-learns-the-facts; not CS50 content; link only."
+    },
+    {
+      "id": "src-section-5",
+      "url": "https://cs50.harvard.edu/x/sections/5/",
+      "title": "Section 5",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:32+03:30",
+      "verified_at": "2026-10-28T18:42:49+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "dfa2befb2ac7619049d05a5f2d5445b9673453d7aa472169d61434596f7a6a35"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/5/",
+      "anchors": [
+        "week-5-data-structures"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/sections.md"
+    },
+    {
+      "id": "src-section-5-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/5/lang/en/section5.txt",
+      "title": "Section 5 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "verified_at": "2026-10-28T18:42:43+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary (presenter: Kelly); chapter times from section5.srt."
+    },
+    {
+      "id": "src-section-5-video",
+      "url": "https://video.cs50.io/sLrnELP1nT0",
+      "title": "Section 5 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "notes": "Also https://youtu.be/sLrnELP1nT0 ; audio https://cdn.cs50.net/2025/fall/sections/5/section5.mp3"
+    },
+    {
+      "id": "src-section-5-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/5/section5.pdf",
+      "title": "Section 5 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30"
+    },
+    {
+      "id": "src-section-5-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/5/src5.zip",
+      "title": "Section 5 source code (list.c, hash.c)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/section-code/files/",
+      "notes": "list.c reproduced verbatim (lecture-level linked-list example, not a pset solution); hash.c link-only because it is a worked hash function for Speller-style words (D35). Index https://cdn.cs50.net/2025/fall/sections/5/src5/"
+    },
+    {
+      "id": "src-pset-5",
+      "url": "https://cs50.harvard.edu/x/psets/5/",
+      "title": "Problem Set 5",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:33+03:30",
+      "verified_at": "2026-10-28T18:42:46+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "a3f60bbe0a4522ec2aa666a5b9d4ed2d4f3c5a7d0bb8cb312856cc27ec1ae2b1"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/5/",
+      "anchors": [
+        "problem-set-5",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/psets/README.md"
+    },
+    {
+      "id": "src-pset-5-inheritance",
+      "url": "https://cs50.harvard.edu/x/psets/5/inheritance/",
+      "title": "Inheritance",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:33+03:30",
+      "verified_at": "2026-10-28T18:42:47+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "8616def861ba358d0b8b06b9eb3e9d67d1f744d62395ba8114f9fada223798c8"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/5/inheritance/",
+      "anchors": [
+        "inheritance",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "implementation-details",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/psets/inheritance.md"
+    },
+    {
+      "id": "src-pset-5-speller",
+      "url": "https://cs50.harvard.edu/x/psets/5/speller/",
+      "title": "Speller",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:34+03:30",
+      "verified_at": "2026-10-28T18:42:48+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "62468b83ab7bd6606d6d91108f0e9712da85d906ead6866ca5b618616ec75fc5"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/5/speller/",
+      "anchors": [
+        "speller",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "background",
+        "understanding",
+        "dictionaryh",
+        "dictionaryc",
+        "spellerc",
+        "texts",
+        "makefile",
+        "specification",
+        "hints",
+        "walkthroughs",
+        "how-to-test",
+        "correctness",
+        "style",
+        "staffs-solution",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/psets/speller.md"
+    },
+    {
+      "id": "src-practice-trie",
+      "url": "https://cs50.harvard.edu/x/practice/trie/",
+      "title": "Trie",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:02+03:30",
+      "verified_at": "2026-10-28T18:42:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f7e5ebea580bd1287a3da766a8b45a0127bdd823a5cf3511bc93ad56750b17f2"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/trie/",
+      "anchors": [
+        "trie",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/practice/trie.md"
+    },
+    {
+      "id": "src-short-structures",
+      "url": "https://cs50.harvard.edu/x/shorts/structures/",
+      "title": "Short: Structures (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:47+03:30",
+      "verified_at": "2026-10-28T18:42:58+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "b485749d41fa8b7465e28f349d89ff28fda14ce05d9a7c87c0e4df5053059cac"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/structures.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/structures/lang/en/structures.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/structures/lang/en/structures.srt. Video https://youtu.be/E4lb2gkyXr8. Slides https://cdn.cs50.net/2017/fall/shorts/structures/structures.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-singly-linked-lists",
+      "url": "https://cs50.harvard.edu/x/shorts/singly_linked_lists/",
+      "title": "Short: Singly-Linked Lists (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:49+03:30",
+      "verified_at": "2026-10-28T18:42:55+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "f614dd3849cc3c4a06d394a48017c3b5c37cd1c86bbd7f2c5710dd5b837ef476"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/singly-linked-lists.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/singly_linked_lists/lang/en/singly_linked_lists.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/singly_linked_lists/lang/en/singly_linked_lists.srt. Video https://youtu.be/zQI3FyWm144. Slides https://cdn.cs50.net/2017/fall/shorts/singly_linked_lists/singly_linked_lists.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-doubly-linked-lists",
+      "url": "https://cs50.harvard.edu/x/shorts/doubly_linked_lists/",
+      "title": "Short: Doubly-Linked Lists (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:51+03:30",
+      "verified_at": "2026-10-28T18:42:52+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "675d50c6d6017f813e989294bb584087e99b6b74f99762010754dacad19c2cb1"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/doubly-linked-lists.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/doubly_linked_lists/lang/en/doubly_linked_lists.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/doubly_linked_lists/lang/en/doubly_linked_lists.srt. Video https://youtu.be/FHMPswJDCvU. Slides https://cdn.cs50.net/2017/fall/shorts/doubly_linked_lists/doubly_linked_lists.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-stacks",
+      "url": "https://cs50.harvard.edu/x/shorts/stacks/",
+      "title": "Short: Stacks (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:53+03:30",
+      "verified_at": "2026-10-28T18:42:57+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "b4c87fef93cedb9beab360f36626bf1a00ce1230950948852b1245eb0bb18116"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/stacks.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/stacks/lang/en/stacks.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/stacks/lang/en/stacks.srt. Video https://youtu.be/hVsNqhEthOk. Slides https://cdn.cs50.net/2017/fall/shorts/stacks/stacks.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-queues",
+      "url": "https://cs50.harvard.edu/x/shorts/queues/",
+      "title": "Short: Queues (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:55+03:30",
+      "verified_at": "2026-10-28T18:42:54+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "5870ac0d496f7f9af13084b78df38bbf8b09ceaa1d6b4645f3b68218947aa27c"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/queues.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/queues/lang/en/queues.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/queues/lang/en/queues.srt. Video https://youtu.be/3TmUv1uS92s. Slides https://cdn.cs50.net/2017/fall/shorts/queues/queues.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-hash-tables",
+      "url": "https://cs50.harvard.edu/x/shorts/hash_tables/",
+      "title": "Short: Hash Tables (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:57+03:30",
+      "verified_at": "2026-10-28T18:42:53+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "81c72f46a9d5c50044badcaeff9df5358552048d54b15f0bd3beb20ff25c10cb"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/hash-tables.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/hash_tables/lang/en/hash_tables.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/hash_tables/lang/en/hash_tables.srt. Video https://youtu.be/nvzVHwrrub0. Slides https://cdn.cs50.net/2017/fall/shorts/hash_tables/hash_tables.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-tries",
+      "url": "https://cs50.harvard.edu/x/shorts/tries/",
+      "title": "Short: Tries (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:59+03:30",
+      "verified_at": "2026-10-28T18:42:59+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "109787b97d784845dd48ddb8f49741abe2b234057c6b25a7b25ea19a954f3a82"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/tries.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/tries/lang/en/tries.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/tries/lang/en/tries.srt. Video https://youtu.be/MC-iQHFdEDI. Slides https://cdn.cs50.net/2017/fall/shorts/tries/tries.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-data-structures",
+      "url": "https://cs50.harvard.edu/x/shorts/data_structures/",
+      "title": "Short: Data Structures (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:01+03:30",
+      "verified_at": "2026-10-28T18:42:50+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "dd264955a658b91c052e1e28d94cd4f0d2139307a7cdc991de243810e8cbab1e"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-05-data-structures/shorts/data-structures.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/data_structures/lang/en/data_structures.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/data_structures/lang/en/data_structures.srt. Video https://youtu.be/3uGchQbk7g8. Slides https://cdn.cs50.net/2017/fall/shorts/data_structures/data_structures.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-time-cs50-deadline-5",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 5 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:31+03:30"
+    },
+    {
+      "id": "src-valgrind-box-5",
+      "url": "urn:cs50x-anzali:box:valgrind",
+      "title": "valgrind 3.x and gcc 14.2 on the CS50x Anzali build box (compile and memcheck evidence in validation/compile-checks.week-05.json)",
+      "source_type": "tool",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-28T19:30:00+03:30",
+      "notes": "Box-only verification (D30); learners run valgrind in cs50.dev."
+    },
+    {
+      "id": "src-anzali-authored-5",
+      "url": "urn:cs50x-anzali:authored:week-05",
+      "title": "Material authored by CS50x Anzali for Week 5 (examples marked تألیفی, exercises, challenges, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-28T19:30:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-5",
+      "url": "urn:cs50x-anzali:inference:week-05",
+      "title": "Editorial inferences for Week 5 (chapter boundaries from official .srt cue times with the d70 offset removed; concept graph; topic order; corrections of numeric claims such as node sizes, labelled استنتاجی)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-28T19:30:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d70",
+      "topic": "Lecture SRT time offset",
+      "a": {
+        "source": "src-srt-5",
+        "value": "lecture5.srt cue times start near 01:00:00"
+      },
+      "b": {
+        "source": "src-video-5",
+        "value": "The YouTube video starts at 0:00"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Offset of exactly +01:00:00 subtracted before deriving chapter links (D39); all chapter times spot-checked against cue text."
+    },
+    {
+      "id": "d71",
+      "topic": "tree search fragment has no final return",
+      "a": {
+        "source": "src-notes-5#trees",
+        "value": "search() ends with else if (number == tree->number) { return true; } and no return after the chain"
+      },
+      "b": {
+        "source": "src-valgrind-box-5",
+        "value": "gcc -Wall -Werror flags control reaching the end of a non-void function"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Code kept verbatim; the Persian note explains that the last test is always true and a plain else would silence the warning."
+    },
+    {
+      "id": "d72",
+      "topic": "list3.c / list4.c never free",
+      "a": {
+        "source": "src-notes-5#linked-lists",
+        "value": "list3.c and list4.c build the list but do not free it"
+      },
+      "b": {
+        "source": "src-valgrind-box-5",
+        "value": "valgrind with input 1 2 3 reports 48 bytes definitely/indirectly lost"
+      },
+      "status": "consistent",
+      "note": "Intermediate teaching versions; list9.c adds freeing. Noted in w05-n08."
+    },
+    {
+      "id": "d73",
+      "topic": "'garbage value' vs NULL initialisation",
+      "a": {
+        "source": "src-notes-5#linked-lists",
+        "value": "'First, node *list is declared, but it has a garbage value.'"
+      },
+      "b": {
+        "source": "src-notes-5#linked-lists",
+        "value": "list3.c declares node *list = NULL;"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Prose describes an uninitialised declaration; the code initialises to NULL. Persian note says both."
+    },
+    {
+      "id": "d74",
+      "topic": "'correct order' claim for list4.c",
+      "a": {
+        "source": "src-notes-5#linked-lists",
+        "value": "'We can print the list in the correct order as follows:' before list4.c"
+      },
+      "b": {
+        "source": "src-valgrind-box-5",
+        "value": "list4.c still prepends; input 1 2 3 prints 3 2 1"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note states the actual output (reversed)."
+    },
+    {
+      "id": "d75",
+      "topic": "26 x 4 = 104 'nodes' for Toad",
+      "a": {
+        "source": "src-notes-5#tries",
+        "value": "'we need 26 x 4 = 104 nodes just to store Toad!'"
+      },
+      "b": {
+        "source": "src-transcript-5",
+        "value": "Lecture: four nodes, each an array of 26 pointers"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note: 4 nodes and 104 pointers."
+    },
+    {
+      "id": "d76",
+      "topic": "Tries 'always' constant time",
+      "a": {
+        "source": "src-notes-5#tries",
+        "value": "'Tries are always searchable in constant time.'"
+      },
+      "b": {
+        "source": "src-transcript-5",
+        "value": "Lookup takes one step per letter, independent of the number of stored words; constant because word length is bounded"
+      },
+      "status": "complementary",
+      "note": "Persian note explains 'constant with respect to the number of words' (استنتاجی)."
+    },
+    {
+      "id": "d77",
+      "topic": "Hash table running time",
+      "a": {
+        "source": "src-notes-5#hashing-and-hash-tables",
+        "value": "Hash table lookup in the worst case is O(n)"
+      },
+      "b": {
+        "source": "src-transcript-5",
+        "value": "'hopefully no bigger than N divided by K' ... 'Big O of N divided by K'"
+      },
+      "status": "complementary",
+      "note": "Both stated; Persian note explains that constants drop in big O, so n/k is still O(n)."
+    },
+    {
+      "id": "d78",
+      "topic": "Summing Up omits trees",
+      "a": {
+        "source": "src-week-5#week-5-data-structures",
+        "value": "Topics include 'Trees, Binary Search Trees'"
+      },
+      "b": {
+        "source": "src-notes-5#summing-up",
+        "value": "Summing Up lists ADTs, stacks/queues, linked lists, hash tables and tries but not trees"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian summary adds a sentence on trees, labelled."
+    },
+    {
+      "id": "d79",
+      "topic": "Stack: 'one place out of 5000' vs CAPACITY 50",
+      "a": {
+        "source": "src-notes-5#stacks",
+        "value": "'You might imagine only using one place in the stack out of 5000.'"
+      },
+      "b": {
+        "source": "src-notes-5#stacks",
+        "value": "The stack code above uses const int CAPACITY = 50;"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note points out the mismatch."
+    },
+    {
+      "id": "d80",
+      "topic": "Queue struct without front",
+      "a": {
+        "source": "src-notes-5#queues",
+        "value": "queue has people[CAPACITY] and size only"
+      },
+      "b": {
+        "source": "src-short-queues",
+        "value": "Array-based queue also tracks front so dequeue need not shift elements"
+      },
+      "status": "complementary",
+      "note": "Both described in w05-n03; the short's version is labelled."
+    },
+    {
+      "id": "d81",
+      "topic": "Verbatim code quirks",
+      "a": {
+        "source": "src-notes-5#linked-lists",
+        "value": "Trailing space after 'list = n;' in list8/list9; comment says 'link list' in list7"
+      },
+      "b": {
+        "source": "src-style-guide-c",
+        "value": "Style guide: no trailing whitespace"
+      },
+      "status": "consistent",
+      "note": "Kept verbatim on purpose; noted in w05-n09."
+    },
+    {
+      "id": "d82",
+      "topic": "Tree image alt text",
+      "a": {
+        "source": "src-notes-5#trees",
+        "value": "Alt text: '4 is at the top 3 and 5 are below that and 1 2 6 7 are below those'"
+      },
+      "b": {
+        "source": "src-transcript-5",
+        "value": "Lecture and the BST rule put 2 and 6 under 4"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The image itself (viewed on the build box) shows 4 at the root, 2 and 6 below, 1 3 5 7 as leaves, so only the alt text is wrong. Persian alt text describes the image; media.json keeps the official alt in alt_en_official."
+    },
+    {
+      "id": "d83",
+      "topic": "Size of a list node",
+      "a": {
+        "source": "src-transcript-5",
+        "value": "'It's probably going to be 12 because it's 4 for the int and 8 for the pointer'"
+      },
+      "b": {
+        "source": "src-valgrind-box-5",
+        "value": "sizeof(node) is 16 on x86-64 (4 bytes padding); valgrind shows 16-byte blocks"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note says 16 with padding (استنتاجی from the box measurement) and repeats 'use sizeof'."
+    },
+    {
+      "id": "d84",
+      "topic": "Size of a BST node",
+      "a": {
+        "source": "src-transcript-5",
+        "value": "'so that's like 16, that's like 20 bytes' for an int and two pointers"
+      },
+      "b": {
+        "source": "src-valgrind-box-5",
+        "value": "sizeof is 24 on x86-64 because of alignment"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note says 24 (استنتاجی)."
+    },
+    {
+      "id": "d85",
+      "topic": "'A list in Python is indeed a linked list'",
+      "a": {
+        "source": "src-transcript-5",
+        "value": "Lecture answer to a student question"
+      },
+      "b": {
+        "source": "src-anzali-inference-5",
+        "value": "CPython's list is a dynamic array of pointers, not a linked list"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note labels the correction استنتاجی; Python is Week 6."
+    },
+    {
+      "id": "d86",
+      "topic": "Hash functions from the internet",
+      "a": {
+        "source": "src-short-hash-tables",
+        "value": "'you should use the internet to find hash functions ... cite your sources'"
+      },
+      "b": {
+        "source": "src-pset-5-speller#specification",
+        "value": "'The hash function you write should ultimately be your own, not one you search for online.'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "For Speller the pset rule governs; the guide and short page say so (D34)."
+    },
+    {
+      "id": "d87",
+      "topic": "Data Structures short numbers",
+      "a": {
+        "source": "src-short-data-structures",
+        "value": "'26 times 8 is probably 200 bytes'; 10 pointers 'on CS50 IDE, is 80 bytes'"
+      },
+      "b": {
+        "source": "src-anzali-inference-5",
+        "value": "26 x 8 = 208; CS50 IDE was replaced by cs50.dev; shorts recorded 2017"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page gives 208 and notes the dated environment."
+    },
+    {
+      "id": "d88",
+      "topic": "Lecture source files not in the notes",
+      "a": {
+        "source": "src-src5-zip",
+        "value": "src5 contains list0-list9 (list5.c and list6.c included)"
+      },
+      "b": {
+        "source": "src-notes-5#linked-lists",
+        "value": "Notes show list0-list4 and list7-list9 only"
+      },
+      "status": "recorded-not-resolved",
+      "note": "list5/list6 inventoried, not reproduced."
+    },
+    {
+      "id": "d89",
+      "topic": "RAND_MAX value",
+      "a": {
+        "source": "src-pset-5-inheritance#hints",
+        "value": "random() returns 'a value between 0 and RAND_MAX, or 32767'"
+      },
+      "b": {
+        "source": "src-manual",
+        "value": "32767 is the C minimum; glibc (cs50.dev) defines RAND_MAX as 2147483647"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Irrelevant to % 2; guide notes it."
+    },
+    {
+      "id": "d90",
+      "topic": "Inheritance page wording",
+      "a": {
+        "source": "src-pset-5-inheritance#how-to-test",
+        "value": "Refers to rules 'described in the background', but the page has no Background section; also 'see and see' typo"
+      },
+      "b": {
+        "source": "src-pset-5-inheritance#problem-to-solve",
+        "value": "The rules are in Problem to Solve"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide links Problem to Solve."
+    },
+    {
+      "id": "d91",
+      "topic": "Speller page leftovers",
+      "a": {
+        "source": "src-pset-5-speller#hints",
+        "value": "'help50', 'pset5 directory', 'outting', 'more one way', links man.cs50.io"
+      },
+      "b": {
+        "source": "src-manual",
+        "value": "Folder is speller; CS50's manual is manual.cs50.io; help50 availability in today's cs50.dev not confirmed"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide uses the folder name speller and flags help50 as possibly unavailable (استنتاجی)."
+    },
+    {
+      "id": "d92",
+      "topic": "Anchor placement in the extracted Speller page",
+      "a": {
+        "source": "src-pset-5-speller",
+        "value": "In the extracted copy the ids 'texts' and 'specification' sit one heading before their sections"
+      },
+      "b": {
+        "source": "src-pset-5-speller#specification",
+        "value": "The live page's #specification anchor is the Specification heading"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Extraction artefact; source_refs use the live anchors."
+    },
+    {
+      "id": "d93",
+      "topic": "Trie: dated distribution and no check50",
+      "a": {
+        "source": "src-practice-trie#getting-started",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/5/trie.zip"
+      },
+      "b": {
+        "source": "src-practice-trie#how-to-test-your-code",
+        "value": "'No check50 for this one!'"
+      },
+      "status": "consistent",
+      "note": "Copied exactly as published."
+    },
+    {
+      "id": "d94",
+      "topic": "Section list.c has no NULL check",
+      "a": {
+        "source": "src-section-5-code",
+        "value": "list.c uses malloc without checking for NULL"
+      },
+      "b": {
+        "source": "src-section-5-transcript",
+        "value": "Kelly stresses checking malloc's return value"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Code reproduced verbatim with a Persian caveat."
+    },
+    {
+      "id": "d95",
+      "topic": "Section hash.c return values",
+      "a": {
+        "source": "src-section-5-code",
+        "value": "hash.c returns negative values for some inputs and uses a magic number 3"
+      },
+      "b": {
+        "source": "src-pset-5-speller#dictionaryc",
+        "value": "hash must return an index usable for table[N]"
+      },
+      "status": "recorded-not-resolved",
+      "note": "hash.c is link-only (D35); the caveat is in the section page."
+    },
+    {
+      "id": "d96",
+      "topic": "Chaining 'without ever running into the problem of collision'",
+      "a": {
+        "source": "src-short-hash-tables",
+        "value": "'...into our hash table without ever running into the problem of collision'"
+      },
+      "b": {
+        "source": "src-notes-5#hashing-and-hash-tables",
+        "value": "Collisions still happen; chaining stores colliding values in a list"
+      },
+      "status": "complementary",
+      "note": "Persian short page: chaining handles collisions, it does not remove them (استنتاجی)."
+    },
+    {
+      "id": "d97",
+      "topic": "Deletion with probing 'really easy'",
+      "a": {
+        "source": "src-short-data-structures",
+        "value": "'If you're using probing ... deletion is actually really easy'"
+      },
+      "b": {
+        "source": "src-anzali-inference-5",
+        "value": "Deleting from an open-addressing table needs care so later probes still find displaced entries"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page labels the caveat استنتاجی."
+    },
+    {
+      "id": "d98",
+      "topic": "Slide 84 alt text",
+      "a": {
+        "source": "src-notes-5#linked-lists",
+        "value": "Alt text of cs50Week5Slide084.png is identical to slide 77: 'n pointing to a new node with 2 as the number and null as the next'"
+      },
+      "b": {
+        "source": "src-anzali-inference-5",
+        "value": "The image (viewed on the build box) is captioned 'n->next = list;' and shows node 2 pointing to node 1 while list still points to node 1"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian alt text describes the image; media.json keeps the official alt in alt_en_official."
+    }
+  ]
+}

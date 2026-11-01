@@ -1,0 +1,241 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w02-ps-scrabble",
+  "kind": "pset",
+  "week": 2,
+  "title_en": "Scrabble",
+  "title_fa": "اسکرابل (Scrabble)",
+  "guide_doc_id": "w02-ps-scrabble",
+  "guide_file": "scrabble.fa.md",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/2/scrabble/",
+    "index_url": "https://cs50.harvard.edu/x/psets/2/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w02-ps-scrabble-r1",
+        "text_fa": "فایل `scrabble.c` در پوشهٔ `scrabble`",
+        "text_en": "In a file called `scrabble.c` in a folder called `scrabble`",
+        "source_ref": "src-pset-2-scrabble#problem-to-solve"
+      },
+      {
+        "id": "w02-ps-scrabble-r2",
+        "text_fa": "دو بار ورودی بگیرد: یک بار برای Player 1 و یک بار برای Player 2.",
+        "text_en": "Your program should prompt for input twice: once for “Player 1” to input their word and once for “Player 2” to input their word.",
+        "source_ref": "src-pset-2-scrabble#problem-to-solve"
+      },
+      {
+        "id": "w02-ps-scrabble-r3",
+        "text_fa": "بسته به امتیاز بیشتر، یکی از سه پیام برنده یا مساوی را چاپ کند.",
+        "text_en": "depending on which player scores the most points, your program should either print “Player 1 wins!”, “Player 2 wins!”, or “Tie!” (in the event the two players score equal points).",
+        "source_ref": "src-pset-2-scrabble#problem-to-solve"
+      },
+      {
+        "id": "w02-ps-scrabble-r4",
+        "text_fa": "نویسه‌هایی که حرف نیستند امتیاز صفر دارند.",
+        "text_en": "Keep in mind that characters that are *not* letters should be given zero points.",
+        "source_ref": "src-pset-2-scrabble#advice-and-hints"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/scrabble",
+      "style50": "style50 scrabble.c",
+      "submit50": "submit50 cs50/problems/2026/x/scrabble",
+      "wget": null
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی: مساوی",
+        "text": "$ ./scrabble\nPlayer 1: Question?\nPlayer 2: Question!\nTie!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: برد Player 2",
+        "text": "$ ./scrabble\nPlayer 1: red\nPlayer 2: wheelbarrow\nPlayer 2 wins!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: برد Player 1",
+        "text": "$ ./scrabble\nPlayer 1: COMPUTER\nPlayer 2: science\nPlayer 1 wins!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: حروف بزرگ و کوچک",
+        "text": "$ ./scrabble\nPlayer 1: Scrabble\nPlayer 2: wiNNeR\nPlayer 1 wins!",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/scrabble",
+      "style50": "style50 scrabble.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "74B4kq3ftleKe6AdN0NxFV8CN",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d31",
+      "d33"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w02-c-array",
+      "w02-c-array-index",
+      "w02-c-char-ascii",
+      "w02-c-ascii-case",
+      "w02-c-ctype",
+      "w02-c-string-char-array",
+      "w02-c-strlen",
+      "w02-c-function-anatomy"
+    ],
+    "prerequisite_lesson_ids": [
+      "w02-l04",
+      "w02-l06",
+      "w02-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w02-c-array",
+        "note_id": "w02-n09",
+        "lesson_id": "w02-l04",
+        "unit_id": "w02-l04-u02"
+      },
+      {
+        "concept_id": "w02-c-array-index",
+        "note_id": "w02-n09",
+        "lesson_id": "w02-l04",
+        "unit_id": "w02-l04-u02"
+      },
+      {
+        "concept_id": "w02-c-char-ascii",
+        "note_id": "w02-n11",
+        "lesson_id": "w02-l06",
+        "unit_id": "w02-l06-u01"
+      },
+      {
+        "concept_id": "w02-c-ascii-case",
+        "note_id": "w02-n15",
+        "lesson_id": "w02-l07",
+        "unit_id": "w02-l07-u03"
+      },
+      {
+        "concept_id": "w02-c-ctype",
+        "note_id": "w02-n15",
+        "lesson_id": "w02-l07",
+        "unit_id": "w02-l07-u04"
+      },
+      {
+        "concept_id": "w02-c-string-char-array",
+        "note_id": "w02-n12",
+        "lesson_id": "w02-l06",
+        "unit_id": "w02-l06-u02"
+      },
+      {
+        "concept_id": "w02-c-strlen",
+        "note_id": "w02-n14",
+        "lesson_id": "w02-l07",
+        "unit_id": "w02-l07-u02"
+      },
+      {
+        "concept_id": "w02-c-function-anatomy",
+        "note_id": "w02-sh-functions",
+        "lesson_id": "w02-l05",
+        "unit_id": "w02-l05-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول شبه‌کد بنویس: گرفتن دو واژه، حساب امتیاز هر کدام، چاپ برنده. صفحهٔ رسمی هم همین سه گام را پیشنهاد می‌کند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "امتیاز هر دو واژه با یک قاعده حساب می‌شود. آیا جای یک تابع کمکی است؟ (یادداشت ثابت و تابع کمکی را ببین.)"
+      },
+      {
+        "n": 3,
+        "hint_fa": "۲۶ امتیاز پشت سر هم داری. کدام ساختار دادهٔ این هفته برای نگه‌داشتن مقدارهای هم‌نوع پشت سر هم مناسب است؟"
+      },
+      {
+        "n": 4,
+        "hint_fa": "یادت باشد هر char در واقع یک عدد ASCII است. چطور می‌توان از این برای رسیدن از یک حرف به جایگاهش در الفبا استفاده کرد؟"
+      },
+      {
+        "n": 5,
+        "hint_fa": "حروف بزرگ و کوچک باید یکسان امتیاز بگیرند. کدام توابع ctype.h کمک می‌کنند؟"
+      }
+    ],
+    "common_mistakes_fa": [
+      "امتیاز دادن به علامت‌ها و رقم‌ها",
+      "حساس بودن به بزرگی و کوچکی حرف",
+      "دسترسی بیرون از مرز آرایه برای نویسه‌ای که حرف نیست",
+      "پیام خروجی با فاصله یا علامت متفاوت"
+    ],
+    "self_checklist": [
+      {
+        "id": "w02-ps-scrabble-c01",
+        "text_fa": "فایل `scrabble.c` در پوشهٔ `scrabble` است.",
+        "maps_to": "w02-ps-scrabble-r1"
+      },
+      {
+        "id": "w02-ps-scrabble-c02",
+        "text_fa": "هر دو بازیکن واژه وارد می‌کنند.",
+        "maps_to": "w02-ps-scrabble-r2"
+      },
+      {
+        "id": "w02-ps-scrabble-c03",
+        "text_fa": "پیام‌های خروجی دقیقاً با متن رسمی یکی‌اند.",
+        "maps_to": "w02-ps-scrabble-r3"
+      },
+      {
+        "id": "w02-ps-scrabble-c04",
+        "text_fa": "واژه‌های با حروف بزرگ و کوچک و با علامت را امتحان کرده‌ام.",
+        "maps_to": "w02-ps-scrabble-r4"
+      },
+      {
+        "id": "w02-ps-scrabble-c05",
+        "text_fa": "هر چهار نمونهٔ رسمی خروجی درست دارند.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w02-ps-scrabble-c06",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w02-ps-scrabble-c07",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w02-ps-scrabble-c08",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "کد کامل گام‌به‌گام در «Advice and Hints» صفحهٔ رسمی",
+      "url": "https://cs50.harvard.edu/x/psets/2/scrabble/#advice-and-hints",
+      "reason_fa": "صفحهٔ رسمی خودش می‌گوید این بخش «full spoiler» است و کل راه‌حل را نشان می‌دهد (ناهمخوانی d33). این بسته آن را بازتولید نمی‌کند؛ پیشنهاد CS50 هم این است که اول خودت امتحان کنی."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

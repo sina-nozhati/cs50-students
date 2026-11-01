@@ -19,6 +19,42 @@ def kb_root() -> Path:
     return _KB_ROOT
 
 
+def get_week_folder_slug(week: int) -> str:
+    """نام پوشه استاندارد هفتگی در anzali-fa/weeks."""
+    if week == 71:
+        return "week-ai"
+    if week == 99:
+        return "final-project"
+    return f"week-{week:02d}"
+
+
+def get_week_node_id(week: int) -> str:
+    """شناسه نود والد هفته در index.json."""
+    if week == 71:
+        return "week-ai"
+    if week == 99:
+        return "final-project"
+    return f"week-{week}"
+
+
+def get_anzali_week_dir(week: int) -> Path:
+    """مسیر پوشه محتوای هفته در anzali-fa/weeks با پشتیبانی از نام‌های مستعار."""
+    root = _KB_ROOT / "anzali-fa" / "weeks"
+    candidates = []
+    if week == 71:
+        candidates = ["week-ai", "week-71"]
+    elif week == 99:
+        candidates = ["final-project", "week-99"]
+    else:
+        candidates = [f"week-{week:02d}", f"week-{week}"]
+
+    for c in candidates:
+        p = root / c
+        if p.is_dir():
+            return p
+    return root / candidates[0]
+
+
 def site_number_for_node(node: dict[str, Any]) -> int | None:
     """نگاشت نود KB به شمارهٔ Week در سایت (0–10، 71=AI، 99=Final)."""
     nid = node.get("id") or ""

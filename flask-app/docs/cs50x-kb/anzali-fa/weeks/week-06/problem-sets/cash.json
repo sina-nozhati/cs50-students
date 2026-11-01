@@ -1,0 +1,254 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-ps-cash",
+  "kind": "pset",
+  "week": 6,
+  "title_en": "Cash",
+  "title_fa": "پول خرد (Sentimental Cash)",
+  "guide_doc_id": "w06-ps-cash",
+  "guide_file": "cash.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/6/cash/",
+    "index_url": "https://cs50.harvard.edu/x/psets/6/",
+    "submission": "choose-one",
+    "choice_group": "cash-or-credit",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w06-ps-cash-r1",
+        "text_fa": "در فایل `cash.py` در پوشهٔ `sentimental-cash` برنامه‌ای بنویس که بپرسد چقدر پول خرد بدهکاری و کمترین تعداد سکه‌ای را که با آن می‌شود این مبلغ را داد چاپ کند.",
+        "text_en": "In a file called `cash.py` in a folder called `sentimental-cash`, write a program that asks the user how much change is owed and then spits out the minimum number of coins with which said change can be made",
+        "source_ref": "src-pset-6-cash#problem-to-solve"
+      },
+      {
+        "id": "w06-ps-cash-r2",
+        "text_fa": "فرض کن کاربر مبلغ را به دلار وارد می‌کند (مثلاً ۰٫۵۰ دلار به جای ۵۰ سنت).",
+        "text_en": "you should assume that the user will input their change in dollars (e.g., 0.50 dollars instead of 50 cents)",
+        "source_ref": "src-pset-6-cash#problem-to-solve"
+      },
+      {
+        "id": "w06-ps-cash-r3",
+        "text_fa": "ورودی را با `get_float` از کتابخانهٔ CS50 بگیر و پاسخ را با `print` چاپ کن.",
+        "text_en": "Use `get_float` from the CS50 Library to get the user's input and `print` to output your answer",
+        "source_ref": "src-pset-6-cash#specification"
+      },
+      {
+        "id": "w06-ps-cash-r4",
+        "text_fa": "فرض کن تنها سکه‌های موجود ۲۵، ۱۰، ۵ و ۱ سنتی‌اند.",
+        "text_en": "Assume that the only coins available are quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢)",
+        "source_ref": "src-pset-6-cash#specification"
+      },
+      {
+        "id": "w06-ps-cash-r5",
+        "text_fa": "اگر کاربر مقدار نامنفی نداد، آن‌قدر دوباره بپرس تا مقدار معتبر بدهد.",
+        "text_en": "If the user fails to provide a non-negative value, your program should re-prompt the user for a valid amount again and again until the user complies",
+        "source_ref": "src-pset-6-cash#specification"
+      },
+      {
+        "id": "w06-ps-cash-r6",
+        "text_fa": "آخرین سطر خروجی فقط کمترین تعداد سکه باشد: یک عدد صحیح و بعد سطر تازه.",
+        "text_en": "we ask that your program's last line of output be only the minimum number of coins possible: an integer followed by a newline",
+        "source_ref": "src-pset-6-cash#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/sentimental/cash",
+      "style50": "style50 cash.py",
+      "submit50": "submit50 cs50/problems/2026/x/sentimental/cash",
+      "wget": null
+    },
+    "sample_io": [],
+    "test_texts": [
+      {
+        "text": "0.41",
+        "expected": "4",
+        "origin": "official"
+      },
+      {
+        "text": "0.01",
+        "expected": "1",
+        "origin": "official"
+      },
+      {
+        "text": "0.15",
+        "expected": "2",
+        "origin": "official"
+      },
+      {
+        "text": "1.60",
+        "expected": "7",
+        "origin": "official"
+      },
+      {
+        "text": "23",
+        "expected": "92",
+        "origin": "official"
+      },
+      {
+        "text": "4.2",
+        "expected": "18",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/sentimental/cash",
+      "style50": "style50 cash.py",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "eoFGGVR2gwl2jvyj7sHchxUmW",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-port-c-to-python",
+      "w06-c-cs50-library-py",
+      "w06-c-float-imprecision-py",
+      "w06-c-true-division",
+      "w06-c-floor-division",
+      "w06-c-while-true-break"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l01",
+      "w06-l05",
+      "w06-l06"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-port-c-to-python",
+        "note_id": "w06-ps-hello",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w06-c-cs50-library-py",
+        "note_id": "w06-n03",
+        "lesson_id": "w06-l01",
+        "unit_id": "w06-l01-u03"
+      },
+      {
+        "concept_id": "w06-c-float-imprecision-py",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u02"
+      },
+      {
+        "concept_id": "w06-c-true-division",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u01"
+      },
+      {
+        "concept_id": "w06-c-floor-division",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u01"
+      },
+      {
+        "concept_id": "w06-c-while-true-break",
+        "note_id": "w06-n11",
+        "lesson_id": "w06-l06",
+        "unit_id": "w06-l06-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "منطق شمردن سکه‌ها همان منطق برنامهٔ C خودت است. صفحهٔ رسمی نگاه کردن به آن را معقول می‌داند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "تفاوت اصلی واحد ورودی است: دلار با ممیز. در سخنرانی دیدی که `0.1 + 0.2` دقیقاً `0.3` نیست. اگر مستقیم با دلار ممیزی حساب کنی، چه چیزی ممکن است خراب شود؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "یک راه این است که پیش از هر محاسبه مبلغ را به عدد صحیح سنت تبدیل کنی. فکر کن چرا تبدیل ساده با `int` ممکن است یک سنت کم بیاورد و تابع داخلی دیگری که گرد می‌کند چه فرقی دارد."
+      },
+      {
+        "n": 4,
+        "hint_fa": "پس از تبدیل به عدد صحیح، به فرق `/` و `//` در پایتون ۳ فکر کن: کدام عدد صحیح می‌دهد؟"
+      },
+      {
+        "n": 5,
+        "hint_fa": "ورودی منفی را رد کن. `get_float` ورودی غیرعددی را خودش دوباره می‌پرسد."
+      },
+      {
+        "n": 6,
+        "hint_fa": "همهٔ شش آزمون رسمی را اجرا کن؛ `4.2` و `0.15` برای پیدا کردن خطای ممیز شناور مفیدند."
+      }
+    ],
+    "common_mistakes_fa": [
+      "حساب کردن مستقیم با دلار ممیزی و گرفتن یک سکه کم یا زیاد",
+      "تبدیل به سنت با بریدن به جای گرد کردن",
+      "استفاده از `/` و چاپ شدن عدد اعشاری مثل `4.0`",
+      "چاپ متن اضافه در آخرین سطر خروجی",
+      "پذیرفتن مبلغ منفی"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-ps-cash-c01",
+        "text_fa": "فایل `cash.py` در پوشهٔ `sentimental-cash` است و به پایتون نوشته شده.",
+        "maps_to": "w06-ps-cash-r1"
+      },
+      {
+        "id": "w06-ps-cash-c02",
+        "text_fa": "مبلغ را به دلار و با `get_float` می‌گیرم.",
+        "maps_to": "w06-ps-cash-r3"
+      },
+      {
+        "id": "w06-ps-cash-c03",
+        "text_fa": "فقط سکه‌های ۲۵، ۱۰، ۵ و ۱ سنتی را به کار می‌برم.",
+        "maps_to": "w06-ps-cash-r4"
+      },
+      {
+        "id": "w06-ps-cash-c04",
+        "text_fa": "`-1`، `foo` و ورودی خالی رد می‌شوند و دوباره پرسیده می‌شود.",
+        "maps_to": "w06-ps-cash-r5"
+      },
+      {
+        "id": "w06-ps-cash-c05",
+        "text_fa": "همهٔ شش آزمون رسمی، از جمله `4.2` و `0.15`، عدد درست را می‌دهند.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w06-ps-cash-c06",
+        "text_fa": "آخرین سطر خروجی فقط یک عدد است.",
+        "maps_to": "w06-ps-cash-r6"
+      },
+      {
+        "id": "w06-ps-cash-c07",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w06-ps-cash-c08",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w06-ps-cash-c09",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50، style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

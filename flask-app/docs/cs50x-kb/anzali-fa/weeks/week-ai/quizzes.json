@@ -1,0 +1,1634 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 71,
+  "week_slug": "week-ai",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها یا پروژهٔ نهایی نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w71-q-001",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-rubber-ducking"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#welcome",
+      "prompt_fa": "«اردک‌گویی» (`rubber duck debugging`) در درس‌نامه چه تعریفی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اردک‌گویی (Rubber Ducking) یعنی توضیح دادن یک مسئله سخت یا باگ برای یک شیء بی‌جان، تا در حین توضیح، راه‌حل مسئله روشن شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "توضیح دادن یک مسئلهٔ سخت، مثل باگ، برای یک شیء بی‌جان",
+          "feedback_fa": "درست؛ همین توضیح دادن اغلب اشتباه را نشان می‌دهد."
+        },
+        {
+          "id": "b",
+          "text_fa": "نوشتن آزمون خودکار برای هر تابع",
+          "feedback_fa": "آزمون نوشتن ابزار دیگری است؛ تعریف درس‌نامه حرف زدن با یک شیء بی‌جان است."
+        },
+        {
+          "id": "c",
+          "text_fa": "پرسیدن پاسخ پرابلم‌ست از هوش مصنوعی",
+          "feedback_fa": "اردک‌گویی ربطی به گرفتن پاسخ ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-002",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-cs50-duck"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: اردک CS50 از سال ۲۰۲۳ به انگلیسی به دانشجویان پاسخ می‌دهد.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "پیش از آن با «کواک» جواب می‌داد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-003",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-generative-ai"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#generative-artificial-intelligence",
+      "prompt_fa": "کدام مورد در فهرست درس‌نامه از چیزهایی که هوش مصنوعی مولد می‌سازد **نیست**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مدل‌های هوش مصنوعی مولد قادر به خلق تصویر، ویدیو، موسیقی و متن هستند اما سخت‌افزار یا مدارهای الکترونیکی تولید نمی‌کنند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نقشهٔ مدار برقی",
+          "feedback_fa": "درست؛ درس‌نامه از عکس، ویدئو، موسیقی و متن نام می‌برد."
+        },
+        {
+          "id": "b",
+          "text_fa": "موسیقی",
+          "feedback_fa": "موسیقی در فهرست هست."
+        },
+        {
+          "id": "c",
+          "text_fa": "ویدئو",
+          "feedback_fa": "ویدئو در فهرست هست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-004",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-detecting-ai"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: در یکی از دورهای بازی، هر دو چهره ساختهٔ هوش مصنوعی بودند.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "دو چهره‌ای که وجود خارجی نداشتند و از دادهٔ آموزشی ساخته شده بودند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-005",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-prompt-engineering"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#prompt-engineering-and-copilot",
+      "prompt_fa": "درس‌نامه «مهندسی پرامپت» (`prompt engineering`) را چه می‌داند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مهندسی پرامپت یعنی شیوه و هنر طرح پرسش‌ها و دستورات دقیق از مدل هوش مصنوعی برای دریافت پاسخ‌های استاندارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "راه پرسیدن پرسش خوب از هوش مصنوعی",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "ساختن سخت‌افزار برای مدل‌ها",
+          "feedback_fa": "درس‌نامه آن را دربارهٔ پرسیدن تعریف می‌کند، نه سخت‌افزار."
+        },
+        {
+          "id": "c",
+          "text_fa": "آموزش مدل از صفر",
+          "feedback_fa": "آموزش مدل موضوع بخش‌های یادگیری ماشین است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-006",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-system-prompt",
+        "w71-c-user-prompt"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "از سخنرانی: در اردک CS50، جملهٔ «Do not provide full answers to problem sets» بخشی از کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پرامپت سیستمی رفتار را تعیین می‌کند؛ پرامپت کاربر پرسش را.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "پرامپت سیستمی",
+          "feedback_fa": "درست؛ تیم درس آن را می‌نویسد تا رفتار اردک را شکل دهد."
+        },
+        {
+          "id": "b",
+          "text_fa": "پرامپت کاربر",
+          "feedback_fa": "پرامپت کاربر پرسش خود دانشجوست که بعد از پرامپت سیستمی می‌آید."
+        },
+        {
+          "id": "c",
+          "text_fa": "پاسخ مدل",
+          "feedback_fa": "این دستوری به مدل است، نه خروجی آن."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-007",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-api-client"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-71#prompt-engineering-and-copilot",
+      "prompt_fa": "در chat3.py رسمی، کدام مقدار چاپ می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "متن پاسخ تولیدشده توسط مدل درون ویژگی output_text در شیء پاسخ ذخیره شده و نمایش داده می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`response.output_text`",
+          "feedback_fa": "درست؛ سطر آخر برنامه."
+        },
+        {
+          "id": "b",
+          "text_fa": "`system_prompt`",
+          "feedback_fa": "`system_prompt` فقط به `instructions` داده می‌شود و چاپ نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "`client`",
+          "feedback_fa": "`client` شیء دسترسی به کتابخانه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-008",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "predict_output",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-system-prompt",
+        "w71-c-user-prompt"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "Hi / Pretend you're a cat."
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Hi / Pretend you're a cat."
+        ]
+      },
+      "explanation_fa": "دو رشته با « / » به هم چسبانده می‌شوند.",
+      "code": "system_prompt = \"Pretend you're a cat.\"\nuser_prompt = \"Hi\"\nprint(user_prompt + \" / \" + system_prompt)",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "Hi / Pretend you're a cat.\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "Hi / Pretend you're a cat.",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-31T20:00:00+03:30"
+      }
+    },
+    {
+      "id": "w71-q-009",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "fill_blank_code",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-api-client"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) تابع تألیفی `create` شبیه `client.responses.create` است اما هیچ سرویسی را صدا نمی‌زند. جای خالی را با نام آرگومانی پر کن که پرامپت سیستمی را می‌گیرد.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "instructions"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "instructions"
+        ]
+      },
+      "explanation_fa": "پرامپت سیستمی در `instructions` می‌رود.",
+      "template": "def create(input, instructions, model):\n    return instructions + \" | \" + input\n\n\nprint(create(input=\"Hello\", [[b1]]=\"Be brief.\", model=\"gpt-5\"))\n",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "instructions"
+          ],
+          "hint_fa": "همان نامی که chat3.py رسمی برای پرامپت سیستمی به کار می‌برد.",
+          "wrong_feedback": {
+            "system_prompt": "تابع آرگومانی به این نام ندارد؛ پایتون TypeError می‌دهد.",
+            "input": "`input` دو بار داده می‌شود و پایتون SyntaxError می‌دهد."
+          },
+          "default_wrong_fa": "در chat3.py: `instructions=system_prompt`."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "Be brief. | Hello\n",
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w71-q-010",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-ai-policy"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#prompt-engineering-and-copilot",
+      "prompt_fa": "طبق درس‌نامه، قاعدهٔ CS50 دربارهٔ هوش مصنوعی مولد چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سیاست رسمی آموزشی دوره، استفاده از ابزارهای هوش مصنوعی مولد متفرقه را خارج از ابزارهای مصوب خود CS50 ممنوع اعلام کرده است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "بیرون از ابزارهای خود درس مجاز نیست",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "هر ابزاری مجاز است اگر نامش را بنویسی",
+          "feedback_fa": "درس‌نامه چنین استثنایی نمی‌گذارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "هیچ ابزار هوش مصنوعی‌ای، حتی اردک CS50، مجاز نیست",
+          "feedback_fa": "ابزارهای خود درس، مثل اردک، مجازند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-011",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-copilot"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: Copilot قابلیتی است که CS50 از آغاز درس برای همهٔ دانشجویان خاموش می‌کند.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "مالان آن را فقط برای نمایش روشن کرد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-012",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l01",
+      "concept_ids": [
+        "w71-c-ai-policy"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-honesty-71",
+      "prompt_fa": "سیاست صداقت تحصیلی کدام استفاده را **نامعقول** می‌داند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "معقول: ابزارهای هوش مصنوعی خود CS50؛ نامعقول: ابزارهای دیگری که پاسخ یا کد پیشنهاد می‌کنند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نرم‌افزار هوش مصنوعی غیر از CS50 که سطرهای کد را پیشنهاد یا کامل می‌کند",
+          "feedback_fa": "درست؛ مثل ChatGPT، Claude، Copilot یا Gemini."
+        },
+        {
+          "id": "b",
+          "text_fa": "اردک CS50 در cs50.dev",
+          "feedback_fa": "این صریحاً معقول است."
+        },
+        {
+          "id": "c",
+          "text_fa": "اردک CS50 در cs50.ai",
+          "feedback_fa": "این صریحاً معقول است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-013",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-classic-ai"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#ai",
+      "prompt_fa": "کدام مورد در درس‌نامه نمونهٔ هوش مصنوعی قدیمی‌تر **نیست**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "درس‌نامه: ایمیل ناخواسته، دست‌خط، پیشنهاد فیلم و بازی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کامپایل کردن برنامهٔ C",
+          "feedback_fa": "درست؛ کامپایلر الگو نمی‌جوید."
+        },
+        {
+          "id": "b",
+          "text_fa": "تشخیص ایمیل ناخواسته",
+          "feedback_fa": "این در فهرست درس‌نامه هست."
+        },
+        {
+          "id": "c",
+          "text_fa": "تشخیص دست‌خط",
+          "feedback_fa": "این در فهرست درس‌نامه هست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-014",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "predict_output",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-breakout-pseudocode"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "stay\nright"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "stay\nright"
+        ]
+      },
+      "explanation_fa": "۴ نه کمتر و نه بیشتر از ۴ است، پس stay؛ ۹ بیشتر است، پس right.",
+      "code": "def move(ball, paddle):\n    if ball < paddle:\n        return \"left\"\n    elif ball > paddle:\n        return \"right\"\n    else:\n        return \"stay\"\n\n\nprint(move(4, 4))\nprint(move(9, 4))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "stay\nright\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "stay\nright",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-31T20:00:00+03:30"
+      }
+    },
+    {
+      "id": "w71-q-015",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "find_the_bug",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-breakout-pseudocode"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه باید مثل شبه‌کد رسمی Breakout کار کند و برای سه فراخوانی پایین به ترتیب `right`، `left` و `stay` چاپ کند. کدام سطر خطا دارد؟",
+      "answer": {
+        "bug_line": 4,
+        "key_points_fa": [
+          "شرط دوم همان شرط اول را تکرار می‌کند، پس `right` هرگز برگردانده نمی‌شود.",
+          "درستش `ball > paddle` است: «Else if ball is right of paddle»."
+        ]
+      },
+      "explanation_fa": "شاخهٔ دوم باید «سمت راست» را بپرسد.",
+      "code": "def move(ball, paddle):\n    if ball < paddle:\n        return \"left\"\n    elif ball < paddle:\n        return \"right\"\n    else:\n        return \"stay\"\n\n\nprint(move(9, 4))\nprint(move(1, 4))\nprint(move(4, 4))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "fixed_line": "    elif ball > paddle:",
+        "stdin": "",
+        "expected_stdout_exact": "right\nleft\nstay\n",
+        "other_line_edits": [
+          {
+            "line": 2,
+            "code": "    if ball > paddle:"
+          },
+          {
+            "line": 7,
+            "code": "        return \"right\""
+          }
+        ]
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w71-q-016",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "parsons",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-decision-tree"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) سطرها را بچین تا تابع، مثل شبه‌کد رسمی Breakout، جهت حرکت پارو را برگرداند.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7"
+        ]
+      },
+      "explanation_fa": "اول پرسش «چپ؟»، بعد «راست؟» و در آخر «حرکت نکن».",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "def move(ball, paddle):",
+          "text": "def move(ball, paddle):"
+        },
+        {
+          "id": "p2",
+          "code": "    if ball < paddle:",
+          "text": "    if ball < paddle:"
+        },
+        {
+          "id": "p3",
+          "code": "        return \"left\"",
+          "text": "        return \"left\""
+        },
+        {
+          "id": "p4",
+          "code": "    elif ball > paddle:",
+          "text": "    elif ball > paddle:"
+        },
+        {
+          "id": "p5",
+          "code": "        return \"right\"",
+          "text": "        return \"right\""
+        },
+        {
+          "id": "p6",
+          "code": "    else:",
+          "text": "    else:"
+        },
+        {
+          "id": "p7",
+          "code": "        return \"stay\"",
+          "text": "        return \"stay\""
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "        return \"up\"",
+          "text": "        return \"up\"",
+          "why_wrong_fa": "پارو در Breakout فقط به چپ و راست حرکت می‌کند؛ این سطر خروجی را خراب می‌کند."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "indentation_matters": true,
+      "shuffle": true,
+      "qa": {
+        "check_suffix": "print(move(1, 2))\nprint(move(3, 2))\nprint(move(2, 2))",
+        "expected_stdout_exact": "left\nright\nstay\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w71-q-017",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-decision-tree"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#decision-trees",
+      "prompt_fa": "درست یا نادرست: «طبق درس‌نامه، درخت تصمیم ابزاری است که الگوریتم با آن تصمیم می‌گیرد چه کاری بکند.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درخت تصمیم (Decision Tree) ابزاری ساختاریافته است که الگوریتم به کمک آن مرحله‌به‌مرحله تصمیم‌گیری می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-018",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-minimax"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#minimax",
+      "prompt_fa": "در شبه‌کد رسمی مینی‌ماکس، بازیکن X چه حرکتی را انتخاب می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در الگوریتم مینی‌ماکس، بازیکن X به دنبال بیشینه‌کردن امتیاز و بازیکن O به دنبال کمینه‌کردن آن است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "حرکتی با بیشترین امتیاز",
+          "feedback_fa": "درست؛ بازیکن X حرکتی را انتخاب می‌کند که بیشترین امتیاز ممکن را داشته باشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "حرکتی با کمترین امتیاز",
+          "feedback_fa": "این کار O است."
+        },
+        {
+          "id": "c",
+          "text_fa": "یک حرکت تصادفی",
+          "feedback_fa": "حرکت تصادفی ایدهٔ epsilon در یادگیری ماشین است، نه مینی‌ماکس."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-019",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "predict_output",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-minimax"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "1"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1"
+        ]
+      },
+      "explanation_fa": "نوبت O است، پس در هر شاخه نوبت X است که بیشینه می‌کند: max(1, -1) = 1 و max(0, 1) = 1؛ سپس O کمینهٔ آن‌ها را می‌گیرد: min(1, 1) = 1.",
+      "code": "def minimax(node, player):\n    if type(node) == int:\n        return node\n    scores = []\n    for child in node:\n        if player == \"X\":\n            scores.append(minimax(child, \"O\"))\n        else:\n            scores.append(minimax(child, \"X\"))\n    if player == \"X\":\n        return max(scores)\n    else:\n        return min(scores)\n\n\nprint(minimax([[1, -1], [0, 1]], \"O\"))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "1\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "1",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-31T20:00:00+03:30"
+      }
+    },
+    {
+      "id": "w71-q-020",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-score-outcomes"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#minimax",
+      "prompt_fa": "طبق درس‌نامه، در دوز صفحه‌ای که کامپیوتر در آن **می‌بازد** چه امتیازی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در تخمین وضعیت بازی دوز، برد کامپیوتر با امتیاز ۱، باخت با امتیاز -۱ و تساوی با ۰ نمایش داده می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "۱-",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "۱",
+          "feedback_fa": "۱ برای صفحه‌ای است که کامپیوتر می‌برد."
+        },
+        {
+          "id": "c",
+          "text_fa": "۰",
+          "feedback_fa": "۰ برای نتیجهٔ خنثی (مساوی) است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-021",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-game-tree-size"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "از سخنرانی: دوز چند بازی ممکن دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در بازی دوز کلاسیک، در مجموع ۲۵۵٬۱۶۸ بازی یا وضعیت منحصربه‌فرد وجود دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "255,168",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "85 billion",
+          "feedback_fa": "این عدد برای چهار جفت حرکت اول شطرنج بود."
+        },
+        {
+          "id": "c",
+          "text_fa": "9",
+          "feedback_fa": "۹ تعداد خانه‌هاست، نه بازی‌ها."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-022",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l02",
+      "concept_ids": [
+        "w71-c-game-tree-size"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-71#minimax",
+      "prompt_fa": "درست یا نادرست: «طبق درس‌نامه، کامپیوترهای جیبی و رومیزی همیشه می‌توانند تریلیون‌ها گزینهٔ هر درخت بازی را حساب کنند.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "درس‌نامه می‌گوید شاید نتوانند؛ اینجاست که یادگیری ماشین کمک می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-023",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l03",
+      "concept_ids": [
+        "w71-c-reinforcement-learning"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "از سخنرانی: یادگیری تقویتی (`reinforcement learning`) نسبت به یادگیری ماشین چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "یادگیری تقویتی شاخه‌ای کلیدی از یادگیری ماشین است که در آن عامل با پاداش و جریمه رفتارهای خود را تنظیم می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نوعی از یادگیری ماشین",
+          "feedback_fa": "درست؛ یادگیری تقویتی زیرشاخه‌ای تخصصی از یادگیری ماشین است."
+        },
+        {
+          "id": "b",
+          "text_fa": "جایگزینی برای یادگیری ماشین که داده لازم ندارد",
+          "feedback_fa": "یادگیری تقویتی هم از تجربه، یعنی داده، یاد می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text_fa": "نام دیگر مینی‌ماکس",
+          "feedback_fa": "مینی‌ماکس همهٔ حالت‌ها را حساب می‌کند؛ یادگیری تقویتی با آزمون و پاداش یاد می‌گیرد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-024",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l03",
+      "concept_ids": [
+        "w71-c-machine-learning"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#machine-learning",
+      "prompt_fa": "درست یا نادرست: «طبق درس‌نامه، کامپیوتر آزمایش پشت آزمایش تکرار می‌کند تا بفهمد کدام رفتارها را تکرار کند.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "در یادگیری ماشین، عامل از طریق انجام آزمایش‌ها و چرخه‌های مکرر (Trial and Error) بهترین عملکرد را کشف می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-025",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l03",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "از سخنرانی: مثال رستوران مالان کدام ایده را نشان می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اگر ۱۰٪ مواقع چیز دیگری سفارش بدهی، شاید غذای بهتری پیدا کنی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کاوش در برابر بهره‌برداری: گاهی چیز تازه امتحان کن",
+          "feedback_fa": "درست؛ همیشه همان غذا یعنی فقط بهره‌برداری."
+        },
+        {
+          "id": "b",
+          "text_fa": "مینی‌ماکس: بدترین حالت حریف را فرض کن",
+          "feedback_fa": "در مثال رستوران حریفی نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "یادگیری با نظارت: کسی برچسب بزند",
+          "feedback_fa": "مثال دربارهٔ امتحان کردن گزینهٔ تازه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-026",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l03",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#machine-learning",
+      "prompt_fa": "طبق درس‌نامه، `epsilon` چه چیزی را نشان می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`epsilon = 0.10` یعنی حدود ۱۰٪ حرکت تصادفی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نرخ تصادف",
+          "feedback_fa": "درست؛ اپسیلون (epsilon) نمایانگر نرخ انتخاب‌های تصادفی (کاوش) در الگوریتم است."
+        },
+        {
+          "id": "b",
+          "text_fa": "بیشترین امتیاز ممکن",
+          "feedback_fa": "بیشترین مقدار در شاخهٔ `Else` انتخاب می‌شود؛ `epsilon` آن نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "تعداد دورهای آموزش",
+          "feedback_fa": "`epsilon` یک احتمال است، نه شمارنده."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-027",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "predict_output",
+      "lesson_id": "w71-l03",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "exploit\nexplore\nexploit"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "exploit\nexplore\nexploit"
+        ]
+      },
+      "explanation_fa": "فقط ۰٫۰۹ از ۰٫۱۰ کمتر است؛ ۰٫۱۰ کمتر از خودش نیست.",
+      "code": "epsilon = 0.10\nfor r in [0.30, 0.09, 0.10]:\n    if r < epsilon:\n        print(\"explore\")\n    else:\n        print(\"exploit\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "exploit\nexplore\nexploit\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "exploit\nexplore\nexploit",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-31T20:00:00+03:30"
+      }
+    },
+    {
+      "id": "w71-q-028",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "find_the_bug",
+      "lesson_id": "w71-l03",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه باید مثل شبه‌کد رسمی فقط وقتی `random move` چاپ کند که عدد از `epsilon` کمتر باشد و خروجی `best move`، `random move`، `best move` بدهد. کدام سطر خطا دارد؟",
+      "answer": {
+        "bug_line": 3,
+        "key_points_fa": [
+          "با `>` جای کاوش و بهره‌برداری عوض می‌شود: ۹۰٪ مواقع حرکت تصادفی.",
+          "شبه‌کد رسمی: «If random() < epsilon»."
+        ]
+      },
+      "explanation_fa": "عملگر مقایسه برعکس است.",
+      "code": "epsilon = 0.10\nfor r in [0.70, 0.02, 0.50]:\n    if r > epsilon:\n        print(\"random move\")\n    else:\n        print(\"best move\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "fixed_line": "    if r < epsilon:",
+        "stdin": "",
+        "expected_stdout_exact": "best move\nrandom move\nbest move\n",
+        "other_line_edits": [
+          {
+            "line": 1,
+            "code": "epsilon = 0.90"
+          },
+          {
+            "line": 2,
+            "code": "for r in [0.02, 0.70, 0.50]:"
+          }
+        ]
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w71-q-029",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-supervised-learning"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#deep-learning",
+      "prompt_fa": "زدن دکمهٔ «spam» در ایمیل، طبق درس‌نامه، نمونهٔ چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "زدن دکمه هرزنامه (Spam) نمونه‌ای از برچسب‌گذاری دستی توسط کاربر برای یادگیری و آموزش مدل هوش مصنوعی است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "یادگیری با نظارت",
+          "feedback_fa": "درست؛ انسان با هوش مصنوعی همکاری می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "یادگیری بدون نظارت",
+          "feedback_fa": "در یادگیری بدون نظارت دخالت انسان کمینه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "توهم",
+          "feedback_fa": "توهم یعنی پاسخ نادرست یک مدل زبانی."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-030",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-unsupervised-learning"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#deep-learning",
+      "prompt_fa": "درست یا نادرست: «یادگیری بدون نظارت، طبق درس‌نامه، با کمترین دخالت انسان یاد می‌گیرد.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "در یادگیری بدون نظارت (Unsupervised Learning)، مدل الگوها را مستقلاً و با حداقل دخالت انسانی از داده‌ها استخراج می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w71-q-031",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-neural-network"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "از سخنرانی: وقتی نورون‌ها را دایره و ارتباطشان را خط بکشیم، دانشمند کامپیوتر به آن چه می‌گوید؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "وقتی نورون‌ها را به صورت دایره (راس) و اتصالاتشان را با خط (یال) نشان می‌دهیم، این ساختار در علوم کامپیوتر «گراف» نام دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "گراف",
+          "feedback_fa": "درست؛ همان ساختار هفتهٔ ۵ و جست‌وجو."
+        },
+        {
+          "id": "b",
+          "text_fa": "جدول درهم‌سازی",
+          "feedback_fa": "جدول درهم‌سازی آرایه‌ای از فهرست‌های پیوندی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "پشته",
+          "feedback_fa": "پشته ترتیب LIFO دارد و یال ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-032",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "predict_output",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-parameters"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "red\nblue"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "red\nblue"
+        ]
+      },
+      "explanation_fa": "(۱، ۱): ‎2 + 1 - 6 = -3 پس red؛ (۳، ۱): ‎6 + 1 - 6 = 1 پس blue.",
+      "code": "a, b, c = 2, 1, -6\n\n\ndef color(x, y):\n    if a * x + b * y + c > 0:\n        return \"blue\"\n    return \"red\"\n\n\nprint(color(1, 1))\nprint(color(3, 1))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "red\nblue\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "red\nblue",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-31T20:00:00+03:30"
+      }
+    },
+    {
+      "id": "w71-q-033",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "find_the_bug",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-parameters"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-71",
+      "prompt_fa": "(کد تألیفی) این برنامه باید قاعدهٔ سخنرانی را پیاده کند (مقدار ‎a·x + b·y + c‎ بزرگ‌تر از صفر یعنی آبی) و برای نقطه‌های (۲، ۳) و (۳، ‎-5‎) به ترتیب `blue` و `red` چاپ کند. نقطه‌ها و ضریب‌ها جزو صورت مسئله‌اند. کدام سطر خطا دارد؟",
+      "answer": {
+        "bug_line": 5,
+        "key_points_fa": [
+          "شرط به‌جای `b * y` از `b * x` استفاده می‌کند، پس مختصهٔ دوم اصلاً دیده نمی‌شود.",
+          "برای (۳، ‎-5‎) برنامهٔ خراب ‎3 + 3 = 6‎ را حساب می‌کند و blue می‌دهد؛ درستش ‎3 - 5 = -2‎ و red است."
+        ]
+      },
+      "explanation_fa": "در قاعدهٔ سخنرانی هر ورودی وزن خودش را دارد: ‎a·x + b·y + c‎.",
+      "code": "a, b, c = 1, 1, 0\n\n\ndef color(x, y):\n    if a * x + b * x + c > 0:\n        return \"blue\"\n    return \"red\"\n\n\nprint(color(2, 3))\nprint(color(3, -5))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "fixed_line": "    if a * x + b * y + c > 0:",
+        "stdin": "",
+        "expected_stdout_exact": "blue\nred\n",
+        "other_line_edits": [
+          {
+            "line": 1,
+            "code": "a, b, c = 1, 2, 0"
+          },
+          {
+            "line": 6,
+            "code": "        return \"red\""
+          }
+        ]
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w71-q-034",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-attention-transformer"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#large-language-models",
+      "prompt_fa": "طبق درس‌نامه، کدام شرکت در ۲۰۱۷ مقاله‌ای دربارهٔ توجه (`attention`) به رابطهٔ واژه‌ها منتشر کرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "گوگل در سال ۲۰۱۷ مقاله انقلابی «Attention Is All You Need» را منتشر ساخت که آغازگر توسعه مدل‌های ترنسفورمر بود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "Google",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "Microsoft",
+          "feedback_fa": "درس‌نامه از Google نام می‌برد."
+        },
+        {
+          "id": "c",
+          "text_fa": "Harvard",
+          "feedback_fa": "درس‌نامه از Google نام می‌برد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-035",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-embeddings"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "از سخنرانی: در یکی از مدل‌ها، واژهٔ Massachusetts با چند عدد اعشاری نمایش داده می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در مدل‌های برداری زبانی (Word Embeddings)، کلمات به برداری از اعداد اعشاری (در اینجا ۱۵۳۶ بعد) تبدیل می‌شوند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "1,536",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "2",
+          "feedback_fa": "دو عدد فقط یک صفحهٔ XY است؛ مالان تأکید کرد فضا N بعدی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "1",
+          "feedback_fa": "یک عدد برای نمایش رابطهٔ واژه‌ها کافی نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-036",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "mcq",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-llm"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-71#large-language-models",
+      "prompt_fa": "GPT مخفف چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "عنوان اختصاری GPT برگرفته از عبارت ترنسفورمر پیش‌آموزش‌دیده مولد (Generative Pre-trained Transformer) است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "Generative Pre-trained Transformer",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "Graph Processing Tool",
+          "feedback_fa": "درس‌نامه آن را Generative Pre-trained Transformer می‌نامد."
+        },
+        {
+          "id": "c",
+          "text_fa": "General Prompt Template",
+          "feedback_fa": "درس‌نامه آن را Generative Pre-trained Transformer می‌نامد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w71-q-037",
+      "origin": "authored",
+      "week": 71,
+      "week_slug": "week-ai",
+      "type": "true_false",
+      "lesson_id": "w71-l04",
+      "concept_ids": [
+        "w71-c-hallucination"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-71",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: اردک CS50 هم خطاپذیر است.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "حتی پیشرفته‌ترین مدل‌ها و اردک هوش مصنوعی CS50 نیز ممکن است دچار اشتباه و توهم (Hallucination) شوند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w71-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w71-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w71-q-001",
+        "w71-q-002",
+        "w71-q-003",
+        "w71-q-004",
+        "w71-q-005",
+        "w71-q-006",
+        "w71-q-007",
+        "w71-q-008",
+        "w71-q-009",
+        "w71-q-010",
+        "w71-q-011",
+        "w71-q-012"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w71-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w71-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w71-q-013",
+        "w71-q-014",
+        "w71-q-015",
+        "w71-q-016",
+        "w71-q-017",
+        "w71-q-018",
+        "w71-q-019",
+        "w71-q-020",
+        "w71-q-021",
+        "w71-q-022"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w71-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w71-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w71-q-023",
+        "w71-q-024",
+        "w71-q-025",
+        "w71-q-026",
+        "w71-q-027",
+        "w71-q-028"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w71-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w71-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w71-q-029",
+        "w71-q-030",
+        "w71-q-031",
+        "w71-q-032",
+        "w71-q-033",
+        "w71-q-034",
+        "w71-q-035",
+        "w71-q-036",
+        "w71-q-037"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w71-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط جلسهٔ هوش مصنوعی",
+      "item_ids": [
+        "w71-q-006",
+        "w71-q-007",
+        "w71-q-019",
+        "w71-q-016",
+        "w71-q-025",
+        "w71-q-027",
+        "w71-q-031",
+        "w71-q-032"
+      ],
+      "item_pool_ids": [
+        "w71-q-001",
+        "w71-q-002",
+        "w71-q-003",
+        "w71-q-004",
+        "w71-q-005",
+        "w71-q-006",
+        "w71-q-007",
+        "w71-q-008",
+        "w71-q-009",
+        "w71-q-010",
+        "w71-q-011",
+        "w71-q-012",
+        "w71-q-013",
+        "w71-q-014",
+        "w71-q-016",
+        "w71-q-017",
+        "w71-q-018",
+        "w71-q-019",
+        "w71-q-020",
+        "w71-q-021",
+        "w71-q-022",
+        "w71-q-023",
+        "w71-q-024",
+        "w71-q-025",
+        "w71-q-026",
+        "w71-q-027",
+        "w71-q-029",
+        "w71-q-030",
+        "w71-q-031",
+        "w71-q-032",
+        "w71-q-034",
+        "w71-q-035",
+        "w71-q-036",
+        "w71-q-037"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 8,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

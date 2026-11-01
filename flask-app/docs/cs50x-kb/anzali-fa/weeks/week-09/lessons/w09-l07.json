@@ -1,0 +1,262 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l07",
+  "type": "lesson",
+  "week": 9,
+  "order": 7,
+  "stage_id": "w09-s7",
+  "title_fa": "جست‌وجو، Ajax و JSON",
+  "title_en": "Search, Ajax and JSON",
+  "note_ids": [
+    "w09-n14",
+    "w09-n15"
+  ],
+  "related_doc_ids": [
+    "w09-sh-flask",
+    "w09-sh-ajax"
+  ],
+  "prerequisite_lesson_ids": [
+    "w09-l06"
+  ],
+  "concept_ids": [
+    "w09-c-like-search",
+    "w09-c-none-guard",
+    "w09-c-partial-template",
+    "w09-c-api",
+    "w09-c-json",
+    "w09-c-jsonify",
+    "w09-c-response-json",
+    "w09-c-fetch-await",
+    "w09-c-encode-uri",
+    "w09-c-escape-order",
+    "w09-c-ajax"
+  ],
+  "objective_ids": [
+    "w09-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w09-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l07-u01",
+      "order": 1,
+      "title_fa": "LIKE، نگهبان if q و قالب تکه‌ای",
+      "concept_ids": [
+        "w09-c-like-search",
+        "w09-c-none-guard",
+        "w09-c-partial-template",
+        "w09-c-api"
+      ],
+      "objective_ids": [
+        "w09-o10"
+      ],
+      "note_id": "w09-n14",
+      "source_refs": [
+        "src-notes-9#shows",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "در shows، مسیر `/search` پارامتر `q` را می‌خواند و با `db.execute(\"SELECT * FROM shows WHERE title LIKE ?\", \"%\" + q + \"%\")` عنوان‌های شامل آن را پیدا می‌کند. اگر `q` نباشد، `request.args.get(\"q\")` مقدار `None` می‌دهد و `\"%\" + None` خطای `TypeError` می‌سازد؛ پس با `if q:` نگهبانی کن. برای Ajax، سرور فقط چند `<li>` برمی‌گرداند (قالب تکه‌ای) تا جاوااسکریپت آن را در صفحه بنشاند. چنین مسیری عملاً یک **API** کوچک است.",
+        "note_id": "w09-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "shows2-app",
+        "lang": "python",
+        "content": "# Searches for shows using Ajax\n\nfrom cs50 import SQL\nfrom flask import Flask, render_template, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///shows.db\")\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n\n@app.route(\"/search\")\ndef search():\n    q = request.args.get(\"q\")\n    if q:\n        shows = db.execute(\"SELECT * FROM shows WHERE title LIKE ? LIMIT 50\", \"%\" + q + \"%\")\n    else:\n        shows = []\n    return render_template(\"search.html\", shows=shows)",
+        "source_ref": "src-notes-9#shows",
+        "explain_fa": "جست‌وجو با نگهبان if q (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر `q = request.args.get(\"q\")` و درخواست بدون `q` بیاید، `\"%\" + q + \"%\"` چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "خطای `TypeError` ، چون `q` برابر `None` است.",
+            "correct": true,
+            "feedback_fa": "درست. برای همین `if q:` لازم است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`\"%%\"` و همهٔ ردیف‌ها برمی‌گردد.",
+            "correct": false,
+            "feedback_fa": "`None` به رشته چسبانده نمی‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "رشتهٔ `\"%None%\"`",
+            "correct": false,
+            "feedback_fa": "پایتون `None` را خودکار به رشته تبدیل نمی‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l07-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی روی پایگاه دادهٔ تألیفی `shows.db` (The Office، Office Ladies و Friends) دو جست‌وجو می‌کند. خروجی چیست؟",
+        "expected": {
+          "output": "<li>Office Ladies</li><li>The Office</li>\n<li></li>"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: LIKE در SQLite به بزرگی و کوچکی حرف لاتین حساس نیست و بدون q فهرست خالی است.",
+          "incorrect_fa": "`office` با `Office` در LIKE جور می‌شود؛ ترتیب را ORDER BY title تعیین می‌کند."
+        },
+        "hints_fa": [],
+        "lang": "flask",
+        "code": "from cs50 import SQL\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///shows.db\")\n\n@app.route(\"/search\")\ndef search():\n    q = request.args.get(\"q\")\n    if q:\n        shows = db.execute(\"SELECT title FROM shows WHERE title LIKE ? ORDER BY title\", \"%\" + q + \"%\")\n    else:\n        shows = []\n    return \"<li>\" + \"</li><li>\".join(show[\"title\"] for show in shows) + \"</li>\"\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"path\": \"/search?q=office\"}, {\"path\": \"/search\"}]",
+            "shows.db": "fixture9:shows"
+          },
+          "expected_stdout_exact": "<li>Office Ladies</li><li>The Office</li>\n<li></li>\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l07-u02",
+      "order": 2,
+      "title_fa": "jsonify و escape در مرورگر",
+      "concept_ids": [
+        "w09-c-json",
+        "w09-c-jsonify",
+        "w09-c-response-json",
+        "w09-c-fetch-await",
+        "w09-c-encode-uri",
+        "w09-c-escape-order",
+        "w09-c-ajax"
+      ],
+      "objective_ids": [
+        "w09-o10"
+      ],
+      "note_id": "w09-n15",
+      "source_refs": [
+        "src-notes-9#json",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "به‌جای HTML، سرور می‌تواند داده بفرستد: `return jsonify(shows)` فهرست دیکشنری‌ها را به **JSON** تبدیل می‌کند. در مرورگر، `let response = await fetch('/search?q=' + encodeURIComponent(input.value));` و `let shows = await response.json();` داده را می‌گیرند و جاوااسکریپت خودش `<li>` می‌سازد. اما اکنون escape کار مرورگر است، نه Jinja: عنوانی مثل `<b>` باید پیش از نشاندن در `innerHTML` escape شود، و در جایگزینی دستی، `&` باید **اول** جایگزین شود.",
+        "note_id": "w09-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "shows3-app",
+        "lang": "python",
+        "content": "# Searches for shows using Ajax with JSON\n\nfrom cs50 import SQL\nfrom flask import Flask, jsonify, render_template, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///shows.db\")\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n\n@app.route(\"/search\")\ndef search():\n    q = request.args.get(\"q\")\n    if q:\n        shows = db.execute(\"SELECT * FROM shows WHERE title LIKE ? LIMIT 50\", \"%\" + q + \"%\")\n    else:\n        shows = []\n    return jsonify(shows)",
+        "source_ref": "src-notes-9#json",
+        "explain_fa": "پاسخ JSON با jsonify (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا در جایگزینی دستی برای escape، `&` باید پیش از `<` جایگزین شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون اگر اول `<` به `&lt;` تبدیل شود، جایگزینی بعدی `&` آن را `&amp;lt;` می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. این همان خطایی است که در یادداشت ۱۵ روی جعبهٔ ساخت اجرا شد."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `&` در JSON مجاز نیست.",
+            "correct": false,
+            "feedback_fa": "`&` در رشتهٔ JSON مجاز است."
+          },
+          {
+            "id": "c",
+            "text_fa": "ترتیب مهم نیست.",
+            "correct": false,
+            "feedback_fa": "ترتیب مهم است؛ جایگزینی دوم روی خروجی اولی کار می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l07-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی روی `shows.db` تألیفی، جست‌وجوی `ladies` را با JSON پاسخ می‌دهد. خروجی (فشرده، با کلیدهای مرتب) چیست؟",
+        "expected": {
+          "output": "[{\"id\": 2, \"title\": \"Office Ladies\"}]"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: یک ردیف، به شکل فهرستی از یک دیکشنری.",
+          "incorrect_fa": "`jsonify` فهرست دیکشنری‌ها را به آرایهٔ JSON تبدیل می‌کند."
+        },
+        "hints_fa": [
+          "اجراکننده JSON را با `json.dumps(..., sort_keys=True)` چاپ می‌کند."
+        ],
+        "lang": "flask",
+        "code": "from cs50 import SQL\nfrom flask import Flask, jsonify, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///shows.db\")\n\n@app.route(\"/search\")\ndef search():\n    q = request.args.get(\"q\")\n    shows = db.execute(\"SELECT id, title FROM shows WHERE title LIKE ? ORDER BY id\", \"%\" + q + \"%\") if q else []\n    return jsonify(shows)\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"json\": true, \"path\": \"/search?q=ladies\"}]",
+            "shows.db": "fixture9:shows"
+          },
+          "expected_stdout_exact": "[{\"id\": 2, \"title\": \"Office Ladies\"}]\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

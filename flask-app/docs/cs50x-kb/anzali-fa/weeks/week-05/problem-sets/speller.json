@@ -1,0 +1,416 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w05-ps-speller",
+  "kind": "pset",
+  "week": 5,
+  "title_en": "Speller",
+  "title_fa": "غلط‌یاب املایی (Speller)",
+  "guide_doc_id": "w05-ps-speller",
+  "guide_file": "speller.fa.md",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/5/speller/",
+    "index_url": "https://cs50.harvard.edu/x/psets/5/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w05-ps-speller-r1",
+        "text_fa": "`load`، `hash`، `size`، `check` و `unload` را به ترتیب و تا جای ممکن کارا با یک جدول درهم‌سازی پیاده کن تا زمان هر کدام کمینه شود.",
+        "text_en": "implement, in order, `load`, `hash`, `size`, `check`, and `unload` as efficiently as possible using a hash table in such a way that `TIME IN load`, `TIME IN check`, `TIME IN size`, and `TIME IN unload` are all minimized.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r2",
+        "text_fa": "`speller.c` و `Makefile` را تغییر نده.",
+        "text_en": "You may not alter `speller.c` or `Makefile`.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r3",
+        "text_fa": "`dictionary.c` را باید تغییر بدهی، ولی اعلان (prototype) این پنج تابع را نه. می‌توانی تابع و متغیر (محلی یا سراسری) تازه اضافه کنی.",
+        "text_en": "You may alter `dictionary.c` (and, in fact, must in order to complete the implementations of `load`, `hash`, `size`, `check`, and `unload`), but you may not alter the declarations (i.e., prototypes) of `load`, `hash`, `size`, `check`, or `unload`. You may, though, add new functions and (local or global) variables to `dictionary.c`.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r4",
+        "text_fa": "می‌توانی مقدار `N` را عوض کنی تا جدول سطل‌های بیشتری داشته باشد.",
+        "text_en": "You may change the value of `N` in `dictionary.c`, so that your hash table can have more buckets.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r5",
+        "text_fa": "`dictionary.h` را می‌توانی تغییر بدهی، ولی نه اعلان این پنج تابع را.",
+        "text_en": "You may alter `dictionary.h`, but you may not alter the declarations of `load`, `hash`, `size`, `check`, or `unload`.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r6",
+        "text_fa": "`check` باید به بزرگی و کوچکی حروف حساس نباشد: اگر `foo` در دیکشنری هست، همهٔ شکل‌های `FOO`، `Foo`، `fOo` و مانند آن درست‌اند.",
+        "text_en": "Your implementation of `check` must be case-insensitive.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r7",
+        "text_fa": "جز از نظر بزرگی حروف، `check` فقط برای واژه‌هایی که واقعاً در دیکشنری هستند `true` برمی‌گرداند؛ واژه‌های رایج را سخت‌کد نکن و فقط ملکی‌هایی که در دیکشنری هستند درست‌اند.",
+        "text_en": "Capitalization aside, your implementation of `check` should only return `true` for words actually in `dictionary`.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r8",
+        "text_fa": "می‌توانی فرض کنی دیکشنری مرتب است، هر خط یک واژه با `\\n` در پایان، دست‌کم یک واژه دارد، هیچ واژه‌ای از `LENGTH` بلندتر نیست، تکراری ندارد و فقط حروف کوچک و شاید آپاستروف دارد (نه در ابتدا).",
+        "text_en": "You may assume that any `dictionary` passed to your program will be structured exactly like ours.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r9",
+        "text_fa": "می‌توانی فرض کنی به `check` فقط واژه‌هایی با حروف (بزرگ یا کوچک) و شاید آپاستروف داده می‌شود.",
+        "text_en": "You may assume that `check` will only be passed words that contain (uppercase or lowercase) alphabetical characters and possibly apostrophes.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r10",
+        "text_fa": "ورودی برنامه فقط `text` و به‌اختیار `dictionary` است؛ نتیجهٔ پیش‌پردازش دیکشنری را برای اجراهای بعدی روی دیسک ذخیره نکن.",
+        "text_en": "Your spell checker may only take `text` and, optionally, `dictionary` as input.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r11",
+        "text_fa": "غلط‌یاب نباید حافظه نشت بدهد؛ با `valgrind` بسنج.",
+        "text_en": "Your spell checker must not leak any memory. Be sure to check for leaks with `valgrind`.",
+        "source_ref": "src-pset-5-speller#specification"
+      },
+      {
+        "id": "w05-ps-speller-r12",
+        "text_fa": "تابع درهم‌سازی‌ای که می‌نویسی باید در نهایت از خودت باشد، نه چیزی که در اینترنت پیدا کرده‌ای.",
+        "text_en": "The hash function you write should ultimately be your own, not one you search for online.",
+        "source_ref": "src-pset-5-speller#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/speller",
+      "style50": "style50 dictionary.c",
+      "submit50": "submit50 cs50/problems/2026/x/speller",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/5/speller.zip\nunzip speller.zip\nrm speller.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "فایل‌های پوشه پس از `ls`",
+        "text": "dictionaries/  dictionary.c  dictionary.h  keys/  Makefile  speller.c  speller50  texts/",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نحوهٔ استفادهٔ رسمی",
+        "text": "Usage: speller [dictionary] text",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اجرای برنامه روی فیلم‌نامهٔ La La Land",
+        "text": "./speller texts/lalaland.txt",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "بخشی از خروجی رسمی (آمارها عمداً حذف شده‌اند)",
+        "text": "MISSPELLED WORDS\n\n[...]\nAHHHHHHHHHHHHHHHHHHHHHHHHHHHT\n[...]\nShangri\n[...]\nfianc\n[...]\nSebastian's\n[...]\n\nWORDS MISSPELLED:\nWORDS IN DICTIONARY:\nWORDS IN TEXT:\nTIME IN load:\nTIME IN check:\nTIME IN size:\nTIME IN unload:\nTIME IN TOTAL:",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [
+      {
+        "caption_fa": "بررسی نشت حافظه با یک متن کوچک",
+        "command": "valgrind ./speller texts/cat.txt",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اجرای راه‌حل کارمندان روی همان متن",
+        "command": "./speller50 texts/lalaland.txt",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "ریختن هر دو خروجی در فایل",
+        "command": "./speller texts/lalaland.txt > student.txt\n./speller50 texts/lalaland.txt > staff.txt",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "مقایسهٔ کنار هم",
+        "command": "diff -y student.txt staff.txt",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "مقایسه با کلید رسمی، بدون اجرای راه‌حل کارمندان",
+        "command": "diff -y student.txt keys/lalaland.txt",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "آزمودن با دیکشنری کوچک",
+        "command": "./speller dictionaries/small texts/cat.txt",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/speller",
+      "style50": "style50 dictionary.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "_z57x5PGF4w",
+        "caption_fa": "راهنمای گام‌به‌گام (نخستین ویدئوی فهرست)"
+      }
+    ],
+    "asciinema": "o01nuZNSBSH2khVokTs2GEPtP",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d86",
+      "d91",
+      "d92"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w05-c-multi-file-program",
+      "w05-c-define-const",
+      "w05-c-hash-table",
+      "w05-c-hash-function",
+      "w05-c-good-hash-properties",
+      "w05-c-bucket",
+      "w05-c-collision",
+      "w05-c-chaining",
+      "w05-c-node",
+      "w05-c-prepend",
+      "w05-c-free-list",
+      "w05-c-case-insensitive",
+      "w05-c-wall-clock",
+      "w05-c-time-space-tradeoff"
+    ],
+    "prerequisite_lesson_ids": [
+      "w05-l04",
+      "w05-l05",
+      "w05-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w05-c-multi-file-program",
+        "note_id": "w05-ps-speller",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-define-const",
+        "note_id": "w05-ps-speller",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-hash-table",
+        "note_id": "w05-n11",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u02"
+      },
+      {
+        "concept_id": "w05-c-hash-function",
+        "note_id": "w05-n11",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u01"
+      },
+      {
+        "concept_id": "w05-c-good-hash-properties",
+        "note_id": "w05-sh-hash-tables",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u02"
+      },
+      {
+        "concept_id": "w05-c-bucket",
+        "note_id": "w05-n11",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u01"
+      },
+      {
+        "concept_id": "w05-c-collision",
+        "note_id": "w05-n11",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u02"
+      },
+      {
+        "concept_id": "w05-c-chaining",
+        "note_id": "w05-n11",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u02"
+      },
+      {
+        "concept_id": "w05-c-node",
+        "note_id": "w05-n07",
+        "lesson_id": "w05-l03",
+        "unit_id": "w05-l03-u01"
+      },
+      {
+        "concept_id": "w05-c-prepend",
+        "note_id": "w05-n08",
+        "lesson_id": "w05-l04",
+        "unit_id": "w05-l04-u01"
+      },
+      {
+        "concept_id": "w05-c-free-list",
+        "note_id": "w05-n09",
+        "lesson_id": "w05-l05",
+        "unit_id": "w05-l05-u03"
+      },
+      {
+        "concept_id": "w05-c-case-insensitive",
+        "note_id": "w05-ps-speller",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-wall-clock",
+        "note_id": "w05-ps-speller",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-time-space-tradeoff",
+        "note_id": "w05-n11",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از هر کد، `dictionary.h`، `dictionary.c` و `speller.c` را بخوان و بفهم هر تابع کِی و چند بار صدا زده می‌شود. کدام تابع یک بار و کدام برای هر واژهٔ متن اجرا می‌شود؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "`load` را به چند مسئلهٔ کوچک بشکن، همان‌طور که صفحهٔ رسمی پیشنهاد می‌کند: باز کردن فایل، خواندن واژه‌ها یکی‌یکی، افزودن هر واژه به جدول، بستن فایل. برای «افزودن» از خودت بپرس: گره کجا ساخته می‌شود، واژه چطور در آن قرار می‌گیرد و گره به کدام سطل می‌رود؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "برای افزودن گره به یک سطل، الگوی افزودن به ابتدای فهرست را از یادداشت سخنرانی مرور کن. ترتیب دو جابه‌جایی اشاره‌گر مهم است."
+      },
+      {
+        "n": 4,
+        "hint_fa": "پیش از نوشتن تابع درهم‌ساز تازه، Speller را با همان `hash` پیش‌فرض کامل و درست کن. بعد سراغ سرعت برو. معیارهای جلسه را به یاد بیاور: قطعی، با توزیع یکنواخت و با استفاده از همهٔ سطل‌ها. خروجی تابع باید همیشه اندیس معتبری برای `table` باشد."
+      },
+      {
+        "n": 5,
+        "hint_fa": "صفحهٔ رسمی برای `size` دو راه را مقایسه می‌کند: شمردن هنگام بار کردن، یا شمردن هر بار که `size` صدا زده می‌شود. کدام کاراتر است؟"
+      },
+      {
+        "n": 6,
+        "hint_fa": "در `check` دو چیز باید به حروف حساس نباشد: مقایسهٔ رشته‌ها و خود تابع درهم‌ساز. صفحهٔ رسمی تابعی از `strings.h` را برای مقایسه پیشنهاد می‌کند."
+      },
+      {
+        "n": 7,
+        "hint_fa": "برای `unload` هر سطل یک فهرست پیوندی است؛ الگوی آزاد کردن فهرست از یادداشت سخنرانی را برای همهٔ سطل‌ها به کار ببر. `valgrind` را با یک متن کوچک اجرا کن، وگرنه `load` و `unload` اصلاً صدا زده نمی‌شوند."
+      },
+      {
+        "n": 8,
+        "hint_fa": "برای آزمودن، خروجی را در فایل بریز و با `diff -y` با کلید یا با `speller50` مقایسه کن. با هر دو دیکشنری بزرگ و کوچک بیازما."
+      }
+    ],
+    "common_mistakes_fa": [
+      "تغییر دادن اعلان پنج تابع یا `speller.c`",
+      "برگرداندن مقداری از `hash` که بیرون از بازهٔ `0` تا `N - 1` است",
+      "حساس بودن `hash` به حروف، در حالی که `check` نیست؛ در نتیجه `Foo` در سطل اشتباه جست‌وجو می‌شود",
+      "جا نگذاشتن برای `\\0` هنگام کپی واژه در گره",
+      "نبستن فایل دیکشنری یا آزاد نکردن گره‌ها در `unload`",
+      "آزاد کردن گره پیش از نگه داشتن نشانی گرهٔ بعدی",
+      "اجرای `valgrind` بدون متن و نتیجه‌گیری اشتباه",
+      "بهینه کردن سرعت پیش از درست کردن برنامه"
+    ],
+    "self_checklist": [
+      {
+        "id": "w05-ps-speller-c01",
+        "text_fa": "`speller.c` و `Makefile` دست‌نخورده‌اند و اعلان پنج تابع را عوض نکرده‌ام.",
+        "maps_to": "w05-ps-speller-r2"
+      },
+      {
+        "id": "w05-ps-speller-c02",
+        "text_fa": "`load` دیکشنری را می‌خواند، هر واژه را در جدول می‌گذارد، فایل را می‌بندد و در صورت هر شکست `false` برمی‌گرداند.",
+        "maps_to": "w05-ps-speller-r1"
+      },
+      {
+        "id": "w05-ps-speller-c03",
+        "text_fa": "نتیجهٔ هر `malloc` و `fopen` را سنجیده‌ام.",
+        "maps_to": "w05-ps-speller-r1"
+      },
+      {
+        "id": "w05-ps-speller-c04",
+        "text_fa": "تابع `hash` از خودم است، همیشه عددی در بازهٔ `0` تا `N - 1` برمی‌گرداند و به بزرگی و کوچکی حروف حساس نیست.",
+        "maps_to": "w05-ps-speller-r12"
+      },
+      {
+        "id": "w05-ps-speller-c05",
+        "text_fa": "`check` با `Foo` و `FOO` هم درست کار می‌کند و `foo's` را فقط وقتی درست می‌داند که در دیکشنری باشد.",
+        "maps_to": "w05-ps-speller-r7"
+      },
+      {
+        "id": "w05-ps-speller-c06",
+        "text_fa": "`size` تعداد درست واژه‌ها را برمی‌گرداند (۱۴۳٬۰۹۱ برای دیکشنری بزرگ).",
+        "maps_to": "w05-ps-speller-r1"
+      },
+      {
+        "id": "w05-ps-speller-c07",
+        "text_fa": "خروجی من با `keys/lalaland.txt` یکی است (با `diff -y`).",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w05-ps-speller-c08",
+        "text_fa": "با دیکشنری کوچک هم درست کار می‌کند.",
+        "maps_to": "w05-ps-speller-r8"
+      },
+      {
+        "id": "w05-ps-speller-c09",
+        "text_fa": "`valgrind ./speller texts/cat.txt` هیچ نشت یا خطای حافظه نشان نمی‌دهد.",
+        "maps_to": "w05-ps-speller-r11"
+      },
+      {
+        "id": "w05-ps-speller-c10",
+        "text_fa": "زمان‌هایم را با `speller50` مقایسه کرده‌ام.",
+        "maps_to": "w05-ps-speller-r1"
+      },
+      {
+        "id": "w05-ps-speller-c11",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w05-ps-speller-c12",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w05-ps-speller-c13",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی رسمی «Implement load» (سه مرحلهٔ کد)",
+      "url": "https://cs50.harvard.edu/x/2026/psets/5/speller/#hints",
+      "reason_fa": "کد مرحله‌ای `load` در این راهنمایی به ساختار راه‌حل نزدیک است؛ فقط پیوند (D34)."
+    },
+    {
+      "title_fa": "ویدئوهای راهنمای گام‌به‌گام (۶ ویدئو)",
+      "url": "https://www.youtube.com/playlist?list=PLhQjrBD2T382T4b6jjwX_qbU23E_Unwcz",
+      "reason_fa": "ویدئوهای رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

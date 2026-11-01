@@ -1,0 +1,849 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 3,
+  "title": "چالش‌های هفتهٔ ۳ — الگوریتم‌ها",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. کدها فقط از مفاهیم هفته‌های ۰ تا ۳ استفاده می‌کنند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w03-ch01-linear-search-loop",
+      "type": "token_tap",
+      "concept_tag": "جست‌وجوی خطی (linear search)",
+      "title": "کامل کردن جست‌وجوی خطی",
+      "instruction": "توکن‌های درست را به ترتیب جاهای خالی بزن.",
+      "prompt": "bool search(int numbers[], int n, int target)\n{\n    for (int i = 0; i ___ n; i++)\n    {\n        if (numbers[i] ___ target)\n        {\n            return true;\n        }\n    }\n    return ___;\n}",
+      "token_bank": [
+        "<",
+        "<=",
+        "==",
+        "=",
+        "false",
+        "true"
+      ],
+      "expected_answer": [
+        "<",
+        "==",
+        "false"
+      ],
+      "explanation": "حلقه از ۰ تا n-1 می‌رود (`<`)، برابری با `==` سنجیده می‌شود و «پیدا نشد» فقط بعد از تمام شدن حلقه برمی‌گردد.",
+      "hint": "`=` انتساب است، نه مقایسه. و خانهٔ `numbers[n]` وجود ندارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-linear-search",
+        "w03-c-search-int"
+      ],
+      "source_ref": "src-notes-3#linear-search",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch02-strcmp-equal",
+      "type": "token_tap",
+      "concept_tag": "مقایسهٔ رشته (strcmp)",
+      "title": "برابری دو رشته",
+      "instruction": "توکنی را بزن که شرط را درست کند.",
+      "prompt": "for (int i = 0; i < 3; i++)\n{\n    if (strcmp(words[i], target) ___ 0)\n    {\n        printf(\"Found\\n\");\n    }\n}",
+      "token_bank": [
+        "==",
+        "!=",
+        "=",
+        "<"
+      ],
+      "expected_answer": [
+        "=="
+      ],
+      "explanation": "`strcmp` وقتی دو رشته برابرند `0` برمی‌گرداند.",
+      "hint": "مقدار بازگشتی strcmp را با صفر مقایسه کن.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-strcmp-return",
+        "w03-c-search-strings"
+      ],
+      "source_ref": "src-notes-3#searchc",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch03-binary-middle",
+      "type": "token_tap",
+      "concept_tag": "جست‌وجوی دودویی (binary search)",
+      "title": "خانهٔ وسط و نیمهٔ درست",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن.",
+      "prompt": "int middle = (low + high) ___ 2;\nif (numbers[middle] ___ target)\n{\n    low = middle + 1;\n}",
+      "token_bank": [
+        "/",
+        "*",
+        "%",
+        "<",
+        ">"
+      ],
+      "expected_answer": [
+        "/",
+        "<"
+      ],
+      "explanation": "وسط با تقسیم بر ۲ به دست می‌آید. اگر عدد وسط از هدف کوچک‌تر است، هدف در نیمهٔ راست است و low جلو می‌رود.",
+      "hint": "اگر عدد وسط کوچک‌تر از هدف باشد، هدف کدام طرف است؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-binary-search"
+      ],
+      "source_ref": "src-notes-3#binary-search",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch04-struct-dot",
+      "type": "token_tap",
+      "concept_tag": "ساختار و نماد نقطه (struct, dot notation)",
+      "title": "پر کردن یک struct",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن.",
+      "prompt": "player p;\np___name = \"Sara\";\np.score ___ 10;\nprintf(\"%s %i\\n\", p.name, p.score);",
+      "token_bank": [
+        ".",
+        ",",
+        ":",
+        "=",
+        "=="
+      ],
+      "expected_answer": [
+        ".",
+        "="
+      ],
+      "explanation": "به فیلد با نقطه دسترسی داریم و با `=` مقدار می‌دهیم.",
+      "hint": "`==` مقایسه است، نه مقداردهی.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-struct",
+        "w03-c-dot-notation"
+      ],
+      "source_ref": "src-notes-3#structs",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch05-swap-temp",
+      "type": "token_tap",
+      "concept_tag": "جابه‌جایی (swap)",
+      "title": "جابه‌جا کردن دو همسایه",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا a[i] و a[i + 1] جابه‌جا شوند.",
+      "prompt": "int tmp = a[i];\na[i] = ___;\na[i + 1] = ___;",
+      "token_bank": [
+        "a[i + 1]",
+        "tmp",
+        "a[i]",
+        "0"
+      ],
+      "expected_answer": [
+        "a[i + 1]",
+        "tmp"
+      ],
+      "explanation": "مقدار اول در tmp نجات داده شده؛ پس a[i] مقدار همسایه را می‌گیرد و همسایه مقدار tmp را.",
+      "hint": "بعد از خط دوم، a[i] دیگر مقدار اولش را ندارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-swap"
+      ],
+      "source_ref": "src-transcript-3",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch06-base-case",
+      "type": "token_tap",
+      "concept_tag": "حالت پایه (base case)",
+      "title": "فاکتوریل بازگشتی",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن.",
+      "prompt": "int factorial(int n)\n{\n    if (n ___ 0)\n    {\n        return ___;\n    }\n    return n * factorial(n ___ 1);\n}",
+      "token_bank": [
+        "==",
+        "=",
+        "0",
+        "1",
+        "-",
+        "+"
+      ],
+      "expected_answer": [
+        "==",
+        "1",
+        "-"
+      ],
+      "explanation": "حالت پایه: فاکتوریل صفر برابر ۱ است. حالت بازگشتی با n - 1 به حالت پایه نزدیک می‌شود.",
+      "hint": "اگر به‌جای ۱، ۰ برگردانی، همهٔ حاصل‌ضرب‌ها صفر می‌شوند.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-base-case",
+        "w03-c-recursive-case"
+      ],
+      "source_ref": "src-section-3",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch07-contains-function",
+      "type": "parsons",
+      "concept_tag": "جست‌وجوی خطی (linear search)",
+      "title": "چیدن تابع contains",
+      "instruction": "خط‌ها را به ترتیب درست بچین تا تابع بررسی کند x در آرایه هست یا نه.",
+      "scrambled_lines": [
+        {
+          "id": "L10",
+          "text": "    return false;"
+        },
+        {
+          "id": "L3",
+          "text": "    for (int i = 0; i < n; i++)"
+        },
+        {
+          "id": "L1",
+          "text": "bool contains(int a[], int n, int x)"
+        },
+        {
+          "id": "L6",
+          "text": "        {"
+        },
+        {
+          "id": "L11",
+          "text": "}"
+        },
+        {
+          "id": "L5",
+          "text": "        if (a[i] == x)"
+        },
+        {
+          "id": "L8",
+          "text": "        }"
+        },
+        {
+          "id": "L2",
+          "text": "{"
+        },
+        {
+          "id": "L4",
+          "text": "    {"
+        },
+        {
+          "id": "L7",
+          "text": "            return true;"
+        },
+        {
+          "id": "L9",
+          "text": "    }"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "L10",
+        "L11"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "«پیدا نشد» (`return false`) باید بعد از بستن حلقه بیاید.",
+      "hint": "اول امضای تابع، بعد حلقه، آخر `return false`.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-linear-search"
+      ],
+      "source_ref": "src-notes-3#linear-search",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch08-find-min-index",
+      "type": "parsons",
+      "concept_tag": "مرتب‌سازی انتخابی (selection sort)",
+      "title": "پیدا کردن اندیس کوچک‌ترین",
+      "instruction": "خط‌ها را بچین تا اندیس کوچک‌ترین عدد از خانهٔ i به بعد در min بماند.",
+      "scrambled_lines": [
+        {
+          "id": "L6",
+          "text": "        min = j;"
+        },
+        {
+          "id": "L2",
+          "text": "for (int j = i + 1; j < n; j++)"
+        },
+        {
+          "id": "L8",
+          "text": "}"
+        },
+        {
+          "id": "L4",
+          "text": "    if (a[j] < a[min])"
+        },
+        {
+          "id": "L1",
+          "text": "int min = i;"
+        },
+        {
+          "id": "L7",
+          "text": "    }"
+        },
+        {
+          "id": "L3",
+          "text": "{"
+        },
+        {
+          "id": "L5",
+          "text": "    {"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "این همان «Find smallest number between numbers[i] and numbers[n-1]» در شبه‌کد رسمی است.",
+      "hint": "min را پیش از حلقه مقدار بده.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-selection-sort"
+      ],
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch09-bubble-pass-swaps",
+      "type": "parsons",
+      "concept_tag": "مرتب‌سازی حبابی (bubble sort)",
+      "title": "یک گذر حبابی با شمارندهٔ جابه‌جایی",
+      "instruction": "خط‌ها را بچین تا یک گذر حبابی انجام شود و تعداد جابه‌جایی‌ها شمرده شود.",
+      "scrambled_lines": [
+        {
+          "id": "L9",
+          "text": "        swaps++;"
+        },
+        {
+          "id": "L4",
+          "text": "    if (a[i] > a[i + 1])"
+        },
+        {
+          "id": "L1",
+          "text": "int swaps = 0;"
+        },
+        {
+          "id": "L7",
+          "text": "        a[i] = a[i + 1];"
+        },
+        {
+          "id": "L11",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "for (int i = 0; i < n - 1; i++)"
+        },
+        {
+          "id": "L6",
+          "text": "        int tmp = a[i];"
+        },
+        {
+          "id": "L10",
+          "text": "    }"
+        },
+        {
+          "id": "L3",
+          "text": "{"
+        },
+        {
+          "id": "L8",
+          "text": "        a[i + 1] = tmp;"
+        },
+        {
+          "id": "L5",
+          "text": "    {"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "L10",
+        "L11"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "حد `n - 1` جلوی خواندن `a[n]` را می‌گیرد و swaps همان شمارندهٔ ویدئوی کوتاه Bubble Sort است.",
+      "hint": "شمارنده پیش از حلقه صفر می‌شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-bubble-sort",
+        "w03-c-early-exit-no-swaps"
+      ],
+      "source_ref": "src-notes-3#bubble-sort",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch10-recursive-sum",
+      "type": "parsons",
+      "concept_tag": "بازگشت (recursion)",
+      "title": "جمع بازگشتی ۱ تا n",
+      "instruction": "خط‌ها را بچین تا تابع، جمع ۱ تا n را بازگشتی حساب کند.",
+      "scrambled_lines": [
+        {
+          "id": "L7",
+          "text": "    return n + sum(n - 1);"
+        },
+        {
+          "id": "L3",
+          "text": "    if (n <= 0)"
+        },
+        {
+          "id": "L1",
+          "text": "int sum(int n)"
+        },
+        {
+          "id": "L5",
+          "text": "        return 0;"
+        },
+        {
+          "id": "L8",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "{"
+        },
+        {
+          "id": "L6",
+          "text": "    }"
+        },
+        {
+          "id": "L4",
+          "text": "    {"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "اول حالت پایه، بعد حالت بازگشتی با n - 1.",
+      "hint": "حالت پایه باید پیش از فراخوانی بازگشتی بررسی شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-base-case",
+        "w03-c-recursive-case"
+      ],
+      "source_ref": "src-notes-3#recursion",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch11-struct-print",
+      "type": "parsons",
+      "concept_tag": "آرایه‌ای از struct (array of structs)",
+      "title": "تعریف و چاپ کتاب‌ها",
+      "instruction": "خط‌ها را بچین تا نوع book تعریف شود. (چاپ در کد آزمون انجام می‌شود.)",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "    int pages;"
+        },
+        {
+          "id": "L6",
+          "text": "book;"
+        },
+        {
+          "id": "L1",
+          "text": "typedef struct"
+        },
+        {
+          "id": "L3",
+          "text": "    string title;"
+        },
+        {
+          "id": "L5",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "{"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "الگوی typedef struct درس‌نامه: نام نوع بعد از آکولاد بسته می‌آید.",
+      "hint": "کلیدواژه‌ها اول، فیلدها داخل آکولاد، نام نوع آخر.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-struct",
+        "w03-c-array-of-structs"
+      ],
+      "source_ref": "src-notes-3#structs",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch12-early-false",
+      "type": "spot_bug",
+      "concept_tag": "جست‌وجوی خطی (linear search)",
+      "title": "«پیدا نشد» زودهنگام",
+      "instruction": "این تابع گاهی عددی را که در آرایه هست پیدا نمی‌کند. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "bool search(int numbers[], int n, int target)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    for (int i = 0; i < n; i++)"
+        },
+        {
+          "index": 3,
+          "text": "    {"
+        },
+        {
+          "index": 4,
+          "text": "        if (numbers[i] == target)"
+        },
+        {
+          "index": 5,
+          "text": "        {"
+        },
+        {
+          "index": 6,
+          "text": "            return true;"
+        },
+        {
+          "index": 7,
+          "text": "        }"
+        },
+        {
+          "index": 8,
+          "text": "        return false;"
+        },
+        {
+          "index": 9,
+          "text": "    }"
+        },
+        {
+          "index": 10,
+          "text": "    return false;"
+        },
+        {
+          "index": 11,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 8,
+      "fix": {
+        "action": "delete_line"
+      },
+      "explanation": "`return false` داخل حلقه بعد از اولین خانهٔ ناموفق تابع را تمام می‌کند. باید فقط بعد از حلقه باشد.",
+      "hint": "برای عدد 4 (خانهٔ آخر) چند خانه دیده می‌شود؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-linear-search",
+        "w03-c-pseudocode-precision"
+      ],
+      "source_ref": "src-notes-3#linear-search",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch13-string-equals",
+      "type": "spot_bug",
+      "concept_tag": "مقایسهٔ رشته (strcmp)",
+      "title": "مقایسهٔ رشته با ==",
+      "instruction": "این برنامه hat را پیدا نمی‌کند، با اینکه در آرایه هست. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "for (int i = 0; i < 3; i++)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    if (words[i] == target)"
+        },
+        {
+          "index": 3,
+          "text": "    {"
+        },
+        {
+          "index": 4,
+          "text": "        printf(\"Found\\n\");"
+        },
+        {
+          "index": 5,
+          "text": "    }"
+        },
+        {
+          "index": 6,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "    if (strcmp(words[i], target) == 0)"
+      },
+      "explanation": "`==` برای رشته‌ها کافی نیست؛ همان باگ سخنرانی که battleship را پیدا نکرد. از `strcmp` استفاده کن.",
+      "hint": "کدام تابع string.h رشته‌ها را مقایسه می‌کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-search-strings",
+        "w03-c-strcmp-return"
+      ],
+      "source_ref": "src-notes-3#searchc",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch14-bubble-bounds",
+      "type": "spot_bug",
+      "concept_tag": "مرز آرایه (array bounds)",
+      "title": "گذر حبابی بیرون از آرایه",
+      "instruction": "این گذر حبابی یک خانه بیرون از آرایه را می‌خواند. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "for (int i = 0; i < n; i++)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    if (a[i] > a[i + 1])"
+        },
+        {
+          "index": 3,
+          "text": "    {"
+        },
+        {
+          "index": 4,
+          "text": "        int tmp = a[i];"
+        },
+        {
+          "index": 5,
+          "text": "        a[i] = a[i + 1];"
+        },
+        {
+          "index": 6,
+          "text": "        a[i + 1] = tmp;"
+        },
+        {
+          "index": 7,
+          "text": "    }"
+        },
+        {
+          "index": 8,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 0,
+      "fix": {
+        "action": "replace_line",
+        "text": "for (int i = 0; i < n - 1; i++)"
+      },
+      "explanation": "وقتی i برابر n - 1 است، `a[i + 1]` همان `a[n]` است که وجود ندارد. حلقه باید تا n - 2 برود.",
+      "hint": "آخرین جفتی که باید مقایسه شود کدام است؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-bubble-sort",
+        "w03-c-hardcoded-length"
+      ],
+      "source_ref": "src-notes-3#bubble-sort",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch15-no-progress",
+      "type": "spot_bug",
+      "concept_tag": "حالت بازگشتی (recursive case)",
+      "title": "بازگشتی که به پایان نمی‌رسد",
+      "instruction": "این تابع هرگز به حالت پایه نمی‌رسد. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "int factorial(int n)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    if (n == 0)"
+        },
+        {
+          "index": 3,
+          "text": "    {"
+        },
+        {
+          "index": 4,
+          "text": "        return 1;"
+        },
+        {
+          "index": 5,
+          "text": "    }"
+        },
+        {
+          "index": 6,
+          "text": "    return n * factorial(n);"
+        },
+        {
+          "index": 7,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 6,
+      "fix": {
+        "action": "replace_line",
+        "text": "    return n * factorial(n - 1);"
+      },
+      "explanation": "فراخوانی با همان n هیچ‌وقت به 0 نمی‌رسد و پشتهٔ فراخوانی پر می‌شود.",
+      "hint": "ورودی فراخوانی بازگشتی باید کوچک‌تر شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-recursive-case",
+        "w03-c-call-stack"
+      ],
+      "source_ref": "src-notes-3#recursion",
+      "lang": "c"
+    },
+    {
+      "id": "w03-ch16-selection-compare",
+      "type": "spot_bug",
+      "concept_tag": "مرتب‌سازی انتخابی (selection sort)",
+      "title": "مقایسه با خانهٔ اشتباه",
+      "instruction": "این مرتب‌سازی انتخابی گاهی خروجی نامرتب می‌دهد. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "for (int i = 0; i < n - 1; i++)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    int min = i;"
+        },
+        {
+          "index": 3,
+          "text": "    for (int j = i + 1; j < n; j++)"
+        },
+        {
+          "index": 4,
+          "text": "    {"
+        },
+        {
+          "index": 5,
+          "text": "        if (a[j] < a[i])"
+        },
+        {
+          "index": 6,
+          "text": "        {"
+        },
+        {
+          "index": 7,
+          "text": "            min = j;"
+        },
+        {
+          "index": 8,
+          "text": "        }"
+        },
+        {
+          "index": 9,
+          "text": "    }"
+        },
+        {
+          "index": 10,
+          "text": "    int tmp = a[i];"
+        },
+        {
+          "index": 11,
+          "text": "    a[i] = a[min];"
+        },
+        {
+          "index": 12,
+          "text": "    a[min] = tmp;"
+        },
+        {
+          "index": 13,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 5,
+      "fix": {
+        "action": "replace_line",
+        "text": "        if (a[j] < a[min])"
+      },
+      "explanation": "باید با کوچک‌ترینِ تا اینجا (`a[min]`) مقایسه کنی، نه با `a[i]`؛ وگرنه آخرین عدد کوچک‌تر از a[i] انتخاب می‌شود، نه کوچک‌ترین.",
+      "hint": "آرایهٔ 3 1 2 را با دست دنبال کن.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w03-c-selection-sort"
+      ],
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "lang": "c"
+    }
+  ]
+}

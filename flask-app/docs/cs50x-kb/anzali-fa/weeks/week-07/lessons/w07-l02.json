@@ -1,0 +1,520 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l02",
+  "type": "lesson",
+  "week": 7,
+  "order": 2,
+  "stage_id": "w07-s2",
+  "title_fa": "خواندن داده با SELECT",
+  "title_en": "Reading data with SELECT",
+  "note_ids": [
+    "w07-n03"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w07-l01"
+  ],
+  "concept_ids": [
+    "w07-c-select",
+    "w07-c-select-star",
+    "w07-c-limit",
+    "w07-c-count",
+    "w07-c-distinct",
+    "w07-c-sql-functions",
+    "w07-c-where",
+    "w07-c-and-or",
+    "w07-c-like-wildcard",
+    "w07-c-group-by",
+    "w07-c-order-by",
+    "w07-c-as-alias",
+    "w07-c-string-literal-quotes"
+  ],
+  "objective_ids": [
+    "w07-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w07-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l02-u01",
+      "order": 1,
+      "title_fa": "SELECT، COUNT و DISTINCT",
+      "concept_ids": [
+        "w07-c-select",
+        "w07-c-select-star",
+        "w07-c-limit",
+        "w07-c-count",
+        "w07-c-distinct",
+        "w07-c-sql-functions"
+      ],
+      "objective_ids": [
+        "w07-o03"
+      ],
+      "note_id": "w07-n03",
+      "source_refs": [
+        "src-notes-7#select",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "`SELECT columns FROM table` ستون‌هایی را که می‌خواهی از جدول برمی‌گرداند و `SELECT *` همهٔ ستون‌ها را. `LIMIT 5` فقط چند سطر اول را نشان می‌دهد. تابع‌هایی مثل `COUNT`، `AVG`، `MIN`، `MAX`، `LOWER` و `UPPER` روی ستون‌ها کار می‌کنند: `COUNT(*)` تعداد سطرها را می‌شمارد و `DISTINCT` تکراری‌ها را حذف می‌کند، پس `COUNT(DISTINCT language)` تعداد زبان‌های متفاوت را می‌دهد.",
+        "note_id": "w07-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n03"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "SELECT DISTINCT language FROM favorites ORDER BY language;",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "فهرست زبان‌های یکتا روی پایگاه دادهٔ تمرینی favorites (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "C\nPython\nScratch\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در جدولی با ۱۲ سطر و سه زبان متفاوت، `SELECT COUNT(DISTINCT language) FROM favorites;` چه برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`3`",
+            "correct": true,
+            "feedback_fa": "درست. `DISTINCT` تکراری‌ها را حذف می‌کند و `COUNT` زبان‌های یکتا را می‌شمارد."
+          },
+          {
+            "id": "b",
+            "text_fa": "`12`",
+            "correct": false,
+            "feedback_fa": "این حاصل `COUNT(*)` یا `COUNT(language)` است، چون تکراری‌ها هم شمرده می‌شوند."
+          },
+          {
+            "id": "c",
+            "text_fa": "سه سطر، هر کدام نام یک زبان",
+            "correct": false,
+            "feedback_fa": "`COUNT` یک عدد برمی‌گرداند؛ فهرست نام‌ها حاصل `SELECT DISTINCT language` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l02-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "پایگاه دادهٔ تمرینی `favorites` (در پوشهٔ fixtures) ۱۲ پاسخ دارد که زبانشان یکی از Python، C یا Scratch است. خروجی این دو پرس‌وجو دقیقاً چیست؟ (هر نتیجه در یک سطر)",
+        "expected": {
+          "output": "12\n3"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: اولی همهٔ سطرها و دومی زبان‌های یکتا را می‌شمارد.",
+          "incorrect_fa": "فرق شمردن همهٔ سطرها با شمردن مقدارهای یکتا را در نظر بگیر."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "SELECT COUNT(*) FROM favorites;\nSELECT COUNT(DISTINCT language) FROM favorites;",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "12\n3\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        },
+        "fixture": "favorites"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l02-u02",
+      "order": 2,
+      "title_fa": "WHERE، AND، OR و LIKE",
+      "concept_ids": [
+        "w07-c-where",
+        "w07-c-and-or",
+        "w07-c-like-wildcard"
+      ],
+      "objective_ids": [
+        "w07-o03"
+      ],
+      "note_id": "w07-n03",
+      "source_refs": [
+        "src-notes-7#select",
+        "src-notes-7#relational-databases",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "`WHERE` یک عبارت بولی است که فقط سطرهای مطابق را نگه می‌دارد، مثل `WHERE language = 'C'`. شرط‌ها را می‌شود با `AND` و `OR` ترکیب کرد. برای تطبیق آزادتر، `LIKE` با نماد `%` به کار می‌رود که «هر تعداد نویسه» معنی می‌دهد: `problem LIKE 'Hello, %'` هر مسئله‌ای را که با `Hello, ` شروع شود پیدا می‌کند. در SQLite مقایسهٔ `=` به بزرگی و کوچکی حروف حساس است ولی `LIKE` برای حروف انگلیسی حساس نیست.",
+        "note_id": "w07-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "clauses-list",
+        "lang": "text",
+        "content": "WHERE       -- adding a Boolean expression to filter our data\nLIKE        -- filtering responses more loosely\nORDER BY    -- ordering responses\nLIMIT       -- limiting the number of responses\nGROUP BY    -- grouping responses together",
+        "source_ref": "src-notes-7#relational-databases",
+        "explain_fa": "بندهای اصلی SELECT که درس‌نامه فهرست می‌کند."
+      },
+      "check": {
+        "id": "w07-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام شرط هم `Hello, World` و هم `Hello, It's Me` را پیدا می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`problem LIKE 'Hello, %'`",
+            "correct": true,
+            "feedback_fa": "درست. `%` بقیهٔ متن را با هر طولی می‌پذیرد."
+          },
+          {
+            "id": "b",
+            "text_fa": "`problem = 'Hello, %'`",
+            "correct": false,
+            "feedback_fa": "`=` نماد `%` را حرف عادی می‌گیرد و فقط متن دقیقاً برابر را پیدا می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "`problem = 'Hello, World' AND problem = 'Hello, It''s Me'`",
+            "correct": false,
+            "feedback_fa": "یک مقدار نمی‌تواند هم‌زمان برابر هر دو باشد؛ اینجا `OR` لازم بود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l02-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا تعداد پاسخ‌هایی که مسئله‌شان با `Hello, ` شروع می‌شود شمرده شود. در پایگاه دادهٔ تمرینی `favorites` جواب `4` است.",
+        "lang": "sql",
+        "code_origin": "authored",
+        "template": "SELECT COUNT(*) FROM favorites WHERE problem [[b1]] 'Hello, %';",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "LIKE",
+              "like"
+            ],
+            "hint_fa": "عملگری لازم است که `%` را نماد الگو بفهمد.",
+            "wrong_feedback": {
+              "=": "با `=` نماد `%` حرف عادی است و هیچ مسئله‌ای دقیقاً برابر `Hello, %` نیست؛ نتیجه `0` می‌شود.",
+              "IS": "`IS` مثل `=` مقایسهٔ دقیق است و نتیجه `0` می‌شود.",
+              "GLOB": "`GLOB` به جای `%` از `*` استفاده می‌کند، پس اینجا `%` حرف عادی است و نتیجه `0` می‌شود."
+            },
+            "default_wrong_fa": "عملگر تطبیق الگو با `%` را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "LIKE",
+            "like"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `LIKE` با `%` همهٔ مسئله‌های شروع‌شده با `Hello, ` را می‌شمارد.",
+          "incorrect_fa": "عملگری را بنویس که `%` را نماد الگو بفهمد."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "4\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l02-u03",
+      "order": 3,
+      "title_fa": "GROUP BY، ORDER BY و AS",
+      "concept_ids": [
+        "w07-c-group-by",
+        "w07-c-order-by",
+        "w07-c-as-alias"
+      ],
+      "objective_ids": [
+        "w07-o03"
+      ],
+      "note_id": "w07-n03",
+      "source_refs": [
+        "src-notes-7#select",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "کاری که در پایتون با واژه‌نامه و چند سطر انجام شد، در SQL یک پرس‌وجو است: `GROUP BY language` سطرهای هم‌زبان را گروه می‌کند و `COUNT(*)` هر گروه را می‌شمارد. `ORDER BY` نتیجه را مرتب می‌کند، صعودی (`ASC`، پیش‌فرض) یا نزولی (`DESC`). با `AS n` می‌شود برای ستون نتیجه نام مستعار گذاشت و در `ORDER BY n` از آن استفاده کرد. ترتیب بندها ثابت است: `SELECT`، `FROM`، `WHERE`، `GROUP BY`، `ORDER BY`، `LIMIT`.",
+        "note_id": "w07-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n03"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "SELECT language, COUNT(*) AS n FROM favorites GROUP BY language ORDER BY n DESC LIMIT 1;",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "پرطرفدارترین زبان در پایگاه دادهٔ تمرینی (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "Python|6\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بدون `ORDER BY` ترتیب سطرهای نتیجهٔ یک `SELECT` چگونه است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "SQL ترتیبی تضمین نمی‌کند؛ اگر ترتیب مهم است باید `ORDER BY` بنویسی.",
+            "correct": true,
+            "feedback_fa": "درست. ممکن است ترتیب ثابت به نظر برسد ولی بخشی از نتیجه نیست."
+          },
+          {
+            "id": "b",
+            "text_fa": "همیشه الفبایی است.",
+            "correct": false,
+            "feedback_fa": "SQL چنین قولی نمی‌دهد؛ ترتیب الفبایی را باید با `ORDER BY` خواست."
+          },
+          {
+            "id": "c",
+            "text_fa": "همیشه نزولی بر اساس ستون اول است.",
+            "correct": false,
+            "feedback_fa": "پیش‌فرض `ORDER BY` صعودی است، و بدون آن هیچ ترتیبی تضمین نمی‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l02-u03-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "سطرها را مرتب کن تا هر زبان با تعداد پاسخ‌هایش، از بیشترین به کمترین، چاپ شود. خروجی روی `favorites`: `Python|6`، `C|4`، `Scratch|2`.",
+        "lang": "sql",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "SELECT language, COUNT(*) AS n",
+            "text": "SELECT language, COUNT(*) AS n"
+          },
+          {
+            "id": "p2",
+            "code": "FROM favorites",
+            "text": "FROM favorites"
+          },
+          {
+            "id": "p3",
+            "code": "GROUP BY language",
+            "text": "GROUP BY language"
+          },
+          {
+            "id": "p4",
+            "code": "ORDER BY n DESC;",
+            "text": "ORDER BY n DESC;"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "ORDER BY n;",
+            "why_wrong_fa": "ترتیب را صعودی می‌کند و Scratch اول می‌آید."
+          },
+          {
+            "id": "d2",
+            "code": "GROUP BY problem",
+            "why_wrong_fa": "بر اساس مسئله گروه می‌کند، نه زبان."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: ترتیب بندها SELECT، FROM، GROUP BY و ORDER BY است.",
+          "incorrect_fa": "ترتیب ثابت بندهای SQL را به یاد بیاور."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "Python|6\nC|4\nScratch|2\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l02-u04",
+      "order": 4,
+      "title_fa": "نقل‌قول تکی و حساسیت به حروف",
+      "concept_ids": [
+        "w07-c-string-literal-quotes",
+        "w07-c-like-wildcard"
+      ],
+      "objective_ids": [
+        "w07-o03"
+      ],
+      "note_id": "w07-n03",
+      "source_refs": [
+        "src-notes-7#select",
+        "src-anzali-authored-7",
+        "src-sqlite-docs"
+      ],
+      "reading": {
+        "text_fa": "در SQL رشته داخل نقل‌قول تکی نوشته می‌شود، مثل `'Python'` ؛ نقل‌قول دوتایی برای نام شناسه‌ها، مثل ستون `\"Timestamp\"` ، است. مقایسهٔ `=` در SQLite به بزرگی و کوچکی حروف حساس است، پس `'python'` با `'Python'` برابر نیست، ولی `LIKE` حروف انگلیسی را بدون توجه به بزرگی و کوچکی تطبیق می‌دهد. درس‌نامه برای همین در جست‌وجوی مسئله‌ها از `LIKE` استفاده می‌کند.",
+        "note_id": "w07-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n03"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "SELECT COUNT(*) FROM favorites WHERE language = 'Python';",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "رشته داخل نقل‌قول تکی (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "6\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l02-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `SELECT * FROM favorites WHERE language = 'C';` بخش `'C'` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یک رشتهٔ ثابت که با مقدار ستون مقایسه می‌شود.",
+            "correct": true,
+            "feedback_fa": "درست. نقل‌قول تکی در SQL رشته می‌سازد."
+          },
+          {
+            "id": "b",
+            "text_fa": "نام یک ستون.",
+            "correct": false,
+            "feedback_fa": "نام ستون بدون نقل‌قول یا با نقل‌قول دوتایی نوشته می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "نام یک جدول.",
+            "correct": false,
+            "feedback_fa": "نام جدول بعد از `FROM` آمده است؛ `'C'` مقداری برای مقایسه است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l02-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این دو پرس‌وجو روی `favorites` (که ۶ پاسخ `Python` دارد) دقیقاً چیست؟",
+        "expected": {
+          "output": "0\n6"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `=` به بزرگی حروف حساس است و `LIKE` برای حروف انگلیسی نیست.",
+          "incorrect_fa": "در SQLite فرق `=` و `LIKE` را در بزرگی و کوچکی حروف به یاد بیاور."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "SELECT COUNT(*) FROM favorites WHERE language = 'python';\nSELECT COUNT(*) FROM favorites WHERE language LIKE 'python';",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "0\n6\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        },
+        "fixture": "favorites"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

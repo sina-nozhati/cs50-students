@@ -1,0 +1,287 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l02",
+  "type": "lesson",
+  "week": 9,
+  "order": 2,
+  "stage_id": "w09-s2",
+  "title_fa": "فرم‌ها و layout",
+  "title_en": "Forms and layouts",
+  "note_ids": [
+    "w09-n04",
+    "w09-n05"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w09-l01"
+  ],
+  "concept_ids": [
+    "w09-c-form-to-route",
+    "w09-c-second-route",
+    "w09-c-template-not-found",
+    "w09-c-layout",
+    "w09-c-extends",
+    "w09-c-block"
+  ],
+  "objective_ids": [
+    "w09-o03",
+    "w09-o04"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w09-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l02-u01",
+      "order": 1,
+      "title_fa": "فرم به مسیر دوم",
+      "concept_ids": [
+        "w09-c-form-to-route",
+        "w09-c-second-route",
+        "w09-c-template-not-found"
+      ],
+      "objective_ids": [
+        "w09-o03"
+      ],
+      "note_id": "w09-n04",
+      "source_refs": [
+        "src-notes-9#forms",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "فرم `index.html` با `action=\"/greet\"` داده را به مسیر دیگری می‌فرستد. پس برنامه دو مسیر دارد: `/` فرم را نشان می‌دهد و `/greet` نام را می‌خواند و `greet.html` را می‌سازد. `name` در `<input name=\"name\">` همان کلیدی است که `request.args.get(\"name\")` می‌خواند. اگر قالبی که نام برده‌ای در `templates` نباشد، Flask خطای `TemplateNotFound` می‌دهد.",
+        "note_id": "w09-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-greet-app",
+        "lang": "python",
+        "content": "# Adds a form, second route\n\nfrom flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n\n@app.route(\"/greet\")\ndef greet():\n    return render_template(\"greet.html\", name=request.args.get(\"name\", \"world\"))",
+        "source_ref": "src-notes-9#forms",
+        "explain_fa": "دو مسیر: فرم و سلام (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در فرم، `<input name=\"first\">` است، اما سرور `request.args.get(\"name\", \"world\")` را می‌خواند. پس از فرستادن `David` چه دیده می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`hello, world` ، چون پارامتر `name` در نشانی نیست.",
+            "correct": true,
+            "feedback_fa": "درست. نشانی `?first=David` است و کلید `name` پیدا نمی‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "`hello, David`",
+            "correct": false,
+            "feedback_fa": "سرور با کلید `name` می‌خواند، اما فرم `first` فرستاده است."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای `TemplateNotFound`",
+            "correct": false,
+            "feedback_fa": "این خطا برای نبود فایل قالب است، نه نام پارامتر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l02-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی دو درخواست می‌فرستد. پاسخ‌ها چه هستند؟",
+        "expected": {
+          "output": "<form action=\"/greet\"><input name=\"name\"></form>\nhello, Carter"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `/` فرم را می‌دهد و `/greet?name=Carter` سلام را.",
+          "incorrect_fa": "هر درخواست را جدا دنبال کن: کدام تابع، کدام قالب؟"
+        },
+        "hints_fa": [],
+        "lang": "flask",
+        "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n\n@app.route(\"/greet\")\ndef greet():\n    return render_template(\"greet.html\", name=request.args.get(\"name\", \"world\"))\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"path\": \"/\"}, {\"path\": \"/greet?name=Carter\"}]",
+            "templates/index.html": "<form action=\"/greet\"><input name=\"name\"></form>",
+            "templates/greet.html": "hello, {{ name }}"
+          },
+          "expected_stdout_exact": "<form action=\"/greet\"><input name=\"name\"></form>\nhello, Carter\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l02-u02",
+      "order": 2,
+      "title_fa": "layout، extends و block",
+      "concept_ids": [
+        "w09-c-layout",
+        "w09-c-extends",
+        "w09-c-block"
+      ],
+      "objective_ids": [
+        "w09-o04"
+      ],
+      "note_id": "w09-n05",
+      "source_refs": [
+        "src-notes-9#templates",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "`index.html` و `greet.html` هر دو همان `<head>` و ساختار را تکرار می‌کردند. قالب مادر `layout.html` بخش مشترک را یک‌جا نگه می‌دارد و با `{% block body %}{% endblock %}` جای محتوای هر صفحه را خالی می‌گذارد. صفحهٔ فرزند با `{% extends \"layout.html\" %}` آغاز می‌شود و محتوای خودش را در `{% block body %} ... {% endblock %}` می‌گذارد. نام بلوک در دو فایل باید یکی باشد، وگرنه جای خالی، خالی می‌ماند.",
+        "note_id": "w09-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "layout",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<html lang=\"en\">\n\n    <head>\n        <title>hello</title>\n    </head>\n\n    <body>\n        {% block body %}{% endblock %}\n    </body>\n\n</html>",
+        "source_ref": "src-notes-9#templates",
+        "explain_fa": "قالب مادر با block body (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فرزند `{% block main %}hi{% endblock %}` دارد اما layout فقط `{% block body %}{% endblock %}` . چه رندر می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "بخش مشترک layout بدون `hi` ، چون بلوک `main` در layout جایی ندارد.",
+            "correct": true,
+            "feedback_fa": "درست. نام بلوک‌ها باید جور باشند."
+          },
+          {
+            "id": "b",
+            "text_fa": "خطای `TemplateSyntaxError`",
+            "correct": false,
+            "feedback_fa": "نام ناجور خطای نحوی نیست؛ فقط محتوای فرزند جایی نمی‌نشیند."
+          },
+          {
+            "id": "c",
+            "text_fa": "فقط `hi` ، بدون layout",
+            "correct": false,
+            "feedback_fa": "فرزند همچنان از layout ارث می‌برد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l02-u02-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌های این قالب فرزند را مرتب کن تا با layout خط‌های `<p>top</p>` ، `hello, Sina` و `<p>bottom</p>` رندر شوند. (Jinja2 واقعی؛ `name` از context می‌آید.)",
+        "lang": "jinja",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "{% extends \"layout.html\" %}",
+            "text": "{% extends \"layout.html\" %}"
+          },
+          {
+            "id": "p2",
+            "code": "{% block body %}",
+            "text": "{% block body %}"
+          },
+          {
+            "id": "p3",
+            "code": "hello, {{ name }}",
+            "text": "hello, {{ name }}"
+          },
+          {
+            "id": "p4",
+            "code": "{% endblock %}",
+            "text": "{% endblock %}"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "{% block main %}",
+            "why_wrong_fa": "layout بلوکی به نام `main` ندارد."
+          },
+          {
+            "id": "d2",
+            "code": "{% end %}",
+            "why_wrong_fa": "بستن بلوک `{% endblock %}` است."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ]
+        },
+        "indentation_matters": true,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: اول extends، بعد بلوکی با همان نام layout.",
+          "incorrect_fa": "extends باید اول باشد و بلوک با همان نام layout باز و بسته شود."
+        },
+        "hints_fa": [
+          "نام بلوک layout را ببین."
+        ],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "templates/layout.html": "<p>top</p>\n{% block body %}{% endblock %}\n<p>bottom</p>",
+            "context.json": "{\"name\": \"Sina\"}"
+          },
+          "expected_stdout_exact": "<p>top</p>\nhello, Sina\n<p>bottom</p>\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

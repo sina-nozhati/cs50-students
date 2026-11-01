@@ -3,7 +3,8 @@
 {% block title %}{{ doc.title }}{% endblock %}
 
 {% block content %}
-<nav class="mb-4 text-sm flex flex-wrap gap-2 items-center" aria-label="مسیر راهنما">
+<div class="max-w-4xl mx-auto space-y-6">
+<nav class="mb-2 text-sm flex flex-wrap gap-2 items-center" aria-label="مسیر راهنما">
   <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer">پایگاه دانش</a>
   {% if doc.site_number is not none %}
   <span class="text-[var(--border)]">/</span>
@@ -12,6 +13,23 @@
   <span class="text-[var(--border)]">/</span>
   <span class="text-[var(--slate)] truncate max-w-xs">{{ doc.title }}</span>
 </nav>
+
+{% if doc.site_number is not none %}
+{# نوار هدایت هوشمند جایگاه در مسیر یادگیری #}
+<div class="flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-[#1A1A22] p-3 sm:p-4 rounded-2xl border border-[var(--border)] text-xs shadow-xs">
+  <div class="flex items-center gap-2.5">
+    <span class="inline-flex px-2.5 py-0.5 rounded-full bg-crimson-tint text-crimson font-bold text-xs num">هفته {{ doc.site_number }}</span>
+    <span class="text-[var(--ink)] font-bold">گام ۲: درسنامه‌های درس</span>
+    {% if doc.siblings_nav %}
+    <span class="text-[var(--slate)] font-mono text-[11px]">({{ doc.siblings_nav.current_index }} از {{ doc.siblings_nav.total_count }})</span>
+    {% endif %}
+  </div>
+  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline font-bold inline-flex items-center gap-1.5 transition">
+    <span>نقشه کامل مراحل هفته</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</div>
+{% endif %}
 
 {# نوار پیشرفت مطالعه یادداشت‌های هفته #}
 {% if doc.siblings_nav %}
@@ -73,7 +91,7 @@
     {% endif %}
   </div>
 
-  <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight text-[var(--foreground)]">{{ doc.title }}</h1>
+  <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight text-[var(--ink)]">{{ doc.title }}</h1>
 
   <div class="flex flex-wrap items-center gap-4 mt-3">
     {% if doc.source_url %}
@@ -90,7 +108,7 @@
 {% if doc.is_fa and doc.counterpart and not doc.counterpart.is_fa %}
 <section class="mb-6">
   <details class="card-harvard p-4 sm:p-5 border border-[var(--border)] group">
-    <summary class="flex items-center justify-between cursor-pointer font-bold text-sm text-[var(--foreground)] hover:text-crimson select-none">
+    <summary class="flex items-center justify-between cursor-pointer font-bold text-sm text-[var(--ink)] hover:text-crimson select-none">
       <div class="flex items-center gap-2">
         <svg class="w-4 h-4 text-crimson shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
         <span>متن اصلی (English)</span>
@@ -263,4 +281,5 @@
     استخراج غیرتجاری آموزشی برای CS50x Anzali؛ ترجمه‌ها و اقتباس‌ها با همان مجوز ShareAlike.
   </p>
 </footer>
+</div>
 {% endblock %}

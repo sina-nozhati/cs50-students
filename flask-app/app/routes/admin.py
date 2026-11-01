@@ -39,7 +39,7 @@ from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 
 from app import db
-from app.models import Resource, Submission, Assignment
+from app.models import Resource, Submission, Assignment, User
 from app.services import resources as res_service
 from app.services import weeks as weeks_service
 from app.services import users as users_service
@@ -50,6 +50,8 @@ from app.services import progress as progress_service
 from app.services import engagement as engagement_service
 from app.services import notifications as notif_service
 from app.services import kb_admin
+from app.services import diagnostics as diag_service
+from app.services import cohorts as cohort_service
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -98,6 +100,7 @@ def index():
 
     # تعداد تحویل‌های بدون نمره
     ungraded_count = Submission.query.filter(Submission.grade.is_(None)).count()
+    cohort_diagnostics = diag_service.get_cohort_diagnostic_overview()
 
     return render_template(
         "admin/index.html",
@@ -108,6 +111,7 @@ def index():
         top_performers=top_performers,
         ungraded_count=ungraded_count,
         students_at_risk=students_at_risk,
+        cohort_diagnostics=cohort_diagnostics,
     )
 
 
@@ -244,6 +248,7 @@ def users_detail(user_id: int):
     """صفحه جزئیات کامل دانش‌آموز."""
     detail = users_service.get_user_detail(user_id)
     rank = progress_service.get_class_rank(user_id)
+    diagnostics = diag_service.get_student_diagnostic_profile(user_id)
     return render_template(
         "admin/user_detail.html",
         user=detail["user"],
@@ -251,6 +256,7 @@ def users_detail(user_id: int):
         week_progress=detail["week_progress"],
         xp_logs=detail["xp_logs"],
         rank=rank,
+        diagnostics=diagnostics,
     )
 
 
@@ -601,6 +607,7 @@ def kb_packages_dashboard():
     return render_template("admin/kb_packages.html", weeks_status=weeks_status)
 
 
+
 @bp.route("/kb-packages/upload", methods=["POST"])
 @admin_required
 def kb_packages_upload():
@@ -626,8 +633,9 @@ def kb_packages_upload():
     try:
         result = kb_admin.install_kb_package(tmp_path, target_week=target_week)
         if result.get("success"):
+            w_disp = "۷.۵" if result["week"] == 71 else ("۹.۵" if result["week"] == 99 else str(result["week"]))
             flash(
-                f"بسته هفته {result['week']} با موفقیت نصب و ادغام شد! "
+                f"بسته هفته {w_disp} با موفقیت نصب و ادغام شد! "
                 f"({result['notes_count']} یادداشت درس، {result['flashcards_count']} فلش‌کارت، "
                 f"{result['quiz_count']} سوال آزمون، {result['glossary_count']} اصطلاح واژه‌نامه)",
                 "success",
@@ -643,3 +651,175 @@ def kb_packages_upload():
 
     return redirect(url_for("admin.kb_packages_dashboard"))
 
+
+# ──────────────────────────────────────────────────────────────────────────────
+# مدیریت دوره‌ها و نوبت‌های برگزاری (Cohorts & Multi-Course Management)
+# ──────────────────────────────────────────────────────────────────────────────
+@bp.route("/cohorts")
+@admin_required
+def cohorts_list():
+    """لیست تمام نوبت‌های برگزاری با قابلیت فیلتر وضعیت."""
+    status_filter = request.args.get("status", "all")
+    cohorts = cohort_service.list_all_cohorts(status_filter=status_filter)
+    courses = cohort_service.list_all_courses()
+    return render_template(
+        "admin/cohorts/index.html",
+        cohorts=cohorts,
+        courses=courses,
+        current_filter=status_filter,
+    )
+
+
+@bp.route("/cohorts/create", methods=["GET", "POST"])
+@admin_required
+def cohorts_create():
+    """ایجاد نوبت برگزاری جدید."""
+    courses = cohort_service.list_all_courses()
+    if request.method == "POST":
+        course_id = int(request.form.get("course_id", 1))
+        name = request.form.get("name", "").strip()
+        code = request.form.get("code", "").strip()
+        year = int(request.form.get("year", 1405))
+        season = request.form.get("season", "").strip()
+        status = request.form.get("status", "active")
+        capacity_raw = request.form.get("capacity")
+        capacity = int(capacity_raw) if capacity_raw and capacity_raw.strip().isdigit() else None
+        description = request.form.get("description", "").strip()
+
+        if not name or not code:
+            flash("نام و کد یکتای دوره الزامی هستند.", "error")
+            return render_template("admin/cohorts/form.html", courses=courses, cohort=None)
+
+        try:
+            cohort = cohort_service.create_cohort(
+                course_id=course_id,
+                name=name,
+                code=code,
+                year=year,
+                season=season,
+                status=status,
+                capacity=capacity,
+                description=description,
+            )
+            flash(f"دوره '{cohort.name}' با موفقیت ایجاد شد.", "success")
+            return redirect(url_for("admin.cohorts_detail", cohort_id=cohort.id))
+        except ValueError as e:
+            flash(str(e), "error")
+            return render_template("admin/cohorts/form.html", courses=courses, cohort=None)
+
+    return render_template("admin/cohorts/form.html", courses=courses, cohort=None)
+
+
+@bp.route("/cohorts/<int:cohort_id>/edit", methods=["GET", "POST"])
+@admin_required
+def cohorts_edit(cohort_id: int):
+    """ویرایش اطلاعات نوبت برگزاری."""
+    cohort_data = cohort_service.get_cohort_detail(cohort_id)
+    if not cohort_data:
+        abort(404)
+    cohort = cohort_data["cohort"]
+    courses = cohort_service.list_all_courses()
+
+    if request.method == "POST":
+        name = request.form.get("name")
+        year = int(request.form.get("year", cohort.year))
+        season = request.form.get("season")
+        status = request.form.get("status")
+        capacity_raw = request.form.get("capacity")
+        capacity = int(capacity_raw) if capacity_raw and capacity_raw.strip().isdigit() else None
+        description = request.form.get("description")
+
+        cohort_service.update_cohort(
+            cohort_id=cohort.id,
+            name=name,
+            year=year,
+            season=season,
+            status=status,
+            capacity=capacity,
+            description=description,
+        )
+        flash("مشخصات دوره با موفقیت به‌روزرسانی شد.", "success")
+        return redirect(url_for("admin.cohorts_detail", cohort_id=cohort.id))
+
+    return render_template("admin/cohorts/form.html", courses=courses, cohort=cohort)
+
+
+@bp.route("/cohorts/<int:cohort_id>")
+@admin_required
+def cohorts_detail(cohort_id: int):
+    """صفحه جزئیات نوبت برگزاری، آمار و فهرست دانش‌آموزان عضو."""
+    data = cohort_service.get_cohort_detail(cohort_id)
+    if not data:
+        abort(404)
+    enrolled_user_ids = {s["user_id"] for s in data["students"]}
+    all_students = User.query.filter_by(is_admin=False).all()
+    available_students = [s for s in all_students if s.id not in enrolled_user_ids]
+
+    return render_template(
+        "admin/cohorts/detail.html",
+        cohort=data["cohort"],
+        course=data["course"],
+        students=data["students"],
+        stats=data["stats"],
+        available_students=available_students,
+    )
+
+
+@bp.route("/cohorts/<int:cohort_id>/enroll", methods=["POST"])
+@admin_required
+def cohorts_enroll_student(cohort_id: int):
+    """ثبت‌نام تکی یا گروهی دانش‌آموزان در دوره."""
+    mode = request.form.get("enroll_mode", "single")
+    if mode == "bulk":
+        bulk_text = request.form.get("student_identifiers", "")
+        lines = [line.strip() for line in bulk_text.replace(",", "\n").splitlines() if line.strip()]
+        res = cohort_service.bulk_enroll_students(cohort_id, lines)
+        msg = f"ثبت‌نام گروهی انجام شد: {res['enrolled']} دانش‌آموز افزوده شدند."
+        if res["already_enrolled"]:
+            msg += f" ({res['already_enrolled']} نفر از قبل عضو بودند)"
+        if res["not_found"]:
+            msg += f" — موارد یافت‌نشده: {', '.join(res['not_found'])}"
+        flash(msg, "info")
+    else:
+        user_id_raw = request.form.get("user_id")
+        if not user_id_raw or not user_id_raw.isdigit():
+            flash("لطفاً یک دانش‌آموز معتبر انتخاب کنید.", "error")
+        else:
+            success, msg = cohort_service.enroll_student_in_cohort(int(user_id_raw), cohort_id)
+            flash(msg, "success" if success else "warning")
+
+    return redirect(url_for("admin.cohorts_detail", cohort_id=cohort_id))
+
+
+@bp.route("/cohorts/<int:cohort_id>/enrollments/<int:enrollment_id>/status", methods=["POST"])
+@admin_required
+def cohorts_update_enrollment_status(cohort_id: int, enrollment_id: int):
+    """تغییر وضعیت عضویت دانش‌آموز (active / dropped / completed)."""
+    new_status = request.form.get("status", "active")
+    success = cohort_service.update_enrollment_status(enrollment_id, new_status)
+    if success:
+        flash("وضعیت عضویت با موفقیت به‌روزرسانی شد.", "success")
+    else:
+        flash("عضویت مورد نظر یافت نشد.", "error")
+    return redirect(url_for("admin.cohorts_detail", cohort_id=cohort_id))
+
+
+@bp.route("/cohorts/<int:cohort_id>/enrollments/<int:enrollment_id>/remove", methods=["POST"])
+@admin_required
+def cohorts_remove_enrollment(cohort_id: int, enrollment_id: int):
+    """حذف عضویت دانش‌آموز از دوره بدون حذف حساب کاربری."""
+    success = cohort_service.remove_enrollment(enrollment_id)
+    if success:
+        flash("عضویت دانش‌آموز از این دوره حذف شد (حساب کاربری محفوظ ماند).", "success")
+    else:
+        flash("عضویت مورد نظر یافت نشد.", "error")
+    return redirect(url_for("admin.cohorts_detail", cohort_id=cohort_id))
+
+
+@bp.route("/cohorts/<int:cohort_id>/archive", methods=["POST"])
+@admin_required
+def cohorts_archive(cohort_id: int):
+    """بایگانی‌کردن نوبت برگزاری بدون حذف هیچ‌گونه اطلاعات یا سابقه."""
+    cohort_service.archive_cohort(cohort_id)
+    flash("نوبت برگزاری با حفظ کلیه سوابق بایگانی شد.", "info")
+    return redirect(url_for("admin.cohorts_list"))

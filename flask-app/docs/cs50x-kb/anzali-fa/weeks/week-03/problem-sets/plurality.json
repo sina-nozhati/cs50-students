@@ -1,0 +1,224 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-ps-plurality",
+  "kind": "pset",
+  "week": 3,
+  "title_en": "Plurality",
+  "title_fa": "انتخابات اکثریت نسبی (Plurality)",
+  "guide_doc_id": "w03-ps-plurality",
+  "guide_file": "plurality.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/3/plurality/",
+    "index_url": "https://cs50.harvard.edu/x/psets/3/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w03-ps-plurality-r1",
+        "text_fa": "فقط پیاده‌سازی `vote` و `print_winner` را تغییر بده (افزودن فایل سرآیند مجاز است).",
+        "text_en": "You should not modify anything else in `plurality.c` other than the implementations of the `vote` and `print_winner` functions (and the inclusion of additional header files, if you’d like).",
+        "source_ref": "src-pset-3-plurality#distribution-code"
+      },
+      {
+        "id": "w03-ps-plurality-r2",
+        "text_fa": "`vote` نام نامزد را می‌گیرد و اگر رأی ثبت شد `true`، وگرنه `false` برمی‌گرداند.",
+        "text_en": "`vote` should return a `bool`, where `true` indicates a vote was successfully cast and `false` indicates it was not.",
+        "source_ref": "src-pset-3-plurality#hints"
+      },
+      {
+        "id": "w03-ps-plurality-r3",
+        "text_fa": "`print_winner` نام نامزد با بیشترین رأی و بعد یک خط تازه چاپ کند.",
+        "text_en": "The function should print out the name of the candidate who received the most votes in the election, and then print a newline.",
+        "source_ref": "src-pset-3-plurality#hints"
+      },
+      {
+        "id": "w03-ps-plurality-r4",
+        "text_fa": "در حالت تساوی، نام همهٔ برنده‌ها هر کدام در یک خط چاپ شود.",
+        "text_en": "In that case, you should output the names of each of the winning candidates, each on a separate line.",
+        "source_ref": "src-pset-3-plurality#hints"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/plurality",
+      "style50": "style50 plurality.c",
+      "submit50": "submit50 cs50/problems/2026/x/plurality",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/3/plurality.zip\nunzip plurality.zip\nrm plurality.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/plurality",
+      "style50": "style50 plurality.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "ftOapzDjEb8",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "o2EXEqiz7iqfDB31wYxBOWjs8",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d42"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-struct",
+      "w03-c-dot-notation",
+      "w03-c-array-of-structs",
+      "w03-c-search-strings",
+      "w03-c-strcmp-return",
+      "w03-c-linear-search",
+      "w03-c-big-o"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l03",
+      "w03-l04"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-struct",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-dot-notation",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-array-of-structs",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-search-strings",
+        "note_id": "w03-n07",
+        "lesson_id": "w03-l03",
+        "unit_id": "w03-l03-u02"
+      },
+      {
+        "concept_id": "w03-c-strcmp-return",
+        "note_id": "w03-n07",
+        "lesson_id": "w03-l03",
+        "unit_id": "w03-l03-u02"
+      },
+      {
+        "concept_id": "w03-c-linear-search",
+        "note_id": "w03-n02",
+        "lesson_id": "w03-l01",
+        "unit_id": "w03-l01-u02"
+      },
+      {
+        "concept_id": "w03-c-big-o",
+        "note_id": "w03-n04",
+        "lesson_id": "w03-l02",
+        "unit_id": "w03-l02-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "`vote` در اصل یک جست‌وجوست: دنبال نامی در آرایه‌ای از struct می‌گردی. کدام یادداشت این هفته همین کار را با شماره تلفن کرد؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "نام‌ها رشته‌اند. یادت هست چرا `==` در search.c کار نکرد؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "برای `print_winner` صفحهٔ رسمی می‌گوید لازم نیست مرتب کنی؛ دو چیز کافی است. آن دو چیز را با دو گذر جدا روی آرایه به دست بیاور."
+      },
+      {
+        "n": 4,
+        "hint_fa": "تساوی را از اول در نظر بگیر: اگر چند نفر رأی برابرِ بیشینه دارند، طراحی‌ات باید بدون تغییر همه را چاپ کند."
+      },
+      {
+        "n": 5,
+        "hint_fa": "با مثال‌های کوچک (سه نامزد، چهار رأی‌دهنده) هر دو حالت یک برنده و تساوی را با دست دنبال کن."
+      }
+    ],
+    "common_mistakes_fa": [
+      "مقایسهٔ رشته‌ها با `==`",
+      "برگرداندن `false` پیش از دیدن همهٔ نامزدها",
+      "چاپ فقط یک برنده در حالت تساوی",
+      "تغییر دادن `main` یا امضای توابع",
+      "مرتب کردن آرایه در حالی که لازم نیست"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-ps-plurality-c01",
+        "text_fa": "فقط بدنهٔ `vote` و `print_winner` را تغییر داده‌ام.",
+        "maps_to": "w03-ps-plurality-r1"
+      },
+      {
+        "id": "w03-ps-plurality-c02",
+        "text_fa": "رأی به نامی که در فهرست نیست ثبت نمی‌شود و `vote` مقدار `false` برمی‌گرداند.",
+        "maps_to": "w03-ps-plurality-r2"
+      },
+      {
+        "id": "w03-ps-plurality-c03",
+        "text_fa": "یک برنده درست چاپ می‌شود.",
+        "maps_to": "w03-ps-plurality-r3"
+      },
+      {
+        "id": "w03-ps-plurality-c04",
+        "text_fa": "تساوی چند نفره را امتحان کرده‌ام و همه چاپ می‌شوند.",
+        "maps_to": "w03-ps-plurality-r4"
+      },
+      {
+        "id": "w03-ps-plurality-c05",
+        "text_fa": "انتخاباتی با ۹ نامزد (حداکثر `MAX`) را امتحان کرده‌ام.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w03-ps-plurality-c06",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w03-ps-plurality-c07",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w03-ps-plurality-c08",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "شبه‌کد راهنمای `vote` و `print_winner` در «Hints» صفحهٔ رسمی",
+      "url": "https://cs50.harvard.edu/x/psets/3/plurality/#hints",
+      "reason_fa": "شبه‌کد رسمی گام‌های تابع را مستقیم نشان می‌دهد؛ برای اینکه اول خودت فکر کنی در این بسته بازتولید نشده است."
+    },
+    {
+      "title_fa": "کد آغازین `plurality.c`",
+      "url": "https://cs50.harvard.edu/x/psets/3/plurality/#distribution-code",
+      "reason_fa": "کد رسمی را خودت دانلود و بخوان؛ اینجا تکرار نمی‌شود."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

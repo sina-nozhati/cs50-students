@@ -1,0 +1,293 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w09-pr-helloflask",
+  "kind": "practice",
+  "week": 9,
+  "title_en": "Hello, Flask",
+  "title_fa": "سلام، Flask (Hello, Flask)",
+  "guide_doc_id": "w09-pr-helloflask",
+  "guide_file": "helloflask.fa.md",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/helloflask/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "choice_group": null,
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w09-pr-helloflask-r1",
+        "text_fa": "ساده‌ترین برنامهٔ Flask فقط یک فایل `app.py` دارد که صفحه‌ای می‌سازد و سلام می‌کند؛ با `flask run` اجرایش کن و بعد متن دیگری مثل `<h1>Hello, World!</h1>` برگردان.",
+        "text_en": "The most simple Flask app uses just one file, app.py. ... Try returning different text, like <h1>Hello, World!</h1>. How does this change what you see?",
+        "source_ref": "src-practice-helloflask#implementation-details"
+      },
+      {
+        "id": "w09-pr-helloflask-r2",
+        "text_fa": "پوشهٔ `templates` با `layout.html` و `index.html` (که از layout ارث می‌برد) بساز و `index` را طوری تغییر بده که `render_template` کند.",
+        "text_en": "Templates",
+        "source_ref": "src-practice-helloflask#templates"
+      },
+      {
+        "id": "w09-pr-helloflask-r3",
+        "text_fa": "به `index.html` فرمی با منوی کشویی `color` اضافه کن که با POST به `/` فرستاده شود؛ پیش از تغییر مسیر، پیام «Method not allowed» می‌بینی.",
+        "text_en": "Add a form to index.html ... You should see the message “Method not allowed”.",
+        "source_ref": "src-practice-helloflask#forms"
+      },
+      {
+        "id": "w09-pr-helloflask-r4",
+        "text_fa": "مسیر `/` را برای GET و POST تنظیم کن: GET فرم را نشان دهد و POST رنگ را بخواند و `color.html` را با آن رنگ رندر کند.",
+        "text_en": "In app.py, we need to adjust our route to handle the POST request.",
+        "source_ref": "src-practice-helloflask#post"
+      },
+      {
+        "id": "w09-pr-helloflask-r5",
+        "text_fa": "فکر کن چه کدی اضافه کنی تا فقط رنگ‌های معتبر (مثلاً `red` و `blue`) پذیرفته شوند.",
+        "text_en": "What additional code could you add to ensure the colors we receive are valid colors?",
+        "source_ref": "src-practice-helloflask#post"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/9/helloflask.zip\nunzip helloflask.zip\nrm helloflask.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [],
+    "official_commands": [
+      {
+        "caption_fa": "گام نخست: کوچک‌ترین `app.py` رسمی",
+        "command": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return \"Hello, World!\"",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "تزئین‌گری که مسیر `/` را به تابع وصل می‌کند",
+        "command": "@app.route(\"/\")",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d177",
+      "d178"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w09-c-flask-forms-practice",
+      "w09-c-flask",
+      "w09-c-flask-app-object",
+      "w09-c-decorator",
+      "w09-c-return-text-html",
+      "w09-c-flask-run",
+      "w09-c-templates-folder",
+      "w09-c-render-template",
+      "w09-c-layout",
+      "w09-c-block",
+      "w09-c-extends",
+      "w09-c-select-menu",
+      "w09-c-405",
+      "w09-c-methods-param",
+      "w09-c-request-method",
+      "w09-c-request-form",
+      "w09-c-server-validation"
+    ],
+    "prerequisite_lesson_ids": [
+      "w09-l01",
+      "w09-l02",
+      "w09-l03",
+      "w09-l04"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w09-c-flask-forms-practice",
+        "note_id": "w09-pr-helloflask",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-flask",
+        "note_id": "w09-n02",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u02"
+      },
+      {
+        "concept_id": "w09-c-flask-app-object",
+        "note_id": "w09-n02",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u02"
+      },
+      {
+        "concept_id": "w09-c-decorator",
+        "note_id": "w09-n02",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u02"
+      },
+      {
+        "concept_id": "w09-c-return-text-html",
+        "note_id": "w09-n02",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u02"
+      },
+      {
+        "concept_id": "w09-c-flask-run",
+        "note_id": "w09-n02",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u02"
+      },
+      {
+        "concept_id": "w09-c-templates-folder",
+        "note_id": "w09-n03",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u03"
+      },
+      {
+        "concept_id": "w09-c-render-template",
+        "note_id": "w09-n03",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u03"
+      },
+      {
+        "concept_id": "w09-c-layout",
+        "note_id": "w09-n05",
+        "lesson_id": "w09-l02",
+        "unit_id": "w09-l02-u02"
+      },
+      {
+        "concept_id": "w09-c-block",
+        "note_id": "w09-n05",
+        "lesson_id": "w09-l02",
+        "unit_id": "w09-l02-u02"
+      },
+      {
+        "concept_id": "w09-c-extends",
+        "note_id": "w09-n05",
+        "lesson_id": "w09-l02",
+        "unit_id": "w09-l02-u02"
+      },
+      {
+        "concept_id": "w09-c-select-menu",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      },
+      {
+        "concept_id": "w09-c-405",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u01"
+      },
+      {
+        "concept_id": "w09-c-methods-param",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u01"
+      },
+      {
+        "concept_id": "w09-c-request-method",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u02"
+      },
+      {
+        "concept_id": "w09-c-request-form",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u01"
+      },
+      {
+        "concept_id": "w09-c-server-validation",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "گام‌ها را به ترتیب صفحهٔ رسمی پیش ببر و پس از هر گام برنامه را اجرا کن؛ هر گام فقط یک چیز تازه دارد."
+      },
+      {
+        "n": 2,
+        "hint_fa": "اگر «TemplateNotFound» دیدی، نام و جای پوشهٔ `templates` را بررسی کن."
+      },
+      {
+        "n": 3,
+        "hint_fa": "وقتی «Method not allowed» دیدی، از خودت بپرس مسیر `/` اکنون کدام روش‌ها را می‌پذیرد و چطور می‌شود آن را عوض کرد."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای اعتبارسنجی، الگوی `SPORTS` در froshims را به یاد بیاور: یک فهرست ثابت از مقدارهای مجاز و بررسی عضویت پیش از استفاده."
+      }
+    ],
+    "common_mistakes_fa": [
+      "گذاشتن `layout.html` بیرون از `templates`",
+      "نام بلوک متفاوت در layout و صفحهٔ فرزند (صفحه خالی می‌ماند)",
+      "فراموش کردن `request` در import",
+      "اعتماد به اینکه منوی کشویی فقط `red` یا `blue` می‌فرستد"
+    ],
+    "self_checklist": [
+      {
+        "id": "w09-pr-helloflask-c01",
+        "text_fa": "`flask run` برنامه را اجرا می‌کند و `/` متن سلام را نشان می‌دهد.",
+        "maps_to": "w09-pr-helloflask-r1"
+      },
+      {
+        "id": "w09-pr-helloflask-c02",
+        "text_fa": "برگرداندن `<h1>...</h1>` را امتحان کرده‌ام و تفاوت را دیده‌ام.",
+        "maps_to": "w09-pr-helloflask-r1"
+      },
+      {
+        "id": "w09-pr-helloflask-c03",
+        "text_fa": "`index.html` از `layout.html` ارث می‌برد و محتوایش درون `block` است.",
+        "maps_to": "w09-pr-helloflask-r2"
+      },
+      {
+        "id": "w09-pr-helloflask-c04",
+        "text_fa": "پیش از افزودن `methods`، فرستادن فرم خطای 405 می‌دهد.",
+        "maps_to": "w09-pr-helloflask-r3"
+      },
+      {
+        "id": "w09-pr-helloflask-c05",
+        "text_fa": "پس از تغییر مسیر، انتخاب رنگ صفحه‌ای با همان رنگ نشان می‌دهد.",
+        "maps_to": "w09-pr-helloflask-r4"
+      },
+      {
+        "id": "w09-pr-helloflask-c06",
+        "text_fa": "رنگی خارج از فهرست مجاز (مثلاً با ابزار توسعه‌دهنده) پذیرفته نمی‌شود.",
+        "maps_to": "w09-pr-helloflask-r5"
+      }
+    ],
+    "thought_question_fa": "چه کد دیگری می‌توانی اضافه کنی تا مطمئن شوی رنگ‌هایی که دریافت می‌کنی رنگ‌های معتبری‌اند؟",
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "بقیهٔ گام‌های رسمی (Templates، Forms، POST)",
+      "url": "https://cs50.harvard.edu/x/practice/helloflask/#templates",
+      "reason_fa": "صفحهٔ رسمی کد کامل `layout.html`، `index.html`، `color.html` و `app.py` نهایی را می‌دهد؛ در این بسته بازتولید نشده‌اند (D76)."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

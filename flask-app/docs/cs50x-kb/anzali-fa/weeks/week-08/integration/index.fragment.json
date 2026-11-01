@@ -1,0 +1,681 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 8,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-8",
+      "append_child": "w08-fa"
+    }
+  ],
+  "note": "Week-8-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Week 8 notes use the same callout-plus-bold-label convention as Weeks 3-7 (D25); code blocks are HTML (```html), CSS (```css), JavaScript (```javascript) or plain listings (```text). Code is shown as text only; nothing is executed or embedded in the page."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 8,
+      "node_id": "week-8",
+      "path": "anzali-fa/weeks/week-08/summary.fa.md",
+      "doc_id": "w08-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w08-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۸ — HTML، CSS و جاوااسکریپت (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-08/overview.fa.md",
+      "parent": "week-8",
+      "children": [
+        "w08-n01",
+        "w08-n02",
+        "w08-n03",
+        "w08-n04",
+        "w08-n05",
+        "w08-n06",
+        "w08-n07",
+        "w08-n08",
+        "w08-n09",
+        "w08-n10",
+        "w08-n11",
+        "w08-n12",
+        "w08-n13",
+        "w08-n14",
+        "w08-n15",
+        "w08-summary",
+        "w08-sec",
+        "w08-sh-internet-primer",
+        "w08-sh-ip",
+        "w08-sh-tcp",
+        "w08-sh-http",
+        "w08-sh-html",
+        "w08-sh-css",
+        "w08-sh-javascript",
+        "w08-sh-dom",
+        "w08-ps-trivia",
+        "w08-ps-homepage",
+        "w08-pr-redo"
+      ],
+      "week": 8,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/8/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/8/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n01",
+      "type": "anzali-note",
+      "title": "اینترنت: از ARPANET تا صفحه‌های خودت (Welcome! and The Internet)",
+      "path": "anzali-fa/weeks/week-08/notes/01-internet.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#the-internet",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#the-internet"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n02",
+      "type": "anzali-note",
+      "title": "مسیریاب، بسته و نشانی IP (Routers: IP and Packets)",
+      "path": "anzali-fa/weeks/week-08/notes/02-ip-packets.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#routers",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#routers"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n03",
+      "type": "anzali-note",
+      "title": "TCP، شمارهٔ درگاه و بسته‌های گم‌شده (Routers: TCP and Ports)",
+      "path": "anzali-fa/weeks/week-08/notes/03-tcp-ports.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#routers",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#routers"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n04",
+      "type": "anzali-note",
+      "title": "DNS: از نام دامنه تا نشانی IP (DNS)",
+      "path": "anzali-fa/weeks/week-08/notes/04-dns.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#dns",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#dns"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n05",
+      "type": "anzali-note",
+      "title": "DHCP: نشانی IP دستگاه خودت (DHCP)",
+      "path": "anzali-fa/weeks/week-08/notes/05-dhcp.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#dhcp",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#dhcp"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n06",
+      "type": "anzali-note",
+      "title": "HTTP و HTTPS: نشانی، درخواست و کد وضعیت (HTTPS)",
+      "path": "anzali-fa/weeks/week-08/notes/06-http.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#https",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#https"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n07",
+      "type": "anzali-note",
+      "title": "HTML: تگ، ویژگی و درخت سند (HTML: Tags, Attributes and the Tree)",
+      "path": "anzali-fa/weeks/week-08/notes/07-html-basics.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#html",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#html"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n08",
+      "type": "anzali-note",
+      "title": "فهرست، جدول، تصویر، ویدئو و پیوند (HTML: Lists, Tables, Media and Links)",
+      "path": "anzali-fa/weeks/week-08/notes/08-html-elements.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#html",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#html"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n09",
+      "type": "anzali-note",
+      "title": "فرم‌ها: form و input (HTML: Forms)",
+      "path": "anzali-fa/weeks/week-08/notes/09-html-forms.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#html",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#html"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n10",
+      "type": "anzali-note",
+      "title": "عبارت باقاعده و اعتبارسنجی فرم (Regular Expressions)",
+      "path": "anzali-fa/weeks/week-08/notes/10-regex.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#regular-expressions",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#regular-expressions"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n11",
+      "type": "anzali-note",
+      "title": "CSS: ویژگی، انتخابگر و آبشار (CSS)",
+      "path": "anzali-fa/weeks/week-08/notes/11-css.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#css",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#css"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n12",
+      "type": "anzali-note",
+      "title": "چارچوب‌ها: Bootstrap (Frameworks)",
+      "path": "anzali-fa/weeks/week-08/notes/12-frameworks.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#frameworks",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#frameworks"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n13",
+      "type": "anzali-note",
+      "title": "جاوااسکریپت: رویداد و DOMContentLoaded (JavaScript: Events)",
+      "path": "anzali-fa/weeks/week-08/notes/13-js-events.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#javascript",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#javascript"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n14",
+      "type": "anzali-note",
+      "title": "تغییر DOM: keyup، سبک و زمان‌سنج (JavaScript: Changing the DOM)",
+      "path": "anzali-fa/weeks/week-08/notes/14-js-dom.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#javascript",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#javascript"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-n15",
+      "type": "anzali-note",
+      "title": "تکمیل خودکار و جمع‌بندی جاوااسکریپت (JavaScript: Autocomplete)",
+      "path": "anzali-fa/weeks/week-08/notes/15-js-autocomplete.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/8/#javascript",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/8/#javascript"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۸ (Summing Up)",
+      "path": "anzali-fa/weeks/week-08/summary.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/8/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/8/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۸ (Section 8)",
+      "path": "anzali-fa/weeks/week-08/section/section-8.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/sections/8/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/8/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-internet-primer",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: مقدمه‌ای بر اینترنت (Internet Primer)",
+      "path": "anzali-fa/weeks/week-08/shorts/internet-primer.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/shorts/internet_primer/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/internet_primer/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-ip",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: IP (IP)",
+      "path": "anzali-fa/weeks/week-08/shorts/ip.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/shorts/ip/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/ip/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-tcp",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: TCP (TCP)",
+      "path": "anzali-fa/weeks/week-08/shorts/tcp.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/shorts/tcp/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/tcp/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-http",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: HTTP (HTTP)",
+      "path": "anzali-fa/weeks/week-08/shorts/http.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/shorts/http/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/http/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-html",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: HTML (HTML)",
+      "path": "anzali-fa/weeks/week-08/shorts/html.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/shorts/html/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/html/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-css",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: CSS (CSS)",
+      "path": "anzali-fa/weeks/week-08/shorts/css.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/shorts/css/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/css/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-javascript",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: جاوااسکریپت (JavaScript) (JavaScript)",
+      "path": "anzali-fa/weeks/week-08/shorts/javascript.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 24,
+      "source_url": "https://cs50.harvard.edu/x/shorts/javascript/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/javascript/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-sh-dom",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: DOM (DOM)",
+      "path": "anzali-fa/weeks/week-08/shorts/dom.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 25,
+      "source_url": "https://cs50.harvard.edu/x/shorts/dom/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/dom/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-ps-trivia",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای پرسش‌های سرگرمی (Trivia)",
+      "path": "anzali-fa/weeks/week-08/problem-sets/trivia.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 26,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/8/trivia/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/8/trivia/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-ps-homepage",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای صفحهٔ شخصی (Homepage)",
+      "path": "anzali-fa/weeks/week-08/problem-sets/homepage.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 27,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/8/homepage/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/8/homepage/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    },
+    {
+      "id": "w08-pr-redo",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای بازطراحی Radio Shack (Redo)",
+      "path": "anzali-fa/weeks/week-08/problem-sets/redo.fa.md",
+      "parent": "w08-fa",
+      "children": [],
+      "week": 8,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/redo/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/redo/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-8"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w05-l06",
+  "type": "lesson",
+  "week": 5,
+  "order": 6,
+  "stage_id": "w05-s5",
+  "title_fa": "درخت‌ها",
+  "title_en": "Trees",
+  "note_ids": [
+    "w05-n10"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w05-l05"
+  ],
+  "concept_ids": [
+    "w05-c-tree",
+    "w05-c-bst",
+    "w05-c-bst-search",
+    "w05-c-balanced-tree"
+  ],
+  "objective_ids": [
+    "w05-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/5.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w05-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "units": [
+    {
+      "id": "w05-l06-u01",
+      "order": 1,
+      "title_fa": "درخت جست‌وجوی دودویی",
+      "concept_ids": [
+        "w05-c-tree",
+        "w05-c-bst"
+      ],
+      "objective_ids": [
+        "w05-o08"
+      ],
+      "note_id": "w05-n10",
+      "source_refs": [
+        "src-notes-5#trees",
+        "src-anzali-authored-5",
+        "src-transcript-5"
+      ],
+      "reading": {
+        "text_fa": "در سخنرانی، آرایهٔ مرتب 1 تا 7 به درختی تبدیل شد: عدد وسط (4) ریشه است، 2 و 6 فرزندان آن‌اند و 1، 3، 5 و 7 برگ‌ها. هر گرهٔ درخت جست‌وجوی دودویی یک مقدار و دو اشاره‌گر `left` و `right` دارد. قاعده: همهٔ مقدارهای زیردرخت چپ کوچک‌ترند و همهٔ مقدارهای زیردرخت راست بزرگ‌تر. این ساختار پویایی فهرست پیوندی را با امکان جست‌وجوی دودویی ترکیب می‌کند.",
+        "note_id": "w05-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n10"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "        4\n      /   \\\n     2     6\n    / \\   / \\\n   1   3 5   7",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "درخت تألیفی هم‌ارز مثال سخنرانی."
+      },
+      "check": {
+        "id": "w05-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در درخت بالا، عدد 5 کجاست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فرزند چپ 6",
+            "correct": true,
+            "feedback_fa": "درست: 5 از 4 بزرگ‌تر است (راست) و از 6 کوچک‌تر (چپ)."
+          },
+          {
+            "id": "b",
+            "text_fa": "فرزند راست 2",
+            "correct": false,
+            "feedback_fa": "زیردرخت چپ 4 فقط عددهای کوچک‌تر از 4 دارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "فرزند راست 6",
+            "correct": false,
+            "feedback_fa": "فرزند راست 6 عدد 7 است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l06-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "برای جست‌وجوی هر عدد در درخت بالا، مسیر از ریشه را بنویس (مثل «چپ، راست»): (۱) 3 (۲) 7 (۳) 4",
+        "expected": {
+          "answers": {
+            "1": "چپ، راست",
+            "2": "راست، راست",
+            "3": "ریشه"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "در هر گره مقایسه کن: کوچک‌تر یعنی چپ و بزرگ‌تر یعنی راست."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l06-u02",
+      "order": 2,
+      "title_fa": "جست‌وجوی بازگشتی و توازن",
+      "concept_ids": [
+        "w05-c-bst-search",
+        "w05-c-balanced-tree"
+      ],
+      "objective_ids": [
+        "w05-o08"
+      ],
+      "note_id": "w05-n10",
+      "source_refs": [
+        "src-notes-5#trees",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "تابع `search` درس‌نامه بازگشتی است: اگر درخت `NULL` باشد عدد نیست؛ اگر عدد کوچک‌تر باشد در `left` جست‌وجو می‌شود و اگر بزرگ‌تر در `right`؛ وگرنه پیدا شده است. در هر گام نیمی از درخت کنار می‌رود؛ پس در درخت متوازن جست‌وجو O(log n) است. اما اگر عددها به ترتیب درج شوند، درخت به یک خط کج تبدیل می‌شود و جست‌وجو O(n) می‌شود.",
+        "note_id": "w05-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "tree-search",
+        "lang": "c",
+        "content": "bool search(node *tree, int number)\n{\n    if (tree == NULL)\n    {\n        return false;\n    }\n    else if (number < tree->number)\n    {\n        return search(tree->left, number);\n    }\n    else if (number > tree->number)\n    {\n        return search(tree->right, number);\n    }\n    else if (number == tree->number)\n    {\n        return true;\n    }\n}",
+        "source_ref": "src-notes-5#trees",
+        "explain_fa": "تابع رسمی جست‌وجو در درخت."
+      },
+      "check": {
+        "id": "w05-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر 1، 2، 3، 4 را به همین ترتیب (بدون توازن) در یک درخت جست‌وجوی دودویی درج کنیم، جست‌وجو در بدترین حالت چه هزینه‌ای دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "O(n)",
+            "correct": true,
+            "feedback_fa": "درست: درخت شبیه فهرست پیوندی می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "O(log n)",
+            "correct": false,
+            "feedback_fa": "این فقط برای درخت متوازن درست است."
+          },
+          {
+            "id": "c",
+            "text_fa": "O(1)",
+            "correct": false,
+            "feedback_fa": "درخت جست‌وجوی دودویی هیچ‌وقت چنین تضمینی ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l06-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را در این بازنویسی تألیفی از شرط‌های تابع `search` پر کن.",
+        "lang": "c",
+        "code_origin": "official",
+        "template": "if (tree == NULL)\n{\n    return false;\n}\nelse if (number < tree->number)\n{\n    return search(tree->[[b1]], number);\n}\nelse if (number > tree->number)\n{\n    return search(tree->[[b2]], number);\n}",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "left"
+            ],
+            "hint_fa": "عدد کوچک‌تر در کدام سمت است؟",
+            "wrong_feedback": {
+              "right": "عددهای کوچک‌تر در زیردرخت چپ‌اند."
+            },
+            "default_wrong_fa": "زیردرخت چپ."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "right"
+            ],
+            "hint_fa": "عدد بزرگ‌تر در کدام سمت است؟",
+            "wrong_feedback": {
+              "left": "عددهای بزرگ‌تر در زیردرخت راست‌اند."
+            },
+            "default_wrong_fa": "زیردرخت راست."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "left"
+          ],
+          "b2": [
+            "right"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "قاعدهٔ درخت جست‌وجوی دودویی را به یاد بیاور."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

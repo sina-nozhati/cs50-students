@@ -1,0 +1,93 @@
+{
+ "week": 7,
+ "generated_at": "2026-10-29T06:00:00+03:30",
+ "origin": "authored",
+ "sqlite_version_checked": "3.46.1",
+ "policy": "Invented practice data written for CS50x Anzali (D59). Not copies of the official favorites, shows, songs, movies or fiftyville databases; no pset answers.",
+ "fixtures": [
+  {
+   "id": "w07-fx-favorites",
+   "file": "fixtures/favorites.sql",
+   "origin": "authored",
+   "description": "Twelve invented survey rows shaped like the lecture's favorites table (Timestamp, language, problem); one NULL Timestamp.",
+   "tables": [
+    "favorites"
+   ],
+   "row_counts": {
+    "favorites": 12
+   },
+   "sha256": "0491f0cb2e91d94a649b6af774057a8b1663a3f9ba64504b4ed0989747cdc22f",
+   "build": "sqlite3 favorites.db < favorites.sql"
+  },
+  {
+   "id": "w07-fx-shows",
+   "file": "fixtures/shows.sql",
+   "origin": "authored",
+   "description": "A six-show mini version of the lecture's IMDb schema (shows, ratings, genres, people, stars) with invented ratings and episode counts.",
+   "tables": [
+    "genres",
+    "people",
+    "ratings",
+    "shows",
+    "stars"
+   ],
+   "row_counts": {
+    "genres": 11,
+    "people": 9,
+    "ratings": 5,
+    "shows": 6,
+    "stars": 7
+   },
+   "sha256": "730f70e65baeda64de06f73ed48227df4a95d5dbf913a8eecc241da820113a70",
+   "build": "sqlite3 shows.db < shows.sql"
+  },
+  {
+   "id": "w07-fx-library",
+   "file": "fixtures/library.sql",
+   "origin": "authored",
+   "description": "Authors, books, an authorship join table (many-to-many) and loans (one-to-many); invented titles.",
+   "tables": [
+    "authors",
+    "authorship",
+    "books",
+    "loans"
+   ],
+   "row_counts": {
+    "authors": 4,
+    "authorship": 7,
+    "books": 5,
+    "loans": 6
+   },
+   "sha256": "d5a0add9aab3c5b51dac132bf78fef4085b1f8e159dbc14f09f0768c0ae8f0a5",
+   "build": "sqlite3 library.db < library.sql"
+  },
+  {
+   "id": "w07-fx-users",
+   "file": "fixtures/users.sql",
+   "origin": "authored",
+   "description": "Three invented accounts for the SQL-injection demonstrations.",
+   "tables": [
+    "users"
+   ],
+   "row_counts": {
+    "users": 3
+   },
+   "sha256": "d6c5ce3d3cd2f38a7213ac8ac05fec0b03d7568491a8b64d76c63807ca2ef6f1",
+   "build": "sqlite3 users.db < users.sql"
+  },
+  {
+   "id": "w07-fx-posts",
+   "file": "fixtures/posts.sql",
+   "origin": "authored",
+   "description": "Two posts with like counters for the race-condition and transaction demonstrations.",
+   "tables": [
+    "posts"
+   ],
+   "row_counts": {
+    "posts": 2
+   },
+   "sha256": "6090f299eed88d5571d62c651e255ddd90a932fc7c069a0a6f22f5f85450fe7b",
+   "build": "sqlite3 posts.db < posts.sql"
+  }
+ ]
+}

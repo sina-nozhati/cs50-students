@@ -1,0 +1,301 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w03-l06",
+  "type": "lesson",
+  "week": 3,
+  "order": 6,
+  "stage_id": "w03-s4",
+  "title_fa": "بازگشت",
+  "title_en": "Recursion",
+  "note_ids": [
+    "w03-n12",
+    "w03-n13"
+  ],
+  "related_doc_ids": [
+    "w03-sh-recursion",
+    "w03-sh-call-stacks",
+    "w03-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w03-l01"
+  ],
+  "concept_ids": [
+    "w03-c-recursion",
+    "w03-c-base-case",
+    "w03-c-recursive-case",
+    "w03-c-factorial-fib",
+    "w03-c-call-stack",
+    "w03-c-iteration-vs-recursion"
+  ],
+  "objective_ids": [
+    "w03-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w03-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "units": [
+    {
+      "id": "w03-l06-u01",
+      "order": 1,
+      "title_fa": "حالت پایه و حالت بازگشتی",
+      "concept_ids": [
+        "w03-c-recursion",
+        "w03-c-base-case",
+        "w03-c-recursive-case",
+        "w03-c-factorial-fib"
+      ],
+      "objective_ids": [
+        "w03-o08"
+      ],
+      "note_id": "w03-n12",
+      "source_refs": [
+        "src-notes-3#recursion",
+        "src-section-3",
+        "src-short-recursion",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "تابع بازگشتی تابعی است که خودش را صدا می‌زند. جست‌وجوی دودویی هفتهٔ صفر هم بازگشتی بود: «نیمهٔ چپ را جست‌وجو کن». هر تابع بازگشتی دو بخش دارد: **حالت پایه** که بازگشت را متوقف می‌کند و **حالت بازگشتی** که تابع را با ورودی کوچک‌تر صدا می‌زند تا به حالت پایه برسد.",
+        "note_id": "w03-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook-recursive-pseudo",
+        "lang": "text",
+        "content": "1  Pick up phone book\n2  Open to middle of phone book\n3  Look at page\n4  If person is on page\n5      Call person\n6  Else if person is earlier in book\n7      Search left half of book\n9  Else if person is later in book\n10     Search right half of book\n12 Else\n13     Quit",
+        "source_ref": "src-notes-3#recursion",
+        "explain_fa": "شبه‌کد رسمی بازگشتی دفترچهٔ تلفن."
+      },
+      "check": {
+        "id": "w03-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر تابع بازگشتی حالت پایه نداشته باشد چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تا ابد خودش را صدا می‌زند تا حافظه تمام شود",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "کامپایلر حالت پایه را خودش اضافه می‌کند",
+            "correct": false,
+            "feedback_fa": "کامپایلر چنین کاری نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "فقط یک بار اجرا می‌شود",
+            "correct": false,
+            "feedback_fa": "هیچ چیز جلویش را نمی‌گیرد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l06-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "در فاکتوریل بازگشتی جلسهٔ حل تمرین: (۱) «اگر n برابر 0 بود، 1 برگردان» چیست؟ (۲) «n ضرب در فاکتوریل n - 1» چیست؟",
+        "expected": {
+          "answers": {
+            "1": "base case",
+            "2": "recursive case"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "کدام بخش بازگشت را متوقف می‌کند؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l06-u02",
+      "order": 2,
+      "title_fa": "پشتهٔ فراخوانی",
+      "concept_ids": [
+        "w03-c-call-stack"
+      ],
+      "objective_ids": [
+        "w03-o08"
+      ],
+      "note_id": "w03-sh-call-stacks",
+      "source_refs": [
+        "src-short-call-stacks",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "طبق ویدئوی کوتاه Call Stacks، هر بار که تابعی صدا زده می‌شود، یک **قاب** (`frame`) روی پشتهٔ فراخوانی گذاشته می‌شود. فقط قاب بالایی فعال است. وقتی تابع برمی‌گردد، قابش برداشته می‌شود و تابع زیرین ادامه می‌دهد. در تابع بازگشتی، هر فراخوانی قاب خودش را دارد.",
+        "note_id": "w03-sh-call-stacks",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-sh-call-stacks"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "draw(0)   <- بالای پشته، فعال\ndraw(1)\ndraw(2)\nmain",
+        "source_ref": "src-anzali-authored-3",
+        "explain_fa": "تصویر تألیفی پشته هنگام فراخوانی draw(2)."
+      },
+      "check": {
+        "id": "w03-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام قاب روی پشتهٔ فراخوانی فعال است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "قاب بالایی، یعنی آخرین تابعی که صدا زده شده",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "قاب main",
+            "correct": false,
+            "feedback_fa": "main فقط وقتی فعال است که بالای پشته باشد."
+          },
+          {
+            "id": "c",
+            "text_fa": "همهٔ قاب‌ها با هم",
+            "correct": false,
+            "feedback_fa": "در هر لحظه فقط یکی فعال است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l06-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: وقتی یک تابع return می‌کند، قابش از بالای پشته برداشته می‌شود.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "push و pop را در ویدئوی کوتاه به یاد بیاور."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l06-u03",
+      "order": 3,
+      "title_fa": "هرم با حلقه و با بازگشت",
+      "concept_ids": [
+        "w03-c-iteration-vs-recursion"
+      ],
+      "objective_ids": [
+        "w03-o08"
+      ],
+      "note_id": "w03-n13",
+      "source_refs": [
+        "src-notes-3#recursion",
+        "src-transcript-3",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "هرم ارتفاع ۴ همان هرم ارتفاع ۳ است به‌اضافهٔ یک ردیف. در `recursion.c`، تابع `draw` اول `draw(n - 1)` را صدا می‌زند و بعد ردیف خودش را چاپ می‌کند. حالت پایه `if (n <= 0)` است. هر فراخوانی با n-1 است، پس سرانجام به 0 می‌رسیم و بازگشت تمام می‌شود.",
+        "note_id": "w03-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "recursion",
+        "lang": "c",
+        "content": "// Draws a pyramid using recursion\n\n#include <cs50.h>\n#include <stdio.h>\n\nvoid draw(int n);\n\nint main(void)\n{\n    // Get height of pyramid\n    int height = get_int(\"Height: \");\n\n    // Draw pyramid\n    draw(height);\n}\n\nvoid draw(int n)\n{\n    // If nothing to draw\n    if (n <= 0)\n    {\n        return;\n    }\n\n    // Draw pyramid of height n - 1\n    draw(n - 1);\n\n    // Draw one more row of width n\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"#\");\n    }\n    printf(\"\\n\");\n}",
+        "source_ref": "src-notes-3#recursion",
+        "explain_fa": "کد رسمی recursion.c."
+      },
+      "check": {
+        "id": "w03-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `recursion.c` چرا حالت پایه `n <= 0` است و نه فقط `n == 0`؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تا اگر عدد منفی هم وارد شد، بازگشت بی‌پایان نشود",
+            "correct": true,
+            "feedback_fa": "درست. این استنتاج آموزشی از کد رسمی است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون == در C نیست",
+            "correct": false,
+            "feedback_fa": "== در C هست."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون get_int عدد منفی برنمی‌گرداند",
+            "correct": false,
+            "feedback_fa": "برمی‌گرداند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l06-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "با کد بالا، اگر کاربر `2` وارد کند، دقیقاً چه چاپ می‌شود؟ (هر خط را در یک خط بنویس)",
+        "expected": {
+          "output": "#\n##"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "اول draw(1) کامل اجرا می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

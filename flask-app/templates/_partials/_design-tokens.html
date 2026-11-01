@@ -4,7 +4,7 @@
 #}
 <style>
   :root {
-    /* Harvard Crimson Palette */
+    /* Harvard Crimson Palette (Light) */
     --crimson: #A51C30;
     --crimson-dark: #771020;
     --crimson-tint: #FBEAEE;
@@ -16,13 +16,23 @@
     --purple: #7C5CFC;
     --amber: #F59E0B;
 
-    /* Neutrals - FIXED CONTRAST */
+    /* Neutrals - Surfaces & Texts */
     --canvas: #FAFAF7;
+    --background: var(--canvas);
+    --surface: #FFFFFF;
+    --surface-raised: #FFFFFF;
+    --surface-sunken: #F4F4F0;
     --ink: #1E1E1E;           /* Primary text - 11:1 on canvas ✅ */
-    --slate: #334155;         /* Secondary text - 4.8:1 on canvas ✅ (was #4A5568 = 3.2:1 ❌) */
-    --slate-muted: #64748B;   /* Disabled/muted only - 3.5:1 ❌ never for body text */
+    --foreground: var(--ink);
+    --slate: #334155;         /* Secondary text - 4.8:1 on canvas ✅ */
+    --slate-muted: #64748B;   /* Disabled/muted only */
     --border: #E2E0DA;
+    --border-subtle: #F0EEEA;
     --border-focus: var(--crimson);
+
+    /* Code & Syntax */
+    --code-bg: #1E1E24;
+    --code-text: #E2E8F0;
 
     /* Admin Sidebar */
     --admin-sidebar-bg: #1a1a2e;
@@ -30,13 +40,123 @@
     --admin-sidebar-active: var(--crimson);
   }
 
-  /* Global Reset */
-  html { scroll-behavior: smooth; }
+  /* ─── Global Dark Mode (Design System Single Source of Truth) ─── */
+  html.dark {
+    --canvas: #121215;
+    --background: var(--canvas);
+    --surface: #1A1A1F;
+    --surface-raised: #24242C;
+    --surface-sunken: #151518;
+    --ink: #F3F4F6;
+    --foreground: var(--ink);
+    --slate: #94A3B8;
+    --slate-muted: #64748B;
+    --border: #2B2B33;
+    --border-subtle: #202026;
+    --border-focus: #E03E52;
+
+    /* Luminous Crimson for Dark Surfaces (WCAG AAA contrast) */
+    --crimson: #E03E52;
+    --crimson-dark: #B51D33;
+    --crimson-tint: rgba(224, 62, 82, 0.16);
+
+    --gold: #E5B83B;
+    --success: #34D399;
+    --warning: #FBBF24;
+    --purple: #9D84FD;
+    --amber: #FBBF24;
+
+    --code-bg: #0D0D11;
+    --code-text: #F1F5F9;
+
+    --admin-sidebar-bg: #0E0E12;
+    --admin-sidebar-text: #CBD5E1;
+  }
+
+  /* Global Reset & Typography Baseline */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     font-family: 'Vazirmatn', Tahoma, system-ui, sans-serif;
     background: var(--canvas);
     color: var(--ink);
     line-height: 1.6;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color .2s ease, color .2s ease;
+  }
+
+  /* Dark mode automatic surface & text overrides */
+  html.dark .bg-white {
+    background-color: var(--surface) !important;
+  }
+  html.dark .bg-canvas {
+    background-color: var(--canvas) !important;
+  }
+  html.dark .bg-gray-50,
+  html.dark .bg-gray-50\/50,
+  html.dark .bg-gray-50\/60,
+  html.dark .bg-gray-50\/75,
+  html.dark .bg-gray-50\/80 {
+    background-color: var(--surface-sunken) !important;
+  }
+  html.dark .bg-gray-100 {
+    background-color: var(--surface-raised) !important;
+  }
+  html.dark .text-gray-900,
+  html.dark .text-gray-800,
+  html.dark .text-ink,
+  html.dark .text-\[var\(--ink\)\] {
+    color: var(--ink) !important;
+  }
+  html.dark .text-gray-700,
+  html.dark .text-gray-600,
+  html.dark .text-gray-500,
+  html.dark .text-slate,
+  html.dark .text-\[var\(--slate\)\] {
+    color: var(--slate) !important;
+  }
+  html.dark .border-gray-100,
+  html.dark .border-gray-200,
+  html.dark .border-gray-300,
+  html.dark .border-\[var\(--border\)\] {
+    border-color: var(--border) !important;
+  }
+  html.dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]),
+  html.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+    border-color: var(--border) !important;
+  }
+
+  /* Dark mode hover overrides (prevent white flash on hover) */
+  html.dark .hover\:bg-gray-50:hover,
+  html.dark .hover\:bg-gray-100:hover,
+  html.dark .hover\:bg-gray-200:hover,
+  html.dark .hover\:bg-slate-50:hover,
+  html.dark .hover\:bg-slate-100:hover,
+  html.dark .hover\:bg-white:hover {
+    background-color: var(--surface-raised) !important;
+  }
+  html.dark .hover\:bg-red-50:hover {
+    background-color: rgba(224, 62, 82, 0.16) !important;
+  }
+  html.dark .hover\:text-crimson:hover {
+    color: var(--crimson) !important;
+  }
+
+  /* Spring tactile motion & mobile-native touch feedback */
+  .spring-scale {
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease, background-color 0.15s ease, border-color 0.15s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .spring-scale:hover {
+      transform: translateY(-2px) scale(1.015);
+    }
+  }
+  .spring-scale:active {
+    transform: translateY(1px) scale(0.985);
   }
 
   /* Persian Numbers */
@@ -134,13 +254,16 @@
 
   /* ─── Card System ─── */
   .card-harvard {
-    background: #fff;
+    background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 16px;
     transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
   }
   .card-harvard:hover {
     box-shadow: 0 6px 18px -6px rgba(0,0,0,.12);
+  }
+  html.dark .card-harvard:hover {
+    box-shadow: 0 8px 24px -4px rgba(0,0,0,.4);
   }
   .card-accent { border-right: 4px solid var(--crimson); }
 
@@ -189,9 +312,9 @@
     padding: 0.625rem 0.875rem;     /* 10px 14px */
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: #fff;
+    background: var(--surface);
     min-height: 44px;
-    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
     font-family: inherit;
     font-size: 0.875rem;
     color: var(--ink);
@@ -326,22 +449,27 @@
   .kb-link-chip {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 0.9rem;
-    border-radius: 0.5rem;
+    gap: 0.45rem;
+    padding: 0.5rem 0.95rem;
+    border-radius: 0.75rem;
     border: 1px solid var(--border);
-    background: #fff;
+    background: var(--surface);
     color: var(--ink);
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: border-color .2s ease, background .2s ease, color .2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color .2s ease, background .2s ease, color .2s ease, transform .15s ease;
   }
   .kb-link-chip:hover {
     border-color: var(--crimson);
     background: var(--crimson-tint);
-    color: var(--crimson-dark);
+    color: var(--crimson);
+  }
+  .kb-link-chip:active {
+    transform: scale(0.97);
   }
   .kb-link-chip:focus-visible {
     outline: 2px solid var(--crimson);
@@ -426,6 +554,48 @@
   }
   .kb-toc a { font-weight: 600; }
 
+  /* Dark mode prose & code enhancements */
+  html.dark .kb-prose { color: var(--ink); }
+  html.dark .kb-prose pre {
+    background: #0E0E12;
+    border: 1px solid #2B2B33;
+    color: #F3F4F6;
+  }
+  html.dark .kb-prose code {
+    background: rgba(224, 62, 82, 0.15);
+    color: #F87171;
+  }
+  html.dark .kb-prose pre code {
+    background: transparent;
+    color: inherit;
+  }
+  html.dark .kb-prose a { color: #F87171; }
+  html.dark .kb-prose a:hover { color: #FCA5A5; }
+  html.dark .kb-prose th {
+    background: rgba(224, 62, 82, 0.18);
+    color: #F3F4F6;
+  }
+  html.dark .kb-prose th,
+  html.dark .kb-prose td {
+    border-color: var(--border);
+  }
+  html.dark .kb-callout-info {
+    background: #1A1A22;
+    border-color: rgba(224, 62, 82, 0.3);
+  }
+  html.dark .kb-callout-tip {
+    background: rgba(22, 163, 74, 0.12);
+    border-color: rgba(22, 163, 74, 0.35);
+  }
+  html.dark .kb-callout-warning {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(245, 158, 11, 0.35);
+  }
+  html.dark .kb-generated {
+    background: linear-gradient(to left, rgba(224, 62, 82, 0.15) 0%, var(--surface) 45%);
+    border-inline-start-color: var(--crimson);
+  }
+
   /* ─── Callout Component (Phase 1) ─── */
   .kb-callout {
     background: var(--canvas);
@@ -438,7 +608,7 @@
     line-height: 1.7;
   }
   .kb-callout-info {
-    background: #fff;
+    background: var(--surface);
     border-color: rgba(165, 28, 48, 0.2);
     border-right: 4px solid var(--crimson);
   }
@@ -451,6 +621,24 @@
     background: #fffbeb;
     border-color: #fde68a;
     border-right: 4px solid var(--warning);
+  }
+  html.dark .kb-callout-info {
+    background: rgba(224, 62, 82, 0.08);
+    border-color: rgba(224, 62, 82, 0.25);
+    border-right-color: var(--crimson);
+    color: var(--ink);
+  }
+  html.dark .kb-callout-tip {
+    background: rgba(52, 211, 153, 0.08);
+    border-color: rgba(52, 211, 153, 0.25);
+    border-right-color: var(--success);
+    color: var(--ink);
+  }
+  html.dark .kb-callout-warning {
+    background: rgba(251, 191, 36, 0.08);
+    border-color: rgba(251, 191, 36, 0.25);
+    border-right-color: var(--warning);
+    color: var(--ink);
   }
   .kb-callout-title {
     font-weight: 700;
@@ -508,7 +696,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--slate);
-    background: #fff;
+    background: var(--surface);
     border: 1.5px solid var(--border);
     white-space: nowrap;
     cursor: pointer;
@@ -561,14 +749,14 @@
     box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08);
   }
   .fc-front {
-    background: #fff;
+    background: var(--surface);
     border: 1.5px solid var(--border);
   }
   .fc-front:hover {
     border-color: var(--crimson);
   }
   .fc-back {
-    background: linear-gradient(145deg, #fff 0%, var(--crimson-tint) 100%);
+    background: linear-gradient(145deg, var(--surface) 0%, var(--crimson-tint) 100%);
     border: 1.5px solid rgba(165, 28, 48, 0.3);
     transform: rotateY(180deg);
   }
@@ -581,7 +769,7 @@
     width: 100%;
     padding: 0.875rem 1.15rem;
     border-radius: 12px;
-    background: #fff;
+    background: var(--surface);
     border: 1.5px solid var(--border);
     cursor: pointer;
     min-height: 48px;

@@ -1,0 +1,893 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 9,
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities"
+  ],
+  "shared_sources_from_week_6": [
+    "src-python-docs"
+  ],
+  "shared_sources_from_week_7": [
+    "src-sqlite-docs",
+    "src-cs50-sql-docs"
+  ],
+  "shared_sources_from_week_8": [
+    "src-mdn-js"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-9",
+      "url": "https://cs50.harvard.edu/x/weeks/9/",
+      "title": "Week 9 Flask (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:05+03:30",
+      "verified_at": "2026-10-29T17:03:22+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "d3afc9140f2de4702abed9a6d1a98188270c8e9dc8c2715c1d3030f5cd8fb501"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/9/",
+      "anchors": [
+        "week-9-flask"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/week.md",
+      "notes": "Topic line 'Flask. Route. Decorators. Requests, Responses. Sessions. Cookies.' and media list; lists two shorts (Flask, AJAX). Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-notes-9",
+      "url": "https://cs50.harvard.edu/x/notes/9/",
+      "title": "Lecture 9 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "verified_at": "2026-10-29T17:03:12+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f50d1ac025a30b3615be5949fb24f79fc9229eb6d86fa06cf0e781baffaaab62"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/9/",
+      "anchors": [
+        "apis",
+        "cookies-and-session",
+        "flask",
+        "flask-and-sql",
+        "forms",
+        "frosh-ims",
+        "http-server",
+        "json",
+        "lecture-9",
+        "request-methods",
+        "shopping-cart",
+        "shows",
+        "summing-up",
+        "templates",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/lecture.md",
+      "notes": "All sections read in full; the 49 code/listing blocks copied verbatim into examples9.py. Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-transcript-9",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/lang/en/lecture9.txt",
+      "title": "Lecture 9 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "verified_at": "2026-10-29T17:05:00+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/transcripts/lecture-en.txt",
+      "notes": "Read for facts marked «از سخنرانی» (e.g. the Method Not Allowed demo, why deleting with GET is bad, the hand-stamp analogy for cookies, the Network tab showing the JSON response)."
+    },
+    {
+      "id": "src-srt-9",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/lang/en/lecture9.srt",
+      "title": "Lecture 9 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-29T17:05:00+03:30",
+      "verified_at": "2026-10-29T17:05:00+03:30",
+      "local_copy": "_tools/refetch/week9/srt/lecture9.srt",
+      "notes": "Cue times used for note start times (chapter boundaries are inference)."
+    },
+    {
+      "id": "src-video-9",
+      "url": "https://video.cs50.io/am7POvSZ4GE",
+      "title": "Lecture 9 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Also https://youtu.be/am7POvSZ4GE ; Portuguese https://youtu.be/Uddye35TNp4 and Spanish https://youtu.be/7Yd_xMuzPHE versions are listed on the week page."
+    },
+    {
+      "id": "src-audio-9",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/lecture9.mp3",
+      "title": "Lecture 9 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-slides-9-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/lecture9.pdf",
+      "title": "Lecture 9 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-9-google",
+      "url": "https://docs.google.com/presentation/d/1WZ3kAMUcku8g-pR80RRM1OjPL4AAaBvfNK4-ERdjv5g/edit?usp=sharing",
+      "title": "Lecture 9 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-src9-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/src9.zip",
+      "title": "Lecture 9 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/source-code/",
+      "notes": "hello0-10, froshims0-7, login, store, shows0-3. Only files shown in the notes are reproduced; every app shown was run on the Flask test client on the build box with authored fixture databases (the official .db files are binary and not copied)."
+    },
+    {
+      "id": "src-src9-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/src9/",
+      "title": "Lecture 9 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-src9-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/9/src9.pdf",
+      "title": "Lecture 9 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-section-9",
+      "url": "https://cs50.harvard.edu/x/sections/9/",
+      "title": "Section 9",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:46+03:30",
+      "verified_at": "2026-10-29T17:03:19+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "aabce076d20b3c6b1397ad7e63526b92b2b8c593b6000cd70a27924ba787510a"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/9/",
+      "anchors": [
+        "week-9-flask"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/sections.md"
+    },
+    {
+      "id": "src-section-9-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/9/lang/en/section9.txt",
+      "title": "Section 9 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "verified_at": "2026-10-29T17:05:00+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary; chapter times from section9.srt."
+    },
+    {
+      "id": "src-section-9-video",
+      "url": "https://video.cs50.io/xbguARtzOeI",
+      "title": "Section 9 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Also https://youtu.be/xbguARtzOeI ; audio https://cdn.cs50.net/2025/fall/sections/9/section9.mp3"
+    },
+    {
+      "id": "src-section-9-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/9/section9.pdf",
+      "title": "Section 9 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-pset-9",
+      "url": "https://cs50.harvard.edu/x/psets/9/",
+      "title": "Problem Set 9",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:47+03:30",
+      "verified_at": "2026-10-29T17:03:15+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "fe43c4e74dbf713a11d1a2b7f17b69b777bc014d9e9df7bd1724e61a09c3319a"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/9/",
+      "anchors": [
+        "problem-set-9",
+        "what-to-do",
+        "when-to-do-it",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/psets/README.md",
+      "notes": "What to do: submit both Birthdays and Finance. Due 2027-06-30 23:59 UTC (2027-07-01 03:29 Asia/Tehran)."
+    },
+    {
+      "id": "src-pset-9-birthdays",
+      "url": "https://cs50.harvard.edu/x/psets/9/birthdays/",
+      "title": "Birthdays",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:48+03:30",
+      "verified_at": "2026-10-29T17:03:16+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "70ffe61e8fdb25f8922e15677a3967fa4e37c391a96aa6b3675115ae8485342f"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/9/birthdays/",
+      "anchors": [
+        "birthdays",
+        "problem-to-solve",
+        "getting-started",
+        "understanding",
+        "implementation-details",
+        "hints",
+        "walkthrough",
+        "testing",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/psets/birthdays.md"
+    },
+    {
+      "id": "src-pset-9-finance",
+      "url": "https://cs50.harvard.edu/x/psets/9/finance/",
+      "title": "C$50 Finance",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:49+03:30",
+      "verified_at": "2026-10-29T17:03:17+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "5193e312211fc0c3c128d051572b53a1fab2849554be9fa7a4b6c10ed2bbd80b"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/9/finance/",
+      "anchors": [
+        "c50-finance",
+        "background",
+        "getting-started",
+        "running",
+        "understanding",
+        "apppy",
+        "helperspy",
+        "requirementstxt",
+        "static",
+        "templates",
+        "specification",
+        "register",
+        "quote",
+        "buy",
+        "index",
+        "sell",
+        "history",
+        "personal-touch",
+        "walkthrough",
+        "testing",
+        "style",
+        "staffs-solution",
+        "hints",
+        "faqs",
+        "importerror-no-module-named-application",
+        "oserror-errno-98-address-already-in-use",
+        "how-to-submit",
+        "why-does-my-submission-pass-check50-but-shows-no-results-in-my-gradebook-after-running-submit50"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/psets/finance.md"
+    },
+    {
+      "id": "src-practice-helloflask",
+      "url": "https://cs50.harvard.edu/x/practice/helloflask/",
+      "title": "Hello, Flask",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:11+03:30",
+      "verified_at": "2026-10-29T17:03:13+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f942a4f27cbe858d3d244333ed857e1b3ef281531dea306516db91eba99afdca"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/helloflask/",
+      "anchors": [
+        "hello-flask",
+        "learning-goals",
+        "background",
+        "getting-started",
+        "implementation-details",
+        "templates",
+        "forms",
+        "post",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/practice/helloflask.md"
+    },
+    {
+      "id": "src-short-flask",
+      "url": "https://cs50.harvard.edu/x/shorts/flask/",
+      "title": "Short: Flask (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:23+03:30",
+      "verified_at": "2026-10-29T17:03:21+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "b48dcc5956ddc3c71f7ee78abd7d977f8bf23263e39c8edaa779a280f5395dc0"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/shorts/flask.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/flask/lang/en/flask.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/flask/lang/en/flask.srt. Video https://youtu.be/X0dwkDh8kwA. Slides https://cdn.cs50.net/2017/fall/shorts/flask/flask.pdf (link only). Recorded 2017 for an older CS50; see d167-d169."
+    },
+    {
+      "id": "src-short-ajax",
+      "url": "https://cs50.harvard.edu/x/shorts/ajax/",
+      "title": "Short: AJAX (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:25+03:30",
+      "verified_at": "2026-10-29T17:03:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "8f5d079478c9a171a7ca2d1c26c116c9afe893efe700094737ddaa8e20f46b86"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/shorts/ajax.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/ajax/lang/en/ajax.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/ajax/lang/en/ajax.srt. Video https://youtu.be/dQcBs4S-wEQ. Slides https://cdn.cs50.net/2017/fall/shorts/ajax/ajax.pdf (link only). Recorded 2017 for an older CS50; see d167-d169."
+    },
+    {
+      "id": "src-section-9-code",
+      "url": "https://cdn.cs50.net/2026/x/psets/9/birthdays.zip",
+      "title": "Section 9 source code (= Birthdays distribution)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/section-code/files/birthdays/",
+      "notes": "The section page links the Birthdays distribution itself (byte-identical to the pset copy, checked 2026-10-29). Not reproduced."
+    },
+    {
+      "id": "src-birthdays-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/9/birthdays.zip",
+      "title": "Birthdays distribution (app.py, birthdays.db, templates/index.html, static/styles.css)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/psets/birthdays-distribution/",
+      "notes": "Starter files with TODO comments; link-only in the package (D74). The official Hints contain near-complete solution code; link-only and blocked by the leak guard (D75)."
+    },
+    {
+      "id": "src-birthdays-walkthrough",
+      "url": "https://video.cs50.io/HXwvj8x1Fcs",
+      "title": "Birthdays walkthrough video (CS50 IDE era)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-birthdays-solution-video",
+      "url": "https://www.youtube.com/watch?v=lVwv4o8vmvI",
+      "title": "Birthdays 'Not sure how to solve?' video (live page only)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "verified_at": "2026-10-29T17:05:00+03:30",
+      "notes": "Present on the live 2026 page (refetch 2026-10-29) inside the solution reveal; missing from the Task-1 KB copy (d176). It walks through a solution, so the Persian guide names it only as a link after the checklist with a warning."
+    },
+    {
+      "id": "src-finance-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/9/finance.zip",
+      "title": "Finance distribution (app.py, helpers.py, requirements.txt, finance.db, static/, templates/)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-09-flask/psets/finance-distribution/",
+      "notes": "Routes buy/history/index/quote/register/sell return apology(\"TODO\"); login/logout are implemented. Not reproduced (D74)."
+    },
+    {
+      "id": "src-finance-walkthrough",
+      "url": "https://www.youtube.com/watch?v=7wPTAwT-6bA",
+      "title": "Finance walkthrough video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-finance-staff",
+      "url": "https://finance.cs50.net/",
+      "title": "Finance staff solution (running site)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Link-only (D74); the guide never reproduces its behaviour beyond what the specification states."
+    },
+    {
+      "id": "src-helloflask-distribution",
+      "url": "https://cdn.cs50.net/2022/fall/labs/9/helloflask.zip",
+      "title": "Hello, Flask distribution (2022 lab)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "No files inventoried in the KB; the practice page gives all of its code inline."
+    },
+    {
+      "id": "src-flask-docs",
+      "url": "https://flask.palletsprojects.com/en/stable/",
+      "title": "Flask documentation (linked from the notes and Finance)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Cited for request.args/request.form behaviour (MultiDict.get default only when the key is missing), methods=, redirect, session and jsonify. Finance also links the 1.1.x quickstart (d172)."
+    },
+    {
+      "id": "src-jinja-docs",
+      "url": "https://jinja.palletsprojects.com/en/stable/templates/",
+      "title": "Jinja template designer documentation",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:45+03:30",
+      "notes": "Cited for autoescaping, {% extends %}/{% block %}, {% for %}/{% if %}; Finance links 3.1.x (d172)."
+    },
+    {
+      "id": "src-time-cs50-deadline-9",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 9 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:45+03:30"
+    },
+    {
+      "id": "src-flask-box-9",
+      "url": "urn:cs50x-anzali:box:flask",
+      "title": "Flask 3.1.3, Flask-Session 0.8.0, cs50 9.5.0 and Jinja2 3.1.6 (venv outside the package) on the CS50x Anzali build box; run evidence in validation/question-qa-week09.md/.json",
+      "source_type": "tool",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T18:00:00+03:30",
+      "notes": "Box-only verification (D72). Apps run through Flask's test client (no real server or browser); output canon strips each line and drops blank lines (D73). The official .db files are replaced by small authored fixtures in weeks/week-09/fixtures/."
+    },
+    {
+      "id": "src-anzali-authored-9",
+      "url": "urn:cs50x-anzali:authored:week-09",
+      "title": "Material authored by CS50x Anzali for Week 9 (examples marked تألیفی, exercises, challenges, flashcards, quizzes, lessons, gamification, fixtures)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T18:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-9",
+      "url": "urn:cs50x-anzali:inference:week-09",
+      "title": "Editorial inferences for Week 9 (chapter boundaries from official .srt cue times; concept graph; topic order; corrections of imprecise wording, labelled استنتاجی)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-29T18:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d155",
+      "topic": "First templated index.html ignores the name argument",
+      "a": {
+        "source": "src-notes-9#flask",
+        "value": "'try adding ?name=[Your Name] to the base URL' after app.py passes name=request.args.get(\"name\", \"world\")"
+      },
+      "b": {
+        "source": "src-flask-box-9",
+        "value": "With the index.html shown just before (body 'hello, world', no {{ name }}), GET /?name=David still renders 'hello, world'; the placeholder appears only in the src9 hello versions that use {{ name }}"
+      },
+      "status": "recorded-not-resolved",
+      "note": "w09-n03 shows the official files verbatim and adds an authored one-line change (hello, {{ name }}) labelled تألیفی so the experiment does what the notes promise."
+    },
+    {
+      "id": "d156",
+      "topic": "Typo 'code the tells Flask'",
+      "a": {
+        "source": "src-notes-9#flask",
+        "value": "'app.py contains code the tells Flask how to run your web application'"
+      },
+      "b": {
+        "source": "src-notes-9#flask",
+        "value": "intended: 'code that tells Flask'"
+      },
+      "status": "consistent",
+      "note": "Typo only."
+    },
+    {
+      "id": "d157",
+      "topic": "'Hello,' vs 'hello,' and when the default applies",
+      "a": {
+        "source": "src-notes-9#request-methods",
+        "value": "'when someone types in no name into the form, Hello, is displayed without a name'"
+      },
+      "b": {
+        "source": "src-flask-box-9",
+        "value": "greet.html prints lowercase 'hello,'. A submitted empty field gives '' (request.form.get(\"name\", \"world\") falls back only when the key is missing): POST name='' -> 'hello,'; POST without the field -> 'hello, world'"
+      },
+      "status": "complementary",
+      "note": "w09-n07 explains both: capitalisation in the notes' prose only, and why the fix moves the default into {% if name %} (an empty string is falsy)."
+    },
+    {
+      "id": "d158",
+      "topic": "Stray parenthesis in the explanation",
+      "a": {
+        "source": "src-notes-9#request-methods",
+        "value": "'Notice that name=request.form.get(\"name\")) is changed.'"
+      },
+      "b": {
+        "source": "src-notes-9#request-methods",
+        "value": "the code itself has render_template(\"greet.html\", name=request.form.get(\"name\")) with balanced parentheses"
+      },
+      "status": "consistent",
+      "note": "Typo in the prose only."
+    },
+    {
+      "id": "d159",
+      "topic": "shows1 /search without q",
+      "a": {
+        "source": "src-notes-9#shows",
+        "value": "shows1 app.py: db.execute(... LIKE ?, \"%\" + request.args.get(\"q\") + \"%\")"
+      },
+      "b": {
+        "source": "src-flask-box-9",
+        "value": "GET /search (no q) raises TypeError: can only concatenate str (not \"NoneType\") to str at line 16 -> HTTP 500. The next version (shows2) adds 'if q: ... else: shows = []' and returns an empty result"
+      },
+      "status": "recorded-not-resolved",
+      "note": "w09-n14 keeps shows1 verbatim and points to the shows2 guard as the fix; a spot_bug challenge uses an authored variant."
+    },
+    {
+      "id": "d160",
+      "topic": "JSON example escapes in the wrong order and only once",
+      "a": {
+        "source": "src-notes-9#json",
+        "value": "let title = shows[i].title.replace('<', '&lt;').replace('&', '&amp;');"
+      },
+      "b": {
+        "source": "src-mdn-js",
+        "value": "node 20: '<b>' becomes '&amp;lt;b>' (displayed as the literal text &lt;b>), and 'a<b<c' becomes 'a&amp;lt;b<c': a string pattern replaces only the first match, and & must be escaped before <"
+      },
+      "status": "recorded-not-resolved",
+      "note": "w09-n15 keeps the code verbatim; an authored callout shows the safer habit (escape & first with replaceAll, or set textContent) — verified in node and jsdom."
+    },
+    {
+      "id": "d161",
+      "topic": "Query string built without encoding",
+      "a": {
+        "source": "src-notes-9#apis",
+        "value": "fetch('/search?q=' + input.value)"
+      },
+      "b": {
+        "source": "src-flask-box-9",
+        "value": "Flask receives q='Tom ' for the raw URL /search?q=Tom & Jerry, but 'Tom & Jerry' when the value is encoded (encodeURIComponent gives Tom%20%26%20Jerry)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Authored callout in w09-n14 recommends encodeURIComponent (inference + box run)."
+    },
+    {
+      "id": "d162",
+      "topic": "'AJAX documentation' links to jQuery",
+      "a": {
+        "source": "src-notes-9#apis",
+        "value": "'You can read more in the AJAX documentation' -> https://api.jquery.com/category/ajax/"
+      },
+      "b": {
+        "source": "src-notes-9#apis",
+        "value": "the lecture code uses the built-in fetch with async/await, not jQuery"
+      },
+      "status": "complementary",
+      "note": "Persian note keeps the official link and adds MDN's fetch page as the matching reference."
+    },
+    {
+      "id": "d163",
+      "topic": "search input type changes between versions",
+      "a": {
+        "source": "src-notes-9#shows",
+        "value": "shows1/shows2 index.html: <input ... type=\"search\">"
+      },
+      "b": {
+        "source": "src-notes-9#json",
+        "value": "shows3 index.html: <input ... type=\"text\">"
+      },
+      "status": "consistent",
+      "note": "Both work; type=search only adds a clear button in some browsers (inference)."
+    },
+    {
+      "id": "d164",
+      "topic": "LIMIT 50 without ORDER BY",
+      "a": {
+        "source": "src-notes-9#shows",
+        "value": "SELECT * FROM shows WHERE title LIKE ? LIMIT 50"
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "without ORDER BY the set of 50 rows returned is not defined by SQL (SQLite usually returns rowid order)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Week 7 knowledge; mentioned in w09-n14 as a tip (inference, labelled)."
+    },
+    {
+      "id": "d165",
+      "topic": "'looks to see if session[\"name\"] exists' vs the template",
+      "a": {
+        "source": "src-notes-9#cookies-and-session",
+        "value": "'Notice that this file looks to see if session[\"name\"] exists'"
+      },
+      "b": {
+        "source": "src-notes-9#cookies-and-session",
+        "value": "login index.html tests {% if name %}; app.py passes name=session.get(\"name\")"
+      },
+      "status": "complementary",
+      "note": "The template sees the value through the name variable; the check on the session happens in app.py. w09-n12 states this."
+    },
+    {
+      "id": "d166",
+      "topic": "Session-stored cart and empty IN (?)",
+      "a": {
+        "source": "src-notes-9#shopping-cart",
+        "value": "store: session[\"cart\"].append(book_id) then SELECT * FROM books WHERE id IN (?) with session[\"cart\"]"
+      },
+      "b": {
+        "source": "src-flask-box-9",
+        "value": "With Flask-Session (filesystem) the appended id persists to the next request; with an empty cart cs50 9.5.0 runs the query and returns no rows (box run)"
+      },
+      "status": "consistent",
+      "note": "Recorded as verified behaviour; no change."
+    },
+    {
+      "id": "d167",
+      "topic": "Flask short: FLASK_APP, application.py and CS50 IDE",
+      "a": {
+        "source": "src-short-flask",
+        "value": "'export flask app equals application.py ... export flask debug equals 1 ... flask run' in CS50 IDE"
+      },
+      "b": {
+        "source": "src-notes-9#flask",
+        "value": "CS50x 2026: a file called app.py and just 'flask run' in cs50.dev"
+      },
+      "status": "complementary",
+      "note": "2017 recording; the Persian short page maps the old commands to the 2026 ones (Flask finds app.py by default)."
+    },
+    {
+      "id": "d168",
+      "topic": "Flask short: 'problem set 7 ... CS50 Finance'",
+      "a": {
+        "source": "src-short-flask",
+        "value": "'if you get to problem set 7 in CS50, which is CS50 finance'"
+      },
+      "b": {
+        "source": "src-pset-9",
+        "value": "Finance is in Problem Set 9 in CS50x 2026"
+      },
+      "status": "complementary",
+      "note": "Persian page says Problem Set 9."
+    },
+    {
+      "id": "d169",
+      "topic": "AJAX short uses XMLHttpRequest and jQuery",
+      "a": {
+        "source": "src-short-ajax",
+        "value": "XMLHttpRequest with onreadystatechange, readyState 4 and status 200; 'you will very commonly see nowadays Ajax requests made using jQuery'"
+      },
+      "b": {
+        "source": "src-notes-9#apis",
+        "value": "the lecture uses fetch with async/await (shows2) and response.json() (shows3)"
+      },
+      "status": "complementary",
+      "note": "Persian short page shows the mapping: fetch replaces XMLHttpRequest; response.ok corresponds to status 200."
+    },
+    {
+      "id": "d170",
+      "topic": "Finance: 'additional named parameters' / 'paramstyle of named'",
+      "a": {
+        "source": "src-pset-9-finance#hints",
+        "value": "'If that str contains question mark parameters ... those values can be provided as additional named parameters'; 'Be sure to use question mark-bound parameters (i.e., a paramstyle of named)'"
+      },
+      "b": {
+        "source": "src-finance-distribution",
+        "value": "PEP 249 calls ? placeholders 'qmark' and :name placeholders 'named'; login in the distribution uses db.execute(\"SELECT * FROM users WHERE username = ?\", request.form.get(\"username\")) - positional ? (qmark) placeholders, as in Week 7"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide says both placeholder styles work in the cs50 library and the distribution uses ?; no code given."
+    },
+    {
+      "id": "d171",
+      "topic": "Finance: caching disabled 'provided you're in debugging mode'",
+      "a": {
+        "source": "src-pset-9-finance#apppy",
+        "value": "'this file disables caching of responses (provided you're in debugging mode ...)'"
+      },
+      "b": {
+        "source": "src-finance-distribution",
+        "value": "app.py: @app.after_request sets Cache-Control: no-cache, no-store, must-revalidate on every response, with no debug check (code read)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide: the header is added on every response (code inspection, not a box run)."
+    },
+    {
+      "id": "d172",
+      "topic": "Finance links old documentation versions",
+      "a": {
+        "source": "src-pset-9-finance#apppy",
+        "value": "Flask 1.1.x sessions quickstart, Jinja 3.1.x, werkzeug 2.3.x, Bootstrap 5.1"
+      },
+      "b": {
+        "source": "src-flask-docs",
+        "value": "current docs: Flask 3.1 stable (also linked by the notes), Jinja 3.1"
+      },
+      "status": "complementary",
+      "note": "Guide links /en/stable/ next to each official link."
+    },
+    {
+      "id": "d173",
+      "topic": "Finance mentions phpLiteAdmin and IEX",
+      "a": {
+        "source": "src-pset-9-finance#running",
+        "value": "'Another way to view finance.db is with a program called phpLiteAdmin'; Background describes IEX and an api.iex.cloud URL"
+      },
+      "b": {
+        "source": "src-finance-distribution",
+        "value": "helpers.lookup calls https://finance.cs50.io/quote?symbol=..."
+      },
+      "status": "complementary",
+      "note": "Guide: lookup uses CS50's own quote service; sqlite3 is enough to inspect the database."
+    },
+    {
+      "id": "d174",
+      "topic": "Birthdays prose says 're-render' but the code redirects",
+      "a": {
+        "source": "src-pset-9-birthdays#understanding",
+        "value": "'your web application should add a new birthday and then re-render the index page'"
+      },
+      "b": {
+        "source": "src-birthdays-distribution",
+        "value": "the POST branch ends with return redirect(\"/\")"
+      },
+      "status": "complementary",
+      "note": "Redirect-after-POST leads to the index page being rendered by the GET route; the guide explains this pattern."
+    },
+    {
+      "id": "d175",
+      "topic": "Birthdays walkthrough recorded in CS50 IDE",
+      "a": {
+        "source": "src-pset-9-birthdays#walkthrough",
+        "value": "'This video was recorded when the course was still using CS50 IDE'"
+      },
+      "b": {
+        "source": "src-manual",
+        "value": "CS50x 2026 uses cs50.dev"
+      },
+      "status": "consistent",
+      "note": "Official note already says so; guide repeats it."
+    },
+    {
+      "id": "d176",
+      "topic": "Birthdays solution video present only on the live page",
+      "a": {
+        "source": "src-pset-9-birthdays",
+        "value": "Task-1 KB copy: no 'Not sure how to solve?' block"
+      },
+      "b": {
+        "source": "src-birthdays-solution-video",
+        "value": "refetch 2026-10-29: the live page embeds https://www.youtube.com/watch?v=lVwv4o8vmvI under 'Not sure how to solve?'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Main text identical; the difference is an embedded reveal. The guide links it once, after the checklist, with an honesty warning."
+    },
+    {
+      "id": "d177",
+      "topic": "Hello, Flask distribution is a 2022 lab",
+      "a": {
+        "source": "src-practice-helloflask#getting-started",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/9/helloflask.zip"
+      },
+      "b": {
+        "source": "src-pset-9",
+        "value": "2026 problems use cdn.cs50.net/2026/x/psets/9/"
+      },
+      "status": "complementary",
+      "note": "Linked as given."
+    },
+    {
+      "id": "d178",
+      "topic": "'Method not allowed' wording",
+      "a": {
+        "source": "src-practice-helloflask#forms",
+        "value": "'You should see the message \"Method not allowed\"'"
+      },
+      "b": {
+        "source": "src-flask-box-9",
+        "value": "Flask 3.1.3 responds 405 with the title 'Method Not Allowed' (POST to a GET-only route)"
+      },
+      "status": "consistent",
+      "note": "Same error; capitalisation differs."
+    },
+    {
+      "id": "d179",
+      "topic": "Finance FAQ heading names 'application'",
+      "a": {
+        "source": "src-pset-9-finance#importerror-no-module-named-application",
+        "value": "heading: ImportError: No module named 'application'"
+      },
+      "b": {
+        "source": "src-pset-9-finance#importerror-no-module-named-application",
+        "value": "body: 'By default, flask looks for a file called app.py ...'"
+      },
+      "status": "complementary",
+      "note": "Heading kept from the application.py era; guide explains the error as running flask outside finance/."
+    }
+  ]
+}

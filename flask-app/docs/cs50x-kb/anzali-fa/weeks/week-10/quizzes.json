@@ -1,0 +1,1137 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 10,
+  "generated_at": "2026-10-29T20:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها یا پروژهٔ نهایی نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w10-q-001",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-delta"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#recap",
+      "prompt_fa": "درس‌نامهٔ پایانی موفقیت را با چه چیزی می‌سنجد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "You should measure your success as the delta between your skill at the start of the course and your skill now.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فاصلهٔ مهارت آغاز درس تا مهارت پایان درس",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "نمرهٔ آزمون پایانی",
+          "feedback_fa": "CS50x آزمون پایانی ندارد و درس‌نامه معیار دیگری می‌گوید."
+        },
+        {
+          "id": "c",
+          "text_fa": "رتبه در میان هم‌کلاسی‌ها",
+          "feedback_fa": "درس می‌گوید مهم فاصله با نقطهٔ شروع خودت است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-002",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-learn-to-program"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#recap",
+      "prompt_fa": "درست یا نادرست: «امید اصلی درس این است که برنامه‌نویسی را یاد گرفته باشی، فارغ از اینکه با کدام زبان.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درس‌نامه: «our great hope is that you learned how to program in them all, regardless of the language».",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-003",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-input-algorithm-output"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#recap",
+      "prompt_fa": "در تصویر حل مسئلهٔ درس، چه چیزی میان ورودی و خروجی قرار می‌گیرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "ورودی → الگوریتم → خروجی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "الگوریتم",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "کامپایلر",
+          "feedback_fa": "کامپایلر ابزار ترجمهٔ کد است، نه بخش تصویر کلی حل مسئله."
+        },
+        {
+          "id": "c",
+          "text_fa": "پایگاه داده",
+          "feedback_fa": "پایگاه داده جای نگه‌داشتن داده است، نه گام‌های حل."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-004",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-verbal-instructions"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "درست یا نادرست: «در بازی تصویرکشی دور اول، داوطلب اجازه داشت با اشارهٔ دست هم راهنمایی کند.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "از سخنرانی: «verbal programming only»؛ هیچ اشارهٔ فیزیکی مجاز نبود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-005",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-verbal-instructions"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از سخنرانی: داوطلب دور اول در واقع چه تصویری را توصیف می‌کرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تصویر دور اول یک مکعب بود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "یک مکعب",
+          "feedback_fa": "درست؛ و چون هرگز نگفت «مکعب»، بیشتر نقاشی‌ها شبیه آن نشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک آدمک",
+          "feedback_fa": "آدمک تصویر دور دوم بود که حاضران توصیف کردند."
+        },
+        {
+          "id": "c",
+          "text_fa": "نقشهٔ دانشگاه",
+          "feedback_fa": "چنین تصویری در بازی نبود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-006",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-precision-correctness"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از سخنرانی: مالان از جلسهٔ اول CS50 خودش کدام دو نکته را دربارهٔ الگوریتم‌ها مهم‌ترین می‌دانست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«precision and correctness».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "دقت و درستی",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "سرعت و حافظه",
+          "feedback_fa": "این‌ها در هفته‌های بعد آمد؛ نکتهٔ یادداشت او دقت و درستی بود."
+        },
+        {
+          "id": "c",
+          "text_fa": "خوانایی و سبک",
+          "feedback_fa": "سبک در درس مهم است، اما یادداشت او دقت و درستی را می‌گفت."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-007",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-high-low-level"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-10#recap",
+      "prompt_fa": "دستورهای سطح بالا و سطح پایین بازی، به گفتهٔ درس‌نامه، به چه چیزی شبیه بودند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«like the different programming languages utilized in this course».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "زبان‌های برنامه‌نویسی مختلفی که در درس به کار رفت",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "بیت‌ها و بایت‌ها",
+          "feedback_fa": "درس‌نامه آن‌ها را به زبان‌های برنامه‌نویسی تشبیه می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "سرور و مرورگر",
+          "feedback_fa": "این مقایسه در درس‌نامه نیامده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-008",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-abstraction-recap"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#recap",
+      "prompt_fa": "«دست‌ها را بکش» نمونهٔ کدام ایده است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«This is similar to how we abstracted away code into functions».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "انتزاع، مثل گذاشتن کد در یک تابع",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "سرریز عدد صحیح",
+          "feedback_fa": "ربطی به دستور «دست‌ها را بکش» ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "بازگشت (recursion)",
+          "feedback_fa": "این دستور خودش را صدا نمی‌زند؛ جزئیات را پشت یک نام پنهان می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-009",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l01",
+      "concept_ids": [
+        "w10-c-teach-yourself"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#recap",
+      "prompt_fa": "درست یا نادرست: «به گفتهٔ درس‌نامه، بالاتر از همه یاد گرفتی چطور خودت را آموزش بدهی.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "«Above all, though, you learned how to teach yourself and leverage learning resources.»",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-010",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-final-project"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#final-project",
+      "prompt_fa": "درست یا نادرست: «مشخصات و طراحی پروژهٔ نهایی با خود دانشجوست.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "«a project … that is of your specification and design».",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-011",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-final-project-ai"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#final-project",
+      "prompt_fa": "کدام جمله دربارهٔ هوش مصنوعی در CS50 درست است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«(not permitted in any other problem set)».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "ابزارهای بیرون از درس فقط در پروژهٔ نهایی مجازند.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "ابزارهای بیرون از درس در همهٔ مسئله‌ها مجازند.",
+          "feedback_fa": "درس‌نامه می‌گوید در هیچ مسئلهٔ دیگری مجاز نبود."
+        },
+        {
+          "id": "c",
+          "text_fa": "در پروژهٔ نهایی هم فقط اردک CS50 مجاز است.",
+          "feedback_fa": "مشخصات پروژه فرصت استفاده از ابزارهای بیرونی را می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-012",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-good-better-best"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از سخنرانی: سه هدفی که مشخصات پروژهٔ نهایی می‌خواهد کدام‌اند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«a good goal …, a better goal …, and a best goal».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خوب، بهتر، بهترین",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "کم، متوسط، زیاد",
+          "feedback_fa": "مالان از اهداف good, better, best گفت."
+        },
+        {
+          "id": "c",
+          "text_fa": "طراحی، کد، آزمون",
+          "feedback_fa": "این‌ها مرحله‌های کارند، نه سه هدف مشخصات."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-013",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-hackathon-fair"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#final-project",
+      "prompt_fa": "درست یا نادرست: «نمایشگاه CS50 به گفتهٔ درس‌نامه برای دانشجویان حاضر در دانشگاه است.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "«For those of you on campus, we hope that you will attend the CS50 Fair».",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-014",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-editors"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#looking-ahead",
+      "prompt_fa": "درس‌نامه کدام‌ها را «ویرایشگرهای متنی محبوب دیگر» کنار VS Code می‌نامد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«Cursor and Windsurf are other popular text editors».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "Cursor و Windsurf",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "Git و GitHub",
+          "feedback_fa": "این‌ها ابزار نسخه‌بندی و میزبانی‌اند، نه ویرایشگر."
+        },
+        {
+          "id": "c",
+          "text_fa": "Heroku و Vercel",
+          "feedback_fa": "این‌ها سرویس میزبانی برنامهٔ وب‌اند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-015",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-editors"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: cs50.dev بر پایهٔ GitHub Codespaces، یعنی VS Code در فضای ابری، ساخته شده است.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "مالان گفت cs50.dev سازگارشدهٔ GitHub Codespaces است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-016",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-command-line-tools"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از سخنرانی: برای داشتن همان نرم‌افزارهای ازپیش‌نصب CS50 روی رایانهٔ خودت، مستندات CS50 از چه فناوری‌ای استفاده می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«a technology known as containerization with a tool called Docker».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کانتینرسازی با Docker",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "GitHub Pages",
+          "feedback_fa": "GitHub Pages برای میزبانی سایت ایستاست."
+        },
+        {
+          "id": "c",
+          "text_fa": "Live Share",
+          "feedback_fa": "Live Share برای ویرایش هم‌زمان با هم‌گروهی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-017",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-git"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: تاریخچهٔ نسخه‌ها در cs50.dev در پشت صحنه با Git کار می‌کرد.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "«we're just using Git, but … automatically running this command for you».",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-018",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-static-hosting"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از سخنرانی: GitHub Pages برای کدام پروژه مناسب است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«GitHub pages, which you can use to just host HTML, CSS and JavaScript with no Python, no flask, no back end».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "سایتی فقط با HTML و CSS و جاوااسکریپت",
+          "feedback_fa": "درست؛ بدون پایتون و Flask و بخش سمت سرور."
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامهٔ Flask با پایگاه داده",
+          "feedback_fa": "این برنامهٔ وب است و میزبانی برنامهٔ وب می‌خواهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "برنامهٔ C که از خط فرمان اجرا می‌شود",
+          "feedback_fa": "GitHub Pages برنامهٔ خط فرمان اجرا نمی‌کند؛ فقط فایل‌های سایت ایستا را می‌فرستد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-019",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-web-app-hosting"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#looking-ahead",
+      "prompt_fa": "کدام مورد در فهرست درس‌نامه برای میزبانی برنامهٔ وب **نیست**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "فهرست: AWS، Azure، Google Cloud، Cloudflare، Heroku، Vercel.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "Windsurf",
+          "feedback_fa": "درست؛ Windsurf ویرایشگر است."
+        },
+        {
+          "id": "b",
+          "text_fa": "Vercel",
+          "feedback_fa": "Vercel در فهرست میزبانی برنامهٔ وب است."
+        },
+        {
+          "id": "c",
+          "text_fa": "Cloudflare",
+          "feedback_fa": "Cloudflare در فهرست میزبانی برنامهٔ وب است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-020",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-ai-tools-ahead"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "درست یا نادرست: «از سخنرانی: پیشنهاد مالان این بود که در پروژهٔ نهایی کار را کامل به هوش مصنوعی بسپاری.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "او گفت بهره‌وری خودت را با هوش مصنوعی بالا ببر، «not by having it do it for you».",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-021",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l02",
+      "concept_ids": [
+        "w10-c-more-cs50"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#looking-ahead",
+      "prompt_fa": "درس‌نامه برای گذراندن درس‌های دیگر CS50 به کجا پیوند می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "«Take any of our other CS50 courses» با پیوند edX.org/cs50.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "edX (edX.org/cs50)",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "GitHub Pages",
+          "feedback_fa": "این برای میزبانی سایت است."
+        },
+        {
+          "id": "c",
+          "text_fa": "CS50.dev",
+          "feedback_fa": "این محیط برنامه‌نویسی درس است، نه فهرست درس‌ها."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-022",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-summing-up"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-10#summing-up",
+      "prompt_fa": "کدام مورد جزو سه توصیهٔ «Summing Up» **نیست**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سه توصیه: حل مسئله‌های دنیا، ادامهٔ یادگیری، ارسال پروژهٔ نهایی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "از هوش مصنوعی برای انجام مسئله‌های هفته‌های قبل استفاده کن.",
+          "feedback_fa": "درست؛ چنین توصیه‌ای نیست و برخلاف قانون درس است."
+        },
+        {
+          "id": "b",
+          "text_fa": "یادگیری را ادامه بده.",
+          "feedback_fa": "این یکی از سه توصیه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "قوی تمام کن و پروژهٔ نهایی را ارسال کن.",
+          "feedback_fa": "این یکی از سه توصیه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-023",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از مسابقهٔ پایانی: بزرگ‌ترین عدد ۸ بیتی بدون علامت چند است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پاسخ سخنرانی: 255.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "255",
+          "feedback_fa": "درست؛ ۰ یکی از ۲۵۶ حالت را می‌گیرد."
+        },
+        {
+          "id": "b",
+          "text_fa": "256",
+          "feedback_fa": "۲۵۶ تعداد حالت‌هاست، اما شمارش از ۰ شروع می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "128",
+          "feedback_fa": "۱۲۸ مقدار بیت هشتم به‌تنهایی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-024",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از مسابقهٔ پایانی: مسئلهٔ سال ۲۰۳۸ از چه نوعی است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پاسخ سخنرانی: integer overflow.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "سرریز عدد صحیح",
+          "feedback_fa": "درست؛ زمان با عدد ۳۲ بیتی از ۱ ژانویهٔ ۱۹۷۰ شمرده می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "حملهٔ تزریق SQL",
+          "feedback_fa": "تزریق SQL ربطی به شمارش زمان ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "نشت حافظه",
+          "feedback_fa": "مشکل، تمام شدن حالت‌های ۳۲ بیت است، نه پس ندادن حافظه."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-025",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از مسابقهٔ پایانی: کدام گزینه گامی از «کامپایل» به معنای کلی آن **نیست**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "گام‌ها: پیش‌پردازش، کامپایل، اسمبل، پیوند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تفسیر (interpreting)",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "پیوند (linking)",
+          "feedback_fa": "پیوند آخرین گام است و کد را با کتابخانه‌ها یکی می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "پیش‌پردازش (preprocessing)",
+          "feedback_fa": "پیش‌پردازش اولین گام است، مثلاً برای `#include` ."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-026",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از مسابقهٔ پایانی: malloc حافظه را از کجا می‌گیرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پاسخ سخنرانی: the heap.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "heap",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "stack",
+          "feedback_fa": "stack برای قاب‌های فراخوانی توابع و متغیرهای محلی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "فایل روی دیسک",
+          "feedback_fa": "malloc حافظهٔ پویا در RAM می‌گیرد، نه فایل."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-027",
+      "origin": "authored",
+      "week": 10,
+      "type": "mcq",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "از مسابقهٔ پایانی: کدام فرمان SQL ردیف‌های تکراری نتیجه را حذف می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پاسخ سخنرانی: DISTINCT.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "DISTINCT",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "UNIQUE",
+          "feedback_fa": "UNIQUE برای تعریف یکتایی ستون در طرح‌واره است."
+        },
+        {
+          "id": "c",
+          "text_fa": "DELETE",
+          "feedback_fa": "DELETE ردیف‌ها را از خود جدول پاک می‌کند، نه تکراری‌های نتیجه را."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w10-q-028",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "درست یا نادرست: «از مسابقهٔ پایانی: کار DNS ترجمهٔ نام دامنه به نشانی IP است.»",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "پاسخ سخنرانی: to translate domain names into IP addresses.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w10-q-029",
+      "origin": "authored",
+      "week": 10,
+      "type": "true_false",
+      "lesson_id": "w10-l03",
+      "concept_ids": [
+        "w10-c-review-quiz"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-10",
+      "prompt_fa": "درست یا نادرست: «از مسابقهٔ پایانی: `ENROLL` یکی از ابزارهای داخلی SQL برای شرایط رقابتی است.»",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "ENROLL در SQL وجود ندارد؛ BEGIN TRANSACTION، COMMIT و ROLLBACK ابزارهای واقعی‌اند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w10-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w10-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w10-q-001",
+        "w10-q-002",
+        "w10-q-003",
+        "w10-q-004",
+        "w10-q-005",
+        "w10-q-006",
+        "w10-q-007",
+        "w10-q-008",
+        "w10-q-009"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w10-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w10-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w10-q-010",
+        "w10-q-011",
+        "w10-q-012",
+        "w10-q-013",
+        "w10-q-014",
+        "w10-q-015",
+        "w10-q-016",
+        "w10-q-017",
+        "w10-q-018",
+        "w10-q-019",
+        "w10-q-020",
+        "w10-q-021"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w10-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w10-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w10-q-022",
+        "w10-q-023",
+        "w10-q-024",
+        "w10-q-025",
+        "w10-q-026",
+        "w10-q-027",
+        "w10-q-028",
+        "w10-q-029"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w10-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۱۰",
+      "item_ids": [
+        "w10-q-005",
+        "w10-q-007",
+        "w10-q-012",
+        "w10-q-015",
+        "w10-q-024",
+        "w10-q-025"
+      ],
+      "item_pool_ids": [
+        "w10-q-001",
+        "w10-q-002",
+        "w10-q-003",
+        "w10-q-004",
+        "w10-q-005",
+        "w10-q-006",
+        "w10-q-007",
+        "w10-q-008",
+        "w10-q-009",
+        "w10-q-010",
+        "w10-q-011",
+        "w10-q-012",
+        "w10-q-013",
+        "w10-q-014",
+        "w10-q-015",
+        "w10-q-016",
+        "w10-q-017",
+        "w10-q-018",
+        "w10-q-019",
+        "w10-q-020",
+        "w10-q-021",
+        "w10-q-022",
+        "w10-q-023",
+        "w10-q-024",
+        "w10-q-025",
+        "w10-q-026",
+        "w10-q-027",
+        "w10-q-028",
+        "w10-q-029"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 6,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

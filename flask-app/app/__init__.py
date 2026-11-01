@@ -70,6 +70,11 @@ def create_app(config_object: str = "app.config.Config") -> Flask:
         from app import models  # noqa: F401 — ثبت مدلها با SQLAlchemy
         db.create_all()
         _ensure_sqlite_columns()
+        try:
+            from app.services import cohorts as cohort_service
+            cohort_service.ensure_default_course_and_cohort()
+        except Exception:
+            pass
 
     # logging سبک به stdout (systemd journal آن را جمع می‌کند)
     logging.basicConfig(

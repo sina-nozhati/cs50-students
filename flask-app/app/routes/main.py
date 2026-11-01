@@ -5,13 +5,15 @@
     /dashboard   — داشبورد دانش‌آموز (login_required)
     /health      — uptime monitoring (عمومی)
 """
-from flask import Blueprint, render_template, jsonify, redirect, url_for, flash, request
+from flask import Blueprint, render_template, jsonify, redirect, url_for, flash, request, session
 from flask_login import login_required, current_user
 
 from app.services import progress as progress_service
 from app.services import notifications as notif_service
 from app.services import streak as streak_service
 from app.services import events as event_service
+from app.services import diagnostics as diag_service
+from app.services import cohorts as cohort_service
 
 bp = Blueprint("main", __name__)
 
@@ -23,7 +25,9 @@ def index():
     اگر کاربر از قبل لاگین کرده باشد، یک بنر «ورود به پنل» نمایش می‌دهیم
     تا مستقیم به /dashboard برود. اما خود محتوا عمومی است.
     """
-    return render_template("index.html")
+    from app.content import loader
+    curriculum_weeks = loader.list_weeks()
+    return render_template("index.html", curriculum_weeks=curriculum_weeks)
 
 
 @bp.route("/dashboard")
@@ -77,6 +81,13 @@ def dashboard():
 
     streak_history = streak_service.get_streak_history(current_user.id, days=7)
     xp_history = progress_service.get_xp_history(current_user.id, limit=5)
+    diag_summary = diag_service.get_student_diagnostic_profile(current_user.id)
+
+    # اطلاعات چنددوره‌ای کاربر (Multi-Cohort Context)
+    active_cohort = cohort_service.get_active_cohort_for_user(
+        current_user.id, session.get("active_cohort_id")
+    )
+    user_enrollments = cohort_service.get_user_enrollments(current_user.id)
 
     return render_template(
         "dashboard/index.html",
@@ -91,7 +102,47 @@ def dashboard():
         weekly_goal=weekly_goal,
         streak_history=streak_history,
         xp_history=xp_history,
+        diag_summary=diag_summary,
+        active_cohort=active_cohort,
+        user_enrollments=user_enrollments,
     )
+
+
+@bp.route("/cohort/switch/<int:cohort_id>", methods=["POST"])
+@login_required
+def switch_cohort(cohort_id: int):
+    """تغییر دوره فعال دانش‌آموز."""
+    success = cohort_service.switch_user_active_cohort(current_user.id, cohort_id)
+    if success:
+        session["active_cohort_id"] = cohort_id
+        flash("نوبت برگزاری فعال شما با موفقیت تغییر کرد.", "success")
+    else:
+        flash("شما در این دوره آموزشی عضویت ندارید.", "error")
+    next_url = request.form.get("next") or url_for("main.dashboard")
+    return redirect(next_url)
+
+
+@bp.route("/my-courses")
+@login_required
+def my_courses():
+    """صفحه اختصاصی دوره‌های من و مدیریت عضویت‌های چندگانه."""
+    user_enrollments = cohort_service.get_user_enrollments(current_user.id)
+    active_cohort = cohort_service.get_active_cohort_for_user(
+        current_user.id, session.get("active_cohort_id")
+    )
+    return render_template(
+        "dashboard/my_courses.html",
+        user_enrollments=user_enrollments,
+        active_cohort=active_cohort,
+    )
+
+
+@bp.route("/diagnostics")
+@login_required
+def diagnostics():
+    """کلینیک یادگیری، رادار نقاط ضعف و جعبه اشتباهات دانش‌آموز."""
+    profile = diag_service.get_student_diagnostic_profile(current_user.id)
+    return render_template("learning/diagnostics.html", profile=profile)
 
 
 @bp.route("/notifications/<int:notification_id>/read", methods=["POST"])

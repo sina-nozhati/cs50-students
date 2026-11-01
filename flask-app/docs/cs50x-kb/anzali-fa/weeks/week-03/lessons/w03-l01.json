@@ -1,0 +1,338 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w03-l01",
+  "type": "lesson",
+  "week": 3,
+  "order": 1,
+  "stage_id": "w03-s1",
+  "title_fa": "جست‌وجو: خطی و دودویی",
+  "title_en": "Searching: linear and binary",
+  "note_ids": [
+    "w03-n01",
+    "w03-n02",
+    "w03-n03"
+  ],
+  "related_doc_ids": [
+    "w03-sh-linear-search",
+    "w03-sh-binary-search"
+  ],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w03-c-algorithm-black-box",
+    "w03-c-growth-graph",
+    "w03-c-array-memory-lockers",
+    "w03-c-linear-search",
+    "w03-c-pseudocode-precision",
+    "w03-c-binary-search",
+    "w03-c-sorted-precondition"
+  ],
+  "objective_ids": [
+    "w03-o01",
+    "w03-o02",
+    "w03-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w02-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۲ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "units": [
+    {
+      "id": "w03-l01-u01",
+      "order": 1,
+      "title_fa": "الگوریتم مثل جعبهٔ سیاه",
+      "concept_ids": [
+        "w03-c-algorithm-black-box",
+        "w03-c-growth-graph"
+      ],
+      "objective_ids": [
+        "w03-o01"
+      ],
+      "note_id": "w03-n01",
+      "source_refs": [
+        "src-notes-3#welcome",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه یادآوری می‌کند که الگوریتم دستورهای گام‌به‌گام برای حل یک مسئله است: ورودی وارد جعبه می‌شود و خروجی بیرون می‌آید. در هفتهٔ صفر سه الگوریتم دفترچهٔ تلفن را مقایسه کردیم: صفحه‌به‌صفحه (n)، دوصفحه‌دوصفحه (n/2) و نصف کردن (log n). این هفته همین ایده را دقیق‌تر می‌کنیم.",
+        "note_id": "w03-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n01"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "ورودی  ->  [ الگوریتم ]  ->  خروجی\nn       -> صفحه به صفحه\nn/2     -> دو صفحه دو صفحه\nlog n   -> نصف کردن",
+        "source_ref": "src-anzali-authored-3",
+        "explain_fa": "خلاصهٔ تألیفی نمودار درس‌نامه."
+      },
+      "check": {
+        "id": "w03-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در نمودار هفتهٔ صفر، کدام خط با بزرگ شدن مسئله کندتر از بقیه بالا می‌رود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "log n، یعنی الگوریتم نصف کردن",
+            "correct": true,
+            "feedback_fa": "درست. با دو برابر شدن دفترچه فقط یک گام اضافه می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "n، یعنی صفحه‌به‌صفحه",
+            "correct": false,
+            "feedback_fa": "n با اندازهٔ مسئله هم‌پا بالا می‌رود."
+          },
+          {
+            "id": "c",
+            "text_fa": "n/2",
+            "correct": false,
+            "feedback_fa": "n/2 فقط نصف n است و باز خطی است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: طبق درس‌نامه، الگوریتم دستورهای گام‌به‌گام برای حل یک مسئله است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بخش Welcome درس‌نامه را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l01-u02",
+      "order": 2,
+      "title_fa": "جست‌وجوی خطی",
+      "concept_ids": [
+        "w03-c-array-memory-lockers",
+        "w03-c-linear-search",
+        "w03-c-pseudocode-precision"
+      ],
+      "objective_ids": [
+        "w03-o02"
+      ],
+      "note_id": "w03-n02",
+      "source_refs": [
+        "src-notes-3#linear-search",
+        "src-short-linear-search",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "آرایه را مثل هفت کمد بسته تصور کن: کامپیوتر نمی‌تواند همه را یک‌جا ببیند و باید دانه‌دانه درها را باز کند. جست‌وجوی خطی از چپ به راست هر در را باز می‌کند. اگر عدد را دید «پیدا شد» برمی‌گرداند و اگر همهٔ درها تمام شد «پیدا نشد». مهم است که «پیدا نشد» بعد از حلقه بیاید، نه داخل آن.",
+        "note_id": "w03-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "doors-i-pseudo",
+        "lang": "text",
+        "content": "For i from 0 to n-1\n    If 50 is behind doors[i]\n        Return true\nReturn false",
+        "source_ref": "src-notes-3#linear-search",
+        "explain_fa": "شبه‌کد رسمی با doors[i]."
+      },
+      "check": {
+        "id": "w03-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا خط «Return false» در شبه‌کد بعد از حلقه آمده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون فقط وقتی همهٔ درها را دیده‌ایم می‌توانیم بگوییم عدد نیست",
+            "correct": true,
+            "feedback_fa": "درست. اگر داخل حلقه بود، بعد از اولین در اشتباه نتیجه می‌گرفتیم."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون false همیشه آخر هر تابع می‌آید",
+            "correct": false,
+            "feedback_fa": "چنین قاعده‌ای نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون حلقه بدون آن کامپایل نمی‌شود",
+            "correct": false,
+            "feedback_fa": "این شبه‌کد است و مسئلهٔ کامپایل ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l01-u02-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا شبه‌کد جست‌وجوی خطی (تألیفی، بر پایهٔ درس‌نامه) درست شود.",
+        "lang": "text",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "For each door from left to right",
+            "text": "For each door from left to right"
+          },
+          {
+            "id": "p2",
+            "code": "    If 50 is behind door",
+            "text": "    If 50 is behind door"
+          },
+          {
+            "id": "p3",
+            "code": "        Return true",
+            "text": "        Return true"
+          },
+          {
+            "id": "p4",
+            "code": "Return false",
+            "text": "Return false"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "    Else return false",
+            "why_wrong_fa": "اگر «وگرنه false» داخل حلقه باشد، بعد از اولین در ناموفق متوقف می‌شود."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "«پیدا نشد» باید بعد از تمام شدن حلقه باشد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l01-u03",
+      "order": 3,
+      "title_fa": "جست‌وجوی دودویی",
+      "concept_ids": [
+        "w03-c-binary-search",
+        "w03-c-sorted-precondition"
+      ],
+      "objective_ids": [
+        "w03-o03"
+      ],
+      "note_id": "w03-n03",
+      "source_refs": [
+        "src-notes-3#binary-search",
+        "src-short-binary-search",
+        "src-transcript-3",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "اگر عددها **مرتب** باشند، می‌توانیم از وسط شروع کنیم: اگر عدد وسط همان است، تمام. اگر کوچک‌تر است، فقط نیمهٔ چپ را می‌گردیم و اگر بزرگ‌تر، نیمهٔ راست. اگر دری نماند، عدد نیست. هر گام مسئله را نصف می‌کند، اما فقط روی داده‌ای که از پیش مرتب شده است.",
+        "note_id": "w03-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "binary-index-pseudo",
+        "lang": "text",
+        "content": "If no doors left\n    Return false\nIf 50 is behind doors[middle]\n    Return true\nElse if 50 < doors[middle]\n    Search doors[0] through doors[middle - 1]\nElse if 50 > doors[middle]\n    Search doors[middle + 1] through doors[n - 1]",
+        "source_ref": "src-notes-3#binary-search",
+        "explain_fa": "شبه‌کد رسمی با اندیس‌ها."
+      },
+      "check": {
+        "id": "w03-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "جست‌وجوی دودویی روی کدام آرایه درست کار **نمی‌کند**؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "آرایهٔ نامرتب",
+            "correct": true,
+            "feedback_fa": "درست. نصف کردن فقط وقتی معنا دارد که بدانی عدد کوچک‌تر کدام طرف است."
+          },
+          {
+            "id": "b",
+            "text_fa": "آرایهٔ مرتب صعودی با ۷ عضو",
+            "correct": false,
+            "feedback_fa": "این دقیقاً جای جست‌وجوی دودویی است."
+          },
+          {
+            "id": "c",
+            "text_fa": "آرایهٔ مرتب با یک عضو",
+            "correct": false,
+            "feedback_fa": "با یک عضو هم کار می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l01-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "در آرایهٔ مرتب `1 5 10 20 50 100 500`، اگر با جست‌وجوی دودویی دنبال 50 بگردی، اولین عددی که نگاه می‌کنی کدام است؟ (فقط عدد)",
+        "expected": {
+          "output": "20"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: وسط هفت خانه، خانهٔ [3] است.",
+          "incorrect_fa": "اندیس وسط ۰ تا ۶ را حساب کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

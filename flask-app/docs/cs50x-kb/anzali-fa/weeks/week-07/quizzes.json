@@ -1,0 +1,2927 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 7,
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w07-q-001",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-flat-file-db"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#flat-file-database",
+      "prompt_fa": "چرا به فایلی مثل favorites.csv «پایگاه دادهٔ تخت» (flat-file database) می‌گویند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پایگاه دادهٔ تخت یعنی داده در یک فایل متنی ساده مثل CSV.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون همهٔ داده در یک فایل متنی ساده ذخیره شده است؛ هر سطر یک رکورد و ستون‌ها با ویرگول جدا شده‌اند",
+          "feedback_fa": "آفرین؛ یادداشت رسمی CSV را نمونهٔ پایگاه دادهٔ تخت می‌داند: یک فایل متنی بدون جدول‌های به‌هم‌پیوسته."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون فقط یک ستون دارد",
+          "feedback_fa": "فایل CSV می‌تواند چند ستون داشته باشد؛ favorites.csv سه ستون دارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون داده را در چند جدول مرتبط با کلید نگه می‌دارد",
+          "feedback_fa": "این توصیف پایگاه دادهٔ رابطه‌ای است، نه تخت."
+        },
+        {
+          "id": "d",
+          "text_fa": "چون فقط با SQL خوانده می‌شود",
+          "feedback_fa": "CSV را با پایتون و ماژول csv هم می‌خوانیم؛ اتفاقاً SQL برای پایگاه دادهٔ رابطه‌ای است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-002",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-csv-quoting"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-python-docs",
+      "prompt_fa": "در یک فایل CSV مقدار `Hello, World` خودش ویرگول دارد. استاندارد رایج CSV (و ماژول csv پایتون) این مقدار را چطور ذخیره می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "csv.reader مقدار داخل نقل‌قول دوتایی را یک ستون می‌خواند و خود نقل‌قول‌ها را برمی‌دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "داخل نقل‌قول دوتایی: `\"Hello, World\"`",
+          "feedback_fa": "آفرین؛ نقل‌قول دوتایی نشان می‌دهد ویرگول داخلش جداکنندهٔ ستون نیست."
+        },
+        {
+          "id": "b",
+          "text_fa": "ویرگول را حذف می‌کند",
+          "feedback_fa": "داده تغییر نمی‌کند؛ فقط نقل‌قول اضافه می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "مقدار را در دو ستون جدا می‌نویسد",
+          "feedback_fa": "این همان خطایی است که نقل‌قول از آن جلوگیری می‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "داخل نقل‌قول تکی: `'Hello, World'`",
+          "feedback_fa": "در CSV نقل‌قول دوتایی به کار می‌رود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-003",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-csv-reader-header"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#flat-file-database",
+      "prompt_fa": "(کد تألیفی) فایل favorites.csv این سه سطر را دارد: سطر سرستون `Timestamp,language,problem`، سپس `10/20/2025 13:01:01,Python,\"Hello, World\"` و `10/20/2025 13:01:05,C,Mario`. خروجی برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "Hello, World\nMario"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Hello, World\nMario"
+        ]
+      },
+      "explanation_fa": "`next(reader)` سطر سرستون را رد می‌کند و `row[2]` ستون سوم (problem) است؛ نقل‌قول‌های دوتایی دور `Hello, World` در خروجی نمی‌آیند.",
+      "code": "import csv\n\nwith open(\"favorites.csv\", \"r\") as file:\n    reader = csv.reader(file)\n    next(reader)\n    for row in reader:\n        print(row[2])",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "favorites.csv": "Timestamp,language,problem\n10/20/2025 13:01:01,Python,\"Hello, World\"\n10/20/2025 13:01:05,C,Mario\n"
+        },
+        "expected_stdout_exact": "Hello, World\nMario\n",
+        "fixture": null,
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "Hello, World\nMario",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-004",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-count-with-dict",
+        "w07-c-sorted-key-reverse"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#flat-file-database",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "C: 4\nScratch: 2\nPython: 1"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "C: 4\nScratch: 2\nPython: 1"
+        ]
+      },
+      "explanation_fa": "`key=counts.get` بر پایهٔ شمارش مرتب می‌کند و `reverse=True` از بیشترین به کمترین.",
+      "code": "counts = {}\nfor language in [\"Scratch\", \"C\", \"C\", \"Python\", \"C\", \"Scratch\", \"C\"]:\n    if language in counts:\n        counts[language] += 1\n    else:\n        counts[language] = 1\nfor language in sorted(counts, key=counts.get, reverse=True):\n    print(f\"{language}: {counts[language]}\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "C: 4\nScratch: 2\nPython: 1\n",
+        "fixture": null,
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "C: 4\nScratch: 2\nPython: 1",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-005",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-keyerror-try"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#flat-file-database",
+      "prompt_fa": "اگر `counts` دیکشنری خالی باشد، اجرای `counts[\"C\"] += 1` خطای KeyError می‌دهد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ کلید هنوز وجود ندارد، پس خواندن مقدار قبلی برای افزودن یک شکست می‌خورد. یادداشت رسمی برای همین `if ... in` یا try/except را نشان می‌دهد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-006",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-crud"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#relational-databases",
+      "prompt_fa": "در CRUD، حرف R (خواندن) در SQL با کدام دستور انجام می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "یادداشت رسمی: Create با CREATE و INSERT، Read با SELECT، Update با UPDATE و Delete با DELETE و DROP.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`SELECT`",
+          "feedback_fa": "آفرین؛ خواندن داده با SELECT است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`READ`",
+          "feedback_fa": "چنین دستوری در SQL نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "`INSERT`",
+          "feedback_fa": "INSERT برای C (ایجاد) است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`UPDATE`",
+          "feedback_fa": "UPDATE برای U (به‌روزرسانی) است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-007",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l01",
+      "concept_ids": [
+        "w07-c-csv-import"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#relational-databases",
+      "prompt_fa": "در sqlite3 پس از `.mode csv`، فرمان `.import favorites.csv favorites` چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`.mode csv` قالب ورودی را CSV می‌کند و `.import` آن را به جدول تبدیل می‌کند؛ بعد با `.schema` طرح‌واره را می‌بینیم.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "جدولی به نام favorites می‌سازد و سطرهای CSV را در آن می‌ریزد؛ سطر اول نام ستون‌ها می‌شود",
+          "feedback_fa": "آفرین؛ همان کاری که در سخنرانی انجام شد."
+        },
+        {
+          "id": "b",
+          "text_fa": "فایل CSV را حذف می‌کند",
+          "feedback_fa": "فایل دست نمی‌خورد؛ فقط خوانده می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط سطر اول را وارد می‌کند",
+          "feedback_fa": "همهٔ سطرها وارد می‌شوند؛ سطر اول نام ستون‌هاست."
+        },
+        {
+          "id": "d",
+          "text_fa": "داده را به پایتون می‌فرستد",
+          "feedback_fa": "این یک فرمان خود sqlite3 است و پایتون در کار نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-008",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-distinct"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "8"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "8"
+        ]
+      },
+      "explanation_fa": "هشت مسئلهٔ متفاوت در داده هست: Hello, World، Scratch، DNA، Mario، Hello, It's Me، Readability، Filter و Speller.",
+      "code": "SELECT COUNT(DISTINCT problem) FROM favorites;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "8\n",
+        "fixture": "favorites",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": false,
+        "stdout": "8",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-009",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-and-or"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "6"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "6"
+        ]
+      },
+      "explanation_fa": "چهار سطر C و دو سطر با مسئلهٔ Scratch؛ این دو گروه هم‌پوشانی ندارند، پس `OR` شش سطر می‌دهد.",
+      "code": "SELECT COUNT(*) FROM favorites WHERE language = 'C' OR problem = 'Scratch';",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "6\n",
+        "fixture": "favorites",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": false,
+        "stdout": "6",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-010",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-like-wildcard",
+        "w07-c-group-by"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "C|2\nPython|2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "C|2\nPython|2"
+        ]
+      },
+      "explanation_fa": "`LIKE 'Hello%'` هم Hello, World و هم Hello, It's Me را می‌گیرد: دو سطر Python و دو سطر C. `ORDER BY language` ترتیب را تعیین می‌کند.",
+      "code": "SELECT language, COUNT(*) AS n FROM favorites\nWHERE problem LIKE 'Hello%'\nGROUP BY language\nORDER BY language;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "C|2\nPython|2\n",
+        "fixture": "favorites",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": true,
+        "stdout": "C|2\nPython|2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-011",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-order-by",
+        "w07-c-limit"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "DNA\nHello, World\nHello, World"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "DNA\nHello, World\nHello, World"
+        ]
+      },
+      "explanation_fa": "مسئله‌های Python به ترتیب الفبایی DNA، Hello, World، Hello, World، Mario، Readability و Speller‌اند؛ `LIMIT 3` سه‌تای اول را نگه می‌دارد و تکراری‌ها حذف نمی‌شوند.",
+      "code": "SELECT problem FROM favorites\nWHERE language = 'Python'\nORDER BY problem\nLIMIT 3;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "DNA\nHello, World\nHello, World\n",
+        "fixture": "favorites",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": true,
+        "stdout": "DNA\nHello, World\nHello, World",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-012",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-count",
+        "w07-c-null"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "12|11"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "12|11"
+        ]
+      },
+      "explanation_fa": "`COUNT(*)` همهٔ سطرها را می‌شمارد، ولی `COUNT(column)` مقدارهای NULL را نمی‌شمارد و یک سطر Timestamp ندارد.",
+      "code": "SELECT COUNT(*), COUNT(\"Timestamp\") FROM favorites;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "12|11\n",
+        "fixture": "favorites",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": false,
+        "stdout": "12|11",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-013",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-string-literal-quotes"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "در SQL، رشتهٔ Python را در شرط `WHERE language = ...` به شکل استاندارد چطور می‌نویسیم؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "قاعده: نقل‌قول تکی برای رشته، نقل‌قول دوتایی برای شناسه (مثل `\"Timestamp\"`).",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`'Python'`",
+          "feedback_fa": "آفرین؛ در SQL رشته داخل نقل‌قول تکی می‌آید."
+        },
+        {
+          "id": "b",
+          "text_fa": "`\"Python\"`",
+          "feedback_fa": "نقل‌قول دوتایی برای نام ستون یا جدول است؛ SQLite فقط وقتی چنین ستونی نباشد آن را رشته فرض می‌کند، که به آن تکیه نکن."
+        },
+        {
+          "id": "c",
+          "text_fa": "`Python` بدون نقل‌قول",
+          "feedback_fa": "بی‌نقل‌قول، SQLite آن را نام ستون می‌گیرد و خطای no such column می‌دهد."
+        },
+        {
+          "id": "d",
+          "text_fa": "`{Python}`",
+          "feedback_fa": "آکولاد در SQL معنایی ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-014",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-like-wildcard"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-sqlite-docs",
+      "prompt_fa": "در SQLite شرط `language LIKE 'p%'` سطری با مقدار `Python` را هم می‌گیرد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ در SQLite عملگر LIKE برای حروف ASCII به بزرگی و کوچکی حروف حساس نیست، ولی `=` حساس است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-015",
+      "origin": "authored",
+      "week": 7,
+      "type": "fill_blank_code",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-distinct"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا تعداد مسئله‌های متفاوت (۸) چاپ شود. (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "DISTINCT",
+            "distinct"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "DISTINCT",
+          "distinct"
+        ]
+      },
+      "explanation_fa": "`COUNT(DISTINCT problem)` هر مسئله را یک بار می‌شمارد.",
+      "template": "SELECT COUNT([[b1]] problem) FROM favorites;",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "DISTINCT",
+            "distinct"
+          ],
+          "hint_fa": "کدام کلیدواژه تکراری‌ها را پیش از شمارش حذف می‌کند؟",
+          "wrong_feedback": {
+            "ALL": "`ALL` پیش‌فرض است و تکراری‌ها را هم می‌شمارد: خروجی 12 می‌شود.",
+            "UNIQUE": "`UNIQUE` یک قید جدول است، نه بخشی از COUNT؛ این پرس‌وجو خطای نحوی می‌دهد.",
+            "*": "`COUNT(* problem)` نحو نادرستی است و خطا می‌دهد."
+          },
+          "default_wrong_fa": "کلیدواژه‌ای لازم است که مقدارهای یکتا را نگه دارد."
+        }
+      ],
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "8\n",
+        "fixture": "favorites",
+        "order_matters": false,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w07-q-016",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-order-by"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#select",
+      "prompt_fa": "اگر بعد از `ORDER BY n` نه ASC بنویسیم نه DESC، ترتیب چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در سخنرانی برای بیشترین به کمترین `ORDER BY n DESC` نوشته شد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "صعودی (ASC)",
+          "feedback_fa": "آفرین؛ پیش‌فرض ORDER BY صعودی است."
+        },
+        {
+          "id": "b",
+          "text_fa": "نزولی (DESC)",
+          "feedback_fa": "برای نزولی باید DESC را صریح بنویسی."
+        },
+        {
+          "id": "c",
+          "text_fa": "تصادفی",
+          "feedback_fa": "با ORDER BY ترتیب تعریف‌شده است."
+        },
+        {
+          "id": "d",
+          "text_fa": "همان ترتیب درج سطرها",
+          "feedback_fa": "این فقط بدون ORDER BY ممکن است رخ دهد و تضمینی هم ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-017",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l02",
+      "concept_ids": [
+        "w07-c-sql-file-pipe"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-pset-7-movies#usage",
+      "prompt_fa": "صفحهٔ رسمی تمرین‌ها برای اجرای پرس‌وجوی ذخیره‌شده در فایل `1.sql` روی یک پایگاه داده چه فرمانی پیشنهاد می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "خروجی cat با `|` به sqlite3 داده می‌شود و پرس‌وجو روی پایگاه داده اجرا می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`cat 1.sql | sqlite3 movies.db`",
+          "feedback_fa": "آفرین؛ `cat` متن فایل را به ورودی sqlite3 می‌فرستد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`python 1.sql`",
+          "feedback_fa": "فایل SQL برنامهٔ پایتون نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "`make 1.sql`",
+          "feedback_fa": "make برای کامپایل C است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`sqlite3 1.sql movies.db`",
+          "feedback_fa": "این فرمان 1.sql را خودش پایگاه داده فرض می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-018",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-insert",
+        "w07-c-null"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#insert",
+      "prompt_fa": "(کد تألیفی) خروجی این دو دستور چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "2"
+        ]
+      },
+      "explanation_fa": "ستونی که در INSERT نیامده NULL می‌شود؛ پیش‌تر هم یک سطر بدون Timestamp بود، پس حالا دو سطر.",
+      "code": "INSERT INTO favorites (language, problem) VALUES ('SQL', 'Prophecy');\nSELECT COUNT(*) FROM favorites WHERE \"Timestamp\" IS NULL;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "2\n",
+        "fixture": "favorites",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": false,
+        "stdout": "2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-019",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-delete",
+        "w07-c-is-null"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#delete",
+      "prompt_fa": "(کد تألیفی) خروجی این دو دستور چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "11"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "11"
+        ]
+      },
+      "explanation_fa": "تنها سطر بی‌Timestamp حذف می‌شود: ۱۲ منهای ۱.",
+      "code": "DELETE FROM favorites WHERE \"Timestamp\" IS NULL;\nSELECT COUNT(*) FROM favorites;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "11\n",
+        "fixture": "favorites",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": false,
+        "stdout": "11",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-020",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-is-null"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#delete",
+      "prompt_fa": "(کد تألیفی) خروجی این دو دستور چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "12"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "12"
+        ]
+      },
+      "explanation_fa": "مقایسه با `= NULL` هرگز درست نیست (نتیجه‌اش NULL است)، پس هیچ سطری حذف نمی‌شود؛ برای NULL باید IS NULL نوشت.",
+      "code": "DELETE FROM favorites WHERE \"Timestamp\" = NULL;\nSELECT COUNT(*) FROM favorites;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "12\n",
+        "fixture": "favorites",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": false,
+        "stdout": "12",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-021",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-update"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#update",
+      "prompt_fa": "(کد تألیفی) خروجی این دو دستور چیست؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "C|4\nPython|6\nSQL|2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "C|4\nPython|6\nSQL|2"
+        ]
+      },
+      "explanation_fa": "دو سطری که مسئله‌شان Scratch است زبانشان SQL می‌شود؛ پس Scratch دیگر در نتیجه نیست.",
+      "code": "UPDATE favorites SET language = 'SQL' WHERE problem = 'Scratch';\nSELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY language;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "C|4\nPython|6\nSQL|2\n",
+        "fixture": "favorites",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "favorites",
+        "order_matters": true,
+        "stdout": "C|4\nPython|6\nSQL|2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-022",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-missing-where-danger"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#update",
+      "prompt_fa": "دستور `UPDATE favorites SET language = 'C';` بدون WHERE زبان همهٔ سطرهای جدول را C می‌کند.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ بدون WHERE شرطی نیست و همهٔ سطرها تغییر می‌کنند. DELETE بدون WHERE هم همهٔ سطرها را پاک می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-023",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-backups-permissions"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#update",
+      "prompt_fa": "چرا یادداشت رسمی پیش از کار با DELETE و UPDATE به مجوزها و نسخهٔ پشتیبان اشاره می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پیش از تغییر داده: مجوز درست، نسخهٔ پشتیبان، و اول با SELECT همان WHERE را امتحان کن.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون این دستورها داده را برای همیشه تغییر می‌دهند و دکمهٔ بازگشت ندارند",
+          "feedback_fa": "آفرین؛ اشتباه در WHERE می‌تواند دادهٔ زیادی را از بین ببرد."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون بدون نسخهٔ پشتیبان اجرا نمی‌شوند",
+          "feedback_fa": "اجرا می‌شوند؛ خطر همین است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون فقط مدیر پایگاه داده می‌تواند SELECT بزند",
+          "feedback_fa": "بحث دربارهٔ دستورهای تغییردهنده است، نه SELECT."
+        },
+        {
+          "id": "d",
+          "text_fa": "چون sqlite3 خودکار نسخهٔ پشتیبان می‌سازد",
+          "feedback_fa": "sqlite3 چنین کاری نمی‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-024",
+      "origin": "authored",
+      "week": 7,
+      "type": "fill_blank_code",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-update"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#update",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا فقط سطرهای C به `C++` تبدیل شوند؛ دستور دوم باید 4 چاپ کند. (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "WHERE",
+            "where"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "WHERE",
+          "where"
+        ]
+      },
+      "explanation_fa": "`UPDATE ... SET ... WHERE ...` فقط سطرهای منطبق با شرط را تغییر می‌دهد.",
+      "template": "UPDATE favorites SET language = 'C++' [[b1]] language = 'C';\nSELECT COUNT(*) FROM favorites WHERE language = 'C++';",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "WHERE",
+            "where"
+          ],
+          "hint_fa": "کدام کلیدواژه شرط انتخاب سطرها را شروع می‌کند؟",
+          "wrong_feedback": {
+            "AND": "با `AND`، عبارت `'C++' AND language = 'C'` مقدار جدید همهٔ سطرها می‌شود (۰ یا ۱)، پس خروجی 0 است.",
+            "IF": "SQL کلیدواژهٔ IF در این جا ندارد؛ خطای نحوی می‌دهد.",
+            "ON": "`ON` برای JOIN است؛ این جا خطای نحوی می‌دهد."
+          },
+          "default_wrong_fa": "شرط سطرها با کلیدواژهٔ همیشگی SELECT و DELETE شروع می‌شود."
+        }
+      ],
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "4\n",
+        "fixture": "favorites",
+        "order_matters": false,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w07-q-025",
+      "origin": "authored",
+      "week": 7,
+      "type": "find_the_bug",
+      "lesson_id": "w07-l03",
+      "concept_ids": [
+        "w07-c-delete"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-7",
+      "prompt_fa": "(کد تألیفی) این دستورها قرار است فقط سطری را حذف کنند که زبانش C و مسئله‌اش Mario است، و بعد 11 چاپ کنند؛ ولی 7 چاپ می‌کنند. کدام سطر خطا دارد؟ (روی پایگاه دادهٔ تمرینی favorites؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "bug_line": 3,
+        "key_points_fa": [
+          "`OR` هر سطر C یا هر سطر Mario را حذف می‌کند (۵ سطر)",
+          "باید `AND` باشد تا هر دو شرط با هم لازم باشند"
+        ]
+      },
+      "explanation_fa": "با `OR` چهار سطر C و سطر Python/Mario حذف می‌شوند؛ `AND problem = 'Mario';` فقط یک سطر را حذف می‌کند.",
+      "code": "DELETE FROM favorites\nWHERE language = 'C'\nOR problem = 'Mario';\nSELECT COUNT(*) FROM favorites;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:favorites"
+        },
+        "expected_stdout_exact": "11\n",
+        "fixture": "favorites",
+        "order_matters": false,
+        "fixed_line": "AND problem = 'Mario';",
+        "other_line_edits": []
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w07-q-026",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-one-to-one"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "در پایگاه دادهٔ سریال‌های سخنرانی، هر سریال حداکثر یک سطر امتیاز در ratings دارد. این چه نوع رابطه‌ای است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر سطر shows با حداکثر یک سطر ratings جفت می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "یک‌به‌یک",
+          "feedback_fa": "آفرین؛ یادداشت رسمی shows و ratings را یک‌به‌یک می‌نامد."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک‌به‌چند",
+          "feedback_fa": "یک‌به‌چند مثل shows و genres است که یک سریال چند ژانر دارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "چندبه‌چند",
+          "feedback_fa": "چندبه‌چند جدول واسطی مثل stars لازم دارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "بدون رابطه",
+          "feedback_fa": "ستون show_id دو جدول را به هم وصل می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-027",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-primary-key"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "کلید اصلی (PRIMARY KEY) یک جدول چه ویژگی‌ای دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "کلید اصلی شناسهٔ یکتای هر سطر است و کلیدهای خارجی به آن اشاره می‌کنند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "هر سطر را به‌طور یکتا مشخص می‌کند",
+          "feedback_fa": "آفرین؛ مثل id در shows."
+        },
+        {
+          "id": "b",
+          "text_fa": "به ستونی در جدول دیگر اشاره می‌کند",
+          "feedback_fa": "این کلید خارجی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "حتماً متن است",
+          "feedback_fa": "در سخنرانی کلیدهای اصلی INTEGER هستند."
+        },
+        {
+          "id": "d",
+          "text_fa": "تکرارش مجاز است",
+          "feedback_fa": "کلید اصلی نمی‌تواند تکراری باشد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-028",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-foreign-key"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "در طرح‌وارهٔ `FOREIGN KEY(show_id) REFERENCES shows(id)` در جدول ratings، کدام ستون کلید خارجی است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "کلید خارجی ستونی است که مقدارش کلید اصلی جدول دیگری است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`ratings.show_id`",
+          "feedback_fa": "آفرین؛ show_id در ratings به کلید اصلی shows اشاره می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "`shows.id`",
+          "feedback_fa": "shows.id کلید اصلی‌ای است که به آن اشاره می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "`ratings.rating`",
+          "feedback_fa": "rating داده است، نه ارجاع."
+        },
+        {
+          "id": "d",
+          "text_fa": "`shows.title`",
+          "feedback_fa": "title هیچ ارجاعی ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-029",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-sqlite-types"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "در فهرست نوع‌های SQLite در یادداشت رسمی، NUMERIC برای مقدارهایی مثل سال و تاریخ آمده است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ یادداشت رسمی BLOB، INTEGER، NUMERIC، REAL و TEXT را نام می‌برد و ستون year در shows از نوع NUMERIC است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-030",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-constraints"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "ستون username در جدول users قید UNIQUE دارد و کاربری با نام `malan` از قبل هست. دستور `INSERT INTO users (username, password) VALUES ('malan', 'x');` چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "قیدهای NOT NULL و UNIQUE جلوی دادهٔ نادرست را در خود پایگاه داده می‌گیرند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "با خطای قید UNIQUE رد می‌شود و سطری اضافه نمی‌شود",
+          "feedback_fa": "آفرین؛ UNIQUE تکرار را رد می‌کند (روی جعبهٔ ساخت با پایگاه دادهٔ تمرینی users آزموده شد)."
+        },
+        {
+          "id": "b",
+          "text_fa": "سطر دوم با همان نام اضافه می‌شود",
+          "feedback_fa": "بدون UNIQUE چنین می‌شد."
+        },
+        {
+          "id": "c",
+          "text_fa": "سطر قبلی را با گذرواژهٔ تازه جای‌گزین می‌کند",
+          "feedback_fa": "INSERT جای‌گزین نمی‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "نام را خودکار به malan2 تغییر می‌دهد",
+          "feedback_fa": "SQLite داده را خودش عوض نمی‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-031",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-nested-query"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی shows؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "Brooklyn Nine-Nine\nThe Good Place"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Brooklyn Nine-Nine\nThe Good Place"
+        ]
+      },
+      "explanation_fa": "پرس‌وجوی درونی شناسهٔ سریال‌های Drama یا Crime را برمی‌گرداند و بیرونی عنوان‌هایشان را به ترتیب الفبا.",
+      "code": "SELECT title FROM shows\nWHERE id IN (\n    SELECT show_id FROM genres\n    WHERE genre = 'Drama' OR genre = 'Crime'\n)\nORDER BY title;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:shows"
+        },
+        "expected_stdout_exact": "Brooklyn Nine-Nine\nThe Good Place\n",
+        "fixture": "shows",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "shows",
+        "order_matters": true,
+        "stdout": "Brooklyn Nine-Nine\nThe Good Place",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-032",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-nested-query"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی shows؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "The Office|2005"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "The Office|2005"
+        ]
+      },
+      "explanation_fa": "پرس‌وجوی درونی شناسهٔ بالاترین امتیاز (9.0) را می‌دهد؛ دو سریال با عنوان The Office هست و سال نشان می‌دهد کدام است.",
+      "code": "SELECT title, year FROM shows\nWHERE id = (\n    SELECT show_id FROM ratings\n    ORDER BY rating DESC\n    LIMIT 1\n);",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:shows"
+        },
+        "expected_stdout_exact": "The Office|2005\n",
+        "fixture": "shows",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "shows",
+        "order_matters": true,
+        "stdout": "The Office|2005",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-033",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-redundancy"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#imdb",
+      "prompt_fa": "چرا ژانرها در جدول جداگانهٔ genres آمده‌اند، نه در ستونی مثل `genres TEXT` با مقدار `Comedy, Drama` در shows؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "جدا کردن جدول‌ها تکرار را کم و پرس‌وجو را ساده‌تر می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا هر ژانر یک سطر جدا باشد و بتوان دقیق با WHERE و JOIN روی آن پرس‌وجو کرد، بدون تکرار و جداکردن رشته",
+          "feedback_fa": "آفرین؛ این همان دلیل حذف تکرار و جدا کردن جدول‌هاست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون SQLite متن بلند را نمی‌پذیرد",
+          "feedback_fa": "TEXT می‌تواند بلند باشد."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون هر جدول فقط یک ستون می‌تواند داشته باشد",
+          "feedback_fa": "shows چند ستون دارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "چون ژانرها عدد هستند",
+          "feedback_fa": "ژانرها متن‌اند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-034",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l04",
+      "concept_ids": [
+        "w07-c-autoincrement"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-sql",
+      "prompt_fa": "در ویدئوی کوتاه SQL، ستون کلید اصلی‌ای که AUTOINCREMENT دارد در INSERT چه رفتاری دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "کلید اصلی خودکار شمارهٔ یکتا برای سطر تازه می‌سازد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "اگر مقدارش را ندهی، پایگاه داده خودش شمارهٔ بعدی را می‌گذارد",
+          "feedback_fa": "آفرین؛ برای همین معمولاً id را در INSERT نمی‌نویسیم."
+        },
+        {
+          "id": "b",
+          "text_fa": "باید همیشه مقدارش را خودت بدهی",
+          "feedback_fa": "هدف AUTOINCREMENT همین است که لازم نباشد."
+        },
+        {
+          "id": "c",
+          "text_fa": "مقدار ستون‌های دیگر را هم پر می‌کند",
+          "feedback_fa": "فقط همان ستون کلید."
+        },
+        {
+          "id": "d",
+          "text_fa": "بعد از هر SELECT یکی زیاد می‌شود",
+          "feedback_fa": "فقط هنگام درج سطر تازه."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-035",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-join"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی shows؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "The Office|9.0\nParks and Recreation|8.6"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "The Office|9.0\nParks and Recreation|8.6"
+        ]
+      },
+      "explanation_fa": "JOIN هر سریال را با امتیازش جفت می‌کند؛ فقط 9.0 و 8.6 شرط را دارند (8.5 کمتر است).",
+      "code": "SELECT title, rating FROM shows\nJOIN ratings ON shows.id = ratings.show_id\nWHERE rating >= 8.6\nORDER BY rating DESC;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:shows"
+        },
+        "expected_stdout_exact": "The Office|9.0\nParks and Recreation|8.6\n",
+        "fixture": "shows",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "shows",
+        "order_matters": true,
+        "stdout": "The Office|9.0\nParks and Recreation|8.6",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-036",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-join"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی shows؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "5"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "5"
+        ]
+      },
+      "explanation_fa": "شش سریال هست، ولی Brooklyn Nine-Nine در ratings سطری ندارد و JOIN فقط جفت‌های منطبق را نگه می‌دارد.",
+      "code": "SELECT COUNT(*) FROM shows\nJOIN ratings ON shows.id = ratings.show_id;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:shows"
+        },
+        "expected_stdout_exact": "5\n",
+        "fixture": "shows",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "shows",
+        "order_matters": false,
+        "stdout": "5",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-037",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-many-to-many",
+        "w07-c-multi-join"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی library؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "Ada\nBabak"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Ada\nBabak"
+        ]
+      },
+      "explanation_fa": "authorship جدول واسط رابطهٔ چندبه‌چند است: Binary Trees دو نویسنده دارد.",
+      "code": "SELECT name FROM authors\nJOIN authorship ON authors.id = authorship.author_id\nJOIN books ON authorship.book_id = books.id\nWHERE title = 'Binary Trees'\nORDER BY name;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:library"
+        },
+        "expected_stdout_exact": "Ada\nBabak\n",
+        "fixture": "library",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "library",
+        "order_matters": true,
+        "stdout": "Ada\nBabak",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-038",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-one-to-many",
+        "w07-c-group-by"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "(کد تألیفی) خروجی این پرس‌وجو چیست؟ (روی پایگاه دادهٔ تمرینی library؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "C in Practice|3\nArrays and Beyond|1\nBinary Trees|1\nEveryday SQL|1"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "C in Practice|3\nArrays and Beyond|1\nBinary Trees|1\nEveryday SQL|1"
+        ]
+      },
+      "explanation_fa": "هر کتاب چند امانت دارد (یک‌به‌چند). Data at Scale امانتی ندارد و با JOIN حذف می‌شود؛ مقدارهای برابر n با title مرتب می‌شوند.",
+      "code": "SELECT title, COUNT(*) AS n FROM books\nJOIN loans ON books.id = loans.book_id\nGROUP BY title\nORDER BY n DESC, title;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:library"
+        },
+        "expected_stdout_exact": "C in Practice|3\nArrays and Beyond|1\nBinary Trees|1\nEveryday SQL|1\n",
+        "fixture": "library",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "library",
+        "order_matters": true,
+        "stdout": "C in Practice|3\nArrays and Beyond|1\nBinary Trees|1\nEveryday SQL|1",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-039",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-qualified-column"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "پرس‌وجوی `SELECT id FROM books JOIN loans ON books.id = loans.book_id;` روی پایگاه دادهٔ تمرینی library چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در JOIN نام کامل `table.column` ابهام را برطرف می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خطا می‌دهد، چون هر دو جدول ستون id دارند و معلوم نیست کدام منظور است",
+          "feedback_fa": "آفرین؛ SQLite می‌گوید ambiguous column name: id. باید `books.id` یا `loans.id` بنویسی (روی جعبهٔ ساخت آزموده شد)."
+        },
+        {
+          "id": "b",
+          "text_fa": "id کتاب‌ها را برمی‌گرداند",
+          "feedback_fa": "SQLite خودش یکی را انتخاب نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "id امانت‌ها را برمی‌گرداند",
+          "feedback_fa": "SQLite خودش یکی را انتخاب نمی‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "هر دو ستون id را کنار هم برمی‌گرداند",
+          "feedback_fa": "برای این کار باید هر دو را صریح بنویسی."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-040",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-implicit-join"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "کدام پرس‌وجو همان نتیجهٔ `SELECT title FROM shows JOIN ratings ON shows.id = ratings.show_id;` را می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`FROM a, b WHERE a.x = b.y` همان جفت‌سازی JOIN را با شرط در WHERE انجام می‌دهد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`SELECT title FROM shows, ratings WHERE shows.id = ratings.show_id;`",
+          "feedback_fa": "آفرین؛ این JOIN ضمنی است که یادداشت رسمی هم نشان می‌دهد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`SELECT title FROM shows, ratings;`",
+          "feedback_fa": "بدون شرط، هر سریال با هر سطر ratings جفت می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "`SELECT title FROM shows WHERE id = show_id;`",
+          "feedback_fa": "ratings در FROM نیست، پس show_id شناخته نمی‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "`SELECT title FROM ratings;`",
+          "feedback_fa": "ratings ستون title ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-041",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-many-to-many"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "برای رابطهٔ چندبه‌چند میان سریال‌ها و آدم‌ها جدول واسطی مثل stars لازم است که show_id و person_id را کنار هم نگه دارد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ هر سطر stars یک جفت سریال و بازیگر است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-042",
+      "origin": "authored",
+      "week": 7,
+      "type": "parsons",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-join"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#joins",
+      "prompt_fa": "(کد تألیفی) سطرها را بچین تا عنوان کتاب‌هایی که Sara امانت گرفته به ترتیب الفبا چاپ شود: Arrays and Beyond، Binary Trees، C in Practice. (روی پایگاه دادهٔ تمرینی library؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "JOIN امانت‌ها را به کتاب‌ها وصل می‌کند، WHERE امانت‌های Sara را نگه می‌دارد و ORDER BY ترتیب را.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "SELECT title",
+          "text": "SELECT title"
+        },
+        {
+          "id": "p2",
+          "code": "FROM books JOIN loans ON books.id = loans.book_id",
+          "text": "FROM books JOIN loans ON books.id = loans.book_id"
+        },
+        {
+          "id": "p3",
+          "code": "WHERE member = 'Sara'",
+          "text": "WHERE member = 'Sara'"
+        },
+        {
+          "id": "p4",
+          "code": "ORDER BY title;",
+          "text": "ORDER BY title;"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "FROM books JOIN loans ON books.id = loans.id",
+          "text": "FROM books JOIN loans ON books.id = loans.id",
+          "why_wrong_fa": "شناسهٔ کتاب را با شناسهٔ امانت مقایسه می‌کند و کتاب‌های نادرست را جفت می‌کند."
+        },
+        {
+          "id": "d2",
+          "code": "WHERE member = Sara",
+          "text": "WHERE member = Sara",
+          "why_wrong_fa": "بی‌نقل‌قول، Sara نام ستون فرض می‌شود و خطای no such column می‌دهد."
+        }
+      ],
+      "lang": "sql",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:library"
+        },
+        "expected_stdout_exact": "Arrays and Beyond\nBinary Trees\nC in Practice\n",
+        "fixture": "library",
+        "order_matters": true,
+        "check_suffix": ""
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w07-q-043",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l05",
+      "concept_ids": [
+        "w07-c-sql-style"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-pset-7-fiftyville#specification",
+      "prompt_fa": "راهنمای سبک SQL که صفحهٔ رسمی تمرین‌ها به آن ارجاع می‌دهد (sqlstyle.guide) برای کلیدواژه‌ها چه پیشنهادی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "SQL به بزرگی کلیدواژه‌ها حساس نیست، ولی سبک یکدست خواندن را آسان می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کلیدواژه‌هایی مثل SELECT و WHERE را با حروف بزرگ و هر بخش را در سطر خودش بنویس",
+          "feedback_fa": "آفرین؛ این خوانایی پرس‌وجوهای بلند را بیشتر می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "همه را در یک سطر بنویس تا سریع‌تر اجرا شود",
+          "feedback_fa": "سبک روی سرعت اجرا اثری ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "نام جدول‌ها را با حروف بزرگ و کلیدواژه‌ها را کوچک بنویس",
+          "feedback_fa": "پیشنهاد برعکس است."
+        },
+        {
+          "id": "d",
+          "text_fa": "از توضیح استفاده نکن",
+          "feedback_fa": "توضیح با -- مفید است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-044",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-index-tradeoff"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#indexes",
+      "prompt_fa": "کدام جمله بده‌بستان `CREATE INDEX` را درست بیان می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در سخنرانی زمان جست‌وجو با .timer on پس از ساختن شاخص بسیار کمتر شد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "جست‌وجو روی آن ستون سریع‌تر می‌شود، ولی شاخص فضای بیشتری می‌گیرد و درج و به‌روزرسانی کمی کندتر می‌شود",
+          "feedback_fa": "آفرین؛ شاخص یک B-tree اضافه است که باید نگه داشته شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "همهٔ پرس‌وجوها بدون هزینه سریع‌تر می‌شوند",
+          "feedback_fa": "شاخص هزینهٔ حافظه و نگه‌داری دارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "داده را فشرده می‌کند تا فایل کوچک‌تر شود",
+          "feedback_fa": "برعکس، فایل بزرگ‌تر می‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "ترتیب سطرهای خروجی را بدون ORDER BY تضمین می‌کند",
+          "feedback_fa": "ترتیب فقط با ORDER BY تضمین می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-045",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-btree"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#indexes",
+      "prompt_fa": "SQLite شاخص را با چه ساختار داده‌ای می‌سازد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "یادداشت رسمی B-tree را درختی متوازن با چند فرزند برای هر گره معرفی می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "B-tree: درختی متوازن که هر گره می‌تواند چند فرزند داشته باشد",
+          "feedback_fa": "آفرین؛ این درخت کوتاه می‌ماند و جست‌وجو در آن سریع است."
+        },
+        {
+          "id": "b",
+          "text_fa": "فهرست پیوندی مرتب‌نشده",
+          "feedback_fa": "جست‌وجو در آن خطی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "یک آرایهٔ ثابت",
+          "feedback_fa": "درج در آن گران است."
+        },
+        {
+          "id": "d",
+          "text_fa": "پشته",
+          "feedback_fa": "پشته برای جست‌وجو مناسب نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-046",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-timer"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#indexes",
+      "prompt_fa": "در sqlite3 فرمان `.timer on` زمان اجرای هر پرس‌وجو را نشان می‌دهد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ در سخنرانی با آن سرعت پیش و پس از شاخص مقایسه شد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-047",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-cs50-sql",
+        "w07-c-placeholder-qmark"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟ (روی پایگاه دادهٔ تمرینی favorites.)",
+      "answer": {
+        "accept": [
+          "4"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "4"
+        ]
+      },
+      "explanation_fa": "`?` با \"C\" پر می‌شود؛ نتیجه فهرستی با یک dict است و `rows[0][\"n\"]` شمارش را می‌دهد.",
+      "code": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///favorites.db\")\nrows = db.execute(\"SELECT COUNT(*) AS n FROM favorites WHERE language = ?\", \"C\")\nprint(rows[0][\"n\"])",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "favorites.db": "fixture:favorites"
+        },
+        "expected_stdout_exact": "4\n",
+        "fixture": [
+          "favorites"
+        ],
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5 + real cs50 9.5.0 (/workspace/qa-cs50-venv)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": [
+          "favorites"
+        ],
+        "stdout": "4",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-048",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-execute-returns-rows"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟ (روی پایگاه دادهٔ تمرینی favorites.)",
+      "answer": {
+        "accept": [
+          "Filter\nHello, It's Me\nHello, World\nMario"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Filter\nHello, It's Me\nHello, World\nMario"
+        ]
+      },
+      "explanation_fa": "هر عضو rows یک dict با کلید problem است؛ ORDER BY ترتیب الفبایی را تضمین می‌کند (I پیش از W می‌آید).",
+      "code": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///favorites.db\")\nrows = db.execute(\"SELECT problem FROM favorites WHERE language = ? ORDER BY problem\", \"C\")\nfor row in rows:\n    print(row[\"problem\"])",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "favorites.db": "fixture:favorites"
+        },
+        "expected_stdout_exact": "Filter\nHello, It's Me\nHello, World\nMario\n",
+        "fixture": [
+          "favorites"
+        ],
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5 + real cs50 9.5.0 (/workspace/qa-cs50-venv)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": [
+          "favorites"
+        ],
+        "stdout": "Filter\nHello, It's Me\nHello, World\nMario",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-049",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-execute-returns-rows"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "prompt_fa": "`db.execute` در کتابخانهٔ CS50 برای یک SELECT چه برمی‌گرداند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "یادداشت رسمی: خروجی SELECT فهرستی از سطرهاست که هر کدام dict است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فهرستی از dictها؛ هر dict یک سطر و کلیدهایش نام ستون‌ها",
+          "feedback_fa": "آفرین؛ برای همین `row[\"problem\"]` می‌نویسیم."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک رشته با همهٔ سطرها",
+          "feedback_fa": "خروجی ساختاریافته است، نه رشته."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط تعداد سطرها",
+          "feedback_fa": "این را با COUNT(*) یا len می‌گیری."
+        },
+        {
+          "id": "d",
+          "text_fa": "یک فایل CSV",
+          "feedback_fa": "خروجی در حافظه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-050",
+      "origin": "authored",
+      "week": 7,
+      "type": "fill_blank_code",
+      "lesson_id": "w07-l06",
+      "concept_ids": [
+        "w07-c-execute-returns-rows"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا برنامه 4 چاپ کند. (روی پایگاه دادهٔ تمرینی favorites.)",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "\"n\"",
+            "'n'"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "\"n\"",
+          "'n'"
+        ]
+      },
+      "explanation_fa": "`AS n` نام ستون را n می‌کند و هر سطر dict است، پس `rows[0][\"n\"]`.",
+      "template": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///favorites.db\")\nrows = db.execute(\"SELECT COUNT(*) AS n FROM favorites WHERE language = ?\", \"C\")\nprint(rows[0][[[b1]]])",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "\"n\"",
+            "'n'"
+          ],
+          "hint_fa": "کلید dict همان نام مستعار ستون است، به شکل رشته.",
+          "wrong_feedback": {
+            "n": "بی‌نقل‌قول، n نام متغیری است که تعریف نشده: NameError.",
+            "0": "هر سطر dict است، نه list؛ کلید 0 وجود ندارد: KeyError.",
+            "\"COUNT(*)\"": "با `AS n` نام ستون n شده است؛ کلید \"COUNT(*)\" وجود ندارد: KeyError."
+          },
+          "default_wrong_fa": "نام ستون نتیجه را با `AS` تعیین کرده‌ایم."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "favorites.db": "fixture:favorites"
+        },
+        "expected_stdout_exact": "4\n",
+        "fixture": [
+          "favorites"
+        ],
+        "order_matters": true,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w07-q-051",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-race-condition"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#race-conditions",
+      "prompt_fa": "دو کاربر هم‌زمان پستی با 10 پسند را می‌پسندند. هر دو برنامه اول مقدار را می‌خوانند (10)، بعد 11 را می‌نویسند. چه شده است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "راه‌حل سخنرانی تراکنش است: BEGIN TRANSACTION، سپس COMMIT یا ROLLBACK.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "شرایط رقابتی: یک پسند گم شد و مقدار باید 12 می‌بود",
+          "feedback_fa": "آفرین؛ خواندن و نوشتن جدا انجام شد و دو درخواست میانشان درهم رفتند."
+        },
+        {
+          "id": "b",
+          "text_fa": "هیچ مشکلی نیست؛ 11 درست است",
+          "feedback_fa": "دو پسند ثبت شده، پس 12 درست است."
+        },
+        {
+          "id": "c",
+          "text_fa": "تزریق SQL",
+          "feedback_fa": "ورودی مخربی در کار نیست."
+        },
+        {
+          "id": "d",
+          "text_fa": "پایگاه داده خراب شده است",
+          "feedback_fa": "داده سالم است، فقط یک به‌روزرسانی گم شده."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-052",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-transaction"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#race-conditions",
+      "prompt_fa": "(کد تألیفی) خروجی این دستورها چیست؟ (روی پایگاه دادهٔ تمرینی posts؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "0"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "0"
+        ]
+      },
+      "explanation_fa": "ROLLBACK همهٔ تغییرهای تراکنش را برمی‌گرداند، پس پسندهای پست ۲ همان 0 می‌ماند.",
+      "code": "BEGIN TRANSACTION;\nUPDATE posts SET likes = likes + 1 WHERE id = 2;\nROLLBACK;\nSELECT likes FROM posts WHERE id = 2;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:posts"
+        },
+        "expected_stdout_exact": "0\n",
+        "fixture": "posts",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "posts",
+        "order_matters": false,
+        "stdout": "0",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-053",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-atomic-update"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-inference-7",
+      "prompt_fa": "(کد تألیفی) خروجی این دستورها چیست؟ (روی پایگاه دادهٔ تمرینی posts؛ خروجی را مثل sqlite3 بنویس: هر سطر نتیجه در یک خط و ستون‌ها با نویسهٔ | جدا.)",
+      "answer": {
+        "accept": [
+          "12"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "12"
+        ]
+      },
+      "explanation_fa": "(استنتاجی) `likes = likes + 1` خواندن و نوشتن را در یک دستور انجام می‌دهد؛ دو بار اجرا از 10 به 12 می‌رسد.",
+      "code": "UPDATE posts SET likes = likes + 1 WHERE id = 1;\nUPDATE posts SET likes = likes + 1 WHERE id = 1;\nSELECT likes FROM posts WHERE id = 1;",
+      "lang": "sql",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "fixture.sql": "fixture:posts"
+        },
+        "expected_stdout_exact": "12\n",
+        "fixture": "posts",
+        "order_matters": false
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "SQLite 3.46.1 (python sqlite3, list mode)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": "posts",
+        "order_matters": false,
+        "stdout": "12",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-054",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-sql-comment"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "prompt_fa": "در SQL، نویسه‌های `--` چه معنایی دارند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "توضیح با `--` تا پایان سطر ادامه دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "ادامهٔ آن سطر توضیح است و اجرا نمی‌شود",
+          "feedback_fa": "آفرین؛ تزریق `malan'--` از همین برای حذف بررسی گذرواژه سوءاستفاده می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "کم کردن یک واحد",
+          "feedback_fa": "این معنا در SQL نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "پایان رشته",
+          "feedback_fa": "رشته با نقل‌قول تکی تمام می‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "پایان دستور",
+          "feedback_fa": "پایان دستور نقطه‌ویرگول است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-055",
+      "origin": "authored",
+      "week": 7,
+      "type": "predict_output",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-sql-injection",
+        "w07-c-fstring-sql-danger"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "prompt_fa": "(کد تألیفی) (نمونهٔ ناامن، فقط برای فهم حمله) کاربر در پاسخ به Username ورودی `x' OR '1'='1` را تایپ می‌کند. خروجی برنامه چیست؟ (متن Username: که input چاپ می‌کند هم بخشی از خروجی است.) (روی پایگاه دادهٔ تمرینی users.)",
+      "answer": {
+        "accept": [
+          "Username: 3"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Username: 3"
+        ]
+      },
+      "explanation_fa": "f-string متن ورودی را درون پرس‌وجو می‌گذارد: `WHERE username = 'x' OR '1'='1'`؛ شرط دوم برای همهٔ سطرها درست است و هر سه کاربر برمی‌گردند.",
+      "code": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///users.db\")\nusername = input(\"Username: \")\nrows = db.execute(f\"SELECT username FROM users WHERE username = '{username}'\")\nprint(len(rows))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "x' OR '1'='1\n",
+        "args": [],
+        "files": {
+          "users.db": "fixture:users"
+        },
+        "expected_stdout_exact": "Username: 3\n",
+        "fixture": [
+          "users"
+        ],
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5 + real cs50 9.5.0 (/workspace/qa-cs50-venv)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "fixture": [
+          "users"
+        ],
+        "stdout": "Username: 3",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T06:00:00+03:30"
+      }
+    },
+    {
+      "id": "w07-q-056",
+      "origin": "authored",
+      "week": 7,
+      "type": "true_false",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-placeholder-qmark"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "prompt_fa": "اگر در همان برنامه به جای f-string بنویسیم `db.execute(\"SELECT username FROM users WHERE username = ?\", username)`، همان ورودی هیچ سطری برنمی‌گرداند.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ با `?` کل ورودی یک مقدار رشته‌ای است و کاربری با نام دقیق `x' OR '1'='1` وجود ندارد (روی جعبهٔ ساخت با کتابخانهٔ cs50 آزموده شد).",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w07-q-057",
+      "origin": "authored",
+      "week": 7,
+      "type": "mcq",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-never-trust-input"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "prompt_fa": "کدام شیوه برای گذاشتن ورودی کاربر در پرس‌وجو امن است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هرگز به ورودی کاربر کورکورانه اعتماد نکن؛ برای هر مقدار از `?` استفاده کن.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`db.execute(\"SELECT * FROM users WHERE username = ?\", username)`",
+          "feedback_fa": "آفرین؛ کتابخانه مقدار را خودش امن جای‌گذاری می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "`db.execute(f\"SELECT * FROM users WHERE username = '{username}'\")`",
+          "feedback_fa": "f-string ورودی را مستقیم در متن SQL می‌گذارد؛ این همان راه تزریق است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`db.execute(\"SELECT * FROM users WHERE username = '\" + username + \"'\")`",
+          "feedback_fa": "چسباندن رشته همان خطر f-string را دارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "حذف دستی نقل‌قول‌ها از ورودی و سپس f-string",
+          "feedback_fa": "پاک‌سازی دستی خطاپذیر است؛ جای‌نگهدار راه درست است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w07-q-058",
+      "origin": "authored",
+      "week": 7,
+      "type": "find_the_bug",
+      "lesson_id": "w07-l07",
+      "concept_ids": [
+        "w07-c-sql-injection"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-7",
+      "prompt_fa": "(کد تألیفی) این برنامهٔ ورود باید با ورودی `malan'--` و گذرواژهٔ اشتباه 0 چاپ کند (یعنی ورود ناموفق)، ولی 1 چاپ می‌کند. کدام سطر خطا دارد؟ (روی پایگاه دادهٔ تمرینی users.)",
+      "answer": {
+        "bug_line": 6,
+        "key_points_fa": [
+          "f-string ورودی را بخشی از متن SQL می‌کند",
+          "`--` بقیهٔ شرط (بررسی گذرواژه) را توضیح می‌کند",
+          "باید از دو `?` و آرگومان جدا استفاده کرد"
+        ]
+      },
+      "explanation_fa": "با `?` کتابخانه ورودی را مقدار می‌داند، نه کد SQL.",
+      "code": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///users.db\")\nusername = input(\"Username: \")\npassword = input(\"Password: \")\nrows = db.execute(f\"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'\")\nprint(len(rows))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "malan'--\nwrong\n",
+        "args": [],
+        "files": {
+          "users.db": "fixture:users"
+        },
+        "expected_stdout_exact": "Username: Password: 0\n",
+        "fixture": [
+          "users"
+        ],
+        "order_matters": true,
+        "fixed_line": "rows = db.execute(\"SELECT * FROM users WHERE username = ? AND password = ?\", username, password)",
+        "other_line_edits": []
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w07-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w07-q-001",
+        "w07-q-002",
+        "w07-q-003",
+        "w07-q-004",
+        "w07-q-005",
+        "w07-q-006",
+        "w07-q-007"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w07-q-008",
+        "w07-q-009",
+        "w07-q-010",
+        "w07-q-011",
+        "w07-q-012",
+        "w07-q-013",
+        "w07-q-014",
+        "w07-q-015",
+        "w07-q-016",
+        "w07-q-017"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w07-q-018",
+        "w07-q-019",
+        "w07-q-020",
+        "w07-q-021",
+        "w07-q-022",
+        "w07-q-023",
+        "w07-q-024",
+        "w07-q-025"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w07-q-026",
+        "w07-q-027",
+        "w07-q-028",
+        "w07-q-029",
+        "w07-q-030",
+        "w07-q-031",
+        "w07-q-032",
+        "w07-q-033",
+        "w07-q-034"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w07-q-035",
+        "w07-q-036",
+        "w07-q-037",
+        "w07-q-038",
+        "w07-q-039",
+        "w07-q-040",
+        "w07-q-041",
+        "w07-q-042",
+        "w07-q-043"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w07-q-044",
+        "w07-q-045",
+        "w07-q-046",
+        "w07-q-047",
+        "w07-q-048",
+        "w07-q-049",
+        "w07-q-050"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w07-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w07-q-051",
+        "w07-q-052",
+        "w07-q-053",
+        "w07-q-054",
+        "w07-q-055",
+        "w07-q-056",
+        "w07-q-057",
+        "w07-q-058"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w07-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۷",
+      "item_ids": [
+        "w07-q-004",
+        "w07-q-002",
+        "w07-q-010",
+        "w07-q-011",
+        "w07-q-020",
+        "w07-q-021",
+        "w07-q-031",
+        "w07-q-032",
+        "w07-q-036",
+        "w07-q-037",
+        "w07-q-048",
+        "w07-q-050",
+        "w07-q-055",
+        "w07-q-051"
+      ],
+      "item_pool_ids": [
+        "w07-q-001",
+        "w07-q-002",
+        "w07-q-003",
+        "w07-q-004",
+        "w07-q-005",
+        "w07-q-006",
+        "w07-q-007",
+        "w07-q-008",
+        "w07-q-009",
+        "w07-q-010",
+        "w07-q-011",
+        "w07-q-012",
+        "w07-q-013",
+        "w07-q-014",
+        "w07-q-015",
+        "w07-q-016",
+        "w07-q-017",
+        "w07-q-018",
+        "w07-q-019",
+        "w07-q-020",
+        "w07-q-021",
+        "w07-q-022",
+        "w07-q-023",
+        "w07-q-024",
+        "w07-q-026",
+        "w07-q-027",
+        "w07-q-028",
+        "w07-q-029",
+        "w07-q-030",
+        "w07-q-031",
+        "w07-q-032",
+        "w07-q-033",
+        "w07-q-034",
+        "w07-q-035",
+        "w07-q-036",
+        "w07-q-037",
+        "w07-q-038",
+        "w07-q-039",
+        "w07-q-040",
+        "w07-q-041",
+        "w07-q-042",
+        "w07-q-043",
+        "w07-q-044",
+        "w07-q-045",
+        "w07-q-046",
+        "w07-q-047",
+        "w07-q-048",
+        "w07-q-049",
+        "w07-q-050",
+        "w07-q-051",
+        "w07-q-052",
+        "w07-q-053",
+        "w07-q-054",
+        "w07-q-055",
+        "w07-q-056",
+        "w07-q-057"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

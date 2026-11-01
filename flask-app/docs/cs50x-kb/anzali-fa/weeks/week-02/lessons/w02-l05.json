@@ -1,0 +1,403 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l05",
+  "type": "lesson",
+  "week": 2,
+  "order": 5,
+  "stage_id": "w02-s2",
+  "title_fa": "آرایه، ثابت و تابع",
+  "title_en": "Arrays, constants and functions",
+  "note_ids": [
+    "w02-n10"
+  ],
+  "related_doc_ids": [
+    "w02-sh-functions",
+    "w02-sh-variables-and-scope"
+  ],
+  "prerequisite_lesson_ids": [
+    "w02-l04"
+  ],
+  "concept_ids": [
+    "w02-c-global-const",
+    "w02-c-array-parameter",
+    "w02-c-function-anatomy",
+    "w02-c-function-benefits",
+    "w02-c-local-global",
+    "w02-c-pass-by-value"
+  ],
+  "objective_ids": [
+    "w02-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l05-u01",
+      "order": 1,
+      "title_fa": "ثابت سراسری",
+      "concept_ids": [
+        "w02-c-global-const"
+      ],
+      "objective_ids": [
+        "w02-o06"
+      ],
+      "note_id": "w02-n10",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "`const int N = 3;` یک **ثابت** (`constant`) سراسری می‌سازد: مقدارش عوض نمی‌شود و همه‌جای فایل در دسترس است. طبق قرارداد نام ثابت‌ها را با حروف بزرگ می‌نویسیم. اگر تعداد نمره‌ها عوض شود، فقط یک جا را تغییر می‌دهی.",
+        "note_id": "w02-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scores3",
+        "lang": "c",
+        "content": "// Averages three numbers using an array, a constant, and a helper function\n\n#include <cs50.h>\n#include <stdio.h>\n\n// Constant\nconst int N = 3;\n\n// Prototype\nfloat average(int length, int array[]);\n\nint main(void)\n{\n    // Get scores\n    int scores[N];\n    for (int i = 0; i < N; i++)\n    {\n        scores[i] = get_int(\"Score: \");\n    }\n\n    // Print average\n    printf(\"Average: %f\\n\", average(N, scores));\n}\n\nfloat average(int length, int array[])\n{\n    // Calculate average\n    int sum = 0;\n    for (int i = 0; i < length; i++)\n    {\n        sum += array[i];\n    }\n    return sum / (float) length;\n}",
+        "source_ref": "src-notes-2#arrays",
+        "explain_fa": "نسخهٔ رسمی با ثابت و تابع کمکی."
+      },
+      "check": {
+        "id": "w02-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "مهم‌ترین فایدهٔ `const int N = 3;` در برنامهٔ بالا چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "عدد ۳ فقط یک جا نوشته می‌شود و تغییرش آسان و امن است",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "برنامه را سریع‌تر می‌کند",
+            "correct": false,
+            "feedback_fa": "هدف خوانایی و نگه‌داشت‌پذیری است."
+          },
+          {
+            "id": "c",
+            "text_fa": "N را می‌توان در حلقه تغییر داد",
+            "correct": false,
+            "feedback_fa": "const یعنی تغییرناپذیر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l05-u01-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "این قطعهٔ تألیفی کامپایل نمی‌شود. چرا؟\n\nconst int MAX = 10;\n\nint main(void)\n{\n    MAX = 20;\n}",
+        "expected": {
+          "bug_line": 5,
+          "fix": "remove the assignment; MAX is const"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: به ثابت نمی‌شود دوباره مقدار داد.",
+          "incorrect_fa": "const به چه معناست؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l05-u02",
+      "order": 2,
+      "title_fa": "ارسال آرایه به تابع",
+      "concept_ids": [
+        "w02-c-array-parameter"
+      ],
+      "objective_ids": [
+        "w02-o06"
+      ],
+      "note_id": "w02-n10",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "در `scores3`، تابع `average` دو ورودی می‌گیرد: طول و خود آرایه، `float average(int length, int array[])`. آرایه طول خودش را با خود نمی‌برد، پس طول را جدا می‌فرستیم. `(float) length` تقسیم را اعشاری می‌کند تا ۵۹٫۳۳۳ به ۵۹ بریده نشود.",
+        "note_id": "w02-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n10"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "float average(int length, int array[]);",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "پیش‌نمونهٔ رسمی scores3."
+      },
+      "check": {
+        "id": "w02-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا average علاوه بر آرایه، length را هم می‌گیرد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون تابع از روی خود آرایه نمی‌تواند بفهمد چند خانه دارد",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون C دو ورودی را الزامی می‌کند",
+            "correct": false,
+            "feedback_fa": "تعداد ورودی‌ها را خودت تعیین می‌کنی."
+          },
+          {
+            "id": "c",
+            "text_fa": "برای تبدیل به float",
+            "correct": false,
+            "feedback_fa": "تبدیل با (float) انجام می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l05-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "پیش‌نمونهٔ تابع تألیفی max را کامل کن که بزرگ‌ترین عضو آرایه‌ای از int را برمی‌گرداند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "int max(int length, int [[b1]]);",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "array[]",
+              "a[]",
+              "values[]",
+              "numbers[]"
+            ],
+            "hint_fa": "پارامتر آرایه با [] می‌آید.",
+            "wrong_feedback": {
+              "array": "بدون [] این یک int ساده است."
+            },
+            "default_wrong_fa": "نام پارامتر را با [] بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "array[]",
+            "a[]",
+            "values[]",
+            "numbers[]"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "مثل `int array[]` در scores3."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l05-u03",
+      "order": 3,
+      "title_fa": "آناتومی تابع",
+      "concept_ids": [
+        "w02-c-function-anatomy",
+        "w02-c-function-benefits"
+      ],
+      "objective_ids": [
+        "w02-o06"
+      ],
+      "note_id": "w02-n10",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2",
+        "src-short-functions"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Functions (۲۰۱۷) تابع را جعبهٔ سیاه می‌داند: ورودی می‌گیرد و خروجی می‌دهد. سه دلیل برای تابع: سازمان‌دهی، ساده‌سازی و استفادهٔ دوباره. اعلان تابع سه بخش دارد: نوع خروجی، نام و فهرست آرگومان‌ها، مثل `int add_two_ints(int a, int b);`.",
+        "note_id": "w02-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n10"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "int add_two_ints(int a, int b);",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "اعلان رسمی ویدئوی کوتاه Functions."
+      },
+      "check": {
+        "id": "w02-l05-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `float mult_two_reals(float x, float y);` نوع خروجی کدام است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "float",
+            "correct": true,
+            "feedback_fa": "درست: اولین کلمه نوع خروجی است."
+          },
+          {
+            "id": "b",
+            "text_fa": "mult_two_reals",
+            "correct": false,
+            "feedback_fa": "این نام تابع است."
+          },
+          {
+            "id": "c",
+            "text_fa": "x",
+            "correct": false,
+            "feedback_fa": "x نام پارامتر است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l05-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "بخش‌های اعلان `bool valid_triangle(float a, float b, float c);` را نام ببر: (۱) bool (۲) valid_triangle (۳) float a, float b, float c",
+        "expected": {
+          "answers": {
+            "1": "return type",
+            "2": "name",
+            "3": "argument list"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "نوع خروجی، نام، فهرست آرگومان‌ها."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l05-u04",
+      "order": 4,
+      "title_fa": "حوزه و ارسال با مقدار",
+      "concept_ids": [
+        "w02-c-local-global",
+        "w02-c-pass-by-value"
+      ],
+      "objective_ids": [
+        "w02-o06"
+      ],
+      "note_id": "w02-n10",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2",
+        "src-short-variables-and-scope"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Variables and Scope: متغیر محلی فقط درون تابعی که در آن ساخته شده وجود دارد؛ متغیر سراسری بیرون همهٔ توابع تعریف می‌شود و همه به آن دسترسی دارند، پس باید با احتیاط به کار رود. وقتی int را به تابع می‌دهی، تابع **کپی** آن را می‌گیرد (ارسال با مقدار). برای همین `foo = triple(foo);` لازم است.",
+        "note_id": "w02-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n10"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "int foo = 4;\nfoo = triple(foo);",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "الگوی رسمی ویدئوی کوتاه Variables and Scope."
+      },
+      "check": {
+        "id": "w02-l05-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر تابعی پارامتر int خودش را سه برابر کند ولی چیزی برنگرداند، متغیر اصلی در main چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تغییری نمی‌کند، چون تابع فقط کپی را تغییر داده است",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "سه برابر می‌شود",
+            "correct": false,
+            "feedback_fa": "تابع روی کپی کار کرده است."
+          },
+          {
+            "id": "c",
+            "text_fa": "صفر می‌شود",
+            "correct": false,
+            "feedback_fa": "دلیلی برای صفر شدن نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l05-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nvoid add_one(int n)\n{\n    n++;\n}\n\nint main(void)\n{\n    int x = 5;\n    add_one(x);\n    printf(\"%i\\n\", x);\n}",
+        "expected": {
+          "output": "5\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: add_one کپی x را افزایش داد.",
+          "incorrect_fa": "n کپی x است، نه خود x."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

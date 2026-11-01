@@ -1,0 +1,233 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-ps-runoff",
+  "kind": "pset",
+  "week": 3,
+  "title_en": "Runoff",
+  "title_fa": "انتخابات دومرحله‌ای فوری (Runoff)",
+  "guide_doc_id": "w03-ps-runoff",
+  "guide_file": "runoff.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/3/runoff/",
+    "index_url": "https://cs50.harvard.edu/x/psets/3/",
+    "submission": "one-of-runoff-tideman",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w03-ps-runoff-r1",
+        "text_fa": "فقط توابع `vote`، `tabulate`، `print_winner`، `find_min`، `is_tie` و `eliminate` را کامل کن (افزودن سرآیند مجاز است).",
+        "text_en": "You should only modify these functions in runoff.c, though you may `#include` additional header files atop runoff.c if you’d like.",
+        "source_ref": "src-pset-3-runoff#distribution-code"
+      },
+      {
+        "id": "w03-ps-runoff-r2",
+        "text_fa": "`vote` اگر نام معتبر بود، ترجیح را در آرایهٔ `preferences` ثبت کند و `true` برگرداند؛ وگرنه `false`.",
+        "text_en": "If the preference is successfully recorded, the function should return `true`. The function should return `false` otherwise.",
+        "source_ref": "src-pset-3-runoff#hints"
+      },
+      {
+        "id": "w03-ps-runoff-r3",
+        "text_fa": "`tabulate` رأی هر رأی‌دهنده را به بالاترین ترجیحِ حذف‌نشده‌اش بدهد.",
+        "text_en": "at each stage in the runoff, every voter effectively votes for their top-preferred candidate who has not already been eliminated.",
+        "source_ref": "src-pset-3-runoff#hints"
+      },
+      {
+        "id": "w03-ps-runoff-r4",
+        "text_fa": "`print_winner` اگر کسی بیش از نصف رأی‌ها را داشت نامش را چاپ کند و `true` برگرداند؛ وگرنه `false`.",
+        "text_en": "If any candidate has more than half of the vote, their name should be printed and the function should return `true`.",
+        "source_ref": "src-pset-3-runoff#hints"
+      },
+      {
+        "id": "w03-ps-runoff-r5",
+        "text_fa": "`find_min` کمترین رأی میان نامزدهای باقی‌مانده را برگرداند.",
+        "text_en": "The function should return the minimum vote total for any candidate who is still in the election.",
+        "source_ref": "src-pset-3-runoff#hints"
+      },
+      {
+        "id": "w03-ps-runoff-r6",
+        "text_fa": "`is_tie` اگر همهٔ باقی‌مانده‌ها رأی برابر داشتند `true` برگرداند.",
+        "text_en": "The function should return `true` if every candidate remaining in the election has the same number of votes",
+        "source_ref": "src-pset-3-runoff#hints"
+      },
+      {
+        "id": "w03-ps-runoff-r7",
+        "text_fa": "`eliminate` نامزد یا نامزدهایی را که `min` رأی دارند حذف کند.",
+        "text_en": "The function should eliminate the candidate (or candidates) who have `min` number of votes.",
+        "source_ref": "src-pset-3-runoff#hints"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/runoff",
+      "style50": "style50 runoff.c",
+      "submit50": "submit50 cs50/problems/2026/x/runoff",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/3/runoff.zip\nunzip runoff.zip\nrm runoff.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/runoff",
+      "style50": "style50 runoff.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "-Vc5aGywKxo",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "4rhSKgaZQsY93RLj0xgu7nwKB",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d40",
+      "d54"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-struct",
+      "w03-c-array-of-structs",
+      "w03-c-search-strings",
+      "w03-c-linear-search",
+      "w03-c-pseudocode-precision"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l03",
+      "w03-l04"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-struct",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-array-of-structs",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-search-strings",
+        "note_id": "w03-n07",
+        "lesson_id": "w03-l03",
+        "unit_id": "w03-l03-u02"
+      },
+      {
+        "concept_id": "w03-c-linear-search",
+        "note_id": "w03-n02",
+        "lesson_id": "w03-l01",
+        "unit_id": "w03-l01-u02"
+      },
+      {
+        "concept_id": "w03-c-pseudocode-precision",
+        "note_id": "w03-n02",
+        "lesson_id": "w03-l01",
+        "unit_id": "w03-l01-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "قبل از کد، یک انتخابات کوچک (سه نامزد، پنج رأی‌دهنده) را روی کاغذ دور به دور اجرا کن. هر دور کدام تابع‌ها صدا زده می‌شوند؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "`preferences[i][j]` اندیس نامزد را نگه می‌دارد، نه نامش. در `vote` نام را به چه چیزی تبدیل می‌کنی؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "در `tabulate` برای هر رأی‌دهنده فقط یک رأی شمرده می‌شود. صفحهٔ رسمی یادآوری می‌کند کجا `break` به کار می‌آید."
+      },
+      {
+        "n": 4,
+        "hint_fa": "«بیش از نصف» را با تقسیم صحیح چطور بیان می‌کنی؟ با تعداد رأی‌دهندهٔ زوج و فرد امتحان کن."
+      },
+      {
+        "n": 5,
+        "hint_fa": "`is_tie` و `eliminate` هر دو `min` را می‌گیرند. فیلد `eliminated` در هر دو چه نقشی دارد؟"
+      },
+      {
+        "n": 6,
+        "hint_fa": "هر تابع را جدا آزمایش کن؛ check50 هم هر تابع را جدا می‌سنجد."
+      }
+    ],
+    "common_mistakes_fa": [
+      "شمردن رأی برای نامزد حذف‌شده",
+      "ادامه دادن روی برگهٔ رأی بعد از ثبت یک رأی",
+      "استفاده از «نصف یا بیشتر» به‌جای «بیش از نصف»",
+      "حساب کردن کمینه با نامزدهای حذف‌شده",
+      "مقایسهٔ رشته‌ها با `==`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-ps-runoff-c01",
+        "text_fa": "فقط شش تابع خواسته‌شده را تغییر داده‌ام.",
+        "maps_to": "w03-ps-runoff-r1"
+      },
+      {
+        "id": "w03-ps-runoff-c02",
+        "text_fa": "رأی نامعتبر برنامه را با پیام خطا تمام می‌کند.",
+        "maps_to": "w03-ps-runoff-r2"
+      },
+      {
+        "id": "w03-ps-runoff-c03",
+        "text_fa": "شمارش فقط به نامزدهای حذف‌نشده رأی می‌دهد.",
+        "maps_to": "w03-ps-runoff-r3"
+      },
+      {
+        "id": "w03-ps-runoff-c04",
+        "text_fa": "برنده فقط با «بیش از نصف» اعلام می‌شود، نه «نصف».",
+        "maps_to": "w03-ps-runoff-r4"
+      },
+      {
+        "id": "w03-ps-runoff-c05",
+        "text_fa": "کمینه فقط میان نامزدهای باقی‌مانده حساب می‌شود.",
+        "maps_to": "w03-ps-runoff-r5"
+      },
+      {
+        "id": "w03-ps-runoff-c06",
+        "text_fa": "تساوی کامل باقی‌مانده‌ها کسی را حذف نمی‌کند.",
+        "maps_to": "w03-ps-runoff-r6"
+      },
+      {
+        "id": "w03-ps-runoff-c07",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w03-ps-runoff-c08",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w03-ps-runoff-c09",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/embed/-Vc5aGywKxo",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

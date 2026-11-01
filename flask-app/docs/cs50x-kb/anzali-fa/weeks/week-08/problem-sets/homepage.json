@@ -1,0 +1,349 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w08-ps-homepage",
+  "kind": "pset",
+  "week": 8,
+  "title_en": "Homepage",
+  "title_fa": "صفحهٔ شخصی (Homepage)",
+  "guide_doc_id": "w08-ps-homepage",
+  "guide_file": "homepage.fa.md",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/8/homepage/",
+    "index_url": "https://cs50.harvard.edu/x/psets/8/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w08-ps-homepage-r1",
+        "text_fa": "دست‌کم چهار صفحهٔ `.html` مختلف داشته باش که یکی `index.html` (صفحهٔ اصلی) است، و از هر صفحه بتوان با یک یا چند پیوند به هر صفحهٔ دیگر رسید.",
+        "text_en": "Contain at least four different .html pages, at least one of which is index.html (the main page of your website), and it should be possible to get from any page on your website to any other page by following one or more hyperlinks.",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r2",
+        "text_fa": "دست‌کم ده تگ HTML **متمایز** غیر از `<html>`، `<head>`، `<body>` و `<title>` به کار ببر؛ تکرار یک تگ فقط یکی حساب می‌شود.",
+        "text_en": "Use at least ten (10) distinct HTML tags besides <html>, <head>, <body>, and <title>. Using some tag (e.g., <p>) multiple times still counts as just one (1) of those ten!",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r3",
+        "text_fa": "یک یا چند امکان Bootstrap را در سایت به کار ببر.",
+        "text_en": "Integrate one or more features from Bootstrap into your site.",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r4",
+        "text_fa": "دست‌کم یک فایل سبک از خودت، `styles.css`، داشته باش که دست‌کم پنج انتخابگر مختلف و روی هم دست‌کم پنج ویژگی CSS مختلف دارد.",
+        "text_en": "Have at least one stylesheet file of your own creation, styles.css, which uses at least five (5) different CSS selectors (e.g. tag (example), class (.example), or ID (#example)), and within which you use a total of at least five (5) different CSS properties, such as font-size, or margin",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r5",
+        "text_fa": "یک یا چند امکان جاوااسکریپت را برای تعاملی‌تر کردن سایت به کار ببر.",
+        "text_en": "Integrate one or more features of JavaScript into your site to make your site more interactive.",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r6",
+        "text_fa": "سایت هم روی موبایل و هم روی لپ‌تاپ و رایانهٔ رومیزی خوب دیده شود.",
+        "text_en": "Ensure that your site looks nice on browsers both on mobile devices as well as laptops and desktops.",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r7",
+        "text_fa": "فایل متنی `specification.txt` بساز: ده تگ HTML و پنج ویژگی CSS به‌کاررفته، و یک جمله دربارهٔ اینکه جاوااسکریپت و Bootstrap را چطور به کار برده‌ای.",
+        "text_en": "You should also create a text file, specification.txt, which lists the 10 HTML tags and 5 CSS properties you've used, as well as a brief (one-sentence) description of how you chose to use JavaScript and Bootstrap.",
+        "source_ref": "src-pset-8-homepage#specification"
+      },
+      {
+        "id": "w08-ps-homepage-r8",
+        "text_fa": "HTML باید خوش‌ساخت و معتبر باشد؛ پیش از تحویل همهٔ هشدارها و خطاهای اعتبارسنج را برطرف کن.",
+        "text_en": "whether your HTML is well-formed and valid. ... Take care to eliminate any warnings or errors suggested by the validator before submitting!",
+        "source_ref": "src-pset-8-homepage#assessment"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/homepage",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/8/homepage.zip\nunzip homepage.zip\nrm homepage.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "خروجی رسمی `ls`",
+        "text": "index.html  styles.css",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [
+      "برای راهنمای نسبتاً کامل هر سه زبان، آموزش‌های w3schools را ببین: [HTML](https://www.w3schools.com/html/)، [CSS](https://www.w3schools.com/css/) و [JavaScript](https://www.w3schools.com/js/).",
+      "برای شبیه‌سازی موبایل، در ابزار توسعه‌دهندهٔ کروم روی نماد گوشی سمت چپ **Elements** بزن یا `Ctrl`+`Shift`+`M` (در مک `Cmd`+`Shift`+`M`)."
+    ],
+    "official_commands": [
+      {
+        "caption_fa": "اجرای سرور برای دیدن سایت (سپس روی نخستین پیوند Command-click یا Control-click کن)",
+        "command": "http-server",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "افزودن Bootstrap در `<head>` هر صفحه (این سرآیند رسمی jQuery را هم بارگذاری می‌کند ولی سرآیند سخنرانی نه؛ d136)",
+        "command": "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB\" crossorigin=\"anonymous\">\n<script src=\"https://code.jquery.com/jquery-4.0.0.js\" integrity=\"sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=\" crossorigin=\"anonymous\"></script>\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI\" crossorigin=\"anonymous\"></script>",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "و زیر آن، وصل کردن CSS خودت",
+        "command": "<link href=\"styles.css\" rel=\"stylesheet\">",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "توضیح در HTML",
+        "command": "<!-- Comment goes here -->",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "توضیح در CSS",
+        "command": "/* Comment goes here */",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d136",
+      "d147"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w08-c-http-server",
+      "w08-c-multipage-site",
+      "w08-c-anchor-link",
+      "w08-c-tag",
+      "w08-c-bootstrap",
+      "w08-c-external-css",
+      "w08-c-selectors",
+      "w08-c-css-property",
+      "w08-c-cascade",
+      "w08-c-javascript",
+      "w08-c-script-src",
+      "w08-c-responsive",
+      "w08-c-markup-validation",
+      "w08-c-html-comment"
+    ],
+    "prerequisite_lesson_ids": [
+      "w08-l03",
+      "w08-l05",
+      "w08-l06",
+      "w08-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w08-c-http-server",
+        "note_id": "w08-n07",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u01"
+      },
+      {
+        "concept_id": "w08-c-multipage-site",
+        "note_id": "w08-ps-homepage",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-anchor-link",
+        "note_id": "w08-n08",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u03"
+      },
+      {
+        "concept_id": "w08-c-tag",
+        "note_id": "w08-n07",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u01"
+      },
+      {
+        "concept_id": "w08-c-bootstrap",
+        "note_id": "w08-n12",
+        "lesson_id": "w08-l05",
+        "unit_id": "w08-l05-u03"
+      },
+      {
+        "concept_id": "w08-c-external-css",
+        "note_id": "w08-n11",
+        "lesson_id": "w08-l05",
+        "unit_id": "w08-l05-u03"
+      },
+      {
+        "concept_id": "w08-c-selectors",
+        "note_id": "w08-n11",
+        "lesson_id": "w08-l05",
+        "unit_id": "w08-l05-u02"
+      },
+      {
+        "concept_id": "w08-c-css-property",
+        "note_id": "w08-n11",
+        "lesson_id": "w08-l05",
+        "unit_id": "w08-l05-u01"
+      },
+      {
+        "concept_id": "w08-c-cascade",
+        "note_id": "w08-n11",
+        "lesson_id": "w08-l05",
+        "unit_id": "w08-l05-u02"
+      },
+      {
+        "concept_id": "w08-c-javascript",
+        "note_id": "w08-n13",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u01"
+      },
+      {
+        "concept_id": "w08-c-script-src",
+        "note_id": "w08-n15",
+        "lesson_id": "w08-l07",
+        "unit_id": "w08-l07-u03"
+      },
+      {
+        "concept_id": "w08-c-responsive",
+        "note_id": "w08-ps-homepage",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-markup-validation",
+        "note_id": "w08-ps-homepage",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-html-comment",
+        "note_id": "w08-n07",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از هر کدی، روی کاغذ چهار صفحه و پیوندهای میانشان را بکش. اگر همهٔ صفحه‌ها یک نوار پیمایش مشترک داشته باشند، شرط «از هر صفحه به هر صفحه» خودبه‌خود برآورده می‌شود."
+      },
+      {
+        "n": 2,
+        "hint_fa": "فهرست تگ‌هایی را که این هفته دیدی مرور کن: سرعنوان، بند، فهرست، جدول، تصویر، پیوند، فرم و تگ‌های معنایی. ده تگ متمایز را هنگام ساختن بشمار، نه در پایان."
+      },
+      {
+        "n": 3,
+        "hint_fa": "مستندات Bootstrap را باز کن و فقط یک جزء ساده را امتحان کن. ببین کدام کلاس‌ها ظاهر را عوض می‌کنند و کدام جزءها به جاوااسکریپت Bootstrap نیاز دارند."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای پنج انتخابگر، هر سه نوع نوع، کلاس و شناسه را امتحان کن. اگر یک سبک را در چند جا تکرار کرده‌ای، فکر کن آیا می‌توانی آن را یک بار روی عنصر والد بگذاری (آبشار)."
+      },
+      {
+        "n": 5,
+        "hint_fa": "برای جاوااسکریپت، از ساده شروع کن: یک رویداد روی یک دکمه یا فرم. در یادداشت‌ها دیدی چطور رنگ یا متن را عوض کنی یا با `setInterval` کاری را تکرار کنی."
+      },
+      {
+        "n": 6,
+        "hint_fa": "هر صفحه را در اعتبارسنج W3C بگذار و خطاها را از اولی شروع به رفع کن؛ گاهی یک تگ بسته‌نشده چند خطای بعدی را می‌سازد."
+      }
+    ],
+    "common_mistakes_fa": [
+      "کمتر از چهار صفحه، یا صفحه‌ای که پیوندی به آن نیست",
+      "شمردن html، head، body یا title جزو ده تگ",
+      "شمردن یک تگ تکراری چند بار",
+      "گذاشتن همهٔ سبک‌ها در ویژگی `style` به جای `styles.css`",
+      "فراموش کردن `alt` برای تصویر یا بستن نادرست تگ‌ها (خطای اعتبارسنج)",
+      "ننوشتن `specification.txt`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w08-ps-homepage-c01",
+        "text_fa": "دست‌کم چهار فایل `.html` دارم و یکی `index.html` است.",
+        "maps_to": "w08-ps-homepage-r1"
+      },
+      {
+        "id": "w08-ps-homepage-c02",
+        "text_fa": "از هر صفحه با پیوند به هر صفحهٔ دیگر می‌رسم (مثلاً یک نوار پیمایش مشترک).",
+        "maps_to": "w08-ps-homepage-r1"
+      },
+      {
+        "id": "w08-ps-homepage-c03",
+        "text_fa": "ده تگ متمایز غیر از html، head، body و title شمرده‌ام.",
+        "maps_to": "w08-ps-homepage-r2"
+      },
+      {
+        "id": "w08-ps-homepage-c04",
+        "text_fa": "دست‌کم یک امکان Bootstrap به کار رفته و در `specification.txt` توضیح داده شده است.",
+        "maps_to": "w08-ps-homepage-r3"
+      },
+      {
+        "id": "w08-ps-homepage-c05",
+        "text_fa": "`styles.css` دست‌کم پنج انتخابگر مختلف و پنج ویژگی مختلف دارد و به همهٔ صفحه‌ها وصل است.",
+        "maps_to": "w08-ps-homepage-r4"
+      },
+      {
+        "id": "w08-ps-homepage-c06",
+        "text_fa": "دست‌کم یک امکان جاوااسکریپت (مثلاً رویداد، هشدار یا زمان‌سنج) کار می‌کند.",
+        "maps_to": "w08-ps-homepage-r5"
+      },
+      {
+        "id": "w08-ps-homepage-c07",
+        "text_fa": "سایت را در حالت موبایل ابزار توسعه‌دهنده دیده‌ام و به‌هم‌ریخته نیست.",
+        "maps_to": "w08-ps-homepage-r6"
+      },
+      {
+        "id": "w08-ps-homepage-c08",
+        "text_fa": "`specification.txt` ده تگ، پنج ویژگی و یک جمله دربارهٔ جاوااسکریپت و Bootstrap دارد.",
+        "maps_to": "w08-ps-homepage-r7"
+      },
+      {
+        "id": "w08-ps-homepage-c09",
+        "text_fa": "HTML هر صفحه را در اعتبارسنج W3C گذاشته‌ام و هیچ خطا یا هشداری نمانده است.",
+        "maps_to": "w08-ps-homepage-r8"
+      },
+      {
+        "id": "w08-ps-homepage-c10",
+        "text_fa": "سبک‌ها در فایل CSS جدا هستند، نه پراکنده در ویژگی `style`.",
+        "maps_to": "design"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "مستندات Bootstrap 5.3",
+      "url": "https://getbootstrap.com/docs/5.3/",
+      "reason_fa": "مرجع رسمی Bootstrap که صفحهٔ Homepage پیشنهاد می‌کند."
+    },
+    {
+      "title_fa": "سرویس اعتبارسنجی W3C",
+      "url": "https://validator.w3.org/#validate_by_input",
+      "reason_fa": "ابزاری که صفحهٔ رسمی برای سنجش معتبر بودن HTML معرفی می‌کند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

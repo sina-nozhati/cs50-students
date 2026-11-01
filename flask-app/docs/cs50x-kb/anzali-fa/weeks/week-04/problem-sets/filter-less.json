@@ -1,0 +1,273 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w04-ps-filter-less",
+  "kind": "pset",
+  "week": 4,
+  "title_en": "Filter (less comfortable)",
+  "title_fa": "فیلتر تصویر، نسخهٔ آسان‌تر (Filter less)",
+  "guide_doc_id": "w04-ps-filter-less",
+  "guide_file": "filter-less.fa.md",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/4/filter/less/",
+    "index_url": "https://cs50.harvard.edu/x/psets/4/",
+    "submission": "one-of-filter",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w04-ps-filter-less-r1",
+        "text_fa": "تابع‌های `helpers.c` را طوری پیاده کن که کاربر بتواند فیلتر سیاه‌وسفید، sepia، قرینه یا محو را روی تصویر بزند.",
+        "text_en": "Implement the functions in `helpers.c` such that a user can apply grayscale, sepia, reflection, or blur filters to their images.",
+        "source_ref": "src-pset-4-filter-less#specification"
+      },
+      {
+        "id": "w04-ps-filter-less-r2",
+        "text_fa": "`grayscale` نسخهٔ سیاه‌وسفید همان تصویر را بسازد.",
+        "text_en": "The function `grayscale` should take an image and turn it into a black-and-white version of the same image.",
+        "source_ref": "src-pset-4-filter-less#specification"
+      },
+      {
+        "id": "w04-ps-filter-less-r3",
+        "text_fa": "`sepia` نسخهٔ sepia همان تصویر را بسازد.",
+        "text_en": "The function `sepia` should take an image and turn it into a sepia version of the same image.",
+        "source_ref": "src-pset-4-filter-less#specification"
+      },
+      {
+        "id": "w04-ps-filter-less-r4",
+        "text_fa": "`reflect` تصویر را افقی قرینه کند.",
+        "text_en": "The `reflect` function should take an image and reflect it horizontally.",
+        "source_ref": "src-pset-4-filter-less#specification"
+      },
+      {
+        "id": "w04-ps-filter-less-r5",
+        "text_fa": "`blur` نسخهٔ box-blur همان تصویر را بسازد.",
+        "text_en": "Finally, the `blur` function should take an image and turn it into a box-blurred version of the same image.",
+        "source_ref": "src-pset-4-filter-less#specification"
+      },
+      {
+        "id": "w04-ps-filter-less-r6",
+        "text_fa": "امضای تابع‌ها را تغییر نده و هیچ فایلی جز `helpers.c` را عوض نکن.",
+        "text_en": "You should not modify any of the function signatures, nor should you modify any other files other than `helpers.c`.",
+        "source_ref": "src-pset-4-filter-less#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/filter/less",
+      "style50": "style50 helpers.c",
+      "submit50": "submit50 cs50/problems/2026/x/filter/less",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/4/filter-less.zip\nunzip filter-less.zip\nrm filter-less.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "کامپایل (طبق Makefile)",
+        "text": "$ make filter",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اجرای فیلتر سیاه‌وسفید روی یک تصویر نمونه",
+        "text": "$ ./filter -g images/yard.bmp out.bmp",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/filter/less",
+      "style50": "style50 helpers.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "K0v9byp9jd0",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough، اولین ویدئوی فهرست پخش)"
+      }
+    ],
+    "asciinema": "QnLel70SPmbW9nswXTb9Yu9ZD",
+    "media_ids": [
+      "w04-m-filter-less-yard",
+      "w04-m-filter-less-bitmap",
+      "w04-m-filter-less-red-smile",
+      "w04-m-filter-less-grid"
+    ],
+    "discrepancy_ids": [
+      "d61",
+      "d68"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w04-c-pixel-art",
+      "w04-c-rgb-hex-color",
+      "w04-c-hex-byte",
+      "w04-c-bmp-rgbtriple",
+      "w04-c-file-header",
+      "w04-c-byte-type",
+      "w04-c-typedef-struct"
+    ],
+    "prerequisite_lesson_ids": [
+      "w04-l01",
+      "w04-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w04-c-pixel-art",
+        "note_id": "w04-n01",
+        "lesson_id": "w04-l01",
+        "unit_id": "w04-l01-u01"
+      },
+      {
+        "concept_id": "w04-c-rgb-hex-color",
+        "note_id": "w04-n02",
+        "lesson_id": "w04-l01",
+        "unit_id": "w04-l01-u02"
+      },
+      {
+        "concept_id": "w04-c-hex-byte",
+        "note_id": "w04-n02",
+        "lesson_id": "w04-l01",
+        "unit_id": "w04-l01-u02"
+      },
+      {
+        "concept_id": "w04-c-bmp-rgbtriple",
+        "note_id": "w04-ps-filter-less",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      },
+      {
+        "concept_id": "w04-c-file-header",
+        "note_id": "w04-ps-volume",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      },
+      {
+        "concept_id": "w04-c-byte-type",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u02"
+      },
+      {
+        "concept_id": "w04-c-typedef-struct",
+        "note_id": "w04-sh-defining-custom-types",
+        "lesson_id": "w04-l03",
+        "unit_id": "w04-l03-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "`image[i][j]` پیکسل سطر `i` و ستون `j` است و هر پیکسل سه فیلد `rgbtRed`، `rgbtGreen` و `rgbtBlue` دارد. همهٔ فیلترها با پیمایش همهٔ پیکسل‌ها شروع می‌شوند؛ دو حلقهٔ تودرتو."
+      },
+      {
+        "n": 2,
+        "hint_fa": "مقدار مؤلفه‌ها عدد صحیح‌اند. اگر وسط محاسبه عدد اعشاری ساختی، پیش از ذخیره گرد کن؛ و اگر ممکن است از ۲۵۵ بیشتر شود، چه باید بکنی؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "برای قرینه: پیکسل ستون اول با ستون آخر جابه‌جا می‌شود. حلقه تا کجای سطر باید برود تا هر جفت فقط یک بار جابه‌جا شود؟ جابه‌جایی با متغیر موقت را از یادداشت swap داری."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای محو (و لبه): اگر پیکسل‌ها را درجا عوض کنی، همسایهٔ بعدی مقدار عوض‌شده را می‌بیند. پیش از شروع به چه چیزی نیاز داری؟"
+      },
+      {
+        "n": 5,
+        "hint_fa": "در لبه‌ها و گوشه‌ها همسایه‌های کمتری هست. پیش از دسترسی به `image[i + 1]` بررسی کن که آن سطر وجود دارد."
+      },
+      {
+        "n": 6,
+        "hint_fa": "صفحهٔ رسمی می‌گوید هر فیلتر را جدا روی تصویرهای نمونه امتحان کن. یک فیلتر را کامل کن، با `make filter` کامپایل کن، نتیجه را ببین و بعد سراغ بعدی برو."
+      }
+    ],
+    "common_mistakes_fa": [
+      "تقسیم عدد صحیح بر عدد صحیح و از دست رفتن بخش اعشاری پیش از گرد کردن",
+      "فراموش کردن محدود کردن مقدار به ۲۵۵",
+      "قرینه کردن تا انتهای سطر، که پیکسل‌ها را دو بار جابه‌جا و به جای اول برمی‌گرداند",
+      "محو با مقدارهایی که در همان گذر عوض شده‌اند",
+      "دسترسی به اندیس منفی یا بیرون از تصویر در لبه‌ها",
+      "تغییر فایلی جز `helpers.c`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w04-ps-filter-less-c01",
+        "text_fa": "فقط `helpers.c` را تغییر داده‌ام و امضای تابع‌ها همان است.",
+        "maps_to": "w04-ps-filter-less-r6"
+      },
+      {
+        "id": "w04-ps-filter-less-c02",
+        "text_fa": "سیاه‌وسفید: هر سه مؤلفهٔ هر پیکسل برابرند و روشنایی کلی حفظ شده.",
+        "maps_to": "w04-ps-filter-less-r2"
+      },
+      {
+        "id": "w04-ps-filter-less-c03",
+        "text_fa": "مقدار هر مؤلفه یک عدد صحیح بین ۰ تا ۲۵۵ است (گرد شده و در صورت نیاز محدود شده).",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w04-ps-filter-less-c04",
+        "text_fa": "sepia: نتیجه را روی تصویر نمونه با چشم بررسی کرده‌ام.",
+        "maps_to": "w04-ps-filter-less-r3"
+      },
+      {
+        "id": "w04-ps-filter-less-c05",
+        "text_fa": "قرینه: پیکسل‌های چپ و راست جابه‌جا شده‌اند و ستون میانی (اگر عرض فرد است) سر جایش مانده.",
+        "maps_to": "w04-ps-filter-less-r4"
+      },
+      {
+        "id": "w04-ps-filter-less-c06",
+        "text_fa": "محو: میانگین هر پیکسل از مقدارهای **اصلی** همسایه‌ها حساب شده، نه مقدارهایی که همین حالا عوض کرده‌ام.",
+        "maps_to": "w04-ps-filter-less-r5"
+      },
+      {
+        "id": "w04-ps-filter-less-c07",
+        "text_fa": "محو: پیکسل‌های لبه و گوشه فقط همسایه‌های موجود را شمرده‌اند.",
+        "maps_to": "w04-ps-filter-less-r5"
+      },
+      {
+        "id": "w04-ps-filter-less-c08",
+        "text_fa": "همهٔ فیلترها را روی همهٔ تصویرهای نمونه امتحان کرده‌ام.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w04-ps-filter-less-c09",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w04-ps-filter-less-c10",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w04-ps-filter-less-c11",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی‌های رسمی «Implement grayscale / sepia / reflect / blur»",
+      "url": "https://cs50.harvard.edu/x/2026/psets/4/filter/less/#hints",
+      "reason_fa": "کد اسکلت هر تابع و فرمول sepia در این بخش است؛ طبق سیاست بدون راه‌حل فقط پیوند داده شده (D28)."
+    },
+    {
+      "title_fa": "فهرست پخش ویدئوهای راهنمای Filter (۵ ویدئو)",
+      "url": "https://www.youtube.com/playlist?list=PLhQjrBD2T3837jmUt0ep7Tpmnxdv9NVut",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

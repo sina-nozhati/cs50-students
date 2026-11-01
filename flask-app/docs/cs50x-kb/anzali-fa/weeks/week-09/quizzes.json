@@ -1,0 +1,2344 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 9,
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w09-q-001",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-static-page"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#http-server",
+      "prompt_fa": "`http-server` در هفتهٔ ۸ چه نوع صفحه‌ای می‌فرستاد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "صفحهٔ ایستا بی‌تغییر فرستاده می‌شود؛ صفحهٔ پویا با کد ساخته می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "ایستا: همان فایل‌های ازپیش‌نوشته",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "پویا: ساخته‌شده با کد پایتون",
+          "feedback_fa": "`http-server` فقط فایل‌ها را می‌فرستد."
+        },
+        {
+          "id": "c",
+          "text_fa": "JSON",
+          "feedback_fa": "فایل‌های HTML را بی‌تغییر می‌فرستاد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-002",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-decorator"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#flask",
+      "prompt_fa": "کدام سطر تابع `index` را به مسیر `/` وصل می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تزئین‌گر `@app.route` تابع را به مسیر وصل می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`@app.route(\"/\")`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`app = Flask(__name__)`",
+          "feedback_fa": "این برنامه را می‌سازد، نه مسیر را."
+        },
+        {
+          "id": "c",
+          "text_fa": "`return \"hello\"`",
+          "feedback_fa": "این بدنهٔ پاسخ است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-003",
+      "origin": "authored",
+      "week": 9,
+      "type": "true_false",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-app-py-requirements"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#flask",
+      "prompt_fa": "درست یا نادرست: در برنامهٔ Flask درس‌نامه، `requirements.txt` کتابخانه‌های لازم مثل `Flask` را فهرست می‌کند.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست. `app.py` کد است و `requirements.txt` وابستگی‌ها.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w09-q-004",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-templates-folder"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#flask",
+      "prompt_fa": "`render_template(\"index.html\")` فایل را در کجا جست‌وجو می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "قالب‌ها در `templates` هستند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "پوشهٔ `templates` کنار `app.py`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "پوشهٔ `static`",
+          "feedback_fa": "`static` برای تصویر و CSS است."
+        },
+        {
+          "id": "c",
+          "text_fa": "همان پوشهٔ `app.py`",
+          "feedback_fa": "Flask در پوشهٔ `templates` می‌گردد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-005",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-request-args"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#flask",
+      "prompt_fa": "(کد تألیفی) این برنامه دو درخواست می‌گیرد: `/?name=Sina` و `/` . خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "hello, Sina\nhello, world"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hello, Sina\nhello, world"
+        ]
+      },
+      "explanation_fa": "پارامتر اگر نباشد، پیش‌فرض `world` به کار می‌رود.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return \"hello, \" + request.args.get(\"name\", \"world\")\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/?name=Sina\"}, {\"path\": \"/\"}]"
+        },
+        "expected_stdout_exact": "hello, Sina\nhello, world\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hello, Sina\nhello, world",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-006",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-jinja-autoescape"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) قالب `index.html` فقط `hello, {{ name }}` است. درخواست `/?name=<i>x</i>` چه HTML ای برمی‌گرداند؟",
+      "answer": {
+        "accept": [
+          "hello, &lt;i&gt;x&lt;/i&gt;"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hello, &lt;i&gt;x&lt;/i&gt;"
+        ]
+      },
+      "explanation_fa": "Jinja در Flask نویسه‌های ویژه را خودکار escape می‌کند.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\", name=request.args.get(\"name\"))\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/?name=<i>x</i>\"}]",
+          "templates/index.html": "hello, {{ name }}"
+        },
+        "expected_stdout_exact": "hello, &lt;i&gt;x&lt;/i&gt;\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hello, &lt;i&gt;x&lt;/i&gt;",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-007",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l01",
+      "concept_ids": [
+        "w09-c-return-text-html"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) این برنامه به `/` و `/about` درخواست می‌دهد. خروجی چیست؟ (خط `STATUS` فقط برای کد غیر 200 چاپ می‌شود و بدنهٔ آن خاموش است.)",
+      "answer": {
+        "accept": [
+          "<h1>home</h1>\nSTATUS 404"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "<h1>home</h1>\nSTATUS 404"
+        ]
+      },
+      "explanation_fa": "مسیر `/about` تعریف نشده است.",
+      "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return \"<h1>home</h1>\"\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/\"}, {\"body\": false, \"path\": \"/about\"}]"
+        },
+        "expected_stdout_exact": "<h1>home</h1>\nSTATUS 404\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "<h1>home</h1>\nSTATUS 404",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-008",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l02",
+      "concept_ids": [
+        "w09-c-form-to-route"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#forms",
+      "prompt_fa": "فرم `<form action=\"/greet\" method=\"get\">` با کادر `name` و مقدار `Carter` فرستاده می‌شود. مرورگر به کجا می‌رود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`action` مسیر و `method` روش را تعیین می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`/greet?name=Carter`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`/?name=Carter`",
+          "feedback_fa": "مقصد را `action` تعیین می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "`/greet` با داده در بدنه",
+          "feedback_fa": "با GET داده در نشانی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-009",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l02",
+      "concept_ids": [
+        "w09-c-template-not-found"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#forms",
+      "prompt_fa": "`render_template(\"greet.html\")` اجرا می‌شود اما فایل `templates/greet.html` وجود ندارد. چه می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "نبود فایل قالب `TemplateNotFound` می‌دهد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خطای `TemplateNotFound` و پاسخ 500",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "صفحهٔ سفید با کد 200",
+          "feedback_fa": "Flask خطا می‌دهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "404 Not Found",
+          "feedback_fa": "مسیر هست؛ قالب نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-010",
+      "origin": "authored",
+      "week": 9,
+      "type": "parsons",
+      "lesson_id": "w09-l02",
+      "concept_ids": [
+        "w09-c-extends"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#templates",
+      "prompt_fa": "(کد تألیفی) خط‌های قالب فرزند را مرتب کن تا رندر آن `<title>hi</title>` و `<p>body</p>` بدهد.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "extends اول، سپس بلوک هم‌نام.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "{% extends \"layout.html\" %}",
+          "text": "{% extends \"layout.html\" %}"
+        },
+        {
+          "id": "p2",
+          "code": "{% block body %}",
+          "text": "{% block body %}"
+        },
+        {
+          "id": "p3",
+          "code": "<p>body</p>",
+          "text": "<p>body</p>"
+        },
+        {
+          "id": "p4",
+          "code": "{% endblock %}",
+          "text": "{% endblock %}"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "{% extends \"base.html\" %}",
+          "text": "{% extends \"base.html\" %}",
+          "why_wrong_fa": "قالب پدر `layout.html` است؛ `base.html` وجود ندارد و `TemplateNotFound` می‌دهد."
+        }
+      ],
+      "lang": "jinja",
+      "code_origin": "authored",
+      "indentation_matters": true,
+      "shuffle": true,
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "templates/layout.html": "<title>hi</title>\n{% block body %}{% endblock %}"
+        },
+        "expected_stdout_exact": "<title>hi</title>\n<p>body</p>\n",
+        "order_matters": true,
+        "check_suffix": ""
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w09-q-011",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l02",
+      "concept_ids": [
+        "w09-c-layout"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#templates",
+      "prompt_fa": "چرا درس‌نامه `layout.html` را ساخت؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "قالب مادر تکرار را حذف می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا HTML مشترک `index.html` و `greet.html` یک‌جا باشد و تکرار نشود.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "تا CSS را از HTML جدا کند.",
+          "feedback_fa": "این کار فایل CSS است."
+        },
+        {
+          "id": "c",
+          "text_fa": "تا سرعت سرور بالا برود.",
+          "feedback_fa": "هدف حذف تکرار است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-012",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l02",
+      "concept_ids": [
+        "w09-c-block"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) layout این است: `<p>A</p>{% block body %}{% endblock %}<p>B</p>` (هر کدام در یک خط). خروجی رندر این قالب فرزند چیست؟",
+      "answer": {
+        "accept": [
+          "<p>A</p>\nmiddle\n<p>B</p>"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "<p>A</p>\nmiddle\n<p>B</p>"
+        ]
+      },
+      "explanation_fa": "در قالب فرزند، متن بیرون از بلوک‌ها نادیده گرفته می‌شود.",
+      "code": "{% extends \"layout.html\" %}\nignored\n{% block body %}\nmiddle\n{% endblock %}",
+      "lang": "jinja",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "templates/layout.html": "<p>A</p>\n{% block body %}{% endblock %}\n<p>B</p>"
+        },
+        "expected_stdout_exact": "<p>A</p>\nmiddle\n<p>B</p>\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Jinja2 (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "<p>A</p>\nmiddle\n<p>B</p>",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-013",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-get-in-url"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#request-methods",
+      "prompt_fa": "چرا فرم ورود باید `method=\"post\"` داشته باشد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "POST داده را در بدنه می‌فرستد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا نام کاربری و گذرواژه در نشانی و تاریخچه دیده نشوند.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون GET نمی‌تواند داده بفرستد.",
+          "feedback_fa": "GET داده را در نشانی می‌فرستد."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون POST رمزنگاری می‌کند.",
+          "feedback_fa": "رمزنگاری کار HTTPS است، نه POST."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-014",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-405"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) مسیر فقط POST می‌پذیرد. یک GET و یک POST فرستاده می‌شود. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "STATUS 405\nhi"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "STATUS 405\nhi"
+        ]
+      },
+      "explanation_fa": "GET مجاز نیست، پس 405.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/greet\", methods=[\"POST\"])\ndef greet():\n    return \"hi\"\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"body\": false, \"path\": \"/greet\"}, {\"method\": \"POST\", \"path\": \"/greet\"}]"
+        },
+        "expected_stdout_exact": "STATUS 405\nhi\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "STATUS 405\nhi",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-015",
+      "origin": "authored",
+      "week": 9,
+      "type": "fill_blank_code",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-request-form"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#request-methods",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا نام از دادهٔ POST خوانده شود.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "form"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "form"
+        ]
+      },
+      "explanation_fa": "POST در `request.form` است.",
+      "template": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/greet\", methods=[\"POST\"])\ndef greet():\n    return \"hello, \" + request.[[b1]].get(\"name\")\n",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "form"
+          ],
+          "hint_fa": "دادهٔ POST.",
+          "wrong_feedback": {
+            "args": "`request.args` پارامترهای نشانی است و در POST خالی است."
+          },
+          "default_wrong_fa": "ویژگی دادهٔ فرم POST را بنویس."
+        }
+      ],
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"data\": {\"name\": \"David\"}, \"method\": \"POST\", \"path\": \"/greet\"}]"
+        },
+        "expected_stdout_exact": "hello, David\n",
+        "order_matters": true,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w09-q-016",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-request-method"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) این مسیر هر دو روش را می‌پذیرد. یک GET و یک POST با `name=Ali` فرستاده می‌شود. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "form\nhello, Ali"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "form\nhello, Ali"
+        ]
+      },
+      "explanation_fa": "`request.method` روش را می‌گوید.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\", methods=[\"GET\", \"POST\"])\ndef index():\n    if request.method == \"POST\":\n        return \"hello, \" + request.form.get(\"name\")\n    return \"form\"\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/\"}, {\"data\": {\"name\": \"Ali\"}, \"method\": \"POST\", \"path\": \"/\"}]"
+        },
+        "expected_stdout_exact": "form\nhello, Ali\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "form\nhello, Ali",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-017",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-get-default-missing-key"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) POST اول کادر `name` را خالی می‌فرستد و POST دوم اصلاً آن را نمی‌فرستد. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "[]\n[world]"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "[]\n[world]"
+        ]
+      },
+      "explanation_fa": "پیش‌فرض فقط برای نبود کلید است، نه برای رشتهٔ خالی.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/greet\", methods=[\"POST\"])\ndef greet():\n    return \"[\" + request.form.get(\"name\", \"world\") + \"]\"\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"data\": {\"name\": \"\"}, \"method\": \"POST\", \"path\": \"/greet\"}, {\"method\": \"POST\", \"path\": \"/greet\"}]"
+        },
+        "expected_stdout_exact": "[]\n[world]\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "[]\n[world]",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-018",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-jinja-if"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) این قالب با `name` برابر رشتهٔ خالی رندر می‌شود. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "hello, world"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hello, world"
+        ]
+      },
+      "explanation_fa": "رشتهٔ خالی در `if` نادرست است.",
+      "code": "{% if name %}\nhello, {{ name }}\n{% else %}\nhello, world\n{% endif %}",
+      "lang": "jinja",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "context.json": "{\"name\": \"\"}"
+        },
+        "expected_stdout_exact": "hello, world\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Jinja2 (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hello, world",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-019",
+      "origin": "authored",
+      "week": 9,
+      "type": "true_false",
+      "lesson_id": "w09-l03",
+      "concept_ids": [
+        "w09-c-methods-param"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#request-methods",
+      "prompt_fa": "درست یا نادرست: اگر در `@app.route` چیزی برای `methods` ننویسی، مسیر فقط GET می‌پذیرد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست. پیش‌فرض Flask فقط GET (و HEAD/OPTIONS خودکار) است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w09-q-020",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-server-validation"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#frosh-ims",
+      "prompt_fa": "کدام بررسی در froshims جلوی ورزشی را که کاربر با devtools به منو افزوده می‌گیرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "فقط بررسی سمت سرور قابل اعتماد است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`if sport not in SPORTS:` در `app.py`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`required` روی `<select>`",
+          "feedback_fa": "این سمت مرورگر است و دور زدنی."
+        },
+        {
+          "id": "c",
+          "text_fa": "`autofocus` روی کادر نام",
+          "feedback_fa": "این فقط مکان‌نما را می‌گذارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-021",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-jinja-for"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) این قالب با `sports = [\"Soccer\", \"Tennis\"]` رندر می‌شود. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "<option value=\"Soccer\">Soccer</option>\n<option value=\"Tennis\">Tennis</option>"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "<option value=\"Soccer\">Soccer</option>\n<option value=\"Tennis\">Tennis</option>"
+        ]
+      },
+      "explanation_fa": "هر عضو یک `<option>` می‌سازد.",
+      "code": "{% for sport in sports %}\n<option value=\"{{ sport }}\">{{ sport }}</option>\n{% endfor %}",
+      "lang": "jinja",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "context.json": "{\"sports\": [\"Soccer\", \"Tennis\"]}"
+        },
+        "expected_stdout_exact": "<option value=\"Soccer\">Soccer</option>\n<option value=\"Tennis\">Tennis</option>\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Jinja2 (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "<option value=\"Soccer\">Soccer</option>\n<option value=\"Tennis\">Tennis</option>",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-022",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-radio-buttons"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#frosh-ims",
+      "prompt_fa": "چرا در نسخهٔ رادیویی froshims همهٔ دکمه‌ها `name=\"sport\"` دارند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "رادیوهای هم‌نام یک گروه‌اند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا یک گروه باشند و فقط یکی انتخاب شود.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "تا هر کدام جدا فرستاده شوند.",
+          "feedback_fa": "در گروه رادیویی فقط یکی فرستاده می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون نام دیگری مجاز نیست.",
+          "feedback_fa": "هر نامی مجاز است؛ یکسان بودن گروه را می‌سازد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-023",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-redirect"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) خروجی این درخواست POST (بدون دنبال کردن redirect) چیست؟",
+      "answer": {
+        "accept": [
+          "STATUS 302\nLOCATION /registrants"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "STATUS 302\nLOCATION /registrants"
+        ]
+      },
+      "explanation_fa": "redirect پاسخ 302 با Location است.",
+      "code": "from flask import Flask, redirect\n\napp = Flask(__name__)\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    return redirect(\"/registrants\")\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"method\": \"POST\", \"path\": \"/register\"}]"
+        },
+        "expected_stdout_exact": "STATUS 302\nLOCATION /registrants\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "STATUS 302\nLOCATION /registrants",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-024",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-error-template"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) این برنامه یک ثبت‌نام بدون نام و یکی با ورزش نامجاز را می‌گیرد. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "<p>Missing name</p>\n<p>Invalid sport</p>"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "<p>Missing name</p>\n<p>Invalid sport</p>"
+        ]
+      },
+      "explanation_fa": "هر شرط پیام خودش را به یک قالب می‌دهد.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\nSPORTS = [\"Soccer\"]\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    if not request.form.get(\"name\"):\n        return render_template(\"error.html\", message=\"Missing name\")\n    if request.form.get(\"sport\") not in SPORTS:\n        return render_template(\"error.html\", message=\"Invalid sport\")\n    return \"ok\"\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"data\": {\"sport\": \"Soccer\"}, \"method\": \"POST\", \"path\": \"/register\"}, {\"data\": {\"name\": \"Bo\", \"sport\": \"Golf\"}, \"method\": \"POST\", \"path\": \"/register\"}]",
+          "templates/error.html": "<p>{{ message }}</p>"
+        },
+        "expected_stdout_exact": "<p>Missing name</p>\n<p>Invalid sport</p>\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "<p>Missing name</p>\n<p>Invalid sport</p>",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-025",
+      "origin": "authored",
+      "week": 9,
+      "type": "true_false",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-in-memory-dict"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#frosh-ims",
+      "prompt_fa": "درست یا نادرست: ثبت‌نام‌هایی که در دیکشنری `REGISTRANTS` ذخیره شده‌اند با راه‌اندازی دوبارهٔ سرور از بین می‌روند.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست. برای ماندگاری به پایگاه داده نیاز است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w09-q-026",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l04",
+      "concept_ids": [
+        "w09-c-static-folder"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#frosh-ims",
+      "prompt_fa": "تصویر لوگوی froshims را کجا می‌گذاری؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "فایل‌های ثابت در `static` .",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`static/`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`templates/`",
+          "feedback_fa": "`templates` برای قالب HTML است."
+        },
+        {
+          "id": "c",
+          "text_fa": "در `app.py`",
+          "feedback_fa": "فایل تصویر جدا در `static` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-027",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l05",
+      "concept_ids": [
+        "w09-c-flask-sql"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#flask-and-sql",
+      "prompt_fa": "`db.execute(\"SELECT * FROM registrants\")` چه برمی‌گرداند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "SELECT فهرستی از دیکشنری‌هاست.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فهرستی از دیکشنری‌ها، یکی برای هر ردیف",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک رشته با همهٔ ردیف‌ها",
+          "feedback_fa": "کتابخانهٔ cs50 ردیف‌ها را دیکشنری می‌دهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "تعداد ردیف‌ها",
+          "feedback_fa": "این برای `SELECT` نیست؛ `DELETE` و `UPDATE` تعداد برمی‌گردانند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-028",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l05",
+      "concept_ids": [
+        "w09-c-sql-in-route"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) `froshims.db` تألیفی Alice (Soccer) و Bob (Volleyball) دارد. پس از ثبت Dana با Soccer، خروجی `/count` چیست؟",
+      "answer": {
+        "accept": [
+          "ok\n2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "ok\n2"
+        ]
+      },
+      "explanation_fa": "یک Soccer از پیش و یکی تازه.",
+      "code": "from cs50 import SQL\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///froshims.db\")\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    db.execute(\"INSERT INTO registrants (name, sport) VALUES(?, ?)\", request.form.get(\"name\"), request.form.get(\"sport\"))\n    return \"ok\"\n\n@app.route(\"/count\")\ndef count():\n    rows = db.execute(\"SELECT COUNT(*) AS n FROM registrants WHERE sport = ?\", \"Soccer\")\n    return str(rows[0][\"n\"])\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"data\": {\"name\": \"Dana\", \"sport\": \"Soccer\"}, \"method\": \"POST\", \"path\": \"/register\"}, {\"path\": \"/count\"}]",
+          "froshims.db": "fixture9:froshims"
+        },
+        "expected_stdout_exact": "ok\n2\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "ok\n2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-029",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l05",
+      "concept_ids": [
+        "w09-c-getlist"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) فرم دو checkbox هم‌نام `sport` را با `Soccer` و `Tennis` می‌فرستد. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "Soccer | Soccer, Tennis"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Soccer | Soccer, Tennis"
+        ]
+      },
+      "explanation_fa": "`get` فقط اولی و `getlist` همه را می‌دهد.",
+      "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    return request.form.get(\"sport\") + \" | \" + \", \".join(request.form.getlist(\"sport\"))\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"data\": {\"sport\": [\"Soccer\", \"Tennis\"]}, \"method\": \"POST\", \"path\": \"/register\"}]"
+        },
+        "expected_stdout_exact": "Soccer | Soccer, Tennis\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "Soccer | Soccer, Tennis",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-030",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l05",
+      "concept_ids": [
+        "w09-c-hidden-input"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#flask-and-sql",
+      "prompt_fa": "دکمهٔ Deregister در هر سطر جدول از کجا می‌داند کدام ثبت‌نام را حذف کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "input پنهان id را می‌فرستد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "از `<input type=\"hidden\" name=\"id\">` با id همان ردیف",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "از متن دکمه",
+          "feedback_fa": "متن دکمه برای همه یکی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "از کوکی",
+          "feedback_fa": "id ردیف در فرم همان سطر است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-031",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l05",
+      "concept_ids": [
+        "w09-c-post-for-changes"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-9",
+      "prompt_fa": "چرا سخنرانی حذف ثبت‌نام را با POST انجام داد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تغییر داده با POST.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون پیوند GET را می‌شود در ایمیل فریب‌دهنده گذاشت و کاربر را بی‌خبر به حذف واداشت.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون GET نمی‌تواند id بفرستد.",
+          "feedback_fa": "GET می‌تواند id را در نشانی بفرستد؛ مسئله امنیت است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون SQLite فقط با POST کار می‌کند.",
+          "feedback_fa": "SQLite روش HTTP را نمی‌شناسد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-032",
+      "origin": "authored",
+      "week": 9,
+      "type": "fill_blank_code",
+      "lesson_id": "w09-l05",
+      "concept_ids": [
+        "w09-c-sql-in-route"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#flask-and-sql",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا ردیف با id فرستاده‌شده امن حذف شود و تعداد ردیف‌های باقی‌مانده چاپ شود.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "?",
+            "%s"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "?",
+          "%s"
+        ]
+      },
+      "explanation_fa": "با `?` فقط ردیف با همان id حذف می‌شود.",
+      "template": "from cs50 import SQL\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///froshims.db\")\n\n@app.route(\"/deregister\", methods=[\"POST\"])\ndef deregister():\n    db.execute(\"DELETE FROM registrants WHERE id = [[b1]]\", request.form.get(\"id\"))\n    return str(len(db.execute(\"SELECT * FROM registrants\")))\n",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "?",
+            "%s"
+          ],
+          "hint_fa": "جای‌نگهدار کتابخانهٔ cs50 (درس‌نامه `?` را به کار می‌برد).",
+          "wrong_feedback": {
+            "id": "`id = id` همهٔ ردیف‌ها را حذف می‌کند."
+          },
+          "default_wrong_fa": "جای‌نگهدار را بنویس."
+        }
+      ],
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"data\": {\"id\": \"1\"}, \"method\": \"POST\", \"path\": \"/deregister\"}]",
+          "froshims.db": "fixture9:froshims"
+        },
+        "expected_stdout_exact": "1\n",
+        "order_matters": true,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w09-q-033",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-mvc"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#cookies-and-session",
+      "prompt_fa": "در MVC، قالب‌های HTML کدام بخش‌اند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "قالب‌ها نما هستند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نما (view)",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "مدل (model)",
+          "feedback_fa": "مدل داده است."
+        },
+        {
+          "id": "c",
+          "text_fa": "کنترل‌گر (controller)",
+          "feedback_fa": "کنترل‌گر `app.py` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-034",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-set-cookie-header"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#cookies-and-session",
+      "prompt_fa": "پس از ورود، مرورگر در درخواست بعدی چه سرآیندی می‌فرستد تا سرور او را بشناسد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مرورگر کوکی را با `Cookie` برمی‌گرداند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`Cookie: session=...`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`Set-Cookie: session=...`",
+          "feedback_fa": "این را سرور می‌فرستد."
+        },
+        {
+          "id": "c",
+          "text_fa": "`Location: /`",
+          "feedback_fa": "این سرآیند redirect است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-035",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-cookie"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-9",
+      "prompt_fa": "سخنرانی کوکی را به چه تشبیه کرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مُهر روی دست.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "مُهری روی دست که نشان می‌دهد پیش‌تر وارد شده‌ای",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "قفل در",
+          "feedback_fa": "کوکی چیزی است که با خودت می‌بری."
+        },
+        {
+          "id": "c",
+          "text_fa": "کلید رمزنگاری",
+          "feedback_fa": "کوکی شناسه است، نه کلید رمز."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-036",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-session-dict"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) این برنامه (Flask-Session) اول `/` ، بعد ورود Sina و دوباره `/` را می‌خواند. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "None\nSTATUS 302\nLOCATION /\nSina"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "None\nSTATUS 302\nLOCATION /\nSina"
+        ]
+      },
+      "explanation_fa": "پیش از ورود `get` مقدار `None` می‌دهد.",
+      "code": "from flask import Flask, redirect, request, session\nfrom flask_session import Session\n\napp = Flask(__name__)\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n\n@app.route(\"/\")\ndef index():\n    return str(session.get(\"name\"))\n\n@app.route(\"/login\", methods=[\"POST\"])\ndef login():\n    session[\"name\"] = request.form.get(\"name\")\n    return redirect(\"/\")\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/\"}, {\"data\": {\"name\": \"Sina\"}, \"method\": \"POST\", \"path\": \"/login\"}, {\"path\": \"/\"}]"
+        },
+        "expected_stdout_exact": "None\nSTATUS 302\nLOCATION /\nSina\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "None\nSTATUS 302\nLOCATION /\nSina",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-037",
+      "origin": "authored",
+      "week": 9,
+      "type": "true_false",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-logout-clear"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#cookies-and-session",
+      "prompt_fa": "درست یا نادرست: در مثال login درس‌نامه، خروج با `session.clear()` انجام می‌شود.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w09-q-038",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-session-list"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#shopping-cart",
+      "prompt_fa": "در فروشگاه درس‌نامه، چرا پیش از `append` بررسی می‌شود `\"cart\" not in session` ؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اول فهرست خالی بساز.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون بار اول فهرستی وجود ندارد و باید `[]` ساخته شود.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون session فقط یک کلید می‌گیرد.",
+          "feedback_fa": "session هر تعداد کلید می‌گیرد."
+        },
+        {
+          "id": "c",
+          "text_fa": "برای پاک کردن سبد",
+          "feedback_fa": "پاک کردن کار `clear` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-039",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-sql-in-list"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) `store.db` تألیفی Book A (۱)، Book B (۲) و Book C (۳) دارد. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "Book A, Book C"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Book A, Book C"
+        ]
+      },
+      "explanation_fa": "IN عضویت را می‌سنجد؛ تکرار ردیف تکراری نمی‌سازد.",
+      "code": "from cs50 import SQL\nfrom flask import Flask\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///store.db\")\n\n@app.route(\"/\")\ndef index():\n    books = db.execute(\"SELECT title FROM books WHERE id IN (?) ORDER BY id\", [3, 1, 3])\n    return \", \".join(book[\"title\"] for book in books)\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/\"}]",
+          "store.db": "fixture9:store"
+        },
+        "expected_stdout_exact": "Book A, Book C\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "Book A, Book C",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-040",
+      "origin": "authored",
+      "week": 9,
+      "type": "parsons",
+      "lesson_id": "w09-l06",
+      "concept_ids": [
+        "w09-c-flask-session"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#cookies-and-session",
+      "prompt_fa": "(کد تألیفی) برنامه با Flask-Session پیکربندی شده است (`SESSION_PERMANENT = False`، `SESSION_TYPE = \"filesystem\"`، `Session(app)`؛ ثابت). خط‌ها را مرتب کن تا `/` مقدار ذخیره‌شده را نشان دهد.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "تزئین‌گر پیش از تابع؛ مقدار پیش از خواندن در session نوشته می‌شود.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "@app.route(\"/\")",
+          "text": "@app.route(\"/\")"
+        },
+        {
+          "id": "p2",
+          "code": "def index():",
+          "text": "def index():"
+        },
+        {
+          "id": "p3",
+          "code": "    session[\"n\"] = \"1\"",
+          "text": "    session[\"n\"] = \"1\""
+        },
+        {
+          "id": "p4",
+          "code": "    return session[\"n\"]",
+          "text": "    return session[\"n\"]"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "    session[\"n\"] = 1",
+          "text": "    session[\"n\"] = 1",
+          "why_wrong_fa": "عدد صحیح پاسخ معتبر Flask نیست و `return` آن خطای TypeError می‌دهد؛ مقدار باید رشته باشد."
+        }
+      ],
+      "lang": "flask",
+      "code_origin": "authored",
+      "indentation_matters": true,
+      "shuffle": true,
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "1\n",
+        "order_matters": true,
+        "check_suffix": "",
+        "check_prefix": "from flask import Flask, session\nfrom flask_session import Session\napp = Flask(__name__)\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w09-q-041",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-none-guard"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "در shows1 درس‌نامه، درخواست `/search` بدون `q` چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "نگهبان `if q:` لازم است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خطای `TypeError` (پاسخ 500)، چون `\"%\" + None` ممکن نیست.",
+          "feedback_fa": "درست؛ روی جعبهٔ ساخت اجرا شد (d159)."
+        },
+        {
+          "id": "b",
+          "text_fa": "همهٔ برنامه‌ها را برمی‌گرداند.",
+          "feedback_fa": "`None` به رشته چسبانده نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "فهرست خالی",
+          "feedback_fa": "فهرست خالی رفتار shows2 با `if q` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-042",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-like-search"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) `shows.db` تألیفی The Office، Office Ladies و Friends دارد. خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "1\n0"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1\n0"
+        ]
+      },
+      "explanation_fa": "`q + \"%\"` فقط آغاز عنوان را می‌سنجد: `the` فقط The Office را می‌یابد؛ بدون q صفر.",
+      "code": "from cs50 import SQL\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///shows.db\")\n\n@app.route(\"/search\")\ndef search():\n    q = request.args.get(\"q\")\n    shows = db.execute(\"SELECT title FROM shows WHERE title LIKE ? ORDER BY id\", q + \"%\") if q else []\n    return str(len(shows))\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"path\": \"/search?q=the\"}, {\"path\": \"/search\"}]",
+          "shows.db": "fixture9:shows"
+        },
+        "expected_stdout_exact": "1\n0\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "1\n0",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-043",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-ajax"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-9#apis",
+      "prompt_fa": "مزیت Ajax در shows2 چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "Ajax فقط بخشی از صفحه را عوض می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نتیجهٔ جست‌وجو با هر حرف تایپ‌شده نشان داده می‌شود، بدون بارگذاری دوبارهٔ کل صفحه.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "داده دیگر از سرور نمی‌آید.",
+          "feedback_fa": "داده همچنان از سرور می‌آید."
+        },
+        {
+          "id": "c",
+          "text_fa": "دیگر SQL لازم نیست.",
+          "feedback_fa": "سرور همچنان SQL اجرا می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-044",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-encode-uri"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#apis",
+      "prompt_fa": "چرا shows2 به‌جای `'/search?q=' + input.value` از `encodeURIComponent(input.value)` استفاده می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "کدگذاری امن رشتهٔ پرس‌وجو.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا نویسه‌هایی مثل `&` و `#` در متن کاربر رشتهٔ پرس‌وجو را نشکنند.",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "تا جست‌وجو به بزرگی حرف حساس نباشد.",
+          "feedback_fa": "این ربطی به بزرگی حرف ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "تا پاسخ JSON شود.",
+          "feedback_fa": "قالب پاسخ را سرور تعیین می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-045",
+      "origin": "authored",
+      "week": 9,
+      "type": "predict_output",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-jsonify"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "(کد تألیفی) خروجی JSON این مسیر چیست؟ (اجراکننده JSON را فشرده با کلیدهای مرتب چاپ می‌کند.)",
+      "answer": {
+        "accept": [
+          "[{\"id\": 3, \"title\": \"Friends\"}]"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "[{\"id\": 3, \"title\": \"Friends\"}]"
+        ]
+      },
+      "explanation_fa": "`jsonify` فهرست دیکشنری‌ها را به آرایهٔ JSON تبدیل می‌کند.",
+      "code": "from flask import Flask, jsonify\n\napp = Flask(__name__)\n\n@app.route(\"/search\")\ndef search():\n    return jsonify([{\"title\": \"Friends\", \"id\": 3}])\n",
+      "lang": "flask",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "requests.json": "[{\"json\": true, \"path\": \"/search\"}]"
+        },
+        "expected_stdout_exact": "[{\"id\": 3, \"title\": \"Friends\"}]\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Flask test client (3.1.3 0.8.0 9.5.0 3.1.6)",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "[{\"id\": 3, \"title\": \"Friends\"}]",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w09-q-046",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-response-json"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-9#json",
+      "prompt_fa": "در shows3، پس از `let shows = await response.json();` چه کسی `<li>` می‌سازد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "HTML در مرورگر ساخته می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "جاوااسکریپت در مرورگر",
+          "feedback_fa": "درست؛ و باید خودش escape کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "Jinja در سرور",
+          "feedback_fa": "سرور فقط JSON فرستاده است."
+        },
+        {
+          "id": "c",
+          "text_fa": "SQLite",
+          "feedback_fa": "SQLite فقط داده می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-047",
+      "origin": "authored",
+      "week": 9,
+      "type": "true_false",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-escape-order"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-flask-box-9",
+      "prompt_fa": "درست یا نادرست: در escape دستی با `replace` ، اگر اول `<` را به `&lt;` و سپس `&` را به `&amp;` تبدیل کنی، متن `<b>` درست نمایش داده می‌شود.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "نادرست. جایگزینی دوم `&lt;` را `&amp;lt;` می‌کند (اجراشده با node، یادداشت ۱۵). `&` باید اول جایگزین شود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w09-q-048",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-xmlhttprequest"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-ajax",
+      "prompt_fa": "ویدئوی کوتاه Ajax (۲۰۱۷) با چه چیزی درخواست می‌فرستاد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "روش قدیمی‌تر Ajax.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`XMLHttpRequest` با بررسی `readyState` و `status`",
+          "feedback_fa": "درست؛ سخنرانی امروز `fetch` را به کار می‌برد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`fetch` با `await`",
+          "feedback_fa": "این روش سخنرانی ۲۰۲۵ است."
+        },
+        {
+          "id": "c",
+          "text_fa": "فرم با `method=\"post\"`",
+          "feedback_fa": "فرم صفحه را دوباره بار می‌کند؛ Ajax نه."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w09-q-049",
+      "origin": "authored",
+      "week": 9,
+      "type": "mcq",
+      "lesson_id": "w09-l07",
+      "concept_ids": [
+        "w09-c-flask-app-env-old"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-flask",
+      "prompt_fa": "در ویدئوی کوتاه Flask (۲۰۱۷)، پیش از `flask run` چه فرمانی لازم بود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "روش قدیمی CS50 IDE.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`export FLASK_APP=application.py`",
+          "feedback_fa": "درست؛ در cs50.dev با `app.py` لازم نیست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`pip install cs50`",
+          "feedback_fa": "این نصب کتابخانه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`http-server`",
+          "feedback_fa": "این سرور فایل ایستاست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w09-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w09-q-001",
+        "w09-q-002",
+        "w09-q-003",
+        "w09-q-004",
+        "w09-q-005",
+        "w09-q-006",
+        "w09-q-007"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w09-q-008",
+        "w09-q-009",
+        "w09-q-010",
+        "w09-q-011",
+        "w09-q-012"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w09-q-013",
+        "w09-q-014",
+        "w09-q-015",
+        "w09-q-016",
+        "w09-q-017",
+        "w09-q-018",
+        "w09-q-019"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w09-q-020",
+        "w09-q-021",
+        "w09-q-022",
+        "w09-q-023",
+        "w09-q-024",
+        "w09-q-025",
+        "w09-q-026"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w09-q-027",
+        "w09-q-028",
+        "w09-q-029",
+        "w09-q-030",
+        "w09-q-031",
+        "w09-q-032"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w09-q-033",
+        "w09-q-034",
+        "w09-q-035",
+        "w09-q-036",
+        "w09-q-037",
+        "w09-q-038",
+        "w09-q-039",
+        "w09-q-040"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w09-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w09-q-041",
+        "w09-q-042",
+        "w09-q-043",
+        "w09-q-044",
+        "w09-q-045",
+        "w09-q-046",
+        "w09-q-047",
+        "w09-q-048",
+        "w09-q-049"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w09-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۹",
+      "item_ids": [
+        "w09-q-006",
+        "w09-q-001",
+        "w09-q-010",
+        "w09-q-012",
+        "w09-q-016",
+        "w09-q-017",
+        "w09-q-024",
+        "w09-q-020",
+        "w09-q-028",
+        "w09-q-029",
+        "w09-q-034",
+        "w09-q-036",
+        "w09-q-047",
+        "w09-q-041"
+      ],
+      "item_pool_ids": [
+        "w09-q-001",
+        "w09-q-002",
+        "w09-q-003",
+        "w09-q-004",
+        "w09-q-005",
+        "w09-q-006",
+        "w09-q-007",
+        "w09-q-008",
+        "w09-q-009",
+        "w09-q-010",
+        "w09-q-011",
+        "w09-q-012",
+        "w09-q-013",
+        "w09-q-014",
+        "w09-q-015",
+        "w09-q-016",
+        "w09-q-017",
+        "w09-q-018",
+        "w09-q-019",
+        "w09-q-020",
+        "w09-q-021",
+        "w09-q-022",
+        "w09-q-023",
+        "w09-q-024",
+        "w09-q-025",
+        "w09-q-026",
+        "w09-q-027",
+        "w09-q-028",
+        "w09-q-029",
+        "w09-q-030",
+        "w09-q-031",
+        "w09-q-032",
+        "w09-q-033",
+        "w09-q-034",
+        "w09-q-035",
+        "w09-q-036",
+        "w09-q-037",
+        "w09-q-038",
+        "w09-q-039",
+        "w09-q-040",
+        "w09-q-041",
+        "w09-q-042",
+        "w09-q-043",
+        "w09-q-044",
+        "w09-q-045",
+        "w09-q-046",
+        "w09-q-047",
+        "w09-q-048",
+        "w09-q-049"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

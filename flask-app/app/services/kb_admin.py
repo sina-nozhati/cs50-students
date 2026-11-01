@@ -72,31 +72,94 @@ def inspect_archive(archive_path: Path | str) -> dict[str, Any]:
         except Exception as e:
             return {"valid": False, "error": f"خطا در باز کردن فایل zip: {e}"}
 
-    # تشخیص دایرکتوری هفته (مثلاً week-01 یا knowledge-base/weeks/week-01)
+    def _read_member_text(member_name: str) -> str | None:
+        try:
+            if is_tar:
+                with tarfile.open(archive_path, "r:*") as tar:
+                    f = tar.extractfile(member_name)
+                    if f:
+                        return f.read().decode("utf-8", errors="replace")
+            elif is_zip:
+                with zipfile.ZipFile(archive_path, "r") as zf:
+                    return zf.read(member_name).decode("utf-8", errors="replace")
+        except Exception:
+            pass
+        return None
+
+    # تشخیص هوشمند شماره و اسلاگ هفته
     week_match = None
     week_number = None
     detected_week_dir = None
 
+    # ۱. استخراج از مانیفست‌های معتبر داخل بسته (curriculum.json / index.fragment.json)
     for m in members:
-        # جستجوی الگوی weeks/week-XX یا week-XX/
-        match = re.search(r"(?:^|/)(?:weeks/)?(week-(\d{2}))(?:/|$)", m)
-        if match:
-            detected_week_dir = match.group(1)
-            week_number = int(match.group(2))
-            week_match = match
-            break
+        if m.endswith("curriculum.json"):
+            content = _read_member_text(m)
+            if content:
+                try:
+                    data = json.loads(content)
+                    w = data.get("week") if data.get("week") is not None else data.get("panel_week_number")
+                    if w is not None:
+                        week_number = int(w)
+                        detected_week_dir = data.get("week_slug") or kb_repo.get_week_folder_slug(week_number)
+                        break
+                except Exception:
+                    pass
 
     if week_number is None:
-        # تلاش برای استخراج شماره هفته از نام فایل یا ساختار دیگر
-        file_match = re.search(r"week[-_]?(\d+)", archive_path.name.lower())
-        if file_match:
-            week_number = int(file_match.group(1))
-            detected_week_dir = f"week-{week_number:02d}"
+        for m in members:
+            if m.endswith("index.fragment.json"):
+                content = _read_member_text(m)
+                if content:
+                    try:
+                        data = json.loads(content)
+                        w = data.get("week")
+                        if w is not None:
+                            week_number = int(w)
+                            detected_week_dir = data.get("week_slug") or kb_repo.get_week_folder_slug(week_number)
+                            break
+                    except Exception:
+                        pass
+
+    # ۲. تشخیص از نام پوشه در آرشیو
+    if week_number is None:
+        for m in members:
+            m_ai = re.search(r"(?:^|/)(?:weeks/)?(week-ai)(?:/|$)", m)
+            if m_ai:
+                week_number = 71
+                detected_week_dir = "week-ai"
+                break
+            m_fp = re.search(r"(?:^|/)(?:weeks/)?(final-project)(?:/|$)", m)
+            if m_fp:
+                week_number = 99
+                detected_week_dir = "final-project"
+                break
+            match = re.search(r"(?:^|/)(?:weeks/)?(week-(\d+))(?:/|$)", m)
+            if match:
+                week_number = int(match.group(2))
+                detected_week_dir = kb_repo.get_week_folder_slug(week_number)
+                break
+
+    # ۳. تشخیص از نام فایل آرشیو
+    if week_number is None:
+        fname = archive_path.name.lower()
+        if "week-ai" in fname or "-ai" in fname or "_ai" in fname:
+            week_number = 71
+            detected_week_dir = "week-ai"
+        elif "final-project" in fname or "final_project" in fname or "final" in fname:
+            week_number = 99
+            detected_week_dir = "final-project"
+        else:
+            file_match = re.search(r"week[-_]?(\d+)", fname)
+            if file_match:
+                week_number = int(file_match.group(1))
+                detected_week_dir = kb_repo.get_week_folder_slug(week_number)
 
     # بررسی وجود فایل‌های کلیدی
     has_notes = any("notes/" in m and m.endswith((".md", ".fa.md")) for m in members)
     has_flashcards = any("flashcards.json" in m for m in members)
     has_quizzes = any("quizzes.json" in m for m in members)
+    has_challenges = any("challenges.json" in m for m in members)
     has_overview = any("overview.fa.md" in m or "overview.md" in m for m in members)
     has_summary = any("summary.fa.md" in m or "summary.md" in m for m in members)
     has_sources = any("sources.json" in m for m in members)
@@ -111,6 +174,7 @@ def inspect_archive(archive_path: Path | str) -> dict[str, Any]:
         "has_notes": has_notes,
         "has_flashcards": has_flashcards,
         "has_quizzes": has_quizzes,
+        "has_challenges": has_challenges,
         "has_overview": has_overview,
         "has_summary": has_summary,
         "has_sources": has_sources,
@@ -118,6 +182,74 @@ def inspect_archive(archive_path: Path | str) -> dict[str, Any]:
         "is_tar": is_tar,
         "is_zip": is_zip,
     }
+
+
+def validate_quiz_schema(data: dict[str, Any]) -> list[str]:
+    """اعتبارسنجی ساختار آزمون‌ها و اطمینان از کامل بودن داده‌های هر سوال."""
+    errors = []
+    items = data.get("items") or data.get("questions") or []
+    if not items:
+        errors.append("فایل quizzes.json فاقد آرایه سوالات (items) است.")
+        return errors
+
+    for idx, q in enumerate(items):
+        qid = q.get("id") or f"index_{idx}"
+        qtype = q.get("type", "mcq")
+        if not q.get("prompt_fa"):
+            errors.append(f"سوال {qid}: متن فارسی صورت سوال (prompt_fa) تعریف نشده است.")
+
+        if qtype == "mcq":
+            options = q.get("options") or []
+            if len(options) < 2:
+                errors.append(f"سوال چهارگزینه‌ای {qid}: باید حداقل دارای ۲ گزینه باشد.")
+            ans = q.get("answer", {})
+            if not ans.get("correct_option_ids"):
+                errors.append(f"سوال چهارگزینه‌ای {qid}: کلید پاسخ صحیح (correct_option_ids) ندارد.")
+
+        elif qtype == "parsons":
+            lines = q.get("lines") or q.get("scrambled_lines") or []
+            if not lines:
+                errors.append(f"سوال چیدمان پارسونز {qid}: فاقد خطوط کد (lines) است.")
+            ans = q.get("answer", {})
+            if not (ans.get("order") or ans.get("correct_order")):
+                errors.append(f"سوال پارسونز {qid}: ترتیب صحیح خطوط (answer.order) مشخص نیست.")
+
+        elif qtype == "predict_output":
+            code = q.get("code")
+            if not code or not str(code).strip():
+                errors.append(f"سوال پیش‌بینی خروجی {qid}: فاقد قطعه‌کد برای پیش‌بینی (code) است.")
+            ans = q.get("answer", {})
+            if not (ans.get("accept") or ans.get("value")):
+                errors.append(f"سوال پیش‌بینی خروجی {qid}: فاقد پاسخ‌های معتبر (answer.accept) است.")
+
+    return errors
+
+
+def validate_challenges_schema(data: dict[str, Any]) -> list[str]:
+    """اعتبارسنجی ساختار چالش‌های تعاملی ۵ دقیقه‌ای (Duo-Style)."""
+    errors = []
+    challenges = data.get("challenges", [])
+    if not challenges:
+        errors.append("فایل challenges.json فاقد آرایه چالش‌ها (challenges) است.")
+        return errors
+
+    for idx, ch in enumerate(challenges):
+        cid = ch.get("id") or f"ch_{idx}"
+        ctype = ch.get("type")
+        if not ch.get("title") or not ch.get("instruction"):
+            errors.append(f"چالش {cid}: عنوان یا دستورالعمل چالش ناقص است.")
+
+        if ctype == "token_tap":
+            if not ch.get("token_bank") or not ch.get("expected_answer"):
+                errors.append(f"چالش توکن‌چینی {cid}: فاقد بانک توکن یا پاسخ موردانتظار است.")
+        elif ctype == "parsons":
+            if not ch.get("scrambled_lines") or not ch.get("correct_order"):
+                errors.append(f"چالش مرتب‌سازی {cid}: فاقد خطوط درهم یا ترتیب صحیح است.")
+        elif ctype == "spot_bug":
+            if not ch.get("code_lines") or ch.get("bug_line_index") is None:
+                errors.append(f"چالش شکار باگ {cid}: فاقد خطوط کد یا شماره خط باگ است.")
+
+    return errors
 
 
 def install_kb_package(archive_path: Path | str, target_week: int | None = None) -> dict[str, Any]:
@@ -136,7 +268,8 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None)
 
     kb_root = _get_kb_root()
     anzali_root = _get_anzali_root()
-    dest_week_dir = anzali_root / "weeks" / f"week-{week:02d}"
+    dest_slug = info.get("week_dir") or kb_repo.get_week_folder_slug(week)
+    dest_week_dir = anzali_root / "weeks" / dest_slug
     dest_week_dir.mkdir(parents=True, exist_ok=True)
 
     extracted_notes = 0
@@ -167,12 +300,24 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None)
 
         # ۲. یافتن ریشه پوشه هفته در دایرکتوری موقت
         src_week_path = None
-        week_folder_name = f"week-{week:02d}"
+        candidates = [dest_slug, f"week-{week:02d}", f"week-{week}"]
+        if week == 71:
+            candidates.extend(["week-ai", "week-71", "ai"])
+        elif week == 99:
+            candidates.extend(["final-project", "week-99", "project"])
 
         for r, dirs, files in os.walk(tmp_path):
-            if os.path.basename(r) == week_folder_name:
+            bname = os.path.basename(r)
+            if bname in candidates and ("notes" in dirs or "overview.fa.md" in files or "flashcards.json" in files or "curriculum.json" in files):
                 src_week_path = Path(r)
                 break
+
+        # در صورتی که با نام پوشه پیدا نشد، پوشه‌ای که فایل‌های اصلی هفته را دارد بیاب
+        if not src_week_path:
+            for r, dirs, files in os.walk(tmp_path):
+                if "overview.fa.md" in files or "summary.fa.md" in files or "notes" in dirs or "flashcards.json" in files or "curriculum.json" in files:
+                    src_week_path = Path(r)
+                    break
 
         if src_week_path and src_week_path.is_dir():
             # کپی تمام محتویات پوشه هفته به مقصد
@@ -184,6 +329,22 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None)
                     shutil.copytree(item, dest_item)
                 else:
                     shutil.copy2(item, dest_item)
+
+        # پاک‌سازی پوشه خالی قبلی اگر نام متفاوتی داشته (مثل week-71 در برابر week-ai)
+        if dest_slug == "week-ai":
+            old_empty = anzali_root / "weeks" / "week-71"
+            if old_empty.is_dir() and not any(old_empty.iterdir()):
+                try:
+                    old_empty.rmdir()
+                except Exception:
+                    pass
+        elif dest_slug == "final-project":
+            old_empty = anzali_root / "weeks" / "week-99"
+            if old_empty.is_dir() and not any(old_empty.iterdir()):
+                try:
+                    old_empty.rmdir()
+                except Exception:
+                    pass
 
         # شمارش فایل‌های نصب‌شده در هفته
         notes_dir = dest_week_dir / "notes"
@@ -205,6 +366,16 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None)
                 with open(qz_file, encoding="utf-8") as f:
                     qz_data = json.load(f)
                     extracted_quizzes = len(qz_data.get("items", [])) or len(qz_data.get("questions", []))
+            except Exception:
+                pass
+
+        ch_file = dest_week_dir / "challenges.json"
+        extracted_challenges = 0
+        if ch_file.is_file():
+            try:
+                with open(ch_file, encoding="utf-8") as f:
+                    ch_data = json.load(f)
+                    extracted_challenges = len(ch_data.get("challenges", []))
             except Exception:
                 pass
 
@@ -270,6 +441,7 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None)
         "notes_count": extracted_notes,
         "flashcards_count": extracted_flashcards,
         "quiz_count": extracted_quizzes,
+        "challenges_count": extracted_challenges,
         "glossary_count": glossary_updated,
         "learning_map_updated": learning_map_updated,
         "index_nodes_merged": index_nodes_merged,
@@ -359,8 +531,8 @@ def _merge_fragment_into_index(index_path: Path, fragment_path: Path, week_numbe
 
     # ۴. تضمین الصاق هاب فارسی هفته wXX-fa به week-X در صورتی که در attach_to نیامده باشد
     hub_id = f"w{week_number:02d}-fa"
-    week_node_id = f"week-{week_number}"
-    week_node = byid.get(week_node_id)
+    week_node_id = kb_repo.get_week_node_id(week_number)
+    week_node = byid.get(week_node_id) or byid.get(f"week-{week_number}")
     if week_node and hub_id in byid:
         week_node.setdefault("children", [])
         if hub_id not in week_node["children"]:
@@ -379,6 +551,7 @@ def _ensure_basic_index_nodes(index_path: Path, week: int, week_dir: Path) -> in
 
     byid = {n["id"]: n for n in idx["nodes"]}
     hub_id = f"w{week:02d}-fa"
+    slug = week_dir.name
     added = 0
 
     if hub_id not in byid:
@@ -386,7 +559,7 @@ def _ensure_basic_index_nodes(index_path: Path, week: int, week_dir: Path) -> in
             "id": hub_id,
             "type": "anzali-week-hub",
             "title": f"هفته {week} — راهنمای جامع فارسی",
-            "path": f"anzali-fa/weeks/week-{week:02d}/overview.fa.md",
+            "path": f"anzali-fa/weeks/{slug}/overview.fa.md",
             "lang": "fa",
             "week": week,
             "children": [],
@@ -409,7 +582,7 @@ def _ensure_basic_index_nodes(index_path: Path, week: int, week_dir: Path) -> in
                     "id": note_id,
                     "type": "anzali-note",
                     "title": note_file.stem.replace(".fa", "").replace("-", " ").capitalize(),
-                    "path": f"anzali-fa/weeks/week-{week:02d}/notes/{note_file.name}",
+                    "path": f"anzali-fa/weeks/{slug}/notes/{note_file.name}",
                     "lang": "fa",
                     "order": note_order,
                     "week": week,
@@ -421,8 +594,8 @@ def _ensure_basic_index_nodes(index_path: Path, week: int, week_dir: Path) -> in
                 added += 1
 
     # الحاق به week-X
-    week_node_id = f"week-{week}"
-    week_node = byid.get(week_node_id)
+    week_node_id = kb_repo.get_week_node_id(week)
+    week_node = byid.get(week_node_id) or byid.get(f"week-{week}")
     if week_node:
         week_node.setdefault("children", [])
         if hub_id not in week_node["children"]:
@@ -449,7 +622,7 @@ def get_all_weeks_kb_status() -> list[dict[str, Any]]:
         title = db_w.title if db_w else (kw.get("title") or f"هفته {week_num}")
         is_published = db_w.is_published if db_w else True
 
-        week_folder = anzali_root / "weeks" / f"week-{week_num:02d}"
+        week_folder = kb_repo.get_anzali_week_dir(week_num)
         hub_node = kb_repo.anzali_hub_by_site_number(week_num)
 
         notes_count = 0
@@ -477,6 +650,16 @@ def get_all_weeks_kb_status() -> list[dict[str, Any]]:
             except Exception:
                 pass
 
+        challenges_count = 0
+        ch_file = week_folder / "challenges.json"
+        if ch_file.is_file():
+            try:
+                with open(ch_file, encoding="utf-8") as f:
+                    ch_data = json.load(f)
+                    challenges_count = len(ch_data.get("challenges", []))
+            except Exception:
+                pass
+
         status_report.append({
             "number": week_num,
             "title": title,
@@ -485,6 +668,8 @@ def get_all_weeks_kb_status() -> list[dict[str, Any]]:
             "notes_count": notes_count,
             "flashcards_count": flashcards_count,
             "quiz_count": quiz_count,
+            "challenges_count": challenges_count,
+            "has_challenges": challenges_count > 0,
             "has_folder": week_folder.is_dir(),
             "folder_path": str(week_folder) if week_folder.is_dir() else None,
         })

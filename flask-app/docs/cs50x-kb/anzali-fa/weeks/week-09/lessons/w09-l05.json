@@ -1,0 +1,276 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l05",
+  "type": "lesson",
+  "week": 9,
+  "order": 5,
+  "stage_id": "w09-s5",
+  "title_fa": "Flask و SQL",
+  "title_en": "Flask and SQL",
+  "note_ids": [
+    "w09-n10"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w09-l04"
+  ],
+  "concept_ids": [
+    "w09-c-flask-sql",
+    "w09-c-sql-in-route",
+    "w09-c-checkbox",
+    "w09-c-getlist",
+    "w09-c-hidden-input",
+    "w09-c-post-for-changes"
+  ],
+  "objective_ids": [
+    "w09-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w09-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l05-u01",
+      "order": 1,
+      "title_fa": "db.execute با ? در مسیر",
+      "concept_ids": [
+        "w09-c-flask-sql",
+        "w09-c-sql-in-route"
+      ],
+      "objective_ids": [
+        "w09-o08"
+      ],
+      "note_id": "w09-n10",
+      "source_refs": [
+        "src-notes-9#flask-and-sql",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "دیکشنری حافظه با خاموشی سرور پاک می‌شود. با کتابخانهٔ cs50، `db = SQL(\"sqlite:///froshims.db\")` به پایگاه داده وصل می‌شود و `db.execute(\"INSERT INTO registrants (name, sport) VALUES(?, ?)\", name, sport)` ثبت‌نام را ماندگار می‌کند. جای‌نگهدار `?` جلوی تزریق SQL را می‌گیرد. `SELECT` فهرستی از دیکشنری‌ها برمی‌گرداند که قالب می‌تواند با `{% for %}` بپیماید.",
+        "note_id": "w09-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "froshims7-app",
+        "lang": "python",
+        "content": "# Implements a registration form, storing registrants in a SQLite database, with support for multiple sports and deregistration\n\nfrom cs50 import SQL\nfrom flask import Flask, redirect, render_template, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///froshims.db\")\n\nSPORTS = [\n    \"Basketball\",\n    \"Soccer\",\n    \"Ultimate Frisbee\"\n]\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\", sports=SPORTS)\n\n@app.route(\"/deregister\", methods=[\"POST\"])\ndef deregister():\n\n    # Forget registrant\n    id = request.form.get(\"id\")\n    if id:\n        db.execute(\"DELETE FROM registrants WHERE id = ?\", id)\n    return redirect(\"/registrants\")\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n\n    # Validate name\n    name = request.form.get(\"name\")\n    if not name:\n        return render_template(\"error.html\", message=\"Missing name\")\n\n    # Validate sports\n    sports = request.form.getlist(\"sport\")\n    if not sports:\n        return render_template(\"error.html\", message=\"Missing sport\")\n    for sport in sports:\n        if sport not in SPORTS:\n            return render_template(\"error.html\", message=\"Invalid sport\")\n\n    # Remember registrant\n    for sport in sports:\n        db.execute(\"INSERT INTO registrants (name, sport) VALUES(?, ?)\", name, sport)\n\n    # Confirm registration\n    return redirect(\"/registrants\")\n\n@app.route(\"/registrants\")\ndef registrants():\n    registrants = db.execute(\"SELECT * FROM registrants\")\n    return render_template(\"registrants.html\", registrants=registrants)",
+        "source_ref": "src-notes-9#flask-and-sql",
+        "explain_fa": "froshims با SQLite (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا در `db.execute` به‌جای f-string از `?` استفاده می‌کنیم؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تا کتابخانه مقدار را امن جای‌گذاری کند و ورودی کاربر نتواند دستور SQL را عوض کند.",
+            "correct": true,
+            "feedback_fa": "درست. این همان دفاع هفتهٔ ۷ در برابر تزریق SQL است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون f-string در Flask کار نمی‌کند.",
+            "correct": false,
+            "feedback_fa": "f-string کار می‌کند؛ مشکل امنیت است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون `?` سریع‌تر است.",
+            "correct": false,
+            "feedback_fa": "دلیل اصلی امنیت است، نه سرعت."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l05-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی روی پایگاه دادهٔ تألیفی `froshims.db` (Alice و Bob) یک ثبت‌نام می‌افزاید و سپس همه را می‌خواند. خروجی چیست؟",
+        "expected": {
+          "output": "STATUS 302\nLOCATION /registrants\nAlice, Bob, Carol"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: Carol با id بعدی اضافه شد.",
+          "incorrect_fa": "ردیف تازه در انتهای ترتیب id می‌نشیند."
+        },
+        "hints_fa": [
+          "هر ردیف یک دیکشنری است."
+        ],
+        "lang": "flask",
+        "code": "from cs50 import SQL\nfrom flask import Flask, redirect, request\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///froshims.db\")\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    db.execute(\"INSERT INTO registrants (name, sport) VALUES(?, ?)\", request.form.get(\"name\"), request.form.get(\"sport\"))\n    return redirect(\"/registrants\")\n\n@app.route(\"/registrants\")\ndef registrants():\n    rows = db.execute(\"SELECT name, sport FROM registrants ORDER BY id\")\n    return \", \".join(row[\"name\"] for row in rows)\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"data\": {\"name\": \"Carol\", \"sport\": \"Soccer\"}, \"method\": \"POST\", \"path\": \"/register\"}, {\"path\": \"/registrants\"}]",
+            "froshims.db": "fixture9:froshims"
+          },
+          "expected_stdout_exact": "STATUS 302\nLOCATION /registrants\nAlice, Bob, Carol\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l05-u02",
+      "order": 2,
+      "title_fa": "checkbox، getlist، input پنهان و حذف با POST",
+      "concept_ids": [
+        "w09-c-checkbox",
+        "w09-c-getlist",
+        "w09-c-hidden-input",
+        "w09-c-post-for-changes"
+      ],
+      "objective_ids": [
+        "w09-o08"
+      ],
+      "note_id": "w09-n10",
+      "source_refs": [
+        "src-notes-9#flask-and-sql",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "با چند `checkbox` هم‌نام، کاربر می‌تواند چند ورزش انتخاب کند و سرور همه را با `request.form.getlist(\"sport\")` می‌گیرد؛ `get` فقط اولی را می‌دهد. برای حذف یک ثبت‌نام، هر سطر جدول فرمی کوچک دارد با `<input name=\"id\" type=\"hidden\" value=\"...\">` و دکمهٔ Deregister. حذف با **POST** انجام می‌شود، نه GET: نشانی GET را می‌توان در پیوند یا ایمیل فریب‌دهنده گذاشت و کاربر را بی‌خبر به حذف واداشت.",
+        "note_id": "w09-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "registrants7",
+        "lang": "jinja",
+        "content": "{% extends \"layout.html\" %}\n\n{% block body %}\n    <h1>Registrants</h1>\n    <table>\n        <thead>\n            <tr>\n                <th>Name</th>\n                <th>Sport</th>\n                <th></th>\n            </tr>\n        </thead>\n        <tbody>\n            {% for registrant in registrants %}\n                <tr>\n                    <td>{{ registrant.name }}</td>\n                    <td>{{ registrant.sport }}</td>\n                    <td>\n                        <form action=\"/deregister\" method=\"post\">\n                            <input name=\"id\" type=\"hidden\" value=\"{{ registrant.id }}\">\n                            <button type=\"submit\">Deregister</button>\n                        </form>\n                    </td>\n                </tr>\n            {% endfor %}\n        </tbody>\n    </table>\n{% endblock %}",
+        "source_ref": "src-notes-9#flask-and-sql",
+        "explain_fa": "فرم حذف با input پنهان (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فرم سه checkbox با `name=\"sport\"` دارد و کاربر دو تا را تیک زده است. `request.form.get(\"sport\")` چه می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فقط مقدار نخست؛ برای همه باید `getlist` به کار برود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "فهرستی از هر دو مقدار",
+            "correct": false,
+            "feedback_fa": "این کار `getlist` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`None`",
+            "correct": false,
+            "feedback_fa": "کلید هست؛ `get` اولین مقدار را می‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l05-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را پر کن تا سرور همهٔ ورزش‌های تیک‌خورده را بخواند و فقط POST بپذیرد.",
+        "lang": "flask",
+        "code_origin": "authored",
+        "template": "from flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route(\"/register\", methods=[[b1]])\ndef register():\n    return \", \".join(request.form.[[b2]](\"sport\"))\n",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "[\"POST\"]",
+              "['POST']"
+            ],
+            "hint_fa": "فهرست روش‌ها.",
+            "wrong_feedback": {
+              "\"POST\"": "`methods` یک فهرست می‌خواهد، نه یک رشته.",
+              "[\"GET\"]": "فرم با POST می‌فرستد."
+            },
+            "default_wrong_fa": "فهرستی با POST بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "getlist"
+            ],
+            "hint_fa": "متد چندمقداری.",
+            "wrong_feedback": {
+              "get": "`get` فقط مقدار نخست را می‌دهد و join روی حرف‌های آن اجرا می‌شود."
+            },
+            "default_wrong_fa": "متدی بنویس که همهٔ مقدارها را بدهد."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "[\"POST\"]",
+            "['POST']"
+          ],
+          "b2": [
+            "getlist"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `methods=[\"POST\"]` و `getlist` .",
+          "incorrect_fa": "یکی از جای‌ها فهرست می‌خواهد و دیگری همهٔ مقدارها را."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"data\": {\"sport\": [\"Soccer\", \"Basketball\"]}, \"method\": \"POST\", \"path\": \"/register\"}]"
+          },
+          "expected_stdout_exact": "Soccer, Basketball\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

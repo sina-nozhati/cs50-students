@@ -1,0 +1,205 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w05-pr-trie",
+  "kind": "practice",
+  "week": 5,
+  "title_en": "Trie",
+  "title_fa": "نام سگ‌ها در ترای (Trie)",
+  "guide_doc_id": "w05-pr-trie",
+  "guide_file": "trie.fa.md",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/trie/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w05-pr-trie-r1",
+        "text_fa": "تابع `check` را در `trie.c` کامل کن.",
+        "text_en": "There is one function, `check`, which is not yet implemented. Your job is to complete this function.",
+        "source_ref": "src-practice-trie#background"
+      },
+      {
+        "id": "w05-pr-trie-r2",
+        "text_fa": "بررسی یک اسم یعنی دنبال کردن حرف‌های آن در ترای؛ اگر به حرف آخر رسیدی و `is_word` درست بود، اسم در ترای هست.",
+        "text_en": "checking if a word is in our trie is as easy as following each letter of that word through our trie. If we get to the final letter and see that `is_word` is true, well, that name is in our trie!",
+        "source_ref": "src-practice-trie#implementation-details"
+      },
+      {
+        "id": "w05-pr-trie-r3",
+        "text_fa": "جست‌وجو باید به بزرگی و کوچکی حروف حساس نباشد: `A` و `a` هر دو به ۰ می‌رسند، `B` و `b` به ۱ و الی آخر.",
+        "text_en": "Remember that the lookup should be case-insensitive.",
+        "source_ref": "src-practice-trie#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": "style50 trie.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/5/trie.zip\nunzip trie.zip\nrm trie.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "اسمی که در فهرست هست",
+        "text": "trie/ $ ./trie dog_names.txt\nCheck word: Molly\nFound!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اسم دیگری که در فهرست هست",
+        "text": "trie/ $ ./trie dog_names.txt\nCheck word: Lucy\nFound!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اسمی که در فهرست نیست",
+        "text": "trie/ $ ./trie dog_names.txt\nCheck word: Prudence\nNot Found.",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": "style50 trie.c",
+      "has_check50": false,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "JukHED1VvaJLFHMJbIvLksgF1",
+    "media_ids": [
+      "w05-m-trie-puppies"
+    ],
+    "discrepancy_ids": [
+      "d93"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w05-c-trie",
+      "w05-c-trie-lookup",
+      "w05-c-trie-memory",
+      "w05-c-list-null-end",
+      "w05-c-case-insensitive"
+    ],
+    "prerequisite_lesson_ids": [
+      "w05-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w05-c-trie",
+        "note_id": "w05-n12",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u03"
+      },
+      {
+        "concept_id": "w05-c-trie-lookup",
+        "note_id": "w05-n12",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u03"
+      },
+      {
+        "concept_id": "w05-c-trie-memory",
+        "note_id": "w05-n12",
+        "lesson_id": "w05-l07",
+        "unit_id": "w05-l07-u03"
+      },
+      {
+        "concept_id": "w05-c-list-null-end",
+        "note_id": "w05-n07",
+        "lesson_id": "w05-l03",
+        "unit_id": "w05-l03-u01"
+      },
+      {
+        "concept_id": "w05-c-case-insensitive",
+        "note_id": "w05-ps-speller",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "از ریشهٔ ترای شروع کن و برای حرکت یک اشاره‌گر جداگانه به کار ببر تا ریشه را گم نکنی."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای هر حرف اسم، باید بدانی کدام خانهٔ آرایهٔ فرزندان مال آن است. حرف بزرگ و کوچک باید به یک خانه برسند."
+      },
+      {
+        "n": 3,
+        "hint_fa": "در هر گام دو حالت داری: فرزند آن حرف وجود ندارد، یا وجود دارد. هر حالت دربارهٔ وجود اسم چه می‌گوید؟"
+      },
+      {
+        "n": 4,
+        "hint_fa": "رسیدن به حرف آخر کافی نیست؛ به یادداشت ترای و مثال bat و batch در ویدئوی کوتاه فکر کن."
+      },
+      {
+        "n": 5,
+        "hint_fa": "صفحهٔ رسمی راهنمایی‌های گام‌به‌گام دقیق‌تری دارد؛ اگر گیر کردی آن‌ها را آن‌جا بخوان."
+      }
+    ],
+    "common_mistakes_fa": [
+      "حرکت دادن خود اشاره‌گر ریشه به‌جای یک اشاره‌گر کمکی",
+      "محاسبهٔ اندیس فقط برای حروف کوچک",
+      "رفتن به نشانی فرزندی که `NULL` است",
+      "برگرداندن «پیدا شد» فقط با رسیدن به حرف آخر، بدون سنجیدن `is_word`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w05-pr-trie-c01",
+        "text_fa": "فقط تابع `check` را نوشته‌ام.",
+        "maps_to": "w05-pr-trie-r1"
+      },
+      {
+        "id": "w05-pr-trie-c02",
+        "text_fa": "`Molly` و `Lucy` پیدا می‌شوند و `Prudence` نه.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w05-pr-trie-c03",
+        "text_fa": "`molly` و `MOLLY` هم پیدا می‌شوند.",
+        "maps_to": "w05-pr-trie-r3"
+      },
+      {
+        "id": "w05-pr-trie-c04",
+        "text_fa": "اگر در میانهٔ مسیر به `NULL` برسم، بدون رفتن به آن نشانی «پیدا نشد» برمی‌گردانم.",
+        "maps_to": "w05-pr-trie-r2"
+      },
+      {
+        "id": "w05-pr-trie-c05",
+        "text_fa": "پیشوند یک اسم (اگر خودش اسم نباشد) «پیدا نشد» است، چون `is_word` را می‌سنجم.",
+        "maps_to": "w05-pr-trie-r2"
+      },
+      {
+        "id": "w05-pr-trie-c06",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w05-pr-trie-c07",
+        "text_fa": "به پرسش فکری پاسخ داده‌ام.",
+        "maps_to": "advice"
+      }
+    ],
+    "thought_question_fa": "چه وقت ممکن است بخواهی از ترای به‌عنوان ساختمان داده استفاده کنی؟ چه وقت نه؟",
+    "verification_fa": "چک‌لیست را بگذران، نمونه‌های رسمی را خودت اجرا کن و style50 را اجرا کن؛ این مسئله check50 و تحویل ندارد."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی‌های گام‌به‌گام رسمی (Hints در Implementation Details)",
+      "url": "https://cs50.harvard.edu/x/2026/practice/trie/#implementation-details",
+      "reason_fa": "این راهنمایی‌ها تقریباً همهٔ گام‌های `check` را می‌گویند؛ این بسته فقط در سطح کلی بازنویسی‌شان کرده است (D37)."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

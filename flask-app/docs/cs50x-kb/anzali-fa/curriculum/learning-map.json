@@ -1,7 +1,7 @@
 {
   "$schema": "../schemas/learning-map.schema.json",
-  "version": "0.2.0",
-  "generated_at": "2026-10-27T09:00:00+03:30",
+  "version": "0.6.0",
+  "generated_at": "2026-10-28T19:30:00+03:30",
   "origin": "authored",
   "note": "The concept graph and prerequisite edges were authored by CS50x Anzali from the order and dependencies in the official notes. They are a pedagogical inference, not a CS50 artifact.",
   "weeks": [
@@ -181,6 +181,356 @@
             "w01-c-truncation",
             "w01-c-type-casting",
             "w01-c-floating-point-imprecision"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title_fa": "هفتهٔ ۲ — آرایه‌ها",
+      "title_en": "Week 2 Arrays",
+      "stages": [
+        {
+          "id": "w02-s1",
+          "title_fa": "باگ و کامپایل",
+          "concepts": [
+            "w02-c-bottom-up",
+            "w02-c-reading-level",
+            "w02-c-bug",
+            "w02-c-compile-error",
+            "w02-c-logical-error",
+            "w02-c-printf-debugging",
+            "w02-c-debugger",
+            "w02-c-breakpoint",
+            "w02-c-step-over-into",
+            "w02-c-strcmp",
+            "w02-c-rubber-duck",
+            "w02-c-clang",
+            "w02-c-link-flag",
+            "w02-c-make-vs-clang",
+            "w02-c-preprocessing",
+            "w02-c-compiling-step",
+            "w02-c-assembling",
+            "w02-c-linking"
+          ]
+        },
+        {
+          "id": "w02-s2",
+          "title_fa": "حافظه و آرایه",
+          "concepts": [
+            "w02-c-memory-bytes",
+            "w02-c-array",
+            "w02-c-array-index",
+            "w02-c-array-loop",
+            "w02-c-array-init",
+            "w02-c-array-bounds",
+            "w02-c-global-const",
+            "w02-c-array-parameter",
+            "w02-c-function-anatomy",
+            "w02-c-function-benefits",
+            "w02-c-local-global",
+            "w02-c-pass-by-value"
+          ]
+        },
+        {
+          "id": "w02-s3",
+          "title_fa": "نویسه و رشته",
+          "concepts": [
+            "w02-c-char-ascii",
+            "w02-c-string-char-array",
+            "w02-c-nul",
+            "w02-c-array-of-strings",
+            "w02-c-string-length",
+            "w02-c-strlen",
+            "w02-c-design-efficiency",
+            "w02-c-ascii-case",
+            "w02-c-ctype"
+          ]
+        },
+        {
+          "id": "w02-s4",
+          "title_fa": "آرگومان خط فرمان و رمزنگاری",
+          "concepts": [
+            "w02-c-argc-argv",
+            "w02-c-argv0",
+            "w02-c-argv-strings",
+            "w02-c-exit-status",
+            "w02-c-echo-status",
+            "w02-c-early-return",
+            "w02-c-cryptography",
+            "w02-c-cipher-key",
+            "w02-c-rotation-cipher"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title_fa": "هفتهٔ ۳ — الگوریتم‌ها",
+      "title_en": "Week 3 Algorithms",
+      "stages": [
+        {
+          "id": "w03-s1",
+          "title_fa": "جست‌وجو و زمان اجرا",
+          "concepts": [
+            "w03-c-algorithm-black-box",
+            "w03-c-growth-graph",
+            "w03-c-array-memory-lockers",
+            "w03-c-linear-search",
+            "w03-c-pseudocode-precision",
+            "w03-c-binary-search",
+            "w03-c-sorted-precondition",
+            "w03-c-big-o",
+            "w03-c-common-running-times",
+            "w03-c-drop-constants",
+            "w03-c-omega",
+            "w03-c-theta",
+            "w03-c-asymptotic-notation",
+            "w03-c-time-command"
+          ],
+          "pset_only_concepts": [
+            "w03-c-time-command"
+          ]
+        },
+        {
+          "id": "w03-s2",
+          "title_fa": "جست‌وجو در C و struct",
+          "concepts": [
+            "w03-c-search-int",
+            "w03-c-return-from-main",
+            "w03-c-search-strings",
+            "w03-c-strcmp-return",
+            "w03-c-hardcoded-length",
+            "w03-c-parallel-arrays",
+            "w03-c-numbers-as-strings",
+            "w03-c-struct",
+            "w03-c-dot-notation",
+            "w03-c-array-of-structs",
+            "w03-c-encapsulation"
+          ]
+        },
+        {
+          "id": "w03-s3",
+          "title_fa": "مرتب‌سازی n²",
+          "concepts": [
+            "w03-c-sorting",
+            "w03-c-selection-sort",
+            "w03-c-counting-steps",
+            "w03-c-bubble-sort",
+            "w03-c-early-exit-no-swaps",
+            "w03-c-swap"
+          ]
+        },
+        {
+          "id": "w03-s4",
+          "title_fa": "بازگشت و مرتب‌سازی ادغامی",
+          "concepts": [
+            "w03-c-recursion",
+            "w03-c-base-case",
+            "w03-c-recursive-case",
+            "w03-c-factorial-fib",
+            "w03-c-call-stack",
+            "w03-c-iteration-vs-recursion",
+            "w03-c-merge-sort",
+            "w03-c-merging",
+            "w03-c-n-log-n",
+            "w03-c-memory-tradeoff"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title_fa": "هفتهٔ ۴ — حافظه",
+      "title_en": "Week 4 Memory",
+      "stages": [
+        {
+          "id": "w04-s1",
+          "title_fa": "نشانی‌ها و اشاره‌گرها",
+          "concepts": [
+            "w04-c-pixel-art",
+            "w04-c-rgb-hex-color",
+            "w04-c-hexadecimal",
+            "w04-c-hex-place-values",
+            "w04-c-hex-byte",
+            "w04-c-0x-prefix",
+            "w04-c-memory-addresses",
+            "w04-c-address-of",
+            "w04-c-percent-p",
+            "w04-c-pointer",
+            "w04-c-dereference",
+            "w04-c-pointer-size",
+            "w04-c-null-pointer"
+          ]
+        },
+        {
+          "id": "w04-s2",
+          "title_fa": "رشته‌ها و حافظهٔ پویا",
+          "concepts": [
+            "w04-c-string-char-star",
+            "w04-c-typedef",
+            "w04-c-typedef-struct",
+            "w04-c-pointer-arithmetic",
+            "w04-c-bracket-as-pointer",
+            "w04-c-compare-addresses",
+            "w04-c-strcmp-content",
+            "w04-c-pointer-copy",
+            "w04-c-malloc",
+            "w04-c-free",
+            "w04-c-malloc-null-check",
+            "w04-c-nul-byte-room",
+            "w04-c-strcpy",
+            "w04-c-heap-vs-stack-alloc",
+            "w04-c-free-rules"
+          ]
+        },
+        {
+          "id": "w04-s3",
+          "title_fa": "ابزارهای حافظه و پشته",
+          "concepts": [
+            "w04-c-valgrind",
+            "w04-c-sizeof",
+            "w04-c-buffer-overflow-write",
+            "w04-c-memory-leak",
+            "w04-c-garbage-values",
+            "w04-c-uninitialized-pointer",
+            "w04-c-swap-by-pointer",
+            "w04-c-memory-layout",
+            "w04-c-stack-frame",
+            "w04-c-overflow",
+            "w04-c-scanf",
+            "w04-c-scanf-string-danger"
+          ]
+        },
+        {
+          "id": "w04-s4",
+          "title_fa": "فایل‌ها",
+          "concepts": [
+            "w04-c-file-pointer",
+            "w04-c-fopen-null-check",
+            "w04-c-fprintf-fclose",
+            "w04-c-fread-fwrite",
+            "w04-c-byte-type",
+            "w04-c-fgetc-eof",
+            "w04-c-stdint-types",
+            "w04-c-file-header",
+            "w04-c-bmp-rgbtriple",
+            "w04-c-file-signature"
+          ]
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title_fa": "هفتهٔ ۵ — ساختمان‌های داده",
+      "title_en": "Week 5 Data Structures",
+      "stages": [
+        {
+          "id": "w05-s1",
+          "title_fa": "صف و پشته",
+          "concepts": [
+            "w05-c-organizing-memory",
+            "w05-c-data-structure",
+            "w05-c-abstract-data-type",
+            "w05-c-dictionary-adt",
+            "w05-c-queue",
+            "w05-c-fifo",
+            "w05-c-enqueue-dequeue",
+            "w05-c-capacity-vs-size",
+            "w05-c-queue-wraparound",
+            "w05-c-stack",
+            "w05-c-lifo",
+            "w05-c-push-pop",
+            "w05-c-fixed-capacity-limit"
+          ]
+        },
+        {
+          "id": "w05-s2",
+          "title_fa": "آرایهٔ پویا",
+          "concepts": [
+            "w05-c-array-contiguous",
+            "w05-c-array-resize-copy",
+            "w05-c-tmp-pointer",
+            "w05-c-realloc",
+            "w05-c-realloc-null",
+            "w05-c-overallocation"
+          ]
+        },
+        {
+          "id": "w05-s3",
+          "title_fa": "فهرست پیوندی",
+          "concepts": [
+            "w05-c-linked-list",
+            "w05-c-node",
+            "w05-c-self-referential-struct",
+            "w05-c-list-null-end",
+            "w05-c-head-pointer",
+            "w05-c-arrow-operator",
+            "w05-c-prepend",
+            "w05-c-link-before-move",
+            "w05-c-prepend-reverses",
+            "w05-c-list-traversal",
+            "w05-c-list-complexity",
+            "w05-c-list-tradeoffs"
+          ]
+        },
+        {
+          "id": "w05-s4",
+          "title_fa": "عملیات روی فهرست و آزادسازی",
+          "concepts": [
+            "w05-c-append",
+            "w05-c-sorted-insert",
+            "w05-c-free-list",
+            "w05-c-unload-on-error",
+            "w05-c-doubly-linked-list"
+          ]
+        },
+        {
+          "id": "w05-s5",
+          "title_fa": "درخت‌ها",
+          "concepts": [
+            "w05-c-tree",
+            "w05-c-bst",
+            "w05-c-bst-search",
+            "w05-c-balanced-tree",
+            "w05-c-blood-type-alleles",
+            "w05-c-random-modulo",
+            "w05-c-struct-pointer-array"
+          ],
+          "pset_only_concepts": [
+            "w05-c-blood-type-alleles",
+            "w05-c-random-modulo",
+            "w05-c-struct-pointer-array"
+          ]
+        },
+        {
+          "id": "w05-s6",
+          "title_fa": "جدول درهم‌سازی و ترای",
+          "concepts": [
+            "w05-c-constant-time",
+            "w05-c-hashing",
+            "w05-c-hash-function",
+            "w05-c-bucket",
+            "w05-c-hash-table",
+            "w05-c-collision",
+            "w05-c-chaining",
+            "w05-c-time-space-tradeoff",
+            "w05-c-good-hash-properties",
+            "w05-c-linear-probing",
+            "w05-c-trie",
+            "w05-c-trie-lookup",
+            "w05-c-trie-memory",
+            "w05-c-structure-choice",
+            "w05-c-case-insensitive",
+            "w05-c-define-const",
+            "w05-c-multi-file-program",
+            "w05-c-wall-clock"
+          ],
+          "pset_only_concepts": [
+            "w05-c-case-insensitive",
+            "w05-c-define-const",
+            "w05-c-multi-file-program",
+            "w05-c-wall-clock"
           ]
         }
       ]
@@ -1140,6 +1490,1806 @@
       "source_ref": "src-pset-1#advice",
       "origin": "official",
       "week": 1
+    },
+    {
+      "id": "w02-c-bottom-up",
+      "label_fa": "یادگیری از پایین به بالا و حل مسئله",
+      "label_en": "learning bottom-up; problem solving",
+      "note_id": "w02-n01",
+      "source_ref": "src-notes-2#welcome",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-reading-level",
+      "label_fa": "سطح خوانایی متن",
+      "label_en": "reading levels",
+      "note_id": "w02-n02",
+      "source_ref": "src-notes-2#reading-levels",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-bug",
+      "label_fa": "باگ و اشکال‌زدایی",
+      "label_en": "bugs and debugging",
+      "note_id": "w02-n03",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-compile-error",
+      "label_fa": "خطای کامپایل: سرآیند جاافتاده، غلط املایی، نوع و نقطه‌ویرگول",
+      "label_en": "compile errors",
+      "note_id": "w02-n03",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-logical-error",
+      "label_fa": "خطای منطقی",
+      "label_en": "logical error",
+      "note_id": "w02-n03",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-printf-debugging",
+      "label_fa": "اشکال‌زدایی با printf",
+      "label_en": "printf debugging",
+      "note_id": "w02-n04",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-debugger",
+      "label_fa": "دیباگر و debug50",
+      "label_en": "debugger / debug50",
+      "note_id": "w02-n05",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-breakpoint",
+      "label_fa": "نقطهٔ توقف (breakpoint)",
+      "label_en": "breakpoint",
+      "note_id": "w02-n05",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-step-over-into",
+      "label_fa": "Step Over و Step Into",
+      "label_en": "step over / step into",
+      "note_id": "w02-n05",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-rubber-duck",
+      "label_fa": "اشکال‌زدایی با اردک پلاستیکی و CS50 Duck",
+      "label_en": "rubber duck debugging",
+      "note_id": "w02-n05",
+      "source_ref": "src-notes-2#debugging",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-clang",
+      "label_fa": "کامپایلر clang و clang -o",
+      "label_en": "clang and -o",
+      "note_id": "w02-n06",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-link-flag",
+      "label_fa": "پرچم -lcs50",
+      "label_en": "the -lcs50 flag",
+      "note_id": "w02-n06",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-make-vs-clang",
+      "label_fa": "make همان clang را با آرگومان‌های لازم اجرا می‌کند",
+      "label_en": "make runs clang for you",
+      "note_id": "w02-n06",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-preprocessing",
+      "label_fa": "پیش‌پردازش",
+      "label_en": "preprocessing",
+      "note_id": "w02-n07",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-compiling-step",
+      "label_fa": "کامپایل به کد اسمبلی",
+      "label_en": "compiling to assembly code",
+      "note_id": "w02-n07",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-assembling",
+      "label_fa": "اسمبل کردن",
+      "label_en": "assembling",
+      "note_id": "w02-n07",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-linking",
+      "label_fa": "پیوند (linking)",
+      "label_en": "linking",
+      "note_id": "w02-n07",
+      "source_ref": "src-notes-2#compiling",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-memory-bytes",
+      "label_fa": "حافظه و اندازهٔ انواع داده بر حسب بایت",
+      "label_en": "memory and type sizes in bytes",
+      "note_id": "w02-n08",
+      "source_ref": "src-notes-2#arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array",
+      "label_fa": "آرایه",
+      "label_en": "array",
+      "note_id": "w02-n09",
+      "source_ref": "src-notes-2#arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array-index",
+      "label_fa": "اندیس آرایه از صفر",
+      "label_en": "array indexing",
+      "note_id": "w02-n09",
+      "source_ref": "src-notes-2#arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array-loop",
+      "label_fa": "پیمایش آرایه با حلقه",
+      "label_en": "looping over an array",
+      "note_id": "w02-n09",
+      "source_ref": "src-notes-2#arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-global-const",
+      "label_fa": "ثابت سراسری برای اندازهٔ آرایه",
+      "label_en": "global constant for an array size",
+      "note_id": "w02-n10",
+      "source_ref": "src-notes-2#arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array-parameter",
+      "label_fa": "آرایه به‌عنوان پارامتر تابع",
+      "label_en": "passing an array to a function",
+      "note_id": "w02-n10",
+      "source_ref": "src-notes-2#arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-char-ascii",
+      "label_fa": "نویسه‌ها عددند: کدهای ASCII",
+      "label_en": "chars as ASCII numbers",
+      "note_id": "w02-n11",
+      "source_ref": "src-notes-2#strings",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-string-char-array",
+      "label_fa": "رشته، آرایه‌ای از char",
+      "label_en": "a string is an array of chars",
+      "note_id": "w02-n12",
+      "source_ref": "src-notes-2#strings",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-nul",
+      "label_fa": "نویسهٔ پایانی NUL",
+      "label_en": "the NUL terminator",
+      "note_id": "w02-n12",
+      "source_ref": "src-notes-2#strings",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array-of-strings",
+      "label_fa": "آرایه‌ای از رشته‌ها",
+      "label_en": "array of strings",
+      "note_id": "w02-n13",
+      "source_ref": "src-notes-2#strings",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-string-length",
+      "label_fa": "شمردن طول رشته تا NUL",
+      "label_en": "computing a string's length",
+      "note_id": "w02-n14",
+      "source_ref": "src-notes-2#string-length",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-strlen",
+      "label_fa": "strlen و string.h",
+      "label_en": "strlen and string.h",
+      "note_id": "w02-n14",
+      "source_ref": "src-notes-2#string-length",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-ascii-case",
+      "label_fa": "تبدیل حروف با حساب ASCII (تفاضل ۳۲)",
+      "label_en": "case conversion by ASCII arithmetic",
+      "note_id": "w02-n15",
+      "source_ref": "src-notes-2#string-length",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-ctype",
+      "label_fa": "کتابخانهٔ ctype.h: islower و toupper",
+      "label_en": "ctype.h: islower and toupper",
+      "note_id": "w02-n15",
+      "source_ref": "src-notes-2#string-length",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-argc-argv",
+      "label_fa": "argc و argv",
+      "label_en": "argc and argv",
+      "note_id": "w02-n16",
+      "source_ref": "src-notes-2#command-line-arguments",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-argv0",
+      "label_fa": "argv[0] نام خود برنامه است",
+      "label_en": "argv[0] is the program's name",
+      "note_id": "w02-n16",
+      "source_ref": "src-notes-2#command-line-arguments",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-exit-status",
+      "label_fa": "وضعیت خروج (exit status)",
+      "label_en": "exit status",
+      "note_id": "w02-n17",
+      "source_ref": "src-notes-2#exit-status",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-echo-status",
+      "label_fa": "دیدن وضعیت خروج با echo $?",
+      "label_en": "echo $?",
+      "note_id": "w02-n17",
+      "source_ref": "src-notes-2#exit-status",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-cryptography",
+      "label_fa": "رمزنگاری",
+      "label_en": "cryptography",
+      "note_id": "w02-n18",
+      "source_ref": "src-transcript-2",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-cipher-key",
+      "label_fa": "متن ساده، متن رمز، کلید و الگوریتم رمز",
+      "label_en": "plaintext, ciphertext, key and cipher",
+      "note_id": "w02-n18",
+      "source_ref": "src-transcript-2",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-rotation-cipher",
+      "label_fa": "رمز چرخشی (سزار و ROT13) و آزمودن همهٔ کلیدها",
+      "label_en": "rotation ciphers and brute force",
+      "note_id": "w02-n18",
+      "source_ref": "src-transcript-2",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-function-anatomy",
+      "label_fa": "اجزای اعلان تابع: نوع بازگشتی، نام، فهرست آرگومان‌ها",
+      "label_en": "function declaration anatomy",
+      "note_id": "w02-sh-functions",
+      "source_ref": "src-short-functions",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-function-benefits",
+      "label_fa": "چرا تابع: سازمان‌دهی، ساده‌سازی، استفادهٔ دوباره",
+      "label_en": "why functions: organization, simplification, reusability",
+      "note_id": "w02-sh-functions",
+      "source_ref": "src-short-functions",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-local-global",
+      "label_fa": "متغیر محلی و متغیر سراسری",
+      "label_en": "local vs global variables",
+      "note_id": "w02-sh-variables-and-scope",
+      "source_ref": "src-short-variables-and-scope",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-pass-by-value",
+      "label_fa": "ارسال با مقدار: تابع کپی می‌گیرد",
+      "label_en": "pass by value",
+      "note_id": "w02-sh-variables-and-scope",
+      "source_ref": "src-short-variables-and-scope",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array-init",
+      "label_fa": "مقداردهی اولیهٔ آرایه با آکولاد و آرایهٔ چندبعدی",
+      "label_en": "array initializer lists and multi-dimensional arrays",
+      "note_id": "w02-sh-arrays",
+      "source_ref": "src-short-arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-array-bounds",
+      "label_fa": "بیرون زدن از مرز آرایه و segmentation fault",
+      "label_en": "out-of-bounds access and segmentation faults",
+      "note_id": "w02-sh-arrays",
+      "source_ref": "src-short-arrays",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-strcmp",
+      "label_fa": "مقایسهٔ رشته‌ها با strcmp، نه ==",
+      "label_en": "comparing strings with strcmp, not ==",
+      "note_id": "w02-sh-debugging-step-into",
+      "source_ref": "src-short-debugging-step-into",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-argv-strings",
+      "label_fa": "همهٔ عناصر argv رشته‌اند",
+      "label_en": "every argv element is a string",
+      "note_id": "w02-sh-command-line-arguments",
+      "source_ref": "src-short-command-line-arguments",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-design-efficiency",
+      "label_fa": "طراحی: محاسبهٔ تکراری نکن (strlen بیرون از شرط حلقه)",
+      "label_en": "design: avoid repeated work",
+      "note_id": "w02-sec",
+      "source_ref": "src-section-2",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w02-c-early-return",
+      "label_fa": "طراحی: بازگشت زودهنگام و else زائد",
+      "label_en": "design: early return and redundant else",
+      "note_id": "w02-sec",
+      "source_ref": "src-section-2",
+      "origin": "official",
+      "week": 2
+    },
+    {
+      "id": "w03-c-algorithm-black-box",
+      "label_fa": "الگوریتم به‌عنوان جعبهٔ سیاه: ورودی، الگوریتم، خروجی",
+      "label_en": "algorithm as a black box",
+      "note_id": "w03-n01",
+      "source_ref": "src-notes-3#welcome",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-growth-graph",
+      "label_fa": "نمودار رشد زمان اجرا: n، n/2 و log n",
+      "label_en": "growth of running time: n, n/2, log n",
+      "note_id": "w03-n01",
+      "source_ref": "src-notes-3#welcome",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-array-memory-lockers",
+      "label_fa": "آرایه به‌شکل کمدهای بسته: فقط یک خانه را می‌شود دید",
+      "label_en": "an array as closed lockers",
+      "note_id": "w03-n02",
+      "source_ref": "src-notes-3#linear-search",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-linear-search",
+      "label_fa": "جست‌وجوی خطی",
+      "label_en": "linear search",
+      "note_id": "w03-n02",
+      "source_ref": "src-notes-3#linear-search",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-pseudocode-precision",
+      "label_fa": "دقیق‌تر کردن شبه‌کد: از «هر در» تا doors[i]",
+      "label_en": "refining pseudocode",
+      "note_id": "w03-n02",
+      "source_ref": "src-notes-3#linear-search",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-binary-search",
+      "label_fa": "جست‌وجوی دودویی روی آرایهٔ مرتب",
+      "label_en": "binary search on a sorted array",
+      "note_id": "w03-n03",
+      "source_ref": "src-notes-3#binary-search",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-sorted-precondition",
+      "label_fa": "پیش‌شرط مرتب بودن برای جست‌وجوی دودویی",
+      "label_en": "sorted precondition",
+      "note_id": "w03-n03",
+      "source_ref": "src-notes-3#binary-search",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-big-o",
+      "label_fa": "نماد O بزرگ: کران بالا یا بدترین حالت",
+      "label_en": "big O: upper bound / worst case",
+      "note_id": "w03-n04",
+      "source_ref": "src-notes-3#running-time",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-common-running-times",
+      "label_fa": "زمان‌های اجرای رایج: n²، n log n، n، log n، 1",
+      "label_en": "common running times",
+      "note_id": "w03-n04",
+      "source_ref": "src-notes-3#running-time",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-drop-constants",
+      "label_fa": "کنار گذاشتن ضریب‌ها و جمله‌های کوچک‌تر",
+      "label_en": "dropping constants and lower-order terms",
+      "note_id": "w03-n04",
+      "source_ref": "src-transcript-3",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-omega",
+      "label_fa": "نماد Ω: کران پایین یا بهترین حالت",
+      "label_en": "Omega: lower bound / best case",
+      "note_id": "w03-n05",
+      "source_ref": "src-notes-3#running-time",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-theta",
+      "label_fa": "نماد Θ: وقتی کران بالا و پایین یکی‌اند",
+      "label_en": "Theta: upper and lower bound coincide",
+      "note_id": "w03-n05",
+      "source_ref": "src-notes-3#running-time",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-asymptotic-notation",
+      "label_fa": "نمادگذاری مجانبی",
+      "label_en": "asymptotic notation",
+      "note_id": "w03-n05",
+      "source_ref": "src-notes-3#running-time",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-search-int",
+      "label_fa": "جست‌وجوی خطی در آرایهٔ اعداد صحیح با C",
+      "label_en": "linear search over ints in C",
+      "note_id": "w03-n06",
+      "source_ref": "src-notes-3#searchc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-return-from-main",
+      "label_fa": "بازگرداندن 0 یا 1 از main پس از پیدا شدن یا نشدن",
+      "label_en": "returning 0 or 1 from main",
+      "note_id": "w03-n06",
+      "source_ref": "src-notes-3#searchc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-search-strings",
+      "label_fa": "جست‌وجو در آرایهٔ رشته‌ها با strcmp",
+      "label_en": "searching strings with strcmp",
+      "note_id": "w03-n07",
+      "source_ref": "src-notes-3#searchc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-strcmp-return",
+      "label_fa": "مقدار بازگشتی strcmp: صفر یعنی برابر",
+      "label_en": "strcmp returns 0 when equal",
+      "note_id": "w03-n07",
+      "source_ref": "src-notes-3#searchc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-hardcoded-length",
+      "label_fa": "عدد طول آرایهٔ سخت‌کد شده و خطر segmentation fault",
+      "label_en": "hard-coded array length and segfaults",
+      "note_id": "w03-n07",
+      "source_ref": "src-notes-3#searchc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-parallel-arrays",
+      "label_fa": "آرایه‌های موازی و ضعف طراحی آن",
+      "label_en": "parallel arrays as a design smell",
+      "note_id": "w03-n08",
+      "source_ref": "src-notes-3#phonebookc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-numbers-as-strings",
+      "label_fa": "نگه‌داشتن شمارهٔ تلفن به‌صورت رشته",
+      "label_en": "phone numbers as strings",
+      "note_id": "w03-n08",
+      "source_ref": "src-notes-3#phonebookc",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-struct",
+      "label_fa": "ساختار داده با typedef struct",
+      "label_en": "defining a struct with typedef",
+      "note_id": "w03-n09",
+      "source_ref": "src-notes-3#structs",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-dot-notation",
+      "label_fa": "دسترسی به فیلدها با نماد نقطه",
+      "label_en": "dot notation for fields",
+      "note_id": "w03-n09",
+      "source_ref": "src-notes-3#structs",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-array-of-structs",
+      "label_fa": "آرایه‌ای از struct",
+      "label_en": "array of structs",
+      "note_id": "w03-n09",
+      "source_ref": "src-notes-3#structs",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-encapsulation",
+      "label_fa": "کپسوله‌سازی داده‌های مرتبط",
+      "label_en": "encapsulation",
+      "note_id": "w03-n09",
+      "source_ref": "src-transcript-3",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-sorting",
+      "label_fa": "مرتب‌سازی و چرا مرتب کردن ارزشمند است",
+      "label_en": "sorting and why it pays off",
+      "note_id": "w03-n10",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-selection-sort",
+      "label_fa": "مرتب‌سازی انتخابی",
+      "label_en": "selection sort",
+      "note_id": "w03-n10",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-swap",
+      "label_fa": "جابه‌جا کردن دو خانه با متغیر موقت",
+      "label_en": "swapping two elements with a temporary",
+      "note_id": "w03-n10",
+      "source_ref": "src-transcript-3",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-counting-steps",
+      "label_fa": "شمردن گام‌ها: (n-1)+(n-2)+...+1 = n(n-1)/2",
+      "label_en": "counting steps of selection sort",
+      "note_id": "w03-n10",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-bubble-sort",
+      "label_fa": "مرتب‌سازی حبابی",
+      "label_en": "bubble sort",
+      "note_id": "w03-n11",
+      "source_ref": "src-notes-3#bubble-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-early-exit-no-swaps",
+      "label_fa": "توقف زودهنگام وقتی جابه‌جایی رخ نداد",
+      "label_en": "stopping when no swaps happened",
+      "note_id": "w03-n11",
+      "source_ref": "src-notes-3#bubble-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-recursion",
+      "label_fa": "بازگشت: تابعی که خودش را صدا می‌زند",
+      "label_en": "recursion",
+      "note_id": "w03-n12",
+      "source_ref": "src-notes-3#recursion",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-base-case",
+      "label_fa": "حالت پایه",
+      "label_en": "base case",
+      "note_id": "w03-n12",
+      "source_ref": "src-notes-3#recursion",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-recursive-case",
+      "label_fa": "حالت بازگشتی",
+      "label_en": "recursive case",
+      "note_id": "w03-n12",
+      "source_ref": "src-notes-3#recursion",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-call-stack",
+      "label_fa": "پشتهٔ فراخوانی و قاب‌های تابع",
+      "label_en": "call stack and stack frames",
+      "note_id": "w03-sh-call-stacks",
+      "source_ref": "src-short-call-stacks",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-factorial-fib",
+      "label_fa": "فاکتوریل و فیبوناچی به‌صورت بازگشتی",
+      "label_en": "recursive factorial and Fibonacci",
+      "note_id": "w03-sec",
+      "source_ref": "src-section-3",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-iteration-vs-recursion",
+      "label_fa": "تکرار در برابر بازگشت: هرم با حلقه و با بازگشت",
+      "label_en": "iteration vs recursion (pyramid)",
+      "note_id": "w03-n13",
+      "source_ref": "src-notes-3#recursion",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-merge-sort",
+      "label_fa": "مرتب‌سازی ادغامی",
+      "label_en": "merge sort",
+      "note_id": "w03-n14",
+      "source_ref": "src-notes-3#merge-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-merging",
+      "label_fa": "ادغام دو نیمهٔ مرتب",
+      "label_en": "merging two sorted halves",
+      "note_id": "w03-n14",
+      "source_ref": "src-notes-3#merge-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-n-log-n",
+      "label_fa": "چرا ادغامی n log n است: log n سطح × n کار",
+      "label_en": "why merge sort is n log n",
+      "note_id": "w03-n14",
+      "source_ref": "src-notes-3#merge-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-memory-tradeoff",
+      "label_fa": "بده‌بستان زمان و حافظه در ادغامی",
+      "label_en": "time vs memory trade-off",
+      "note_id": "w03-sh-merge-sort",
+      "source_ref": "src-short-merge-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w03-c-time-command",
+      "label_fa": "سنجیدن زمان اجرا با time",
+      "label_en": "measuring with time",
+      "note_id": "w03-n04",
+      "source_ref": "src-pset-3-sort",
+      "origin": "official",
+      "week": 3
+    },
+    {
+      "id": "w04-c-pixel-art",
+      "label_fa": "تصویر به‌شکل شبکه‌ای از پیکسل‌ها (هنر پیکسلی)",
+      "label_en": "an image as a grid of pixels",
+      "note_id": "w04-n01",
+      "source_ref": "src-notes-4#pixel-art",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-rgb-hex-color",
+      "label_fa": "رنگ RGB با سه عدد هگزادسیمال: #FF0000",
+      "label_en": "RGB colors written in hex",
+      "note_id": "w04-n02",
+      "source_ref": "src-notes-4#hexadecimal",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-hexadecimal",
+      "label_fa": "مبنای شانزده: رقم‌های 0 تا 9 و A تا F",
+      "label_en": "hexadecimal (base-16)",
+      "note_id": "w04-n02",
+      "source_ref": "src-notes-4#hexadecimal",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-hex-place-values",
+      "label_fa": "ارزش مکانی در مبنای شانزده: 1، 16، 256",
+      "label_en": "hex place values",
+      "note_id": "w04-n02",
+      "source_ref": "src-notes-4#hexadecimal",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-hex-byte",
+      "label_fa": "هر رقم هگزادسیمال ۴ بیت است و دو رقم یک بایت؛ FF یعنی 255",
+      "label_en": "one hex digit = 4 bits; two = one byte",
+      "note_id": "w04-n02",
+      "source_ref": "src-notes-4#hexadecimal",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-0x-prefix",
+      "label_fa": "پیشوند 0x برای نوشتن عدد هگزادسیمال",
+      "label_en": "the 0x prefix",
+      "note_id": "w04-n03",
+      "source_ref": "src-notes-4#memory",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-memory-addresses",
+      "label_fa": "هر بایت حافظه نشانی (address) دارد",
+      "label_en": "every byte of memory has an address",
+      "note_id": "w04-n03",
+      "source_ref": "src-notes-4#memory",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-address-of",
+      "label_fa": "عملگر & : نشانی یک متغیر",
+      "label_en": "the & (address-of) operator",
+      "note_id": "w04-n04",
+      "source_ref": "src-notes-4#pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-percent-p",
+      "label_fa": "چاپ نشانی با %p",
+      "label_en": "printing an address with %p",
+      "note_id": "w04-n04",
+      "source_ref": "src-notes-4#pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-pointer",
+      "label_fa": "اشاره‌گر: متغیری که نشانی نگه می‌دارد (int *p)",
+      "label_en": "a pointer is a variable that stores an address",
+      "note_id": "w04-n04",
+      "source_ref": "src-notes-4#pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-dereference",
+      "label_fa": "عملگر * : رفتن به نشانی (dereference)",
+      "label_en": "the * (dereference) operator",
+      "note_id": "w04-n04",
+      "source_ref": "src-notes-4#pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-pointer-size",
+      "label_fa": "اندازهٔ اشاره‌گر: ۸ بایت در سیستم ۶۴ بیتی",
+      "label_en": "pointer size (8 bytes on 64-bit)",
+      "note_id": "w04-n04",
+      "source_ref": "src-notes-4#pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-null-pointer",
+      "label_fa": "اشاره‌گر NULL: نشانی‌ای که به هیچ‌جا اشاره نمی‌کند",
+      "label_en": "the NULL pointer",
+      "note_id": "w04-sh-pointers",
+      "source_ref": "src-short-pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-string-char-star",
+      "label_fa": "رشته همان char * است: نشانی اولین نویسه",
+      "label_en": "a string is a char *",
+      "note_id": "w04-n05",
+      "source_ref": "src-notes-4#strings",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-typedef",
+      "label_fa": "typedef: نام تازه برای یک نوع (مثل string در cs50.h)",
+      "label_en": "typedef: a new name for a type",
+      "note_id": "w04-n05",
+      "source_ref": "src-notes-4#strings",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-typedef-struct",
+      "label_fa": "typedef همراه struct برای ساختن نوع دلخواه",
+      "label_en": "typedef with struct",
+      "note_id": "w04-sh-defining-custom-types",
+      "source_ref": "src-short-defining-custom-types",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-pointer-arithmetic",
+      "label_fa": "حساب اشاره‌گرها: s + 1 یعنی نویسهٔ بعدی",
+      "label_en": "pointer arithmetic",
+      "note_id": "w04-n06",
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-bracket-as-pointer",
+      "label_fa": "s[i] همان *(s + i) است",
+      "label_en": "s[i] is *(s + i)",
+      "note_id": "w04-n06",
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-compare-addresses",
+      "label_fa": "== روی دو رشته نشانی‌ها را مقایسه می‌کند، نه محتوا را",
+      "label_en": "== on strings compares addresses",
+      "note_id": "w04-n07",
+      "source_ref": "src-notes-4#string-comparison",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-strcmp-content",
+      "label_fa": "strcmp محتوای دو رشته را نویسه‌به‌نویسه مقایسه می‌کند",
+      "label_en": "strcmp compares contents",
+      "note_id": "w04-n07",
+      "source_ref": "src-notes-4#string-comparison",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-pointer-copy",
+      "label_fa": "t = s فقط نشانی را کپی می‌کند: دو نام برای یک رشته",
+      "label_en": "t = s copies the address only",
+      "note_id": "w04-n08",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-malloc",
+      "label_fa": "malloc: گرفتن چند بایت حافظه از سیستم عامل",
+      "label_en": "malloc: ask for bytes of memory",
+      "note_id": "w04-n09",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-free",
+      "label_fa": "free: پس دادن حافظه‌ای که malloc داده است",
+      "label_en": "free: give memory back",
+      "note_id": "w04-n09",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-malloc-null-check",
+      "label_fa": "بررسی NULL پس از malloc (و هر تابعی که اشاره‌گر برمی‌گرداند)",
+      "label_en": "check for NULL after malloc",
+      "note_id": "w04-n09",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-strcpy",
+      "label_fa": "strcpy برای کپی کردن محتوای رشته",
+      "label_en": "copying a string with strcpy",
+      "note_id": "w04-n09",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-nul-byte-room",
+      "label_fa": "جا گذاشتن برای \\0 : strlen(s) + 1 بایت",
+      "label_en": "room for the NUL: strlen(s) + 1",
+      "note_id": "w04-n09",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-sizeof",
+      "label_fa": "sizeof برای اندازهٔ یک نوع به بایت",
+      "label_en": "sizeof",
+      "note_id": "w04-n10",
+      "source_ref": "src-notes-4#valgrind",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-valgrind",
+      "label_fa": "valgrind: ابزار یافتن خطاهای حافظه",
+      "label_en": "valgrind",
+      "note_id": "w04-n10",
+      "source_ref": "src-notes-4#valgrind",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-buffer-overflow-write",
+      "label_fa": "نوشتن بیرون از حافظهٔ گرفته‌شده (invalid write)",
+      "label_en": "writing past allocated memory",
+      "note_id": "w04-n10",
+      "source_ref": "src-notes-4#valgrind",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-memory-leak",
+      "label_fa": "نشت حافظه: malloc بدون free",
+      "label_en": "memory leak",
+      "note_id": "w04-n10",
+      "source_ref": "src-notes-4#valgrind",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-garbage-values",
+      "label_fa": "مقدار زباله: متغیر مقداردهی‌نشده هر چیزی می‌تواند باشد",
+      "label_en": "garbage values",
+      "note_id": "w04-n11",
+      "source_ref": "src-notes-4#garbage-values",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-uninitialized-pointer",
+      "label_fa": "اشاره‌گر مقداردهی‌نشده و Binky",
+      "label_en": "dereferencing an uninitialized pointer",
+      "note_id": "w04-n11",
+      "source_ref": "src-notes-4#pointer-fun-with-binky",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-swap-by-pointer",
+      "label_fa": "جابه‌جایی واقعی با فرستادن نشانی‌ها به تابع",
+      "label_en": "swapping via pointers",
+      "note_id": "w04-n12",
+      "source_ref": "src-notes-4#swapping",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-memory-layout",
+      "label_fa": "چیدمان حافظه: کد ماشین، globals، هیپ و پشته",
+      "label_en": "memory layout: machine code, globals, heap, stack",
+      "note_id": "w04-n12",
+      "source_ref": "src-notes-4#swapping",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-stack-frame",
+      "label_fa": "قاب پشته: متغیرهای محلی هر فراخوانی",
+      "label_en": "stack frames",
+      "note_id": "w04-n12",
+      "source_ref": "src-notes-4#swapping",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-overflow",
+      "label_fa": "سرریز پشته و سرریز هیپ",
+      "label_en": "stack overflow and heap overflow",
+      "note_id": "w04-n13",
+      "source_ref": "src-notes-4#overflow",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-scanf",
+      "label_fa": "scanf: خواندن ورودی با نشانی متغیر",
+      "label_en": "scanf with an address",
+      "note_id": "w04-n14",
+      "source_ref": "src-notes-4#scanf",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-scanf-string-danger",
+      "label_fa": "خطر scanf برای رشته: نمی‌داند چند بایت جا داری",
+      "label_en": "why scanf for strings is dangerous",
+      "note_id": "w04-n14",
+      "source_ref": "src-notes-4#scanf",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-file-pointer",
+      "label_fa": "FILE * و fopen با حالت r، w، a",
+      "label_en": "FILE * and fopen modes",
+      "note_id": "w04-n15",
+      "source_ref": "src-notes-4#file-io",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-fopen-null-check",
+      "label_fa": "بررسی NULL پس از fopen",
+      "label_en": "checking fopen for NULL",
+      "note_id": "w04-n15",
+      "source_ref": "src-notes-4#file-io",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-fprintf-fclose",
+      "label_fa": "fprintf برای نوشتن در فایل و fclose برای بستن",
+      "label_en": "fprintf and fclose",
+      "note_id": "w04-n15",
+      "source_ref": "src-notes-4#file-io",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-fread-fwrite",
+      "label_fa": "fread و fwrite: خواندن و نوشتن بایت‌ها",
+      "label_en": "fread and fwrite",
+      "note_id": "w04-n15",
+      "source_ref": "src-notes-4#file-io",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-byte-type",
+      "label_fa": "نوع BYTE با typedef unsigned char",
+      "label_en": "a BYTE type via typedef",
+      "note_id": "w04-n15",
+      "source_ref": "src-notes-4#file-io",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-fgetc-eof",
+      "label_fa": "fgetc، fputc و EOF",
+      "label_en": "fgetc, fputc and EOF",
+      "note_id": "w04-sh-file-pointers",
+      "source_ref": "src-short-file-pointers",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-heap-vs-stack-alloc",
+      "label_fa": "حافظهٔ ایستا (پشته) در برابر پویا (هیپ)",
+      "label_en": "static (stack) vs dynamic (heap) memory",
+      "note_id": "w04-sh-dynamic-memory-allocation",
+      "source_ref": "src-short-dynamic-memory-allocation",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-free-rules",
+      "label_fa": "سه قانون free: همه را آزاد کن، فقط malloc شده‌ها، یک بار",
+      "label_en": "three rules of free",
+      "note_id": "w04-sh-dynamic-memory-allocation",
+      "source_ref": "src-short-dynamic-memory-allocation",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-stdint-types",
+      "label_fa": "نوع‌های اندازه‌دقیق stdint.h: uint8_t و int16_t",
+      "label_en": "exact-width types uint8_t and int16_t",
+      "note_id": "w04-ps-volume",
+      "source_ref": "src-pset-4-volume#hints",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-file-header",
+      "label_fa": "سرآیند فایل: فرادادهٔ ابتدای فایل (WAV و BMP)",
+      "label_en": "file headers (metadata at the start of a file)",
+      "note_id": "w04-ps-volume",
+      "source_ref": "src-pset-4-volume#problem-to-solve",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-bmp-rgbtriple",
+      "label_fa": "BMP، RGBTRIPLE و ترتیب BGR",
+      "label_en": "BMP, RGBTRIPLE and BGR order",
+      "note_id": "w04-ps-filter-less",
+      "source_ref": "src-pset-4-filter-less#a-bitmap-more-technical",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w04-c-file-signature",
+      "label_fa": "امضای فایل: بایت‌های اول که نوع فایل را نشان می‌دهند",
+      "label_en": "file signatures (magic bytes)",
+      "note_id": "w04-ps-recover",
+      "source_ref": "src-pset-4-recover#background",
+      "origin": "official",
+      "week": 4
+    },
+    {
+      "id": "w05-c-organizing-memory",
+      "label_fa": "سازمان‌دهی داده در حافظه و امکان‌های طراحی",
+      "label_en": "organizing data in memory",
+      "note_id": "w05-n01",
+      "source_ref": "src-notes-5#welcome",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-data-structure",
+      "label_fa": "ساختمان داده: شکلی از سازمان‌دهی در حافظه",
+      "label_en": "a data structure is a form of organization in memory",
+      "note_id": "w05-n02",
+      "source_ref": "src-notes-5#data-structures",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-abstract-data-type",
+      "label_fa": "نوع دادهٔ انتزاعی (ADT): ساختاری که مفهومی تصورش می‌کنیم",
+      "label_en": "abstract data types",
+      "note_id": "w05-n02",
+      "source_ref": "src-notes-5#data-structures",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-dictionary-adt",
+      "label_fa": "دیکشنری: نگاشت کلید به مقدار",
+      "label_en": "the dictionary ADT (keys and values)",
+      "note_id": "w05-n02",
+      "source_ref": "src-transcript-5",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-queue",
+      "label_fa": "صف (queue)",
+      "label_en": "queues",
+      "note_id": "w05-n03",
+      "source_ref": "src-notes-5#queues",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-fifo",
+      "label_fa": "FIFO: اول وارد، اول خارج",
+      "label_en": "FIFO (first in, first out)",
+      "note_id": "w05-n03",
+      "source_ref": "src-notes-5#queues",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-enqueue-dequeue",
+      "label_fa": "enqueue و dequeue",
+      "label_en": "enqueue and dequeue",
+      "note_id": "w05-n03",
+      "source_ref": "src-notes-5#queues",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-capacity-vs-size",
+      "label_fa": "ظرفیت (CAPACITY) در برابر اندازهٔ فعلی (size)",
+      "label_en": "capacity versus size",
+      "note_id": "w05-n03",
+      "source_ref": "src-notes-5#queues",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-queue-wraparound",
+      "label_fa": "صف آرایه‌ای با front و چرخش (mod CAPACITY)",
+      "label_en": "array queue with front and wraparound",
+      "note_id": "w05-sh-queues",
+      "source_ref": "src-short-queues",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-stack",
+      "label_fa": "پشته (stack)",
+      "label_en": "stacks",
+      "note_id": "w05-n04",
+      "source_ref": "src-notes-5#stacks",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-lifo",
+      "label_fa": "LIFO: آخر وارد، اول خارج",
+      "label_en": "LIFO (last in, first out)",
+      "note_id": "w05-n04",
+      "source_ref": "src-notes-5#stacks",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-push-pop",
+      "label_fa": "push و pop",
+      "label_en": "push and pop",
+      "note_id": "w05-n04",
+      "source_ref": "src-notes-5#stacks",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-fixed-capacity-limit",
+      "label_fa": "محدودیت ظرفیت ثابت: یا کم می‌آید یا هدر می‌رود",
+      "label_en": "the limit of a fixed capacity",
+      "note_id": "w05-n04",
+      "source_ref": "src-notes-5#stacks",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-array-contiguous",
+      "label_fa": "آرایه بلوکی پیوسته از حافظه است",
+      "label_en": "an array is contiguous memory",
+      "note_id": "w05-n05",
+      "source_ref": "src-notes-5#arrays",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-array-resize-copy",
+      "label_fa": "بزرگ کردن آرایه: بلوک تازه، کپی، free قدیمی",
+      "label_en": "growing an array by allocating, copying and freeing",
+      "note_id": "w05-n05",
+      "source_ref": "src-notes-5#arrays",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-tmp-pointer",
+      "label_fa": "اشاره‌گر موقت tmp و list = tmp",
+      "label_en": "a temporary pointer during resizing",
+      "note_id": "w05-n05",
+      "source_ref": "src-notes-5#arrays",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-realloc",
+      "label_fa": "realloc: تغییر اندازهٔ بلوک",
+      "label_en": "resizing with realloc",
+      "note_id": "w05-n06",
+      "source_ref": "src-notes-5#arrays",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-realloc-null",
+      "label_fa": "اگر realloc شکست بخورد NULL می‌دهد و بلوک قدیمی هنوز معتبر است",
+      "label_en": "realloc failure keeps the old block",
+      "note_id": "w05-n06",
+      "source_ref": "src-notes-5#arrays",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-overallocation",
+      "label_fa": "تخصیص بیش از نیاز (مثلاً ۳۰ خانه) طراحی بدی است",
+      "label_en": "over-allocating is bad design",
+      "note_id": "w05-n06",
+      "source_ref": "src-notes-5#arrays",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-arrow-operator",
+      "label_fa": "عملگر پیکان -> : رفتن به نشانی و نگاه به فیلد",
+      "label_en": "the -> operator",
+      "note_id": "w05-n07",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-linked-list",
+      "label_fa": "فهرست پیوندی (linked list)",
+      "label_en": "linked lists",
+      "note_id": "w05-n07",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-node",
+      "label_fa": "گره: یک مقدار و اشاره‌گر next",
+      "label_en": "nodes (item + next pointer)",
+      "note_id": "w05-n07",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-self-referential-struct",
+      "label_fa": "struct خودارجاع: struct node *next",
+      "label_en": "self-referential struct",
+      "note_id": "w05-n07",
+      "source_ref": "src-short-singly-linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-list-null-end",
+      "label_fa": "NULL پایان فهرست را نشان می‌دهد",
+      "label_en": "NULL marks the end of a list",
+      "note_id": "w05-n07",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-head-pointer",
+      "label_fa": "اشاره‌گر سر فهرست (head)",
+      "label_en": "the head pointer",
+      "note_id": "w05-n07",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-prepend",
+      "label_fa": "افزودن به ابتدای فهرست (prepend)",
+      "label_en": "prepending a node",
+      "note_id": "w05-n08",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-link-before-move",
+      "label_fa": "اول n->next = list، بعد list = n؛ وگرنه فهرست یتیم می‌شود",
+      "label_en": "link the new node before moving the head",
+      "note_id": "w05-n08",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-list-traversal",
+      "label_fa": "پیمایش فهرست با اشاره‌گر ptr",
+      "label_en": "traversing a list with ptr",
+      "note_id": "w05-n08",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-prepend-reverses",
+      "label_fa": "prepend ترتیب ورود را برعکس می‌کند",
+      "label_en": "prepending reverses the order",
+      "note_id": "w05-n08",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-list-complexity",
+      "label_fa": "هزینهٔ فهرست: درج در ابتدا O(1)، جست‌وجو O(n)",
+      "label_en": "list running times",
+      "note_id": "w05-n08",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-list-tradeoffs",
+      "label_fa": "بده‌بستان فهرست: پویایی در برابر حافظهٔ اضافه و نبود دسترسی تصادفی",
+      "label_en": "linked-list trade-offs",
+      "note_id": "w05-n08",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-append",
+      "label_fa": "افزودن به انتها (append) با پیمایش؛ O(n)",
+      "label_en": "appending a node",
+      "note_id": "w05-n09",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-sorted-insert",
+      "label_fa": "درج مرتب در فهرست",
+      "label_en": "sorted insertion",
+      "note_id": "w05-n09",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-free-list",
+      "label_fa": "آزاد کردن کل فهرست با next موقت",
+      "label_en": "freeing a whole list",
+      "note_id": "w05-n09",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-unload-on-error",
+      "label_fa": "آزادسازی در مسیر خطا هم (unload)",
+      "label_en": "freeing on the error path too",
+      "note_id": "w05-n09",
+      "source_ref": "src-notes-5#linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-doubly-linked-list",
+      "label_fa": "فهرست پیوندی دوطرفه (prev و next)",
+      "label_en": "doubly-linked lists",
+      "note_id": "w05-sh-doubly-linked-lists",
+      "source_ref": "src-short-doubly-linked-lists",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-tree",
+      "label_fa": "درخت: گره‌هایی با فرزند",
+      "label_en": "trees",
+      "note_id": "w05-n10",
+      "source_ref": "src-notes-5#trees",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-bst",
+      "label_fa": "درخت جست‌وجوی دودویی: کوچک‌تر چپ، بزرگ‌تر راست",
+      "label_en": "binary search trees",
+      "note_id": "w05-n10",
+      "source_ref": "src-notes-5#trees",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-bst-search",
+      "label_fa": "جست‌وجوی بازگشتی در درخت",
+      "label_en": "recursive tree search",
+      "note_id": "w05-n10",
+      "source_ref": "src-notes-5#trees",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-balanced-tree",
+      "label_fa": "درخت متوازن: جست‌وجو O(log n)",
+      "label_en": "balanced trees and O(log n)",
+      "note_id": "w05-n10",
+      "source_ref": "src-notes-5#trees",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-constant-time",
+      "label_fa": "O(1)، «جام مقدس» زمان اجرا",
+      "label_en": "constant time, the holy grail",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-hashing",
+      "label_fa": "درهم‌سازی: مقدار ← میان‌بُری به جای آن",
+      "label_en": "hashing",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-hash-function",
+      "label_fa": "تابع درهم‌سازی: ورودی ← اندیس آرایه",
+      "label_en": "hash functions",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-hash-table",
+      "label_fa": "جدول درهم‌سازی: آرایه‌ای از اشاره‌گر به گره",
+      "label_en": "hash tables (array of pointers to nodes)",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-bucket",
+      "label_fa": "سطل (bucket) و سطل‌بندی",
+      "label_en": "buckets",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-collision",
+      "label_fa": "برخورد (collision)",
+      "label_en": "collisions",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-chaining",
+      "label_fa": "زنجیره‌سازی: فهرست پیوندی در هر سطل",
+      "label_en": "chaining",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-time-space-tradeoff",
+      "label_fa": "بده‌بستان زمان و حافظه",
+      "label_en": "the time-space trade-off",
+      "note_id": "w05-n11",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-good-hash-properties",
+      "label_fa": "تابع درهم‌سازی خوب: قطعی، با توزیع یکنواخت، فقط از داده",
+      "label_en": "properties of a good hash function",
+      "note_id": "w05-sh-hash-tables",
+      "source_ref": "src-short-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-linear-probing",
+      "label_fa": "کاوش خطی (linear probing) و خوشه‌شدن",
+      "label_en": "linear probing and clustering",
+      "note_id": "w05-sh-hash-tables",
+      "source_ref": "src-short-hash-tables",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-trie",
+      "label_fa": "ترای: درختی از آرایه‌ها",
+      "label_en": "tries (trees of arrays)",
+      "note_id": "w05-n12",
+      "source_ref": "src-notes-5#tries",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-trie-lookup",
+      "label_fa": "جست‌وجو در ترای: حرف به حرف، مستقل از تعداد کلمه‌ها",
+      "label_en": "trie lookup",
+      "note_id": "w05-n12",
+      "source_ref": "src-notes-5#tries",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-trie-memory",
+      "label_fa": "هزینهٔ حافظهٔ ترای",
+      "label_en": "the memory cost of tries",
+      "note_id": "w05-n12",
+      "source_ref": "src-notes-5#tries",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-structure-choice",
+      "label_fa": "انتخاب ساختمان داده بر اساس عملیات غالب",
+      "label_en": "choosing a data structure by its main operations",
+      "note_id": "w05-sec",
+      "source_ref": "src-section-5-transcript",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-blood-type-alleles",
+      "label_fa": "گروه خونی با دو آلل؛ فرزند از هر والد یکی می‌گیرد",
+      "label_en": "blood types and alleles",
+      "note_id": "w05-ps-inheritance",
+      "source_ref": "src-pset-5-inheritance#problem-to-solve",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-struct-pointer-array",
+      "label_fa": "آرایه‌ای از اشاره‌گر در struct (parents[2])",
+      "label_en": "an array of pointers inside a struct",
+      "note_id": "w05-ps-inheritance",
+      "source_ref": "src-pset-5-inheritance#implementation-details",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-random-modulo",
+      "label_fa": "random() % 2 برای انتخاب ۰ یا ۱",
+      "label_en": "random() % 2",
+      "note_id": "w05-ps-inheritance",
+      "source_ref": "src-pset-5-inheritance#hints",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-multi-file-program",
+      "label_fa": "برنامهٔ چندفایلی: .h، .c و Makefile",
+      "label_en": "multi-file programs and Makefiles",
+      "note_id": "w05-ps-speller",
+      "source_ref": "src-pset-5-speller#background",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-define-const",
+      "label_fa": "#define و const در پارامترها",
+      "label_en": "#define constants and const parameters",
+      "note_id": "w05-ps-speller",
+      "source_ref": "src-pset-5-speller#dictionaryh",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-case-insensitive",
+      "label_fa": "مقایسهٔ بی‌حساس به حروف بزرگ و کوچک (strcasecmp)",
+      "label_en": "case-insensitive comparison",
+      "note_id": "w05-ps-speller",
+      "source_ref": "src-pset-5-speller#specification",
+      "origin": "official",
+      "week": 5
+    },
+    {
+      "id": "w05-c-wall-clock",
+      "label_fa": "زمان واقعی (wall-clock) در برابر زمان مجانبی",
+      "label_en": "wall-clock versus asymptotic time",
+      "note_id": "w05-ps-speller",
+      "source_ref": "src-pset-5-speller#background",
+      "origin": "official",
+      "week": 5
     }
   ],
   "edges": [
@@ -1925,6 +4075,2022 @@
       "to": "w01-c-debugging-errors",
       "type": "prerequisite",
       "cross_week": false
+    },
+    {
+      "from": "w01-c-scratch-to-c",
+      "to": "w02-c-bottom-up",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-bottom-up",
+      "to": "w02-c-reading-level",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-debugging-errors",
+      "to": "w02-c-bug",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-bug",
+      "to": "w02-c-compile-error",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-header-file",
+      "to": "w02-c-compile-error",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-syntax",
+      "to": "w02-c-compile-error",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-bug",
+      "to": "w02-c-logical-error",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-logical-error",
+      "to": "w02-c-printf-debugging",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-printf",
+      "to": "w02-c-printf-debugging",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-format-codes",
+      "to": "w02-c-printf-debugging",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-bug",
+      "to": "w02-c-debugger",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-debugger",
+      "to": "w02-c-breakpoint",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-breakpoint",
+      "to": "w02-c-step-over-into",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-function-definition",
+      "to": "w02-c-step-over-into",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-bug",
+      "to": "w02-c-rubber-duck",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-compiler",
+      "to": "w02-c-clang",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-code-make-run",
+      "to": "w02-c-clang",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-clang",
+      "to": "w02-c-link-flag",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-cs50-library",
+      "to": "w02-c-link-flag",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-clang",
+      "to": "w02-c-make-vs-clang",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-header-file",
+      "to": "w02-c-preprocessing",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-clang",
+      "to": "w02-c-preprocessing",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-preprocessing",
+      "to": "w02-c-compiling-step",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-compiling-step",
+      "to": "w02-c-assembling",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-machine-code",
+      "to": "w02-c-assembling",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-assembling",
+      "to": "w02-c-linking",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-library",
+      "to": "w02-c-linking",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-link-flag",
+      "to": "w02-c-linking",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w02-c-memory-bytes",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-type-sizes",
+      "to": "w02-c-memory-bytes",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-memory-bytes",
+      "to": "w02-c-array",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w02-c-array",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w02-c-array-index",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-zero-indexing",
+      "to": "w02-c-array-index",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-index",
+      "to": "w02-c-array-loop",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-for-loop",
+      "to": "w02-c-array-loop",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-constant",
+      "to": "w02-c-global-const",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-scope",
+      "to": "w02-c-global-const",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w02-c-global-const",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w02-c-array-parameter",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-parameter",
+      "to": "w02-c-array-parameter",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-helper-function",
+      "to": "w02-c-array-parameter",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-char",
+      "to": "w02-c-char-ascii",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-format-codes",
+      "to": "w02-c-char-ascii",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-index",
+      "to": "w02-c-string-char-array",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-char-ascii",
+      "to": "w02-c-string-char-array",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-string-char-array",
+      "to": "w02-c-nul",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-string-char-array",
+      "to": "w02-c-array-of-strings",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-nul",
+      "to": "w02-c-string-length",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-while-loop",
+      "to": "w02-c-string-length",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-string-length",
+      "to": "w02-c-strlen",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-library",
+      "to": "w02-c-strlen",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-char-ascii",
+      "to": "w02-c-ascii-case",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-strlen",
+      "to": "w02-c-ascii-case",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-ascii-case",
+      "to": "w02-c-ctype",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-manual-pages",
+      "to": "w02-c-ctype",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-of-strings",
+      "to": "w02-c-argc-argv",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-main",
+      "to": "w02-c-argc-argv",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-argc-argv",
+      "to": "w02-c-argv0",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-return-value",
+      "to": "w02-c-exit-status",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-argc-argv",
+      "to": "w02-c-exit-status",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-exit-status",
+      "to": "w02-c-echo-status",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-linux-commands",
+      "to": "w02-c-echo-status",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-bottom-up",
+      "to": "w02-c-cryptography",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-cryptography",
+      "to": "w02-c-cipher-key",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-cipher-key",
+      "to": "w02-c-rotation-cipher",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-char-ascii",
+      "to": "w02-c-rotation-cipher",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-arithmetic-operators",
+      "to": "w02-c-rotation-cipher",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-prototype",
+      "to": "w02-c-function-anatomy",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-helper-function",
+      "to": "w02-c-function-benefits",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-scope",
+      "to": "w02-c-local-global",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-local-global",
+      "to": "w02-c-pass-by-value",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-parameter",
+      "to": "w02-c-pass-by-value",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w02-c-array-init",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array-index",
+      "to": "w02-c-array-bounds",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-string-char-array",
+      "to": "w02-c-strcmp",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-equality-vs-assignment",
+      "to": "w02-c-strcmp",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-argc-argv",
+      "to": "w02-c-argv-strings",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-strlen",
+      "to": "w02-c-design-efficiency",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-correctness-design-style",
+      "to": "w02-c-design-efficiency",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-magic-numbers",
+      "to": "w02-c-design-efficiency",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-exit-status",
+      "to": "w02-c-early-return",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-if-else",
+      "to": "w02-c-early-return",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-algorithm",
+      "to": "w03-c-algorithm-black-box",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-running-time",
+      "to": "w03-c-growth-graph",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-algorithm-black-box",
+      "to": "w03-c-growth-graph",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w03-c-array-memory-lockers",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-index",
+      "to": "w03-c-array-memory-lockers",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-array-memory-lockers",
+      "to": "w03-c-linear-search",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-for-loop",
+      "to": "w03-c-linear-search",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-pseudocode",
+      "to": "w03-c-pseudocode-precision",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-linear-search",
+      "to": "w03-c-pseudocode-precision",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-linear-search",
+      "to": "w03-c-binary-search",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-algorithm",
+      "to": "w03-c-binary-search",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-binary-search",
+      "to": "w03-c-sorted-precondition",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-big-o",
+      "to": "w03-c-big-o",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-growth-graph",
+      "to": "w03-c-big-o",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w03-c-common-running-times",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w03-c-drop-constants",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w03-c-omega",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w03-c-theta",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-omega",
+      "to": "w03-c-theta",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w03-c-asymptotic-notation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-omega",
+      "to": "w03-c-asymptotic-notation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-linear-search",
+      "to": "w03-c-search-int",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array-init",
+      "to": "w03-c-search-int",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-loop",
+      "to": "w03-c-search-int",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-exit-status",
+      "to": "w03-c-return-from-main",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-echo-status",
+      "to": "w03-c-return-from-main",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-search-int",
+      "to": "w03-c-search-strings",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-strcmp",
+      "to": "w03-c-search-strings",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-of-strings",
+      "to": "w03-c-search-strings",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-strcmp",
+      "to": "w03-c-strcmp-return",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-bounds",
+      "to": "w03-c-hardcoded-length",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-magic-numbers",
+      "to": "w03-c-hardcoded-length",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-search-strings",
+      "to": "w03-c-parallel-arrays",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w03-c-numbers-as-strings",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-parallel-arrays",
+      "to": "w03-c-struct",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-data-types",
+      "to": "w03-c-struct",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w03-c-dot-notation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w03-c-array-of-structs",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w03-c-array-of-structs",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w03-c-encapsulation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-sorted-precondition",
+      "to": "w03-c-sorting",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-sorting",
+      "to": "w03-c-selection-sort",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-nested-loops",
+      "to": "w03-c-selection-sort",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-array-index",
+      "to": "w03-c-swap",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w03-c-swap",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-selection-sort",
+      "to": "w03-c-counting-steps",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-drop-constants",
+      "to": "w03-c-counting-steps",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-sorting",
+      "to": "w03-c-bubble-sort",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-swap",
+      "to": "w03-c-bubble-sort",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-bubble-sort",
+      "to": "w03-c-early-exit-no-swaps",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-omega",
+      "to": "w03-c-early-exit-no-swaps",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-function-definition",
+      "to": "w03-c-recursion",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-binary-search",
+      "to": "w03-c-recursion",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w03-c-base-case",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w03-c-recursive-case",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-base-case",
+      "to": "w03-c-recursive-case",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w03-c-call-stack",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-local-global",
+      "to": "w03-c-call-stack",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-base-case",
+      "to": "w03-c-factorial-fib",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursive-case",
+      "to": "w03-c-factorial-fib",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w03-c-iteration-vs-recursion",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-nested-loops",
+      "to": "w03-c-iteration-vs-recursion",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w03-c-merge-sort",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-sorting",
+      "to": "w03-c-merge-sort",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-merge-sort",
+      "to": "w03-c-merging",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-merge-sort",
+      "to": "w03-c-n-log-n",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-common-running-times",
+      "to": "w03-c-n-log-n",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-theta",
+      "to": "w03-c-n-log-n",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-merge-sort",
+      "to": "w03-c-memory-tradeoff",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-common-running-times",
+      "to": "w03-c-time-command",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-pixel",
+      "to": "w04-c-pixel-art",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-binary",
+      "to": "w04-c-pixel-art",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-rgb",
+      "to": "w04-c-rgb-hex-color",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-hexadecimal",
+      "to": "w04-c-rgb-hex-color",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-binary",
+      "to": "w04-c-hexadecimal",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w00-c-decimal",
+      "to": "w04-c-hexadecimal",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-hexadecimal",
+      "to": "w04-c-hex-place-values",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-hexadecimal",
+      "to": "w04-c-hex-byte",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w00-c-byte",
+      "to": "w04-c-hex-byte",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-hexadecimal",
+      "to": "w04-c-0x-prefix",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-memory-bytes",
+      "to": "w04-c-memory-addresses",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-0x-prefix",
+      "to": "w04-c-memory-addresses",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-memory-addresses",
+      "to": "w04-c-address-of",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-address-of",
+      "to": "w04-c-percent-p",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-format-codes",
+      "to": "w04-c-percent-p",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-address-of",
+      "to": "w04-c-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w04-c-pointer",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w04-c-dereference",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w04-c-pointer-size",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-type-sizes",
+      "to": "w04-c-pointer-size",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w04-c-null-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w04-c-string-char-star",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-string-char-array",
+      "to": "w04-c-string-char-star",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-nul",
+      "to": "w04-c-string-char-star",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-string-char-star",
+      "to": "w04-c-typedef",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-typedef",
+      "to": "w04-c-typedef-struct",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w04-c-typedef-struct",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-dereference",
+      "to": "w04-c-pointer-arithmetic",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-string-char-star",
+      "to": "w04-c-pointer-arithmetic",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer-arithmetic",
+      "to": "w04-c-bracket-as-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array-index",
+      "to": "w04-c-bracket-as-pointer",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-string-char-star",
+      "to": "w04-c-compare-addresses",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-strcmp",
+      "to": "w04-c-compare-addresses",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-compare-addresses",
+      "to": "w04-c-strcmp-content",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-strcmp-return",
+      "to": "w04-c-strcmp-content",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-string-char-star",
+      "to": "w04-c-pointer-copy",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w04-c-malloc",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer-copy",
+      "to": "w04-c-malloc",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-free",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-malloc-null-check",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-null-pointer",
+      "to": "w04-c-malloc-null-check",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-strcpy",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-strlen",
+      "to": "w04-c-strcpy",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-nul-byte-room",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-nul",
+      "to": "w04-c-nul-byte-room",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-sizeof",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-type-sizes",
+      "to": "w04-c-sizeof",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-valgrind",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-free",
+      "to": "w04-c-valgrind",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-valgrind",
+      "to": "w04-c-buffer-overflow-write",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array-bounds",
+      "to": "w04-c-buffer-overflow-write",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-valgrind",
+      "to": "w04-c-memory-leak",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-free",
+      "to": "w04-c-memory-leak",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-variable-declaration",
+      "to": "w04-c-garbage-values",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-garbage-values",
+      "to": "w04-c-uninitialized-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-dereference",
+      "to": "w04-c-uninitialized-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-pass-by-value",
+      "to": "w04-c-swap-by-pointer",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-dereference",
+      "to": "w04-c-swap-by-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-swap",
+      "to": "w04-c-swap-by-pointer",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-memory-addresses",
+      "to": "w04-c-memory-layout",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-call-stack",
+      "to": "w04-c-memory-layout",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-memory-layout",
+      "to": "w04-c-stack-frame",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-memory-layout",
+      "to": "w04-c-overflow",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w04-c-overflow",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-address-of",
+      "to": "w04-c-scanf",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-get-int",
+      "to": "w04-c-scanf",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-scanf",
+      "to": "w04-c-scanf-string-danger",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-buffer-overflow-write",
+      "to": "w04-c-scanf-string-danger",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w04-c-file-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-file-pointer",
+      "to": "w04-c-fopen-null-check",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc-null-check",
+      "to": "w04-c-fopen-null-check",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-file-pointer",
+      "to": "w04-c-fprintf-fclose",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w01-c-printf",
+      "to": "w04-c-fprintf-fclose",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-file-pointer",
+      "to": "w04-c-fread-fwrite",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-sizeof",
+      "to": "w04-c-fread-fwrite",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-typedef",
+      "to": "w04-c-byte-type",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-fread-fwrite",
+      "to": "w04-c-byte-type",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-file-pointer",
+      "to": "w04-c-fgetc-eof",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w04-c-heap-vs-stack-alloc",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-memory-layout",
+      "to": "w04-c-heap-vs-stack-alloc",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-free",
+      "to": "w04-c-free-rules",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-byte-type",
+      "to": "w04-c-stdint-types",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-fread-fwrite",
+      "to": "w04-c-file-header",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-file-header",
+      "to": "w04-c-bmp-rgbtriple",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-rgb-hex-color",
+      "to": "w04-c-bmp-rgbtriple",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w04-c-bmp-rgbtriple",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-fread-fwrite",
+      "to": "w04-c-file-signature",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-hex-byte",
+      "to": "w04-c-file-signature",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w05-c-organizing-memory",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-pointer",
+      "to": "w05-c-organizing-memory",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-organizing-memory",
+      "to": "w05-c-data-structure",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-data-structure",
+      "to": "w05-c-abstract-data-type",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-abstract-data-type",
+      "to": "w05-c-dictionary-adt",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-abstract-data-type",
+      "to": "w05-c-queue",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w05-c-queue",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-queue",
+      "to": "w05-c-fifo",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-queue",
+      "to": "w05-c-enqueue-dequeue",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-queue",
+      "to": "w05-c-capacity-vs-size",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-global-const",
+      "to": "w05-c-capacity-vs-size",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-queue",
+      "to": "w05-c-queue-wraparound",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-capacity-vs-size",
+      "to": "w05-c-queue-wraparound",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-abstract-data-type",
+      "to": "w05-c-stack",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-stack",
+      "to": "w05-c-lifo",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-stack",
+      "to": "w05-c-push-pop",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-capacity-vs-size",
+      "to": "w05-c-fixed-capacity-limit",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w05-c-array-contiguous",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-memory-addresses",
+      "to": "w05-c-array-contiguous",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-array-contiguous",
+      "to": "w05-c-array-resize-copy",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w05-c-array-resize-copy",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w04-c-free",
+      "to": "w05-c-array-resize-copy",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-array-resize-copy",
+      "to": "w05-c-tmp-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-pointer-copy",
+      "to": "w05-c-tmp-pointer",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-array-resize-copy",
+      "to": "w05-c-realloc",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-realloc",
+      "to": "w05-c-realloc-null",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc-null-check",
+      "to": "w05-c-realloc-null",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-fixed-capacity-limit",
+      "to": "w05-c-overallocation",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-dereference",
+      "to": "w05-c-arrow-operator",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-dot-notation",
+      "to": "w05-c-arrow-operator",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-arrow-operator",
+      "to": "w05-c-linked-list",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc",
+      "to": "w05-c-linked-list",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-linked-list",
+      "to": "w05-c-node",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-typedef-struct",
+      "to": "w05-c-node",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-node",
+      "to": "w05-c-self-referential-struct",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-node",
+      "to": "w05-c-list-null-end",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-null-pointer",
+      "to": "w05-c-list-null-end",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-linked-list",
+      "to": "w05-c-head-pointer",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-head-pointer",
+      "to": "w05-c-prepend",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-node",
+      "to": "w05-c-prepend",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-prepend",
+      "to": "w05-c-link-before-move",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-list-null-end",
+      "to": "w05-c-list-traversal",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-prepend",
+      "to": "w05-c-prepend-reverses",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-prepend",
+      "to": "w05-c-list-complexity",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w05-c-list-complexity",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-list-complexity",
+      "to": "w05-c-list-tradeoffs",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-array-contiguous",
+      "to": "w05-c-list-tradeoffs",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-list-traversal",
+      "to": "w05-c-append",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-append",
+      "to": "w05-c-sorted-insert",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-prepend",
+      "to": "w05-c-sorted-insert",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-list-traversal",
+      "to": "w05-c-free-list",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-free",
+      "to": "w05-c-free-list",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-free-list",
+      "to": "w05-c-unload-on-error",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w04-c-malloc-null-check",
+      "to": "w05-c-unload-on-error",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-linked-list",
+      "to": "w05-c-doubly-linked-list",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-node",
+      "to": "w05-c-tree",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-tree",
+      "to": "w05-c-bst",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-binary-search",
+      "to": "w05-c-bst",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-bst",
+      "to": "w05-c-bst-search",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-recursion",
+      "to": "w05-c-bst-search",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-base-case",
+      "to": "w05-c-bst-search",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-bst",
+      "to": "w05-c-balanced-tree",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-common-running-times",
+      "to": "w05-c-balanced-tree",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-big-o",
+      "to": "w05-c-constant-time",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-constant-time",
+      "to": "w05-c-hashing",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-hashing",
+      "to": "w05-c-hash-function",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-function-anatomy",
+      "to": "w05-c-hash-function",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-hash-function",
+      "to": "w05-c-hash-table",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-linked-list",
+      "to": "w05-c-hash-table",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-hash-table",
+      "to": "w05-c-bucket",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-bucket",
+      "to": "w05-c-collision",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-collision",
+      "to": "w05-c-chaining",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-linked-list",
+      "to": "w05-c-chaining",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-hash-table",
+      "to": "w05-c-time-space-tradeoff",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-memory-tradeoff",
+      "to": "w05-c-time-space-tradeoff",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-hash-function",
+      "to": "w05-c-good-hash-properties",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-collision",
+      "to": "w05-c-linear-probing",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-tree",
+      "to": "w05-c-trie",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-array",
+      "to": "w05-c-trie",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-trie",
+      "to": "w05-c-trie-lookup",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-constant-time",
+      "to": "w05-c-trie-lookup",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-trie",
+      "to": "w05-c-trie-memory",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-time-space-tradeoff",
+      "to": "w05-c-trie-memory",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-time-space-tradeoff",
+      "to": "w05-c-structure-choice",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-list-tradeoffs",
+      "to": "w05-c-structure-choice",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w03-c-struct",
+      "to": "w05-c-blood-type-alleles",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w05-c-self-referential-struct",
+      "to": "w05-c-struct-pointer-array",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w05-c-arrow-operator",
+      "to": "w05-c-struct-pointer-array",
+      "type": "prerequisite",
+      "cross_week": false
+    },
+    {
+      "from": "w02-c-design-efficiency",
+      "to": "w05-c-random-modulo",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-compiling-step",
+      "to": "w05-c-multi-file-program",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-preprocessing",
+      "to": "w05-c-define-const",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-strcmp",
+      "to": "w05-c-case-insensitive",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w02-c-ascii-case",
+      "to": "w05-c-case-insensitive",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-drop-constants",
+      "to": "w05-c-wall-clock",
+      "type": "prerequisite",
+      "cross_week": true
+    },
+    {
+      "from": "w03-c-time-command",
+      "to": "w05-c-wall-clock",
+      "type": "prerequisite",
+      "cross_week": true
     }
   ]
 }

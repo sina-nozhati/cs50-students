@@ -1,0 +1,681 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 4,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-4",
+      "append_child": "w04-fa"
+    }
+  ],
+  "note": "Week-4-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Week 4 notes use the same callout-plus-bold-label convention as Week 3 (D25)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 4,
+      "node_id": "week-4",
+      "path": "anzali-fa/weeks/week-04/summary.fa.md",
+      "doc_id": "w04-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w04-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۴ — حافظه (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-04/overview.fa.md",
+      "parent": "week-4",
+      "children": [
+        "w04-n01",
+        "w04-n02",
+        "w04-n03",
+        "w04-n04",
+        "w04-n05",
+        "w04-n06",
+        "w04-n07",
+        "w04-n08",
+        "w04-n09",
+        "w04-n10",
+        "w04-n11",
+        "w04-n12",
+        "w04-n13",
+        "w04-n14",
+        "w04-n15",
+        "w04-summary",
+        "w04-sec",
+        "w04-sh-hexadecimal",
+        "w04-sh-pointers",
+        "w04-sh-defining-custom-types",
+        "w04-sh-dynamic-memory-allocation",
+        "w04-sh-file-pointers",
+        "w04-ps-volume",
+        "w04-ps-filter-less",
+        "w04-ps-filter-more",
+        "w04-ps-recover",
+        "w04-pr-bottomup",
+        "w04-pr-license"
+      ],
+      "week": 4,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/4/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/4/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n01",
+      "type": "anzali-note",
+      "title": "خوش آمدید: هنر پیکسلی (Welcome! and Pixel Art)",
+      "path": "anzali-fa/weeks/week-04/notes/01-pixel-art.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#pixel-art",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#pixel-art"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n02",
+      "type": "anzali-note",
+      "title": "مبنای شانزده (هگزادسیمال) (Hexadecimal)",
+      "path": "anzali-fa/weeks/week-04/notes/02-hexadecimal.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#hexadecimal",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#hexadecimal"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n03",
+      "type": "anzali-note",
+      "title": "حافظه و نشانی‌ها (Memory)",
+      "path": "anzali-fa/weeks/week-04/notes/03-memory.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#memory",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#memory"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n04",
+      "type": "anzali-note",
+      "title": "اشاره‌گرها: & و * (Pointers)",
+      "path": "anzali-fa/weeks/week-04/notes/04-pointers.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#pointers",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#pointers"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n05",
+      "type": "anzali-note",
+      "title": "رشته‌ها همان char * هستند (Strings)",
+      "path": "anzali-fa/weeks/week-04/notes/05-strings.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#strings",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#strings"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n06",
+      "type": "anzali-note",
+      "title": "حساب اشاره‌گرها (Pointer Arithmetic)",
+      "path": "anzali-fa/weeks/week-04/notes/06-pointer-arithmetic.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#pointer-arithmetic",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#pointer-arithmetic"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n07",
+      "type": "anzali-note",
+      "title": "مقایسهٔ رشته‌ها: == در برابر strcmp (String Comparison)",
+      "path": "anzali-fa/weeks/week-04/notes/07-string-comparison.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#string-comparison",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#string-comparison"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n08",
+      "type": "anzali-note",
+      "title": "کپی کردن رشته: چرا t = s کپی نیست (Copying and malloc: the problem)",
+      "path": "anzali-fa/weeks/week-04/notes/08-copying.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#copying-and-malloc",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#copying-and-malloc"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n09",
+      "type": "anzali-note",
+      "title": "malloc، free، strcpy و NULL (Copying and malloc: malloc and free)",
+      "path": "anzali-fa/weeks/week-04/notes/09-malloc-free.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#copying-and-malloc",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#copying-and-malloc"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n10",
+      "type": "anzali-note",
+      "title": "Valgrind: یافتن خطاهای حافظه (Valgrind)",
+      "path": "anzali-fa/weeks/week-04/notes/10-valgrind.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#valgrind",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#valgrind"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n11",
+      "type": "anzali-note",
+      "title": "مقدارهای زباله و Binky (Garbage Values and Binky)",
+      "path": "anzali-fa/weeks/week-04/notes/11-garbage-values.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#garbage-values",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#garbage-values"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n12",
+      "type": "anzali-note",
+      "title": "جابه‌جایی، پشته و هیپ (Swapping)",
+      "path": "anzali-fa/weeks/week-04/notes/12-swapping.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#swapping",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#swapping"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n13",
+      "type": "anzali-note",
+      "title": "سرریز پشته و هیپ (Overflow)",
+      "path": "anzali-fa/weeks/week-04/notes/13-overflow.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#overflow",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#overflow"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n14",
+      "type": "anzali-note",
+      "title": "scanf: ورودی بدون کتابخانهٔ CS50 (scanf)",
+      "path": "anzali-fa/weeks/week-04/notes/14-scanf.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#scanf",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#scanf"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-n15",
+      "type": "anzali-note",
+      "title": "ورودی و خروجی فایل (File I/O)",
+      "path": "anzali-fa/weeks/week-04/notes/15-file-io.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/4/#file-io",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/4/#file-io"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۴ (Summing Up)",
+      "path": "anzali-fa/weeks/week-04/summary.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/4/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/4/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۴ (Section 4)",
+      "path": "anzali-fa/weeks/week-04/section/section-4.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/sections/4/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/4/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-sh-hexadecimal",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: مبنای شانزده (Hexadecimal)",
+      "path": "anzali-fa/weeks/week-04/shorts/hexadecimal.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/shorts/hexadecimal/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/hexadecimal/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-sh-pointers",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: اشاره‌گرها (Pointers)",
+      "path": "anzali-fa/weeks/week-04/shorts/pointers.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/shorts/pointers/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/pointers/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-sh-defining-custom-types",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: تعریف نوع‌های دلخواه (Defining Custom Types)",
+      "path": "anzali-fa/weeks/week-04/shorts/defining-custom-types.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/shorts/defining_custom_types/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/defining_custom_types/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-sh-dynamic-memory-allocation",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: تخصیص پویای حافظه (Dynamic Memory Allocation)",
+      "path": "anzali-fa/weeks/week-04/shorts/dynamic-memory-allocation.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/shorts/dynamic_memory_allocation/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/dynamic_memory_allocation/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-sh-file-pointers",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: اشاره‌گرهای فایل (File Pointers)",
+      "path": "anzali-fa/weeks/week-04/shorts/file-pointers.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/shorts/file_pointers/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/file_pointers/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-ps-volume",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای تغییر بلندی صدا (Volume)",
+      "path": "anzali-fa/weeks/week-04/problem-sets/volume.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/4/volume/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/4/volume/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-ps-filter-less",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای فیلتر تصویر، نسخهٔ آسان‌تر (Filter less)",
+      "path": "anzali-fa/weeks/week-04/problem-sets/filter-less.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 24,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/4/filter/less/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/4/filter/less/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-ps-filter-more",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای فیلتر تصویر، نسخهٔ چالشی‌تر (Filter more)",
+      "path": "anzali-fa/weeks/week-04/problem-sets/filter-more.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 25,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/4/filter/more/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/4/filter/more/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-ps-recover",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای بازیابی عکس‌ها (Recover)",
+      "path": "anzali-fa/weeks/week-04/problem-sets/recover.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 26,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/4/recover/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/4/recover/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-pr-bottomup",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای از پایین به بالا (Bottom Up)",
+      "path": "anzali-fa/weeks/week-04/problem-sets/bottomup.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 27,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/bottomup/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/bottomup/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    },
+    {
+      "id": "w04-pr-license",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای پلاک‌خوان (License)",
+      "path": "anzali-fa/weeks/week-04/problem-sets/license.fa.md",
+      "parent": "w04-fa",
+      "children": [],
+      "week": 4,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/license/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/license/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-4"
+      ]
+    }
+  ]
+}

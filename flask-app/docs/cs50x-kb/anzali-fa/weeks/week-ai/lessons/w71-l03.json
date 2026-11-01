@@ -1,0 +1,240 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w71-l03",
+  "type": "lesson",
+  "week": 71,
+  "week_slug": "week-ai",
+  "order": 3,
+  "stage_id": "w71-s3",
+  "title_fa": "یادگیری ماشین و کاوش",
+  "title_en": "Machine learning and exploration",
+  "note_ids": [
+    "w71-n06"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w71-l02"
+  ],
+  "concept_ids": [
+    "w71-c-machine-learning",
+    "w71-c-reinforcement-learning",
+    "w71-c-explore-exploit"
+  ],
+  "objective_ids": [
+    "w71-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official AI notes and the lecture transcript (marked «از سخنرانی»); examples are the official notes blocks, verbatim English quotations from the notes, or authored Python labelled تألیفی (D83); every predict_output program is run with python3.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w71-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w71-l03-u01",
+      "order": 1,
+      "title_fa": "یاد گرفتن با پاداش و جریمه",
+      "concept_ids": [
+        "w71-c-machine-learning",
+        "w71-c-reinforcement-learning"
+      ],
+      "objective_ids": [
+        "w71-o05"
+      ],
+      "note_id": "w71-n06",
+      "source_refs": [
+        "src-notes-71#machine-learning",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه: **یادگیری ماشین** (`machine learning`) راهی است که کامپیوتر از راه تقویت یاد بگیرد؛ مثل برگرداندن پنکیک یا بازی The Floor is Lava. کامپیوتر آزمایش پشت آزمایش تکرار می‌کند تا بفهمد کدام رفتار را تکرار کند و کدام را نه. از سخنرانی: مالان **یادگیری تقویتی** (`reinforcement learning`) را یک نوع یادگیری ماشین نامید و گفت پشت صحنه پاداش و جریمه هست؛ در «زمین گدازه است» مسیری پیدا شد که کار می‌کرد، اما یک دانش‌آموز کلاس هفتم دید کوتاه‌ترین مسیر نیست.",
+        "note_id": "w71-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "trials",
+        "lang": "text",
+        "content": "The computer repeats trial after trial after trial to discover what behaviors to repeat and those not to repeat.",
+        "source_ref": "src-notes-71#machine-learning",
+        "explain_fa": "تعریف عملی در درس‌نامه."
+      },
+      "check": {
+        "id": "w71-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "از سخنرانی: چرا مسیر پیدا شده در «زمین گدازه است» بهترین نبود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون کامپیوتر فقط مسیری را تکرار می‌کرد که یک بار کار کرده بود و هرگز راه کوتاه‌تر را امتحان نکرد.",
+            "correct": true,
+            "feedback_fa": "درست. همین مشکل دلیل ایدهٔ کاوش در برابر بهره‌برداری است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون کامپیوتر هرگز خانه‌های گدازه را به خاطر نمی‌سپرد.",
+            "correct": false,
+            "feedback_fa": "برعکس؛ خانه‌هایی که به گدازه رسیدند به خاطر سپرده می‌شدند."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون بازی هیچ پاداشی نداشت.",
+            "correct": false,
+            "feedback_fa": "رسیدن به خروجی پاداش بود؛ مشکل این بود که مسیر کوتاه‌تر هرگز کاوش نشد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l03-u01-ex",
+        "type": "ordering",
+        "origin": "authored",
+        "prompt_fa": "گام‌های یک دور یادگیری تقویتی را به ترتیب بچین: (الف) نتیجه را به خاطر بسپار؛ (ب) کاری را امتحان کن؛ (ج) پاداش یا جریمه بگیر؛ (د) دوباره امتحان کن.",
+        "expected": {
+          "order": [
+            "ب",
+            "ج",
+            "الف",
+            "د"
+          ]
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: امتحان → پاداش یا جریمه → به خاطر سپردن → تکرار.",
+          "incorrect_fa": "اول باید کاری انجام شود تا نتیجه‌ای باشد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l03-u02",
+      "order": 2,
+      "title_fa": "کاوش در برابر بهره‌برداری و epsilon",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "objective_ids": [
+        "w71-o05"
+      ],
+      "note_id": "w71-n06",
+      "source_refs": [
+        "src-notes-71#machine-learning",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "در بسیاری از الگوریتم‌های هوش مصنوعی، **کاوش در برابر بهره‌برداری** (`explore vs. exploit`) هست: گاهی کاری تصادفی امتحان می‌شود که شاید بهینه نباشد، و این تصادف می‌تواند به نتیجهٔ بهتری برسد. در شبه‌کد رسمی، `epsilon` نرخ تصادف است. از سخنرانی: با `epsilon = 0.10`، در حدود ۱۰٪ مواقع حرکتی تصادفی انجام می‌شود؛ مثل اینکه در رستوران گاهی غذای تازه‌ای سفارش بدهی.",
+        "note_id": "w71-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "epsilon",
+        "lang": "text",
+        "content": "epsilon = 0.10\n\nIf random() < epsilon:\n    Make a random move\nElse: \n    Make the move with the highest value",
+        "source_ref": "src-notes-71#machine-learning",
+        "explain_fa": "شبه‌کد رسمی epsilon."
+      },
+      "check": {
+        "id": "w71-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در شبه‌کد رسمی، اگر `random()` عدد ۰٫۷ برگرداند (و `epsilon = 0.10`)، چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "حرکتی با بیشترین مقدار انجام می‌شود (بهره‌برداری).",
+            "correct": true,
+            "feedback_fa": "درست. ۰٫۷ کمتر از ۰٫۱۰ نیست، پس شاخهٔ `Else`."
+          },
+          {
+            "id": "b",
+            "text_fa": "حرکتی تصادفی انجام می‌شود (کاوش).",
+            "correct": false,
+            "feedback_fa": "حرکت تصادفی فقط وقتی است که عدد تصادفی **کمتر** از `epsilon` باشد."
+          },
+          {
+            "id": "c",
+            "text_fa": "epsilon به ۰٫۷ تغییر می‌کند.",
+            "correct": false,
+            "feedback_fa": "شبه‌کد `epsilon` را عوض نمی‌کند؛ فقط آن را مقایسه می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l03-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا برنامهٔ تألیفی، مثل شبه‌کد رسمی، فقط وقتی حرکت تصادفی کند که عدد از `epsilon` کمتر باشد.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "epsilon = 0.10\nvalues = {\"left\": 2, \"right\": 5}\n\nfor r in [0.05, 0.50]:\n    if r [[b1]] epsilon:\n        print(\"random move\")\n    else:\n        best = \"left\"\n        for move in values:\n            if values[move] > values[best]:\n                best = move\n        print(best)\n",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "<"
+            ],
+            "hint_fa": "همان عملگر شبه‌کد رسمی: «If random() … epsilon».",
+            "wrong_feedback": {
+              ">": "با `>` بیشتر مواقع حرکت تصادفی می‌شود؛ یعنی ۹۰٪ کاوش، نه ۱۰٪.",
+              "==": "عدد تصادفی تقریباً هیچ‌وقت دقیقاً برابر ۰٫۱۰ نیست."
+            },
+            "default_wrong_fa": "شبه‌کد رسمی را ببین."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "<"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. خروجی: random move و سپس right.",
+          "incorrect_fa": "عملگر را از شبه‌کد رسمی بردار."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "expected_stdout_exact": "random move\nright\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

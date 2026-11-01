@@ -1,0 +1,303 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w07-ps-fiftyville",
+  "kind": "pset",
+  "week": 7,
+  "title_en": "Fiftyville",
+  "title_fa": "معمای Fiftyville",
+  "guide_doc_id": "w07-ps-fiftyville",
+  "guide_file": "fiftyville.fa.md",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/7/fiftyville/",
+    "index_url": "https://cs50.harvard.edu/x/psets/7/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w07-ps-fiftyville-r1",
+        "text_fa": "دزد، شهری که به آن فرار کرده و همدستی که کمکش کرده را پیدا کن.",
+        "text_en": "Your goal is to identify: Who the thief is, What city the thief escaped to, and Who the thief’s accomplice is who helped them escape",
+        "source_ref": "src-pset-7-fiftyville#problem-to-solve"
+      },
+      {
+        "id": "w07-ps-fiftyville-r2",
+        "text_fa": "فقط از اطلاعات پایگاه داده و پرس‌وجوهای `SELECT` استفاده کن.",
+        "text_en": "You can query that table using SQL SELECT queries to access the data of interest to you. Using just the information in the database, your task is to solve the mystery",
+        "source_ref": "src-pset-7-fiftyville#problem-to-solve"
+      },
+      {
+        "id": "w07-ps-fiftyville-r3",
+        "text_fa": "در `log.sql` همهٔ پرس‌وجوهایی را که روی پایگاه داده اجرا می‌کنی ثبت کن.",
+        "text_en": "In log.sql, keep a log of all SQL queries that you run on the database",
+        "source_ref": "src-pset-7-fiftyville#specification"
+      },
+      {
+        "id": "w07-ps-fiftyville-r4",
+        "text_fa": "بالای هر پرس‌وجو با توضیح `--` بنویس چرا آن را اجرا می‌کنی یا چه اطلاعاتی از آن می‌خواهی؛ یادداشت‌های فکری‌ات را هم می‌توانی بیفزایی.",
+        "text_en": "Above each query, label each with a comment (in SQL, comments are any lines that begin with --) describing why you’re running the query and/or what information you’re hoping to get out of that particular query",
+        "source_ref": "src-pset-7-fiftyville#specification"
+      },
+      {
+        "id": "w07-ps-fiftyville-r5",
+        "text_fa": "برای خوانایی پرس‌وجوهای پیچیده، اصول سبک sqlstyle.guide (به‌ویژه تورفتگی) را رعایت کن.",
+        "text_en": "To help keep your queries readable, see principles of good style at sqlstyle.guide",
+        "source_ref": "src-pset-7-fiftyville#specification"
+      },
+      {
+        "id": "w07-ps-fiftyville-r6",
+        "text_fa": "پس از حل معما، هر سطر `answers.txt` را با نام دزد، شهر و نام همدست کامل کن، بدون تغییر متن موجود یا افزودن سطر.",
+        "text_en": "Once you solve the mystery, complete each of the lines in answers.txt ... (Be sure not to change any of the existing text in the file or to add any other lines to the file!)",
+        "source_ref": "src-pset-7-fiftyville#specification"
+      },
+      {
+        "id": "w07-ps-fiftyville-r7",
+        "text_fa": "هر دو فایل `log.sql` و `answers.txt` را تحویل بده.",
+        "text_en": "Ultimately, you should submit both your log.sql and answers.txt files",
+        "source_ref": "src-pset-7-fiftyville#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/fiftyville",
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/fiftyville",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/7/fiftyville.zip\nunzip fiftyville.zip\nrm fiftyville.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "فایل‌ها پس از `ls`",
+        "text": "answers.txt  fiftyville.db  log.sql",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [
+      "برای شروع، `sqlite3 fiftyville.db` را اجرا کن.",
+      "در `sqlite3`، فرمان `.tables` همهٔ جدول‌های پایگاه داده را فهرست می‌کند.",
+      "در `sqlite3`، فرمان `.schema TABLE_NAME` (به جای `TABLE_NAME` نام یک جدول) دستور `CREATE TABLE` آن جدول را نشان می‌دهد تا بدانی کدام ستون‌ها را پرس‌وجو کنی.",
+      "شاید شروع از جدول `crime_scene_reports` کمک کند: دنبال گزارشی بگرد که با تاریخ و محل جرم بخواند.",
+      "برای نحو SQL، [مرجع کلیدواژه‌های SQL در w3schools](https://www.w3schools.com/sql/sql_ref_keywords.asp) را ببین."
+    ],
+    "official_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/fiftyville",
+      "style50": null,
+      "has_check50": true,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "YHhgEoJMDnU",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "YgI5fyTP939jINCZm7l3o7WCY",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w07-c-sqlite3-cli",
+      "w07-c-schema",
+      "w07-c-select",
+      "w07-c-where",
+      "w07-c-and-or",
+      "w07-c-like-wildcard",
+      "w07-c-nested-query",
+      "w07-c-join",
+      "w07-c-multi-join",
+      "w07-c-qualified-column",
+      "w07-c-sql-comment",
+      "w07-c-query-log",
+      "w07-c-sql-style",
+      "w07-c-no-id-assumption"
+    ],
+    "prerequisite_lesson_ids": [
+      "w07-l01",
+      "w07-l02",
+      "w07-l04",
+      "w07-l05",
+      "w07-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w07-c-sqlite3-cli",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-schema",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-select",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-where",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-and-or",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-like-wildcard",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-nested-query",
+        "note_id": "w07-n07",
+        "lesson_id": "w07-l04",
+        "unit_id": "w07-l04-u03"
+      },
+      {
+        "concept_id": "w07-c-join",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u01"
+      },
+      {
+        "concept_id": "w07-c-multi-join",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u02"
+      },
+      {
+        "concept_id": "w07-c-qualified-column",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u01"
+      },
+      {
+        "concept_id": "w07-c-sql-comment",
+        "note_id": "w07-n12",
+        "lesson_id": "w07-l07",
+        "unit_id": "w07-l07-u03"
+      },
+      {
+        "concept_id": "w07-c-query-log",
+        "note_id": "w07-ps-fiftyville",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w07-c-sql-style",
+        "note_id": "w07-sec",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u04"
+      },
+      {
+        "concept_id": "w07-c-no-id-assumption",
+        "note_id": "w07-ps-songs",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از هر پرس‌وجو، طرح‌وارهٔ همهٔ جدول‌ها را بخوان و برای خودت بنویس هر جدول چه چیزی را ثبت می‌کند و کدام ستون‌ها به جدول‌های دیگر وصل می‌شوند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "لاگ را مثل دفترچهٔ کارآگاه بنویس: پیش از هر پرس‌وجو در یک خط `--` بنویس دنبال چه هستی، و بعد از آن نتیجهٔ مهم را هم در یک خط `--` خلاصه کن."
+      },
+      {
+        "n": 3,
+        "hint_fa": "هر یافته (یک زمان، یک مکان، یک شناسه) سرنخی برای پرس‌وجوی بعدی است. به جای کپی کردن دستی مقدارها، از پرس‌وجوی تودرتو یا `JOIN` استفاده کن تا اشتباه تایپی نکنی."
+      },
+      {
+        "n": 4,
+        "hint_fa": "وقتی چند نامزد داری، هر سرنخ تازه را مثل یک شرط اضافه ببین که فهرست را کوتاه‌تر می‌کند. نتیجه را فقط وقتی قطعی بدان که همهٔ سرنخ‌ها با آن بخوانند."
+      },
+      {
+        "n": 5,
+        "hint_fa": "با `LIKE` و `%` می‌توانی متن‌های طولانی را برای یک واژه جست‌وجو کنی، ولی یادت باشد `=` برای متن دقیق است."
+      }
+    ],
+    "common_mistakes_fa": [
+      "اجرای پرس‌وجو در اعلان و ثبت نکردن آن در `log.sql`",
+      "نوشتن پرس‌وجو بدون توضیح `--`",
+      "حدس زدن پاسخ پیش از آن‌که همهٔ سرنخ‌ها با آن بخوانند",
+      "کپی دستی شناسه‌ها و تاریخ‌ها و خطای تایپی",
+      "تغییر متن موجود در `answers.txt` یا افزودن سطر به آن"
+    ],
+    "self_checklist": [
+      {
+        "id": "w07-ps-fiftyville-c01",
+        "text_fa": "هر پرس‌وجویی که روی پایگاه داده اجرا کرده‌ام در `log.sql` هست.",
+        "maps_to": "w07-ps-fiftyville-r3"
+      },
+      {
+        "id": "w07-ps-fiftyville-c02",
+        "text_fa": "بالای هر پرس‌وجو توضیح `--` دارد که چرا اجرایش کرده‌ام.",
+        "maps_to": "w07-ps-fiftyville-r4"
+      },
+      {
+        "id": "w07-ps-fiftyville-c03",
+        "text_fa": "هر نتیجه‌گیری‌ام به نتیجهٔ یک پرس‌وجوی ثبت‌شده برمی‌گردد، نه به حدس.",
+        "maps_to": "w07-ps-fiftyville-r2"
+      },
+      {
+        "id": "w07-ps-fiftyville-c04",
+        "text_fa": "پرس‌وجوهای طولانی را با تورفتگی خوانا نوشته‌ام.",
+        "maps_to": "w07-ps-fiftyville-r5"
+      },
+      {
+        "id": "w07-ps-fiftyville-c05",
+        "text_fa": "در `answers.txt` فقط جای خالی سه سطر را پر کرده‌ام و متن موجود را تغییر نداده‌ام.",
+        "maps_to": "w07-ps-fiftyville-r6"
+      },
+      {
+        "id": "w07-ps-fiftyville-c06",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w07-ps-fiftyville-c07",
+        "text_fa": "`log.sql` و `answers.txt` را با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/watch?v=YHhgEoJMDnU",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    },
+    {
+      "title_fa": "sqlstyle.guide (بخش تورفتگی)",
+      "url": "https://www.sqlstyle.guide/#indentation",
+      "reason_fa": "راهنمای سبک پیشنهادی صفحهٔ رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

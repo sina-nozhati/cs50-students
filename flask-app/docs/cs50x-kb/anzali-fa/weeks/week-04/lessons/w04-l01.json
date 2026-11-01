@@ -1,0 +1,304 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l01",
+  "type": "lesson",
+  "week": 4,
+  "order": 1,
+  "stage_id": "w04-s1",
+  "title_fa": "پیکسل‌ها، هگزادسیمال و نشانی‌ها",
+  "title_en": "Pixels, hexadecimal and addresses",
+  "note_ids": [
+    "w04-n01",
+    "w04-n02",
+    "w04-n03"
+  ],
+  "related_doc_ids": [
+    "w04-sh-hexadecimal"
+  ],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w04-c-pixel-art",
+    "w04-c-rgb-hex-color",
+    "w04-c-hexadecimal",
+    "w04-c-hex-place-values",
+    "w04-c-hex-byte",
+    "w04-c-0x-prefix",
+    "w04-c-memory-addresses"
+  ],
+  "objective_ids": [
+    "w04-o01",
+    "w04-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w03-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۳ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l01-u01",
+      "order": 1,
+      "title_fa": "تصویر به‌شکل شبکه‌ای از بیت‌ها",
+      "concept_ids": [
+        "w04-c-pixel-art"
+      ],
+      "objective_ids": [
+        "w04-o01"
+      ],
+      "note_id": "w04-n01",
+      "source_refs": [
+        "src-notes-4#pixel-art",
+        "src-anzali-authored-4",
+        "src-transcript-4"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه این هفته را با برداشتن «چرخ‌های کمکی» شروع می‌کند. تصویر شبکه‌ای از پیکسل‌هاست؛ مربع‌های رنگی کوچکی که بالا و پایین و چپ و راست چیده شده‌اند. در ساده‌ترین حالت می‌شود تصویر را «نقشه‌ای از بیت‌ها» دید: صفر برای سیاه و یک برای سفید. در سخنرانی، دو دانشجو با کاغذهای یادداشت چسب‌دار گربه‌ای ساخته بودند که فقط از صفر و یک‌ها تشکیل شده بود.",
+        "note_id": "w04-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n01"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "0 0 1 1 1 1 0 0\n0 1 0 0 0 0 1 0\n1 0 1 0 0 1 0 1\n1 0 0 0 0 0 0 1\n1 0 1 0 0 1 0 1\n1 0 0 1 1 0 0 1\n0 1 0 0 0 0 1 0\n0 0 1 1 1 1 0 0",
+        "source_ref": "src-anzali-authored-4",
+        "explain_fa": "یک bitmap تألیفی ۸ در ۸ از یک صورتک؛ هر ۱ یک پیکسل و هر ۰ پیکسل دیگر."
+      },
+      "check": {
+        "id": "w04-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در یک bitmap سیاه و سفید که هر پیکسل یک بیت است، تصویری ۸ در ۸ چند بیت جا می‌گیرد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "64 بیت",
+            "correct": true,
+            "feedback_fa": "درست. ۸ سطر ضرب در ۸ ستون، هر کدام یک بیت."
+          },
+          {
+            "id": "b",
+            "text_fa": "8 بیت",
+            "correct": false,
+            "feedback_fa": "این فقط یک سطر است."
+          },
+          {
+            "id": "c",
+            "text_fa": "16 بیت",
+            "correct": false,
+            "feedback_fa": "هر پیکسل یک بیت است، پس ۶۴ پیکسل یعنی ۶۴ بیت."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: طبق درس‌نامه، می‌شود تصویر را نقشه‌ای از بیت‌ها دید که در آن صفر سیاه و یک سفید است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بخش Pixel Art درس‌نامه را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l01-u02",
+      "order": 2,
+      "title_fa": "RGB و مبنای شانزده",
+      "concept_ids": [
+        "w04-c-rgb-hex-color",
+        "w04-c-hexadecimal",
+        "w04-c-hex-place-values",
+        "w04-c-hex-byte"
+      ],
+      "objective_ids": [
+        "w04-o01"
+      ],
+      "note_id": "w04-n02",
+      "source_refs": [
+        "src-notes-4#hexadecimal",
+        "src-short-hexadecimal",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "هر رنگ RGB سه عدد دارد: مقدار قرمز، سبز و آبی. ویرایشگرهایی مثل Photoshop این سه عدد را با هگزادسیمال هم نشان می‌دهند. هگزادسیمال ۱۶ رقم دارد، از `0` تا `9` و بعد `A` تا `F`، و هر ستونش توانی از ۱۶ است. پس `FF` یعنی ۱۶ × ۱۵ + ۱۵ = 255، بزرگ‌ترین عدد دو رقمی. هر رقم هگزادسیمال ۴ بیت است و دو رقم یک بایت. در سخنرانی، سفید `FF FF FF` و سیاه `00 00 00` بود.",
+        "note_id": "w04-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hex-digits",
+        "lang": "text",
+        "content": "0 1 2 3 4 5 6 7 8 9 A B C D E F",
+        "source_ref": "src-notes-4#hexadecimal",
+        "explain_fa": "رقم‌های رسمی هگزادسیمال از درس‌نامه."
+      },
+      "check": {
+        "id": "w04-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "عدد هگزادسیمال `1A` در دهدهی چند است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "26",
+            "correct": true,
+            "feedback_fa": "درست: ۱ × ۱۶ + ۱۰."
+          },
+          {
+            "id": "b",
+            "text_fa": "110",
+            "correct": false,
+            "feedback_fa": "این خواندن رقم‌ها به‌صورت دهدهی است، نه مبنای ۱۶."
+          },
+          {
+            "id": "c",
+            "text_fa": "16",
+            "correct": false,
+            "feedback_fa": "16 یعنی `10`؛ رقم `A` را هم اضافه کن."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l01-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "این عددهای هگزادسیمال را به دهدهی بنویس: (۱) `0F` (۲) `10` (۳) `FF`",
+        "expected": {
+          "answers": {
+            "1": "15",
+            "2": "16",
+            "3": "255"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "هر ستون چپ ۱۶ برابر ستون راست ارزش دارد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l01-u03",
+      "order": 3,
+      "title_fa": "نشانی‌ها و پیشوند 0x",
+      "concept_ids": [
+        "w04-c-0x-prefix",
+        "w04-c-memory-addresses"
+      ],
+      "objective_ids": [
+        "w04-o01",
+        "w04-o02"
+      ],
+      "note_id": "w04-n03",
+      "source_refs": [
+        "src-notes-4#memory",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "هر بایت حافظه نشانی دارد و این نشانی‌ها را معمولاً با هگزادسیمال می‌نویسند. چون `10` می‌تواند ده باشد یا شانزده، قرار بر این است که عدد هگزادسیمال با `0x` شروع شود. در `addresses.c` متغیر `n` مقدار 50 دارد و جایی در حافظه، با یک نشانی، ذخیره شده است. مقدار و نشانی دو چیز متفاوت‌اند.",
+        "note_id": "w04-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "addresses",
+        "lang": "c",
+        "content": "// Prints an integer\n\n#include <stdio.h>\n\nint main(void)\n{\n    int n = 50;\n    printf(\"%i\\n\", n);\n}",
+        "source_ref": "src-notes-4#memory",
+        "explain_fa": "کد رسمی addresses.c."
+      },
+      "check": {
+        "id": "w04-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`0x10` چه مقداری را نشان می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "شانزده",
+            "correct": true,
+            "feedback_fa": "درست. 0x یعنی هگزادسیمال و ۱ × ۱۶ + ۰."
+          },
+          {
+            "id": "b",
+            "text_fa": "ده",
+            "correct": false,
+            "feedback_fa": "ده در هگزادسیمال `0x0A` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "یک و صفر جدا",
+            "correct": false,
+            "feedback_fa": "0x10 یک عدد است، نه دو رقم جدا."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l01-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در `addresses.c` مقدار `n` و نشانی `n` یک عددند.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: مقدار 50 است و نشانی جای آن در حافظه است.",
+          "incorrect_fa": "فرق «چه چیزی» و «کجا» را در نظر بگیر."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

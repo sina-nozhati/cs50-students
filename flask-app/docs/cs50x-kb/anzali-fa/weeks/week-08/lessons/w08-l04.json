@@ -1,0 +1,249 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l04",
+  "type": "lesson",
+  "week": 8,
+  "order": 4,
+  "stage_id": "w08-s4",
+  "title_fa": "فرم و عبارت باقاعده",
+  "title_en": "Forms and regular expressions",
+  "note_ids": [
+    "w08-n09",
+    "w08-n10"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w08-l03"
+  ],
+  "concept_ids": [
+    "w08-c-form",
+    "w08-c-input-name",
+    "w08-c-query-string",
+    "w08-c-input-attrs",
+    "w08-c-regex",
+    "w08-c-input-email",
+    "w08-c-pattern-attr",
+    "w08-c-client-validation-limits"
+  ],
+  "objective_ids": [
+    "w08-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w08-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l04-u01",
+      "order": 1,
+      "title_fa": "form، input و رشتهٔ پرس‌وجو",
+      "concept_ids": [
+        "w08-c-form",
+        "w08-c-input-name",
+        "w08-c-query-string",
+        "w08-c-input-attrs"
+      ],
+      "objective_ids": [
+        "w08-o06"
+      ],
+      "note_id": "w08-n09",
+      "source_refs": [
+        "src-notes-8#html",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "فرم با `<form>` ساخته می‌شود؛ ویژگی `action` می‌گوید داده به کجا برود و `method` روش را، مثلاً `get` . هر `<input>` با ویژگی `name` نام پارامتر را تعیین می‌کند. اگر نام `q` باشد و کاربر `cats` بنویسد، مرورگر با `GET` به نشانی‌ای مثل `https://www.google.com/search?q=cats` می‌رود. چند پارامتر با `&` جدا می‌شوند. ویژگی‌هایی مثل `autocomplete=\"off\"` ، `autofocus` و `placeholder` تجربهٔ کاربر را بهتر می‌کنند.",
+        "note_id": "w08-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "search1",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates additional form attributes -->\n\n<html lang=\"en\">\n    <head>\n        <title>search</title>\n    </head>\n    <body>\n        <form action=\"https://www.google.com/search\" method=\"get\">\n            <input autocomplete=\"off\" autofocus name=\"q\" placeholder=\"Query\" type=\"search\">\n            <button>Google Search</button>\n        </form>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#html",
+        "explain_fa": "فرم جست‌وجوی گوگل با action و method (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در فرم جست‌وجو `name=\"q\"` است و کاربر `cats` می‌نویسد. نشانی پس از ارسال با `GET` چه بخشی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`?q=cats`",
+            "correct": true,
+            "feedback_fa": "درست. نام ورودی کلید و متن کاربر مقدار پارامتر است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`?cats=q`",
+            "correct": false,
+            "feedback_fa": "کلید نام ورودی است و مقدار متن کاربر، نه برعکس."
+          },
+          {
+            "id": "c",
+            "text_fa": "هیچ؛ `GET` داده را در بدنه می‌فرستد.",
+            "correct": false,
+            "feedback_fa": "این کار `POST` است؛ `GET` داده را در نشانی می‌گذارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l04-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی (اجرا با node) دقیقاً چیست؟ `URLSearchParams` داده را همان‌طور کدگذاری می‌کند که فرم HTML هنگام ارسال با `GET` .",
+        "expected": {
+          "output": "q=cats+and+dogs&lang=en"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: فاصله‌ها `+` شدند و دو پارامتر با `&` جدا شدند.",
+          "incorrect_fa": "دو نکته: فاصله در رشتهٔ پرس‌وجو `+` می‌شود و پارامترها با `&` به هم می‌چسبند."
+        },
+        "hints_fa": [
+          "ترتیب پارامترها همان ترتیب نوشتن آن‌هاست."
+        ],
+        "lang": "javascript",
+        "code": "const params = new URLSearchParams({q: \"cats and dogs\", lang: \"en\"});\nconsole.log(params.toString());",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {},
+          "expected_stdout_exact": "q=cats+and+dogs&lang=en\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l04-u02",
+      "order": 2,
+      "title_fa": "type=\"email\"، pattern و مرز اعتبارسنجی",
+      "concept_ids": [
+        "w08-c-regex",
+        "w08-c-input-email",
+        "w08-c-pattern-attr",
+        "w08-c-client-validation-limits"
+      ],
+      "objective_ids": [
+        "w08-o06"
+      ],
+      "note_id": "w08-n10",
+      "source_refs": [
+        "src-notes-8#regular-expressions",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "با `type=\"email\"` مرورگر پیش از ارسال بررسی می‌کند که متن شبیه نشانی ایمیل باشد. ویژگی `pattern` یک **عبارت باقاعده** (`regular expression`) می‌گیرد: در مثال درس‌نامه `.+@.+\\.edu` یعنی یک یا چند نویسه، `@` ، دوباره یک یا چند نویسه و در آخر `.edu` . `pattern` باید با کل مقدار جور شود، نه با بخشی از آن. اما این بررسی در مرورگر کاربر انجام می‌شود و کاربر می‌تواند با ابزار توسعه‌دهنده آن را حذف کند؛ پس سرور باید دوباره بررسی کند.",
+        "note_id": "w08-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "register1",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates pattern attribute for email -->\n\n<html lang=\"en\">\n    <head>\n        <title>register</title>\n    </head>\n    <body>\n        <form>\n            <input autocomplete=\"off\" autofocus name=\"email\" pattern=\".+@.+\\.edu\" placeholder=\"Email\" type=\"email\">\n            <button>Register</button>\n        </form>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#regular-expressions",
+        "explain_fa": "pattern برای ایمیل‌های edu (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا نمی‌توان فقط به `pattern` در HTML اعتماد کرد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون کاربر می‌تواند HTML را در مرورگر خودش تغییر دهد و بررسی را دور بزند.",
+            "correct": true,
+            "feedback_fa": "درست. بررسی سمت مرورگر برای راحتی کاربر است؛ سرور باید دوباره بررسی کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `pattern` در هیچ مرورگری کار نمی‌کند.",
+            "correct": false,
+            "feedback_fa": "مرورگرهای امروزی `pattern` را بررسی می‌کنند؛ مشکل این است که کاربر می‌تواند آن را دور بزند."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون عبارت باقاعده فقط در پایتون معنا دارد.",
+            "correct": false,
+            "feedback_fa": "عبارت باقاعده در HTML، جاوااسکریپت و زبان‌های دیگر هم هست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l04-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "در جاوااسکریپت `^` و `$` عبارت را به کل رشته می‌بندند؛ ویژگی `pattern` در HTML همین کار را خودش می‌کند. خروجی این برنامهٔ تألیفی (اجرا با node) دقیقاً چیست؟",
+        "expected": {
+          "output": "true\nfalse\nfalse"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: دومی به `.edu` ختم نمی‌شود و سومی پیش از `@` هیچ نویسه‌ای ندارد.",
+          "incorrect_fa": "`.+` یعنی «دست‌کم یک نویسه». هر سه رشته را جداگانه با الگو بسنج."
+        },
+        "hints_fa": [
+          "سومی را دقیق نگاه کن: پیش از `@` چه هست؟"
+        ],
+        "lang": "javascript",
+        "code": "const pattern = /^.+@.+\\.edu$/;\nfor (const email of [\"malan@harvard.edu\", \"malan@gmail.com\", \"@harvard.edu\"])\n{\n    console.log(pattern.test(email));\n}",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {},
+          "expected_stdout_exact": "true\nfalse\nfalse\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 71,
+  "week_slug": "week-ai",
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-ai",
+      "append_child": "w71-fa"
+    }
+  ],
+  "note": "AI-lecture-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both. Folder/id mapping week-ai = 71 is inferred from kb_repo._WEEK_DISPLAY_ORDER (D81).",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "AI-lecture notes use the same callout-plus-bold-label convention as Weeks 3-10 (D25); code blocks are the official chat3.py (```python), official pseudocode (```text) and labelled authored Python translations (D83)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 71,
+      "node_id": "week-ai",
+      "path": "anzali-fa/weeks/week-ai/summary.fa.md",
+      "doc_id": "w71-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w71-fa",
+      "type": "anzali-week-hub",
+      "title": "جلسهٔ هوش مصنوعی (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-ai/overview.fa.md",
+      "parent": "week-ai",
+      "children": [
+        "w71-n01",
+        "w71-n02",
+        "w71-n03",
+        "w71-n04",
+        "w71-n05",
+        "w71-n06",
+        "w71-n07",
+        "w71-n08",
+        "w71-summary"
+      ],
+      "week": 71,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/ai/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/ai/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n01",
+      "type": "anzali-note",
+      "title": "اردک پلاستیکی و CS50.ai (Welcome!)",
+      "path": "anzali-fa/weeks/week-ai/notes/01-welcome.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#welcome",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#welcome"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n02",
+      "type": "anzali-note",
+      "title": "هوش مصنوعی مولد (Generative Artificial Intelligence)",
+      "path": "anzali-fa/weeks/week-ai/notes/02-generative-ai.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#generative-artificial-intelligence",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#generative-artificial-intelligence"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n03",
+      "type": "anzali-note",
+      "title": "مهندسی پرامپت، کد chat3.py و Copilot (Prompt Engineering and Copilot)",
+      "path": "anzali-fa/weeks/week-ai/notes/03-prompt-engineering.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#prompt-engineering-and-copilot",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#prompt-engineering-and-copilot"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n04",
+      "type": "anzali-note",
+      "title": "هوش مصنوعی در بازی‌ها و درخت تصمیم (AI and Decision Trees)",
+      "path": "anzali-fa/weeks/week-ai/notes/04-decision-trees.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#decision-trees",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#decision-trees"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n05",
+      "type": "anzali-note",
+      "title": "مینی‌ماکس (Minimax)",
+      "path": "anzali-fa/weeks/week-ai/notes/05-minimax.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#minimax",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#minimax"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n06",
+      "type": "anzali-note",
+      "title": "یادگیری ماشین، یادگیری تقویتی و کاوش در برابر بهره‌برداری (Machine Learning)",
+      "path": "anzali-fa/weeks/week-ai/notes/06-machine-learning.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#machine-learning",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#machine-learning"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n07",
+      "type": "anzali-note",
+      "title": "یادگیری عمیق و شبکه‌های عصبی (Deep Learning)",
+      "path": "anzali-fa/weeks/week-ai/notes/07-deep-learning.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#deep-learning",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#deep-learning"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-n08",
+      "type": "anzali-note",
+      "title": "مدل‌های زبانی بزرگ، توجه و توهم (Large Language Models and Summing Up)",
+      "path": "anzali-fa/weeks/week-ai/notes/08-large-language-models.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/ai/#large-language-models",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/ai/#large-language-models"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    },
+    {
+      "id": "w71-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ جلسهٔ هوش مصنوعی (Summing Up)",
+      "path": "anzali-fa/weeks/week-ai/summary.fa.md",
+      "parent": "w71-fa",
+      "children": [],
+      "week": 71,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/notes/ai/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/ai/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-71"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w08-ps-trivia",
+  "kind": "pset",
+  "week": 8,
+  "title_en": "Trivia",
+  "title_fa": "پرسش‌های سرگرمی (Trivia)",
+  "guide_doc_id": "w08-ps-trivia",
+  "guide_file": "trivia.fa.md",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/8/trivia/",
+    "index_url": "https://cs50.harvard.edu/x/psets/8/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w08-ps-trivia-r1",
+        "text_fa": "صفحه را با HTML، CSS و جاوااسکریپت طراحی کن تا کاربر به پرسش‌های سرگرمی پاسخ بدهد.",
+        "text_en": "Design a webpage using HTML, CSS, and JavaScript to let users answer trivia questions.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r2",
+        "text_fa": "در `index.html`، زیر «Part 1» یک پرسش چندگزینه‌ای به انتخاب خودت با HTML بگذار.",
+        "text_en": "In index.html, add beneath “Part 1” a multiple-choice trivia question of your choosing with HTML.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r3",
+        "text_fa": "متن پرسش را با سرعنوان `h3` بنویس.",
+        "text_en": "You should use an h3 heading for the text of your question.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r4",
+        "text_fa": "برای هر گزینه یک `button` بگذار؛ دست‌کم سه گزینه، که دقیقاً یکی درست است.",
+        "text_en": "You should have one button for each of the possible answer choices. There should be at least three answer choices, of which exactly one should be correct.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r5",
+        "text_fa": "با جاوااسکریپت کاری کن که رنگ دکمه‌ها با کلیک کاربر عوض شود.",
+        "text_en": "Using JavaScript, add logic so that the buttons change colors when a user clicks on them.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r6",
+        "text_fa": "کلیک روی گزینهٔ نادرست: دکمه قرمز شود و زیر پرسش «Incorrect» ظاهر شود.",
+        "text_en": "If a user clicks on a button with an incorrect answer, the button should turn red and text should appear beneath the question that says “Incorrect”.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r7",
+        "text_fa": "کلیک روی گزینهٔ درست: دکمه سبز شود و زیر پرسش «Correct!» ظاهر شود.",
+        "text_en": "If a user clicks on a button with the correct answer, the button should turn green and text should appear beneath the question that says “Correct!”.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r8",
+        "text_fa": "در `index.html`، زیر «Part 2» یک پرسش با پاسخ متنی به انتخاب خودت با HTML بگذار.",
+        "text_en": "In index.html, add beneath “Part 2” a text-based free response question of your choosing with HTML.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r9",
+        "text_fa": "برای نوشتن پاسخ یک `input` و برای تأیید آن یک `button` بگذار (متن پرسش باز هم با `h3`).",
+        "text_en": "You should use an input field to let the user type a response. ... You should use a button to let the user confirm their answer.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r10",
+        "text_fa": "با جاوااسکریپت کاری کن که رنگ جعبهٔ متن با تأیید پاسخ عوض شود.",
+        "text_en": "Using JavaScript, add logic so that the text field changes color when a user confirms their answer.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r11",
+        "text_fa": "پاسخ نادرست و زدن دکمهٔ تأیید: جعبهٔ متن قرمز شود و «Incorrect» ظاهر شود.",
+        "text_en": "If the user types an incorrect answer and presses the confirmation button, the text field should turn red and text should appear beneath the question that says “Incorrect”.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r12",
+        "text_fa": "پاسخ درست و زدن دکمهٔ تأیید: جعبهٔ متن سبز شود و «Correct!» ظاهر شود.",
+        "text_en": "If the user types the correct answer and presses the confirmation button, the input field should turn green and text should appear beneath the question that says “Correct!”.",
+        "source_ref": "src-pset-8-trivia#implementation-details"
+      },
+      {
+        "id": "w08-ps-trivia-r13",
+        "text_fa": "check50 ندارد؛ برای هر پرسش هم پاسخ درست و هم نادرست را آزمایش کن.",
+        "text_en": "No check50 for this one, as implementations will vary based on your questions! But be sure to test both incorrect and correct responses for each of your questions",
+        "source_ref": "src-pset-8-trivia#testing"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/trivia",
+      "wget": "wget https://cdn.cs50.net/2025/fall/psets/8/trivia.zip\nunzip trivia.zip\nrm trivia.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [
+      "برای پیدا کردن **یک** عنصر HTML از `document.querySelector` استفاده کن.",
+      "برای پیدا کردن **همهٔ** عنصرهایی که با یک پرس‌وجو جورند از `document.querySelectorAll` استفاده کن؛ همهٔ عنصرهای جور را برمی‌گرداند."
+    ],
+    "official_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "WGd0Jx7rxUo",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d139",
+      "d147"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w08-c-http-server",
+      "w08-c-headings",
+      "w08-c-input-attrs",
+      "w08-c-queryselector",
+      "w08-c-queryselectorall",
+      "w08-c-event-listener",
+      "w08-c-domcontentloaded",
+      "w08-c-click-event",
+      "w08-c-style-property",
+      "w08-c-innerhtml",
+      "w08-c-value-property",
+      "w08-c-equality-operators",
+      "w08-c-js-loops"
+    ],
+    "prerequisite_lesson_ids": [
+      "w08-l03",
+      "w08-l04",
+      "w08-l06",
+      "w08-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w08-c-http-server",
+        "note_id": "w08-n07",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u01"
+      },
+      {
+        "concept_id": "w08-c-headings",
+        "note_id": "w08-n07",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u02"
+      },
+      {
+        "concept_id": "w08-c-input-attrs",
+        "note_id": "w08-n09",
+        "lesson_id": "w08-l04",
+        "unit_id": "w08-l04-u01"
+      },
+      {
+        "concept_id": "w08-c-queryselector",
+        "note_id": "w08-n13",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u03"
+      },
+      {
+        "concept_id": "w08-c-queryselectorall",
+        "note_id": "w08-ps-trivia",
+        "lesson_id": "w08-l07",
+        "unit_id": "w08-l07-u03"
+      },
+      {
+        "concept_id": "w08-c-event-listener",
+        "note_id": "w08-n13",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u03"
+      },
+      {
+        "concept_id": "w08-c-domcontentloaded",
+        "note_id": "w08-n13",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u03"
+      },
+      {
+        "concept_id": "w08-c-click-event",
+        "note_id": "w08-n14",
+        "lesson_id": "w08-l07",
+        "unit_id": "w08-l07-u02"
+      },
+      {
+        "concept_id": "w08-c-style-property",
+        "note_id": "w08-n14",
+        "lesson_id": "w08-l07",
+        "unit_id": "w08-l07-u02"
+      },
+      {
+        "concept_id": "w08-c-innerhtml",
+        "note_id": "w08-n14",
+        "lesson_id": "w08-l07",
+        "unit_id": "w08-l07-u01"
+      },
+      {
+        "concept_id": "w08-c-value-property",
+        "note_id": "w08-n13",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u03"
+      },
+      {
+        "concept_id": "w08-c-equality-operators",
+        "note_id": "w08-n14",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u02"
+      },
+      {
+        "concept_id": "w08-c-js-loops",
+        "note_id": "w08-n15",
+        "lesson_id": "w08-l06",
+        "unit_id": "w08-l06-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول فقط HTML را بنویس و در مرورگر ببین: سرعنوان، دکمه‌ها، جعبهٔ متن و جایی خالی برای متن بازخورد. هنوز هیچ جاوااسکریپتی ننوشته‌ای."
+      },
+      {
+        "n": 2,
+        "hint_fa": "از خودت بپرس جاوااسکریپت چطور دکمهٔ درست را از نادرست تشخیص می‌دهد. می‌توانی به عنصرها `id` یا `class` بدهی؛ کدام برای «یک عنصر» و کدام برای «چند عنصر» مناسب است؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "کدت باید پس از بارگذاری صفحه اجرا شود. در یادداشت رویدادها دیدی کدام رویداد برای این کار است، و اینکه `<script>` در `<head>` بدون آن عنصرها را پیدا نمی‌کند."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای چند دکمهٔ نادرست، `querySelectorAll` چیزی شبیه آرایه برمی‌گرداند. در یادداشت تکمیل خودکار دیدی چطور روی چنین مجموعه‌ای حلقه بزنی."
+      },
+      {
+        "n": 5,
+        "hint_fa": "رنگ را با ویژگی `style` عنصر عوض می‌کنی و متن بازخورد را با `innerHTML` عنصری دیگر. نام ویژگی‌های CSS در جاوااسکریپت camelCase می‌شوند."
+      },
+      {
+        "n": 6,
+        "hint_fa": "برای پرسش متنی، مقدار تایپ‌شده در ویژگی `value` جعبه است. مقایسه را با `===` انجام بده و دربارهٔ حروف بزرگ و کوچک یا فاصلهٔ اضافه تصمیم بگیر."
+      }
+    ],
+    "common_mistakes_fa": [
+      "گذاشتن `<script>` در `<head>` بدون `DOMContentLoaded`؛ `querySelector` مقدار `null` برمی‌گرداند",
+      "نوشتن `background-color` به جای `backgroundColor` در جاوااسکریپت",
+      "بستن رویداد فقط به اولین دکمه با `querySelector` وقتی چند دکمهٔ نادرست هست",
+      "مقایسه با `=` به جای `===`",
+      "نوشتن «correct» بدون علامت تعجب یا با حروف متفاوت",
+      "آزمودن فقط پاسخ درست و فراموش کردن پاسخ نادرست"
+    ],
+    "self_checklist": [
+      {
+        "id": "w08-ps-trivia-c01",
+        "text_fa": "زیر «Part 1» یک پرسش با `h3` و دست‌کم سه دکمه هست و دقیقاً یکی درست است.",
+        "maps_to": "w08-ps-trivia-r4"
+      },
+      {
+        "id": "w08-ps-trivia-c02",
+        "text_fa": "کلیک روی هر گزینهٔ نادرست آن را قرمز می‌کند و «Incorrect» را زیر پرسش نشان می‌دهد.",
+        "maps_to": "w08-ps-trivia-r6"
+      },
+      {
+        "id": "w08-ps-trivia-c03",
+        "text_fa": "کلیک روی گزینهٔ درست آن را سبز می‌کند و «Correct!» را نشان می‌دهد.",
+        "maps_to": "w08-ps-trivia-r7"
+      },
+      {
+        "id": "w08-ps-trivia-c04",
+        "text_fa": "زیر «Part 2» یک پرسش با `h3`، یک `input` و یک دکمهٔ تأیید هست.",
+        "maps_to": "w08-ps-trivia-r9"
+      },
+      {
+        "id": "w08-ps-trivia-c05",
+        "text_fa": "پاسخ نادرست جعبه را قرمز و پاسخ درست آن را سبز می‌کند، با متن بازخورد زیر پرسش.",
+        "maps_to": "w08-ps-trivia-r12"
+      },
+      {
+        "id": "w08-ps-trivia-c06",
+        "text_fa": "متن بازخورد دقیقاً `Correct!` و `Incorrect` است (با علامت تعجب فقط در اولی).",
+        "maps_to": "w08-ps-trivia-r7"
+      },
+      {
+        "id": "w08-ps-trivia-c07",
+        "text_fa": "هر دو حالت درست و نادرست هر پرسش را در مرورگر با `http-server` آزموده‌ام.",
+        "maps_to": "w08-ps-trivia-r13"
+      },
+      {
+        "id": "w08-ps-trivia-c08",
+        "text_fa": "کنسول مرورگر هیچ خطای جاوااسکریپت نشان نمی‌دهد.",
+        "maps_to": "advice"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راه‌حل‌های کارکنان در صفحهٔ رسمی Trivia",
+      "url": "https://cs50.harvard.edu/x/psets/8/trivia/#how-to-submit",
+      "reason_fa": "صفحهٔ رسمی زیر «How to Submit» دو راه‌حل کامل کارکنان را در بلوک‌های تاشو نشان می‌دهد (d139، D64)؛ در این بسته بازتولید نشده است. پیش از تحویل کار خودت به آن نگاه نکن."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://video.cs50.io/WGd0Jx7rxUo",
+      "reason_fa": "ویدئوی رسمی؛ در زمان CS50 IDE ضبط شده است. فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

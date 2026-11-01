@@ -1,0 +1,292 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w99-l01",
+  "type": "lesson",
+  "week": 99,
+  "week_slug": "final-project",
+  "order": 1,
+  "stage_id": "w99-s1",
+  "title_fa": "پروژهٔ نهایی چیست، ایده و ابزار",
+  "title_en": "What it is, ideas and stack",
+  "note_ids": [
+    "w99-n01",
+    "w99-n02"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w99-c-fp-purpose",
+    "w99-c-fp-groups",
+    "w99-c-fp-audit",
+    "w99-c-fp-ideas",
+    "w99-c-fp-stack"
+  ],
+  "objective_ids": [
+    "w99-o01",
+    "w99-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the official Final Project specification (and, where cited, the academic honesty page); examples are the two official blocks or verbatim English quotations checked against the live page. Guidance only: no project code, no prescribed idea (D88).",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w10-mt-final",
+    "note_fa": "پروژهٔ نهایی در ترتیب رسمی درس پس از هفتهٔ ۱۰ است؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "units": [
+    {
+      "id": "w99-l01-u01",
+      "order": 1,
+      "title_fa": "نرم‌افزاری از طراحی خودت",
+      "concept_ids": [
+        "w99-c-fp-purpose"
+      ],
+      "objective_ids": [
+        "w99-o01"
+      ],
+      "note_id": "w99-n01",
+      "source_refs": [
+        "src-project-99#final-project",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "**پروژهٔ نهایی** (`final project`) اوج این درس است: نرم‌افزاری از طراحی خودت. تا وقتی پروژه از درس‌های این دوره بهره بگیرد، ماهیتش کاملاً با خودت است؛ می‌توانی آن را با هر زبانی بنویسی و بیرون از CS50 Codespace هم کار کنی.",
+        "note_id": "w99-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scope-free",
+        "lang": "text",
+        "content": "So long as your project draws upon this course’s lessons, the nature of your project is entirely up to you. You may implement your project in any language(s).",
+        "source_ref": "src-project-99#final-project",
+        "explain_fa": "تنها شرط رسمی دربارهٔ ماهیت پروژه."
+      },
+      "check": {
+        "id": "w99-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق صفحهٔ رسمی، تنها شرط دربارهٔ ماهیت پروژه چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "این‌که از درس‌های این دوره بهره بگیرد.",
+            "correct": true,
+            "feedback_fa": "درست: «So long as your project draws upon this course’s lessons»."
+          },
+          {
+            "id": "b",
+            "text_fa": "این‌که حتماً با Python و Flask نوشته شود.",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی می‌گوید می‌توانی با هر زبانی پروژه را بنویسی."
+          },
+          {
+            "id": "c",
+            "text_fa": "این‌که یکی از ایده‌های فهرست رسمی باشد.",
+            "correct": false,
+            "feedback_fa": "فهرست ایده‌ها فقط نمونه است و با «…» تمام می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «پروژهٔ نهایی باید حتماً در CS50 Codespace ساخته شود.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. صفحهٔ رسمی می‌گوید می‌توانی بیرون از Codespace هم کار کنی.",
+          "incorrect_fa": "جملهٔ «You are welcome to develop your project outside of the CS50 Codespace» را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l01-u02",
+      "order": 2,
+      "title_fa": "کار گروهی و بازبینی",
+      "concept_ids": [
+        "w99-c-fp-groups",
+        "w99-c-fp-audit"
+      ],
+      "objective_ids": [
+        "w99-o01"
+      ],
+      "note_id": "w99-n01",
+      "source_refs": [
+        "src-project-99#final-project",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "می‌توانی با **یک یا دو هم‌کلاسی** کار کنی. هر عضو باید به یک اندازه در طراحی و پیاده‌سازی سهم داشته باشد و دامنهٔ پروژهٔ دو نفره دو برابر و سه نفره سه برابر پروژهٔ یک‌نفره است. پروژهٔ یک‌نفره هم باید از هر پرابلم‌ست وقت و تلاش بیشتری بخواهد. کادر CS50 ارسال‌ها را بازبینی می‌کند و نقض صداقت تحصیلی به کنار گذاشته شدن از درس یا باطل شدن گواهی می‌انجامد.",
+        "note_id": "w99-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "groups",
+        "lang": "text",
+        "content": "Inasmuch as software development is rarely a one-person effort, you are allowed an opportunity to collaborate with one or two classmates for this final project. Needless to say, it is expected that every student in any such group contribute equally to the design and implementation of that group’s project. Moreover, it is expected that the scope of a two- or three-person group’s project be, respectively, twice or thrice that of a typical one-person project.",
+        "source_ref": "src-project-99#final-project",
+        "explain_fa": "دامنهٔ کار گروهی."
+      },
+      "check": {
+        "id": "w99-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "گروهی سه نفره است. طبق صفحهٔ رسمی، دامنهٔ پروژه‌اش در مقایسه با یک پروژهٔ معمولی یک‌نفره چقدر باید باشد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "سه برابر.",
+            "correct": true,
+            "feedback_fa": "درست: «twice or thrice that of a typical one-person project»."
+          },
+          {
+            "id": "b",
+            "text_fa": "دو برابر.",
+            "correct": false,
+            "feedback_fa": "دو برابر برای گروه دو نفره است."
+          },
+          {
+            "id": "c",
+            "text_fa": "همان اندازه، چون کار تقسیم می‌شود.",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی دامنه را برای گروه بزرگ‌تر می‌کند، نه برابر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l01-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «اگر نقض صداقت تحصیلی پس از تمام شدن درس معلوم شود، گواهی CS50 باطل می‌شود.»",
+        "expected": {
+          "answer": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ صفحهٔ رسمی از باطل شدن گواهی CS50 (و گواهی edX، اگر دارد) نام می‌برد.",
+          "incorrect_fa": "پایان پاراگراف کار گروهی و بازبینی را دوباره بخوان."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l01-u03",
+      "order": 3,
+      "title_fa": "ایده‌ها و انتخاب ابزار",
+      "concept_ids": [
+        "w99-c-fp-ideas",
+        "w99-c-fp-stack"
+      ],
+      "objective_ids": [
+        "w99-o02"
+      ],
+      "note_id": "w99-n02",
+      "source_refs": [
+        "src-project-99#ideas",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "صفحهٔ رسمی نمونه‌هایی می‌آورد: برنامهٔ تحت وب با JavaScript، Python و SQL؛ برنامهٔ iOS با Swift؛ بازی با Lua و LÖVE؛ برنامهٔ Android با Java؛ افزونهٔ Chrome با JavaScript؛ برنامهٔ خط فرمان با C؛ و برنامه‌ای برای یک دستگاه سخت‌افزاری. فهرست با «…» تمام می‌شود. **تألیفی:** از ابزاری شروع کن که در درس دیدی، و اگر ابزار تازه‌ای انتخاب می‌کنی، وقت یادگرفتنش را در برنامه بگذار.",
+        "note_id": "w99-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "ideas-web",
+        "lang": "text",
+        "content": "a web-based application using JavaScript, Python, and SQL",
+        "source_ref": "src-project-99#ideas",
+        "explain_fa": "اولین نمونهٔ فهرست رسمی."
+      },
+      "check": {
+        "id": "w99-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام نمونه در فهرست ایده‌های رسمی **نیامده** است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "افزونهٔ Firefox با Rust",
+            "correct": true,
+            "feedback_fa": "درست؛ فهرست از افزونهٔ Chrome با JavaScript نام می‌برد، نه Firefox با Rust. البته فهرست کامل نیست («…»)."
+          },
+          {
+            "id": "b",
+            "text_fa": "بازی با Lua و LÖVE",
+            "correct": false,
+            "feedback_fa": "این نمونه در فهرست رسمی هست."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامهٔ خط فرمان با C",
+            "correct": false,
+            "feedback_fa": "این نمونه در فهرست رسمی هست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l01-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «الزام رسمی» یا «پیشنهاد تألیفی» علامت بزن: (۱) پروژه از درس‌های دوره بهره بگیرد؛ (۲) از ابزاری شروع کنی که در درس دیدی.",
+        "expected": {
+          "answers": {
+            "1": "الزام رسمی",
+            "2": "پیشنهاد تألیفی"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. دومی توصیهٔ CS50x Anzali است؛ صفحهٔ رسمی هر زبانی را مجاز می‌داند.",
+          "incorrect_fa": "به برچسب «تألیفی» در یادداشت ۲ نگاه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

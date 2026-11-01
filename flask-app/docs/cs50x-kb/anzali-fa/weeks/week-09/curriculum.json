@@ -1,0 +1,412 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w09-curriculum",
+  "week": 9,
+  "title_fa": "هفتهٔ ۹ — Flask",
+  "title_en": "Week 9 — Flask",
+  "panel_week_number": 9,
+  "kb_parent_node": "week-9",
+  "hub_doc_id": "w09-fa",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-9",
+    "src-notes-9",
+    "src-transcript-9",
+    "src-section-9",
+    "src-pset-9"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w09-o01",
+    "w09-o02",
+    "w09-o03",
+    "w09-o04",
+    "w09-o05",
+    "w09-o06",
+    "w09-o07",
+    "w09-o08",
+    "w09-o09",
+    "w09-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: اول ایستا و پویا، Flask، مسیر و قالب؛ سپس فرم و layout، GET و POST و if در قالب؛ بعد froshims (منو، اعتبارسنجی، redirect)، Flask و SQL، کوکی و جلسه و سبد خرید، و در آخر جست‌وجو، Ajax و JSON. Hello, Flask پس از درس ۳ باز می‌شود، چون به قالب، فرم و POST نیاز دارد؛ Birthdays پس از درس ۵ (Flask و SQL)؛ Finance پس از درس آخر، چون به جلسه، ورود، SQL و API بیرونی نیاز دارد.",
+  "stages": [
+    {
+      "id": "w09-s1",
+      "lesson_ids": [
+        "w09-l01"
+      ]
+    },
+    {
+      "id": "w09-s2",
+      "lesson_ids": [
+        "w09-l02"
+      ]
+    },
+    {
+      "id": "w09-s3",
+      "lesson_ids": [
+        "w09-l03"
+      ]
+    },
+    {
+      "id": "w09-s4",
+      "lesson_ids": [
+        "w09-l04"
+      ]
+    },
+    {
+      "id": "w09-s5",
+      "lesson_ids": [
+        "w09-l05"
+      ]
+    },
+    {
+      "id": "w09-s6",
+      "lesson_ids": [
+        "w09-l06"
+      ]
+    },
+    {
+      "id": "w09-s7",
+      "lesson_ids": [
+        "w09-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w09-l01",
+      "order": 1,
+      "file": "lessons/w09-l01.json",
+      "title_fa": "سرور خودت: Flask، مسیر و قالب",
+      "stage_id": "w09-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w09-l01-u01",
+        "w09-l01-u02",
+        "w09-l01-u03"
+      ],
+      "note_ids": [
+        "w09-n01",
+        "w09-n02",
+        "w09-n03"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w09-l02",
+      "order": 2,
+      "file": "lessons/w09-l02.json",
+      "title_fa": "فرم‌ها و layout",
+      "stage_id": "w09-s2",
+      "prerequisite_lesson_ids": [
+        "w09-l01"
+      ],
+      "unit_ids": [
+        "w09-l02-u01",
+        "w09-l02-u02"
+      ],
+      "note_ids": [
+        "w09-n04",
+        "w09-n05"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w09-l03",
+      "order": 3,
+      "file": "lessons/w09-l03.json",
+      "title_fa": "GET و POST، و if در قالب",
+      "stage_id": "w09-s3",
+      "prerequisite_lesson_ids": [
+        "w09-l02"
+      ],
+      "unit_ids": [
+        "w09-l03-u01",
+        "w09-l03-u02"
+      ],
+      "note_ids": [
+        "w09-n06",
+        "w09-n07"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w09-l04",
+      "order": 4,
+      "file": "lessons/w09-l04.json",
+      "title_fa": "froshims: منو، اعتبارسنجی و redirect",
+      "stage_id": "w09-s4",
+      "prerequisite_lesson_ids": [
+        "w09-l03"
+      ],
+      "unit_ids": [
+        "w09-l04-u01",
+        "w09-l04-u02"
+      ],
+      "note_ids": [
+        "w09-n08",
+        "w09-n09"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w09-l05",
+      "order": 5,
+      "file": "lessons/w09-l05.json",
+      "title_fa": "Flask و SQL",
+      "stage_id": "w09-s5",
+      "prerequisite_lesson_ids": [
+        "w09-l04"
+      ],
+      "unit_ids": [
+        "w09-l05-u01",
+        "w09-l05-u02"
+      ],
+      "note_ids": [
+        "w09-n10"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w09-l06",
+      "order": 6,
+      "file": "lessons/w09-l06.json",
+      "title_fa": "کوکی، جلسه، ورود و سبد خرید",
+      "stage_id": "w09-s6",
+      "prerequisite_lesson_ids": [
+        "w09-l05"
+      ],
+      "unit_ids": [
+        "w09-l06-u01",
+        "w09-l06-u02",
+        "w09-l06-u03"
+      ],
+      "note_ids": [
+        "w09-n11",
+        "w09-n12",
+        "w09-n13"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w09-l07",
+      "order": 7,
+      "file": "lessons/w09-l07.json",
+      "title_fa": "جست‌وجو، Ajax و JSON",
+      "stage_id": "w09-s7",
+      "prerequisite_lesson_ids": [
+        "w09-l06"
+      ],
+      "unit_ids": [
+        "w09-l07-u01",
+        "w09-l07-u02"
+      ],
+      "note_ids": [
+        "w09-n14",
+        "w09-n15"
+      ],
+      "related_doc_ids": [
+        "w09-sh-flask",
+        "w09-sh-ajax"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "w09-n01",
+      "file": "notes/01-static-dynamic.fa.md",
+      "official_anchor": "http-server"
+    },
+    {
+      "id": "w09-n02",
+      "file": "notes/02-flask-hello.fa.md",
+      "official_anchor": "flask"
+    },
+    {
+      "id": "w09-n03",
+      "file": "notes/03-templates-args.fa.md",
+      "official_anchor": "flask"
+    },
+    {
+      "id": "w09-n04",
+      "file": "notes/04-forms.fa.md",
+      "official_anchor": "forms"
+    },
+    {
+      "id": "w09-n05",
+      "file": "notes/05-layout.fa.md",
+      "official_anchor": "templates"
+    },
+    {
+      "id": "w09-n06",
+      "file": "notes/06-get-post.fa.md",
+      "official_anchor": "request-methods"
+    },
+    {
+      "id": "w09-n07",
+      "file": "notes/07-jinja-if.fa.md",
+      "official_anchor": "request-methods"
+    },
+    {
+      "id": "w09-n08",
+      "file": "notes/08-froshims-validate.fa.md",
+      "official_anchor": "frosh-ims"
+    },
+    {
+      "id": "w09-n09",
+      "file": "notes/09-froshims-registrants.fa.md",
+      "official_anchor": "frosh-ims"
+    },
+    {
+      "id": "w09-n10",
+      "file": "notes/10-flask-sql.fa.md",
+      "official_anchor": "flask-and-sql"
+    },
+    {
+      "id": "w09-n11",
+      "file": "notes/11-mvc-cookies.fa.md",
+      "official_anchor": "cookies-and-session"
+    },
+    {
+      "id": "w09-n12",
+      "file": "notes/12-login.fa.md",
+      "official_anchor": "cookies-and-session"
+    },
+    {
+      "id": "w09-n13",
+      "file": "notes/13-shopping-cart.fa.md",
+      "official_anchor": "shopping-cart"
+    },
+    {
+      "id": "w09-n14",
+      "file": "notes/14-shows-ajax.fa.md",
+      "official_anchor": "shows"
+    },
+    {
+      "id": "w09-n15",
+      "file": "notes/15-json.fa.md",
+      "official_anchor": "json"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-9.fa.md",
+    "shorts": [
+      {
+        "id": "w09-sh-flask",
+        "file": "shorts/flask.fa.md"
+      },
+      {
+        "id": "w09-sh-ajax",
+        "file": "shorts/ajax.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w09-ps-birthdays",
+        "file": "problem-sets/birthdays.fa.md"
+      },
+      {
+        "id": "w09-ps-finance",
+        "file": "problem-sets/finance.fa.md"
+      },
+      {
+        "id": "w09-pr-helloflask",
+        "file": "problem-sets/helloflask.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w09-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w09-ps-birthdays",
+      "kind": "pset",
+      "file": "problem-sets/birthdays.json",
+      "guide": "problem-sets/birthdays.fa.md",
+      "unlock_after_lesson": "w09-l05"
+    },
+    {
+      "id": "w09-ps-finance",
+      "kind": "pset",
+      "file": "problem-sets/finance.json",
+      "guide": "problem-sets/finance.fa.md",
+      "unlock_after_lesson": "w09-l07"
+    },
+    {
+      "id": "w09-pr-helloflask",
+      "kind": "practice",
+      "file": "problem-sets/helloflask.json",
+      "guide": "problem-sets/helloflask.fa.md",
+      "unlock_after_lesson": "w09-l03"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۹: Birthdays و Finance هر دو لازم‌اند. مسئلهٔ تمرینی Hello, Flask اختیاری است و تحویل ندارد.",
+    "groups": [
+      {
+        "required": [
+          "w09-ps-birthdays"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w09-ps-finance"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w09-pr-helloflask"
+    ],
+    "source_ref": "src-pset-9#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids": [
+          "w09-ps-birthdays",
+          "w09-ps-finance"
+        ],
+        "note": "checklists of the two Problem Set 9 problems"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w09-ps-birthdays",
+          "w09-ps-finance"
+        ],
+        "note": "Panel Assignment/Submission; official grade remains the CS50 gradebook (Finance has check50; Birthdays has none)"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

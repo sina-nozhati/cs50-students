@@ -1,0 +1,406 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w05-l07",
+  "type": "lesson",
+  "week": 5,
+  "order": 7,
+  "stage_id": "w05-s6",
+  "title_fa": "جدول درهم‌سازی و ترای",
+  "title_en": "Hash tables and tries",
+  "note_ids": [
+    "w05-n11",
+    "w05-n12"
+  ],
+  "related_doc_ids": [
+    "w05-sh-hash-tables",
+    "w05-sh-tries",
+    "w05-sh-data-structures",
+    "w05-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w05-l06"
+  ],
+  "concept_ids": [
+    "w05-c-constant-time",
+    "w05-c-hashing",
+    "w05-c-hash-function",
+    "w05-c-bucket",
+    "w05-c-hash-table",
+    "w05-c-collision",
+    "w05-c-chaining",
+    "w05-c-time-space-tradeoff",
+    "w05-c-good-hash-properties",
+    "w05-c-linear-probing",
+    "w05-c-trie",
+    "w05-c-trie-lookup",
+    "w05-c-trie-memory",
+    "w05-c-structure-choice"
+  ],
+  "objective_ids": [
+    "w05-o09",
+    "w05-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/5.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w05-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "units": [
+    {
+      "id": "w05-l07-u01",
+      "order": 1,
+      "title_fa": "تابع درهم‌ساز و سطل‌ها",
+      "concept_ids": [
+        "w05-c-constant-time",
+        "w05-c-hashing",
+        "w05-c-hash-function",
+        "w05-c-bucket"
+      ],
+      "objective_ids": [
+        "w05-o09"
+      ],
+      "note_id": "w05-n11",
+      "source_refs": [
+        "src-notes-5#hashing-and-hash-tables",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "درهم‌سازی یعنی گرفتن یک مقدار و تبدیلش به مقداری دیگر که میان‌بُری به آن است. تابع درهم‌ساز ورودی (مثلاً یک واژه) را به اندیسی در آرایه تبدیل می‌کند. در سخنرانی، کارت‌های نام بر اساس حرف اول در ۲۶ سطل چیده شدند. تابع درس‌نامه دقیقاً همین را می‌کند: `toupper(word[0]) - 'A'`. هدف نزدیک شدن به O(1) است که در سخنرانی «جام مقدس» زمان اجرا نامیده شد.",
+        "note_id": "w05-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hash-first-letter",
+        "lang": "c",
+        "content": "#include <ctype.h>\n\nunsigned int hash(const char *word)\n{\n    return toupper(word[0]) - 'A';\n}",
+        "source_ref": "src-notes-5#hashing-and-hash-tables",
+        "explain_fa": "تابع رسمی درهم‌سازی بر اساس حرف اول."
+      },
+      "check": {
+        "id": "w05-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "تابع درهم‌ساز درس‌نامه برای `\"mario\"` چه اندیسی برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "12",
+            "correct": true,
+            "feedback_fa": "درست: toupper('m') برابر 'M' است و 'M' - 'A' برابر 12."
+          },
+          {
+            "id": "b",
+            "text_fa": "13",
+            "correct": false,
+            "feedback_fa": "شمارش از 0 است: A برابر 0."
+          },
+          {
+            "id": "c",
+            "text_fa": "109",
+            "correct": false,
+            "feedback_fa": "این کد ASCII حرف m است، نه اندیس."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l07-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "با تابع درس‌نامه (حرف اول)، اندیس سطل هر واژه را بنویس: (۱) Apple (۲) cat (۳) Zebra",
+        "expected": {
+          "answers": {
+            "1": "0",
+            "2": "2",
+            "3": "25"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "A برابر 0 و Z برابر 25؛ بزرگی و کوچکی حرف اهمیت ندارد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l07-u02",
+      "order": 2,
+      "title_fa": "برخورد و زنجیره‌سازی",
+      "concept_ids": [
+        "w05-c-hash-table",
+        "w05-c-collision",
+        "w05-c-chaining",
+        "w05-c-time-space-tradeoff",
+        "w05-c-good-hash-properties",
+        "w05-c-linear-probing"
+      ],
+      "objective_ids": [
+        "w05-o09"
+      ],
+      "note_id": "w05-n11",
+      "source_refs": [
+        "src-notes-5#hashing-and-hash-tables",
+        "src-anzali-authored-5",
+        "src-short-hash-tables",
+        "src-section-5"
+      ],
+      "reading": {
+        "text_fa": "جدول درهم‌سازی آرایه‌ای از اشاره‌گرهاست که هر خانه‌اش سر یک فهرست پیوندی است. وقتی دو واژه به یک سطل می‌روند (برخورد)، هر دو در فهرست همان سطل قرار می‌گیرند؛ این زنجیره‌سازی است. با سطل‌های بیشتر (مثلاً بر اساس دو یا سه حرف اول) فهرست‌ها کوتاه‌تر می‌شوند، اما حافظهٔ بیشتری مصرف می‌شود. در بدترین حالت همه در یک سطل‌اند و جست‌وجو O(n) است. ویدئوی کوتاه جدول‌ها و جلسهٔ حل تمرین می‌گویند تابع درهم‌ساز خوب قطعی است، از همهٔ سطل‌ها استفاده می‌کند و داده را یکنواخت پخش می‌کند. ویدئوی کوتاه راه دیگری به نام کاوش خطی را هم نشان می‌دهد.",
+        "note_id": "w05-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n11"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "table[0]  -> Apple -> Avocado -> NULL\ntable[1]  -> NULL\ntable[2]  -> cat -> NULL\n...\ntable[25] -> Zebra -> NULL",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "تصویر تألیفی از جدول با زنجیره‌سازی."
+      },
+      "check": {
+        "id": "w05-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در جدول درهم‌سازی با زنجیره‌سازی، اگر `Apple` و `Avocado` به یک سطل بروند چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هر دو در فهرست پیوندی همان سطل نگه داشته می‌شوند.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "دومی جای اولی را می‌گیرد.",
+            "correct": false,
+            "feedback_fa": "در زنجیره‌سازی چیزی بازنویسی نمی‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامه خطا می‌دهد.",
+            "correct": false,
+            "feedback_fa": "برخورد طبیعی است و مدیریت می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l07-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: تابع درهم‌سازی که برای یک ورودی گاهی یک اندیس و گاهی اندیس دیگری برگرداند، برای جدول درهم‌سازی مناسب نیست.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: تابع باید قطعی باشد وگرنه واژه را در سطل اشتباه جست‌وجو می‌کنیم.",
+          "incorrect_fa": "اگر جای ذخیره و جای جست‌وجو فرق کند چه می‌شود؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l07-u03",
+      "order": 3,
+      "title_fa": "ترای",
+      "concept_ids": [
+        "w05-c-trie",
+        "w05-c-trie-lookup",
+        "w05-c-trie-memory"
+      ],
+      "objective_ids": [
+        "w05-o10"
+      ],
+      "note_id": "w05-n12",
+      "source_refs": [
+        "src-notes-5#tries",
+        "src-anzali-authored-5",
+        "src-short-tries",
+        "src-transcript-5"
+      ],
+      "reading": {
+        "text_fa": "ترای درختی از آرایه‌هاست. هر گره آرایه‌ای ۲۶تایی از اشاره‌گرها دارد، یکی برای هر حرف. برای ذخیرهٔ یک نام، حرف به حرف از ریشه پایین می‌رویم و روی آخرین حرف علامت می‌زنیم که این‌جا یک واژهٔ کامل تمام می‌شود. زمان جست‌وجو به طول واژه بستگی دارد، نه به تعداد واژه‌های ذخیره‌شده؛ برای همین در سخنرانی «ثابت» نامیده شد. بهایش حافظه است: بیشتر خانه‌های آرایه‌ها `NULL` و خالی‌اند.",
+        "note_id": "w05-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n12"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "ریشه\n  [T] -> گره\n         [O] -> گره\n                [A] -> گره\n                       [D] -> گره (پایان واژه: Toad)",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "مسیر تألیفی واژهٔ Toad در ترای؛ هر گره آرایه‌ای ۲۶تایی است."
+      },
+      "check": {
+        "id": "w05-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "زمان جست‌وجوی یک واژه در ترای به چه چیزی بستگی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "طول همان واژه",
+            "correct": true,
+            "feedback_fa": "درست؛ به همین دلیل مستقل از تعداد واژه‌های ذخیره‌شده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "تعداد کل واژه‌ها",
+            "correct": false,
+            "feedback_fa": "این برای فهرست پیوندی درست است، نه ترای."
+          },
+          {
+            "id": "c",
+            "text_fa": "تعداد سطل‌ها",
+            "correct": false,
+            "feedback_fa": "ترای سطل ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l07-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: اگر Tom و Toad هر دو در ترای باشند، مسیر حرف‌های T و O بین آن‌ها مشترک است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: پیشوندهای مشترک یک مسیر را به اشتراک می‌گذارند.",
+          "incorrect_fa": "هر حرف یک گام از ریشه پایین است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l07-u04",
+      "order": 4,
+      "title_fa": "انتخاب ساختمان داده",
+      "concept_ids": [
+        "w05-c-structure-choice"
+      ],
+      "objective_ids": [
+        "w05-o10"
+      ],
+      "note_id": "w05-sec",
+      "source_refs": [
+        "src-section-5",
+        "src-anzali-authored-5",
+        "src-short-data-structures",
+        "src-section-5-transcript"
+      ],
+      "reading": {
+        "text_fa": "در جلسهٔ حل تمرین، Kelly تأکید کرد که انتخاب ساختمان داده به کاری بستگی دارد که بیشتر انجام می‌دهی: جست‌وجو، درج یا حذف، و به محدودیت حافظه. ویدئوی کوتاه مقایسهٔ ساختمان‌های داده هم آرایه، فهرست پیوندی، جدول درهم‌سازی و ترای را از نظر درج، حذف، جست‌وجو، مرتب‌سازی و حافظه کنار هم می‌گذارد.",
+        "note_id": "w05-sec",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-sec"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "ساختار          جست‌وجو               حافظه\n--------------  --------------------  ----------------\nآرایهٔ مرتب      O(log n)              کم\nفهرست پیوندی    O(n)                  next در هر گره\nجدول درهم‌سازی   نزدیک O(1) در عمل      آرایه + گره‌ها\nترای            وابسته به طول واژه     زیاد",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "جدول تألیفی خلاصه از سخنرانی و ویدئوی کوتاه."
+      },
+      "check": {
+        "id": "w05-l07-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای برنامه‌ای که باید میلیون‌ها بار بررسی کند یک واژه در دیکشنری هست یا نه و حافظه هم محدود است، کدام انتخاب معقول‌تری است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "جدول درهم‌سازی با تابع درهم‌ساز خوب",
+            "correct": true,
+            "feedback_fa": "درست: جست‌وجوی سریع در عمل با حافظهٔ کمتر از ترای."
+          },
+          {
+            "id": "b",
+            "text_fa": "فهرست پیوندی",
+            "correct": false,
+            "feedback_fa": "جست‌وجو O(n) است."
+          },
+          {
+            "id": "c",
+            "text_fa": "آرایهٔ نامرتب",
+            "correct": false,
+            "feedback_fa": "جست‌وجوی خطی کند است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l07-u04-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "برای هر نیاز، ساختار مناسب را بنویس (آرایه / فهرست پیوندی / جدول درهم‌سازی): (۱) دسترسی با اندیس به عنصرها (۲) افزودن زیاد به ابتدا بدون کپی (۳) بررسی سریع وجود واژه در دیکشنری بزرگ",
+        "expected": {
+          "answers": {
+            "1": "آرایه",
+            "2": "فهرست پیوندی",
+            "3": "جدول درهم‌سازی"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "عملیات غالب هر نیاز را پیدا کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

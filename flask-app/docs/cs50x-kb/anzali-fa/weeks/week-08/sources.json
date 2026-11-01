@@ -1,0 +1,944 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 8,
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities"
+  ],
+  "shared_sources_from_week_6": [
+    "src-python-docs"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-8",
+      "url": "https://cs50.harvard.edu/x/weeks/8/",
+      "title": "Week 8 HTML, CSS, JavaScript (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:04+03:30",
+      "verified_at": "2026-10-29T07:44:55+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "67a56955fe623ccb6bd6976017595f6a35fb4ad3e0b703c2e329cdd97fb92ff4"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/8/",
+      "anchors": [
+        "week-8-html-css-javascript"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/week.md",
+      "notes": "Topic line and media list; lists eight shorts (Internet Primer, IP, TCP, HTTP, HTML, CSS, JavaScript, DOM) and the 'Passing TCP/IP Packet' video with outtakes. Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-notes-8",
+      "url": "https://cs50.harvard.edu/x/notes/8/",
+      "title": "Lecture 8 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "verified_at": "2026-10-29T07:44:38+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "faa2a9053e8281814a486d721a18cfc9ae117a2a7d9e1d82debc29d62e3ac6eb"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/8/",
+      "anchors": [
+        "css",
+        "dhcp",
+        "dns",
+        "frameworks",
+        "html",
+        "https",
+        "javascript",
+        "lecture-8",
+        "regular-expressions",
+        "routers",
+        "summing-up",
+        "the-internet",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/lecture.md",
+      "notes": "All sections read in full; the 35 code/listing blocks copied verbatim into examples8.py. Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-transcript-8",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/lang/en/lecture8.txt",
+      "title": "Lecture 8 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "verified_at": "2026-10-29T07:44:55+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/transcripts/lecture-en.txt",
+      "notes": "Read for facts marked «از سخنرانی» (e.g. the q= query string demo with Google, the passing-a-packet demo, the developer-tools tour, client-side validation being bypassable)."
+    },
+    {
+      "id": "src-srt-8",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/lang/en/lecture8.srt",
+      "title": "Lecture 8 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-29T07:44:55+03:30",
+      "verified_at": "2026-10-29T07:44:55+03:30",
+      "local_copy": "_tools/refetch/week8/srt/lecture8.srt",
+      "notes": "Cue times used for note start times (chapter boundaries are inference)."
+    },
+    {
+      "id": "src-video-8",
+      "url": "https://video.cs50.io/yYst7puZXjw",
+      "title": "Lecture 8 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Also https://youtu.be/yYst7puZXjw ; Portuguese https://youtu.be/i_GmZgveqpw and Spanish https://youtu.be/3Ph5G_sfrFM versions are listed on the week page."
+    },
+    {
+      "id": "src-audio-8",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/lecture8.mp3",
+      "title": "Lecture 8 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-slides-8-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/lecture8.pdf",
+      "title": "Lecture 8 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-8-google",
+      "url": "https://docs.google.com/presentation/d/1vG7P0wmMl6KRzXOs5w7qop2FPijnHGHUh7VNrCNc3Ww/edit?usp=sharing",
+      "title": "Lecture 8 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-packet-video-8",
+      "url": "https://youtu.be/cUJlRNRguAM",
+      "title": "Passing TCP/IP Packet (video listed on the week page)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Outtakes: https://www.youtube.com/watch?v=mofAEZ6fWLc"
+    },
+    {
+      "id": "src-src8-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/src8.zip",
+      "title": "Lecture 8 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/source-code/",
+      "notes": "Contains more files than the notes show (hello0/2/4/6, home1/2/5/6, link1-3, favorites0-2, geolocation, bootstrap and others); only files shown in the notes are reproduced, the rest are referenced by name only. The notes call two files lists0/lists1.html; the CDN serves those names (HTTP 200)."
+    },
+    {
+      "id": "src-src8-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/src8/",
+      "title": "Lecture 8 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-src8-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/8/src8.pdf",
+      "title": "Lecture 8 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-section-8",
+      "url": "https://cs50.harvard.edu/x/sections/8/",
+      "title": "Section 8",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:43+03:30",
+      "verified_at": "2026-10-29T07:44:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "c7bb3b4c1c8b6b67227bad0326b066d8c13d38aadbdf39d75f15512b5092e532"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/8/",
+      "anchors": [
+        "week-8-html-css-javascript"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/sections.md"
+    },
+    {
+      "id": "src-section-8-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/8/lang/en/section8.txt",
+      "title": "Section 8 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "verified_at": "2026-10-29T07:44:55+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary; chapter times from section8.srt."
+    },
+    {
+      "id": "src-section-8-video",
+      "url": "https://video.cs50.io/coRcSVIx5hc",
+      "title": "Section 8 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Also https://youtu.be/coRcSVIx5hc ; audio https://cdn.cs50.net/2025/fall/sections/8/section8.mp3"
+    },
+    {
+      "id": "src-section-8-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/8/section8.pdf",
+      "title": "Section 8 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-section-8-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/8/src8.zip",
+      "title": "Section 8 source code (scoreboard.html)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/section-code/files/scoreboard.html",
+      "notes": "One file, scoreboard.html (2228 bytes). Reproduced only in short verbatim excerpts in the section page; index https://cdn.cs50.net/2025/fall/sections/8/src8/ and PDF https://cdn.cs50.net/2025/fall/sections/8/src8.pdf."
+    },
+    {
+      "id": "src-pset-8",
+      "url": "https://cs50.harvard.edu/x/psets/8/",
+      "title": "Problem Set 8",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:44+03:30",
+      "verified_at": "2026-10-29T07:44:40+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "4007ae1845fb299470f059fecde0b670110e60a2b5df99303b6c5fa4e31b6597"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/8/",
+      "anchors": [
+        "problem-set-8",
+        "what-to-do",
+        "when-to-do-it",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/psets/README.md",
+      "notes": "What to do: submit both Trivia and Homepage. Due 2027-06-30 23:59 UTC (2027-07-01 03:29 Asia/Tehran)."
+    },
+    {
+      "id": "src-pset-8-trivia",
+      "url": "https://cs50.harvard.edu/x/psets/8/trivia/",
+      "title": "Trivia",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:45+03:30",
+      "verified_at": "2026-10-29T07:44:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "6646bcd156f0da1e2d0ceb14fbf49997035469e4da4b2e3d088522aa7ecf4769"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/8/trivia/",
+      "anchors": [
+        "trivia",
+        "getting-started",
+        "implementation-details",
+        "walkthrough",
+        "hints",
+        "testing",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/psets/trivia.md"
+    },
+    {
+      "id": "src-pset-8-homepage",
+      "url": "https://cs50.harvard.edu/x/psets/8/homepage/",
+      "title": "Homepage",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:46+03:30",
+      "verified_at": "2026-10-29T07:44:41+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "96e334ee6c67be045c45fbe3da4b6ca50c7f8667aa6654ceae9c04077ba69f28"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/8/homepage/",
+      "anchors": [
+        "homepage",
+        "background",
+        "getting-started",
+        "specification",
+        "testing",
+        "assessment",
+        "hints",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/psets/homepage.md"
+    },
+    {
+      "id": "src-practice-redo",
+      "url": "https://cs50.harvard.edu/x/practice/redo/",
+      "title": "Radio Shack Redo",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:10+03:30",
+      "verified_at": "2026-10-29T07:44:39+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "1fdf5938e2e7f422623c0af5c7d3881d0f2fc64663dd8163346988c942258057"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/redo/",
+      "anchors": [
+        "radio-shack-redo",
+        "learning-goals",
+        "background",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/practice/redo.md"
+    },
+    {
+      "id": "src-short-internet-primer",
+      "url": "https://cs50.harvard.edu/x/shorts/internet_primer/",
+      "title": "Short: Internet Primer (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:07+03:30",
+      "verified_at": "2026-10-29T07:44:50+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "c1ce563bf7ae7ddc4be65681bd93d35d49181aeef17a30fbad3d66d07d0d0a12"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/internet-primer.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/internet_primer/lang/en/internet_primer.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/internet_primer/lang/en/internet_primer.srt. Video https://youtu.be/04GztBlVo_s. Slides https://cdn.cs50.net/2017/fall/shorts/internet_primer/internet_primer.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-ip",
+      "url": "https://cs50.harvard.edu/x/shorts/ip/",
+      "title": "Short: IP (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:09+03:30",
+      "verified_at": "2026-10-29T07:44:51+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "ee784fc7ec7ef97102146cce5aa1e73cbe899f882116a018f71b8b2e83253c8c"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/ip.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/ip/lang/en/ip.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/ip/lang/en/ip.srt. Video https://youtu.be/A1g9SokDJSU. Slides https://cdn.cs50.net/2017/fall/shorts/ip/ip.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-tcp",
+      "url": "https://cs50.harvard.edu/x/shorts/tcp/",
+      "title": "Short: TCP (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:11+03:30",
+      "verified_at": "2026-10-29T07:44:54+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "34647bd79c77d07311ddb284214fb61ff6b6408286c678553750c0c9701a45df"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/tcp.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/tcp/lang/en/tcp.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/tcp/lang/en/tcp.srt. Video https://youtu.be/GP7uvI_6uas. Slides https://cdn.cs50.net/2017/fall/shorts/tcp/tcp.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-http",
+      "url": "https://cs50.harvard.edu/x/shorts/http/",
+      "title": "Short: HTTP (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:13+03:30",
+      "verified_at": "2026-10-29T07:44:49+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "c97011425459189a58aefd8ed94d55d70e5500204032af4885b8f183e6f91591"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/http.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/http/lang/en/http.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/http/lang/en/http.srt. Video https://youtu.be/4axL8Gfw2nI. Slides https://cdn.cs50.net/2017/fall/shorts/http/http.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-html",
+      "url": "https://cs50.harvard.edu/x/shorts/html/",
+      "title": "Short: HTML (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:15+03:30",
+      "verified_at": "2026-10-29T07:44:48+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "586bb5e6e61e71c024e8246d0fb4bc3337f562f124abf820b9cc1e2f1eb20c30"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/html.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/html/lang/en/html.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/html/lang/en/html.srt. Video https://youtu.be/YK78KhMf7bs. Slides https://cdn.cs50.net/2017/fall/shorts/html/html.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-css",
+      "url": "https://cs50.harvard.edu/x/shorts/css/",
+      "title": "Short: CSS (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:17+03:30",
+      "verified_at": "2026-10-29T07:44:45+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "3d88fbcf97f8148335d947076fc2fc290cd9e8c5d2114b328c0447f76074cc08"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/css.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/css/lang/en/css.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/css/lang/en/css.srt. Video https://youtu.be/Ub3FKU21ubk. Slides https://cdn.cs50.net/2017/fall/shorts/css/css.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-javascript",
+      "url": "https://cs50.harvard.edu/x/shorts/javascript/",
+      "title": "Short: JavaScript (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:19+03:30",
+      "verified_at": "2026-10-29T07:44:53+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "bbd1681610d7aa74064881ef9c900512cac75b1cbf714103af22e6e3686d2670"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/javascript.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/javascript/lang/en/javascript.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/javascript/lang/en/javascript.srt. Video https://youtu.be/Z93IaNfavZw. Slides https://cdn.cs50.net/2017/fall/shorts/javascript/javascript.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-short-dom",
+      "url": "https://cs50.harvard.edu/x/shorts/dom/",
+      "title": "Short: DOM (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:21+03:30",
+      "verified_at": "2026-10-29T07:44:46+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "c936de7ca50a27fb1dbbd9e4344baff8b2a116a624f190c0a95a0f5ff440be6a"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/shorts/dom.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/dom/lang/en/dom.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/dom/lang/en/dom.srt. Video https://youtu.be/LKWJpgvfH3U. Slides https://cdn.cs50.net/2017/fall/shorts/dom/dom.pdf (link only). Recorded 2017 for an older CS50; see d140-d142."
+    },
+    {
+      "id": "src-trivia-walkthrough",
+      "url": "https://video.cs50.io/WGd0Jx7rxUo",
+      "title": "Trivia walkthrough video (embedded in the Trivia page)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-trivia-distribution",
+      "url": "https://cdn.cs50.net/2025/fall/psets/8/trivia.zip",
+      "title": "Trivia distribution (index.html, styles.css)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/psets/trivia-distribution/",
+      "notes": "Starter files only; reproduced nowhere in the package. The Trivia page's two staff solutions under Hints are link-only (D64)."
+    },
+    {
+      "id": "src-homepage-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/8/homepage.zip",
+      "title": "Homepage distribution (index.html, styles.css)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/psets/homepage-distribution/",
+      "notes": "Starter head links Bootstrap 5.3.8 and jQuery 4.0.0; not reproduced (D65)."
+    },
+    {
+      "id": "src-redo-distribution",
+      "url": "https://cdn.cs50.net/2022/fall/labs/8/redo.zip",
+      "title": "Radio Shack Redo distribution (radio1996, radio1997, radiotoday)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-08-html-css-javascript/practice/redo-distribution/",
+      "notes": "2022 lab distribution; not reproduced."
+    },
+    {
+      "id": "src-markup-validator",
+      "url": "https://validator.w3.org/#validate_by_input",
+      "title": "W3C Markup Validation Service (recommended by Homepage)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-bootstrap-docs",
+      "url": "https://getbootstrap.com/docs/5.3/",
+      "title": "Bootstrap 5.3 documentation (linked from the notes and Homepage)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Redo links the 5.2 pages (navbar, columns, images, carousel); see d137."
+    },
+    {
+      "id": "src-mdn-js",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "title": "MDN Web Docs: JavaScript and DOM",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Cited only for facts the official pages leave open: == vs === (Equality_comparisons_and_sameness), let/const and undeclared assignment (Statements/for...of), innerHTML vs textContent security note (API/Element/innerHTML), querySelector/querySelectorAll (linked from Trivia)."
+    },
+    {
+      "id": "src-html-spec",
+      "url": "https://html.spec.whatwg.org/multipage/syntax.html#void-elements",
+      "title": "HTML Living Standard: void elements and syntax",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Cited for void elements (img, input, link, meta) and the html5lib parse-error vocabulary used in QA."
+    },
+    {
+      "id": "src-w3schools-web",
+      "url": "https://www.w3schools.com/html/",
+      "title": "W3Schools HTML, CSS and JS references (recommended by Homepage)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:41+03:30",
+      "notes": "Also https://www.w3schools.com/css/ and https://www.w3schools.com/js/"
+    },
+    {
+      "id": "src-time-cs50-deadline-8",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 8 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:41+03:30"
+    },
+    {
+      "id": "src-web-box-8",
+      "url": "urn:cs50x-anzali:box:web",
+      "title": "Node.js 20.19.2, jsdom 24.1.3, html5lib 1.1 and tinycss2 1.4.0 on the CS50x Anzali build box (outside the package); run evidence in validation/question-qa-week08.md/.json",
+      "source_type": "tool",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T08:00:00+03:30",
+      "notes": "Box-only verification. jsdom has no layout engine and no real alert(); alert is captured as text and setInterval is driven by a short wait (D67). html5lib reports parse errors, which is narrower than the W3C validator (D66)."
+    },
+    {
+      "id": "src-anzali-authored-8",
+      "url": "urn:cs50x-anzali:authored:week-08",
+      "title": "Material authored by CS50x Anzali for Week 8 (examples marked تألیفی, exercises, challenges, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T08:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-8",
+      "url": "urn:cs50x-anzali:inference:week-08",
+      "title": "Editorial inferences for Week 8 (chapter boundaries from official .srt cue times; concept graph; topic order; corrections of imprecise wording, labelled استنتاجی)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-29T08:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d132",
+      "topic": "autocomplete loop variable is never declared",
+      "a": {
+        "source": "src-notes-8#javascript",
+        "value": "autocomplete.html: 'for (word of WORDS) {' with no let/const"
+      },
+      "b": {
+        "source": "src-web-box-8",
+        "value": "node 20: the loop works in non-strict code by creating an implicit global named word; the same loop under 'use strict' throws ReferenceError (box run 2026-10-29). MDN for...of shows 'for (const element of array)'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Code kept verbatim in w08-n15; an authored callout explains the implicit global and shows the declared form 'for (let word of WORDS)' as the habit to keep."
+    },
+    {
+      "id": "d133",
+      "topic": "'the center attribute cascades'",
+      "a": {
+        "source": "src-notes-8#css",
+        "value": "'Because everything inside body is a child of body, the center attribute cascades down to those children.'"
+      },
+      "b": {
+        "source": "src-notes-8#css",
+        "value": "Same section: 'CSS is filled with properties'; text-align: center is a CSS property set through the style attribute"
+      },
+      "status": "consistent",
+      "note": "Persian note says the text-align property (set in the style attribute) is inherited by the children."
+    },
+    {
+      "id": "d134",
+      "topic": "'Semantic tags' bullet describes classes and the style element",
+      "a": {
+        "source": "src-notes-8#css",
+        "value": "'It turns out that there are newer semantic tags included in HTML' followed by an explanation of the <style> element and class selectors"
+      },
+      "b": {
+        "source": "src-notes-8#css",
+        "value": "home4.html itself shows both: header, main and footer (semantic tags) and the classes centered, large, medium, small"
+      },
+      "status": "complementary",
+      "note": "w08-n11 treats the two ideas separately: semantic tags (header/main/footer) and class selectors in a <style> element."
+    },
+    {
+      "id": "d135",
+      "topic": "Who is to blame for a 500",
+      "a": {
+        "source": "src-notes-8#https",
+        "value": "'500 errors are usually your fault as the developer when they concern a product or application of your creation' (with a caveat about infrastructure and third parties)"
+      },
+      "b": {
+        "source": "src-short-http",
+        "value": "'500 Internal Server Error ... it's not actually you making a mistake in your request. It's actually the server failing'"
+      },
+      "status": "complementary",
+      "note": "Different points of view: the short speaks to the visitor making the request, the notes to the developer of the server. The Persian note states both."
+    },
+    {
+      "id": "d136",
+      "topic": "Homepage starter head adds jQuery; the lecture's Bootstrap head does not",
+      "a": {
+        "source": "src-pset-8-homepage#getting-started",
+        "value": "starter index.html head links bootstrap@5.3.8 CSS and JS and also https://code.jquery.com/jquery-4.0.0.js"
+      },
+      "b": {
+        "source": "src-notes-8#frameworks",
+        "value": "Bootstrap head in the notes has only the two bootstrap@5.3.8 tags; Bootstrap 5 does not need jQuery"
+      },
+      "status": "complementary",
+      "note": "Guide says jQuery is included by the starter and is optional; nothing in Week 8 requires it. The DOM short (2017) presents jQuery as the most popular library of its time."
+    },
+    {
+      "id": "d137",
+      "topic": "Radio Shack Redo links Bootstrap 5.2 docs",
+      "a": {
+        "source": "src-practice-redo#getting-started",
+        "value": "navbar, columns, images and carousel links go to getbootstrap.com/docs/5.2/"
+      },
+      "b": {
+        "source": "src-notes-8#frameworks",
+        "value": "notes and Homepage use bootstrap@5.3.8 and docs/5.3"
+      },
+      "status": "complementary",
+      "note": "Redo is the 2022 lab; the guide links the 5.3 pages next to the official 5.2 links and says the class names used there are the same in 5.3 (inference, labelled)."
+    },
+    {
+      "id": "d138",
+      "topic": "Typos in Radio Shack Redo",
+      "a": {
+        "source": "src-practice-redo#learning-goals",
+        "value": "'aquainted', 'controling', 'Scoll', 'appropriage'"
+      },
+      "b": {
+        "source": "src-practice-redo#learning-goals",
+        "value": "intended: acquainted, controlling, Scroll, appropriate"
+      },
+      "status": "consistent",
+      "note": "Typos only; any quoted requirement text keeps the original spelling."
+    },
+    {
+      "id": "d139",
+      "topic": "Official Trivia page shows full staff solutions",
+      "a": {
+        "source": "src-pset-8-trivia#how-to-submit",
+        "value": "The How to Submit section includes two complete staff solutions (the multiple-choice and free-response handlers with the correct answers)"
+      },
+      "b": {
+        "source": "src-syllabus-honesty",
+        "value": "Package rule FR-13 / D64: no solution content; the CS50 honesty policy forbids copying solutions"
+      },
+      "status": "consistent",
+      "note": "The staff solutions are link-only in the Persian Trivia guide; validate.py forbids the solution's distinctive strings anywhere in week-08 (D64)."
+    },
+    {
+      "id": "d140",
+      "topic": "Internet Primer: IPv6 'eight clusters of 16 bytes'",
+      "a": {
+        "source": "src-short-internet-primer",
+        "value": "'we now have eight clusters of 16 bytes. And 8 times 16 is 128.'"
+      },
+      "b": {
+        "source": "src-notes-8#routers",
+        "value": "IPv6 addresses are 128 bits; eight groups of 16 bits (the short's own arithmetic, 8 x 16 = 128, only works for bits)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Slip of the tongue; the Persian short page says 16 bits per group."
+    },
+    {
+      "id": "d141",
+      "topic": "Shorts are 2017 recordings for an older CS50 (PHP, var, jQuery, getElementById)",
+      "a": {
+        "source": "src-short-internet-primer",
+        "value": "'websites ... written in ... PHP'; JavaScript short uses var for local variables; DOM short uses getElementById and jQuery ('probably the most popular JavaScript library currently in use')"
+      },
+      "b": {
+        "source": "src-notes-8#javascript",
+        "value": "CS50x 2026 uses Python/Flask on the server (Week 9), let in JavaScript, document.querySelector, and no jQuery"
+      },
+      "status": "complementary",
+      "note": "Each Persian short page has a note mapping the 2017 forms to the 2026 ones (let instead of var, querySelector instead of getElementById)."
+    },
+    {
+      "id": "d142",
+      "topic": "JavaScript short: array 'size method', srcElement, 'everything is an object'",
+      "a": {
+        "source": "src-short-javascript",
+        "value": "'we can call the size method, or pop, or push, or shift'; the event example reads the event's source element; 'in JavaScript, everything is a special case of an object. ... var x equals 44 - that's an object'"
+      },
+      "b": {
+        "source": "src-mdn-js",
+        "value": "Arrays have a length property, not a size method; the standard property is event.target (srcElement is a legacy alias); numbers and strings are primitive values, not objects"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page uses length and event.target and calls 44 a primitive value (authored correction, labelled)."
+    },
+    {
+      "id": "d143",
+      "topic": "HTML short: DOCTYPE and 'self-closing' tags",
+      "a": {
+        "source": "src-short-html",
+        "value": "'[the doctype] can be omitted but ... you can't use any of the tags that are HTML5 tags'; input and img described as self-closing with a slash before >"
+      },
+      "b": {
+        "source": "src-html-spec",
+        "value": "Without <!DOCTYPE html> browsers render in quirks mode, but new elements still parse; img and input are void elements and the trailing slash is optional in HTML"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page: always write <!DOCTYPE html> (as the lecture does) because it selects standards mode; void elements need no end tag and no slash. Lecture examples use no slash."
+    },
+    {
+      "id": "d144",
+      "topic": "TCP short transcript: 'connection with protocol'",
+      "a": {
+        "source": "src-short-tcp",
+        "value": "'which can happen because IP is a connection with protocol and so different packets can take different paths'"
+      },
+      "b": {
+        "source": "src-short-ip",
+        "value": "IP moves each packet independently; the intended word is 'connectionless'"
+      },
+      "status": "consistent",
+      "note": "Transcription slip in the official .txt; Persian page says IP is connectionless (inference from context, labelled)."
+    },
+    {
+      "id": "d145",
+      "topic": "'Every computer has a unique address in the world'",
+      "a": {
+        "source": "src-notes-8#routers",
+        "value": "'Every computer has a unique address in the world.'"
+      },
+      "b": {
+        "source": "src-short-internet-primer",
+        "value": "'something called a private IP address ... funneling them through one single address, which is shared by many different computers'"
+      },
+      "status": "complementary",
+      "note": "Persian note keeps the official idea and adds, from the short, that home devices usually share one public address through a router."
+    },
+    {
+      "id": "d146",
+      "topic": "pattern=\".+@.+\\.edu\" 'must include an @ symbol and a .edu'",
+      "a": {
+        "source": "src-notes-8#regular-expressions",
+        "value": "'the email address must include an @ symbol and a .edu'"
+      },
+      "b": {
+        "source": "src-web-box-8",
+        "value": "The pattern attribute must match the whole value: in jsdom malan@harvard.edu passes, malan@harvard.edu.com and a@b.edux fail (box run 2026-10-29)"
+      },
+      "status": "complementary",
+      "note": "Persian note: the value must END with .edu, because pattern is matched against the entire value."
+    },
+    {
+      "id": "d147",
+      "topic": "Problem distributions come from three different years",
+      "a": {
+        "source": "src-trivia-distribution",
+        "value": "trivia.zip from cdn.cs50.net/2025/fall/psets/8/"
+      },
+      "b": {
+        "source": "src-homepage-distribution",
+        "value": "homepage.zip from cdn.cs50.net/2026/x/psets/8/; redo.zip from cdn.cs50.net/2022/fall/labs/8/"
+      },
+      "status": "complementary",
+      "note": "All three are linked from the 2026 pages; guides cite each URL as given."
+    },
+    {
+      "id": "d148",
+      "topic": "Notes list fewer files than src8.zip",
+      "a": {
+        "source": "src-notes-8#html",
+        "value": "download links cover hello0, paragraphs, headings, lists0, lists1, table, image, video, link0, search0-1, register0-1, home0, home3, home4, home7, phonebook0-1, hello1, hello3, hello5, background, blink, autocomplete"
+      },
+      "b": {
+        "source": "src-src8-zip",
+        "value": "the zip also contains hello2/4/6, home1/2/5/6, link1-3, favorites0-2, geolocation, bootstrap and others shown only in the lecture video"
+      },
+      "status": "complementary",
+      "note": "Only files shown in the notes are reproduced; the others are named in sources.json (src-src8-zip) and not copied."
+    },
+    {
+      "id": "d149",
+      "topic": "HTML short: h1-h6 'progressively larger'",
+      "a": {
+        "source": "src-short-html",
+        "value": "'six different levels of headers ... which are progressively larger and larger headers. And they get smaller and smaller'"
+      },
+      "b": {
+        "source": "src-notes-8#html",
+        "value": "h1 is the top-level (largest) heading; h6 the smallest"
+      },
+      "status": "consistent",
+      "note": "Speaker corrects himself in the next sentence; the Persian page states h1 largest to h6 smallest."
+    },
+    {
+      "id": "d150",
+      "topic": "Section 8: '=== for strict equality' but scoreboard.html uses ==",
+      "a": {
+        "source": "src-section-8-transcript",
+        "value": "Kelly: equality 'will be checked using 3 equal signs for strict equality', then shows that == behaves the same here and = alerts immediately"
+      },
+      "b": {
+        "source": "src-section-8-code",
+        "value": "scoreboard.html (src8.zip): if (team1 == 10) and if (team2 == 10)"
+      },
+      "status": "complementary",
+      "note": "Both work for numbers; the Persian section page quotes the file as published and recommends === (as in the lecture and notes)."
+    },
+    {
+      "id": "d151",
+      "topic": "Section 8: 'em ... calculates based on the size of your screen'",
+      "a": {
+        "source": "src-section-8-transcript",
+        "value": "'this EM ... is this sort of relative measurement which calculates based on the size of your screen'"
+      },
+      "b": {
+        "source": "src-w3schools-web",
+        "value": "em is relative to the element's font size (screen-relative units are vw/vh)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian page: em is relative to the font size (inference from the CSS reference; not run on the box)."
+    },
+    {
+      "id": "d152",
+      "topic": "Section 8: 'light blue does not exist'",
+      "a": {
+        "source": "src-section-8-transcript",
+        "value": "'light blue does not exist' (typed with a space), then a student notes 'lightblue without a space exists'"
+      },
+      "b": {
+        "source": "src-section-8-code",
+        "value": "scoreboard.html: background-color: lightblue;"
+      },
+      "status": "consistent",
+      "note": "Persian page: CSS colour names are single words without spaces (lightblue)."
+    },
+    {
+      "id": "d153",
+      "topic": "HTTP short: version is 'probably always going to be HTTP/1.1'",
+      "a": {
+        "source": "src-short-http",
+        "value": "'HTTP version is probably always going to be HTTP/1.1. 1.0 also exists but isn't really used anymore.'"
+      },
+      "b": {
+        "source": "src-notes-8#https",
+        "value": "the lecture's request/response examples use HTTP/2"
+      },
+      "status": "complementary",
+      "note": "2017 recording; the Persian short page notes that the 2025 lecture shows HTTP/2."
+    },
+    {
+      "id": "d154",
+      "topic": "CSS short: border style 'ridge ... would be wavy line'; opacity called a tag",
+      "a": {
+        "source": "src-short-css",
+        "value": "'a ridge line, which would be wavy line'; 'opacity, which is a tag we didn't talk about'"
+      },
+      "b": {
+        "source": "src-w3schools-web",
+        "value": "ridge draws a 3D ridged border; opacity is a CSS property"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian page corrects both (inference from the CSS reference; not rendered on the box)."
+    }
+  ]
+}

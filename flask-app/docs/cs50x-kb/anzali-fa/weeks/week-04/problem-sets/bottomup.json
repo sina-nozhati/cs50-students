@@ -1,0 +1,180 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w04-pr-bottomup",
+  "kind": "practice",
+  "week": 4,
+  "title_en": "Bottom Up",
+  "title_fa": "از پایین به بالا (Bottom Up)",
+  "guide_doc_id": "w04-pr-bottomup",
+  "guide_file": "bottomup.fa.md",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/bottomup/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w04-pr-bottomup-r1",
+        "text_fa": "فراداده را با کد ویرایش کن تا سطر بالای تصویر اول و سطر پایین آخر باشد.",
+        "text_en": "Your job is to edit the metadata programmatically so that the bitmap’s top row is first and bottom row last.",
+        "source_ref": "src-practice-bottomup#background"
+      },
+      {
+        "id": "w04-pr-bottomup-r2",
+        "text_fa": "پیکسل‌ها را مستقیم ویرایش نکن.",
+        "text_en": "Best to avoid editing the pixels directly, lest you further corrupt the file!",
+        "source_ref": "src-practice-bottomup#background"
+      },
+      {
+        "id": "w04-pr-bottomup-r3",
+        "text_fa": "در `bottomup.c` کمی کد بنویس تا تصویر از پایین‌به‌بالا به بالا‌به‌پایین تبدیل شود.",
+        "text_en": "Use that information to write a bit of code in `bottomup.c` to change the image from bottom-up to top-down.",
+        "source_ref": "src-practice-bottomup#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/bottomup",
+      "style50": "style50 bottomup.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/4/bottomup.zip\nunzip bottomup.zip\nrm bottomup.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "اجرای نمونه",
+        "text": "bottomup/ $ ./bottomup harvard_bottomup.bmp harvard_topdown.bmp",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/bottomup",
+      "style50": "style50 bottomup.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "PTWrnMK23dr9co7YhmLzGU1lM",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d60",
+      "d61",
+      "d63"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w04-c-file-header",
+      "w04-c-bmp-rgbtriple",
+      "w04-c-typedef-struct",
+      "w04-c-fread-fwrite",
+      "w04-c-stdint-types"
+    ],
+    "prerequisite_lesson_ids": [
+      "w04-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w04-c-file-header",
+        "note_id": "w04-ps-volume",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      },
+      {
+        "concept_id": "w04-c-bmp-rgbtriple",
+        "note_id": "w04-ps-filter-less",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      },
+      {
+        "concept_id": "w04-c-typedef-struct",
+        "note_id": "w04-sh-defining-custom-types",
+        "lesson_id": "w04-l03",
+        "unit_id": "w04-l03-u01"
+      },
+      {
+        "concept_id": "w04-c-fread-fwrite",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u02"
+      },
+      {
+        "concept_id": "w04-c-stdint-types",
+        "note_id": "w04-ps-volume",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "`bmp.h` را باز کن و فیلدهای struct `BITMAPINFOHEADER` را یکی‌یکی بخوان."
+      },
+      {
+        "n": 2,
+        "hint_fa": "صفحهٔ رسمی پیشنهاد می‌کند مستند Microsoft هر فیلد را بخوانی. کدام فیلد دربارهٔ جهت ذخیرهٔ سطرها چیزی می‌گوید؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "در `bottomup.c` ببین سرآیندها کجا خوانده و کجا نوشته می‌شوند. تغییر تو باید بین این دو باشد."
+      },
+      {
+        "n": 4,
+        "hint_fa": "صفحهٔ رسمی می‌گوید این کد لازم نیست پیچیده باشد."
+      }
+    ],
+    "common_mistakes_fa": [
+      "دست زدن به پیکسل‌ها",
+      "تغییر سرآیند پس از نوشته شدنش در فایل خروجی",
+      "تغییر فیلد اشتباه از سرآیند"
+    ],
+    "self_checklist": [
+      {
+        "id": "w04-pr-bottomup-c01",
+        "text_fa": "فقط فراداده را تغییر داده‌ام، نه پیکسل‌ها را.",
+        "maps_to": "w04-pr-bottomup-r2"
+      },
+      {
+        "id": "w04-pr-bottomup-c02",
+        "text_fa": "تصویر خروجی `harvard_topdown.bmp` ساخته می‌شود و درست ایستاده است.",
+        "maps_to": "w04-pr-bottomup-r1"
+      },
+      {
+        "id": "w04-pr-bottomup-c03",
+        "text_fa": "تغییرم در `bottomup.c` است.",
+        "maps_to": "w04-pr-bottomup-r3"
+      },
+      {
+        "id": "w04-pr-bottomup-c04",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w04-pr-bottomup-c05",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "Why do image files need metadata?",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "مستند Microsoft برای BITMAPINFOHEADER",
+      "url": "https://learn.microsoft.com/en-us/previous-versions//dd183376(v=vs.85)",
+      "reason_fa": "مرجع بیرونی که صفحهٔ رسمی پیشنهاد می‌کند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

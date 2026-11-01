@@ -1,0 +1,374 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l01",
+  "type": "lesson",
+  "week": 9,
+  "order": 1,
+  "stage_id": "w09-s1",
+  "title_fa": "سرور خودت: Flask، مسیر و قالب",
+  "title_en": "Your own server: Flask, routes and templates",
+  "note_ids": [
+    "w09-n01",
+    "w09-n02",
+    "w09-n03"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w09-c-static-page",
+    "w09-c-dynamic-page",
+    "w09-c-route",
+    "w09-c-flask",
+    "w09-c-app-py-requirements",
+    "w09-c-flask-app-object",
+    "w09-c-decorator",
+    "w09-c-return-text-html",
+    "w09-c-flask-run",
+    "w09-c-templates-folder",
+    "w09-c-render-template",
+    "w09-c-request-args",
+    "w09-c-jinja-placeholder",
+    "w09-c-jinja-autoescape"
+  ],
+  "objective_ids": [
+    "w09-o01",
+    "w09-o02",
+    "w09-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w08-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۸ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l01-u01",
+      "order": 1,
+      "title_fa": "صفحهٔ ایستا و پویا، مسیر",
+      "concept_ids": [
+        "w09-c-static-page",
+        "w09-c-dynamic-page",
+        "w09-c-route"
+      ],
+      "objective_ids": [
+        "w09-o01"
+      ],
+      "note_id": "w09-n01",
+      "source_refs": [
+        "src-notes-9#http-server",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "در هفتهٔ ۸ با `http-server` فایل‌های HTML ازپیش‌نوشته را می‌فرستادی: صفحهٔ **ایستا** (`static`) هر بار همان است. صفحهٔ **پویا** (`dynamic`) را سرور هر بار با کد می‌سازد و می‌تواند به ورودی، مثلاً `?name=David` ، پاسخ متفاوت بدهد. نشانی‌ای مثل `/search?q=cats` یک **مسیر** (`route`) و پس از `?` پارامترهای آن را دارد. این هفته خودت برنامه‌ای می‌نویسی که برای هر مسیر تصمیم می‌گیرد چه برگرداند.",
+        "note_id": "w09-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "url-file",
+        "lang": "text",
+        "content": "https://www.example.com/folder/file.html",
+        "source_ref": "src-notes-9#http-server",
+        "explain_fa": "یک نشانی که به یک فایل ایستا اشاره می‌کند (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام صفحه **پویا** است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "صفحه‌ای که سرور برای `/?name=David` متن `hello, David` و برای `/?name=Carter` متن `hello, Carter` می‌سازد.",
+            "correct": true,
+            "feedback_fa": "درست. پاسخ با ورودی فرق می‌کند، پس سرور آن را با کد می‌سازد."
+          },
+          {
+            "id": "b",
+            "text_fa": "فایل `index.html` که `http-server` بدون تغییر می‌فرستد.",
+            "correct": false,
+            "feedback_fa": "این صفحهٔ ایستاست: همان فایل ازپیش‌نوشته."
+          },
+          {
+            "id": "c",
+            "text_fa": "صفحه‌ای که فقط CSS آن عوض شده است.",
+            "correct": false,
+            "feedback_fa": "تغییر سبک با دست صفحه را پویا نمی‌کند؛ پویا یعنی سرور پاسخ را با کد بسازد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l01-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر بخش نشانی `https://example.com/search?q=cats` را نام ببر: «مسیر» یا «پارامتر»: (۱) `/search` (۲) `q=cats`",
+        "expected": {
+          "answers": {
+            "1": "مسیر",
+            "2": "پارامتر"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "پس از `?` پارامترها می‌آیند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l01-u02",
+      "order": 2,
+      "title_fa": "app.py، تزئین‌گر و flask run",
+      "concept_ids": [
+        "w09-c-flask",
+        "w09-c-app-py-requirements",
+        "w09-c-flask-app-object",
+        "w09-c-decorator",
+        "w09-c-return-text-html",
+        "w09-c-flask-run"
+      ],
+      "objective_ids": [
+        "w09-o02"
+      ],
+      "note_id": "w09-n02",
+      "source_refs": [
+        "src-notes-9#flask",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "**Flask** یک ریزچارچوب (`microframework`) وب در پایتون است. برنامه دست‌کم `app.py` دارد و `requirements.txt` کتابخانه‌های لازم را فهرست می‌کند. `app = Flask(__name__)` برنامه را می‌سازد. **تزئین‌گر** `@app.route(\"/\")` تابع زیر خودش را به مسیر `/` وصل می‌کند و هر چه آن تابع برگرداند، پاسخ مرورگر است: متن ساده یا HTML. با `flask run` در ترمینال، سرور اجرا می‌شود.",
+        "note_id": "w09-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-text",
+        "lang": "python",
+        "content": "# Says hello to world by returning a string of text\n\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return \"hello, world\"",
+        "source_ref": "src-notes-9#flask",
+        "explain_fa": "ساده‌ترین برنامهٔ Flask (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `@app.route(\"/\")` بالای `def index():` ، تزئین‌گر چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تابع `index` را به مسیر `/` وصل می‌کند تا با درخواست به `/` اجرا شود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "تابع `index` را بی‌درنگ هنگام اجرای فایل صدا می‌زند.",
+            "correct": false,
+            "feedback_fa": "تابع فقط وقتی درخواستی به `/` برسد اجرا می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "فایل `index.html` را خودکار می‌فرستد.",
+            "correct": false,
+            "feedback_fa": "فرستادن قالب کار `render_template` است، نه تزئین‌گر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l01-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی با کلاینت آزمایشی Flask یک درخواست به `/` و یکی به `/bye` می‌فرستد. پاسخ‌ها چه هستند؟ (خط `STATUS` فقط وقتی کد وضعیت 200 نیست چاپ می‌شود.)",
+        "expected": {
+          "output": "hello, world\nSTATUS 404\n<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `/` تعریف شده و `/bye` نه، پس 404.",
+          "incorrect_fa": "برای `/bye` هیچ تابعی وصل نشده است."
+        },
+        "hints_fa": [
+          "کدام مسیرها تزئین‌گر دارند؟"
+        ],
+        "lang": "flask",
+        "code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return \"hello, world\"\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"path\": \"/\"}, {\"path\": \"/bye\"}]"
+          },
+          "expected_stdout_exact": "hello, world\nSTATUS 404\n<!doctype html>\n<html lang=en>\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l01-u03",
+      "order": 3,
+      "title_fa": "render_template، request.args و escape",
+      "concept_ids": [
+        "w09-c-templates-folder",
+        "w09-c-render-template",
+        "w09-c-request-args",
+        "w09-c-jinja-placeholder",
+        "w09-c-jinja-autoescape"
+      ],
+      "objective_ids": [
+        "w09-o03"
+      ],
+      "note_id": "w09-n03",
+      "source_refs": [
+        "src-notes-9#flask",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "قالب‌ها در پوشهٔ `templates` هستند. `render_template(\"index.html\", name=name)` قالب را می‌خواند و جای‌نگهدار `{{ name }}` را با مقدار پر می‌کند. `request.args.get(\"name\", \"world\")` پارامتر `name` را از نشانی می‌خواند و اگر نباشد `world` می‌دهد. Jinja نویسه‌های ویژهٔ HTML مثل `<` را خودکار **escape** می‌کند، پس متن کاربر به تگ تبدیل نمی‌شود.",
+        "note_id": "w09-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-args",
+        "lang": "python",
+        "content": "# Uses request.args.get\n\nfrom flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    name = request.args.get(\"name\", \"world\")\n    return render_template(\"index.html\", name=name)",
+        "source_ref": "src-notes-9#flask",
+        "explain_fa": "خواندن name از نشانی با مقدار پیش‌فرض (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر کاربر به `/?name=<b>Sina</b>` برود و قالب `hello, {{ name }}` باشد، Flask چه می‌فرستد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`hello, &lt;b&gt;Sina&lt;/b&gt;` ؛ یعنی مرورگر خود متن را نشان می‌دهد، نه متن پررنگ.",
+            "correct": true,
+            "feedback_fa": "درست. Jinja نویسه‌های ویژه را escape می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`hello, <b>Sina</b>` و Sina پررنگ می‌شود.",
+            "correct": false,
+            "feedback_fa": "Flask برای قالب‌های `.html` خودکار escape می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای 400 چون `<` در نشانی مجاز نیست.",
+            "correct": false,
+            "feedback_fa": "پارامتر خوانده می‌شود؛ فقط هنگام نوشتن در HTML escape می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l01-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را پر کن تا `/?name=David` متن `hello, David` بدهد و بدون پارامتر `hello, world` .",
+        "lang": "flask",
+        "code_origin": "authored",
+        "template": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    name = request.args.[[b1]](\"name\", [[b2]])\n    return render_template(\"index.html\", name=name)\n",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "get"
+            ],
+            "hint_fa": "متد دیکشنری‌مانند برای خواندن با مقدار پیش‌فرض.",
+            "wrong_feedback": {
+              "form": "`request.form` برای POST است و `request.args.form` وجود ندارد."
+            },
+            "default_wrong_fa": "متد خواندن با پیش‌فرض را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "\"world\"",
+              "'world'"
+            ],
+            "hint_fa": "مقدار پیش‌فرض یک رشته است.",
+            "wrong_feedback": {
+              "world": "بدون نقل‌قول، `world` نام یک متغیر تعریف‌نشده است."
+            },
+            "default_wrong_fa": "رشتهٔ پیش‌فرض را با نقل‌قول بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "get"
+          ],
+          "b2": [
+            "\"world\"",
+            "'world'"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `get` با پیش‌فرض `\"world\"` .",
+          "incorrect_fa": "مقدار پیش‌فرض باید رشته باشد."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"path\": \"/?name=David\"}, {\"path\": \"/\"}]",
+            "templates/index.html": "hello, {{ name }}"
+          },
+          "expected_stdout_exact": "hello, David\nhello, world\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

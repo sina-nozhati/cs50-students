@@ -1,0 +1,234 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w03-l03",
+  "type": "lesson",
+  "week": 3,
+  "order": 3,
+  "stage_id": "w03-s2",
+  "title_fa": "جست‌وجو در C",
+  "title_en": "Searching in C",
+  "note_ids": [
+    "w03-n06",
+    "w03-n07"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w03-l01"
+  ],
+  "concept_ids": [
+    "w03-c-search-int",
+    "w03-c-return-from-main",
+    "w03-c-search-strings",
+    "w03-c-strcmp-return",
+    "w03-c-hardcoded-length"
+  ],
+  "objective_ids": [
+    "w03-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w03-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "units": [
+    {
+      "id": "w03-l03-u01",
+      "order": 1,
+      "title_fa": "search.c با اعداد",
+      "concept_ids": [
+        "w03-c-search-int",
+        "w03-c-return-from-main"
+      ],
+      "objective_ids": [
+        "w03-o05"
+      ],
+      "note_id": "w03-n06",
+      "source_refs": [
+        "src-notes-3#searchc",
+        "src-transcript-3",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "در `search.c` یک آرایهٔ هفت‌تایی از اعداد داریم. برنامه عددی از کاربر می‌گیرد، با حلقه همهٔ خانه‌ها را می‌بیند و اگر پیدا کرد `Found` چاپ می‌کند و `return 0` می‌زند. بعد از حلقه `Not found` و `return 1` می‌آید. با `echo $?` می‌توانی این وضعیت خروج را ببینی.",
+        "note_id": "w03-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "search-int",
+        "lang": "c",
+        "content": "// Implements linear search for integers\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // An array of integers\n    int numbers[] = {20, 500, 10, 5, 100, 1, 50};\n\n    // Search for number\n    int n = get_int(\"Number: \");\n    for (int i = 0; i < 7; i++)\n    {\n        if (numbers[i] == n)\n        {\n            printf(\"Found\\n\");\n            return 0;\n        }\n    }\n    printf(\"Not found\\n\");\n    return 1;\n}",
+        "source_ref": "src-notes-3#searchc",
+        "explain_fa": "کد رسمی search.c با اعداد."
+      },
+      "check": {
+        "id": "w03-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر کاربر عددی وارد کند که در آرایه نیست، برنامهٔ بالا چه وضعیت خروجی برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "1",
+            "correct": true,
+            "feedback_fa": "درست. بعد از حلقه return 1 اجرا می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "0",
+            "correct": false,
+            "feedback_fa": "0 فقط وقتی است که عدد پیدا شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "هیچ؛ main مقدار برنمی‌گرداند",
+            "correct": false,
+            "feedback_fa": "main یک int برمی‌گرداند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l03-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در search.c اگر عدد پیدا شود، حلقه بقیهٔ خانه‌ها را هم می‌بیند.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `return 0` بلافاصله از main خارج می‌شود.",
+          "incorrect_fa": "return چه می‌کند؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l03-u02",
+      "order": 2,
+      "title_fa": "جست‌وجوی رشته با strcmp",
+      "concept_ids": [
+        "w03-c-search-strings",
+        "w03-c-strcmp-return",
+        "w03-c-hardcoded-length"
+      ],
+      "objective_ids": [
+        "w03-o05"
+      ],
+      "note_id": "w03-n07",
+      "source_refs": [
+        "src-notes-3#searchc",
+        "src-manual",
+        "src-transcript-3",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "برای رشته‌ها نمی‌توانیم از `==` استفاده کنیم. `strcmp` از `string.h` دو رشته را مقایسه می‌کند و اگر برابر باشند `0` برمی‌گرداند. پس شرط درست `strcmp(strings[i], s) == 0` است. در سخنرانی، نسخهٔ `==` حتی واژه‌هایی را که در آرایه بودند پیدا نکرد. اگر حد حلقه از طول آرایه بیشتر شود، ممکن است segmentation fault بگیری.",
+        "note_id": "w03-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "search-str",
+        "lang": "c",
+        "content": "// Implements linear search for strings\n\n#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    // An array of strings\n    string strings[] = {\"battleship\", \"boot\", \"cannon\", \"iron\", \"thimble\", \"top hat\"};\n\n    // Search for string\n    string s = get_string(\"String: \");\n    for (int i = 0; i < 6; i++)\n    {\n        if (strcmp(strings[i], s) == 0)\n        {\n            printf(\"Found\\n\");\n            return 0;\n        }\n    }\n    printf(\"Not found\\n\");\n    return 1;\n}",
+        "source_ref": "src-notes-3#searchc",
+        "explain_fa": "کد رسمی search.c با رشته‌ها."
+      },
+      "check": {
+        "id": "w03-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`strcmp(a, b)` وقتی دو رشته برابرند چه برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "0",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "1",
+            "correct": false,
+            "feedback_fa": "1 معنای برابری ندارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "true",
+            "correct": false,
+            "feedback_fa": "strcmp یک int برمی‌گرداند و برابری با صفر نشان داده می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l03-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا این قطعهٔ تألیفی بررسی کند که `word` با `\"hat\"` برابر است.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "if (strcmp(word, \"hat\") [[b1]] 0)\n{\n    printf(\"Found\\n\");\n}",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "=="
+            ],
+            "hint_fa": "strcmp برای برابری صفر برمی‌گرداند.",
+            "wrong_feedback": {
+              "!=": "!= یعنی «برابر نیست».",
+              "=": "= انتساب است، نه مقایسه."
+            },
+            "default_wrong_fa": "عملگر مقایسهٔ برابری را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "=="
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "مقدار بازگشتی strcmp را با صفر مقایسه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

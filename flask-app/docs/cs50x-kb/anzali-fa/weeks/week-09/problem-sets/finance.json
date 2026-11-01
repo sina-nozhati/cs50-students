@@ -1,0 +1,409 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w09-ps-finance",
+  "kind": "pset",
+  "week": 9,
+  "title_en": "C$50 Finance",
+  "title_fa": "سی‌دلار۵۰ فایننس (C$50 Finance)",
+  "guide_doc_id": "w09-ps-finance",
+  "guide_file": "finance.fa.md",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/9/finance/",
+    "index_url": "https://cs50.harvard.edu/x/2026/psets/9/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w09-ps-finance-r1",
+        "text_fa": "`register` را طوری کامل کن که کاربر با یک فرم حساب بسازد: فیلد متنی `username`؛ اگر خالی بود یا از پیش وجود داشت apology نشان بده (برای نام تکراری از `try` و `except` روی `ValueError` استفاده کن).",
+        "text_en": "Require that a user input a username, implemented as a text field whose name is username. Render an apology if the user’s input is blank or the username already exists.",
+        "source_ref": "src-pset-9-finance#register"
+      },
+      {
+        "id": "w09-ps-finance-r2",
+        "text_fa": "فیلدهای `password` و `confirmation`؛ اگر هر کدام خالی بود یا یکی نبودند apology. فرم با POST به `/register` برود و **hash** گذرواژه (با `generate_password_hash`) در `users` ذخیره شود، نه خود گذرواژه.",
+        "text_en": "Require that a user input a password, implemented as a text field whose name is password, and then that same password again, implemented as a text field whose name is confirmation. ... INSERT the new user into users, storing a hash of the user’s password, not the password itself.",
+        "source_ref": "src-pset-9-finance#register"
+      },
+      {
+        "id": "w09-ps-finance-r3",
+        "text_fa": "`quote` را کامل کن: فیلد متنی `symbol`، فرستادن با POST به `/quote`، و نمایش مقدارهای `lookup` (معمولاً با دو قالب، یکی برای فرم و یکی برای نتیجه).",
+        "text_en": "Complete the implementation of quote in such a way that it allows a user to look up a stock’s current price.",
+        "source_ref": "src-pset-9-finance#quote"
+      },
+      {
+        "id": "w09-ps-finance-r4",
+        "text_fa": "`buy` را کامل کن: فیلد `symbol` (apology اگر خالی یا نماد نامعتبر) و فیلد `shares` (apology اگر عدد صحیح مثبت نیست)؛ POST به `/buy`؛ پس از خرید برگشت به صفحهٔ اصلی.",
+        "text_en": "Complete the implementation of buy in such a way that it enables a user to buy stocks. ... Upon completion, redirect the user to the home page.",
+        "source_ref": "src-pset-9-finance#buy"
+      },
+      {
+        "id": "w09-ps-finance-r5",
+        "text_fa": "برای `buy` یک یا چند جدول تازه به `finance.db` اضافه کن تا بدانی چه کسی چه چیزی را به چه قیمتی و کی خرید؛ نوع‌های مناسب SQLite، شاخص `UNIQUE` روی فیلدهای یکتا و شاخص معمولی روی فیلدهای جست‌وجو. اگر پول کافی نیست، بدون خرید apology نشان بده.",
+        "text_en": "Add one or more new tables to finance.db via which to keep track of the purchase. ... Render an apology, without completing a purchase, if the user cannot afford the number of shares at the current price.",
+        "source_ref": "src-pset-9-finance#buy"
+      },
+      {
+        "id": "w09-ps-finance-r6",
+        "text_fa": "`index` را کامل کن: جدولی از سهم‌های کاربر واردشده، تعداد هر کدام، قیمت فعلی و ارزش کل هر دارایی؛ همراه موجودی نقد و جمع کل (ارزش سهم‌ها به‌اضافهٔ نقد).",
+        "text_en": "Complete the implementation of index in such a way that it displays an HTML table summarizing, for the user currently logged in, which stocks the user owns, ... Also display the user’s current cash balance along with a grand total.",
+        "source_ref": "src-pset-9-finance#index"
+      },
+      {
+        "id": "w09-ps-finance-r7",
+        "text_fa": "`sell` را کامل کن: منوی `select` با نام `symbol` (apology اگر انتخاب نشده یا سهمی از آن نیست)، فیلد `shares` (apology اگر عدد صحیح مثبت نیست یا بیش از دارایی است)؛ POST به `/sell` و برگشت به صفحهٔ اصلی.",
+        "text_en": "Complete the implementation of sell in such a way that it enables a user to sell shares of a stock (that he or she owns).",
+        "source_ref": "src-pset-9-finance#sell"
+      },
+      {
+        "id": "w09-ps-finance-r8",
+        "text_fa": "`history` را کامل کن: جدولی از همهٔ تراکنش‌های کاربر، هر سطر با خرید یا فروش بودن، نماد، قیمت، تعداد و تاریخ و زمان؛ با کمترین افزونگی.",
+        "text_en": "Complete the implementation of history in such a way that it displays an HTML table summarizing all of a user’s transactions ever, listing row by row each and every buy and every sell.",
+        "source_ref": "src-pset-9-finance#history"
+      },
+      {
+        "id": "w09-ps-finance-r9",
+        "text_fa": "دست‌کم یک «امضای شخصی» پیاده کن: تغییر گذرواژه، افزودن پول نقد، خرید و فروش از خود `index`، یا امکانی هم‌اندازه.",
+        "text_en": "Implement at least one personal touch of your choice",
+        "source_ref": "src-pset-9-finance#personal-touch"
+      },
+      {
+        "id": "w09-ps-finance-r10",
+        "text_fa": "برنامه را دستی بیازمای (ثبت‌نام، قیمت، خرید چندباره، فروش، تاریخچه) و ورودی‌های غیرمنتظره را هم امتحان کن؛ سپس check50.",
+        "text_en": "Be sure to test your web app manually ... Also test some unexpected usage",
+        "source_ref": "src-pset-9-finance#testing"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/finance",
+      "style50": "style50 app.py",
+      "submit50": "submit50 cs50/problems/2026/x/finance",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/9/finance.zip\nunzip finance.zip\nrm finance.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "خروجی رسمی `ls`",
+        "text": "app.py  finance.db  helpers.py  requirements.txt  static/  templates/",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [
+      "برای نمایش مقدار به دلار، در قالب‌های Jinja از فیلتر `usd` استفاده کن: `{{ value | usd }}` به جای `{{ value }}`.",
+      "`execute` در `cs50.SQL` برای `SELECT` فهرستی از دیکشنری‌ها، برای `INSERT` در جدولی با کلید اصلی خودافزا شناسهٔ سطر تازه، و برای `DELETE` یا `UPDATE` تعداد سطرهای تغییرکرده را برمی‌گرداند.",
+      "`cs50.SQL` هر پرس‌وجو را در ترمینال چاپ می‌کند تا ببینی همانی است که می‌خواستی.",
+      "از جای‌نگهدار `?` استفاده کن، نه f-string، `format` یا `+`، تا از تزریق SQL در امان باشی. (صفحهٔ رسمی این را «paramstyle of named» می‌نامد، اما `?` در واقع سبک qmark است؛ d170.)",
+      "اعتبارسنجی HTML را می‌شود دور زد؛ مقدارها را سمت سرور هم بسنج. اگر جاوااسکریپت به کار بردی، برنامه بدون آن هم باید کار کند.",
+      "اگر تابعی به `helpers.py` اضافه می‌کنی، اتصال تازه به پایگاه داده باز نکن؛ اتصال را به‌عنوان پارامتر بده.",
+      "منطقی است که از دیگران بخواهی سایتت را امتحان کنند و سعی کنند خطا بسازند."
+    ],
+    "official_commands": [
+      {
+        "caption_fa": "اجرای سرور داخلی Flask در پوشهٔ `finance/`",
+        "command": "$ flask run",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/finance",
+      "style50": "style50 app.py",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "7wPTAwT-6bA",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d170",
+      "d171",
+      "d172",
+      "d173",
+      "d179"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w09-c-flask-sql",
+      "w09-c-sql-in-route",
+      "w09-c-session",
+      "w09-c-session-dict",
+      "w09-c-logout-clear",
+      "w09-c-login-required",
+      "w09-c-password-hash",
+      "w09-c-apology",
+      "w09-c-external-quote-api",
+      "w09-c-jinja-filter",
+      "w09-c-layout",
+      "w09-c-request-method",
+      "w09-c-request-form",
+      "w09-c-server-validation",
+      "w09-c-redirect",
+      "w09-c-select-menu",
+      "w09-c-jinja-for",
+      "w09-c-post-redirect-get"
+    ],
+    "prerequisite_lesson_ids": [
+      "w09-l02",
+      "w09-l03",
+      "w09-l04",
+      "w09-l05",
+      "w09-l06"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w09-c-flask-sql",
+        "note_id": "w09-n10",
+        "lesson_id": "w09-l05",
+        "unit_id": "w09-l05-u01"
+      },
+      {
+        "concept_id": "w09-c-sql-in-route",
+        "note_id": "w09-n10",
+        "lesson_id": "w09-l05",
+        "unit_id": "w09-l05-u01"
+      },
+      {
+        "concept_id": "w09-c-session",
+        "note_id": "w09-n11",
+        "lesson_id": "w09-l06",
+        "unit_id": "w09-l06-u01"
+      },
+      {
+        "concept_id": "w09-c-session-dict",
+        "note_id": "w09-n12",
+        "lesson_id": "w09-l06",
+        "unit_id": "w09-l06-u02"
+      },
+      {
+        "concept_id": "w09-c-logout-clear",
+        "note_id": "w09-n12",
+        "lesson_id": "w09-l06",
+        "unit_id": "w09-l06-u02"
+      },
+      {
+        "concept_id": "w09-c-login-required",
+        "note_id": "w09-ps-finance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-password-hash",
+        "note_id": "w09-ps-finance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-apology",
+        "note_id": "w09-ps-finance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-external-quote-api",
+        "note_id": "w09-ps-finance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-jinja-filter",
+        "note_id": "w09-ps-finance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-layout",
+        "note_id": "w09-n05",
+        "lesson_id": "w09-l02",
+        "unit_id": "w09-l02-u02"
+      },
+      {
+        "concept_id": "w09-c-request-method",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u02"
+      },
+      {
+        "concept_id": "w09-c-request-form",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u01"
+      },
+      {
+        "concept_id": "w09-c-server-validation",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      },
+      {
+        "concept_id": "w09-c-redirect",
+        "note_id": "w09-n09",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u02"
+      },
+      {
+        "concept_id": "w09-c-select-menu",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      },
+      {
+        "concept_id": "w09-c-jinja-for",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      },
+      {
+        "concept_id": "w09-c-post-redirect-get",
+        "note_id": "w09-ps-birthdays",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از هر کدی `login` را خط‌به‌خط بخوان: چطور از فرم می‌خواند، چطور `db.execute` می‌کند، چطور hash را می‌سنجد و چه چیزی را در `session` می‌گذارد. بیشتر مسیرها به همین تکه‌ها نیاز دارند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "از `register` شروع کن، چون بقیه بدون کاربر آزمودنی نیستند. قالب تازه‌ات می‌تواند خیلی شبیه `login.html` باشد. صفحهٔ رسمی می‌گوید برای نام تکراری از چه استثنایی استفاده کنی."
+      },
+      {
+        "n": 3,
+        "hint_fa": "پیش از `buy`، روی کاغذ جدول خریدها را طراحی کن: برای هر خرید چه چیزهایی باید بدانی؟ کدام ستون‌ها را بعداً در `WHERE` جست‌وجو می‌کنی؟ آیا همین جدول می‌تواند فروش‌ها را هم نگه دارد؟"
+      },
+      {
+        "n": 4,
+        "hint_fa": "«عدد صحیح مثبت» را دقیق بسنج: رشتهٔ خالی، حروف، `0`، عدد منفی و `1.5` همه باید رد شوند. فکر کن تبدیل رشته به عدد کی استثنا می‌دهد."
+      },
+      {
+        "n": 5,
+        "hint_fa": "برای `index` به پرسش «هر نماد چند سهم دارم؟» فکر کن. صفحهٔ رسمی به `GROUP BY`، `SUM` و `HAVING` اشاره می‌کند؛ قیمت فعلی را برای هر نماد با `lookup` بگیر."
+      },
+      {
+        "n": 6,
+        "hint_fa": "خرید و فروش هر کدام دو کار دارند: ثبت تراکنش و به‌روز کردن پول نقد. ترتیب بررسی‌ها را طوری بچین که اگر شرطی برقرار نیست، هیچ چیز در پایگاه داده تغییر نکند."
+      },
+      {
+        "n": 7,
+        "hint_fa": "مقدارهای مالی را در قالب با فیلتر `usd` نشان بده و محاسبه را در پایتون انجام بده، نه در قالب."
+      }
+    ],
+    "common_mistakes_fa": [
+      "ذخیرهٔ خود گذرواژه به جای hash",
+      "ساختن پرس‌وجو با f-string یا `+`",
+      "پذیرفتن تعداد سهم اعشاری، صفر یا منفی",
+      "کم کردن پول نقد پیش از اطمینان از کافی بودن آن",
+      "نشان دادن سهم‌های همهٔ کاربران به جای `session[\"user_id\"]`",
+      "فراموش کردن `@login_required` روی مسیر تازه",
+      "باز کردن اتصال تازهٔ پایگاه داده در `helpers.py`",
+      "تکیه بر اعتبارسنجی HTML یا جاوااسکریپت به‌تنهایی"
+    ],
+    "self_checklist": [
+      {
+        "id": "w09-ps-finance-c01",
+        "text_fa": "ثبت‌نام با نام خالی، نام تکراری، گذرواژهٔ خالی یا تأیید ناهمسان apology می‌دهد.",
+        "maps_to": "w09-ps-finance-r1"
+      },
+      {
+        "id": "w09-ps-finance-c02",
+        "text_fa": "در جدول `users` فقط hash گذرواژه ذخیره شده است.",
+        "maps_to": "w09-ps-finance-r2"
+      },
+      {
+        "id": "w09-ps-finance-c03",
+        "text_fa": "پس از ثبت‌نام می‌توانم وارد و خارج شوم.",
+        "maps_to": "w09-ps-finance-r2"
+      },
+      {
+        "id": "w09-ps-finance-c04",
+        "text_fa": "`quote` با نماد معتبر نام، قیمت و نماد را نشان می‌دهد و با نماد نامعتبر apology.",
+        "maps_to": "w09-ps-finance-r3"
+      },
+      {
+        "id": "w09-ps-finance-c05",
+        "text_fa": "`buy` با نماد نامعتبر، تعداد صفر، منفی، اعشاری یا حرفی، و خرید بیش از پول نقد apology می‌دهد و چیزی نمی‌خرد.",
+        "maps_to": "w09-ps-finance-r4"
+      },
+      {
+        "id": "w09-ps-finance-c06",
+        "text_fa": "جدول(های) تازه با `CREATE TABLE` و شاخص‌های لازم ساخته شده‌اند و می‌دانند چه کسی، چه، به چه قیمتی و کی.",
+        "maps_to": "w09-ps-finance-r5"
+      },
+      {
+        "id": "w09-ps-finance-c07",
+        "text_fa": "صفحهٔ اصلی سهم‌ها، تعداد، قیمت، ارزش، نقد و جمع کل را درست نشان می‌دهد؛ مبلغ‌ها با `usd`.",
+        "maps_to": "w09-ps-finance-r6"
+      },
+      {
+        "id": "w09-ps-finance-c08",
+        "text_fa": "`sell` فقط سهم‌های کاربر را در منو دارد و فروش بیش از دارایی apology می‌دهد.",
+        "maps_to": "w09-ps-finance-r7"
+      },
+      {
+        "id": "w09-ps-finance-c09",
+        "text_fa": "`history` هر خرید و فروش را با نوع، نماد، قیمت، تعداد و زمان نشان می‌دهد.",
+        "maps_to": "w09-ps-finance-r8"
+      },
+      {
+        "id": "w09-ps-finance-c10",
+        "text_fa": "دست‌کم یک امضای شخصی کار می‌کند.",
+        "maps_to": "w09-ps-finance-r9"
+      },
+      {
+        "id": "w09-ps-finance-c11",
+        "text_fa": "همهٔ پرس‌وجوها با `?` هستند و نویسه‌هایی مثل `'` و `;` چیزی را خراب نمی‌کنند.",
+        "maps_to": "w09-ps-finance-r10"
+      },
+      {
+        "id": "w09-ps-finance-c12",
+        "text_fa": "هر کاربر فقط دادهٔ خودش را می‌بیند (با `session[\"user_id\"]`).",
+        "maps_to": "design"
+      },
+      {
+        "id": "w09-ps-finance-c13",
+        "text_fa": "check50 و style50 را اجرا کرده‌ام.",
+        "maps_to": "w09-ps-finance-r10"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50، style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "کد آغازین (distribution code) Finance",
+      "url": "https://cdn.cs50.net/2026/x/psets/9/finance.zip",
+      "reason_fa": "`app.py`، `helpers.py` و قالب‌های آغازین فقط پیوند داده شده‌اند (D74)؛ آن‌ها را از نشانی رسمی دانلود کن."
+    },
+    {
+      "title_fa": "راه‌حل کارکنان (Staff’s Solution)",
+      "url": "https://finance.cs50.net/",
+      "reason_fa": "سایت کارکنان برای دیدن رفتار و ظاهر مورد انتظار. صفحهٔ رسمی می‌گوید نگاه به HTML و CSS آن منطقی است. گذرواژه‌ای را که جای دیگر به کار می‌بری آنجا وارد نکن."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/watch?v=7wPTAwT-6bA",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

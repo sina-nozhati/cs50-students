@@ -7,10 +7,11 @@ from pathlib import Path
 from typing import Any
 
 from app import db
-from app.models import FlashcardProgress, ExerciseAttempt, WeekProgress
+from app.models import FlashcardProgress, ExerciseAttempt, WeekProgress, QuizAttempt
 from app.content import kb_repo
 from app.services import xp as xp_service
 from app.services import events as event_service
+from app.services import diagnostics as diag_service
 
 
 FAQS_BY_WEEK: dict[int, list[dict[str, str]]] = {
@@ -41,8 +42,7 @@ FAQS_BY_WEEK: dict[int, list[dict[str, str]]] = {
 
 def load_flashcards_for_week(week: int, user_id: int | None = None) -> list[dict[str, Any]]:
     """بارگذاری فلش‌کارت‌های هفته به همراه وضعیت لایتنر کاربر."""
-    root = kb_repo.kb_root()
-    path = root / "anzali-fa" / "weeks" / f"week-{week:02d}" / "flashcards.json"
+    path = kb_repo.get_anzali_week_dir(week) / "flashcards.json"
     if not path.is_file():
         return []
 
@@ -145,6 +145,21 @@ def review_flashcard(user_id: int, week: int, card_id: str, rating: str) -> dict
         "new_box": st.box_number,
     })
 
+    if rating == "again":
+        diag_service.record_mistake(
+            user_id=user_id,
+            week=week,
+            source="flashcard",
+            item_id=card_id,
+            item_title=f"فلش‌کارت هفته {week} ({card_id})",
+            concept_tag=f"مفاهیم و تعاریف هفته {week}",
+            user_answer="again (نیاز به یادآوری مجدد)",
+            expected_answer="good / easy (پاسخ مطمئن)",
+            explanation="این کارت در جعبه لایتنر به خانه اول برگشت تا در فواصل کوتاه‌تر مرور شود.",
+        )
+    elif rating in ("good", "easy"):
+        diag_service.resolve_mistake(user_id=user_id, item_id=card_id)
+
     return {
         "success": True,
         "card_id": card_id,
@@ -155,10 +170,118 @@ def review_flashcard(user_id: int, week: int, card_id: str, rating: str) -> dict
     }
 
 
+MAX_QUIZ_ATTEMPTS = 5
+
+
+def get_quiz_attempt_meta(user_id: int, week: int, total_questions: int = 5) -> dict[str, Any]:
+    """دریافت متادیتای تلاش‌های کاربر در آزمون هفتگی شامل شماره تلاش و فرصت‌های باقی‌مانده."""
+    attempts = (
+        QuizAttempt.query.filter_by(user_id=user_id, week=week)
+        .order_by(QuizAttempt.attempt_number.asc())
+        .all()
+    )
+    if not attempts:
+        return {
+            "attempt_number": 1,
+            "attempts_used": 0,
+            "remaining_attempts": MAX_QUIZ_ATTEMPTS,
+            "can_retake": False,
+            "is_completed": False,
+            "score": 0,
+            "total_questions": total_questions,
+            "has_attempts": False,
+        }
+
+    latest = attempts[-1]
+    attempts_used = len(attempts)
+    remaining = max(0, MAX_QUIZ_ATTEMPTS - attempts_used)
+
+    return {
+        "attempt_number": latest.attempt_number,
+        "attempts_used": attempts_used,
+        "remaining_attempts": remaining,
+        "can_retake": latest.is_completed and remaining > 0,
+        "is_completed": latest.is_completed,
+        "score": latest.score,
+        "total_questions": latest.total_questions or total_questions,
+        "has_attempts": True,
+    }
+
+
+def get_or_create_active_quiz_attempt(
+    user_id: int, week: int, total_questions: int = 5
+) -> QuizAttempt:
+    """دریافت تلاش فعال جاری یا ایجاد تلاش شماره یک."""
+    latest = (
+        QuizAttempt.query.filter_by(user_id=user_id, week=week)
+        .order_by(QuizAttempt.attempt_number.desc())
+        .first()
+    )
+    if not latest:
+        latest = QuizAttempt(
+            user_id=user_id,
+            week=week,
+            attempt_number=1,
+            score=0,
+            total_questions=total_questions,
+            answers_json={},
+            is_completed=False,
+            created_at=datetime.utcnow(),
+        )
+        db.session.add(latest)
+        db.session.commit()
+    return latest
+
+
+def start_new_quiz_attempt(user_id: int, week: int, total_questions: int = 5) -> dict[str, Any]:
+    """شروع تلاش مستقل جدید برای آزمون با سقف قطعی ۵ تلاش در سطح دیتابیس."""
+    attempts = (
+        QuizAttempt.query.filter_by(user_id=user_id, week=week)
+        .order_by(QuizAttempt.attempt_number.asc())
+        .all()
+    )
+    attempts_count = len(attempts)
+
+    if attempts_count >= MAX_QUIZ_ATTEMPTS:
+        return {
+            "success": False,
+            "error": "max_attempts_reached",
+            "message": f"شما به سقف مجاز {MAX_QUIZ_ATTEMPTS} تلاش برای آزمون این هفته رسیده‌اید.",
+            "attempts_used": attempts_count,
+            "remaining_attempts": 0,
+        }
+
+    # در صورت وجود تلاش قبلی که کامل نشده، آن را با نمره فعلی نهایی می‌کنیم
+    if attempts and not attempts[-1].is_completed:
+        attempts[-1].is_completed = True
+        attempts[-1].completed_at = datetime.utcnow()
+
+    new_attempt_number = attempts_count + 1
+    new_attempt = QuizAttempt(
+        user_id=user_id,
+        week=week,
+        attempt_number=new_attempt_number,
+        score=0,
+        total_questions=total_questions,
+        answers_json={},
+        is_completed=False,
+        created_at=datetime.utcnow(),
+    )
+    db.session.add(new_attempt)
+    db.session.commit()
+
+    return {
+        "success": True,
+        "attempt_number": new_attempt.attempt_number,
+        "attempts_used": new_attempt_number,
+        "remaining_attempts": max(0, MAX_QUIZ_ATTEMPTS - new_attempt_number),
+        "message": f"تلاش شماره {new_attempt_number} از {MAX_QUIZ_ATTEMPTS} آغاز شد.",
+    }
+
+
 def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[str, Any]]:
-    """بارگذاری آزمون‌های هفته (چهارگزینه‌ای و جای خالی)."""
-    root = kb_repo.kb_root()
-    path = root / "anzali-fa" / "weeks" / f"week-{week:02d}" / "quizzes.json"
+    """بارگذاری آزمون‌های هفته به همراه خطوط پارسونز، کد پیش‌بینی و وضعیت تلاش فعال."""
+    path = kb_repo.get_anzali_week_dir(week) / "quizzes.json"
     if not path.is_file():
         return []
 
@@ -169,20 +292,33 @@ def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[st
         return []
 
     items = data.get("items", [])
-    user_attempts: dict[str, ExerciseAttempt] = {}
+    if not items:
+        return []
+
+    # ۵ سوال اول به عنوان آزمون تسلط استاندارد
+    selected_items = items[:5]
+
+    active_attempt = None
     if user_id:
-        rows = ExerciseAttempt.query.filter_by(user_id=user_id, week=week).all()
-        user_attempts = {r.exercise_id: r for r in rows}
+        active_attempt = (
+            QuizAttempt.query.filter_by(user_id=user_id, week=week)
+            .order_by(QuizAttempt.attempt_number.desc())
+            .first()
+        )
+
+    answers_map = dict(active_attempt.answers_json or {}) if active_attempt else {}
+    is_attempt_finalized = bool(active_attempt and active_attempt.is_completed)
 
     out = []
-    # انتخاب حداکثر ۱۰ سوال اول با تنوع تستی
-    selected_items = items[:10]
     for q in selected_items:
         qid = q.get("id")
-        att = user_attempts.get(qid)
         q_type = q.get("type", "mcq")
 
-        # برای آزمون، گزینه‌ها را آماده می‌کنیم
+        recorded_ans = answers_map.get(qid)
+        attempted = recorded_ans is not None
+        is_correct = bool(recorded_ans and recorded_ans.get("is_correct"))
+        sub_answer = recorded_ans.get("answer") if recorded_ans else None
+
         options = q.get("options") or []
         if q_type == "true_false" and not options:
             options = [
@@ -190,39 +326,88 @@ def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[st
                 {"id": "false", "text_fa": "نادرست"},
             ]
 
+        # خطوط پارسونز (شامل خطوط اصلی و distractors)
+        lines = q.get("lines") or []
+        distractors = q.get("distractors") or []
+        all_parsons_lines = []
+        for l in lines:
+            all_parsons_lines.append({"id": l.get("id"), "code": l.get("code")})
+        for d in distractors:
+            all_parsons_lines.append({"id": d.get("id"), "code": d.get("code"), "is_distractor": True})
+
+        code_snippet = q.get("code") or ""
+        code_lang = q.get("lang") or "c"
+
         out.append({
             "id": qid,
             "type": q_type,
             "prompt_fa": q.get("prompt_fa", ""),
             "explanation_fa": q.get("explanation_fa", ""),
             "options": options,
+            "lines": all_parsons_lines,
+            "code": code_snippet,
+            "lang": code_lang,
             "difficulty": q.get("difficulty", 1),
             "lesson_id": q.get("lesson_id"),
-            "attempted": att is not None,
-            "is_correct": att.is_correct if att else False,
-            "submitted_answer": att.submitted_answer if att else None,
+            "attempted": attempted,
+            "is_correct": is_correct,
+            "submitted_answer": sub_answer,
+            "is_finalized": is_attempt_finalized,
         })
     return out
 
 
 def submit_quiz_question(
-    user_id: int, week: int, question_id: str, answer_value: str
+    user_id: int, week: int, question_id: str, answer_value: Any
 ) -> dict[str, Any]:
-    """تصحیح خودکار یک سوال کوییز و ثبت اسکور."""
-    root = kb_repo.kb_root()
-    path = root / "anzali-fa" / "weeks" / f"week-{week:02d}" / "quizzes.json"
+    """تصحیح خودکار یک سوال کوییز و ثبت اسکور در تلاش جاری به همراه جلوگیری از تغییر پاسخ و سقف نمره."""
+    path = kb_repo.get_anzali_week_dir(week) / "quizzes.json"
     if not path.is_file():
-        return {"success": False, "error": "quiz_not_found"}
+        return {"success": False, "error": "quiz_not_found", "message": "فایل آزمون یافت نشد."}
 
     try:
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
     except Exception:
-        return {"success": False, "error": "quiz_read_error"}
+        return {"success": False, "error": "quiz_read_error", "message": "خطا در بارگذاری فایل آزمون."}
 
-    target = next((item for item in data.get("items", []) if item.get("id") == question_id), None)
+    items = data.get("items", [])
+    selected_items = items[:5]
+    target = next((item for item in selected_items if item.get("id") == question_id), None)
     if not target:
-        return {"success": False, "error": "question_not_found"}
+        target = next((item for item in items if item.get("id") == question_id), None)
+    if not target:
+        return {"success": False, "error": "question_not_found", "message": "سوال یافت نشد."}
+
+    total_quiz_questions = len(selected_items)
+    attempt = get_or_create_active_quiz_attempt(user_id, week, total_questions=total_quiz_questions)
+
+    # ۱. قفل تلاش نهایی‌شده: پاسخ‌ها پس از تکمیل آزمون غیرقابل تغییرند
+    if attempt.is_completed:
+        return {
+            "success": False,
+            "error": "attempt_finalized",
+            "message": "این آزمون قبلاً نهایی شده است. برای شرکت دوباره از دکمه «شروع مجدد آزمون» استفاده کنید.",
+            "is_finalized": True,
+            "current_score": attempt.score,
+            "total_score": attempt.total_questions,
+            "is_correct": False,
+        }
+
+    # ۲. قفل سوال پاسخ‌داده‌شده در همین تلاش: جلوگیری از کلیک مجدد و تغییر پاسخ
+    answers = dict(attempt.answers_json or {})
+    if question_id in answers:
+        prev = answers[question_id]
+        return {
+            "success": False,
+            "error": "already_answered",
+            "message": "پاسخ این سؤال قبلاً ثبت شده و قابل تغییر نیست.",
+            "is_correct": prev.get("is_correct", False),
+            "explanation": target.get("explanation_fa", ""),
+            "current_score": attempt.score,
+            "total_score": attempt.total_questions,
+            "is_finalized": False,
+        }
 
     q_type = target.get("type", "mcq")
     ans_obj = target.get("answer", {})
@@ -234,18 +419,68 @@ def submit_quiz_question(
     if q_type == "mcq":
         correct_ids = [str(x).strip().lower() for x in ans_obj.get("correct_option_ids", [])]
         is_correct = clean_ans.lower() in correct_ids
+
     elif q_type == "true_false":
         val = bool(ans_obj.get("value"))
         user_val = clean_ans.lower() in ("true", "1", "درست")
-        is_correct = user_val == val
-    elif q_type in ("short_answer", "predict_output"):
+        is_correct = (user_val == val)
+
+    elif q_type in ("short_answer", "predict_output", "fill_blank_code"):
         accept_list = ans_obj.get("accept", [])
         if isinstance(accept_list, str):
             accept_list = [accept_list]
         normalized_accepts = [str(x).strip().lower() for x in accept_list]
         is_correct = clean_ans.lower() in normalized_accepts
 
-    # ثبت تلاش در دیتابیس
+    elif q_type == "parsons":
+        expected_order = ans_obj.get("order") or ans_obj.get("correct_order", [])
+        user_order = []
+        if isinstance(answer_value, list):
+            user_order = [str(x).strip() for x in answer_value]
+        elif isinstance(answer_value, str):
+            if answer_value.startswith("[") and answer_value.endswith("]"):
+                try:
+                    user_order = [str(x).strip() for x in json.loads(answer_value)]
+                except Exception:
+                    user_order = [x.strip() for x in answer_value.strip("[]").split(",") if x.strip()]
+            elif "," in answer_value:
+                user_order = [x.strip() for x in answer_value.split(",") if x.strip()]
+            else:
+                user_order = [answer_value.strip()]
+        expected_norm = [str(x).strip() for x in expected_order]
+        is_correct = (user_order == expected_norm)
+
+    # ۳. ذخیره پاسخ در تلاش جاری
+    answers[question_id] = {
+        "answer": clean_ans,
+        "is_correct": is_correct,
+        "submitted_at": datetime.utcnow().isoformat(),
+    }
+    attempt.answers_json = answers
+
+    # ۴. محاسبه دقیق نمره منحصراً از سوالات این آزمون (بازه قطعی [0, total_questions])
+    correct_count = sum(1 for v in answers.values() if v.get("is_correct") is True)
+    attempt.score = min(max(0, correct_count), attempt.total_questions)
+
+    # نهایی شدن آزمون با پاسخ به همه سوالات
+    if len(answers) >= total_quiz_questions:
+        attempt.is_completed = True
+        attempt.completed_at = datetime.utcnow()
+
+    # ۵. به‌روزرسانی نمره نهایی در WeekProgress بر اساس بیشترین امتیاز در تمام تلاش‌های کاربر
+    wp = WeekProgress.query.filter_by(user_id=user_id, week=week).first()
+    if not wp:
+        wp = WeekProgress(user_id=user_id, week=week, quiz_total=attempt.total_questions, quiz_score=0)
+        db.session.add(wp)
+
+    all_user_attempts = QuizAttempt.query.filter_by(user_id=user_id, week=week).all()
+    best_score = max([a.score for a in all_user_attempts] + [attempt.score])
+    wp.quiz_score = min(best_score, attempt.total_questions)
+    wp.quiz_total = attempt.total_questions
+    if wp.quiz_total > 0 and (wp.quiz_score / wp.quiz_total) >= 0.8:
+        wp.quiz_completed = True
+
+    # ثبت تلاش در ExerciseAttempt برای حفظ backward compatibility و آمار کلی
     att = ExerciseAttempt.query.filter_by(user_id=user_id, exercise_id=question_id).first()
     if not att:
         att = ExerciseAttempt(
@@ -261,24 +496,6 @@ def submit_quiz_question(
     else:
         att.submitted_answer = clean_ans
         att.is_correct = is_correct
-        att.created_at = datetime.utcnow()
-    db.session.commit()
-
-    # محاسبه امتیاز کل آزمون این هفته
-    all_week_attempts = ExerciseAttempt.query.filter_by(
-        user_id=user_id, week=week, is_correct=True
-    ).count()
-
-    wp = WeekProgress.query.filter_by(user_id=user_id, week=week).first()
-    if not wp:
-        wp = WeekProgress(user_id=user_id, week=week, quiz_total=5, quiz_score=0)
-        db.session.add(wp)
-
-    wp.quiz_score = all_week_attempts
-    wp.quiz_total = max(wp.quiz_total or 5, 5)
-    # حد قبولی ۸۰ درصد (تصمیم تصویب‌شده)
-    if wp.quiz_total > 0 and (wp.quiz_score / wp.quiz_total) >= 0.8:
-        wp.quiz_completed = True
 
     db.session.commit()
 
@@ -292,9 +509,35 @@ def submit_quiz_question(
         "week": week,
         "question_id": question_id,
         "is_correct": is_correct,
+        "attempt_number": attempt.attempt_number,
+        "attempt_score": attempt.score,
         "quiz_score": wp.quiz_score,
         "quiz_completed": wp.quiz_completed,
+        "is_finalized": attempt.is_completed,
     })
+
+    if not is_correct:
+        c_ids = target.get("concept_ids", [])
+        tag = c_ids[0] if c_ids else f"کوییز هفته {week}"
+        expected_val = (
+            ans_obj.get("correct_option_ids")
+            or ans_obj.get("value")
+            or ans_obj.get("accept")
+            or ans_obj.get("order")
+        )
+        diag_service.record_mistake(
+            user_id=user_id,
+            week=week,
+            source="quiz",
+            item_id=question_id,
+            item_title=target.get("prompt_fa", f"سؤال کوییز {question_id}"),
+            concept_tag=tag,
+            user_answer=clean_ans,
+            expected_answer=expected_val,
+            explanation=explanation,
+        )
+    else:
+        diag_service.resolve_mistake(user_id=user_id, item_id=question_id)
 
     return {
         "success": True,
@@ -302,9 +545,12 @@ def submit_quiz_question(
         "is_correct": is_correct,
         "explanation": explanation,
         "xp_awarded": xp_awarded,
-        "current_score": wp.quiz_score,
-        "total_score": wp.quiz_total,
+        "current_score": attempt.score,
+        "total_score": attempt.total_questions,
         "quiz_completed": wp.quiz_completed,
+        "is_finalized": attempt.is_completed,
+        "attempt_number": attempt.attempt_number,
+        "remaining_attempts": max(0, MAX_QUIZ_ATTEMPTS - attempt.attempt_number),
     }
 
 
@@ -375,6 +621,8 @@ def get_week_interactive_summary(user_id: int, week: int) -> dict[str, Any]:
     if quiz_total > 0:
         progress_pct += int((min(quiz_score, quiz_total) / quiz_total) * 40)
 
+    meta = get_quiz_attempt_meta(user_id, week, total_questions=quiz_total)
+
     return {
         "week": week,
         "progress_pct": min(progress_pct, 100),
@@ -385,4 +633,5 @@ def get_week_interactive_summary(user_id: int, week: int) -> dict[str, Any]:
         "quiz_score": quiz_score,
         "quiz_total": quiz_total,
         "quiz_completed": quiz_completed,
+        "attempt_meta": meta,
     }

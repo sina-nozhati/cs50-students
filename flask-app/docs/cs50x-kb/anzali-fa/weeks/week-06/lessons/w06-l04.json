@@ -1,0 +1,455 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w06-l04",
+  "type": "lesson",
+  "week": 6,
+  "order": 4,
+  "stage_id": "w06-s3",
+  "title_fa": "حلقه‌ها و انتزاع",
+  "title_en": "Loops and abstraction",
+  "note_ids": [
+    "w06-n09"
+  ],
+  "related_doc_ids": [
+    "w06-sh-python"
+  ],
+  "prerequisite_lesson_ids": [
+    "w06-l03"
+  ],
+  "concept_ids": [
+    "w06-c-for-range",
+    "w06-c-while-py",
+    "w06-c-iterate-string",
+    "w06-c-def-function",
+    "w06-c-main-convention",
+    "w06-c-python3-version",
+    "w06-c-bool-capitalized",
+    "w06-c-tuple",
+    "w06-c-dict-iteration",
+    "w06-c-class-init"
+  ],
+  "objective_ids": [
+    "w06-o07"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/6 or the section code.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w06-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "units": [
+    {
+      "id": "w06-l04-u01",
+      "order": 1,
+      "title_fa": "for با range و while",
+      "concept_ids": [
+        "w06-c-for-range",
+        "w06-c-while-py"
+      ],
+      "objective_ids": [
+        "w06-o07"
+      ],
+      "note_id": "w06-n09",
+      "source_refs": [
+        "src-notes-6#loops",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "حلقه‌های پایتون بسیار شبیه C هستند. `for i in range(3):` سه بار اجرا می‌شود و `i` مقدارهای `0`، `1` و `2` را می‌گیرد؛ پایتون `i` را خودش افزایش می‌دهد. حلقهٔ `while` هم مثل C است، با این تفاوت که افزایش با `i += 1` نوشته می‌شود. `range(start, stop, step)` از `start` شروع می‌کند و پیش از `stop` می‌ایستد.",
+        "note_id": "w06-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cat3",
+        "lang": "python",
+        "content": "# Better design\n\nfor i in range(3):\n    print(\"meow\")",
+        "source_ref": "src-notes-6#loops",
+        "explain_fa": "cat3.py رسمی."
+      },
+      "check": {
+        "id": "w06-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`range(3)` کدام مقدارها را می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`0`، `1`، `2`",
+            "correct": true,
+            "feedback_fa": "درست. از صفر شروع می‌شود و پیش از ۳ می‌ایستد."
+          },
+          {
+            "id": "b",
+            "text_fa": "`1`، `2`، `3`",
+            "correct": false,
+            "feedback_fa": "`range` به‌طور پیش‌فرض از صفر شروع می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "`0`، `1`، `2`، `3`",
+            "correct": false,
+            "feedback_fa": "مقدار پایانی در `range` نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l04-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟ (هر عدد در یک سطر)",
+        "expected": {
+          "output": "1\n4\n7"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: از ۱ با گام ۳ تا پیش از ۱۰.",
+          "incorrect_fa": "پارامتر سوم `range` گام است."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "for i in range(1, 10, 3):\n    print(i)",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l04-u02",
+      "order": 2,
+      "title_fa": "پیمایش رشته و end",
+      "concept_ids": [
+        "w06-c-iterate-string"
+      ],
+      "objective_ids": [
+        "w06-o07"
+      ],
+      "note_id": "w06-n09",
+      "source_refs": [
+        "src-notes-6#loops",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در `uppercase0.py` حلقهٔ `for c in before:` روی نویسه‌های رشته پیمایش می‌کند و هر نویسه را با `print(c.upper(), end=\"\")` بدون رفتن به سطر بعد چاپ می‌کند. `print()` پس از حلقه سطر را تمام می‌کند. نسخهٔ `uppercase1.py` همین کار را با `before.upper()` روی کل رشته انجام می‌دهد.",
+        "note_id": "w06-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "uppercase0",
+        "lang": "python",
+        "content": "# Uppercases string one character at a time\n\nbefore = input(\"Before: \")\nprint(\"After:  \", end=\"\")\nfor c in before:\n    print(c.upper(), end=\"\")\nprint()",
+        "source_ref": "src-notes-6#loops",
+        "explain_fa": "uppercase0.py رسمی."
+      },
+      "check": {
+        "id": "w06-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `uppercase0.py` چرا پس از حلقه `print()` آمده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تا پس از چاپ نویسه‌ها با `end=\"\"` سطر تمام شود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "تا آخرین نویسه هم بزرگ شود.",
+            "correct": false,
+            "feedback_fa": "همهٔ نویسه‌ها درون حلقه بزرگ شده‌اند."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون پس از هر حلقهٔ `for` نوشتن `print()` الزامی است.",
+            "correct": false,
+            "feedback_fa": "چنین قاعده‌ای نیست؛ این `print()` فقط سطر را تمام می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l04-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی دقیقاً چیست؟",
+        "expected": {
+          "output": "C-S-5-0-"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: پس از هر نویسه یک `-` و در پایان سطر تازه.",
+          "incorrect_fa": "`upper` روی رقم‌ها اثری ندارد؛ `end` پس از هر نویسه چاپ می‌شود."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "word = \"cs50\"\nfor c in word:\n    print(c.upper(), end=\"-\")\nprint()",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l04-u03",
+      "order": 3,
+      "title_fa": "def و قرارداد main",
+      "concept_ids": [
+        "w06-c-def-function",
+        "w06-c-main-convention"
+      ],
+      "objective_ids": [
+        "w06-o07"
+      ],
+      "note_id": "w06-n09",
+      "source_refs": [
+        "src-notes-6#loops",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در `cat4.py` و `cat5.py` تابع `meow` دستور `print` را پنهان می‌کند و `main` بالای فایل تعریف و پایین فایل صدا زده می‌شود. طبق قرارداد انتظار می‌رود در پایتون `main` بسازی. `def` فقط تعریف می‌کند؛ اگر سطر آخر `main()` نباشد، هیچ چیزی اجرا نمی‌شود. در `cat5.py` تابع `meow` پارامتر `n` می‌گیرد و آن را در `range(n)` به کار می‌برد.",
+        "note_id": "w06-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cat5",
+        "lang": "python",
+        "content": "# Abstraction with parameterization\n\ndef main():\n    meow(3)\n\n# Meow some number of times\ndef meow(n):\n    for i in range(n):\n        print(\"meow\")\n\nmain()",
+        "source_ref": "src-notes-6#loops",
+        "explain_fa": "cat5.py رسمی."
+      },
+      "check": {
+        "id": "w06-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر سطر آخر `cat5.py` یعنی `main()` حذف شود، چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "برنامه بدون خطا تمام می‌شود و چیزی چاپ نمی‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. تابع‌ها تعریف شده‌اند اما هیچ‌کدام صدا زده نشده‌اند."
+          },
+          {
+            "id": "b",
+            "text_fa": "باز هم سه بار `meow` چاپ می‌شود.",
+            "correct": false,
+            "feedback_fa": "پایتون `main` را خودکار صدا نمی‌زند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای نحوی می‌دهد.",
+            "correct": false,
+            "feedback_fa": "تعریف تابع بدون صدا زدن آن از نظر نحوی درست است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l04-u03-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "سطرها را بچین تا برنامهٔ تألیفی دو بار `meow` و سپس `done` چاپ کند. تورفتگی هر سطر ثابت است.",
+        "lang": "python",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "def meow(n):",
+            "text": "def meow(n):"
+          },
+          {
+            "id": "p2",
+            "code": "    for i in range(n):",
+            "text": "    for i in range(n):"
+          },
+          {
+            "id": "p3",
+            "code": "        print(\"meow\")",
+            "text": "        print(\"meow\")"
+          },
+          {
+            "id": "p4",
+            "code": "meow(2)",
+            "text": "meow(2)"
+          },
+          {
+            "id": "p5",
+            "code": "print(\"done\")",
+            "text": "print(\"done\")"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "meow()",
+            "why_wrong_fa": "`meow` یک پارامتر می‌خواهد؛ بدون آرگومان `TypeError` می‌گیری."
+          },
+          {
+            "id": "d2",
+            "code": "def meow():",
+            "why_wrong_fa": "بدون پارامتر `n`، `range(n)` تعریف‌نشده می‌ماند."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5"
+          ]
+        },
+        "indentation_matters": true,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: اول تعریف، بعد صدا زدن.",
+          "incorrect_fa": "صدا زدن تابع پیش از تعریفش `NameError` می‌دهد."
+        },
+        "hints_fa": [
+          "`def` باید پیش از `meow(2)` بیاید."
+        ],
+        "qa": {
+          "stdin": "",
+          "expected_stdout_exact": "meow\nmeow\ndone\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l04-u04",
+      "order": 4,
+      "title_fa": "از ویدئوی کوتاه: True، تاپل و پیمایش واژه‌نامه",
+      "concept_ids": [
+        "w06-c-python3-version",
+        "w06-c-bool-capitalized",
+        "w06-c-tuple",
+        "w06-c-dict-iteration",
+        "w06-c-class-init"
+      ],
+      "objective_ids": [
+        "w06-o07"
+      ],
+      "note_id": "w06-sh-python",
+      "source_refs": [
+        "src-short-python",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه «Python» (Doug Lloyd، ۲۰۱۷) یادآوری می‌کند که CS50 پایتون ۳ را درس می‌دهد و در جست‌وجوی مستندات باید «Python 3» را بیاوری. `True` و `False` با حرف اول بزرگ نوشته می‌شوند. تاپل دنباله‌ای مرتب و تغییرناپذیر است، مثل جفت نام و سال. روی واژه‌نامه می‌شود با `items()` کلید و مقدار را با هم پیمود. با `class` نوع تازه‌ای از شیء ساخته می‌شود؛ متد `__init__` شیء را مقداردهی می‌کند و پارامتر اول هر متد، `self`، به خود شیء اشاره دارد.",
+        "note_id": "w06-sh-python",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-sh-python"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "python",
+        "content": "pizzas = {\"cheese\": 9, \"pepperoni\": 10}\nfor pie, price in pizzas.items():\n    print(pie, price)",
+        "source_ref": "src-anzali-authored-6",
+        "explain_fa": "نمونهٔ تألیفی هم‌روح مثال واژه‌نامهٔ پیتزا در ویدئوی کوتاه."
+      },
+      "check": {
+        "id": "w06-l04-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام مقدار بولی در پایتون درست نوشته شده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`True`",
+            "correct": true,
+            "feedback_fa": "درست. حرف اول بزرگ است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`true`",
+            "correct": false,
+            "feedback_fa": "این شکل C است؛ در پایتون `NameError` می‌دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`TRUE`",
+            "correct": false,
+            "feedback_fa": "پایتون به بزرگی و کوچکی حرف حساس است؛ فقط `True` درست است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l04-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟",
+        "expected": {
+          "output": "George Washington took office in 1789\nJohn Adams took office in 1797"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: هر تاپل به دو متغیر باز می‌شود.",
+          "incorrect_fa": "هر عضو فهرست یک تاپل دوتایی است."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "presidents = [(\"George Washington\", 1789), (\"John Adams\", 1797)]\nfor name, year in presidents:\n    print(f\"{name} took office in {year}\")",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

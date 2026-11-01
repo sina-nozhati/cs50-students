@@ -1,0 +1,2223 @@
+{
+  "$schema": "../../schemas/flashcard.schema.json",
+  "week": 7,
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "origin": "authored",
+  "note": "Cards are authored by CS50x Anzali from official content (source_ref). Per-user SRS state belongs in the database; the srs block is only the initial template (Leitner box 1 / SM-2 defaults from gamification/xp-config.json /srs).",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "cards": [
+    {
+      "id": "w07-fc-001",
+      "concept_id": "w07-c-flat-file-db",
+      "note_id": "w07-n01",
+      "front_fa": "پایگاه دادهٔ تخت (flat-file) یعنی چه؟",
+      "back_fa": "داده‌ای که در یک فایل متنی ساده مثل CSV نگه داشته می‌شود، بدون جدول‌های به‌هم‌پیوسته.",
+      "question_fa": "پایگاه دادهٔ تخت (flat-file) یعنی چه؟",
+      "answer_fa": "داده‌ای که در یک فایل متنی ساده مثل CSV نگه داشته می‌شود، بدون جدول‌های به‌هم‌پیوسته.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "csv"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-002",
+      "concept_id": "w07-c-csv-format",
+      "note_id": "w07-n01",
+      "front_fa": "در CSV هر سطر و هر ویرگول چه معنایی دارد؟",
+      "back_fa": "هر سطر یک رکورد است و ویرگول ستون‌ها را از هم جدا می‌کند.",
+      "question_fa": "در CSV هر سطر و هر ویرگول چه معنایی دارد؟",
+      "answer_fa": "هر سطر یک رکورد است و ویرگول ستون‌ها را از هم جدا می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "csv"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-003",
+      "concept_id": "w07-c-csv-quoting",
+      "note_id": "w07-n01",
+      "front_fa": "مقداری که خودش ویرگول دارد (مثل Hello, World) در CSV چطور نوشته می‌شود؟",
+      "back_fa": "داخل نقل‌قول دوتایی: \"Hello, World\"؛ csv.reader آن را یک ستون می‌خواند.",
+      "question_fa": "مقداری که خودش ویرگول دارد (مثل Hello, World) در CSV چطور نوشته می‌شود؟",
+      "answer_fa": "داخل نقل‌قول دوتایی: \"Hello, World\"؛ csv.reader آن را یک ستون می‌خواند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "csv"
+      ],
+      "source_ref": "src-python-docs",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-004",
+      "concept_id": "w07-c-csv-reader-header",
+      "note_id": "w07-n01",
+      "front_fa": "با csv.reader سطر سرستون را چطور رد می‌کنی؟",
+      "back_fa": "با `next(reader)` پیش از حلقه.",
+      "question_fa": "با csv.reader سطر سرستون را چطور رد می‌کنی؟",
+      "answer_fa": "با `next(reader)` پیش از حلقه.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "csv",
+        "python"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-005",
+      "concept_id": "w07-c-dictreader-columns",
+      "note_id": "w07-n01",
+      "front_fa": "مزیت csv.DictReader بر csv.reader چیست؟",
+      "back_fa": "هر سطر یک dict است و ستون را با نام می‌خوانی (`row[\"language\"]`)، پس جابه‌جایی ستون‌ها کد را خراب نمی‌کند.",
+      "question_fa": "مزیت csv.DictReader بر csv.reader چیست؟",
+      "answer_fa": "هر سطر یک dict است و ستون را با نام می‌خوانی (`row[\"language\"]`)، پس جابه‌جایی ستون‌ها کد را خراب نمی‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "csv",
+        "python"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-006",
+      "concept_id": "w07-c-count-with-dict",
+      "note_id": "w07-n01",
+      "front_fa": "الگوی شمارش با دیکشنری در یک سطر؟",
+      "back_fa": "`counts[key] += 1` پس از اطمینان از وجود کلید (یا مقدار اولیهٔ 1 برای کلید تازه).",
+      "question_fa": "الگوی شمارش با دیکشنری در یک سطر؟",
+      "answer_fa": "`counts[key] += 1` پس از اطمینان از وجود کلید (یا مقدار اولیهٔ 1 برای کلید تازه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "python"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-007",
+      "concept_id": "w07-c-keyerror-try",
+      "note_id": "w07-n01",
+      "front_fa": "چرا `counts[\"C\"] += 1` روی دیکشنری خالی خطا می‌دهد؟",
+      "back_fa": "کلید هنوز نیست و خواندن آن KeyError می‌دهد؛ با `if key in counts` یا try/except حلش کن.",
+      "question_fa": "چرا `counts[\"C\"] += 1` روی دیکشنری خالی خطا می‌دهد؟",
+      "answer_fa": "کلید هنوز نیست و خواندن آن KeyError می‌دهد؛ با `if key in counts` یا try/except حلش کن.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "python"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-008",
+      "concept_id": "w07-c-sorted-key-reverse",
+      "note_id": "w07-n01",
+      "front_fa": "`sorted(counts, key=counts.get, reverse=True)` چه می‌کند؟",
+      "back_fa": "کلیدها را بر پایهٔ مقدارشان از بیشترین به کمترین مرتب می‌کند.",
+      "question_fa": "`sorted(counts, key=counts.get, reverse=True)` چه می‌کند؟",
+      "answer_fa": "کلیدها را بر پایهٔ مقدارشان از بیشترین به کمترین مرتب می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "python"
+      ],
+      "source_ref": "src-notes-7#flat-file-database",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-009",
+      "concept_id": "w07-c-relational-db",
+      "note_id": "w07-n02",
+      "front_fa": "پایگاه دادهٔ رابطه‌ای چیست؟",
+      "back_fa": "داده در جدول‌هایی با سطر و ستون که با کلیدها به هم مربوط‌اند.",
+      "question_fa": "پایگاه دادهٔ رابطه‌ای چیست؟",
+      "answer_fa": "داده در جدول‌هایی با سطر و ستون که با کلیدها به هم مربوط‌اند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-010",
+      "concept_id": "w07-c-sql-language",
+      "note_id": "w07-n02",
+      "front_fa": "SQL مخفف چیست و برای چیست؟",
+      "back_fa": "Structured Query Language؛ زبانی برای ساختن، خواندن، تغییر و حذف داده در پایگاه دادهٔ رابطه‌ای.",
+      "question_fa": "SQL مخفف چیست و برای چیست؟",
+      "answer_fa": "Structured Query Language؛ زبانی برای ساختن، خواندن، تغییر و حذف داده در پایگاه دادهٔ رابطه‌ای.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-011",
+      "concept_id": "w07-c-crud",
+      "note_id": "w07-n02",
+      "front_fa": "CRUD مخفف چیست؟",
+      "back_fa": "Create، Read، Update، Delete؛ در SQL با CREATE/INSERT، SELECT، UPDATE و DELETE/DROP.",
+      "question_fa": "CRUD مخفف چیست؟",
+      "answer_fa": "Create، Read، Update، Delete؛ در SQL با CREATE/INSERT، SELECT، UPDATE و DELETE/DROP.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-012",
+      "concept_id": "w07-c-sqlite3-cli",
+      "note_id": "w07-n02",
+      "front_fa": "sqlite3 چیست؟",
+      "back_fa": "برنامهٔ خط فرمانی برای کار با پایگاه دادهٔ SQLite؛ مثلاً `sqlite3 favorites.db`.",
+      "question_fa": "sqlite3 چیست؟",
+      "answer_fa": "برنامهٔ خط فرمانی برای کار با پایگاه دادهٔ SQLite؛ مثلاً `sqlite3 favorites.db`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sqlite3"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-013",
+      "concept_id": "w07-c-csv-import",
+      "note_id": "w07-n02",
+      "front_fa": "CSV را چطور در sqlite3 به جدول تبدیل می‌کنی؟",
+      "back_fa": "`.mode csv` و سپس `.import favorites.csv favorites`؛ سطر اول نام ستون‌ها می‌شود.",
+      "question_fa": "CSV را چطور در sqlite3 به جدول تبدیل می‌کنی؟",
+      "answer_fa": "`.mode csv` و سپس `.import favorites.csv favorites`؛ سطر اول نام ستون‌ها می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sqlite3"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-014",
+      "concept_id": "w07-c-schema",
+      "note_id": "w07-n02",
+      "front_fa": "فرمان `.schema` چه نشان می‌دهد؟",
+      "back_fa": "دستورهای CREATE TABLE جدول‌ها: نام ستون‌ها، نوع‌ها و قیدها.",
+      "question_fa": "فرمان `.schema` چه نشان می‌دهد؟",
+      "answer_fa": "دستورهای CREATE TABLE جدول‌ها: نام ستون‌ها، نوع‌ها و قیدها.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sqlite3"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-015",
+      "concept_id": "w07-c-sql-functions",
+      "note_id": "w07-n02",
+      "front_fa": "چند تابع SQL که در سخنرانی آمد؟",
+      "back_fa": "AVG، COUNT، DISTINCT، LOWER، MAX، MIN، UPPER و دیگران.",
+      "question_fa": "چند تابع SQL که در سخنرانی آمد؟",
+      "answer_fa": "AVG، COUNT، DISTINCT، LOWER، MAX، MIN، UPPER و دیگران.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql"
+      ],
+      "source_ref": "src-notes-7#relational-databases",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-016",
+      "concept_id": "w07-c-select",
+      "note_id": "w07-n03",
+      "front_fa": "ساده‌ترین شکل خواندن یک ستون از جدول؟",
+      "back_fa": "`SELECT language FROM favorites;`",
+      "question_fa": "ساده‌ترین شکل خواندن یک ستون از جدول؟",
+      "answer_fa": "`SELECT language FROM favorites;`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-017",
+      "concept_id": "w07-c-select-star",
+      "note_id": "w07-n03",
+      "front_fa": "`SELECT *` یعنی چه؟",
+      "back_fa": "همهٔ ستون‌های جدول.",
+      "question_fa": "`SELECT *` یعنی چه؟",
+      "answer_fa": "همهٔ ستون‌های جدول.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-018",
+      "concept_id": "w07-c-limit",
+      "note_id": "w07-n03",
+      "front_fa": "چطور فقط ۱۰ سطر اول نتیجه را ببینی؟",
+      "back_fa": "با `LIMIT 10` در پایان پرس‌وجو؛ بدون ORDER BY معلوم نیست کدام سطرها می‌آیند.",
+      "question_fa": "چطور فقط ۱۰ سطر اول نتیجه را ببینی؟",
+      "answer_fa": "با `LIMIT 10` در پایان پرس‌وجو؛ بدون ORDER BY معلوم نیست کدام سطرها می‌آیند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-019",
+      "concept_id": "w07-c-count",
+      "note_id": "w07-n03",
+      "front_fa": "فرق `COUNT(*)` و `COUNT(column)`؟",
+      "back_fa": "`COUNT(*)` همهٔ سطرها را می‌شمارد؛ `COUNT(column)` مقدارهای NULL آن ستون را نمی‌شمارد.",
+      "question_fa": "فرق `COUNT(*)` و `COUNT(column)`؟",
+      "answer_fa": "`COUNT(*)` همهٔ سطرها را می‌شمارد؛ `COUNT(column)` مقدارهای NULL آن ستون را نمی‌شمارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-020",
+      "concept_id": "w07-c-distinct",
+      "note_id": "w07-n03",
+      "front_fa": "تعداد مقدارهای متفاوت یک ستون را چطور می‌شماری؟",
+      "back_fa": "`SELECT COUNT(DISTINCT language) FROM favorites;`",
+      "question_fa": "تعداد مقدارهای متفاوت یک ستون را چطور می‌شماری؟",
+      "answer_fa": "`SELECT COUNT(DISTINCT language) FROM favorites;`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-021",
+      "concept_id": "w07-c-where",
+      "note_id": "w07-n03",
+      "front_fa": "WHERE چه می‌کند؟",
+      "back_fa": "فقط سطرهایی را نگه می‌دارد که عبارت بولی برایشان درست است.",
+      "question_fa": "WHERE چه می‌کند؟",
+      "answer_fa": "فقط سطرهایی را نگه می‌دارد که عبارت بولی برایشان درست است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-022",
+      "concept_id": "w07-c-and-or",
+      "note_id": "w07-n03",
+      "front_fa": "دو شرط را چطور با هم ترکیب می‌کنی؟",
+      "back_fa": "با AND (هر دو درست) یا OR (دست‌کم یکی درست).",
+      "question_fa": "دو شرط را چطور با هم ترکیب می‌کنی؟",
+      "answer_fa": "با AND (هر دو درست) یا OR (دست‌کم یکی درست).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-023",
+      "concept_id": "w07-c-like-wildcard",
+      "note_id": "w07-n03",
+      "front_fa": "`LIKE 'Hello%'` چه سطرهایی را می‌گیرد؟",
+      "back_fa": "هر مقداری که با Hello شروع شود؛ `%` یعنی هر تعداد نویسه.",
+      "question_fa": "`LIKE 'Hello%'` چه سطرهایی را می‌گیرد؟",
+      "answer_fa": "هر مقداری که با Hello شروع شود؛ `%` یعنی هر تعداد نویسه.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-024",
+      "concept_id": "w07-c-like-wildcard",
+      "note_id": "w07-n03",
+      "front_fa": "در SQLite آیا `=` و LIKE به بزرگی حروف حساس‌اند؟",
+      "back_fa": "`=` حساس است؛ LIKE برای حروف ASCII حساس نیست.",
+      "question_fa": "در SQLite آیا `=` و LIKE به بزرگی حروف حساس‌اند؟",
+      "answer_fa": "`=` حساس است؛ LIKE برای حروف ASCII حساس نیست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-025",
+      "concept_id": "w07-c-group-by",
+      "note_id": "w07-n03",
+      "front_fa": "GROUP BY language با COUNT(*) چه می‌دهد؟",
+      "back_fa": "برای هر زبان یک سطر با تعداد سطرهای آن زبان.",
+      "question_fa": "GROUP BY language با COUNT(*) چه می‌دهد؟",
+      "answer_fa": "برای هر زبان یک سطر با تعداد سطرهای آن زبان.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-026",
+      "concept_id": "w07-c-order-by",
+      "note_id": "w07-n03",
+      "front_fa": "ORDER BY بدون ASC یا DESC چه ترتیبی دارد؟",
+      "back_fa": "صعودی (ASC)؛ برای نزولی DESC بنویس.",
+      "question_fa": "ORDER BY بدون ASC یا DESC چه ترتیبی دارد؟",
+      "answer_fa": "صعودی (ASC)؛ برای نزولی DESC بنویس.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-027",
+      "concept_id": "w07-c-as-alias",
+      "note_id": "w07-n03",
+      "front_fa": "`COUNT(*) AS n` چه فایده‌ای دارد؟",
+      "back_fa": "به ستون نتیجه نام کوتاه n می‌دهد تا در ORDER BY n یا در پایتون `row[\"n\"]` به کار رود.",
+      "question_fa": "`COUNT(*) AS n` چه فایده‌ای دارد؟",
+      "answer_fa": "به ستون نتیجه نام کوتاه n می‌دهد تا در ORDER BY n یا در پایتون `row[\"n\"]` به کار رود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "select"
+      ],
+      "source_ref": "src-notes-7#select",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-028",
+      "concept_id": "w07-c-string-literal-quotes",
+      "note_id": "w07-n03",
+      "front_fa": "در SQL رشته و نام ستون را با چه نقل‌قولی می‌نویسی؟",
+      "back_fa": "رشته با نقل‌قول تکی ('Python')؛ نام ستون یا جدول در صورت نیاز با نقل‌قول دوتایی (\"Timestamp\").",
+      "question_fa": "در SQL رشته و نام ستون را با چه نقل‌قولی می‌نویسی؟",
+      "answer_fa": "رشته با نقل‌قول تکی ('Python')؛ نام ستون یا جدول در صورت نیاز با نقل‌قول دوتایی (\"Timestamp\").",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql"
+      ],
+      "source_ref": "src-sqlite-docs",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-029",
+      "concept_id": "w07-c-string-literal-quotes",
+      "note_id": "w07-n03",
+      "front_fa": "اگر رشته را بی‌نقل‌قول بنویسی (`WHERE language = Python`) چه می‌شود؟",
+      "back_fa": "SQLite آن را نام ستون می‌گیرد و خطای no such column می‌دهد.",
+      "question_fa": "اگر رشته را بی‌نقل‌قول بنویسی (`WHERE language = Python`) چه می‌شود؟",
+      "answer_fa": "SQLite آن را نام ستون می‌گیرد و خطای no such column می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-030",
+      "concept_id": "w07-c-insert",
+      "note_id": "w07-n04",
+      "front_fa": "شکل کلی INSERT؟",
+      "back_fa": "`INSERT INTO table (column, ...) VALUES (value, ...);`",
+      "question_fa": "شکل کلی INSERT؟",
+      "answer_fa": "`INSERT INTO table (column, ...) VALUES (value, ...);`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "insert"
+      ],
+      "source_ref": "src-notes-7#insert",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-031",
+      "concept_id": "w07-c-null",
+      "note_id": "w07-n04",
+      "front_fa": "NULL در SQL یعنی چه؟",
+      "back_fa": "نبود مقدار؛ مثلاً ستونی که در INSERT نیامده.",
+      "question_fa": "NULL در SQL یعنی چه؟",
+      "answer_fa": "نبود مقدار؛ مثلاً ستونی که در INSERT نیامده.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "insert"
+      ],
+      "source_ref": "src-notes-7#insert",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-032",
+      "concept_id": "w07-c-delete",
+      "note_id": "w07-n05",
+      "front_fa": "شکل کلی DELETE؟",
+      "back_fa": "`DELETE FROM table WHERE condition;`",
+      "question_fa": "شکل کلی DELETE؟",
+      "answer_fa": "`DELETE FROM table WHERE condition;`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "delete"
+      ],
+      "source_ref": "src-notes-7#delete",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-033",
+      "concept_id": "w07-c-is-null",
+      "note_id": "w07-n05",
+      "front_fa": "چرا `WHERE x = NULL` هیچ سطری را نمی‌گیرد؟",
+      "back_fa": "مقایسه با NULL نتیجهٔ NULL دارد، نه درست؛ باید `IS NULL` نوشت.",
+      "question_fa": "چرا `WHERE x = NULL` هیچ سطری را نمی‌گیرد؟",
+      "answer_fa": "مقایسه با NULL نتیجهٔ NULL دارد، نه درست؛ باید `IS NULL` نوشت.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "delete"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-034",
+      "concept_id": "w07-c-update",
+      "note_id": "w07-n06",
+      "front_fa": "شکل کلی UPDATE؟",
+      "back_fa": "`UPDATE table SET column = value WHERE condition;`",
+      "question_fa": "شکل کلی UPDATE؟",
+      "answer_fa": "`UPDATE table SET column = value WHERE condition;`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "update"
+      ],
+      "source_ref": "src-notes-7#update",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-035",
+      "concept_id": "w07-c-missing-where-danger",
+      "note_id": "w07-n06",
+      "front_fa": "UPDATE یا DELETE بدون WHERE چه می‌کند؟",
+      "back_fa": "همهٔ سطرهای جدول را تغییر می‌دهد یا پاک می‌کند.",
+      "question_fa": "UPDATE یا DELETE بدون WHERE چه می‌کند؟",
+      "answer_fa": "همهٔ سطرهای جدول را تغییر می‌دهد یا پاک می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "update"
+      ],
+      "source_ref": "src-notes-7#update",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-036",
+      "concept_id": "w07-c-backups-permissions",
+      "note_id": "w07-n06",
+      "front_fa": "پیش از DELETE و UPDATE روی دادهٔ مهم چه باید کرد؟",
+      "back_fa": "مجوز درست، نسخهٔ پشتیبان، و اول همان WHERE را با SELECT امتحان کردن.",
+      "question_fa": "پیش از DELETE و UPDATE روی دادهٔ مهم چه باید کرد؟",
+      "answer_fa": "مجوز درست، نسخهٔ پشتیبان، و اول همان WHERE را با SELECT امتحان کردن.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "update"
+      ],
+      "source_ref": "src-notes-7#update",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-037",
+      "concept_id": "w07-c-redundancy",
+      "note_id": "w07-n07",
+      "front_fa": "چرا داده را در چند جدول جدا می‌کنیم؟",
+      "back_fa": "برای حذف تکرار (redundancy) و پرس‌وجوی دقیق‌تر؛ مثلاً هر ژانر یک سطر در genres.",
+      "question_fa": "چرا داده را در چند جدول جدا می‌کنیم؟",
+      "answer_fa": "برای حذف تکرار (redundancy) و پرس‌وجوی دقیق‌تر؛ مثلاً هر ژانر یک سطر در genres.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-038",
+      "concept_id": "w07-c-one-to-one",
+      "note_id": "w07-n07",
+      "front_fa": "نمونهٔ رابطهٔ یک‌به‌یک در سخنرانی؟",
+      "back_fa": "shows و ratings: هر سریال حداکثر یک سطر امتیاز.",
+      "question_fa": "نمونهٔ رابطهٔ یک‌به‌یک در سخنرانی؟",
+      "answer_fa": "shows و ratings: هر سریال حداکثر یک سطر امتیاز.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-039",
+      "concept_id": "w07-c-primary-key",
+      "note_id": "w07-n07",
+      "front_fa": "کلید اصلی چیست؟",
+      "back_fa": "ستونی (مثل id) که هر سطر را یکتا مشخص می‌کند.",
+      "question_fa": "کلید اصلی چیست؟",
+      "answer_fa": "ستونی (مثل id) که هر سطر را یکتا مشخص می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-040",
+      "concept_id": "w07-c-foreign-key",
+      "note_id": "w07-n07",
+      "front_fa": "کلید خارجی چیست؟",
+      "back_fa": "ستونی (مثل ratings.show_id) که مقدارش کلید اصلی جدول دیگری است.",
+      "question_fa": "کلید خارجی چیست؟",
+      "answer_fa": "ستونی (مثل ratings.show_id) که مقدارش کلید اصلی جدول دیگری است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-041",
+      "concept_id": "w07-c-sqlite-types",
+      "note_id": "w07-n07",
+      "front_fa": "پنج نوع داده‌ای SQLite در یادداشت رسمی؟",
+      "back_fa": "BLOB، INTEGER، NUMERIC، REAL و TEXT.",
+      "question_fa": "پنج نوع داده‌ای SQLite در یادداشت رسمی؟",
+      "answer_fa": "BLOB، INTEGER، NUMERIC، REAL و TEXT.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-042",
+      "concept_id": "w07-c-constraints",
+      "note_id": "w07-n07",
+      "front_fa": "قیدهای NOT NULL و UNIQUE چه می‌کنند؟",
+      "back_fa": "NOT NULL خالی ماندن ستون را رد می‌کند و UNIQUE تکرار مقدار را.",
+      "question_fa": "قیدهای NOT NULL و UNIQUE چه می‌کنند؟",
+      "answer_fa": "NOT NULL خالی ماندن ستون را رد می‌کند و UNIQUE تکرار مقدار را.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-043",
+      "concept_id": "w07-c-nested-query",
+      "note_id": "w07-n07",
+      "front_fa": "پرس‌وجوی تودرتو با IN چطور کار می‌کند؟",
+      "back_fa": "پرس‌وجوی درونی فهرستی از مقدارها (مثلاً id) می‌دهد و بیرونی با `WHERE id IN (...)` از آن استفاده می‌کند.",
+      "question_fa": "پرس‌وجوی تودرتو با IN چطور کار می‌کند؟",
+      "answer_fa": "پرس‌وجوی درونی فهرستی از مقدارها (مثلاً id) می‌دهد و بیرونی با `WHERE id IN (...)` از آن استفاده می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "nested"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-044",
+      "concept_id": "w07-c-nested-query",
+      "note_id": "w07-n07",
+      "front_fa": "فرق `= (SELECT ...)` و `IN (SELECT ...)`؟",
+      "back_fa": "`=` فقط با یک مقدار مقایسه می‌کند (SQLite فقط سطر اول پرس‌وجوی درونی را برمی‌دارد)؛ برای چند مقدار IN لازم است.",
+      "question_fa": "فرق `= (SELECT ...)` و `IN (SELECT ...)`؟",
+      "answer_fa": "`=` فقط با یک مقدار مقایسه می‌کند (SQLite فقط سطر اول پرس‌وجوی درونی را برمی‌دارد)؛ برای چند مقدار IN لازم است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-7",
+        "sql",
+        "nested"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-045",
+      "concept_id": "w07-c-join",
+      "note_id": "w07-n08",
+      "front_fa": "JOIN ... ON چه می‌کند؟",
+      "back_fa": "سطرهای دو جدول را جایی که شرط ON (مثل shows.id = ratings.show_id) درست است کنار هم می‌گذارد.",
+      "question_fa": "JOIN ... ON چه می‌کند؟",
+      "answer_fa": "سطرهای دو جدول را جایی که شرط ON (مثل shows.id = ratings.show_id) درست است کنار هم می‌گذارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sql",
+        "join"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-046",
+      "concept_id": "w07-c-join",
+      "note_id": "w07-n08",
+      "front_fa": "سریالی که در ratings سطری ندارد در نتیجهٔ JOIN می‌آید؟",
+      "back_fa": "نه؛ JOIN معمولی (درونی) فقط جفت‌های منطبق را نگه می‌دارد.",
+      "question_fa": "سریالی که در ratings سطری ندارد در نتیجهٔ JOIN می‌آید؟",
+      "answer_fa": "نه؛ JOIN معمولی (درونی) فقط جفت‌های منطبق را نگه می‌دارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-7",
+        "sql",
+        "join"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-047",
+      "concept_id": "w07-c-one-to-many",
+      "note_id": "w07-n08",
+      "front_fa": "نمونهٔ رابطهٔ یک‌به‌چند در سخنرانی؟",
+      "back_fa": "shows و genres: هر سریال می‌تواند چند ژانر داشته باشد.",
+      "question_fa": "نمونهٔ رابطهٔ یک‌به‌چند در سخنرانی؟",
+      "answer_fa": "shows و genres: هر سریال می‌تواند چند ژانر داشته باشد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-048",
+      "concept_id": "w07-c-many-to-many",
+      "note_id": "w07-n08",
+      "front_fa": "رابطهٔ چندبه‌چند چه چیزی لازم دارد؟",
+      "back_fa": "جدول واسطی مثل stars که جفت‌های show_id و person_id را نگه می‌دارد.",
+      "question_fa": "رابطهٔ چندبه‌چند چه چیزی لازم دارد؟",
+      "answer_fa": "جدول واسطی مثل stars که جفت‌های show_id و person_id را نگه می‌دارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "design"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-049",
+      "concept_id": "w07-c-multi-join",
+      "note_id": "w07-n08",
+      "front_fa": "برای نام بازیگران یک سریال کدام جدول‌ها JOIN می‌شوند؟",
+      "back_fa": "people، stars و shows؛ stars میان دو جدول دیگر است.",
+      "question_fa": "برای نام بازیگران یک سریال کدام جدول‌ها JOIN می‌شوند؟",
+      "answer_fa": "people، stars و shows؛ stars میان دو جدول دیگر است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "join"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-050",
+      "concept_id": "w07-c-implicit-join",
+      "note_id": "w07-n08",
+      "front_fa": "JOIN ضمنی چه شکلی دارد؟",
+      "back_fa": "`FROM shows, ratings WHERE shows.id = ratings.show_id`",
+      "question_fa": "JOIN ضمنی چه شکلی دارد؟",
+      "answer_fa": "`FROM shows, ratings WHERE shows.id = ratings.show_id`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "join"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-051",
+      "concept_id": "w07-c-qualified-column",
+      "note_id": "w07-n08",
+      "front_fa": "چرا در JOIN می‌نویسیم books.id؟",
+      "back_fa": "وقتی دو جدول ستون هم‌نام دارند، بدون نام جدول خطای ambiguous column name رخ می‌دهد.",
+      "question_fa": "چرا در JOIN می‌نویسیم books.id؟",
+      "answer_fa": "وقتی دو جدول ستون هم‌نام دارند، بدون نام جدول خطای ambiguous column name رخ می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "sql",
+        "join"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-052",
+      "concept_id": "w07-c-timer",
+      "note_id": "w07-n09",
+      "front_fa": "`.timer on` در sqlite3 چه می‌کند؟",
+      "back_fa": "زمان اجرای هر پرس‌وجو را نشان می‌دهد.",
+      "question_fa": "`.timer on` در sqlite3 چه می‌کند؟",
+      "answer_fa": "زمان اجرای هر پرس‌وجو را نشان می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "sqlite3",
+        "index"
+      ],
+      "source_ref": "src-notes-7#indexes",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-053",
+      "concept_id": "w07-c-index",
+      "note_id": "w07-n09",
+      "front_fa": "شاخص با چه دستوری ساخته می‌شود؟",
+      "back_fa": "`CREATE INDEX name ON table (column);`",
+      "question_fa": "شاخص با چه دستوری ساخته می‌شود؟",
+      "answer_fa": "`CREATE INDEX name ON table (column);`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "index"
+      ],
+      "source_ref": "src-notes-7#indexes",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-054",
+      "concept_id": "w07-c-btree",
+      "note_id": "w07-n09",
+      "front_fa": "ساختار دادهٔ زیر شاخص چیست؟",
+      "back_fa": "B-tree: درختی متوازن که هر گره چند فرزند دارد و کوتاه می‌ماند.",
+      "question_fa": "ساختار دادهٔ زیر شاخص چیست؟",
+      "answer_fa": "B-tree: درختی متوازن که هر گره چند فرزند دارد و کوتاه می‌ماند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "index"
+      ],
+      "source_ref": "src-notes-7#indexes",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-055",
+      "concept_id": "w07-c-index-tradeoff",
+      "note_id": "w07-n09",
+      "front_fa": "هزینهٔ شاخص چیست؟",
+      "back_fa": "فضای بیشتر و کندتر شدن درج و به‌روزرسانی، در برابر جست‌وجوی سریع‌تر.",
+      "question_fa": "هزینهٔ شاخص چیست؟",
+      "answer_fa": "فضای بیشتر و کندتر شدن درج و به‌روزرسانی، در برابر جست‌وجوی سریع‌تر.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "index"
+      ],
+      "source_ref": "src-notes-7#indexes",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-056",
+      "concept_id": "w07-c-cs50-sql",
+      "note_id": "w07-n10",
+      "front_fa": "چطور از پایتون به favorites.db وصل می‌شوی؟",
+      "back_fa": "`from cs50 import SQL` و `db = SQL(\"sqlite:///favorites.db\")`",
+      "question_fa": "چطور از پایتون به favorites.db وصل می‌شوی؟",
+      "answer_fa": "`from cs50 import SQL` و `db = SQL(\"sqlite:///favorites.db\")`",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "python",
+        "cs50"
+      ],
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-057",
+      "concept_id": "w07-c-execute-returns-rows",
+      "note_id": "w07-n10",
+      "front_fa": "خروجی db.execute برای SELECT چیست؟",
+      "back_fa": "فهرستی از dictها؛ هر dict یک سطر با کلیدهای نام ستون.",
+      "question_fa": "خروجی db.execute برای SELECT چیست؟",
+      "answer_fa": "فهرستی از dictها؛ هر dict یک سطر با کلیدهای نام ستون.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "python",
+        "cs50"
+      ],
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-058",
+      "concept_id": "w07-c-placeholder-qmark",
+      "note_id": "w07-n10",
+      "front_fa": "مقدار ورودی کاربر را چطور در پرس‌وجو می‌گذاری؟",
+      "back_fa": "با جای‌نگهدار `?` و آرگومان جدا: `db.execute(\"... WHERE problem = ?\", problem)`.",
+      "question_fa": "مقدار ورودی کاربر را چطور در پرس‌وجو می‌گذاری؟",
+      "answer_fa": "با جای‌نگهدار `?` و آرگومان جدا: `db.execute(\"... WHERE problem = ?\", problem)`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "python",
+        "cs50",
+        "security"
+      ],
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-059",
+      "concept_id": "w07-c-placeholder-qmark",
+      "note_id": "w07-n10",
+      "front_fa": "چرا `'?'` (داخل نقل‌قول) کار نمی‌کند؟",
+      "back_fa": "داخل نقل‌قول یک رشتهٔ معمولی است، نه جای‌نگهدار؛ کتابخانهٔ CS50 خطا می‌دهد که مقدارها بیش از جای‌نگهدارهاست.",
+      "question_fa": "چرا `'?'` (داخل نقل‌قول) کار نمی‌کند؟",
+      "answer_fa": "داخل نقل‌قول یک رشتهٔ معمولی است، نه جای‌نگهدار؛ کتابخانهٔ CS50 خطا می‌دهد که مقدارها بیش از جای‌نگهدارهاست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-7",
+        "python",
+        "cs50"
+      ],
+      "source_ref": "src-sql-box-7",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-060",
+      "concept_id": "w07-c-race-condition",
+      "note_id": "w07-n11",
+      "front_fa": "شرایط رقابتی در پایگاه داده یعنی چه؟",
+      "back_fa": "دو درخواست هم‌زمان مقدار را می‌خوانند و هر دو بر پایهٔ مقدار قدیمی می‌نویسند، پس یک تغییر گم می‌شود.",
+      "question_fa": "شرایط رقابتی در پایگاه داده یعنی چه؟",
+      "answer_fa": "دو درخواست هم‌زمان مقدار را می‌خوانند و هر دو بر پایهٔ مقدار قدیمی می‌نویسند، پس یک تغییر گم می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "transactions"
+      ],
+      "source_ref": "src-notes-7#race-conditions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-061",
+      "concept_id": "w07-c-transaction",
+      "note_id": "w07-n11",
+      "front_fa": "سه دستور تراکنش در SQLite؟",
+      "back_fa": "BEGIN TRANSACTION، COMMIT (ثبت) و ROLLBACK (برگرداندن).",
+      "question_fa": "سه دستور تراکنش در SQLite؟",
+      "answer_fa": "BEGIN TRANSACTION، COMMIT (ثبت) و ROLLBACK (برگرداندن).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "transactions"
+      ],
+      "source_ref": "src-notes-7#race-conditions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-062",
+      "concept_id": "w07-c-atomic-update",
+      "note_id": "w07-n11",
+      "front_fa": "چرا `SET likes = likes + 1` از خواندن در پایتون و نوشتن عدد تازه امن‌تر است؟",
+      "back_fa": "(استنتاجی) خواندن و نوشتن در یک دستور انجام می‌شود و مقدار کهنه در برنامه نمی‌ماند.",
+      "question_fa": "چرا `SET likes = likes + 1` از خواندن در پایتون و نوشتن عدد تازه امن‌تر است؟",
+      "answer_fa": "(استنتاجی) خواندن و نوشتن در یک دستور انجام می‌شود و مقدار کهنه در برنامه نمی‌ماند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-7",
+        "transactions"
+      ],
+      "source_ref": "src-anzali-inference-7",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-063",
+      "concept_id": "w07-c-sql-injection",
+      "note_id": "w07-n12",
+      "front_fa": "حملهٔ تزریق SQL چیست؟",
+      "back_fa": "ورودی کاربر طوری نوشته می‌شود که بخشی از کد SQL شود و معنای پرس‌وجو را عوض کند.",
+      "question_fa": "حملهٔ تزریق SQL چیست؟",
+      "answer_fa": "ورودی کاربر طوری نوشته می‌شود که بخشی از کد SQL شود و معنای پرس‌وجو را عوض کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "security"
+      ],
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-064",
+      "concept_id": "w07-c-sql-comment",
+      "note_id": "w07-n12",
+      "front_fa": "توضیح در SQL با چه نویسه‌هایی است؟",
+      "back_fa": "`--` تا پایان سطر.",
+      "question_fa": "توضیح در SQL با چه نویسه‌هایی است؟",
+      "answer_fa": "`--` تا پایان سطر.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "security",
+        "sql"
+      ],
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-065",
+      "concept_id": "w07-c-sql-comment",
+      "note_id": "w07-n12",
+      "front_fa": "ورودی `malan'--` در یک پرس‌وجوی ساخته‌شده با f-string چه می‌کند؟",
+      "back_fa": "نقل‌قول را می‌بندد و `--` بقیهٔ شرط (بررسی گذرواژه) را توضیح می‌کند.",
+      "question_fa": "ورودی `malan'--` در یک پرس‌وجوی ساخته‌شده با f-string چه می‌کند؟",
+      "answer_fa": "نقل‌قول را می‌بندد و `--` بقیهٔ شرط (بررسی گذرواژه) را توضیح می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-7",
+        "security"
+      ],
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-066",
+      "concept_id": "w07-c-never-trust-input",
+      "note_id": "w07-n12",
+      "front_fa": "قاعدهٔ کلی امنیت در کار با ورودی کاربر؟",
+      "back_fa": "هرگز کورکورانه به ورودی کاربر اعتماد نکن؛ برای SQL از `?` استفاده کن.",
+      "question_fa": "قاعدهٔ کلی امنیت در کار با ورودی کاربر؟",
+      "answer_fa": "هرگز کورکورانه به ورودی کاربر اعتماد نکن؛ برای SQL از `?` استفاده کن.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "security"
+      ],
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-067",
+      "concept_id": "w07-c-fstring-sql-danger",
+      "note_id": "w07-n12",
+      "front_fa": "چرا ساختن پرس‌وجو با f-string خطرناک است؟",
+      "back_fa": "متن ورودی مستقیم درون SQL می‌رود و می‌تواند ساختار پرس‌وجو را تغییر دهد.",
+      "question_fa": "چرا ساختن پرس‌وجو با f-string خطرناک است؟",
+      "answer_fa": "متن ورودی مستقیم درون SQL می‌رود و می‌تواند ساختار پرس‌وجو را تغییر دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "security",
+        "python"
+      ],
+      "source_ref": "src-transcript-7",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-068",
+      "concept_id": "w07-c-sql-style",
+      "note_id": "w07-sec",
+      "front_fa": "پیشنهاد اصلی راهنمای سبک SQL؟",
+      "back_fa": "کلیدواژه‌ها با حروف بزرگ و هر بخش (SELECT، FROM، WHERE، ...) در سطر جدا.",
+      "question_fa": "پیشنهاد اصلی راهنمای سبک SQL؟",
+      "answer_fa": "کلیدواژه‌ها با حروف بزرگ و هر بخش (SELECT، FROM، WHERE، ...) در سطر جدا.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "style"
+      ],
+      "source_ref": "src-pset-7-fiftyville#specification",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-069",
+      "concept_id": "w07-c-mysql-vs-sqlite",
+      "note_id": "w07-sh-sql",
+      "front_fa": "فرق SQLite و MySQL در ویدئوی کوتاه؟",
+      "back_fa": "SQLite پایگاه داده را در یک فایل نگه می‌دارد و سبک است؛ MySQL سرور جداگانه‌ای است که ابزارهایی مثل phpMyAdmin دارد.",
+      "question_fa": "فرق SQLite و MySQL در ویدئوی کوتاه؟",
+      "answer_fa": "SQLite پایگاه داده را در یک فایل نگه می‌دارد و سبک است؛ MySQL سرور جداگانه‌ای است که ابزارهایی مثل phpMyAdmin دارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "short"
+      ],
+      "source_ref": "src-short-sql",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-070",
+      "concept_id": "w07-c-autoincrement",
+      "note_id": "w07-sh-sql",
+      "front_fa": "AUTOINCREMENT روی کلید اصلی چه می‌کند؟",
+      "back_fa": "وقتی مقدار را در INSERT ندهی، شمارهٔ یکتای بعدی را خودکار می‌گذارد.",
+      "question_fa": "AUTOINCREMENT روی کلید اصلی چه می‌کند؟",
+      "answer_fa": "وقتی مقدار را در INSERT ندهی، شمارهٔ یکتای بعدی را خودکار می‌گذارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "short",
+        "design"
+      ],
+      "source_ref": "src-short-sql",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-071",
+      "concept_id": "w07-c-sql-file-pipe",
+      "note_id": "w07-ps-movies",
+      "front_fa": "پرس‌وجوی ذخیره‌شده در 1.sql را چطور روی یک پایگاه داده اجرا می‌کنی؟",
+      "back_fa": "`cat 1.sql | sqlite3 movies.db` (همان که صفحهٔ رسمی می‌گوید).",
+      "question_fa": "پرس‌وجوی ذخیره‌شده در 1.sql را چطور روی یک پایگاه داده اجرا می‌کنی؟",
+      "answer_fa": "`cat 1.sql | sqlite3 movies.db` (همان که صفحهٔ رسمی می‌گوید).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-7",
+        "psets"
+      ],
+      "source_ref": "src-pset-7-movies#usage",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-072",
+      "concept_id": "w07-c-query-log",
+      "note_id": "w07-ps-fiftyville",
+      "front_fa": "صفحهٔ رسمی تمرین کارآگاهی برای فایل log.sql چه می‌خواهد؟",
+      "back_fa": "همهٔ پرس‌وجوهایی که اجرا کرده‌ای، با توضیح `--` که چرا هر کدام را نوشتی و چه یاد گرفتی.",
+      "question_fa": "صفحهٔ رسمی تمرین کارآگاهی برای فایل log.sql چه می‌خواهد؟",
+      "answer_fa": "همهٔ پرس‌وجوهایی که اجرا کرده‌ای، با توضیح `--` که چرا هر کدام را نوشتی و چه یاد گرفتی.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "psets"
+      ],
+      "source_ref": "src-pset-7-fiftyville#specification",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-073",
+      "concept_id": "w07-c-no-id-assumption",
+      "note_id": "w07-ps-songs",
+      "front_fa": "چرا صفحهٔ رسمی می‌گوید مقدار id را در پرس‌وجو فرض نکن؟",
+      "back_fa": "id ها ممکن است در پایگاه دادهٔ دیگری فرق کنند؛ id را با یک پرس‌وجو (مثلاً تودرتو) پیدا کن.",
+      "question_fa": "چرا صفحهٔ رسمی می‌گوید مقدار id را در پرس‌وجو فرض نکن؟",
+      "answer_fa": "id ها ممکن است در پایگاه دادهٔ دیگری فرق کنند؛ id را با یک پرس‌وجو (مثلاً تودرتو) پیدا کن.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "psets"
+      ],
+      "source_ref": "src-pset-7-songs#implementation-details",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-074",
+      "concept_id": "w07-c-schema-refactor",
+      "note_id": "w07-pr-prophecy",
+      "front_fa": "هدف بازطراحی طرح‌واره در تمرین اختیاری Prophecy؟",
+      "back_fa": "حذف تکرار با جدا کردن داده در جدول‌های مرتبط و کلیدهای خارجی.",
+      "question_fa": "هدف بازطراحی طرح‌واره در تمرین اختیاری Prophecy؟",
+      "answer_fa": "حذف تکرار با جدا کردن داده در جدول‌های مرتبط و کلیدهای خارجی.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "practice"
+      ],
+      "source_ref": "src-practice-prophecy#background",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w07-fc-075",
+      "concept_id": "w07-c-data-cleaning",
+      "note_id": "w07-pr-favorites",
+      "front_fa": "هدف تمرین اختیاری favorites در پاک‌سازی داده؟",
+      "back_fa": "یکدست کردن مقدارهای نوشته‌شده به شکل‌های مختلف با UPDATE (و LIKE برای یافتنشان).",
+      "question_fa": "هدف تمرین اختیاری favorites در پاک‌سازی داده؟",
+      "answer_fa": "یکدست کردن مقدارهای نوشته‌شده به شکل‌های مختلف با UPDATE (و LIKE برای یافتنشان).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-7",
+        "practice"
+      ],
+      "source_ref": "src-practice-favorites#implementation-details",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    }
+  ]
+}

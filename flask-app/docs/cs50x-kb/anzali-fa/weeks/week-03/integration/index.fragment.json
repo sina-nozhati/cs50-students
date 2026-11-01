@@ -1,0 +1,746 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 3,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-3",
+      "append_child": "w03-fa"
+    }
+  ],
+  "note": "Week-3-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)"
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 3,
+      "node_id": "week-3",
+      "path": "anzali-fa/weeks/week-03/summary.fa.md",
+      "doc_id": "w03-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w03-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۳ — الگوریتم‌ها (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-03/overview.fa.md",
+      "parent": "week-3",
+      "children": [
+        "w03-n01",
+        "w03-n02",
+        "w03-n03",
+        "w03-n04",
+        "w03-n05",
+        "w03-n06",
+        "w03-n07",
+        "w03-n08",
+        "w03-n09",
+        "w03-n10",
+        "w03-n11",
+        "w03-n12",
+        "w03-n13",
+        "w03-n14",
+        "w03-summary",
+        "w03-sec",
+        "w03-sh-linear-search",
+        "w03-sh-binary-search",
+        "w03-sh-bubble-sort",
+        "w03-sh-selection-sort",
+        "w03-sh-call-stacks",
+        "w03-sh-recursion",
+        "w03-sh-merge-sort",
+        "w03-ps-sort",
+        "w03-ps-plurality",
+        "w03-ps-runoff",
+        "w03-ps-tideman",
+        "w03-pr-atoi",
+        "w03-pr-temps",
+        "w03-pr-max",
+        "w03-pr-snackbar"
+      ],
+      "week": 3,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/3/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/3/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n01",
+      "type": "anzali-note",
+      "title": "خوش آمدید: الگوریتم‌ها و رشد زمان اجرا (Welcome!)",
+      "path": "anzali-fa/weeks/week-03/notes/01-welcome.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#welcome",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#welcome"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n02",
+      "type": "anzali-note",
+      "title": "جست‌وجوی خطی و قفسه‌ها (Linear Search)",
+      "path": "anzali-fa/weeks/week-03/notes/02-linear-search.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#linear-search",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#linear-search"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n03",
+      "type": "anzali-note",
+      "title": "جست‌وجوی دودویی (Binary Search)",
+      "path": "anzali-fa/weeks/week-03/notes/03-binary-search.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#binary-search",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#binary-search"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n04",
+      "type": "anzali-note",
+      "title": "زمان اجرا و نماد O بزرگ (Running Time: big O)",
+      "path": "anzali-fa/weeks/week-03/notes/04-big-o.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#running-time",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#running-time"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n05",
+      "type": "anzali-note",
+      "title": "امگا و تتا: کران پایین و کران دقیق (Running Time: Omega and Theta)",
+      "path": "anzali-fa/weeks/week-03/notes/05-omega-theta.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#running-time",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#running-time"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n06",
+      "type": "anzali-note",
+      "title": "search.c: جست‌وجوی خطی اعداد در C (search.c: integers)",
+      "path": "anzali-fa/weeks/week-03/notes/06-search-int.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#searchc",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#searchc"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n07",
+      "type": "anzali-note",
+      "title": "جست‌وجوی رشته‌ها، strcmp و خطای segmentation (search.c: strings and strcmp)",
+      "path": "anzali-fa/weeks/week-03/notes/07-search-strings.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#searchc",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#searchc"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n08",
+      "type": "anzali-note",
+      "title": "phonebook.c: دفترچهٔ تلفن با دو آرایه (phonebook.c)",
+      "path": "anzali-fa/weeks/week-03/notes/08-phonebook.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#phonebookc",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#phonebookc"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n09",
+      "type": "anzali-note",
+      "title": "ساختارها (struct): نوع دادهٔ خودت را بساز (Structs)",
+      "path": "anzali-fa/weeks/week-03/notes/09-structs.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#structs",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#structs"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n10",
+      "type": "anzali-note",
+      "title": "مرتب‌سازی و مرتب‌سازی انتخابی (Sorting and Selection Sort)",
+      "path": "anzali-fa/weeks/week-03/notes/10-selection-sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#sorting-and-selection-sort",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#sorting-and-selection-sort"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n11",
+      "type": "anzali-note",
+      "title": "مرتب‌سازی حبابی (Bubble Sort)",
+      "path": "anzali-fa/weeks/week-03/notes/11-bubble-sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#bubble-sort",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#bubble-sort"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n12",
+      "type": "anzali-note",
+      "title": "بازگشت: حالت پایه و حالت بازگشتی (Recursion: the idea)",
+      "path": "anzali-fa/weeks/week-03/notes/12-recursion.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#recursion",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#recursion"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n13",
+      "type": "anzali-note",
+      "title": "هرم ماریو: تکرار در برابر بازگشت (Recursion: iteration.c and recursion.c)",
+      "path": "anzali-fa/weeks/week-03/notes/13-pyramid.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#recursion",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#recursion"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-n14",
+      "type": "anzali-note",
+      "title": "مرتب‌سازی ادغامی (Merge Sort)",
+      "path": "anzali-fa/weeks/week-03/notes/14-merge-sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/3/#merge-sort",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/3/#merge-sort"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۳ (Summing Up)",
+      "path": "anzali-fa/weeks/week-03/summary.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/notes/3/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/3/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۳ (Section 3)",
+      "path": "anzali-fa/weeks/week-03/section/section-3.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/sections/3/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/3/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-linear-search",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: جست‌وجوی خطی (Linear Search)",
+      "path": "anzali-fa/weeks/week-03/shorts/linear-search.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/shorts/linear_search/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/linear_search/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-binary-search",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: جست‌وجوی دودویی (Binary Search)",
+      "path": "anzali-fa/weeks/week-03/shorts/binary-search.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/shorts/binary_search/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/binary_search/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-bubble-sort",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: مرتب‌سازی حبابی (Bubble Sort)",
+      "path": "anzali-fa/weeks/week-03/shorts/bubble-sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 24,
+      "source_url": "https://cs50.harvard.edu/x/shorts/bubble_sort/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/bubble_sort/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-selection-sort",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: مرتب‌سازی انتخابی (Selection Sort)",
+      "path": "anzali-fa/weeks/week-03/shorts/selection-sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 25,
+      "source_url": "https://cs50.harvard.edu/x/shorts/selection_sort/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/selection_sort/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-call-stacks",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: پشتهٔ فراخوانی (Call Stacks)",
+      "path": "anzali-fa/weeks/week-03/shorts/call-stacks.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 26,
+      "source_url": "https://cs50.harvard.edu/x/shorts/call_stacks/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/call_stacks/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-recursion",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: بازگشت (Recursion)",
+      "path": "anzali-fa/weeks/week-03/shorts/recursion.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 27,
+      "source_url": "https://cs50.harvard.edu/x/shorts/recursion/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/recursion/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-sh-merge-sort",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: مرتب‌سازی ادغامی (Merge Sort)",
+      "path": "anzali-fa/weeks/week-03/shorts/merge-sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/shorts/merge_sort/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/merge_sort/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-ps-sort",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای تشخیص الگوریتم مرتب‌سازی (Sort)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/sort.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/3/sort/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/3/sort/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-ps-plurality",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای انتخابات اکثریت نسبی (Plurality)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/plurality.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 29,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/3/plurality/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/3/plurality/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-ps-runoff",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای انتخابات دومرحله‌ای فوری (Runoff)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/runoff.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 30,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/3/runoff/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/3/runoff/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-ps-tideman",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای روش تایدمن (Tideman)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/tideman.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 31,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/3/tideman/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/3/tideman/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-pr-atoi",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای atoi بازگشتی (Recursive atoi)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/atoi.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 32,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/atoi/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/atoi/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-pr-temps",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای میانگین دمای بیشینه (Temps)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/temps.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 33,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/temps/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/temps/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-pr-max",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای بیشینه (Max)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/max.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 34,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/max/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/max/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    },
+    {
+      "id": "w03-pr-snackbar",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای اسنک‌بار (Snackbar)",
+      "path": "anzali-fa/weeks/week-03/problem-sets/snackbar.fa.md",
+      "parent": "w03-fa",
+      "children": [],
+      "week": 3,
+      "order": 35,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/snackbar/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/snackbar/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-3"
+      ]
+    }
+  ]
+}

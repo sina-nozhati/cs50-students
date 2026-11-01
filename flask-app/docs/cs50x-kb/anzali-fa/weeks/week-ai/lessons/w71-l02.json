@@ -1,0 +1,281 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w71-l02",
+  "type": "lesson",
+  "week": 71,
+  "week_slug": "week-ai",
+  "order": 2,
+  "stage_id": "w71-s2",
+  "title_fa": "درخت تصمیم و مینی‌ماکس",
+  "title_en": "Decision trees and minimax",
+  "note_ids": [
+    "w71-n04",
+    "w71-n05"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w71-l01"
+  ],
+  "concept_ids": [
+    "w71-c-classic-ai",
+    "w71-c-decision-tree",
+    "w71-c-breakout-pseudocode",
+    "w71-c-score-outcomes",
+    "w71-c-minimax",
+    "w71-c-game-tree-size"
+  ],
+  "objective_ids": [
+    "w71-o03",
+    "w71-o04"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official AI notes and the lecture transcript (marked «از سخنرانی»); examples are the official notes blocks, verbatim English quotations from the notes, or authored Python labelled تألیفی (D83); every predict_output program is run with python3.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w71-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w71-l02-u01",
+      "order": 1,
+      "title_fa": "هوش مصنوعی در بازی‌ها و درخت تصمیم",
+      "concept_ids": [
+        "w71-c-classic-ai",
+        "w71-c-decision-tree",
+        "w71-c-breakout-pseudocode"
+      ],
+      "objective_ids": [
+        "w71-o03"
+      ],
+      "note_id": "w71-n04",
+      "source_refs": [
+        "src-notes-71#decision-trees",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "هوش مصنوعی دهه‌هاست همراه ماست: در ایمیل ناخواسته، تشخیص دست‌خط، پیشنهاد فیلم و بازی. **درخت تصمیم** (`decision tree`) ابزاری است که الگوریتم با آن تصمیم می‌گیرد. شبه‌کد رسمی Breakout یک حلقه و یک زنجیرهٔ `If`/`Else if`/`Else` است. از سخنرانی: مالان همین را درختی از پرسش‌های بله/خیر کشید: آیا توپ سمت چپ است؟ آیا سمت راست است؟",
+        "note_id": "w71-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "breakout",
+        "lang": "text",
+        "content": "While game is ongoing:\n  If ball is left of paddle:\n    Move paddle left\n  Else if ball is right of paddle:\n    Move paddle right\n  Else:\n    Don't move paddle",
+        "source_ref": "src-notes-71#decision-trees",
+        "explain_fa": "شبه‌کد رسمی پاروی Breakout."
+      },
+      "check": {
+        "id": "w71-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در شبه‌کد رسمی Breakout، اگر توپ دقیقاً بالای پارو باشد چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پارو حرکت نمی‌کند (شاخهٔ `Else`).",
+            "correct": true,
+            "feedback_fa": "درست؛ نه چپ است نه راست، پس شاخهٔ آخر اجرا می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "پارو به چپ می‌رود، چون شرط اول همیشه بررسی می‌شود.",
+            "correct": false,
+            "feedback_fa": "شرط اول بررسی می‌شود ولی درست نیست؛ توپ سمت چپ نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "بازی تمام می‌شود.",
+            "correct": false,
+            "feedback_fa": "حلقه تا وقتی بازی ادامه دارد تکرار می‌شود؛ این شبه‌کد فقط حرکت پارو را تعیین می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l02-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی (ترجمهٔ پایتونی شبه‌کد رسمی) چیست؟",
+        "expected": {
+          "output": "right\nleft"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. ۷ از ۵ بزرگ‌تر است، پس right؛ ۲ کوچک‌تر است، پس left.",
+          "incorrect_fa": "مقایسه‌ها را به ترتیب امتحان کن: اول `ball < paddle`، بعد `ball > paddle`."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "def move(ball, paddle):\n    if ball < paddle:\n        return \"left\"\n    elif ball > paddle:\n        return \"right\"\n    else:\n        return \"stay\"\n\n\nprint(move(7, 5))\nprint(move(2, 5))\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l02-u02",
+      "order": 2,
+      "title_fa": "امتیاز دادن و مینی‌ماکس",
+      "concept_ids": [
+        "w71-c-score-outcomes",
+        "w71-c-minimax",
+        "w71-c-game-tree-size"
+      ],
+      "objective_ids": [
+        "w71-o04"
+      ],
+      "note_id": "w71-n05",
+      "source_refs": [
+        "src-notes-71#minimax",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "هوش مصنوعی در بازی خوب است چون نتیجه‌ها را به عدد تبدیل می‌کند: مثبت، منفی و خنثی. **مینی‌ماکس** (`minimax`) برای بازیکن X حرکتی با **بیشترین** امتیاز و برای O حرکتی با **کمترین** امتیاز را انتخاب می‌کند. از سخنرانی: اگر O ببرد ۱-، اگر X ببرد ۱ و مساوی ۰. دوز ۲۵۵٬۱۶۸ بازی ممکن دارد، اما در شطرنج و Go عددها آن‌قدر بزرگ است که حتی کامپیوتر نمی‌تواند همه را حساب کند؛ اینجا یادگیری ماشین به کار می‌آید.",
+        "note_id": "w71-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "minimax",
+        "lang": "text",
+        "content": "If player is X:\n  For each possible move:\n    Calculate score for board\n  Choose move with highest score\n\nElse if player is O:\n    For each possible move:\n        Calculate score for board\n    Choose move with lowest score",
+        "source_ref": "src-notes-71#minimax",
+        "explain_fa": "شبه‌کد رسمی مینی‌ماکس برای دوز (تورفتگی شاخهٔ O در متن رسمی متفاوت است)."
+      },
+      "check": {
+        "id": "w71-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "با امتیازهای سخنرانی (برد X = ۱، برد O = ۱-، مساوی = ۰)، اگر نوبت O باشد و حرکت‌ها به امتیازهای ۱، ۰ و ۱- برسند، O کدام را انتخاب می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "حرکتی با امتیاز ۱-",
+            "correct": true,
+            "feedback_fa": "درست. O کمترین امتیاز را می‌خواهد و ۱- یعنی برد O."
+          },
+          {
+            "id": "b",
+            "text_fa": "حرکتی با امتیاز ۱",
+            "correct": false,
+            "feedback_fa": "این برد X است؛ X بیشینه می‌کند، نه O."
+          },
+          {
+            "id": "c",
+            "text_fa": "حرکتی با امتیاز ۰",
+            "correct": false,
+            "feedback_fa": "مساوی بهتر از باختن است، اما وقتی برد ممکن است، O کمترین امتیاز را برمی‌گزیند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l02-u02-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "سطرها را بچین تا تابع تألیفی `best` برای X بیشترین و برای دیگری کمترین امتیاز را برگرداند و برای O چاپ کند.",
+        "lang": "python",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "def best(scores, player):",
+            "text": "def best(scores, player):"
+          },
+          {
+            "id": "p2",
+            "code": "    if player == \"X\":",
+            "text": "    if player == \"X\":"
+          },
+          {
+            "id": "p3",
+            "code": "        return max(scores)",
+            "text": "        return max(scores)"
+          },
+          {
+            "id": "p4",
+            "code": "    else:",
+            "text": "    else:"
+          },
+          {
+            "id": "p5",
+            "code": "        return min(scores)",
+            "text": "        return min(scores)"
+          },
+          {
+            "id": "p6",
+            "code": "print(best([1, 0, -1], \"O\"))",
+            "text": "print(best([1, 0, -1], \"O\"))"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "print(best([1, 0, -1]))",
+            "why_wrong_fa": "تابع دو آرگومان می‌خواهد؛ بدون بازیکن، پایتون TypeError می‌دهد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        },
+        "indentation_matters": true,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست. خروجی `-1` است.",
+          "incorrect_fa": "اول تعریف تابع، بعد شرط X و شاخهٔ دیگر، و در آخر صدا زدن تابع."
+        },
+        "hints_fa": [
+          "`max` برای X است، مثل «Choose move with highest score»."
+        ],
+        "qa": {
+          "stdin": "",
+          "expected_stdout_exact": "-1\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

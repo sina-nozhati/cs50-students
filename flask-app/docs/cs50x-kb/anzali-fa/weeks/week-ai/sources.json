@@ -1,0 +1,341 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 71,
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-cs50-dev",
+    "src-communities"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-71",
+      "url": "https://cs50.harvard.edu/x/weeks/ai/",
+      "title": "Artificial Intelligence (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:03+03:30",
+      "verified_at": "2026-10-31T13:26:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "276974cf49480b835f314a6bdef54fdac6c84fd588dda1e230f830c6a2b37fde"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/ai/",
+      "anchors": [
+        "artificial-intelligence"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-ai-artificial-intelligence/week.md",
+      "notes": "Topic line (15 topics) and the lecture media list only (no problem set, lab, section or shorts). Re-fetched 2026-10-31; main text identical."
+    },
+    {
+      "id": "src-notes-71",
+      "url": "https://cs50.harvard.edu/x/notes/ai/",
+      "title": "Artificial Intelligence lecture notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30",
+      "verified_at": "2026-10-31T13:26:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "3f594de97d4c84eec1b6c940bb0ee5dff0521c0ac0006b9c86d1c2447894b5d7"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/ai/",
+      "anchors": [
+        "ai",
+        "artificial-intelligence",
+        "decision-trees",
+        "deep-learning",
+        "generative-artificial-intelligence",
+        "large-language-models",
+        "machine-learning",
+        "minimax",
+        "prompt-engineering-and-copilot",
+        "summing-up",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-ai-artificial-intelligence/lecture.md",
+      "notes": "All sections read in full; 4 code blocks (chat3 Python, Breakout, minimax and epsilon pseudocode) and 3 slide images. Re-fetched 2026-10-31; main text identical."
+    },
+    {
+      "id": "src-transcript-71",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/ai/lang/en/ai.txt",
+      "title": "AI lecture transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30",
+      "verified_at": "2026-10-31T13:26:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "1103cf2ae19686487a6ddd4fdb5f3fd353346598e8552bd668cafd07784c3c79"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-ai-artificial-intelligence/transcripts/lecture-en.txt",
+      "notes": "Read in full for facts marked «از سخنرانی» (the AI-or-not game, the duck's system prompt, the Copilot demonstration, tic-tac-toe scoring, the pancake robot, the lava world, the red/blue dots, the Massachusetts example). Re-fetched 2026-10-31; same text as the KB copy."
+    },
+    {
+      "id": "src-srt-71",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/ai/lang/en/ai.srt",
+      "title": "AI lecture subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T13:23:00+03:30",
+      "verified_at": "2026-10-31T13:26:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "7d0bb830a4cc67a1027d731547f292b4139e22eb315d4c31714488d237d440ec"
+      },
+      "local_copy": "_tools/refetch/weekai/srt/ai.srt",
+      "notes": "Cue times used for note start times (chapter boundaries are inference)."
+    },
+    {
+      "id": "src-code-71",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/ai/src/",
+      "title": "AI lecture source code (index, src.zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T13:23:00+03:30",
+      "verified_at": "2026-10-31T13:23:00+03:30",
+      "local_copy": "_tools/refetch/weekai/srcx/src/",
+      "notes": "src.zip (sha256 in refetch.json) holds chat3.py and speller/ (the Problem Set 5 distribution code with TODO stubs). chat3.py is quoted verbatim in w71-n03; Speller is not reproduced (d193, D84)."
+    },
+    {
+      "id": "src-video-71",
+      "url": "https://video.cs50.io/-9bo8HlSxwQ",
+      "title": "AI lecture video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30",
+      "notes": "Also https://youtu.be/-9bo8HlSxwQ ; Portuguese https://youtu.be/YFzkVvjiPmM and Spanish https://youtu.be/MTSE0ZOpyDc versions are listed on the week page."
+    },
+    {
+      "id": "src-audio-71",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/ai/ai.mp3",
+      "title": "AI lecture audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30"
+    },
+    {
+      "id": "src-slides-71-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/ai/ai.pdf",
+      "title": "AI lecture slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30",
+      "verified_at": "2026-10-31T13:23:00+03:30",
+      "notes": "HTTP 200 on 2026-10-31 (14,403,702 bytes, last-modified 2025-10-24); not downloaded."
+    },
+    {
+      "id": "src-slides-71-google",
+      "url": "https://docs.google.com/presentation/d/1yAq2CSsmiETHc-jxDkc-CxtIctNSHWXuL7buMyLlb8Y/edit?usp=sharing",
+      "title": "AI lecture slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30"
+    },
+    {
+      "id": "src-slide-images-71",
+      "url": "https://cs50.harvard.edu/x/notes/ai/cs50AiLectureSlide132.png",
+      "title": "Slide images embedded in the notes (132, 208, 210)",
+      "source_type": "image",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:40+03:30",
+      "notes": "Linked from w71-n05 and w71-n07 by their official URLs; not downloaded or re-hosted."
+    },
+    {
+      "id": "src-honesty-71",
+      "url": "https://cs50.harvard.edu/x/honesty/",
+      "title": "Academic Honesty (AI rules)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T13:23:00+03:30",
+      "verified_at": "2026-10-31T13:26:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "a0576669d0c649e39668d98b4e437968f8159081fd4c50b031682495629e877e"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/honesty/",
+      "local_copy": "_tools/refetch/weekai/honesty.txt",
+      "notes": "Linked from the notes. Only the two AI lines are used: reasonable = CS50's own AI-based software (the CS50 Duck in cs50.ai and cs50.dev); not reasonable = other AI software that suggests or completes answers or lines of code."
+    },
+    {
+      "id": "src-anzali-authored-71",
+      "url": "urn:cs50x-anzali:authored:week-ai",
+      "title": "Material authored by CS50x Anzali for the AI lecture (tips marked تألیفی, Python examples, lessons, flashcards, quizzes, challenges, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-31T20:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-71",
+      "url": "urn:cs50x-anzali:inference:week-ai",
+      "title": "Editorial inferences for the AI lecture (chapter boundaries from official .srt cue times; concept graph; Python translations of the official pseudocode)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-31T20:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d187",
+      "topic": "Program name in the notes vs the source file",
+      "a": {
+        "source": "src-notes-71#prompt-engineering-and-copilot",
+        "value": "'You can run this code with python chat.py'"
+      },
+      "b": {
+        "source": "src-code-71",
+        "value": "the downloadable file is src/chat3.py"
+      },
+      "status": "recorded-not-resolved",
+      "note": "w71-n03 shows the official code verbatim and says the file in the source code is chat3.py; run it as `python chat3.py` after downloading."
+    },
+    {
+      "id": "d188",
+      "topic": "Week topics missing from the notes' Summing Up",
+      "a": {
+        "source": "src-week-71",
+        "value": "topic line includes System Prompt, User Prompt, Reinforcement Learning, Explore vs. Exploit, Neural Networks, Transformer Architecture, Hallucinations"
+      },
+      "b": {
+        "source": "src-notes-71#summing-up",
+        "value": "Summing Up lists 8 items without those"
+      },
+      "status": "complementary",
+      "note": "All of them are taught in the notes' body; the package covers every topic of the week page."
+    },
+    {
+      "id": "d189",
+      "topic": "Minimax framing",
+      "a": {
+        "source": "src-notes-71#minimax",
+        "value": "'a board where the computer wins as 1 and one where the computer loses as -1'; 'The computer will attempt to win by maximizing its own score'"
+      },
+      "b": {
+        "source": "src-transcript-71",
+        "value": "X winning scores 1, O winning scores -1, a tie 0; X maximizes and O minimizes"
+      },
+      "status": "complementary",
+      "note": "Same algorithm described from two viewpoints; w71-n05 uses the lecture's X/O convention and says so."
+    },
+    {
+      "id": "d190",
+      "topic": "Machine learning vs reinforcement learning",
+      "a": {
+        "source": "src-notes-71#machine-learning",
+        "value": "'Machine learning is a way by which a computer can learn through reinforcement.'"
+      },
+      "b": {
+        "source": "src-transcript-71",
+        "value": "'reinforcement learning is one way to think about this ... a type of machine learning'"
+      },
+      "status": "complementary",
+      "note": "w71-n06 presents reinforcement learning as one kind of machine learning, alongside supervised learning in w71-n07."
+    },
+    {
+      "id": "d191",
+      "topic": "Terms in the notes that the lecture does not say",
+      "a": {
+        "source": "src-notes-71#large-language-models",
+        "value": "the notes use 'embeddings' and attribute the 2017 attention paper to Google; the minimax section uses 'tic-tac-toe'"
+      },
+      "b": {
+        "source": "src-transcript-71",
+        "value": "the transcript has no 'embedding'; it describes a word as 'an array or vector of numbers' (1,536 floats) and shows recent papers without naming Google"
+      },
+      "status": "complementary",
+      "note": "Both kept: the notes' term in Persian with the English term, and the lecture's description marked «از سخنرانی»."
+    },
+    {
+      "id": "d192",
+      "topic": "Unsupervised learning in the transcript",
+      "a": {
+        "source": "src-notes-71#deep-learning",
+        "value": "'unsupervised learning is a means by which the AI can learn with minimal human intervention'"
+      },
+      "b": {
+        "source": "src-transcript-71",
+        "value": "official transcript: 'We've got to move to an Supervised model.'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Likely a transcription slip for 'unsupervised'; the package follows the notes."
+    },
+    {
+      "id": "d193",
+      "topic": "Speller in the AI source code",
+      "a": {
+        "source": "src-code-71",
+        "value": "src/speller/ contains the Problem Set 5 distribution code (dictionary.c with TODO stubs, speller.c, Makefile, dictionary.h)"
+      },
+      "b": {
+        "source": "src-notes-71#prompt-engineering-and-copilot",
+        "value": "the notes mention Copilot but not Speller"
+      },
+      "status": "complementary",
+      "note": "Not reproduced. The lecture shows Copilot implementing check and load; the package only describes the demonstration and never includes an implementation (FORBID71, D84)."
+    },
+    {
+      "id": "d194",
+      "topic": "'This was CS50!' in the middle of the course",
+      "a": {
+        "source": "src-notes-71#summing-up",
+        "value": "'This was CS50!'"
+      },
+      "b": {
+        "source": "src-week-71",
+        "value": "in the 2026 course order the AI lecture comes after Week 7 (SQL) and before Week 8"
+      },
+      "status": "complementary",
+      "note": "The lecture was recorded as a special lecture with family members in the audience; the app places week-ai between week 7 and week 8 (site number 71)."
+    },
+    {
+      "id": "d195",
+      "topic": "Media are from the fall 2025 offering",
+      "a": {
+        "source": "src-week-71",
+        "value": "all lecture media (audio, slides PDF, source code, subtitles, transcripts, video) are under https://cdn.cs50.net/2025/fall/lectures/ai/"
+      },
+      "b": {
+        "source": "src-anzali-authored-71",
+        "value": "CS50x 2026"
+      },
+      "status": "complementary",
+      "note": "Expected for CS50x 2026 (it reuses the fall 2025 recordings); model name gpt-5 in chat3.py is as of that recording."
+    }
+  ]
+}

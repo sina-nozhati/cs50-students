@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>تمرین تعاملی: {{ week_title }} · CS50x انزلی</title>
+
+    {# Vazirmatn Font #}
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+    {# Tailwind CSS #}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crimson: {
+                DEFAULT: '#A51C30',
+                dark: '#771020',
+                tint: '#FDF2F4',
+              },
+              apple: {
+                canvas: '#F5F5F7',
+                card: '#FFFFFF',
+                border: 'rgba(0, 0, 0, 0.08)',
+                ink: '#1D1D1F',
+                secondary: '#6E6E73',
+                green: '#34C759',
+                'green-dark': '#248A3D',
+                'green-tint': '#E8F8ED',
+                red: '#FF3B30',
+                'red-tint': '#FEECEB',
+                orange: '#FF9500',
+                blue: '#0071E3',
+                'blue-tint': '#EBF4FE',
+              }
+            },
+            fontFamily: {
+              sans: ['Vazirmatn', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+              mono: ['Fira Code', 'JetBrains Mono', 'Menlo', 'Consolas', 'monospace'],
+            },
+          }
+        }
+      }
+    </script>
+
+    {# Alpine.js #}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+    {# Canvas Confetti #}
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <style>
+      :root {
+        --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+        --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+      }
+
+      body {
+        font-family: 'Vazirmatn', -apple-system, sans-serif;
+        background-color: #F5F5F7;
+        color: #1D1D1F;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+
+      /* ─── صریح‌سازی قطعی جهت‌های LTR و RTL (BiDi Isolation) ─── */
+      .ltr-surface {
+        direction: ltr !important;
+        text-align: left !important;
+        unicode-bidi: isolate;
+      }
+      .rtl-surface {
+        direction: rtl !important;
+        text-align: right !important;
+        unicode-bidi: isolate;
+      }
+
+      .code-editor-surface {
+        direction: ltr !important;
+        text-align: left !important;
+        unicode-bidi: isolate;
+        font-family: 'Fira Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+      }
+
+      /* Apple Tactile Button */
+      .apple-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        font-weight: 800;
+        transition: transform 120ms var(--ease-out), background-color 150ms ease, opacity 120ms ease, box-shadow 150ms ease;
+        cursor: pointer;
+        outline: none;
+        touch-action: manipulation;
+        min-height: 52px;
+      }
+      .apple-btn:active:not(:disabled) {
+        transform: scale(0.97);
+      }
+      .apple-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+
+      /* 3D Tactile Buttons */
+      .btn-tactile-primary {
+        background: #34C759;
+        color: #FFFFFF;
+        box-shadow: 0 4px 0 #248A3D, 0 8px 16px rgba(52, 199, 89, 0.25);
+        border: none;
+      }
+      .btn-tactile-primary:hover:not(:disabled) {
+        background: #30B753;
+      }
+      .btn-tactile-primary:active:not(:disabled) {
+        transform: translateY(3px) scale(0.985);
+        box-shadow: 0 1px 0 #248A3D, 0 2px 4px rgba(52, 199, 89, 0.2);
+      }
+
+      .btn-tactile-danger {
+        background: #FF3B30;
+        color: #FFFFFF;
+        box-shadow: 0 4px 0 #C42B23, 0 8px 16px rgba(255, 59, 48, 0.25);
+        border: none;
+      }
+      .btn-tactile-danger:active:not(:disabled) {
+        transform: translateY(3px) scale(0.985);
+        box-shadow: 0 1px 0 #C42B23, 0 2px 4px rgba(255, 59, 48, 0.2);
+      }
+
+      /* Token Pill Buttons (English code tags) */
+      .token-pill {
+        font-family: 'Fira Code', monospace;
+        direction: ltr !important;
+        text-align: center !important;
+        unicode-bidi: isolate;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0.75rem 1.25rem;
+        background: #FFFFFF;
+        border: 2px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
+        border-radius: 16px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        transition: transform 120ms var(--ease-out), border-color 150ms ease, background-color 150ms ease, box-shadow 120ms ease;
+        cursor: pointer;
+        color: #1D1D1F;
+        touch-action: manipulation;
+      }
+      .token-pill:hover {
+        border-color: #0071E3;
+        background-color: #FAFAFC;
+        box-shadow: 0 3px 0 #0071E3, 0 6px 12px rgba(0, 113, 227, 0.12);
+      }
+      .token-pill:active {
+        transform: translateY(2px) scale(0.96);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+      }
+
+      /* Interactive Drop Slot in Code */
+      .code-slot {
+        direction: ltr !important;
+        unicode-bidi: isolate;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 72px;
+        min-height: 44px;
+        padding: 0.25rem 0.85rem;
+        margin: 0.25rem 0.4rem;
+        border-radius: 12px;
+        font-family: 'Fira Code', monospace;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: transform 120ms var(--ease-out), background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+        vertical-align: middle;
+        cursor: pointer;
+      }
+      .code-slot.empty {
+        background: rgba(255, 255, 255, 0.12);
+        border: 2px dashed rgba(255, 255, 255, 0.45);
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .code-slot.empty:hover {
+        border-color: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .code-slot.filled {
+        background: #0071E3;
+        border: 2px solid #0071E3;
+        color: #FFFFFF;
+        box-shadow: 0 3px 8px rgba(0, 113, 227, 0.4);
+      }
+      .code-slot.filled:active {
+        transform: scale(0.95);
+      }
+
+      /* Parsons List Item */
+      .parsons-item {
+        background: #FFFFFF;
+        border: 2px solid rgba(0, 0, 0, 0.07);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        border-radius: 16px;
+        min-height: 54px;
+        transition: transform 120ms var(--ease-out), border-color 150ms ease, box-shadow 150ms ease;
+      }
+      .parsons-item:hover {
+        border-color: rgba(0, 113, 227, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 113, 227, 0.1);
+      }
+      .parsons-item:active {
+        transform: scale(0.985);
+      }
+
+      /* Code line spotter in macOS window */
+      .code-line-spot {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.5rem 0.85rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 120ms ease, border-color 120ms ease;
+        border: 1.5px solid transparent;
+      }
+      .code-line-spot:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+      .code-line-spot.selected {
+        background-color: rgba(255, 59, 48, 0.25);
+        border-color: rgba(255, 59, 48, 0.9);
+      }
+
+      /* Spring Card Entrance */
+      .spring-card-enter {
+        animation: springEnter 320ms var(--ease-out) forwards;
+      }
+      @keyframes springEnter {
+        from {
+          opacity: 0;
+          transform: translateY(14px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Heart shake animation */
+      @keyframes shakeHeart {
+        0%, 100% { transform: scale(1); }
+        20% { transform: scale(1.25) rotate(-10deg); }
+        40% { transform: scale(1.2) rotate(10deg); }
+        60% { transform: scale(1.1) rotate(-5deg); }
+        80% { transform: scale(1.05) rotate(5deg); }
+      }
+      .animate-shake-heart {
+        animation: shakeHeart 450ms var(--ease-out);
+      }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-between overflow-x-hidden antialiased">
+
+{# ─── ایزوله‌سازی کامل داده‌های JSON برای جلوگیری از تداخل اتریبیوت‌های HTML ─── #}
+<script id="practice-challenges-data" type="application/json">
+  {{ challenges_json|safe }}
+</script>
+
+<div x-data="practiceApp({{ week }}, {{ user_xp }}, {{ user_streak }})"
+     class="flex flex-col min-h-screen justify-between relative">
+
+  {# ─── نوار بالای صفحه (Apple Frosted Glass Header) ─── #}
+  <header class="w-full backdrop-blur-xl bg-[#F5F5F7]/90 border-b border-black/[0.06] sticky top-0 z-30 transition-all duration-200">
+    <div class="max-w-2xl mx-auto px-4 h-16 flex items-center justify-between gap-3 sm:gap-4">
+
+      {# دکمه خروج #}
+      <a href="{{ url_for('kb.week_page', week=week) }}"
+         class="w-10 h-10 rounded-full flex items-center justify-center text-apple-secondary hover:text-apple-ink hover:bg-black/[0.05] transition-colors"
+         title="خروج از تمرین"
+         aria-label="خروج">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </a>
+
+      {# نوار پیشرفت #}
+      <div class="flex-1 bg-black/[0.08] rounded-full h-3.5 overflow-hidden relative shadow-inner">
+        <div class="bg-apple-green h-full rounded-full transition-all duration-300 ease-out"
+             :style="'width: ' + progressPercentage + '%'">
+          <div class="h-1 bg-white/40 rounded-full mx-2 mt-0.5"></div>
+        </div>
+      </div>
+
+      {# جون‌ها / قلب‌ها با بازخورد الاستیک #}
+      <div class="flex items-center gap-1.5 px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm"
+           :class="{'animate-shake-heart': isShaking}">
+        <svg class="w-5 h-5 text-apple-red fill-current" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span class="font-extrabold text-sm text-apple-ink num" x-text="hearts"></span>
+      </div>
+
+      {# نشانگر XP #}
+      <div class="hidden sm:flex items-center gap-1.5 px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm">
+        <span class="text-apple-orange font-bold text-xs">⚡</span>
+        <span class="font-bold text-xs text-apple-ink num" x-text="earnedXp + ' XP'"></span>
+      </div>
+
+    </div>
+  </header>
+
+  {# ─── محتوای اصلی چالش (Apple Clean Canvas) ─── #}
+  <main class="w-full max-w-2xl mx-auto px-4 py-6 sm:py-8 flex-1 flex flex-col justify-center">
+
+    {# صفحه جشن و پایان پیروزمندانه (Victory Screen) #}
+    <div x-show="isCompleted"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         class="text-center py-6">
+
+      <div class="w-24 h-24 mx-auto mb-6 bg-apple-green-tint text-apple-green rounded-3xl flex items-center justify-center shadow-sm border border-apple-green/20">
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+
+      <h2 class="text-3xl font-black text-apple-ink mb-2 tracking-tight">تبریک! جلسه کامل شد 🎉</h2>
+      <p class="text-apple-secondary text-base mb-8 font-medium">تمام چالش‌های این مرحله را با موفقیت پشت سر گذاشتی.</p>
+
+      <div class="grid grid-cols-2 gap-4 max-w-xs mx-auto mb-8">
+        <div class="bg-white border border-black/[0.06] rounded-2xl p-4 shadow-sm">
+          <div class="text-xs text-apple-secondary font-medium mb-1">XP کسب‌شده</div>
+          <div class="text-2xl font-black text-apple-orange flex items-center justify-center gap-1 num">
+            <span>+</span>
+            <span x-text="earnedXp"></span>
+            <span class="text-xs font-bold text-apple-secondary">XP</span>
+          </div>
+        </div>
+        <div class="bg-white border border-black/[0.06] rounded-2xl p-4 shadow-sm">
+          <div class="text-xs text-apple-secondary font-medium mb-1">استریک روزانه</div>
+          <div class="text-2xl font-black text-apple-red flex items-center justify-center gap-1 num">
+            <span>🔥</span>
+            <span x-text="streak"></span>
+            <span class="text-xs font-bold text-apple-secondary">روز</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="{{ url_for('kb.week_page', week=week) }}"
+         class="apple-btn btn-tactile-primary w-full max-w-xs py-3.5 text-base font-extrabold shadow-sm">
+        ادامه به درسنامه
+      </a>
+    </div>
+
+    {# چالش جاری #}
+    <template x-if="!isCompleted && currentChallenge">
+      <div class="spring-card-enter">
+
+        {# هدر چالش (کاملاً راست‌به‌چپ برای زبان فارسی) #}
+        <div class="mb-6 rtl-surface" dir="rtl">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-xs font-bold px-3 py-1 rounded-full bg-crimson-tint text-crimson"
+                  x-text="getBadgeLabel(currentChallenge.type)"></span>
+            <span class="text-xs text-apple-secondary font-medium num"
+                  x-text="'چالش ' + (currentIndex + 1) + ' از ' + totalChallenges"></span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black text-apple-ink leading-snug"
+              x-text="currentChallenge.title"></h3>
+          <p class="text-base text-apple-secondary mt-2 font-medium leading-relaxed"
+             x-text="currentChallenge.instruction"></p>
+        </div>
+
+        {# ─── تیپ ۱: انتخاب توکن و جای‌گذاری مستقیم در کد (Token Tap with Explicit LTR Slots) ─── #}
+        <template x-if="currentChallenge.type === 'token_tap'">
+          <div class="space-y-6">
+
+            {# پنجره نمایش کد با جهت قطعی LTR و فلکس چپ‌به‌راست #}
+            <div dir="ltr" class="code-editor-surface bg-[#1E1E24] text-white p-5 sm:p-6 rounded-2xl shadow-xl border border-black/10 text-base sm:text-lg overflow-x-auto">
+              <div class="flex flex-wrap items-center justify-start gap-y-2.5 [direction:ltr]" dir="ltr">
+                <template x-for="(segment, sIdx) in promptSegments" :key="sIdx">
+                  <span class="inline-flex items-center [direction:ltr]" dir="ltr">
+                    {# قطعه کد انگلیسی #}
+                    <span dir="ltr" class="text-gray-100 font-mono whitespace-pre" x-text="segment"></span>
+
+                    {# جای خالی تعاملی درون‌خطی #}
+                    <template x-if="sIdx < slots.length">
+                      <button type="button"
+                              dir="ltr"
+                              @click="clearSlot(sIdx)"
+                              class="code-slot [direction:ltr]"
+                              :class="slots[sIdx] ? 'filled' : 'empty'"
+                              :title="slots[sIdx] ? 'برای بازگشت به بانک کلیک کنید' : 'جای خالی'">
+                        <span x-show="slots[sIdx]" x-text="slots[sIdx]" dir="ltr"></span>
+                        <span x-show="!slots[sIdx]" class="font-sans text-xs opacity-70 select-none" dir="rtl">خالی</span>
+                      </button>
+                    </template>
+                  </span>
+                </template>
+              </div>
+            </div>
+
+            <p class="text-xs text-apple-secondary text-center rtl-surface" dir="rtl">
+              💡 برای پر کردن جای خالی، روی گزینه‌های زیر کلیک کنید. برای خالی کردن، روی جای خالی کلیک کنید.
+            </p>
+
+            {# بانک گزینه‌ها (توکن‌های کد به صورت LTR) #}
+            <div class="bg-white/80 backdrop-blur-sm border border-black/[0.06] rounded-2xl p-4 sm:p-5 shadow-sm">
+              <div class="text-xs font-bold text-apple-secondary mb-3 rtl-surface" dir="rtl">بانک توکن‌ها:</div>
+              <div dir="ltr" class="ltr-surface flex flex-wrap gap-3 justify-center py-1 [direction:ltr]">
+                <template x-for="(tok, idx) in availableTokens" :key="idx">
+                  <button type="button"
+                          dir="ltr"
+                          @click="fillNextSlot(tok, idx)"
+                          class="token-pill">
+                    <span dir="ltr" x-text="tok"></span>
+                  </button>
+                </template>
+                <div x-show="availableTokens.length === 0" class="text-xs text-apple-secondary/70 py-2 italic font-sans rtl-surface" dir="rtl">
+                  همه توکن‌ها در جای خالی قرار گرفتند.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </template>
+
+        {# ─── تیپ ۲: پازل پارسونز مرتب‌سازی خطوط (Parsons Lines Reorder with LTR Code & RTL Actions) ─── #}
+        <template x-if="currentChallenge.type === 'parsons'">
+          <div class="space-y-6">
+
+            {# باکس مقصد چیده‌شده #}
+            <div class="bg-white border border-black/[0.07] rounded-2xl p-4 sm:p-5 shadow-sm">
+              <div class="flex items-center justify-between text-xs font-bold text-apple-secondary mb-3 rtl-surface" dir="rtl">
+                <span>ترتیب اجرای برنامه شما:</span>
+                <span class="text-[11px] text-apple-blue font-semibold">کلیک روی هر خط = حذف</span>
+              </div>
+
+              <div class="space-y-2.5 min-h-[120px] p-3 bg-black/[0.02] rounded-xl border-2 border-dashed border-black/[0.1]">
+                <template x-for="(line, idx) in parsonsSelected" :key="line.id">
+                  <div @click="removeParsonsLine(idx)"
+                       dir="ltr"
+                       class="parsons-item ltr-surface flex items-center justify-between p-3.5 sm:p-4 border-apple-blue/40 cursor-pointer [direction:ltr]">
+                    {# سمت چپ: شماره گام و کد انگلیسی #}
+                    <div class="flex items-center gap-3 [direction:ltr]" dir="ltr">
+                      <span class="w-6 h-6 rounded-full bg-apple-blue text-white text-xs font-bold flex items-center justify-center shrink-0 num">
+                        <span x-text="idx + 1"></span>
+                      </span>
+                      <div dir="ltr" class="font-mono text-sm sm:text-base text-apple-ink font-semibold whitespace-pre [direction:ltr]" x-text="line.text"></div>
+                    </div>
+                    {# سمت راست: دکمه فارسی حذف #}
+                    <span dir="rtl" class="text-xs text-apple-red font-sans font-bold px-2 shrink-0 rtl-surface">حذف</span>
+                  </div>
+                </template>
+
+                <div x-show="parsonsSelected.length === 0" class="text-center text-sm text-apple-secondary/70 py-10 font-medium rtl-surface" dir="rtl">
+                  برای چیدن، به ترتیب روی خطوط زیر کلیک کنید.
+                </div>
+              </div>
+            </div>
+
+            {# خطوط در دسترس (نمایش قطعی LTR برای کدهای زبان C) #}
+            <div class="space-y-2.5">
+              <div class="text-xs font-bold text-apple-secondary mb-1 rtl-surface" dir="rtl">خطوط برای انتخاب:</div>
+              <template x-for="(line, idx) in parsonsAvailable" :key="line.id">
+                <button type="button"
+                        dir="ltr"
+                        @click="selectParsonsLine(line, idx)"
+                        class="parsons-item ltr-surface w-full p-3.5 sm:p-4 block cursor-pointer [direction:ltr]">
+                  <span dir="ltr" class="font-mono text-sm sm:text-base text-apple-ink whitespace-pre block [direction:ltr]" x-text="line.text"></span>
+                </button>
+              </template>
+            </div>
+
+          </div>
+        </template>
+
+        {# ─── تیپ ۳: شکار باگ در ادیتور کد macOS (Spot Bug with Strict LTR Lines) ─── #}
+        <template x-if="currentChallenge.type === 'spot_bug'">
+          <div class="space-y-4">
+            <div dir="ltr" class="ltr-surface bg-[#1E1E24] text-white rounded-2xl shadow-xl overflow-hidden border border-black/10 [direction:ltr]">
+              {# هدر شبیه پنجره macOS #}
+              <div class="px-4 py-3 bg-[#18181D] flex items-center justify-between border-b border-white/[0.06] [direction:ltr]" dir="ltr">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-[#FF5F56] inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#FFBD2E] inline-block"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#27C93F] inline-block"></span>
+                </div>
+                <span class="text-xs font-mono text-white/40">bug_hunt.c</span>
+                <span class="w-8"></span>
+              </div>
+
+              {# بدنه خطوط کد با جهت صریح LTR #}
+              <div class="p-3 sm:p-4 font-mono text-sm sm:text-base [direction:ltr] overflow-x-auto space-y-1" dir="ltr">
+                <template x-for="line in currentChallenge.code_lines" :key="line.index">
+                  <div @click="selectedBugLine = line.index"
+                       :class="{'selected': selectedBugLine === line.index}"
+                       class="code-line-spot flex items-center [direction:ltr]" dir="ltr">
+                    <span class="w-8 text-white/30 select-none text-xs sm:text-sm text-right pr-2 num" x-text="line.index + 1"></span>
+                    <span class="text-apple-green select-none px-1.5">│</span>
+                    <span dir="ltr" class="flex-1 font-mono text-white/95 whitespace-pre [direction:ltr]" x-text="line.text"></span>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <p class="text-xs text-apple-secondary text-center rtl-surface" dir="rtl">
+              💡 روی خطی که دارای خطا است کلیک کنید تا قرمز شود.
+            </p>
+          </div>
+        </template>
+
+        {# ─── تیپ ۴: پیش‌بینی خروجی (Predict Output with LTR Input) ─── #}
+        <template x-if="currentChallenge.type === 'predict_output'">
+          <div class="space-y-4">
+            <div class="bg-white border border-black/[0.07] rounded-2xl p-5 sm:p-6 shadow-sm">
+              <div dir="rtl" class="text-base font-semibold text-apple-ink mb-4 leading-relaxed rtl-surface" x-text="currentChallenge.prompt"></div>
+              <input type="text"
+                     dir="ltr"
+                     x-model="typedAnswer"
+                     @keyup.enter="canCheck && checkAnswer()"
+                     placeholder="e.g. A"
+                     autocomplete="off"
+                     class="ltr-surface [direction:ltr] w-full font-mono text-lg border-2 border-black/[0.12] rounded-xl p-3.5 focus:outline-none focus:border-apple-blue text-left transition-colors">
+            </div>
+          </div>
+        </template>
+
+        {# دکمه و باکس راهنمایی (RTL) #}
+        <div class="mt-5 flex justify-end rtl-surface" dir="rtl">
+          <button type="button"
+                  @click="showHint = !showHint; if(showHint) hintsCount++;"
+                  class="text-xs sm:text-sm text-apple-blue font-bold hover:underline inline-flex items-center gap-1.5 transition-colors">
+            <span>نیاز به راهنمایی داری؟</span>
+            <span>💡</span>
+          </button>
+        </div>
+
+        <div x-show="showHint"
+             dir="rtl"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             class="mt-3 p-4 bg-amber-50/90 border border-amber-200/90 rounded-2xl text-xs sm:text-sm text-amber-900 leading-relaxed backdrop-blur-sm rtl-surface">
+          <span class="font-bold">راهنمایی:</span>
+          <span x-text="currentChallenge.hint"></span>
+        </div>
+
+      </div>
+    </template>
+  </main>
+
+  {# ─── نوار پایینی و بنر پاسخ (Apple-Grade Feedback Drawer) ─── #}
+  <footer class="w-full backdrop-blur-xl border-t border-black/[0.06] sticky bottom-0 z-30 transition-colors duration-250 pb-[env(safe-area-inset-bottom)]"
+          :class="{
+            'bg-emerald-50/95 border-emerald-500/40': feedbackStatus === 'correct',
+            'bg-rose-50/95 border-rose-500/40': feedbackStatus === 'incorrect',
+            'bg-white/90': feedbackStatus === null
+          }">
+    <div class="max-w-2xl mx-auto px-4 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+      {# متن بازخورد #}
+      <div class="flex-1 w-full rtl-surface" dir="rtl" x-show="feedbackStatus !== null"
+           x-transition:enter="transition ease-out duration-200"
+           x-transition:enter-start="opacity-0 translate-y-2"
+           x-transition:enter-end="opacity-100 translate-y-0">
+
+        <template x-if="feedbackStatus === 'correct'">
+          <div class="flex items-start gap-3.5">
+            <div class="w-11 h-11 rounded-full bg-apple-green text-white flex items-center justify-center shrink-0 shadow-sm">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-black text-apple-green-dark text-lg">آفرین! دقیقاً درسته 🎉</h4>
+              <p class="text-xs sm:text-sm text-apple-ink/90 mt-1 leading-relaxed" x-text="currentExplanation"></p>
+            </div>
+          </div>
+        </template>
+
+        <template x-if="feedbackStatus === 'incorrect'">
+          <div class="flex items-start gap-3.5">
+            <div class="w-11 h-11 rounded-full bg-apple-red text-white flex items-center justify-center shrink-0 shadow-sm">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-black text-apple-red text-lg">دقت کن! اشتباه شد ❌</h4>
+              <p class="text-xs sm:text-sm text-apple-ink/90 mt-1 leading-relaxed" x-text="currentExplanation"></p>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      {# دکمه اقدام با ارتفاع و عرض مناسب تاچ در موبایل #}
+      <div class="w-full sm:w-auto flex justify-end shrink-0" x-show="!isCompleted">
+        {# حالت ۱: دکمه بررسی #}
+        <button x-show="feedbackStatus === null"
+                type="button"
+                @click="checkAnswer()"
+                :disabled="!canCheck"
+                class="apple-btn btn-tactile-primary w-full sm:w-48 py-3.5 text-base sm:text-lg shadow-sm">
+          بررسی پاسخ
+        </button>
+
+        {# حالت ۲: دکمه رفتن به بعد #}
+        <button x-show="feedbackStatus !== null"
+                type="button"
+                @click="nextChallenge()"
+                class="apple-btn w-full sm:w-48 py-3.5 text-base sm:text-lg shadow-sm"
+                :class="{
+                  'btn-tactile-primary': feedbackStatus === 'correct',
+                  'btn-tactile-danger': feedbackStatus === 'incorrect'
+                }">
+          ادامه
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+</div>
+
+{# ─── Alpine.js Core Logic & Refined Audio Synthesizer ─── #}
+<script>
+function practiceApp(week, initialXp, initialStreak) {
+  // بارگذاری امن چالش‌ها از اسکریپت ساختاریافته
+  const dataEl = document.getElementById('practice-challenges-data');
+  let rawChallenges = [];
+  try {
+    rawChallenges = JSON.parse(dataEl ? dataEl.textContent : '[]');
+  } catch (e) {
+    console.error('Failed to parse practice challenges JSON', e);
+  }
+
+  // خواندن ایمن توکن CSRF
+  const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+  return {
+    challenges: rawChallenges,
+    week: week,
+    csrfToken: csrfToken,
+    currentIndex: 0,
+    hearts: 3,
+    earnedXp: 0,
+    streak: initialStreak,
+    isCompleted: false,
+    isShaking: false,
+    feedbackStatus: null,
+    currentExplanation: '',
+    showHint: false,
+    hintsCount: 0,
+    startTime: Date.now(),
+    incorrectCount: 0,
+
+    // Token Tap with Inline Slots
+    promptSegments: [],
+    slots: [], // آرایه توکن‌های قرار گرفته در هر جای خالی
+    availableTokens: [],
+
+    // Parsons
+    parsonsSelected: [],
+    parsonsAvailable: [],
+
+    // Spot Bug
+    selectedBugLine: null,
+
+    // Predict Output
+    typedAnswer: '',
+
+    init() {
+      this.loadCurrentChallenge();
+    },
+
+    get currentChallenge() {
+      return this.challenges[this.currentIndex] || null;
+    },
+
+    get totalChallenges() {
+      return this.challenges.length;
+    },
+
+    get progressPercentage() {
+      if (this.totalChallenges === 0) return 0;
+      return Math.round((this.currentIndex / this.totalChallenges) * 100);
+    },
+
+    getBadgeLabel(type) {
+      const map = {
+        'token_tap': 'چیدن توکن',
+        'parsons': 'مرتب‌سازی خطوط',
+        'spot_bug': 'شکار باگ',
+        'predict_output': 'پیش‌بینی خروجی',
+        'mcq': 'چندگزینه‌ای'
+      };
+      return map[type] || 'چالش کد';
+    },
+
+    loadCurrentChallenge() {
+      this.feedbackStatus = null;
+      this.currentExplanation = '';
+      this.showHint = false;
+      this.hintsCount = 0;
+
+      const ch = this.currentChallenge;
+      if (!ch) return;
+
+      if (ch.type === 'token_tap') {
+        const rawPrompt = ch.prompt || '';
+        this.promptSegments = rawPrompt.split('___');
+        const numSlots = Math.max(1, this.promptSegments.length - 1);
+        this.slots = new Array(numSlots).fill(null);
+        this.availableTokens = ch.token_bank ? [...ch.token_bank] : [];
+      } else if (ch.type === 'parsons') {
+        this.parsonsSelected = [];
+        this.parsonsAvailable = ch.scrambled_lines ? [...ch.scrambled_lines] : [];
+      } else if (ch.type === 'spot_bug') {
+        this.selectedBugLine = null;
+      } else if (ch.type === 'predict_output') {
+        this.typedAnswer = '';
+      }
+    },
+
+    get canCheck() {
+      const ch = this.currentChallenge;
+      if (!ch) return false;
+      if (ch.type === 'token_tap') {
+        return this.slots.length > 0 && this.slots.every(s => s !== null);
+      }
+      if (ch.type === 'parsons') {
+        return this.parsonsSelected.length === (ch.scrambled_lines ? ch.scrambled_lines.length : 0);
+      }
+      if (ch.type === 'spot_bug') {
+        return this.selectedBugLine !== null;
+      }
+      if (ch.type === 'predict_output') {
+        return this.typedAnswer.trim().length > 0;
+      }
+      return true;
+    },
+
+    fillNextSlot(tok, bankIdx) {
+      const emptySlotIdx = this.slots.findIndex(s => s === null);
+      if (emptySlotIdx !== -1) {
+        this.slots[emptySlotIdx] = tok;
+        this.availableTokens.splice(bankIdx, 1);
+      }
+    },
+
+    clearSlot(slotIdx) {
+      const tok = this.slots[slotIdx];
+      if (tok !== null) {
+        this.slots[slotIdx] = null;
+        this.availableTokens.push(tok);
+      }
+    },
+
+    selectParsonsLine(line, idx) {
+      this.parsonsSelected.push(line);
+      this.parsonsAvailable.splice(idx, 1);
+    },
+    removeParsonsLine(idx) {
+      const line = this.parsonsSelected[idx];
+      this.parsonsSelected.splice(idx, 1);
+      this.parsonsAvailable.push(line);
+    },
+
+    // Web Audio Synthesizer
+    playSuccessSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, now); // D5
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.12); // A5
+
+        gain.gain.setValueAtTime(0.18, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+
+        osc.start(now);
+        osc.stop(now + 0.32);
+      } catch (e) {}
+    },
+
+    playErrorSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(260, now);
+        osc.frequency.exponentialRampToValueAtTime(140, now + 0.16);
+
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+
+        osc.start(now);
+        osc.stop(now + 0.3);
+      } catch (e) {}
+    },
+
+    playVictorySound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+        notes.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          const start = ctx.currentTime + (idx * 0.09);
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, start);
+          gain.gain.setValueAtTime(0.16, start);
+          gain.gain.exponentialRampToValueAtTime(0.001, start + 0.28);
+
+          osc.start(start);
+          osc.stop(start + 0.28);
+        });
+      } catch (e) {}
+    },
+
+    async checkAnswer() {
+      if (!this.canCheck) return;
+      const ch = this.currentChallenge;
+      let userAnswer = null;
+
+      if (ch.type === 'token_tap') {
+        userAnswer = this.slots;
+      } else if (ch.type === 'parsons') {
+        userAnswer = this.parsonsSelected.map(l => l.id);
+      } else if (ch.type === 'spot_bug') {
+        userAnswer = this.selectedBugLine;
+      } else if (ch.type === 'predict_output') {
+        userAnswer = this.typedAnswer.trim();
+      }
+
+      try {
+        const resp = await fetch(`/kb/week/${this.week}/practice/submit`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': this.csrfToken,
+          },
+          body: JSON.stringify({
+            challenge_id: ch.id,
+            answer: userAnswer,
+            hints_used: this.hintsCount
+          })
+        });
+
+        if (!resp.ok) {
+          console.error('Server returned error status:', resp.status);
+          return;
+        }
+
+        const result = await resp.json();
+
+        if (result.is_correct) {
+          this.feedbackStatus = 'correct';
+          this.currentExplanation = result.explanation;
+          this.earnedXp += (result.xp_awarded || 0);
+          this.playSuccessSound();
+        } else {
+          this.feedbackStatus = 'incorrect';
+          this.currentExplanation = result.explanation;
+          this.incorrectCount++;
+          this.hearts = Math.max(0, this.hearts - 1);
+          this.isShaking = true;
+          setTimeout(() => this.isShaking = false, 500);
+          this.playErrorSound();
+        }
+      } catch (err) {
+        console.error('Failed to submit answer:', err);
+      }
+    },
+
+    async nextChallenge() {
+      if (this.currentIndex < this.totalChallenges - 1) {
+        this.currentIndex++;
+        this.loadCurrentChallenge();
+      } else {
+        this.isCompleted = true;
+        this.playVictorySound();
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 90,
+            spread: 60,
+            origin: { y: 0.6 }
+          });
+        }
+
+        try {
+          const timeSpent = Math.round((Date.now() - this.startTime) / 1000);
+          const resp = await fetch(`/kb/week/${this.week}/practice/complete`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': this.csrfToken,
+            },
+            body: JSON.stringify({
+              completed_count: this.totalChallenges,
+              incorrect_count: this.incorrectCount,
+              time_spent_seconds: timeSpent,
+              entry_point: 'practice_runner'
+            })
+          });
+          const compResult = await resp.json();
+          if (compResult.current_streak) {
+            this.streak = compResult.current_streak;
+          }
+        } catch (e) {
+          console.error('Failed to complete session:', e);
+        }
+      }
+    }
+  };
+}
+</script>
+
+</body>
+</html>

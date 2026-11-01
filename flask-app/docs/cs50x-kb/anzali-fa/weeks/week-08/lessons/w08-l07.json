@@ -1,0 +1,430 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l07",
+  "type": "lesson",
+  "week": 8,
+  "order": 7,
+  "stage_id": "w08-s7",
+  "title_fa": "تغییر DOM و تکمیل خودکار",
+  "title_en": "Changing the DOM and autocomplete",
+  "note_ids": [
+    "w08-n14",
+    "w08-n15"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w08-l06"
+  ],
+  "concept_ids": [
+    "w08-c-keyup",
+    "w08-c-template-literal",
+    "w08-c-innerhtml",
+    "w08-c-truthy-string",
+    "w08-c-innerhtml-injection",
+    "w08-c-style-property",
+    "w08-c-click-event",
+    "w08-c-setinterval",
+    "w08-c-visibility",
+    "w08-c-js-array",
+    "w08-c-startswith",
+    "w08-c-build-html-string",
+    "w08-c-script-src",
+    "w08-c-js-objects",
+    "w08-c-dom-navigation",
+    "w08-c-queryselectorall"
+  ],
+  "objective_ids": [
+    "w08-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w08-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l07-u01",
+      "order": 1,
+      "title_fa": "keyup، template literal و innerHTML",
+      "concept_ids": [
+        "w08-c-keyup",
+        "w08-c-template-literal",
+        "w08-c-innerhtml",
+        "w08-c-truthy-string",
+        "w08-c-innerhtml-injection"
+      ],
+      "objective_ids": [
+        "w08-o10"
+      ],
+      "note_id": "w08-n14",
+      "source_refs": [
+        "src-notes-8#javascript",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "رویداد `keyup` هر بار که کاربر کلیدی را رها می‌کند رخ می‌دهد. در `hello5` با هر کلید، متن بند `<p>` با `innerHTML` عوض می‌شود. رشته‌ای که با بک‌تیک نوشته شود (`template literal`) می‌تواند مقدار را با `${...}` درون خود بگذارد. رشتهٔ خالی در شرط نادرست حساب می‌شود، پس `if (input.value)` یعنی «اگر کاربر چیزی نوشته». مراقب باش: هر چه در `innerHTML` بگذاری HTML تفسیر می‌شود، پس متن کاربر را بی‌احتیاط در آن نگذار.",
+        "note_id": "w08-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello5",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates keyup and template literals -->\n\n<html lang=\"en\">\n    <head>\n        <script>\n\n            document.addEventListener('DOMContentLoaded', function() {\n                let input = document.querySelector('input');\n                input.addEventListener('keyup', function(event) {\n                    let name = document.querySelector('p');\n                    if (input.value) {\n                        name.innerHTML = `hello, ${input.value}`;\n                    }\n                    else {\n                        name.innerHTML = 'hello, whoever you are';\n                    }\n                });\n            });\n\n        </script>\n        <title>hello</title>\n    </head>\n    <body>\n        <form>\n            <input autocomplete=\"off\" autofocus placeholder=\"Name\" type=\"text\">\n        </form>\n        <p></p>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#javascript",
+        "explain_fa": "keyup و template literal (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `hello5` کاربر همهٔ متن کادر را پاک می‌کند و کلید را رها می‌کند. بند چه نشان می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`hello, whoever you are`",
+            "correct": true,
+            "feedback_fa": "درست. رشتهٔ خالی نادرست است، پس شاخهٔ `else` اجرا می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "`hello, `",
+            "correct": false,
+            "feedback_fa": "این وقتی بود که شرط نبود؛ `if (input.value)` رشتهٔ خالی را رد می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "آخرین نام نوشته‌شده می‌ماند.",
+            "correct": false,
+            "feedback_fa": "رویداد `keyup` برای پاک کردن هم رخ می‌دهد و متن عوض می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l07-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "کاربر در این صفحهٔ تألیفی اول `Sina` می‌نویسد و سپس کادر را خالی می‌کند. پس از هر بار، متن بند چاپ می‌شود. خروجی دقیقاً چیست؟",
+        "expected": {
+          "output": "hi, Sina!\nhi, stranger"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: با متن، template literal نام را می‌گذارد؛ با رشتهٔ خالی شاخهٔ `else` اجرا می‌شود.",
+          "incorrect_fa": "در هر بار، `input.value` را در شرط بسنج: رشتهٔ خالی نادرست است."
+        },
+        "hints_fa": [
+          "`${input.value}` با مقدار کادر جایگزین می‌شود."
+        ],
+        "lang": "html",
+        "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <title>practice</title>\n        <script>\n            document.addEventListener('DOMContentLoaded', function() {\n                let input = document.querySelector('input');\n                input.addEventListener('keyup', function() {\n                    let p = document.querySelector('p');\n                    if (input.value) {\n                        p.innerHTML = `hi, ${input.value}!`;\n                    }\n                    else {\n                        p.innerHTML = 'hi, stranger';\n                    }\n                });\n            });\n        </script>\n    </head>\n    <body>\n        <input type=\"text\">\n        <p></p>\n    </body>\n</html>\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"type\", \"sel\": \"input\", \"value\": \"Sina\"}, {\"do\": \"probe\", \"expr\": \"document.querySelector('p').innerHTML\"}, {\"do\": \"type\", \"sel\": \"input\", \"value\": \"\"}, {\"do\": \"probe\", \"expr\": \"document.querySelector('p').innerHTML\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "hi, Sina!\nhi, stranger\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l07-u02",
+      "order": 2,
+      "title_fa": "تغییر سبک، click و زمان‌سنج",
+      "concept_ids": [
+        "w08-c-style-property",
+        "w08-c-click-event",
+        "w08-c-setinterval",
+        "w08-c-visibility"
+      ],
+      "objective_ids": [
+        "w08-o10"
+      ],
+      "note_id": "w08-n14",
+      "source_refs": [
+        "src-notes-8#javascript",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "جاوااسکریپت می‌تواند سبک را هم عوض کند: `body.style.backgroundColor = 'red'` . نام ویژگی CSS با خط تیره، مثل `background-color` ، در جاوااسکریپت به شکل `backgroundColor` نوشته می‌شود، چون `-` در جاوااسکریپت تفریق است. در `background` هر دکمه با رویداد `click` رنگ زمینه را عوض می‌کند. `window.setInterval(blink, 500)` تابع `blink` را هر ۵۰۰ میلی‌ثانیه صدا می‌زند و این تابع `style.visibility` را میان `hidden` و `visible` جابه‌جا می‌کند.",
+        "note_id": "w08-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "background",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates programmatic changes to style -->\n\n<html lang=\"en\">\n    <head>\n        <title>background</title>\n    </head>\n    <body>\n        <button id=\"red\">R</button>\n        <button id=\"green\">G</button>\n        <button id=\"blue\">B</button>\n        <script>\n\n            let body = document.querySelector('body');\n            document.querySelector('#red').addEventListener('click', function() {\n                body.style.backgroundColor = 'red';\n            });\n            document.querySelector('#green').addEventListener('click', function() {\n                body.style.backgroundColor = 'green';\n            });\n            document.querySelector('#blue').addEventListener('click', function() {\n                body.style.backgroundColor = 'blue';\n            });\n\n        </script>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#javascript",
+        "explain_fa": "تغییر رنگ زمینه با click (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا در جاوااسکریپت `style.backgroundColor` می‌نویسیم، نه `style.background-color` ؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون `-` در جاوااسکریپت عملگر تفریق است و `background-color` یک نام نمی‌شود.",
+            "correct": true,
+            "feedback_fa": "درست. جاوااسکریپت نام‌های خط‌تیره‌دار CSS را به شکل camelCase می‌آورد."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون CSS ویژگی `background-color` ندارد.",
+            "correct": false,
+            "feedback_fa": "CSS این ویژگی را دارد؛ فقط در جاوااسکریپت نامش camelCase است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون `backgroundColor` سریع‌تر اجرا می‌شود.",
+            "correct": false,
+            "feedback_fa": "مسئله سرعت نیست، نحو زبان است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l07-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را با **همان نام ویژگی‌ای که سخنرانی به کار برد** پر کن تا با کلیک روی دکمه، زمینه قرمز شود.",
+        "lang": "html",
+        "code_origin": "authored",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <title>practice</title>\n    </head>\n    <body>\n        <button id=\"red\">R</button>\n        <script>\n            let body = document.querySelector('body');\n            document.querySelector('#red').addEventListener('click', function() {\n                body.style.[[b1]] = 'red';\n            });\n        </script>\n    </body>\n</html>\n",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "backgroundColor"
+            ],
+            "hint_fa": "نام camelCase ویژگی رنگ زمینه.",
+            "wrong_feedback": {
+              "background-color": "`body.style.background-color = ...` در جاوااسکریپت معتبر نیست (`SyntaxError`)؛ خط تیره تفریق است.",
+              "color": "`color` رنگ متن است، نه زمینه؛ زمینه سفید می‌ماند.",
+              "background": "`background` ویژگی کوتاه‌نویس است و زمینه را هم قرمز می‌کند، اما صورت پرسش همان نامی را می‌خواهد که سخنرانی به کار برد."
+            },
+            "default_wrong_fa": "نام ویژگی رنگ زمینه را به شکل camelCase بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "backgroundColor"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `backgroundColor` همان `background-color` در CSS است.",
+          "incorrect_fa": "نام ویژگی رنگ زمینه در جاوااسکریپت camelCase است."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"click\", \"sel\": \"#red\"}, {\"do\": \"probe\", \"expr\": \"document.body.style.backgroundColor\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "red\n",
+          "verified_by": "_tools/qa_questions.py",
+          "spec_excludes": {
+            "background": "the shorthand also sets the background colour; the prompt asks for the property name the lecture used (backgroundColor)"
+          }
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l07-u03",
+      "order": 3,
+      "title_fa": "آرایه، حلقه و تکمیل خودکار",
+      "concept_ids": [
+        "w08-c-js-array",
+        "w08-c-startswith",
+        "w08-c-build-html-string",
+        "w08-c-script-src",
+        "w08-c-js-objects",
+        "w08-c-dom-navigation",
+        "w08-c-queryselectorall"
+      ],
+      "objective_ids": [
+        "w08-o10"
+      ],
+      "note_id": "w08-n15",
+      "source_refs": [
+        "src-notes-8#javascript",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "در مثال `autocomplete` فایل `large.js` با `<script src=\"large.js\">` بارگذاری می‌شود و آرایه‌ای بزرگ از واژه‌ها (همان واژه‌های Speller) می‌دهد. با هر `keyup` ، برنامه روی آرایه حلقه می‌زند، واژه‌هایی را که با متن کاربر شروع می‌شوند (`startsWith`) نگه می‌دارد، از آن‌ها یک رشتهٔ HTML از `<li>` ها می‌سازد و آن را در `innerHTML` یک `<ul>` می‌گذارد. `for (let word of words)` روی مقدارها می‌چرخد؛ `for...in` روی کلیدها (اندیس‌ها، به شکل رشته) می‌چرخد.",
+        "note_id": "w08-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n15"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "javascript",
+        "content": "let words = ['cat', 'car', 'cart', 'dog'];\nlet html = '';\nfor (let word of words)\n{\n    if (word.startsWith('ca'))\n    {\n        html += `<li>${word}</li>`;\n    }\n}\nconsole.log(html);",
+        "source_ref": "src-anzali-authored-8",
+        "explain_fa": "هستهٔ حلقهٔ autocomplete بدون DOM (اجراشده روی جعبهٔ ساخت با node).",
+        "run_output": "<li>cat</li><li>car</li><li>cart</li>\n",
+        "verified_by": "node (box)"
+      },
+      "check": {
+        "id": "w08-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی `for (let i in ['a', 'b']) { console.log(typeof i); }` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "دو بار `string`",
+            "correct": true,
+            "feedback_fa": "درست. `for...in` روی کلیدها می‌چرخد و کلیدهای آرایه رشته‌اند."
+          },
+          {
+            "id": "b",
+            "text_fa": "دو بار `number`",
+            "correct": false,
+            "feedback_fa": "اندیس‌ها در `for...in` رشته‌اند، نه عدد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`a` و `b`",
+            "correct": false,
+            "feedback_fa": "این خروجی `for...of` با `console.log(i)` بود؛ اینجا نوع کلید چاپ می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l07-u03-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را مرتب کن تا برنامه (اجرا با node) واژه‌هایی را که با `ca` شروع می‌شوند به شکل `<li>cat</li><li>car</li>` چاپ کند. خط اول ثابت است:\n\n```javascript\nlet words = ['cat', 'car', 'dog'];\n```",
+        "lang": "javascript",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "let html = '';",
+            "text": "let html = '';"
+          },
+          {
+            "id": "p2",
+            "code": "for (let word of words) {",
+            "text": "for (let word of words) {"
+          },
+          {
+            "id": "p3",
+            "code": "if (word.startsWith('ca')) {",
+            "text": "if (word.startsWith('ca')) {"
+          },
+          {
+            "id": "p4",
+            "code": "html += '<li>' + word + '</li>';",
+            "text": "html += '<li>' + word + '</li>';"
+          },
+          {
+            "id": "p5",
+            "code": "}",
+            "text": "}"
+          },
+          {
+            "id": "p6",
+            "code": "}",
+            "text": "}"
+          },
+          {
+            "id": "p7",
+            "code": "console.log(html);",
+            "text": "console.log(html);"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "for (let word in words) {",
+            "why_wrong_fa": "`for...in` اندیس‌ها را می‌دهد، نه واژه‌ها؛ هیچ اندیسی با `ca` شروع نمی‌شود."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6",
+            "p7"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: رشته یک بار پیش از حلقه ساخته می‌شود و پس از حلقه چاپ.",
+          "incorrect_fa": "رشتهٔ خالی را پیش از حلقه بساز و چاپ را بعد از حلقه بگذار."
+        },
+        "hints_fa": [
+          "اگر `let html = '';` داخل حلقه باشد، هر دور پاک می‌شود."
+        ],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {},
+          "expected_stdout_exact": "<li>cat</li><li>car</li>\n",
+          "verified_by": "_tools/qa_questions.py",
+          "check_prefix": "let words = ['cat', 'car', 'dog'];\n"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

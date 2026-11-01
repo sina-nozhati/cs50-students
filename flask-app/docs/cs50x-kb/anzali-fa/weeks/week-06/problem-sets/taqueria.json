@@ -1,0 +1,241 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-pr-taqueria",
+  "kind": "practice",
+  "week": 6,
+  "title_en": "Felipe’s Taqueria",
+  "title_fa": "تاکوفروشی Felipe",
+  "guide_doc_id": "w06-pr-taqueria",
+  "guide_file": "taqueria.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/taqueria/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "choice_group": null,
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w06-pr-taqueria-r1",
+        "text_fa": "در فایل `taqueria.py` برنامه‌ای بنویس که سفارش بگیرد و غذاها را یکی در هر سطر بپرسد تا کاربر control-d بزند.",
+        "text_en": "In a file called `taqueria.py`, implement a program that enables a user to place an order, prompting them for items, one per line, until the user inputs control-d",
+        "source_ref": "src-practice-taqueria#felipes-taqueria"
+      },
+      {
+        "id": "w06-pr-taqueria-r2",
+        "text_fa": "پس از هر غذا، جمع کل غذاهای واردشده تا آن لحظه را با پیشوند `$` و دو رقم اعشار نشان بده.",
+        "text_en": "After each inputted item, display the total cost of all items inputted thus far, prefixed with a dollar sign (`$`) and formatted to two decimal places",
+        "source_ref": "src-practice-taqueria#felipes-taqueria"
+      },
+      {
+        "id": "w06-pr-taqueria-r3",
+        "text_fa": "به بزرگی و کوچکی حروف ورودی حساس نباش.",
+        "text_en": "Treat the user's input case insensitively",
+        "source_ref": "src-practice-taqueria#felipes-taqueria"
+      },
+      {
+        "id": "w06-pr-taqueria-r4",
+        "text_fa": "ورودی‌ای را که غذای منو نیست نادیده بگیر.",
+        "text_en": "Ignore any input that isn't an item",
+        "source_ref": "src-practice-taqueria#felipes-taqueria"
+      },
+      {
+        "id": "w06-pr-taqueria-r5",
+        "text_fa": "فرض کن نام همهٔ غذاهای منو با حروف آغازین بزرگ (titlecase) نوشته شده است.",
+        "text_en": "Assume that every item on the menu will be",
+        "source_ref": "src-practice-taqueria#felipes-taqueria"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2022/python/taqueria",
+      "style50": null,
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/6/taqueria.zip\nunzip taqueria.zip\nrm taqueria.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "منوی رسمی (واژه‌نامهٔ قیمت‌ها)",
+        "text": "{\n    \"Baja Taco\": 4.25,\n    \"Burrito\": 7.50,\n    \"Bowl\": 8.50,\n    \"Nachos\": 11.00,\n    \"Quesadilla\": 8.50,\n    \"Super Burrito\": 8.50,\n    \"Super Quesadilla\": 9.50,\n    \"Taco\": 3.00,\n    \"Tortilla Salad\": 8.00\n}",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [
+      {
+        "text": "Taco, Taco",
+        "expected": "Total: $6.00",
+        "origin": "official"
+      },
+      {
+        "text": "Baja Taco, Tortilla Salad",
+        "expected": "Total: $12.25",
+        "origin": "official"
+      },
+      {
+        "text": "Burger",
+        "expected": "(دوباره می‌پرسد)",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [
+      {
+        "caption_fa": "تشخیص control-d با گرفتن `EOFError` (از بخش Hints)",
+        "code": "try:\n    item = input()\nexcept EOFError:\n    ...",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "دسترسی به مقدار با کلید",
+        "code": "d[key]",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "بررسی وجود کلید",
+        "code": "if key in d:\n    ...",
+        "origin": "official"
+      }
+    ],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2022/python/taqueria",
+      "style50": null,
+      "has_check50": true,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "J20VZsCKXRPoavI0nFwCreRmr",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d107"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-dict",
+      "w06-c-dict-lookup",
+      "w06-c-try-except",
+      "w06-c-exception",
+      "w06-c-string-methods",
+      "w06-c-f-string",
+      "w06-c-while-true-break"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l02",
+      "w06-l03",
+      "w06-l05",
+      "w06-l06",
+      "w06-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-dict",
+        "note_id": "w06-n13",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u02"
+      },
+      {
+        "concept_id": "w06-c-dict-lookup",
+        "note_id": "w06-n13",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u02"
+      },
+      {
+        "concept_id": "w06-c-try-except",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u03"
+      },
+      {
+        "concept_id": "w06-c-exception",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u03"
+      },
+      {
+        "concept_id": "w06-c-string-methods",
+        "note_id": "w06-n08",
+        "lesson_id": "w06-l03",
+        "unit_id": "w06-l03-u03"
+      },
+      {
+        "concept_id": "w06-c-f-string",
+        "note_id": "w06-n04",
+        "lesson_id": "w06-l02",
+        "unit_id": "w06-l02-u01"
+      },
+      {
+        "concept_id": "w06-c-while-true-break",
+        "note_id": "w06-n11",
+        "lesson_id": "w06-l06",
+        "unit_id": "w06-l06-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "حلقه‌ای لازم داری که تا control-d ادامه بدهد. قطعهٔ رسمی `EOFError` را ببین و فکر کن `break` کجا می‌آید."
+      },
+      {
+        "n": 2,
+        "hint_fa": "صفحهٔ رسمی می‌گوید نام همهٔ غذاهای منو titlecase است. در مستندات متدهای رشته، متدی را پیدا کن که ورودی کاربر را به همان شکل درآورد."
+      },
+      {
+        "n": 3,
+        "hint_fa": "پیش از دسترسی به قیمت، بسنج که کلید در واژه‌نامه هست، یا `KeyError` را بگیر؛ صفحهٔ رسمی هر دو را می‌پذیرد."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای دو رقم اعشار، قالب‌بندی f-string را در مستندات پایتون بخوان."
+      },
+      {
+        "n": 5,
+        "hint_fa": "پس از control-d یک سطر تازه چاپ کن تا اعلان ترمینال روی همان خط نماند."
+      }
+    ],
+    "common_mistakes_fa": [
+      "گرفتن `KeyError` برای غذایی که در منو نیست",
+      "چاپ جمع کل بدون دو رقم اعشار (مثلاً `$6.0`)",
+      "حساس بودن به بزرگی حروف",
+      "گرفتن `except` خیلی کلی که control-d را هم با خطای دیگر یکی می‌کند"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-pr-taqueria-c01",
+        "text_fa": "برنامه تا control-d غذا می‌پرسد.",
+        "maps_to": "w06-pr-taqueria-r1"
+      },
+      {
+        "id": "w06-pr-taqueria-c02",
+        "text_fa": "پس از هر غذای معتبر جمع کل به شکل `Total: $6.00` چاپ می‌شود.",
+        "maps_to": "w06-pr-taqueria-r2"
+      },
+      {
+        "id": "w06-pr-taqueria-c03",
+        "text_fa": "`taco` و `TACO` هم پذیرفته می‌شوند.",
+        "maps_to": "w06-pr-taqueria-r3"
+      },
+      {
+        "id": "w06-pr-taqueria-c04",
+        "text_fa": "`Burger` نادیده گرفته می‌شود و برنامه خطا نمی‌دهد.",
+        "maps_to": "w06-pr-taqueria-r4"
+      },
+      {
+        "id": "w06-pr-taqueria-c05",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

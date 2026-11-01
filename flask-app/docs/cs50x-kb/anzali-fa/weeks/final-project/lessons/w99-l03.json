@@ -1,0 +1,544 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w99-l03",
+  "type": "lesson",
+  "week": 99,
+  "week_slug": "final-project",
+  "order": 3,
+  "stage_id": "w99-s3",
+  "title_fa": "سه گام تحویل",
+  "title_en": "The three submission steps",
+  "note_ids": [
+    "w99-n05",
+    "w99-n06",
+    "w99-n07"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w99-l02"
+  ],
+  "concept_ids": [
+    "w99-c-fp-video-length",
+    "w99-c-fp-video-opening",
+    "w99-c-fp-video-upload",
+    "w99-c-fp-readme-name",
+    "w99-c-fp-readme-content",
+    "w99-c-fp-readme-length",
+    "w99-c-fp-submit50",
+    "w99-c-fp-too-large",
+    "w99-c-fp-gradebook",
+    "w99-c-fp-deadline"
+  ],
+  "objective_ids": [
+    "w99-o04",
+    "w99-o05",
+    "w99-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the official Final Project specification (and, where cited, the academic honesty page); examples are the two official blocks or verbatim English quotations checked against the live page. Guidance only: no project code, no prescribed idea (D88).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w99-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "units": [
+    {
+      "id": "w99-l03-u01",
+      "order": 1,
+      "title_fa": "ویدئو: طول و بخش آغازین",
+      "concept_ids": [
+        "w99-c-fp-video-length",
+        "w99-c-fp-video-opening"
+      ],
+      "objective_ids": [
+        "w99-o04"
+      ],
+      "note_id": "w99-n05",
+      "source_refs": [
+        "src-project-99#step-1-of-3",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "ویدئو باید کوتاه باشد: **حداکثر ۳ دقیقه**. باید با بخشی آغاز شود که عنوان پروژه، نامت، نام کاربری GitHub و edX، شهر و کشورت و تاریخ ضبط را نشان دهد؛ بعد پروژه را در حال کار نشان بده.",
+        "note_id": "w99-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "video-len",
+        "lang": "text",
+        "content": "Create a short video (that’s no more than 3 minutes in length) in which you present your project to the world.",
+        "source_ref": "src-project-99#step-1-of-3",
+        "explain_fa": "طول ویدئو."
+      },
+      "check": {
+        "id": "w99-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام مورد **جزو** بخش آغازین الزامی ویدئو نیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "نشانی ایمیل",
+            "correct": true,
+            "feedback_fa": "درست؛ نشانی ایمیل در فهرست پنج‌تایی نیست."
+          },
+          {
+            "id": "b",
+            "text_fa": "تاریخ ضبط ویدئو",
+            "correct": false,
+            "feedback_fa": "تاریخ ضبط مورد پنجم فهرست است."
+          },
+          {
+            "id": "c",
+            "text_fa": "شهر و کشور",
+            "correct": false,
+            "feedback_fa": "شهر و کشور مورد چهارم فهرست است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l03-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «ویدئوی ۳ دقیقه و ۳۰ ثانیه‌ای، اگر بخش آغازین کامل باشد، قابل قبول است.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. ویدئو باید «no more than 3 minutes» باشد.",
+          "incorrect_fa": "حد رسمی را دوباره بخوان: حداکثر ۳ دقیقه."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l03-u02",
+      "order": 2,
+      "title_fa": "بارگذاری ویدئو و فرم",
+      "concept_ids": [
+        "w99-c-fp-video-upload"
+      ],
+      "objective_ids": [
+        "w99-o04"
+      ],
+      "note_id": "w99-n05",
+      "source_refs": [
+        "src-project-99#step-1-of-3",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "ویدئو را در YouTube (یا، اگر در کشورت مسدود است، سایتی مشابه) بارگذاری کن و نشانی‌اش را یادداشت کن. علامت «unlisted» بی‌اشکال است، اما «private» نه. سپس فرم رسمی را ارسال کن.",
+        "note_id": "w99-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "upload",
+        "lang": "text",
+        "content": "it’s fine to flag it as “unlisted,” but don’t flag it as “private.”",
+        "source_ref": "src-project-99#step-1-of-3",
+        "explain_fa": "وضعیت مجاز ویدئو."
+      },
+      "check": {
+        "id": "w99-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ویدئو در YouTube با کدام وضعیت **مجاز نیست**؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "private",
+            "correct": true,
+            "feedback_fa": "درست: «don’t flag it as “private.”»"
+          },
+          {
+            "id": "b",
+            "text_fa": "unlisted",
+            "correct": false,
+            "feedback_fa": "unlisted صریحاً مجاز است."
+          },
+          {
+            "id": "c",
+            "text_fa": "public",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی public را منع نکرده است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l03-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «اگر YouTube در کشورت مسدود است، می‌توانی ویدئو را در سایتی مشابه بارگذاری کنی.»",
+        "expected": {
+          "answer": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ صفحهٔ رسمی همین را می‌گوید.",
+          "incorrect_fa": "عبارت «or, if blocked in your country, a similar site» را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l03-u03",
+      "order": 3,
+      "title_fa": "README.md: نام و محتوا",
+      "concept_ids": [
+        "w99-c-fp-readme-name",
+        "w99-c-fp-readme-content"
+      ],
+      "objective_ids": [
+        "w99-o05"
+      ],
+      "note_id": "w99-n06",
+      "source_refs": [
+        "src-project-99#step-2-of-3",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "فایلی **دقیقاً** به نام `README.md` در پوشهٔ `project` بساز. باید عنوان پروژه، نشانی ویدئوی گام ۱ و توضیح پروژه را داشته باشد و بگوید پروژه چیست، هر فایلی که نوشتی چه دارد و چه می‌کند، و چرا تصمیم‌های طراحی‌ات را گرفتی. قالب رسمی سه سطر عنوان، نشانی ویدئو و توضیح را دارد.",
+        "note_id": "w99-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "readme_template",
+        "lang": "text",
+        "content": "# YOUR PROJECT TITLE\n#### Video Demo:  <URL HERE>\n#### Description:\nTODO",
+        "source_ref": "src-project-99#step-2-of-3",
+        "explain_fa": "قالب رسمی README.md."
+      },
+      "check": {
+        "id": "w99-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام نام فایل الزام رسمی را برآورده می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`README.md`",
+            "correct": true,
+            "feedback_fa": "درست: «named exactly that!»"
+          },
+          {
+            "id": "b",
+            "text_fa": "`readme.md`",
+            "correct": false,
+            "feedback_fa": "نام باید دقیقاً `README.md` باشد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`README.txt`",
+            "correct": false,
+            "feedback_fa": "پسوند باید `.md` باشد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l03-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «الزامی در README.md» یا «الزامی نیست» علامت بزن: (۱) نشانی ویدئو؛ (۲) توضیح هر فایلی که نوشتی؛ (۳) فهرست نمره‌های پرابلم‌ست‌ها.",
+        "expected": {
+          "answers": {
+            "1": "الزامی در README.md",
+            "2": "الزامی در README.md",
+            "3": "الزامی نیست"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. نمره‌ها جایی در README.md ندارند.",
+          "incorrect_fa": "جملهٔ «This file should include …» و پاراگراف بعدی را بخوان."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l03-u04",
+      "order": 4,
+      "title_fa": "README.md: طول و عمق",
+      "concept_ids": [
+        "w99-c-fp-readme-length"
+      ],
+      "objective_ids": [
+        "w99-o05"
+      ],
+      "note_id": "w99-n06",
+      "source_refs": [
+        "src-project-99#step-2-of-3",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "README.md باید دست‌کم **چند صد واژه** و **چند پاراگراف** باشد. صفحهٔ رسمی می‌گوید حدود **۷۵۰ واژه** احتمالاً کافی است و اگر به آن نمی‌رسی، احتمالاً پروژه به اندازهٔ کافی پیچیده نیست. این عدد راهنماست، نه حداقل سخت (d203).",
+        "note_id": "w99-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "readme-750",
+        "lang": "text",
+        "content": "A README.md in the neighborhood of 750 words is likely to be sufficient for describing your project and all aspects of its functionality. If unable to reach that threshold, that probably means your project is insufficiently complex.",
+        "source_ref": "src-project-99#step-2-of-3",
+        "explain_fa": "راهنمای طول."
+      },
+      "check": {
+        "id": "w99-l03-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "README.md دانشجویی ۲۰۰ واژه و یک پاراگراف است. طبق صفحهٔ رسمی چه مشکلی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "باید دست‌کم چند صد واژه و چند پاراگراف باشد.",
+            "correct": true,
+            "feedback_fa": "درست: «several hundred words» و «minimally multiple paragraphs»."
+          },
+          {
+            "id": "b",
+            "text_fa": "مشکلی ندارد، چون عنوان و نشانی ویدئو را دارد.",
+            "correct": false,
+            "feedback_fa": "این‌ها لازم‌اند اما کافی نیستند."
+          },
+          {
+            "id": "c",
+            "text_fa": "باید دقیقاً ۷۵۰ واژه باشد.",
+            "correct": false,
+            "feedback_fa": "۷۵۰ واژه «likely to be sufficient» است، نه عددی دقیق."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l03-u04-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «طبق صفحهٔ رسمی، نرسیدن به حدود ۷۵۰ واژه احتمالاً یعنی پروژه به اندازهٔ کافی پیچیده نیست.»",
+        "expected": {
+          "answer": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ «that probably means your project is insufficiently complex».",
+          "incorrect_fa": "پایان پاراگراف دوم Step 2 را بخوان."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l03-u05",
+      "order": 5,
+      "title_fa": "submit50 و ارسال بزرگ",
+      "concept_ids": [
+        "w99-c-fp-submit50",
+        "w99-c-fp-too-large"
+      ],
+      "objective_ids": [
+        "w99-o06"
+      ],
+      "note_id": "w99-n07",
+      "source_refs": [
+        "src-project-99#step-3-of-3",
+        "src-project-99#step-2-of-3",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "فرمان `submit50` را از درون پوشهٔ `project` (یا هر پوشه‌ای که `README.md` و کد در آن است) اجرا کن و با GitHub وارد شو. اگر پروژه خیلی بزرگ است، همه‌چیز به‌جز `README.md` را ZIP کن؛ اگر باز بزرگ بود، فایل‌های پیکربندی را حذف کن، حجم را زیر ۱۰۰ مگابایت ببر، یا با رابط وب GitHub در شاخهٔ `cs50/problems/2026/x/project` بارگذاری کن.",
+        "note_id": "w99-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "submit50",
+        "lang": "text",
+        "content": "submit50 cs50/problems/2026/x/project",
+        "source_ref": "src-project-99#step-2-of-3",
+        "explain_fa": "فرمان رسمی ارسال."
+      },
+      "check": {
+        "id": "w99-l03-u05-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ارسال پروژه چون خیلی بزرگ است شکست خورده. طبق صفحهٔ رسمی، اولین کار چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "همهٔ محتوای پوشه به‌جز `README.md` را ZIP کنی و آن را ارسال کنی.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "`README.md` را هم داخل ZIP بگذاری.",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی می‌گوید «except for README.md»."
+          },
+          {
+            "id": "c",
+            "text_fa": "پروژه را به ایمیل کادر درس بفرستی.",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی چنین راهی نمی‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l03-u05-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «اگر با رابط وب GitHub بارگذاری می‌کنی، شاخه اهمیتی ندارد.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. باید در شاخهٔ `cs50/problems/2026/x/project` باشد، وگرنه سامانه نمی‌تواند آن را بررسی کند.",
+          "incorrect_fa": "پایان بخش «Trouble Submitting?» را بخوان."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l03-u06",
+      "order": 6,
+      "title_fa": "کارنامه، بنر سبز، گواهی و مهلت",
+      "concept_ids": [
+        "w99-c-fp-gradebook",
+        "w99-c-fp-deadline"
+      ],
+      "objective_ids": [
+        "w99-o06"
+      ],
+      "note_id": "w99-n07",
+      "source_refs": [
+        "src-project-99#step-3-of-3",
+        "src-certificate-99",
+        "src-gradebook-99",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "چند دقیقه پس از ارسال، کارنامه را در cs50.me/cs50x باز کن. فقط با باز کردن کارنامه سامانه بررسی می‌کند درس را تمام کرده‌ای یا نه، و ساخت گواهی رایگان (فوری) و گواهی edX (ظرف ۳۰ روز) آغاز می‌شود. گواهی رایگان را پیش از مهلت دریافت کن؛ درس تا بنر سبز را نبینی کامل نیست. هر سه گام پیش از `2027-06-30T23:59:00+00:00` (تهران: ۰۳:۲۹ بامداد ۱ ژوئیهٔ ۲۰۲۷). اگر نتیجه‌ای ندیدی، فقط با `README.md` دوباره ارسال کن؛ فرم لازم نیست.",
+        "note_id": "w99-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "banner",
+        "lang": "text",
+        "content": "The course is not considered complete until you do the above and see the green banner saying you’ve completed the course.",
+        "source_ref": "src-project-99#step-3-of-3",
+        "explain_fa": "شرط کامل شدن درس."
+      },
+      "check": {
+        "id": "w99-l03-u06-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "دانشجویی submit50 را اجرا کرده ولی کارنامه نتیجه‌ای نشان نمی‌دهد. طبق صفحهٔ رسمی چه کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "submit50 را دوباره فقط با `README.md` اجرا کند؛ فرم لازم نیست.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "فرم گام ۱ را دوباره بفرستد.",
+            "correct": false,
+            "feedback_fa": "«No need to resubmit your form.»"
+          },
+          {
+            "id": "c",
+            "text_fa": "ویدئو را دوباره بارگذاری کند.",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی چنین چیزی نمی‌خواهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l03-u06-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «مهلت رسمی `2027-06-30T23:59:00+00:00` به وقت تهران ساعت ۰۳:۲۹ بامداد ۱ ژوئیهٔ ۲۰۲۷ است.»",
+        "expected": {
+          "answer": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ تهران ۳ ساعت و ۳۰ دقیقه جلوتر از UTC است.",
+          "incorrect_fa": "۲۳:۵۹ را با ۳ ساعت و ۳۰ دقیقه جمع کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

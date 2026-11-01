@@ -1,0 +1,1953 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 4,
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w04-q-001",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l01",
+      "concept_ids": [
+        "w04-c-hex-place-values"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#hexadecimal",
+      "prompt_fa": "عدد دهدهی 255 در هگزادسیمال چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "بزرگ‌ترین عدد دو رقمی هگزادسیمال.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "FF",
+          "feedback_fa": "درست: ۱۵ × ۱۶ + ۱۵."
+        },
+        {
+          "id": "b",
+          "text_fa": "255",
+          "feedback_fa": "این همان عدد دهدهی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "F5",
+          "feedback_fa": "F5 برابر 245 است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-002",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l01",
+      "concept_ids": [
+        "w04-c-hexadecimal"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#hexadecimal",
+      "prompt_fa": "عدد هگزادسیمال `2A` در دهدهی چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر ستون چپ ۱۶ برابر ارزش دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "42",
+          "feedback_fa": "درست: ۲ × ۱۶ + ۱۰."
+        },
+        {
+          "id": "b",
+          "text_fa": "210",
+          "feedback_fa": "2A را نباید دهدهی خواند."
+        },
+        {
+          "id": "c",
+          "text_fa": "32",
+          "feedback_fa": "A را ۱۰ بگیر، نه صفر."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-003",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l01",
+      "concept_ids": [
+        "w04-c-0x-prefix"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#memory",
+      "prompt_fa": "درست یا نادرست: `0x10` و `10` همیشه یک مقدار را نشان می‌دهند.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "0x10 یعنی شانزده.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-004",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l01",
+      "concept_ids": [
+        "w04-c-hex-byte"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "255"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "255"
+        ]
+      },
+      "explanation_fa": "0xFF همان 255 است.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int n = 0xFF;\n    printf(\"%i\\n\", n);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "255",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w04-q-005",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l01",
+      "concept_ids": [
+        "w04-c-rgb-hex-color"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#hexadecimal",
+      "prompt_fa": "رنگی با مقدار هگزادسیمال `FF0000` چه رنگی است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سه جفت رقم: R، G، B.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "قرمز خالص",
+          "feedback_fa": "درست: قرمز FF، سبز 00، آبی 00."
+        },
+        {
+          "id": "b",
+          "text_fa": "سفید",
+          "feedback_fa": "سفید FFFFFF است."
+        },
+        {
+          "id": "c",
+          "text_fa": "آبی",
+          "feedback_fa": "آبی خالص 0000FF است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-006",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l01",
+      "concept_ids": [
+        "w04-c-pixel-art"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#pixel-art",
+      "prompt_fa": "یک bitmap سیاه و سفید ۱۰ در ۱۰ با یک بیت برای هر پیکسل چند بیت است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سطرها × ستون‌ها.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "100",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "20",
+          "feedback_fa": "۱۰ سطر و ۱۰ ستون را جمع نکن؛ ضرب کن."
+        },
+        {
+          "id": "c",
+          "text_fa": "10",
+          "feedback_fa": "این فقط یک سطر است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-007",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l02",
+      "concept_ids": [
+        "w04-c-dereference"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#pointers",
+      "prompt_fa": "اگر `int *p = &n;` باشد، کدام عبارت مقدار `n` را می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "* یعنی به نشانی برو.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "*p",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "&p",
+          "feedback_fa": "&p نشانی خود p است."
+        },
+        {
+          "id": "c",
+          "text_fa": "p",
+          "feedback_fa": "p نشانی n است، نه مقدارش."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-008",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l02",
+      "concept_ids": [
+        "w04-c-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#pointers",
+      "prompt_fa": "در `int *p = &n;` نوع `p` چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "int * یعنی «نشانی یک int».",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "اشاره‌گر به int",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "int",
+          "feedback_fa": "ستاره در تعریف نوع را اشاره‌گر می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "نشانی int ضرب در p",
+          "feedback_fa": "ستاره اینجا ضرب نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-009",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l02",
+      "concept_ids": [
+        "w04-c-dereference"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "10 0"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "10 0"
+        ]
+      },
+      "explanation_fa": "اول a برابر 3 + 7 می‌شود، بعد p به b اشاره می‌کند و b صفر می‌شود.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int a = 3;\n    int b = 7;\n    int *p = &a;\n    *p = *p + b;\n    p = &b;\n    *p = 0;\n    printf(\"%i %i\\n\", a, b);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "10 0",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w04-q-010",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l02",
+      "concept_ids": [
+        "w04-c-pointer-size"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#pointers",
+      "prompt_fa": "درست یا نادرست: طبق درس‌نامه، اشاره‌گر معمولاً یک مقدار ۸ بایتی است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "روی سیستم‌های ۶۴ بیتی.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-011",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l02",
+      "concept_ids": [
+        "w04-c-null-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-pointers",
+      "prompt_fa": "dereference کردن یک اشاره‌گر NULL معمولاً چه نتیجه‌ای دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "و همین توقف از نوشتن بی‌صدا بهتر است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "segmentation fault",
+          "feedback_fa": "درست، طبق ویدئوی کوتاه Pointers."
+        },
+        {
+          "id": "b",
+          "text_fa": "مقدار 0 برمی‌گرداند",
+          "feedback_fa": "NULL جایی نیست که مقداری داشته باشد."
+        },
+        {
+          "id": "c",
+          "text_fa": "خطای کامپایل",
+          "feedback_fa": "این خطا هنگام اجرا رخ می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-012",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l03",
+      "concept_ids": [
+        "w04-c-pointer-arithmetic"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "MY"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "MY"
+        ]
+      },
+      "explanation_fa": "خانهٔ [2] حرف M و خانهٔ [5] حرف Y است.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    char *s = \"MEMORY\";\n    printf(\"%c%c\\n\", *(s + 2), s[5]);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "MY",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w04-q-013",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l03",
+      "concept_ids": [
+        "w04-c-bracket-as-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "prompt_fa": "اگر `char *s = \"HI!\";` باشد، `*s + 1` چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اولویت * از + بیشتر است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کاراکتر بعد از H در جدول ASCII، یعنی I",
+          "feedback_fa": "درست: اول *s یعنی H، بعد به‌علاوهٔ ۱."
+        },
+        {
+          "id": "b",
+          "text_fa": "کاراکتر دوم رشته به‌خاطر s + 1",
+          "feedback_fa": "برای آن باید *(s + 1) نوشت؛ اینجا تصادفاً هر دو I می‌شوند ولی معنا فرق دارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "نشانی کاراکتر دوم",
+          "feedback_fa": "* مقدار می‌دهد، نه نشانی."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-014",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l03",
+      "concept_ids": [
+        "w04-c-typedef"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#strings",
+      "prompt_fa": "درست یا نادرست: `string` یک نوع داخلی زبان C است.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "از typedef کتابخانهٔ cs50 می‌آید.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-015",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l03",
+      "concept_ids": [
+        "w04-c-compare-addresses"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#string-comparison",
+      "prompt_fa": "در `compare1.c` با `s == t`، چرا خروجی برای دو `HI!` برابر `Different` است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "برای محتوا strcmp لازم است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نشانی‌ها مقایسه می‌شوند و دو رشته در دو جای حافظه‌اند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون get_string حروف را تغییر می‌دهد",
+          "feedback_fa": "محتوا یکی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون == برای char * کامپایل نمی‌شود",
+          "feedback_fa": "کامپایل می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-016",
+      "origin": "authored",
+      "week": 4,
+      "type": "parsons",
+      "lesson_id": "w04-l03",
+      "concept_ids": [
+        "w04-c-strcmp-content"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) خط‌ها را بچین تا قطعه `Same` را فقط برای محتوای برابر چاپ کند.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "strcmp برای برابری صفر برمی‌گرداند.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "if (strcmp(s, t) == 0)",
+          "text": "if (strcmp(s, t) == 0)"
+        },
+        {
+          "id": "p2",
+          "code": "{",
+          "text": "{"
+        },
+        {
+          "id": "p3",
+          "code": "    printf(\"Same\\n\");",
+          "text": "    printf(\"Same\\n\");"
+        },
+        {
+          "id": "p4",
+          "code": "}",
+          "text": "}"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "if (s == t)",
+          "text": "if (s == t)",
+          "why_wrong_fa": "این نشانی‌ها را مقایسه می‌کند."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w04-q-017",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l03",
+      "concept_ids": [
+        "w04-c-string-char-star"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#strings",
+      "prompt_fa": "متغیر `s` در `char *s = \"HI!\";` دقیقاً چه چیزی نگه می‌دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "رشته با نشانی اولین بایت شناخته می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نشانی کاراکتر H",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "هر چهار کاراکتر",
+          "feedback_fa": "کاراکترها جای دیگری‌اند؛ s فقط نشانی اول است."
+        },
+        {
+          "id": "c",
+          "text_fa": "طول رشته",
+          "feedback_fa": "طول را strlen حساب می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-018",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-nul-byte-room"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "prompt_fa": "چرا در copy2 مقدار `strlen(s) + 1` به malloc داده می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "strlen کاراکتر \\0 را نمی‌شمارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "برای جای \\0",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "برای اطمینان بیشتر، بی‌دلیل خاص",
+          "feedback_fa": "دلیلش دقیقاً \\0 است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون اندیس از ۱ شروع می‌شود",
+          "feedback_fa": "اندیس از صفر شروع می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-019",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-pointer-copy"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "prompt_fa": "درست یا نادرست: `string t = s;` یک نسخهٔ مستقل از رشته می‌سازد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "فقط نشانی کپی می‌شود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-020",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-malloc"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "cat bat"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "cat bat"
+        ]
+      },
+      "explanation_fa": "t کپی مستقل است؛ تغییر t روی s اثر ندارد.",
+      "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void)\n{\n    char *s = \"cat\";\n    char *t = malloc(strlen(s) + 1);\n    if (t == NULL)\n    {\n        return 1;\n    }\n    strcpy(t, s);\n    t[0] = 'b';\n    printf(\"%s %s\\n\", s, t);\n    free(t);\n    return 0;\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "cat bat",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30",
+        "valgrind": {
+          "tool": "valgrind-3.24.0",
+          "error_count": 0,
+          "definitely_lost_bytes": 0,
+          "all_freed": true
+        }
+      }
+    },
+    {
+      "id": "w04-q-021",
+      "origin": "authored",
+      "week": 4,
+      "type": "find_the_bug",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-nul-byte-room"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این قطعه برای کپی رشته حافظهٔ کافی نمی‌گیرد. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 3,
+        "key_points_fa": [
+          "جای \\0 حساب نشده",
+          "باید strlen(s) + 1 باشد"
+        ]
+      },
+      "explanation_fa": "strcpy کاراکتر \\0 را هم می‌نویسد.",
+      "code": "char *copy(char *s)\n{\n    char *t = malloc(strlen(s));\n    if (t == NULL)\n    {\n        return NULL;\n    }\n    strcpy(t, s);\n    return t;\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w04-q-022",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-free-rules"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-dynamic-memory-allocation",
+      "prompt_fa": "کدام مورد قانون‌های free را **نقض** می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر بلوک یک بار.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "free کردن یک بلوک دو بار",
+          "feedback_fa": "درست: double free."
+        },
+        {
+          "id": "b",
+          "text_fa": "free کردن بلوکی که malloc برگرداند",
+          "feedback_fa": "این درست است."
+        },
+        {
+          "id": "c",
+          "text_fa": "free کردن پیش از پایان برنامه",
+          "feedback_fa": "باید همین کار را کرد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-023",
+      "origin": "authored",
+      "week": 4,
+      "type": "fill_blank_code",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-malloc-null-check"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا شکست malloc بررسی شود.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "NULL"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "NULL"
+        ]
+      },
+      "explanation_fa": "malloc در شکست NULL برمی‌گرداند.",
+      "template": "int *x = malloc(3 * sizeof(int));\nif (x == [[b1]])\n{\n    return 1;\n}",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "NULL"
+          ],
+          "hint_fa": "مقدار بازگشتی malloc در شکست.",
+          "wrong_feedback": {
+            "0x0": "از نام NULL استفاده کن.",
+            "0": "در CS50 از NULL استفاده می‌شود."
+          },
+          "default_wrong_fa": "مقدار ویژهٔ شکست را بنویس."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w04-q-024",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l04",
+      "concept_ids": [
+        "w04-c-heap-vs-stack-alloc"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-dynamic-memory-allocation",
+      "prompt_fa": "حافظه‌ای که `malloc` برمی‌گرداند از کجا می‌آید؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "حافظهٔ پویا از heap.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "heap",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "stack",
+          "feedback_fa": "متغیرهای نام‌دار محلی روی stack‌اند."
+        },
+        {
+          "id": "c",
+          "text_fa": "کد ماشین",
+          "feedback_fa": "آن ناحیه برای خود برنامه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-025",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l05",
+      "concept_ids": [
+        "w04-c-valgrind"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#valgrind",
+      "prompt_fa": "Valgrind کدام مشکل را در memory.c گزارش می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "دو خطا: invalid write و نشت.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "نوشتن در x[3] و free نکردن x",
+          "feedback_fa": "درست، هر دو."
+        },
+        {
+          "id": "b",
+          "text_fa": "فقط خطای کامپایل",
+          "feedback_fa": "برنامه کامپایل و اجرا می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "استفاده از printf",
+          "feedback_fa": "memory.c اصلاً printf ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-026",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l05",
+      "concept_ids": [
+        "w04-c-sizeof"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#valgrind",
+      "prompt_fa": "`malloc(3 * sizeof(int))` معمولاً چند بایت می‌گیرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "sizeof(int) معمولاً 4.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "12",
+          "feedback_fa": "درست: ۳ × ۴."
+        },
+        {
+          "id": "b",
+          "text_fa": "3",
+          "feedback_fa": "این malloc(3) است."
+        },
+        {
+          "id": "c",
+          "text_fa": "24",
+          "feedback_fa": "int معمولاً ۴ بایت است، نه ۸."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-027",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l05",
+      "concept_ids": [
+        "w04-c-memory-leak"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#valgrind",
+      "prompt_fa": "درست یا نادرست: اگر برنامه بدون خطا اجرا شود، یعنی نشت حافظه ندارد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "memory.c بی‌صدا اجرا می‌شد ولی نشت داشت.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-028",
+      "origin": "authored",
+      "week": 4,
+      "type": "find_the_bug",
+      "lesson_id": "w04-l05",
+      "concept_ids": [
+        "w04-c-buffer-overflow-write"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه بیرون از حافظهٔ گرفته‌شده می‌نویسد. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 4,
+        "key_points_fa": [
+          "شرط <= باعث نوشتن در a[4] می‌شود",
+          "باید i < 4 باشد"
+        ]
+      },
+      "explanation_fa": "آرایهٔ چهارتایی اندیس‌های 0 تا 3 دارد.",
+      "code": "int main(void)\n{\n    int *a = malloc(4 * sizeof(int));\n    for (int i = 0; i <= 4; i++)\n    {\n        a[i] = i;\n    }\n    free(a);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w04-q-029",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l05",
+      "concept_ids": [
+        "w04-c-garbage-values"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#garbage-values",
+      "prompt_fa": "چرا خروجی garbage.c همیشه صفر نیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "حافظه خالی تضمین نمی‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون آرایه مقداردهی نشده و ممکن است مقدارهای قبلی در آن باشد",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون printf عدد تصادفی می‌سازد",
+          "feedback_fa": "printf فقط چاپ می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون 1024 خیلی بزرگ است",
+          "feedback_fa": "اندازه علت نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-030",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l05",
+      "concept_ids": [
+        "w04-c-uninitialized-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#garbage-values",
+      "prompt_fa": "درست یا نادرست: `int *p; *p = 13;` امن است چون p خودکار NULL می‌شود.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "p بی‌مقدار، نشانی زباله دارد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-031",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-swap-by-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "9 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "9 2"
+        ]
+      },
+      "explanation_fa": "x با نشانی فرستاده شد و تغییر کرد؛ y با مقدار فرستاده شد و تغییر نکرد.",
+      "code": "#include <stdio.h>\n\nvoid f(int *a, int b)\n{\n    *a = 9;\n    b = 9;\n}\n\nint main(void)\n{\n    int x = 1;\n    int y = 2;\n    f(&x, y);\n    printf(\"%i %i\\n\", x, y);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "9 2",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w04-q-032",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-swap-by-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#swapping",
+      "prompt_fa": "این کد رسمی swap0.c است. خروجی کامل آن چیست؟",
+      "answer": {
+        "accept": [
+          "x is 1, y is 2\nx is 1, y is 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "x is 1, y is 2\nx is 1, y is 2"
+        ]
+      },
+      "explanation_fa": "swap فقط کپی‌ها را جابه‌جا می‌کند.",
+      "code": "// Fails to swap two integers\n\n#include <stdio.h>\n\nvoid swap(int a, int b);\n\nint main(void)\n{\n    int x = 1;\n    int y = 2;\n\n    printf(\"x is %i, y is %i\\n\", x, y);\n    swap(x, y);\n    printf(\"x is %i, y is %i\\n\", x, y);\n}\n\nvoid swap(int a, int b)\n{\n    int tmp = a;\n    a = b;\n    b = tmp;\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "x is 1, y is 2\nx is 1, y is 2",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w04-q-033",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-memory-layout"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#swapping",
+      "prompt_fa": "در تصویر درس‌نامه، کدام ناحیه درست زیر کد ماشین است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "کد ماشین، globals، heap، stack.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "globals",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "stack",
+          "feedback_fa": "stack پایین‌ترین است."
+        },
+        {
+          "id": "c",
+          "text_fa": "heap",
+          "feedback_fa": "heap زیر globals است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-034",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-stack-frame"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#swapping",
+      "prompt_fa": "چرا swap0 نمی‌تواند x و y در main را عوض کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "آرگومان‌ها با مقدار فرستاده می‌شوند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون main و swap قاب‌های جدا دارند و swap فقط کپی‌ها را دارد",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون swap مقدار برنمی‌گرداند",
+          "feedback_fa": "با اشاره‌گر هم void است و کار می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون tmp تعریف نشده",
+          "feedback_fa": "tmp تعریف شده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-035",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-overflow"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#overflow",
+      "prompt_fa": "فراخوانی بی‌پایان یک تابع بازگشتی بدون حالت پایه به کدام می‌انجامد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "قاب‌ها روی stack جمع می‌شوند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "stack overflow",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "memory leak",
+          "feedback_fa": "نشت مربوط به malloc بدون free است."
+        },
+        {
+          "id": "c",
+          "text_fa": "garbage value",
+          "feedback_fa": "این دربارهٔ حافظهٔ مقداردهی‌نشده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-036",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-scanf"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#scanf",
+      "prompt_fa": "کدام فراخوانی برای خواندن یک int درست است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "& برای نشانی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "scanf(\"%i\", &n);",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "scanf(\"%i\", n);",
+          "feedback_fa": "scanf نشانی می‌خواهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "scanf(n, \"%i\");",
+          "feedback_fa": "ترتیب آرگومان‌ها اشتباه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-037",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l06",
+      "concept_ids": [
+        "w04-c-scanf-string-danger"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#scanf",
+      "prompt_fa": "درست یا نادرست: طبق درس‌نامه، کد `char s[4]; scanf(\"%s\", s);` ناامن است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "نمی‌شود به طول ورودی کاربر اعتماد کرد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-038",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-fopen-null-check"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#file-io",
+      "prompt_fa": "اگر `fopen` نتواند فایل را باز کند چه برمی‌گرداند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مثل malloc.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "NULL",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "0 بایت",
+          "feedback_fa": "fopen اشاره‌گر برمی‌گرداند."
+        },
+        {
+          "id": "c",
+          "text_fa": "EOF",
+          "feedback_fa": "EOF را fgetc برمی‌گرداند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-039",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-fread-fwrite"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#file-io",
+      "prompt_fa": "در `cp.c` حلقهٔ `while` کی تمام می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "fread تعداد قطعه‌های خوانده‌شده را برمی‌گرداند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "وقتی fread دیگر هیچ قطعه‌ای نخواند و 0 برگرداند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "وقتی fwrite خطا بدهد",
+          "feedback_fa": "شرط حلقه روی fread است."
+        },
+        {
+          "id": "c",
+          "text_fa": "بعد از یک بایت",
+          "feedback_fa": "تا انتهای فایل ادامه می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-040",
+      "origin": "authored",
+      "week": 4,
+      "type": "predict_output",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-byte-type"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "0 1"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "0 1"
+        ]
+      },
+      "explanation_fa": "BYTE یک بایت بی‌علامت است؛ 255 + 1 به 0 برمی‌گردد و اندازه‌اش 1 است.",
+      "code": "#include <stdio.h>\n\ntypedef unsigned char BYTE;\n\nint main(void)\n{\n    BYTE b = 255;\n    b = b + 1;\n    printf(\"%i %zu\\n\", b, sizeof(BYTE));\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "0 1",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T18:00:00+03:30"
+      }
+    },
+    {
+      "id": "w04-q-041",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-fprintf-fclose"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-4#file-io",
+      "prompt_fa": "در phonebook.c، حالت `\"a\"` چرا انتخاب شده است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "a برای append.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا اسم‌ها و شماره‌های تازه به انتهای فایل اضافه شوند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "تا فایل فقط خواندنی باشد",
+          "feedback_fa": "خواندن \"r\" است."
+        },
+        {
+          "id": "c",
+          "text_fa": "تا فایل از اول بازنویسی شود",
+          "feedback_fa": "این کار \"w\" است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-042",
+      "origin": "authored",
+      "week": 4,
+      "type": "find_the_bug",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-fopen-null-check"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-4",
+      "prompt_fa": "(کد تألیفی) این قطعه اگر فایل وجود نداشته باشد خراب می‌شود. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 4,
+        "key_points_fa": [
+          "پیش از fgetc بررسی NULL لازم است",
+          "اگر f برابر NULL باشد fgetc خراب می‌شود"
+        ]
+      },
+      "explanation_fa": "همیشه پس از fopen بررسی کن.",
+      "code": "int main(void)\n{\n    FILE *f = fopen(\"data.txt\", \"r\");\n    int c = fgetc(f);\n    printf(\"%c\\n\", c);\n    fclose(f);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w04-q-043",
+      "origin": "authored",
+      "week": 4,
+      "type": "true_false",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-fgetc-eof"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-short-file-pointers",
+      "prompt_fa": "درست یا نادرست: fgetc در انتهای فایل EOF برمی‌گرداند.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "طبق ویدئوی کوتاه File Pointers.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w04-q-044",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-file-header"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-pset-4-volume#problem-to-solve",
+      "prompt_fa": "طبق صفحهٔ Volume، سرآیند فایل WAV چند بایت است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سرآیند اطلاعاتی دربارهٔ خود فایل دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "44",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "2",
+          "feedback_fa": "۲ بایت اندازهٔ هر نمونه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "512",
+          "feedback_fa": "۵۱۲ اندازهٔ بلوک‌های کارت حافظه در Recover است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-045",
+      "origin": "authored",
+      "week": 4,
+      "type": "mcq",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-bmp-rgbtriple"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-pset-4-filter-less#a-bitmap-more-technical",
+      "prompt_fa": "طبق صفحهٔ Filter، بایت‌های هر پیکسل BMP به چه ترتیبی روی دیسک ذخیره می‌شوند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "BMP سه‌تایی‌ها را برعکس (BGR) ذخیره می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "آبی، سبز، قرمز",
+          "feedback_fa": "درست: BGR."
+        },
+        {
+          "id": "b",
+          "text_fa": "قرمز، سبز، آبی",
+          "feedback_fa": "BMP آن‌ها را برعکس ذخیره می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "سبز، قرمز، آبی",
+          "feedback_fa": "چنین ترتیبی گفته نشده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w04-q-046",
+      "origin": "authored",
+      "week": 4,
+      "type": "parsons",
+      "lesson_id": "w04-l07",
+      "concept_ids": [
+        "w04-c-file-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-4#file-io",
+      "prompt_fa": "خط‌های بدنهٔ کد رسمی phonebook1.c را به ترتیب بچین.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7",
+          "p8",
+          "p9"
+        ]
+      },
+      "explanation_fa": "باز کردن، بررسی NULL، گرفتن ورودی، نوشتن، بستن.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "FILE *file = fopen(\"phonebook.csv\", \"a\");",
+          "text": "FILE *file = fopen(\"phonebook.csv\", \"a\");"
+        },
+        {
+          "id": "p2",
+          "code": "if (file == NULL)",
+          "text": "if (file == NULL)"
+        },
+        {
+          "id": "p3",
+          "code": "{",
+          "text": "{"
+        },
+        {
+          "id": "p4",
+          "code": "    return 1;",
+          "text": "    return 1;"
+        },
+        {
+          "id": "p5",
+          "code": "}",
+          "text": "}"
+        },
+        {
+          "id": "p6",
+          "code": "char *name = get_string(\"Name: \");",
+          "text": "char *name = get_string(\"Name: \");"
+        },
+        {
+          "id": "p7",
+          "code": "char *number = get_string(\"Number: \");",
+          "text": "char *number = get_string(\"Number: \");"
+        },
+        {
+          "id": "p8",
+          "code": "fprintf(file, \"%s,%s\\n\", name, number);",
+          "text": "fprintf(file, \"%s,%s\\n\", name, number);"
+        },
+        {
+          "id": "p9",
+          "code": "fclose(file);",
+          "text": "fclose(file);"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "FILE *file = fopen(\"phonebook.csv\", \"w\");",
+          "text": "FILE *file = fopen(\"phonebook.csv\", \"w\");",
+          "why_wrong_fa": "حالت w فایل را از اول بازنویسی می‌کند؛ کد رسمی a دارد."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w04-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w04-q-001",
+        "w04-q-002",
+        "w04-q-003",
+        "w04-q-004",
+        "w04-q-005",
+        "w04-q-006"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w04-q-007",
+        "w04-q-008",
+        "w04-q-009",
+        "w04-q-010",
+        "w04-q-011"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w04-q-012",
+        "w04-q-013",
+        "w04-q-014",
+        "w04-q-015",
+        "w04-q-016",
+        "w04-q-017"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w04-q-018",
+        "w04-q-019",
+        "w04-q-020",
+        "w04-q-021",
+        "w04-q-022",
+        "w04-q-023",
+        "w04-q-024"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w04-q-025",
+        "w04-q-026",
+        "w04-q-027",
+        "w04-q-028",
+        "w04-q-029",
+        "w04-q-030"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w04-q-031",
+        "w04-q-032",
+        "w04-q-033",
+        "w04-q-034",
+        "w04-q-035",
+        "w04-q-036",
+        "w04-q-037"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w04-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w04-q-038",
+        "w04-q-039",
+        "w04-q-040",
+        "w04-q-041",
+        "w04-q-042",
+        "w04-q-043",
+        "w04-q-044",
+        "w04-q-045",
+        "w04-q-046"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w04-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۴",
+      "item_ids": [
+        "w04-q-002",
+        "w04-q-004",
+        "w04-q-008",
+        "w04-q-009",
+        "w04-q-012",
+        "w04-q-013",
+        "w04-q-020",
+        "w04-q-022",
+        "w04-q-029",
+        "w04-q-030",
+        "w04-q-031",
+        "w04-q-032",
+        "w04-q-039",
+        "w04-q-040"
+      ],
+      "item_pool_ids": [
+        "w04-q-001",
+        "w04-q-002",
+        "w04-q-003",
+        "w04-q-004",
+        "w04-q-005",
+        "w04-q-006",
+        "w04-q-007",
+        "w04-q-008",
+        "w04-q-009",
+        "w04-q-010",
+        "w04-q-011",
+        "w04-q-012",
+        "w04-q-013",
+        "w04-q-014",
+        "w04-q-015",
+        "w04-q-016",
+        "w04-q-017",
+        "w04-q-018",
+        "w04-q-019",
+        "w04-q-020",
+        "w04-q-022",
+        "w04-q-023",
+        "w04-q-024",
+        "w04-q-025",
+        "w04-q-026",
+        "w04-q-027",
+        "w04-q-029",
+        "w04-q-030",
+        "w04-q-031",
+        "w04-q-032",
+        "w04-q-033",
+        "w04-q-034",
+        "w04-q-035",
+        "w04-q-036",
+        "w04-q-037",
+        "w04-q-038",
+        "w04-q-039",
+        "w04-q-040",
+        "w04-q-041",
+        "w04-q-043",
+        "w04-q-044",
+        "w04-q-045",
+        "w04-q-046"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

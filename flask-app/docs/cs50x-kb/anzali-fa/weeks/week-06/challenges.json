@@ -1,0 +1,650 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 6,
+  "title": "چالش‌های هفتهٔ ۶ — پایتون",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. کدها فقط از مفاهیم هفته‌های ۰ تا ۶ استفاده می‌کنند و هیچ‌کدام هرم Mario، محاسبهٔ Cash، Credit یا Readability یا شمارش STR مسئلهٔ DNA را پیاده نمی‌کند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w06-ch01-f-string",
+      "type": "token_tap",
+      "concept_tag": "f-string",
+      "title": "جای‌گذاری در رشته",
+      "instruction": "توکن درست را بزن تا `hello, Sina` چاپ شود.",
+      "prompt": "name = \"Sina\"\nprint(___\"hello, {name}\")",
+      "token_bank": [
+        "f",
+        "r",
+        "b",
+        "%"
+      ],
+      "expected_answer": [
+        "f"
+      ],
+      "blank_marker": "___",
+      "explanation": "پیشوند `f` عبارت درون `{}` را با مقدارش جای‌گزین می‌کند.",
+      "hint": "بدون پیشوند، `{name}` همان‌طور چاپ می‌شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-f-string"
+      ],
+      "source_ref": "src-notes-6#strings",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch02-int-input",
+      "type": "token_tap",
+      "concept_tag": "تبدیل ورودی",
+      "title": "دو برابر کردن ورودی",
+      "instruction": "توکن درست را بزن تا با ورودی `21` عدد `42` چاپ شود.",
+      "prompt": "n = ___(input(\"n: \"))\nprint(n * 2)",
+      "token_bank": [
+        "int",
+        "str",
+        "float",
+        "len"
+      ],
+      "expected_answer": [
+        "int"
+      ],
+      "blank_marker": "___",
+      "explanation": "`input` رشته برمی‌گرداند؛ `int` آن را به عدد صحیح تبدیل می‌کند.",
+      "hint": "`\"21\" * 2` برابر `\"2121\"` است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-input-returns-str",
+        "w06-c-int-conversion"
+      ],
+      "source_ref": "src-notes-6#calculator",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch03-range-list",
+      "type": "token_tap",
+      "concept_tag": "range",
+      "title": "ساختن 1 تا 3",
+      "instruction": "توکن درست را بزن تا `[1, 2, 3]` چاپ شود.",
+      "prompt": "print(list(___(1, 4)))",
+      "token_bank": [
+        "range",
+        "len",
+        "list",
+        "sum"
+      ],
+      "expected_answer": [
+        "range"
+      ],
+      "blank_marker": "___",
+      "explanation": "`range(1, 4)` از 1 تا 3 است؛ پایان ناشامل.",
+      "hint": "کدام تابع دنباله‌ای از عددها می‌سازد؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-for-range"
+      ],
+      "source_ref": "src-notes-6#loops",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch04-two-divisions",
+      "type": "token_tap",
+      "concept_tag": "تقسیم",
+      "title": "دو نوع تقسیم",
+      "instruction": "توکن‌ها را به ترتیب بزن تا `3.5 3` چاپ شود.",
+      "prompt": "print(7 ___ 2, 7 ___ 2)",
+      "token_bank": [
+        "/",
+        "//",
+        "%",
+        "*"
+      ],
+      "expected_answer": [
+        "/",
+        "//"
+      ],
+      "blank_marker": "___",
+      "explanation": "`/` همیشه `float` می‌دهد و `//` تقسیم کف است.",
+      "hint": "یکی می‌بُرد و یکی نمی‌بُرد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-true-division",
+        "w06-c-floor-division"
+      ],
+      "source_ref": "src-notes-6#truncation-and-floating-point-imprecision",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch05-dict-in",
+      "type": "token_tap",
+      "concept_tag": "واژه‌نامه",
+      "title": "جست‌وجو در دفتر تلفن",
+      "instruction": "توکن‌ها را به ترتیب بزن تا شمارهٔ David چاپ شود.",
+      "prompt": "people = {\"David\": \"+1-617-495-1000\"}\nif \"David\" ___ people:\n    print(people[___])",
+      "token_bank": [
+        "in",
+        "not in",
+        "\"David\"",
+        "0"
+      ],
+      "expected_answer": [
+        "in",
+        "\"David\""
+      ],
+      "blank_marker": "___",
+      "explanation": "`in` کلیدهای dict را می‌سنجد و مقدار با همان کلید خوانده می‌شود.",
+      "hint": "dict با کلید خوانده می‌شود، نه با نمایهٔ عددی.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-dict",
+        "w06-c-dict-lookup"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch06-argv-check",
+      "type": "token_tap",
+      "concept_tag": "sys.argv",
+      "title": "سلام با آرگومان خط فرمان",
+      "instruction": "توکن‌ها را به ترتیب بزن تا `python p.py David` عبارت `hello, David` را چاپ کند.",
+      "prompt": "import sys\nif len(sys.argv) != ___:\n    print(\"Missing command-line argument\")\n    sys.exit(1)\nprint(f\"hello, {sys.argv[___]}\")",
+      "token_bank": [
+        "1",
+        "2",
+        "0"
+      ],
+      "expected_answer": [
+        "2",
+        "1"
+      ],
+      "blank_marker": "___",
+      "explanation": "`sys.argv` نام برنامه را هم دارد، پس با یک آرگومان طولش 2 است و نام در `sys.argv[1]` است.",
+      "hint": "`sys.argv[0]` نام برنامه است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-sys-argv",
+        "w06-c-sys-exit"
+      ],
+      "source_ref": "src-notes-6#command-line-arguments",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch07-list-average",
+      "type": "parsons",
+      "concept_tag": "فهرست",
+      "title": "میانگین یک فهرست",
+      "instruction": "سطرها را به ترتیب درست بچین تا `10.0` چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "print(sum(scores) / len(scores))"
+        },
+        {
+          "id": "L2",
+          "text": "for i in range(3):"
+        },
+        {
+          "id": "L1",
+          "text": "scores = []"
+        },
+        {
+          "id": "L3",
+          "text": "    scores.append(i * 10)"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول فهرست خالی، بعد حلقه و `append`، در پایان میانگین با `sum` و `len`.",
+      "hint": "پیش از تقسیم باید فهرست پر شده باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-list",
+        "w06-c-append",
+        "w06-c-sum-len"
+      ],
+      "source_ref": "src-notes-6#lists",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch08-dict-lookup",
+      "type": "parsons",
+      "concept_tag": "واژه‌نامه",
+      "title": "یافتن شماره",
+      "instruction": "سطرها را به ترتیب درست بچین تا `Number: +1-617-495-1000` چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "else:"
+        },
+        {
+          "id": "L3",
+          "text": "    number = people[\"Yuliia\"]"
+        },
+        {
+          "id": "L1",
+          "text": "people = {\"Yuliia\": \"+1-617-495-1000\"}"
+        },
+        {
+          "id": "L6",
+          "text": "    print(\"Not found\")"
+        },
+        {
+          "id": "L2",
+          "text": "if \"Yuliia\" in people:"
+        },
+        {
+          "id": "L4",
+          "text": "    print(f\"Number: {number}\")"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "dict را بساز، با `in` بپرس و مقدار را با کلید بخوان؛ `else` برای نبودن کلید است.",
+      "hint": "`else` باید پس از بدنهٔ `if` بیاید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-dict",
+        "w06-c-dict-lookup"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch09-get-int",
+      "type": "parsons",
+      "concept_tag": "try و except",
+      "title": "تابع get_int خودت",
+      "instruction": "سطرها را به ترتیب درست بچین تا ورودی نادرست دوباره پرسیده شود (با ورودی‌های `cat` و `41`، خروجی `x: Not an integer` و سپس `x: 42`).",
+      "scrambled_lines": [
+        {
+          "id": "L7",
+          "text": "print(get_int(\"x: \") + 1)"
+        },
+        {
+          "id": "L5",
+          "text": "        except ValueError:"
+        },
+        {
+          "id": "L2",
+          "text": "    while True:"
+        },
+        {
+          "id": "L4",
+          "text": "            return int(input(prompt))"
+        },
+        {
+          "id": "L1",
+          "text": "def get_int(prompt):"
+        },
+        {
+          "id": "L6",
+          "text": "            print(\"Not an integer\")"
+        },
+        {
+          "id": "L3",
+          "text": "        try:"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "حلقهٔ بی‌پایان تا وقتی `int` استثنا ندهد ادامه دارد؛ `return` حلقه و تابع را با هم تمام می‌کند.",
+      "hint": "`return` درون `try` است و پیام خطا درون `except`.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-try-except",
+        "w06-c-while-true-break",
+        "w06-c-def-function"
+      ],
+      "source_ref": "src-notes-6#exceptions",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch10-dictreader",
+      "type": "parsons",
+      "concept_tag": "csv.DictReader",
+      "title": "خواندن یک ستون از CSV",
+      "instruction": "سطرها را به ترتیب درست بچین تا ستون `language` فایل `favorites.csv` چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "    for row in reader:"
+        },
+        {
+          "id": "L1",
+          "text": "import csv"
+        },
+        {
+          "id": "L5",
+          "text": "        print(row[\"language\"])"
+        },
+        {
+          "id": "L3",
+          "text": "    reader = csv.DictReader(file)"
+        },
+        {
+          "id": "L2",
+          "text": "with open(\"favorites.csv\") as file:"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "`DictReader` سطر سرآیند را نام ستون‌ها می‌گیرد و هر سطر را dict می‌کند.",
+      "hint": "فایل باید پیش از ساختن reader باز شده باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-csv-dictreader",
+        "w06-c-with-open"
+      ],
+      "source_ref": "src-notes-6#csv-files",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch11-argv-guard",
+      "type": "parsons",
+      "concept_tag": "sys.exit",
+      "title": "نگهبان آرگومان",
+      "instruction": "سطرها را به ترتیب درست بچین: بدون آرگومان پیام خطا و وضعیت خروج 1، با آرگومان `David` عبارت `hello, David`.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "print(f\"hello, {sys.argv[1]}\")"
+        },
+        {
+          "id": "L4",
+          "text": "    sys.exit(1)"
+        },
+        {
+          "id": "L1",
+          "text": "import sys"
+        },
+        {
+          "id": "L3",
+          "text": "    print(\"Missing command-line argument\")"
+        },
+        {
+          "id": "L2",
+          "text": "if len(sys.argv) != 2:"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "پیام پیش از `sys.exit(1)` چاپ می‌شود، چون پس از `sys.exit` چیزی اجرا نمی‌شود.",
+      "hint": "ترتیب پیام و خروج را با اجرای بدون آرگومان بسنج.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-sys-argv",
+        "w06-c-sys-exit"
+      ],
+      "source_ref": "src-notes-6#exit-status",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch12-else-if",
+      "type": "spot_bug",
+      "concept_tag": "elif",
+      "title": "شرط سه‌حالته",
+      "instruction": "سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "x = 5"
+        },
+        {
+          "index": 1,
+          "text": "if x < 0:"
+        },
+        {
+          "index": 2,
+          "text": "    print(\"negative\")"
+        },
+        {
+          "index": 3,
+          "text": "else if x == 0:"
+        },
+        {
+          "index": 4,
+          "text": "    print(\"zero\")"
+        },
+        {
+          "index": 5,
+          "text": "else:"
+        },
+        {
+          "index": 6,
+          "text": "    print(\"positive\")"
+        }
+      ],
+      "bug_line_index": 3,
+      "fix": {
+        "action": "replace_line",
+        "text": "elif x == 0:"
+      },
+      "explanation": "پایتون `else if` ندارد؛ `elif` است.",
+      "hint": "کلیدواژهٔ پایتونی `else if` چیست؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-elif"
+      ],
+      "source_ref": "src-notes-6#conditionals",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch13-plus-plus",
+      "type": "spot_bug",
+      "concept_tag": "+=",
+      "title": "شمارنده",
+      "instruction": "سطر خطادار را پیدا کن (باید 3 چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "counter = 0"
+        },
+        {
+          "index": 1,
+          "text": "for i in range(3):"
+        },
+        {
+          "index": 2,
+          "text": "    counter++"
+        },
+        {
+          "index": 3,
+          "text": "print(counter)"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "    counter += 1"
+      },
+      "explanation": "پایتون `++` ندارد.",
+      "hint": "عملگر افزایشی C در پایتون نیست.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-augmented-assignment"
+      ],
+      "source_ref": "src-notes-6#variables",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch14-lowercase-false",
+      "type": "spot_bug",
+      "concept_tag": "True/False",
+      "title": "پرچم یافتن",
+      "instruction": "سطر خطادار را پیدا کن (باید `True` چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "found = false"
+        },
+        {
+          "index": 1,
+          "text": "for n in [1, 2, 3]:"
+        },
+        {
+          "index": 2,
+          "text": "    if n == 2:"
+        },
+        {
+          "index": 3,
+          "text": "        found = True"
+        },
+        {
+          "index": 4,
+          "text": "print(found)"
+        }
+      ],
+      "bug_line_index": 0,
+      "fix": {
+        "action": "replace_line",
+        "text": "found = False"
+      },
+      "explanation": "مقدارهای بولی پایتون با حرف بزرگ شروع می‌شوند؛ `false` یک نام تعریف‌نشده است (`NameError`).",
+      "hint": "به بزرگی و کوچکی حرف‌ها دقت کن.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-bool-capitalized"
+      ],
+      "source_ref": "src-short-python",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch15-dict-dot",
+      "type": "spot_bug",
+      "concept_tag": "فهرستی از واژه‌نامه‌ها",
+      "title": "چاپ نام‌ها",
+      "instruction": "سطر خطادار را پیدا کن (باید `Kelly` چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "people = [{\"name\": \"Kelly\", \"house\": \"Winthrop\"}]"
+        },
+        {
+          "index": 1,
+          "text": "for person in people:"
+        },
+        {
+          "index": 2,
+          "text": "    print(person.name)"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "    print(person[\"name\"])"
+      },
+      "explanation": "مقدار dict با کروشه و کلید خوانده می‌شود، نه با نقطه (`AttributeError`).",
+      "hint": "dict ویژگی `name` ندارد؛ کلید دارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-list-of-dicts",
+        "w06-c-dict"
+      ],
+      "source_ref": "src-section-6-transcript",
+      "lang": "python"
+    },
+    {
+      "id": "w06-ch16-last-char",
+      "type": "spot_bug",
+      "concept_tag": "برش و نمایه",
+      "title": "آخرین نویسه",
+      "instruction": "سطر خطادار را پیدا کن (باید `o` چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "s = \"hello\""
+        },
+        {
+          "index": 1,
+          "text": "print(s[len(s)])"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "print(s[len(s) - 1])"
+      },
+      "explanation": "آخرین نمایه `len(s) - 1` است؛ `s[len(s)]` خطای `IndexError` می‌دهد (همان خطای دور ۶ جلسه). `s[-1]` هم درست است.",
+      "hint": "نمایه‌ها از صفر شروع می‌شوند.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w06-c-string-slicing"
+      ],
+      "source_ref": "src-section-6-transcript",
+      "lang": "python"
+    }
+  ]
+}

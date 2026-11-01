@@ -1,0 +1,377 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w05-l05",
+  "type": "lesson",
+  "week": 5,
+  "order": 5,
+  "stage_id": "w05-s4",
+  "title_fa": "افزودن به انتها، درج مرتب و آزادسازی",
+  "title_en": "Appending, sorted insertion and freeing",
+  "note_ids": [
+    "w05-n09"
+  ],
+  "related_doc_ids": [
+    "w05-sh-singly-linked-lists",
+    "w05-sh-doubly-linked-lists"
+  ],
+  "prerequisite_lesson_ids": [
+    "w05-l04"
+  ],
+  "concept_ids": [
+    "w05-c-append",
+    "w05-c-sorted-insert",
+    "w05-c-free-list",
+    "w05-c-unload-on-error",
+    "w05-c-doubly-linked-list"
+  ],
+  "objective_ids": [
+    "w05-o06",
+    "w05-o07"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/5.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w05-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "units": [
+    {
+      "id": "w05-l05-u01",
+      "order": 1,
+      "title_fa": "افزودن به انتها",
+      "concept_ids": [
+        "w05-c-append"
+      ],
+      "objective_ids": [
+        "w05-o06"
+      ],
+      "note_id": "w05-n09",
+      "source_refs": [
+        "src-notes-5#linked-lists",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "در `list7.c` هر گرهٔ تازه به انتهای فهرست اضافه می‌شود تا ترتیب ورود حفظ شود. اگر فهرست خالی باشد، گرهٔ تازه خودش سر فهرست می‌شود. وگرنه با `ptr` تا گره‌ای می‌رویم که `next` آن `NULL` است و گرهٔ تازه را آن‌جا وصل می‌کنیم. چون هر بار باید کل فهرست را پیمود، افزودن به انتها O(n) است.",
+        "note_id": "w05-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list7",
+        "lang": "c",
+        "content": "// Appends numbers to a link list\n\n#include <cs50.h>\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n} node;\n\nint main(void)\n{\n    // Memory for numbers\n    node *list = NULL;\n\n    // Build list\n    for (int i = 0; i < 3; i++)\n    {\n        // Allocate node for number\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = get_int(\"Number: \");\n        n->next = NULL;\n\n        // If list is empty\n        if (list == NULL)\n        {\n            // This node is the whole list\n            list = n;\n        }\n\n        // If list has numbers already\n        else\n        {\n            // Iterate over nodes in list\n            for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n            {\n                // If at end of list\n                if (ptr->next == NULL)\n                {\n                    // Append node\n                    ptr->next = n;\n                    break;\n                }\n            }\n        }\n    }\n\n    // Print numbers\n    for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n    {\n        printf(\"%i\\n\", ptr->number);\n    }\n\n    // Free memory\n    node *ptr = list;\n    while (ptr != NULL)\n    {\n        node *next = ptr->next;\n        free(ptr);\n        ptr = next;\n    }\n    return 0;\n}",
+        "source_ref": "src-notes-5#linked-lists",
+        "explain_fa": "کد رسمی list7.c."
+      },
+      "check": {
+        "id": "w05-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "حلقهٔ پیمایش در `list7.c` کجا می‌ایستد تا گرهٔ تازه را وصل کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "روی گره‌ای که `next` آن `NULL` است.",
+            "correct": true,
+            "feedback_fa": "درست: آخرین گره."
+          },
+          {
+            "id": "b",
+            "text_fa": "روی خود NULL.",
+            "correct": false,
+            "feedback_fa": "اگر ptr به NULL برسد، دیگر گره‌ای برای وصل کردن نداریم."
+          },
+          {
+            "id": "c",
+            "text_fa": "روی سر فهرست.",
+            "correct": false,
+            "feedback_fa": "این افزودن به ابتداست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l05-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: افزودن به انتهای فهرست پیوندی (بدون اشاره‌گر جداگانه به انتها) در بدترین حالت O(n) است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "برای رسیدن به آخرین گره چند گره را می‌گذری؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l05-u02",
+      "order": 2,
+      "title_fa": "درج مرتب",
+      "concept_ids": [
+        "w05-c-sorted-insert"
+      ],
+      "objective_ids": [
+        "w05-o06"
+      ],
+      "note_id": "w05-n09",
+      "source_refs": [
+        "src-notes-5#linked-lists",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "`list8.c` فهرست را مرتب نگه می‌دارد. چند حالت جدا داریم: فهرست خالی است؛ عدد تازه کوچک‌تر از سر فهرست است و باید به ابتدا برود؛ یا باید جای درستش را در میانه یا انتها پیدا کرد. در حالت سوم، پیش از جابه‌جا کردن اشاره‌گرها، گرهٔ تازه به گرهٔ بعدی وصل می‌شود.",
+        "note_id": "w05-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list8",
+        "lang": "c",
+        "content": "// Implements a sorted linked list of numbers\n\n#include <cs50.h>\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n} node;\n\nint main(void)\n{\n    // Memory for numbers\n    node *list = NULL;\n\n    // Build list\n    for (int i = 0; i < 3; i++)\n    {\n        // Allocate node for number\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = get_int(\"Number: \");\n        n->next = NULL;\n\n        // If list is empty\n        if (list == NULL)\n        {\n            list = n;\n        }\n\n        // If number belongs at beginning of list\n        else if (n->number < list->number)\n        {\n            n->next = list;\n            list = n; \n        }\n\n        // If number belongs later in list\n        else\n        {\n            // Iterate over nodes in list\n            for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n            {\n                // If at end of list\n                if (ptr->next == NULL)\n                {\n                    // Append node\n                    ptr->next = n;\n                    break;\n                }\n\n                // If in middle of list\n                if (n->number < ptr->next->number)\n                {\n                    n->next = ptr->next;\n                    ptr->next = n;\n                    break;\n                }\n            }\n        }\n    }\n\n    // Print numbers\n    for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n    {\n        printf(\"%i\\n\", ptr->number);\n    }\n\n    // Free memory\n    node *ptr = list;\n    while (ptr != NULL)\n    {\n        node *next = ptr->next;\n        free(ptr);\n        ptr = next;\n    }\n    return 0;\n}",
+        "source_ref": "src-notes-5#linked-lists",
+        "explain_fa": "کد رسمی list8.c."
+      },
+      "check": {
+        "id": "w05-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `list8.c`، اگر عدد تازه از عدد سر فهرست کوچک‌تر باشد، چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "گره به ابتدای فهرست اضافه می‌شود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "گره به انتها اضافه می‌شود.",
+            "correct": false,
+            "feedback_fa": "این فهرست را نامرتب می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامه عدد را نادیده می‌گیرد.",
+            "correct": false,
+            "feedback_fa": "هیچ عددی نادیده گرفته نمی‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l05-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "فهرست مرتب 2 → 4 → 6 داریم. هر عدد تازه در کدام حالت `list8.c` درج می‌شود؟ (ابتدا / میانه / انتها): (۱) 1 (۲) 5 (۳) 9",
+        "expected": {
+          "answers": {
+            "1": "ابتدا",
+            "2": "میانه",
+            "3": "انتها"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "عدد تازه را با سر فهرست و با گره‌های بعدی مقایسه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l05-u03",
+      "order": 3,
+      "title_fa": "آزاد کردن کل فهرست",
+      "concept_ids": [
+        "w05-c-free-list",
+        "w05-c-unload-on-error"
+      ],
+      "objective_ids": [
+        "w05-o07"
+      ],
+      "note_id": "w05-n09",
+      "source_refs": [
+        "src-notes-5#linked-lists",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "هر گره‌ای که با `malloc` ساخته شده باید `free` شود. اگر گره‌ای را آزاد کنیم، دیگر نباید `next` آن را بخوانیم؛ پس اول نشانی گرهٔ بعدی را در متغیری موقت نگه می‌داریم، بعد گره فعلی را آزاد می‌کنیم و سراغ گرهٔ بعدی می‌رویم. در `list9.c` همین آزادسازی در مسیر خطا هم انجام می‌شود تا حتی وقتی `malloc` شکست می‌خورد، نشت حافظه نداشته باشیم. `valgrind` نشان می‌دهد آیا چیزی جا مانده است.",
+        "note_id": "w05-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list9",
+        "lang": "c",
+        "content": "// Frees memory in cases of error too\n\n#include <cs50.h>\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n} node;\n\nvoid unload(node *list);\n\nint main(void)\n{\n    // Memory for numbers\n    node *list = NULL;\n\n    // Build list\n    for (int i = 0; i < 3; i++)\n    {\n        // Allocate node for number\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            unload(list);\n            return 1;\n        }\n        n->number = get_int(\"Number: \");\n        n->next = NULL;\n\n        // If list is empty\n        if (list == NULL)\n        {\n            list = n;\n        }\n\n        // If number belongs at beginning of list\n        else if (n->number < list->number)\n        {\n            n->next = list;\n            list = n; \n        }\n\n        // If number belongs later in list\n        else\n        {\n            // Iterate over nodes in list\n            for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n            {\n                // If at end of list\n                if (ptr->next == NULL)\n                {\n                    // Append node\n                    ptr->next = n;\n                    break;\n                }\n\n                // If in middle of list\n                if (n->number < ptr->next->number)\n                {\n                    n->next = ptr->next;\n                    ptr->next = n;\n                    break;\n                }\n            }\n        }\n    }\n\n    // Print numbers\n    for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n    {\n        printf(\"%i\\n\", ptr->number);\n    }\n\n    // Free memory\n    unload(list);\n    return 0;\n}\n\nvoid unload(node *list)\n{\n    node *ptr = list;\n    while (ptr != NULL)\n    {\n        node *next = ptr->next;\n        free(ptr);\n        ptr = next;\n    }\n}",
+        "source_ref": "src-notes-5#linked-lists",
+        "explain_fa": "کد رسمی list9.c."
+      },
+      "check": {
+        "id": "w05-l05-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا پیش از `free(ptr)` نشانی `ptr->next` در متغیری جدا نگه داشته می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون پس از free دیگر نمی‌شود ptr->next را با اطمینان خواند.",
+            "correct": true,
+            "feedback_fa": "درست: خواندن حافظهٔ آزادشده رفتار تعریف‌نشده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون free مقدار next را صفر می‌کند.",
+            "correct": false,
+            "feedback_fa": "free چیزی را صفر نمی‌کند؛ فقط دسترسی پس از آن مجاز نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون valgrind این را می‌خواهد.",
+            "correct": false,
+            "feedback_fa": "این قاعدهٔ C است، نه valgrind."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l05-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: برنامه‌های `list3.c` و `list4.c` درس‌نامه گره‌هایشان را آزاد نمی‌کنند و `valgrind` برایشان نشت حافظه گزارش می‌کند.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: این نسخه‌ها فقط برای نشان دادن ساختن فهرست‌اند؛ list9.c آزادسازی را اضافه می‌کند.",
+          "incorrect_fa": "در list3.c دنبال free بگرد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l05-u04",
+      "order": 4,
+      "title_fa": "فهرست پیوندی دوطرفه",
+      "concept_ids": [
+        "w05-c-doubly-linked-list"
+      ],
+      "objective_ids": [
+        "w05-o06"
+      ],
+      "note_id": "w05-sh-doubly-linked-lists",
+      "source_refs": [
+        "src-short-doubly-linked-lists",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه فهرست پیوندی دوطرفه گره‌ای را نشان می‌دهد که علاوه بر `next` یک اشاره‌گر `prev` به گرهٔ قبلی هم دارد. با این کار می‌شود در هر دو جهت حرکت کرد و یک گره را بدون پیمودن از ابتدا حذف کرد، ولی هر گره حافظهٔ بیشتری می‌گیرد و هنگام درج و حذف باید اشاره‌گرهای بیشتری را درست کرد. این ساختار در درس‌نامهٔ هفتهٔ ۵ نیامده است.",
+        "note_id": "w05-sh-doubly-linked-lists",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-sh-doubly-linked-lists"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "// تألیفی\ntypedef struct dnode\n{\n    int number;\n    struct dnode *prev;\n    struct dnode *next;\n}\ndnode;",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "گرهٔ تألیفی دوطرفه؛ فقط یک فیلد prev بیشتر از گرهٔ رسمی دارد."
+      },
+      "check": {
+        "id": "w05-l05-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بزرگ‌ترین مزیت فهرست دوطرفه نسبت به یک‌طرفه چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "حذف یک گره وقتی به آن اشاره‌گر داری، بدون پیمودن فهرست از ابتدا",
+            "correct": true,
+            "feedback_fa": "درست: prev گرهٔ قبلی را می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "حافظهٔ کمتر",
+            "correct": false,
+            "feedback_fa": "هر گره یک اشاره‌گر بیشتر دارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "جست‌وجوی دودویی",
+            "correct": false,
+            "feedback_fa": "گره‌ها هنوز پیوسته نیستند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l05-u04-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در فهرست دوطرفه، هنگام حذف یک گره از میانه باید هم `next` گرهٔ قبلی و هم `prev` گرهٔ بعدی را درست کرد.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "دو همسایهٔ گره حذف‌شده به هم اشاره می‌کنند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

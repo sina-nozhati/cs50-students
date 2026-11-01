@@ -1,0 +1,448 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l03",
+  "type": "lesson",
+  "week": 8,
+  "order": 3,
+  "stage_id": "w08-s3",
+  "title_fa": "HTML: ساختار سند و عنصرها",
+  "title_en": "HTML: document structure and elements",
+  "note_ids": [
+    "w08-n07",
+    "w08-n08"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w08-l02"
+  ],
+  "concept_ids": [
+    "w08-c-html",
+    "w08-c-tag",
+    "w08-c-attribute",
+    "w08-c-doctype-structure",
+    "w08-c-html-comment",
+    "w08-c-http-server",
+    "w08-c-dom-tree",
+    "w08-c-whitespace-ignored",
+    "w08-c-headings",
+    "w08-c-lists",
+    "w08-c-table",
+    "w08-c-img-alt",
+    "w08-c-video",
+    "w08-c-anchor-link",
+    "w08-c-void-elements"
+  ],
+  "objective_ids": [
+    "w08-o04",
+    "w08-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w08-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l03-u01",
+      "order": 1,
+      "title_fa": "تگ، ویژگی و درخت سند",
+      "concept_ids": [
+        "w08-c-html",
+        "w08-c-tag",
+        "w08-c-attribute",
+        "w08-c-doctype-structure",
+        "w08-c-html-comment",
+        "w08-c-http-server",
+        "w08-c-dom-tree",
+        "w08-c-whitespace-ignored"
+      ],
+      "objective_ids": [
+        "w08-o04"
+      ],
+      "note_id": "w08-n07",
+      "source_refs": [
+        "src-notes-8#html",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "**HTML** زبان برنامه‌نویسی نیست؛ زبان نشانه‌گذاری است. صفحه از **تگ‌ها** (`tag`) ساخته می‌شود که معمولاً باز و بسته می‌شوند، مثل `<title>` و `</title>` ، و **ویژگی‌ها** (`attribute`) رفتار تگ را تنظیم می‌کنند، مثل `lang=\"en\"` . هر سند با `<!DOCTYPE html>` شروع می‌شود و درون `<html>` دو بخش دارد: `<head>` برای عنوان و تنظیمات، و `<body>` برای محتوایی که دیده می‌شود. مرورگر این تگ‌ها را به یک درخت در حافظه تبدیل می‌کند. برای دیدن صفحه‌ها در codespace فرمان `http-server` را اجرا می‌کنی. مرورگر فاصله‌ها و خط‌های اضافهٔ متن را نادیده می‌گیرد.",
+        "note_id": "w08-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello0",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates HTML -->\n\n<html lang=\"en\">\n    <head>\n        <title>hello, title</title>\n    </head>\n    <body>\n        hello, body\n    </body>\n</html>",
+        "source_ref": "src-notes-8#html",
+        "explain_fa": "ساده‌ترین صفحهٔ HTML سخنرانی (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "عنوانی که در زبانهٔ مرورگر نشان داده می‌شود در کدام بخش سند است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "در `<title>` داخل `<head>`",
+            "correct": true,
+            "feedback_fa": "درست. `<head>` اطلاعات دربارهٔ صفحه را نگه می‌دارد، از جمله عنوان."
+          },
+          {
+            "id": "b",
+            "text_fa": "در `<body>`",
+            "correct": false,
+            "feedback_fa": "`<body>` محتوای خود صفحه است، نه عنوان زبانه."
+          },
+          {
+            "id": "c",
+            "text_fa": "در `<!DOCTYPE html>`",
+            "correct": false,
+            "feedback_fa": "این خط فقط نسخهٔ HTML را اعلام می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l03-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را مرتب کن تا سندی درست با عنوان `hello` و متن `hello, body` ساخته شود. دو خط اول و خط آخر ثابت‌اند:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n...\n</html>\n```",
+        "lang": "html",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "<head>",
+            "text": "<head>"
+          },
+          {
+            "id": "p2",
+            "code": "<title>hello</title>",
+            "text": "<title>hello</title>"
+          },
+          {
+            "id": "p3",
+            "code": "</head>",
+            "text": "</head>"
+          },
+          {
+            "id": "p4",
+            "code": "<body>",
+            "text": "<body>"
+          },
+          {
+            "id": "p5",
+            "code": "hello, body",
+            "text": "hello, body"
+          },
+          {
+            "id": "p6",
+            "code": "</body>",
+            "text": "</body>"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "<head>hello, body</head>",
+            "why_wrong_fa": "متن دیدنی در `<head>` جایی ندارد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: `<head>` با عنوان، سپس `<body>` با محتوا.",
+          "incorrect_fa": "اول `<head>` و عنوانش، سپس `<body>` ."
+        },
+        "hints_fa": [
+          "عنوان داخل `<head>` است."
+        ],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"probe\", \"expr\": \"document.title + '|' + document.body.textContent.trim()\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "hello|hello, body\n",
+          "verified_by": "_tools/qa_questions.py",
+          "check_prefix": "<!DOCTYPE html>\n<html lang=\"en\">\n",
+          "check_suffix": "</html>\n"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l03-u02",
+      "order": 2,
+      "title_fa": "سرعنوان، فهرست و جدول",
+      "concept_ids": [
+        "w08-c-headings",
+        "w08-c-lists",
+        "w08-c-table"
+      ],
+      "objective_ids": [
+        "w08-o05"
+      ],
+      "note_id": "w08-n08",
+      "source_refs": [
+        "src-notes-8#html",
+        "src-transcript-8",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "تگ‌های `<h1>` تا `<h6>` سرعنوان‌ها را از بزرگ به کوچک می‌سازند و `<p>` بند متن است. برای فهرست بی‌شماره `<ul>` و برای فهرست شماره‌دار `<ol>` به کار می‌رود و هر مورد در `<li>` می‌نشیند. جدول با `<table>` ساخته می‌شود: هر سطر یک `<tr>` و هر خانه یک `<td>` است. مثال جدول سخنرانی فقط `<tr>` و `<td>` دارد؛ تگ‌های `<thead>` و `<th>` برای سرستون هم وجود دارند.",
+        "note_id": "w08-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list1",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates (ordered) lists -->\n\n<html lang=\"en\">\n    <head>\n        <title>list</title>\n    </head>\n    <body>\n        <ol>\n            <li>foo</li>\n            <li>bar</li>\n            <li>baz</li>\n        </ol>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#html",
+        "explain_fa": "فهرست شماره‌دار با ol (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "جدولی سه سطر دارد و هر سطر دو خانه. چند تگ `<td>` لازم است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "شش",
+            "correct": true,
+            "feedback_fa": "درست. هر خانه یک `<td>` است: ۳ × ۲."
+          },
+          {
+            "id": "b",
+            "text_fa": "سه",
+            "correct": false,
+            "feedback_fa": "سه تعداد `<tr>` ، یعنی سطرهاست."
+          },
+          {
+            "id": "c",
+            "text_fa": "دو",
+            "correct": false,
+            "feedback_fa": "دو تعداد خانه‌های هر سطر است، نه کل جدول."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l03-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را پر کن تا یک فهرست **شماره‌دار** با دو مورد ساخته شود.",
+        "lang": "html",
+        "code_origin": "authored",
+        "template": "<[[b1]]>\n    <li>foo</li>\n    <li>bar</li>\n</[[b2]]>",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "ol"
+            ],
+            "hint_fa": "فهرست شماره‌دار (`ordered list`).",
+            "wrong_feedback": {
+              "ul": "`ul` فهرست بی‌شماره است.",
+              "li": "`li` خود مورد فهرست است، نه فهرست."
+            },
+            "default_wrong_fa": "تگ فهرست شماره‌دار را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "ol"
+            ],
+            "hint_fa": "تگ بسته باید با تگ باز یکی باشد.",
+            "wrong_feedback": {
+              "ul": "تگ بسته باید همان تگ باز باشد.",
+              "li": "تگ بسته باید همان تگ باز باشد."
+            },
+            "default_wrong_fa": "همان تگ باز را ببند."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "ol"
+          ],
+          "b2": [
+            "ol"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `<ol>` موردها را شماره می‌زند.",
+          "incorrect_fa": "فهرست شماره‌دار تگ دیگری دارد."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"probe\", \"expr\": \"document.querySelectorAll('ol > li').length\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "2\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l03-u03",
+      "order": 3,
+      "title_fa": "تصویر، ویدئو و پیوند",
+      "concept_ids": [
+        "w08-c-img-alt",
+        "w08-c-video",
+        "w08-c-anchor-link",
+        "w08-c-void-elements"
+      ],
+      "objective_ids": [
+        "w08-o05"
+      ],
+      "note_id": "w08-n08",
+      "source_refs": [
+        "src-notes-8#html",
+        "src-transcript-8",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "تگ `<img>` تصویر را نشان می‌دهد: ویژگی `src` نشانی فایل است و `alt` متنی که اگر تصویر دیده نشود، یا کاربر از صفحه‌خوان استفاده کند، جای آن را می‌گیرد. `<img>` تگ بسته ندارد. `<video>` با ویژگی‌هایی مثل `autoplay` ، `loop` و `muted` ویدئو پخش می‌کند. پیوند با `<a>` ساخته می‌شود و مقصد آن در ویژگی `href` است. متن پیوند می‌تواند با مقصدش فرق داشته باشد؛ سخنرانی نشان داد که این همان راه فریب کاربران (`phishing`) است.",
+        "note_id": "w08-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "image",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates image -->\n\n<html lang=\"en\">\n    <head>\n        <title>image</title>\n    </head>\n    <body>\n        <img alt=\"photo of bridge\" src=\"bridge.png\">\n    </body>\n</html>",
+        "source_ref": "src-notes-8#html",
+        "explain_fa": "تصویر با alt (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ویژگی `alt` در `<img alt=\"photo of bridge\" src=\"bridge.png\">` چه کاری می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "متن جایگزین تصویر را برای وقتی که دیده نشود یا صفحه‌خوان آن را بخواند می‌دهد.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "نشانی فایل تصویر را می‌گوید.",
+            "correct": false,
+            "feedback_fa": "نشانی فایل در `src` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "اندازهٔ تصویر را تعیین می‌کند.",
+            "correct": false,
+            "feedback_fa": "اندازه با `width` یا CSS تنظیم می‌شود، نه `alt` ."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l03-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را با نام ویژگی پر کن تا پیوند به `https://www.harvard.edu/` برود.",
+        "lang": "html",
+        "code_origin": "authored",
+        "template": "<a [[b1]]=\"https://www.harvard.edu/\">Harvard</a>",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "href"
+            ],
+            "hint_fa": "نام ویژگی مقصد پیوند.",
+            "wrong_feedback": {
+              "src": "`src` برای تصویر و ویدئوست؛ `<a>` مقصد را از `href` می‌خواند.",
+              "link": "`link` نام یک تگ است، نه ویژگی `<a>` ."
+            },
+            "default_wrong_fa": "ویژگی مقصد پیوند را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "href"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `href` مقصد پیوند است.",
+          "incorrect_fa": "مقصد پیوند در ویژگی دیگری است."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"probe\", \"expr\": \"document.querySelector('a').href\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "https://www.harvard.edu/\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

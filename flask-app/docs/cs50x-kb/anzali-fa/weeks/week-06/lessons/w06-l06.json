@@ -1,0 +1,491 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w06-l06",
+  "type": "lesson",
+  "week": 6,
+  "order": 6,
+  "stage_id": "w06-s5",
+  "title_fa": "Mario، فهرست‌ها و برش",
+  "title_en": "Mario, lists and slicing",
+  "note_ids": [
+    "w06-n11",
+    "w06-n12"
+  ],
+  "related_doc_ids": [
+    "w06-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w06-l05"
+  ],
+  "concept_ids": [
+    "w06-c-while-true-break",
+    "w06-c-print-end",
+    "w06-c-string-repeat",
+    "w06-c-nested-loops-py",
+    "w06-c-list",
+    "w06-c-sum-len",
+    "w06-c-append",
+    "w06-c-string-slicing"
+  ],
+  "objective_ids": [
+    "w06-o07",
+    "w06-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/6 or the section code.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w06-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "units": [
+    {
+      "id": "w06-l06-u01",
+      "order": 1,
+      "title_fa": "while True به جای do-while",
+      "concept_ids": [
+        "w06-c-while-true-break"
+      ],
+      "objective_ids": [
+        "w06-o07"
+      ],
+      "note_id": "w06-n11",
+      "source_refs": [
+        "src-notes-6#mario",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "پایتون حلقهٔ `do-while` ندارد و قرارداد این است که از `while True:` همراه با `break` استفاده کنی. در `mario1.py` ارتفاع با `get_int` گرفته می‌شود و به محض اینکه بزرگ‌تر از صفر باشد، `break` حلقه را می‌شکند. بدنهٔ حلقه دست‌کم یک بار اجرا می‌شود.",
+        "note_id": "w06-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "mario1",
+        "lang": "python",
+        "content": "# Prints a column of n bricks with a loop\n\nfrom cs50 import get_int\n\nwhile True:\n    n = get_int(\"Height: \")\n    if n > 0:\n        break\n\nfor i in range(n):\n    print(\"#\")",
+        "source_ref": "src-notes-6#mario",
+        "explain_fa": "mario1.py رسمی."
+      },
+      "check": {
+        "id": "w06-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام جمله دربارهٔ `do-while` در پایتون درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پایتون `do-while` ندارد؛ از `while True:` و `break` استفاده می‌شود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "پایتون کلیدواژهٔ `do:` دارد.",
+            "correct": false,
+            "feedback_fa": "چنین کلیدواژه‌ای در پایتون نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "در پایتون فقط حلقهٔ `for` وجود دارد.",
+            "correct": false,
+            "feedback_fa": "`while` هم وجود دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l06-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "سطرها را بچین تا برنامهٔ تألیفی تا گرفتن یک عدد مثبت دوباره بپرسد و سپس دو برابر آن را چاپ کند (مثلاً با ورودی‌های `-1` و `3` عدد `6`). تورفتگی هر سطر ثابت است.",
+        "lang": "python",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "while True:",
+            "text": "while True:"
+          },
+          {
+            "id": "p2",
+            "code": "    n = int(input(\"n: \"))",
+            "text": "    n = int(input(\"n: \"))"
+          },
+          {
+            "id": "p3",
+            "code": "    if n > 0:",
+            "text": "    if n > 0:"
+          },
+          {
+            "id": "p4",
+            "code": "        break",
+            "text": "        break"
+          },
+          {
+            "id": "p5",
+            "code": "print(n * 2)",
+            "text": "print(n * 2)"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "    if n < 0:",
+            "why_wrong_fa": "با این شرط ورودی `0` هم پذیرفته می‌شود."
+          },
+          {
+            "id": "d2",
+            "code": "do:",
+            "why_wrong_fa": "پایتون `do` ندارد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5"
+          ]
+        },
+        "indentation_matters": true,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: بپرس، بسنج، بشکن، بعد چاپ کن.",
+          "incorrect_fa": "`n` باید پیش از سنجیدن گرفته شود."
+        },
+        "hints_fa": [
+          "`print` بیرون از حلقه است."
+        ],
+        "qa": {
+          "stdin": "-1\n3\n",
+          "expected_stdout_exact": "n: n: 6\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l06-u02",
+      "order": 2,
+      "title_fa": "end، ضرب رشته و حلقهٔ تودرتو",
+      "concept_ids": [
+        "w06-c-print-end",
+        "w06-c-string-repeat",
+        "w06-c-nested-loops-py"
+      ],
+      "objective_ids": [
+        "w06-o07"
+      ],
+      "note_id": "w06-n11",
+      "source_refs": [
+        "src-notes-6#mario",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در `mario2.py` با `print(\"?\", end=\"\")` چهار علامت سؤال روی یک سطر چاپ می‌شود و `print()` سطر را تمام می‌کند. `mario3.py` همین را با `print(\"?\" * 4)` می‌نویسد: ضرب رشته در عدد، رشته را تکرار می‌کند. در `mario4.py` یک حلقهٔ `for` درون دیگری است و `print()` در پایان هر ردیف سطر تازه می‌گذارد.",
+        "note_id": "w06-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "mario4",
+        "lang": "python",
+        "content": "# Prints a 3-by-3 grid of bricks with loops\n\nfor i in range(3):\n    for j in range(3):\n        print(\"#\", end=\"\")\n    print()",
+        "source_ref": "src-notes-6#mario",
+        "explain_fa": "mario4.py رسمی."
+      },
+      "check": {
+        "id": "w06-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`print(\"?\" * 4)` چه چاپ می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`????`",
+            "correct": true,
+            "feedback_fa": "درست. رشته چهار بار تکرار می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "`?4`",
+            "correct": false,
+            "feedback_fa": "`*` روی رشته و عدد تکرار است، نه الحاق."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای `TypeError`",
+            "correct": false,
+            "feedback_fa": "ضرب رشته در عدد صحیح مجاز است؛ خطا برای ضرب رشته در رشته است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l06-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی دقیقاً چیست؟",
+        "expected": {
+          "output": "aabb|\nxxyyzz|"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: هر نویسه دو بار، و پایان هر واژه `|` با سطر تازه.",
+          "incorrect_fa": "حلقهٔ درونی روی نویسه‌ها و حلقهٔ بیرونی روی واژه‌هاست."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "for word in [\"ab\", \"xyz\"]:\n    for c in word:\n        print(c * 2, end=\"\")\n    print(\"|\")",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l06-u03",
+      "order": 3,
+      "title_fa": "فهرست، len، sum و append",
+      "concept_ids": [
+        "w06-c-list",
+        "w06-c-sum-len",
+        "w06-c-append"
+      ],
+      "objective_ids": [
+        "w06-o09"
+      ],
+      "note_id": "w06-n12",
+      "source_refs": [
+        "src-notes-6#lists",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "`list` ساختمان داده‌ای در پایتون است. در `scores0.py` میانگین با `sum(scores) / len(scores)` حساب می‌شود و خروجی `Average: 59.333333333333336` است. `scores1.py` فهرست خالی `[]` می‌سازد و هر نمره را با متد `append` به انتهایش اضافه می‌کند. درس‌نامه `sum` را «متد» می‌نامد، اما `sum` و `len` تابع‌های داخلی‌اند و `append` متد فهرست است (d102).",
+        "note_id": "w06-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scores1",
+        "lang": "python",
+        "content": "# Averages three numbers using a list and a loop\n\nfrom cs50 import get_int\n\n# Get scores\nscores = []\nfor i in range(3):\n    score = get_int(\"Score: \")\n    scores.append(score)\n\n# Print average\naverage = sum(scores) / len(scores)\nprint(f\"Average: {average}\")",
+        "source_ref": "src-notes-6#lists",
+        "explain_fa": "scores1.py رسمی."
+      },
+      "check": {
+        "id": "w06-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام یکی فراخوانی یک متدِ فهرست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`scores.append(5)`",
+            "correct": true,
+            "feedback_fa": "درست. `append` با نقطه روی فهرست صدا زده می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "`sum(scores)`",
+            "correct": false,
+            "feedback_fa": "`sum` تابع داخلی است که فهرست را به عنوان آرگومان می‌گیرد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`len(scores)`",
+            "correct": false,
+            "feedback_fa": "`len` تابع داخلی است، نه متد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l06-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "دو جای خالی را پر کن تا برنامه فهرست را بسازد و میانگین `59.333333333333336` را چاپ کند.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "scores = []\nfor n in [72, 73, 33]:\n    scores.[[b1]](n)\nprint(sum(scores) / [[b2]](scores))",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "append"
+            ],
+            "hint_fa": "کدام متد یک عضو به انتهای فهرست اضافه می‌کند؟",
+            "wrong_feedback": {
+              "add": "فهرست متد `add` ندارد؛ `add` مال `set` است.",
+              "insert": "`insert` دو آرگومان می‌خواهد: جایگاه و مقدار.",
+              "extend": "`extend` یک دنباله می‌خواهد، نه یک عدد."
+            },
+            "default_wrong_fa": "متدی که در `scores1.py` آمده."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "len"
+            ],
+            "hint_fa": "کدام تابع تعداد عضوهای فهرست را می‌دهد؟",
+            "wrong_feedback": {
+              "sum": "`sum(scores) / sum(scores)` برابر `1.0` است.",
+              "max": "تقسیم بر بزرگ‌ترین نمره میانگین نیست.",
+              "size": "در پایتون تابع داخلی `size` نیست."
+            },
+            "default_wrong_fa": "تابع طول را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "append"
+          ],
+          "b2": [
+            "len"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "`append` متد است و `len` تابع."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "expected_stdout_exact": "59.333333333333336\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l06-u04",
+      "order": 4,
+      "title_fa": "از جلسهٔ حل تمرین: نمایه و برش رشته",
+      "concept_ids": [
+        "w06-c-string-slicing"
+      ],
+      "objective_ids": [
+        "w06-o09"
+      ],
+      "note_id": "w06-sec",
+      "source_refs": [
+        "src-section-6",
+        "src-section-6-code",
+        "src-section-6-transcript",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در جلسهٔ حل تمرین با `str_prediction.py` پیش‌بینی شد که نمایه و برش رشته چه می‌دهند: `s[0]` نخستین نویسه است، `s[1:]` از نویسهٔ دوم تا آخر، نمایهٔ خارج از محدوده `IndexError` می‌دهد، و برعکس کردن رشته با `range(len(s) - 1, -1, -1)` ممکن است. گام منفی در برش (`s[::-1]`) هم رشته را برعکس می‌کند (استنتاجی، بر پایهٔ مستندات پایتون).",
+        "note_id": "w06-sec",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-sec"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "section:str_prediction.py",
+        "lang": "python",
+        "content": "# Round 1\nphrase = input(\"Give me a string: \")\n\nfor i in range(0, len(phrase), 2):\n    print(phrase[i], end=\"\")\nprint(\"\")\n\n\n# Round 2\nphrase = input(\"Give me a string: \")\n\nfor i in range(1, len(phrase) - 1):\n    print(phrase[i], end=\"\")\nprint(\"\")\n\n\n# Round 3\nphrase = input(\"Give me a string: \")\n\nfor character in phrase:\n    print(character, end=\"\")\nprint(\"\")\n\n\n# Round 4\nphrase = input(\"Give me a string: \")\n\nfor character in phrase[1:]:\n    print(character, end=\"\")\nprint(\"\")\n\n\n# Round 5\nphrase = input(\"Give me a string: \")\n\ni = 0\nwhile i < len(phrase):\n    print(phrase[i], end=\"\")\n    i += 1\nprint(\"\")\n\n\n# Round 6: Reverse phrase, only by changing the range function's arguments\nphrase = input(\"Give me a string: \")\n\nfor i in range(len(phrase) - 1, -1, -1):\n    print(phrase[i], end=\"\")\nprint(\"\")",
+        "source_ref": "src-section-6-code",
+        "explain_fa": "کد رسمی جلسهٔ حل تمرین."
+      },
+      "check": {
+        "id": "w06-l06-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر `s = \"Python\"` باشد، `s[1:4]` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`\"yth\"`",
+            "correct": true,
+            "feedback_fa": "درست. از نمایهٔ ۱ تا پیش از نمایهٔ ۴."
+          },
+          {
+            "id": "b",
+            "text_fa": "`\"Pyt\"`",
+            "correct": false,
+            "feedback_fa": "نمایه از صفر شروع می‌شود؛ `s[1]` حرف `y` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`\"ytho\"`",
+            "correct": false,
+            "feedback_fa": "نمایهٔ پایانی در برش نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l06-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟ (هر مقدار در یک سطر)",
+        "expected": {
+          "output": "x\n50x\nx05SC"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "نمایهٔ `-1` آخرین نویسه است و گام `-1` رشته را برعکس می‌کند."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "s = \"CS50x\"\nprint(s[-1])\nprint(s[2:])\nprint(s[::-1])",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -79,6 +79,29 @@ class TestKbAdminService:
             assert info["valid"] is False
             assert "فرمت" in info["error"]
 
+    def test_inspect_archive_ai_and_final_project(self):
+        import tempfile, zipfile
+        with tempfile.TemporaryDirectory() as td:
+            # تست بسته هوش مصنوعی (week-ai / 71)
+            ai_zip = Path(td) / "cs50x-anzali-kb-week-ai.zip"
+            with zipfile.ZipFile(ai_zip, "w") as zf:
+                zf.writestr("week-ai/curriculum.json", json.dumps({"week": 71, "week_slug": "week-ai"}))
+                zf.writestr("week-ai/overview.fa.md", "# هوش مصنوعی")
+            info_ai = kb_admin.inspect_archive(ai_zip)
+            assert info_ai["valid"] is True
+            assert info_ai["week_number"] == 71
+            assert info_ai["week_dir"] == "week-ai"
+
+            # تست بسته پروژه نهایی (final-project / 99)
+            fp_zip = Path(td) / "cs50x-anzali-kb-final-project.zip"
+            with zipfile.ZipFile(fp_zip, "w") as zf:
+                zf.writestr("final-project/curriculum.json", json.dumps({"week": 99, "week_slug": "final-project"}))
+                zf.writestr("final-project/overview.fa.md", "# پروژه نهایی")
+            info_fp = kb_admin.inspect_archive(fp_zip)
+            assert info_fp["valid"] is True
+            assert info_fp["week_number"] == 99
+            assert info_fp["week_dir"] == "final-project"
+
 
 class TestKbAdminRoutes:
     def test_kb_packages_dashboard_access_denied_for_guest(self, client):

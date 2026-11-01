@@ -1,0 +1,335 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l06",
+  "type": "lesson",
+  "week": 9,
+  "order": 6,
+  "stage_id": "w09-s6",
+  "title_fa": "کوکی، جلسه، ورود و سبد خرید",
+  "title_en": "Cookies, sessions, login and a cart",
+  "note_ids": [
+    "w09-n11",
+    "w09-n12",
+    "w09-n13"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w09-l05"
+  ],
+  "concept_ids": [
+    "w09-c-mvc",
+    "w09-c-cookie",
+    "w09-c-set-cookie-header",
+    "w09-c-session",
+    "w09-c-flask-session",
+    "w09-c-session-dict",
+    "w09-c-logout-clear",
+    "w09-c-session-list",
+    "w09-c-sql-in-list"
+  ],
+  "objective_ids": [
+    "w09-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w09-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l06-u01",
+      "order": 1,
+      "title_fa": "MVC، کوکی و جلسه",
+      "concept_ids": [
+        "w09-c-mvc",
+        "w09-c-cookie",
+        "w09-c-set-cookie-header",
+        "w09-c-session"
+      ],
+      "objective_ids": [
+        "w09-o09"
+      ],
+      "note_id": "w09-n11",
+      "source_refs": [
+        "src-notes-9#cookies-and-session",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "برنامه‌ها را می‌توان با **MVC** دید: مدل داده است (پایگاه داده)، نما قالب‌هاست و کنترل‌گر `app.py` . HTTP بی‌حافظه است؛ پس سرور چطور تو را به یاد می‌آورد؟ با **کوکی**: سرور در پاسخ سرآیند `Set-Cookie: session=value` می‌فرستد و مرورگر در هر درخواست بعدی `Cookie: session=value` را برمی‌گرداند، مثل مُهری که در ورودی روی دستت می‌زنند. **جلسه** (`session`) روی این کوکی ساخته می‌شود تا سرور داده‌ای را برای هر کاربر نگه دارد.",
+        "note_id": "w09-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cookie-request",
+        "lang": "text",
+        "content": "GET / HTTP/2\nHost: accounts.google.com\nCookie: session=value",
+        "source_ref": "src-notes-9#cookies-and-session",
+        "explain_fa": "سرآیند Cookie در درخواست بعدی (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام سرآیند را **سرور** می‌فرستد تا مرورگر کوکی را نگه دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`Set-Cookie`",
+            "correct": true,
+            "feedback_fa": "درست. مرورگر بعدها با `Cookie` آن را برمی‌گرداند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`Cookie`",
+            "correct": false,
+            "feedback_fa": "`Cookie` را مرورگر در درخواست‌ها می‌فرستد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`Location`",
+            "correct": false,
+            "feedback_fa": "`Location` برای redirect است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l06-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر بخش froshims را در MVC جا بده («مدل»، «نما» یا «کنترل‌گر»): (۱) `froshims.db` (۲) `registrants.html` (۳) `app.py`",
+        "expected": {
+          "answers": {
+            "1": "مدل",
+            "2": "نما",
+            "3": "کنترل‌گر"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "داده، نمایش، منطق."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l06-u02",
+      "order": 2,
+      "title_fa": "ورود و خروج با session",
+      "concept_ids": [
+        "w09-c-flask-session",
+        "w09-c-session-dict",
+        "w09-c-logout-clear"
+      ],
+      "objective_ids": [
+        "w09-o09"
+      ],
+      "note_id": "w09-n12",
+      "source_refs": [
+        "src-notes-9#cookies-and-session",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "با Flask-Session و `app.config[\"SESSION_TYPE\"] = \"filesystem\"` داده‌های جلسه روی دیسک سرور نگه داشته می‌شوند. `session` مثل یک دیکشنری است: ورود یعنی `session[\"name\"] = request.form.get(\"name\")` و صفحهٔ اصلی با `session.get(\"name\")` می‌فهمد کاربر کیست. خروج با `session.clear()` همه را پاک می‌کند. `session[\"name\"]` برای کلید ناموجود خطای `KeyError` می‌دهد، پس برای خواندن `get` امن‌تر است.",
+        "note_id": "w09-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "login-app",
+        "lang": "python",
+        "content": "from flask import Flask, redirect, render_template, request, session\nfrom flask_session import Session\n\n# Configure app\napp = Flask(__name__)\n\n# Configure session\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\", name=session.get(\"name\"))\n\n@app.route(\"/login\", methods=[\"GET\", \"POST\"])\ndef login():\n    if request.method == \"POST\":\n        session[\"name\"] = request.form.get(\"name\")\n        return redirect(\"/\")\n    return render_template(\"login.html\")\n\n@app.route(\"/logout\")\ndef logout():\n    session.clear()\n    return redirect(\"/\")",
+        "source_ref": "src-notes-9#cookies-and-session",
+        "explain_fa": "ورود و خروج با session (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کاربری که هنوز وارد نشده به `/` می‌رود و تابع `session[\"name\"]` را می‌خواند. چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "خطای `KeyError` و پاسخ 500، چون کلید در جلسه نیست.",
+            "correct": true,
+            "feedback_fa": "درست. با `session.get(\"name\")` مقدار `None` می‌گرفتی."
+          },
+          {
+            "id": "b",
+            "text_fa": "`None`",
+            "correct": false,
+            "feedback_fa": "این رفتار `get` است، نه کروشه."
+          },
+          {
+            "id": "c",
+            "text_fa": "redirect به `/login`",
+            "correct": false,
+            "feedback_fa": "Flask خودش redirect نمی‌کند؛ باید خودت بنویسی."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l06-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی (Flask-Session) ابتدا `/` ، سپس ورود، دوباره `/` ، خروج و باز `/` را می‌خواند. پاسخ‌ها چه هستند؟",
+        "expected": {
+          "output": "not logged in\nSTATUS 302\nLOCATION /\nhello, David\nSTATUS 302\nLOCATION /\nnot logged in"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: کوکی جلسه بین درخواست‌ها می‌ماند و `clear` آن را خالی می‌کند.",
+          "incorrect_fa": "کلاینت آزمایشی کوکی را مثل مرورگر نگه می‌دارد."
+        },
+        "hints_fa": [],
+        "lang": "flask",
+        "code": "from flask import Flask, redirect, request, session\nfrom flask_session import Session\n\napp = Flask(__name__)\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n\n@app.route(\"/\")\ndef index():\n    name = session.get(\"name\")\n    return f\"hello, {name}\" if name else \"not logged in\"\n\n@app.route(\"/login\", methods=[\"POST\"])\ndef login():\n    session[\"name\"] = request.form.get(\"name\")\n    return redirect(\"/\")\n\n@app.route(\"/logout\")\ndef logout():\n    session.clear()\n    return redirect(\"/\")\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"path\": \"/\"}, {\"data\": {\"name\": \"David\"}, \"method\": \"POST\", \"path\": \"/login\"}, {\"path\": \"/\"}, {\"path\": \"/logout\"}, {\"path\": \"/\"}]"
+          },
+          "expected_stdout_exact": "not logged in\nSTATUS 302\nLOCATION /\nhello, David\nSTATUS 302\nLOCATION /\nnot logged in\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l06-u03",
+      "order": 3,
+      "title_fa": "سبد خرید: فهرست در session و IN (?)",
+      "concept_ids": [
+        "w09-c-session-list",
+        "w09-c-sql-in-list"
+      ],
+      "objective_ids": [
+        "w09-o09"
+      ],
+      "note_id": "w09-n13",
+      "source_refs": [
+        "src-notes-9#shopping-cart",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "در فروشگاه درس‌نامه، `session[\"cart\"]` فهرستی از idهای کتاب است: اگر نباشد اول `[]` ساخته می‌شود و هر بار id تازه `append` می‌شود. برای نمایش، `db.execute(\"SELECT * FROM books WHERE id IN (?)\", session[\"cart\"])` همهٔ کتاب‌های سبد را می‌خواند؛ کتابخانهٔ cs50 فهرست را به چند مقدار باز می‌کند. هر کتاب یک بار برمی‌گردد، حتی اگر id آن دوبار در سبد باشد.",
+        "note_id": "w09-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "store-app",
+        "lang": "python",
+        "content": "from cs50 import SQL\nfrom flask import Flask, redirect, render_template, request, session\nfrom flask_session import Session\n\n# Configure app\napp = Flask(__name__)\n\n# Connect to database\ndb = SQL(\"sqlite:///store.db\")\n\n# Configure session\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n\n@app.route(\"/\")\ndef index():\n    books = db.execute(\"SELECT * FROM books\")\n    return render_template(\"books.html\", books=books)\n\n@app.route(\"/cart\", methods=[\"GET\", \"POST\"])\ndef cart():\n\n    # Ensure cart exists\n    if \"cart\" not in session:\n        session[\"cart\"] = []\n\n    # POST\n    if request.method == \"POST\":\n        book_id = request.form.get(\"id\")\n        if book_id:\n            session[\"cart\"].append(book_id)\n        return redirect(\"/cart\")\n\n    # GET\n    books = db.execute(\"SELECT * FROM books WHERE id IN (?)\", session[\"cart\"])\n    return render_template(\"cart.html\", books=books)",
+        "source_ref": "src-notes-9#shopping-cart",
+        "explain_fa": "سبد خرید با session (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "سبد `[2, 1, 2]` است و پرس‌وجو `SELECT title FROM books WHERE id IN (?) ORDER BY id` . چند ردیف برمی‌گردد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "دو ردیف: کتاب ۱ و کتاب ۲، هر کدام یک بار.",
+            "correct": true,
+            "feedback_fa": "درست. `IN` فقط عضویت را می‌سنجد."
+          },
+          {
+            "id": "b",
+            "text_fa": "سه ردیف، چون سه id در سبد است.",
+            "correct": false,
+            "feedback_fa": "تکرار id ردیف تکراری نمی‌سازد."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطا، چون `?` فقط یک مقدار می‌گیرد.",
+            "correct": false,
+            "feedback_fa": "کتابخانهٔ cs50 فهرست را برای `IN (?)` باز می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l06-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی (Flask-Session و پایگاه دادهٔ تألیفی `store.db` با Book A، B و C) کتاب‌های ۳ و ۱ را به سبد می‌افزاید و سبد را نشان می‌دهد. خروجی چیست؟",
+        "expected": {
+          "output": "STATUS 302\nLOCATION /cart\nSTATUS 302\nLOCATION /cart\nBook A, Book C"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: ORDER BY id ترتیب را از ترتیب افزودن جدا می‌کند.",
+          "incorrect_fa": "ترتیب نتیجه را `ORDER BY` تعیین می‌کند، نه ترتیب سبد."
+        },
+        "hints_fa": [],
+        "lang": "flask",
+        "code": "from cs50 import SQL\nfrom flask import Flask, redirect, request, session\nfrom flask_session import Session\n\napp = Flask(__name__)\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n\ndb = SQL(\"sqlite:///store.db\")\n\n@app.route(\"/cart\", methods=[\"GET\", \"POST\"])\ndef cart():\n    if \"cart\" not in session:\n        session[\"cart\"] = []\n    if request.method == \"POST\":\n        session[\"cart\"].append(request.form.get(\"id\"))\n        return redirect(\"/cart\")\n    books = db.execute(\"SELECT title FROM books WHERE id IN (?) ORDER BY id\", session[\"cart\"])\n    return \", \".join(book[\"title\"] for book in books)\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"data\": {\"id\": \"3\"}, \"method\": \"POST\", \"path\": \"/cart\"}, {\"data\": {\"id\": \"1\"}, \"method\": \"POST\", \"path\": \"/cart\"}, {\"path\": \"/cart\"}]",
+            "store.db": "fixture9:store"
+          },
+          "expected_stdout_exact": "STATUS 302\nLOCATION /cart\nSTATUS 302\nLOCATION /cart\nBook A, Book C\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l06",
+  "type": "lesson",
+  "week": 8,
+  "order": 6,
+  "stage_id": "w08-s6",
+  "title_fa": "جاوااسکریپت: زبان و رویداد",
+  "title_en": "JavaScript: the language and events",
+  "note_ids": [
+    "w08-n13"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w08-l05"
+  ],
+  "concept_ids": [
+    "w08-c-javascript",
+    "w08-c-js-variables",
+    "w08-c-console-log",
+    "w08-c-js-loops",
+    "w08-c-js-function",
+    "w08-c-js-conditionals",
+    "w08-c-equality-operators",
+    "w08-c-script-tag",
+    "w08-c-alert",
+    "w08-c-queryselector",
+    "w08-c-value-property",
+    "w08-c-onsubmit",
+    "w08-c-event-listener",
+    "w08-c-anonymous-function",
+    "w08-c-domcontentloaded",
+    "w08-c-prevent-default"
+  ],
+  "objective_ids": [
+    "w08-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w08-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l06-u01",
+      "order": 1,
+      "title_fa": "متغیر، نوع و نخستین برنامه",
+      "concept_ids": [
+        "w08-c-javascript",
+        "w08-c-js-variables",
+        "w08-c-console-log",
+        "w08-c-js-loops"
+      ],
+      "objective_ids": [
+        "w08-o09"
+      ],
+      "note_id": "w08-n13",
+      "source_refs": [
+        "src-notes-8#javascript",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "**جاوااسکریپت** (`JavaScript`) زبانی است که در مرورگر اجرا می‌شود. نحوش به C نزدیک است: متغیر با `let` ساخته می‌شود، `counter++` یکی اضافه می‌کند و حلقه‌ها همان `for` و `while` اند. `console.log` چیزی را در کنسول چاپ می‌کند. نوع متغیر را نمی‌نویسی و جاوااسکریپت گاهی خودش نوع را عوض می‌کند: `1 + '1'` رشتهٔ `11` می‌شود، نه عدد ۲.",
+        "note_id": "w08-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n13"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "javascript",
+        "content": "let counter = 0;\nfor (let i = 0; i < 3; i++)\n{\n    console.log('meow');\n    counter++;\n}\nconsole.log(counter);",
+        "source_ref": "src-anzali-authored-8",
+        "explain_fa": "حلقهٔ for و ++ در جاوااسکریپت (اجراشده روی جعبهٔ ساخت با node).",
+        "run_output": "meow\nmeow\nmeow\n3\n",
+        "verified_by": "node (box)"
+      },
+      "check": {
+        "id": "w08-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "حاصل `1 + '1'` در جاوااسکریپت چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "رشتهٔ `11`",
+            "correct": true,
+            "feedback_fa": "درست. یکی از دو طرف رشته است، پس `+` رشته‌ها را به هم می‌چسباند."
+          },
+          {
+            "id": "b",
+            "text_fa": "عدد `2`",
+            "correct": false,
+            "feedback_fa": "اگر هر دو عدد بودند ۲ می‌شد؛ اینجا یکی رشته است."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطا",
+            "correct": false,
+            "feedback_fa": "جاوااسکریپت خطا نمی‌دهد؛ عدد را به رشته تبدیل می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l06-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی (اجرا با node) دقیقاً چیست؟",
+        "expected": {
+          "output": "11\n2"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: با رشته `+` می‌چسباند و با عدد جمع می‌کند.",
+          "incorrect_fa": "نوع طرف دیگر `+` را در هر خط ببین."
+        },
+        "hints_fa": [
+          "`'1'` رشته است و `1` عدد."
+        ],
+        "lang": "javascript",
+        "code": "let counter = 0;\ncounter++;\nconsole.log(counter + '1');\nconsole.log(counter + 1);",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {},
+          "expected_stdout_exact": "11\n2\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l06-u02",
+      "order": 2,
+      "title_fa": "تابع، شرط و == در برابر ===",
+      "concept_ids": [
+        "w08-c-js-function",
+        "w08-c-js-conditionals",
+        "w08-c-equality-operators"
+      ],
+      "objective_ids": [
+        "w08-o09"
+      ],
+      "note_id": "w08-n13",
+      "source_refs": [
+        "src-notes-8#javascript",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "تابع در جاوااسکریپت با `function` تعریف می‌شود و شرط‌ها مثل C با `if` و `else` نوشته می‌شوند. برای مقایسه دو عملگر هست: `==` پیش از مقایسه نوع‌ها را یکی می‌کند، پس `1 == '1'` درست است؛ `===` نوع را هم می‌سنجد، پس `1 === '1'` نادرست است. معمولاً `===` امن‌تر است.",
+        "note_id": "w08-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n13"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "javascript",
+        "content": "console.log(1 == '1');\nconsole.log(1 === '1');",
+        "source_ref": "src-anzali-authored-8",
+        "explain_fa": "دو عملگر برابری (اجراشده روی جعبهٔ ساخت با node).",
+        "run_output": "true\nfalse\n",
+        "verified_by": "node (box)"
+      },
+      "check": {
+        "id": "w08-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام عبارت `true` است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`1 == '1'`",
+            "correct": true,
+            "feedback_fa": "درست. `==` رشته را به عدد تبدیل می‌کند و سپس مقایسه می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`1 === '1'`",
+            "correct": false,
+            "feedback_fa": "`===` نوع را هم می‌سنجد و عدد با رشته یکی نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "`'1' === 1`",
+            "correct": false,
+            "feedback_fa": "باز هم یکی رشته است و دیگری عدد؛ `===` نادرست می‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l06-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را با یک عملگر پر کن تا `same` فقط وقتی `true` بدهد که مقدار **و** نوع یکی باشند.",
+        "lang": "javascript",
+        "code_origin": "authored",
+        "template": "function same(a, b)\n{\n    return a [[b1]] b;\n}\nconsole.log(same(1, '1'));\nconsole.log(same(1, 1));",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "==="
+            ],
+            "hint_fa": "عملگر برابری سخت‌گیر.",
+            "wrong_feedback": {
+              "==": "`==` نوع را یکی می‌کند، پس `same(1, '1')` هم `true` می‌شود.",
+              "!==": "`!==` برعکس است: برای `1` و `'1'` مقدار `true` و برای `1` و `1` مقدار `false` می‌دهد.",
+              "=": "`=` انتساب است؛ `b` را در `a` می‌گذارد و همان را برمی‌گرداند، پس `1` و `1` چاپ می‌شود."
+            },
+            "default_wrong_fa": "عملگر سه‌نویسه‌ای برابری را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "==="
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `===` برای `1` و `'1'` نادرست و برای `1` و `1` درست است.",
+          "incorrect_fa": "عملگری لازم است که نوع را هم بسنجد."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {},
+          "expected_stdout_exact": "false\ntrue\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l06-u03",
+      "order": 3,
+      "title_fa": "رویداد، DOMContentLoaded و preventDefault",
+      "concept_ids": [
+        "w08-c-script-tag",
+        "w08-c-alert",
+        "w08-c-queryselector",
+        "w08-c-value-property",
+        "w08-c-onsubmit",
+        "w08-c-event-listener",
+        "w08-c-anonymous-function",
+        "w08-c-domcontentloaded",
+        "w08-c-prevent-default"
+      ],
+      "objective_ids": [
+        "w08-o09"
+      ],
+      "note_id": "w08-n13",
+      "source_refs": [
+        "src-notes-8#javascript",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "جاوااسکریپت در صفحه داخل `<script>` می‌آید و به **رویدادها** گوش می‌دهد: کلیک، ارسال فرم، رها کردن کلید. `document.querySelector('#name')` عنصر را پیدا می‌کند و `.value` متنی را که کاربر نوشته می‌دهد. با `addEventListener('submit', function(e) {...})` یک تابع بی‌نام را به رویداد ارسال وصل می‌کنی و `e.preventDefault()` نمی‌گذارد فرم واقعاً ارسال شود. اگر اسکریپت در `<head>` باشد، هنوز عنصرهای `<body>` ساخته نشده‌اند؛ برای همین کد را داخل `DOMContentLoaded` می‌گذاریم تا پس از ساخته شدن درخت اجرا شود.",
+        "note_id": "w08-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello3",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates DOMContentLoaded -->\n\n<html lang=\"en\">\n    <head>\n        <script>\n\n            document.addEventListener('DOMContentLoaded', function() {\n                document.querySelector('form').addEventListener('submit', function(e) {\n                    alert('hello, ' + document.querySelector('#name').value);\n                    e.preventDefault();\n                });\n            });\n\n        </script>\n        <title>hello</title>\n    </head>\n    <body>\n        <form>\n            <input autocomplete=\"off\" autofocus id=\"name\" placeholder=\"Name\" type=\"text\">\n            <input type=\"submit\">\n        </form>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#javascript",
+        "explain_fa": "گوش دادن به submit پس از DOMContentLoaded (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر در `hello3` بیرونی‌ترین `addEventListener('DOMContentLoaded', ...)` را برداری و فقط خط `document.querySelector('form').addEventListener(...)` در `<head>` بماند، چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هنوز فرمی ساخته نشده، `querySelector` مقدار `null` می‌دهد و اسکریپت خطا می‌دهد.",
+            "correct": true,
+            "feedback_fa": "درست. اسکریپتِ `<head>` پیش از `<body>` اجرا می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "هیچ فرقی نمی‌کند.",
+            "correct": false,
+            "feedback_fa": "فرق دارد: هنگام اجرای اسکریپت هنوز `<form>` در درخت نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "فرم دو بار ارسال می‌شود.",
+            "correct": false,
+            "feedback_fa": "اسکریپت پیش از رسیدن به فرم خطا می‌دهد و اصلاً گوش‌دهنده‌ای وصل نمی‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l06-u03-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌های جاوااسکریپت را مرتب کن تا وقتی کاربر `David` می‌نویسد و فرم را ارسال می‌کند، پیام `hello, David` نشان داده شود. اسکریپت در `<head>` است و صفحه این را دارد:\n\n```html\n<form>\n    <input id=\"name\" type=\"text\">\n</form>\n```",
+        "lang": "html",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "document.addEventListener('DOMContentLoaded', function() {",
+            "text": "document.addEventListener('DOMContentLoaded', function() {"
+          },
+          {
+            "id": "p2",
+            "code": "document.querySelector('form').addEventListener('submit', function(event) {",
+            "text": "document.querySelector('form').addEventListener('submit', function(event) {"
+          },
+          {
+            "id": "p3",
+            "code": "let name = document.querySelector('#name').value;",
+            "text": "let name = document.querySelector('#name').value;"
+          },
+          {
+            "id": "p4",
+            "code": "alert('hello, ' + name);",
+            "text": "alert('hello, ' + name);"
+          },
+          {
+            "id": "p5",
+            "code": "});",
+            "text": "});"
+          },
+          {
+            "id": "p6",
+            "code": "});",
+            "text": "});"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "alert('hello, ' + document.querySelector('#name'));",
+            "why_wrong_fa": "این خود عنصر را چاپ می‌کند، نه متن آن را؛ `.value` لازم است."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: گوش دادن پس از DOMContentLoaded، و خواندن مقدار هنگام ارسال.",
+          "incorrect_fa": "مقدار باید هنگام ارسال خوانده شود، نه زودتر."
+        },
+        "hints_fa": [
+          "اگر مقدار را بیرون از تابع ارسال بخوانی، هنوز خالی است."
+        ],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"set\", \"sel\": \"#name\", \"value\": \"David\"}, {\"do\": \"submit\", \"sel\": \"form\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "ALERT: hello, David\nSUBMIT_DEFAULT_PREVENTED: false\n",
+          "verified_by": "_tools/qa_questions.py",
+          "check_prefix": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <title>practice</title>\n        <script>\n",
+          "check_suffix": "        </script>\n    </head>\n    <body>\n        <form>\n            <input id=\"name\" type=\"text\">\n        </form>\n    </body>\n</html>\n"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

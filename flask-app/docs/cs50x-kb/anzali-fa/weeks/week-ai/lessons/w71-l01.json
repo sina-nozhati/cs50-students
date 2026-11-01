@@ -1,0 +1,417 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w71-l01",
+  "type": "lesson",
+  "week": 71,
+  "week_slug": "week-ai",
+  "order": 1,
+  "stage_id": "w71-s1",
+  "title_fa": "اردک، هوش مصنوعی مولد و پرامپت",
+  "title_en": "The duck, generative AI and prompts",
+  "note_ids": [
+    "w71-n01",
+    "w71-n02",
+    "w71-n03"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w71-c-rubber-ducking",
+    "w71-c-cs50-duck",
+    "w71-c-generative-ai",
+    "w71-c-detecting-ai",
+    "w71-c-prompt-engineering",
+    "w71-c-system-prompt",
+    "w71-c-user-prompt",
+    "w71-c-api-client",
+    "w71-c-copilot",
+    "w71-c-ai-policy"
+  ],
+  "objective_ids": [
+    "w71-o01",
+    "w71-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official AI notes and the lecture transcript (marked «از سخنرانی»); examples are the official notes blocks, verbatim English quotations from the notes, or authored Python labelled تألیفی (D83); every predict_output program is run with python3.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w07-mt-final",
+    "note_fa": "این جلسه در ترتیب رسمی درس پس از هفتهٔ ۷ است و کد پایتون هفتهٔ ۶ را به کار می‌برد؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w71-l01-u01",
+      "order": 1,
+      "title_fa": "اردک پلاستیکی و اردک CS50",
+      "concept_ids": [
+        "w71-c-rubber-ducking",
+        "w71-c-cs50-duck"
+      ],
+      "objective_ids": [
+        "w71-o01"
+      ],
+      "note_id": "w71-n01",
+      "source_refs": [
+        "src-notes-71#welcome",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "**اردک‌گویی** (`rubber duck debugging`) یعنی مسئلهٔ سختی مثل یک باگ را برای یک شیء بی‌جان با صدای بلند توضیح بدهی. CS50 اردک خودش را در CS50.ai ساخته که با هوش مصنوعی با دانشجو گفت‌وگو می‌کند. از سخنرانی: اردک سال‌ها فقط «کواک» می‌کرد و از ۲۰۲۳ به انگلیسی جواب می‌دهد، اما عمداً «نسخهٔ کم‌کمک‌تری از ChatGPT» است که پاسخ را لو نمی‌دهد.",
+        "note_id": "w71-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "rubber-duck",
+        "lang": "text",
+        "content": "rubber ducking or rubber duck debugging is the act of speaking to an inanimate object to be able to talk through a challenging problem like a bug in one",
+        "source_ref": "src-notes-71#welcome",
+        "explain_fa": "تعریف اردک‌گویی در درس‌نامه."
+      },
+      "check": {
+        "id": "w71-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "از سخنرانی: چرا اردک CS50 «نسخهٔ کم‌کمک‌تری از ChatGPT» توصیف شد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون عمداً پاسخ را لو نمی‌دهد و مثل یک معلم تو را به سمت راه‌حل می‌برد.",
+            "correct": true,
+            "feedback_fa": "درست. هدف یادگیری توست، نه گرفتن پاسخ."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون مدل ضعیف‌تری از ChatGPT دارد و نمی‌تواند کد بنویسد.",
+            "correct": false,
+            "feedback_fa": "سخنرانی دلیل را رفتار آموزشی اردک می‌داند، نه ضعف مدل."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون هنوز فقط با «کواک» جواب می‌دهد.",
+            "correct": false,
+            "feedback_fa": "از ۲۰۲۳ اردک به انگلیسی جواب می‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «اردک‌گویی فقط وقتی مفید است که اردک جواب بدهد.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. خود توضیح دادن مسئله با صدای بلند، اغلب اشتباه را نشان می‌دهد.",
+          "incorrect_fa": "تعریف درس‌نامه را ببین: «speaking to an inanimate object»."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l01-u02",
+      "order": 2,
+      "title_fa": "هوش مصنوعی مولد و دشواری تشخیص",
+      "concept_ids": [
+        "w71-c-generative-ai",
+        "w71-c-detecting-ai"
+      ],
+      "objective_ids": [
+        "w71-o02"
+      ],
+      "note_id": "w71-n02",
+      "source_refs": [
+        "src-notes-71#generative-artificial-intelligence",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "**هوش مصنوعی مولد** (`generative AI`) می‌تواند عکس، ویدئو، موسیقی و متن بسازد. تا چند سال پیش این تصویرها نشانه‌های آشکاری داشتند، اما درس‌نامه می‌گوید به‌زودی تشخیص آن‌ها با چشم غیرمسلح تقریباً، اگر نه کاملاً، ناممکن می‌شود. از سخنرانی: در بازی رأی‌گیری، پاسخ یک دور «هر دو» بود: هیچ‌کدام از دو چهره وجود خارجی نداشت.",
+        "note_id": "w71-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "naked-eye",
+        "lang": "text",
+        "content": "it will soon be almost, if not entirely, impossible for such images to be detected with the naked eye",
+        "source_ref": "src-notes-71#generative-artificial-intelligence",
+        "explain_fa": "پیش‌بینی درس‌نامه دربارهٔ تشخیص تصویرها."
+      },
+      "check": {
+        "id": "w71-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق درس‌نامه، هوش مصنوعی مولد چه چیزهایی می‌تواند بسازد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "عکس، ویدئو، موسیقی و متن.",
+            "correct": true,
+            "feedback_fa": "درست؛ همین چهار مورد در درس‌نامه آمده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "فقط متن، چون مدل‌ها زبانی‌اند.",
+            "correct": false,
+            "feedback_fa": "درس‌نامه از عکس، ویدئو و موسیقی هم نام می‌برد."
+          },
+          {
+            "id": "c",
+            "text_fa": "فقط تصویرهایی که همیشه با چشم قابل تشخیص‌اند.",
+            "correct": false,
+            "feedback_fa": "درس‌نامه برعکس می‌گوید: تشخیص با چشم به‌زودی تقریباً ناممکن می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l01-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "از سخنرانی: هر نمونهٔ بازی را «ساختهٔ هوش مصنوعی» یا «نوشتهٔ انسان» علامت بزن: (۱) انشای SA 1 دربارهٔ ناهار؛ (۲) انشای SA 2 دربارهٔ ناهار.",
+        "expected": {
+          "answers": {
+            "1": "ساختهٔ هوش مصنوعی",
+            "2": "نوشتهٔ انسان"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. مالان گفت SA 2 بیشتر شبیه نوشتهٔ یک کودک کلاس چهارم یا پنجم بود.",
+          "incorrect_fa": "به پاسخ مالان در دور سوم بازی برگرد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l01-u03",
+      "order": 3,
+      "title_fa": "پرامپت سیستمی، پرامپت کاربر و chat3.py",
+      "concept_ids": [
+        "w71-c-prompt-engineering",
+        "w71-c-system-prompt",
+        "w71-c-user-prompt",
+        "w71-c-api-client"
+      ],
+      "objective_ids": [
+        "w71-o02"
+      ],
+      "note_id": "w71-n03",
+      "source_refs": [
+        "src-notes-71#prompt-engineering-and-copilot",
+        "src-transcript-71",
+        "src-code-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "**مهندسی پرامپت** (`prompt engineering`) راه پرسیدن پرسش خوب از هوش مصنوعی است. **پرامپت سیستمی** (`system prompt`) به هوش مصنوعی یاد می‌دهد با کاربر چطور رفتار کند و **پرامپت کاربر** (`user prompt`) همان چیزی است که کاربر می‌نویسد. در کد درس‌نامه، `client.responses.create` پرامپت کاربر را در `input`، پرامپت سیستمی را در `instructions` و نام مدل را در `model` می‌گیرد و `response.output_text` چاپ می‌شود. از سخنرانی: پرامپت سیستمی اردک با «Answer this question:» تمام می‌شود و پرسش دانشجو بعد از آن می‌آید.",
+        "note_id": "w71-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "chat3",
+        "lang": "python",
+        "content": "# Adds to system prompt.\n\nfrom openai import OpenAI\n\nclient = OpenAI()\n\nuser_prompt = input(\"Prompt: \")\nsystem_prompt = \"Limit your answer to one sentence. Pretend you're a cat.\"\n\nresponse = client.responses.create(\n    input=user_prompt,\n    instructions=system_prompt,\n    model=\"gpt-5\"\n)\n\nprint(response.output_text)",
+        "source_ref": "src-notes-71#prompt-engineering-and-copilot",
+        "explain_fa": "کد رسمی درس‌نامه؛ برای اجرا به کلید API (پولی) نیاز دارد و در این بسته فقط با جایگزین محلی بررسی شده است (D84)."
+      },
+      "check": {
+        "id": "w71-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در chat3.py، پرامپت سیستمی («Pretend you're a cat.») به کدام آرگومان داده می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`instructions`",
+            "correct": true,
+            "feedback_fa": "درست: `instructions=system_prompt`."
+          },
+          {
+            "id": "b",
+            "text_fa": "`input`",
+            "correct": false,
+            "feedback_fa": "`input` پرامپت کاربر را می‌گیرد: `input=user_prompt`."
+          },
+          {
+            "id": "c",
+            "text_fa": "`model`",
+            "correct": false,
+            "feedback_fa": "`model` فقط نسخهٔ مدل را مشخص می‌کند: `\"gpt-5\"`."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l01-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا برنامه پرسش کاربر را از ورودی بخواند و بعد از پرامپت سیستمی چاپ کند (بدون هیچ سرویس بیرونی).",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "system_prompt = \"You are a rubber duck. Answer this question:\"\nuser_prompt = [[b1]](\"Prompt: \")\nprint(system_prompt + \" \" + user_prompt)\n",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "input"
+            ],
+            "hint_fa": "تابع پایتون برای خواندن یک سطر از کاربر.",
+            "wrong_feedback": {
+              "print": "`print` چیزی از کاربر نمی‌خواند و `None` برمی‌گرداند؛ پس سطر بعد با `TypeError` متوقف می‌شود (رشته را نمی‌شود با `None` جمع کرد).",
+              "get_string": "`get_string` در کتابخانهٔ cs50 است و اینجا وارد نشده است."
+            },
+            "default_wrong_fa": "تابعی که هم پیام را نشان می‌دهد و هم ورودی را برمی‌گرداند."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "input"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. خروجی با ورودی «What is a loop?» این است: Prompt: You are a rubber duck. Answer this question: What is a loop?",
+          "incorrect_fa": "در chat3.py رسمی هم پرامپت کاربر با همین تابع گرفته می‌شود."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "What is a loop?\n",
+          "args": [],
+          "expected_stdout_exact": "Prompt: You are a rubber duck. Answer this question: What is a loop?\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l01-u04",
+      "order": 4,
+      "title_fa": "Copilot و قاعدهٔ CS50 دربارهٔ هوش مصنوعی",
+      "concept_ids": [
+        "w71-c-copilot",
+        "w71-c-ai-policy"
+      ],
+      "objective_ids": [
+        "w71-o01"
+      ],
+      "note_id": "w71-n03",
+      "source_refs": [
+        "src-notes-71#prompt-engineering-and-copilot",
+        "src-honesty-71",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "هوش مصنوعی مولد کد هم تولید می‌کند و **Copilot** یکی از این ابزارهاست. درس‌نامه: در CS50 استفادهٔ از هوش مصنوعی مولد **بیرون از ابزارهای خود درس** مجاز نیست. سیاست صداقت تحصیلی می‌گوید استفاده از نرم‌افزارهای هوش مصنوعی خود CS50، مثل اردک در cs50.ai و cs50.dev، معقول است و استفاده از نرم‌افزارهای دیگری (مثل ChatGPT، Claude، Copilot، Gemini) که پاسخ یا سطر کد را پیشنهاد یا کامل می‌کند، نامعقول. از سخنرانی: مالان Copilot را فقط برای نمایش روشن کرد، قابلیتی که CS50 برای همهٔ دانشجویان خاموش می‌کند، و گفت فرض درست بودن کد تولیدشده «فرض بزرگی» است.",
+        "note_id": "w71-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "policy",
+        "lang": "text",
+        "content": "In CS50, we do not allow the use of generative AI, outside the course's own tools.",
+        "source_ref": "src-notes-71#prompt-engineering-and-copilot",
+        "explain_fa": "قاعدهٔ رسمی در درس‌نامه."
+      },
+      "check": {
+        "id": "w71-l01-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق سیاست رسمی CS50، کدام استفاده **معقول** است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پرسیدن از اردک CS50 در cs50.ai دربارهٔ معنای یک پیام خطا.",
+            "correct": true,
+            "feedback_fa": "درست. ابزار هوش مصنوعی خود CS50 مجاز است."
+          },
+          {
+            "id": "b",
+            "text_fa": "گرفتن پیشنهاد سطرهای کد از Copilot برای یک پرابلم‌ست.",
+            "correct": false,
+            "feedback_fa": "سیاست صداقت تحصیلی این را صریحاً نامعقول می‌داند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خواستن پاسخ پرسش‌های پرابلم‌ست از ChatGPT.",
+            "correct": false,
+            "feedback_fa": "نرم‌افزارهای هوش مصنوعی غیر از ابزارهای CS50 که پاسخ پیشنهاد می‌کنند، مجاز نیستند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l01-u04-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «معقول» یا «نامعقول» علامت بزن (طبق سیاست رسمی): (۱) گفت‌وگو با اردک CS50 در cs50.dev؛ (۲) کامل کردن کد پرابلم‌ست با Gemini؛ (۳) پرسیدن پاسخ یک پرسش از Claude.",
+        "expected": {
+          "answers": {
+            "1": "معقول",
+            "2": "نامعقول",
+            "3": "نامعقول"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "فقط ابزارهای هوش مصنوعی خود CS50 معقول‌اند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w06-l03",
+  "type": "lesson",
+  "week": 6,
+  "order": 3,
+  "stage_id": "w06-s3",
+  "title_fa": "شرط‌ها و متدهای رشته",
+  "title_en": "Conditionals and string methods",
+  "note_ids": [
+    "w06-n07",
+    "w06-n08"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w06-l02"
+  ],
+  "concept_ids": [
+    "w06-c-indentation-blocks",
+    "w06-c-elif",
+    "w06-c-logical-words",
+    "w06-c-in-list",
+    "w06-c-no-char",
+    "w06-c-object-method",
+    "w06-c-string-methods",
+    "w06-c-method-returns-new"
+  ],
+  "objective_ids": [
+    "w06-o05",
+    "w06-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/6 or the section code.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w06-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "units": [
+    {
+      "id": "w06-l03-u01",
+      "order": 1,
+      "title_fa": "تورفتگی، دونقطه و elif",
+      "concept_ids": [
+        "w06-c-indentation-blocks",
+        "w06-c-elif"
+      ],
+      "objective_ids": [
+        "w06-o05"
+      ],
+      "note_id": "w06-n07",
+      "source_refs": [
+        "src-notes-6#conditionals",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در پایتون آکولاد نیست و بلوک‌ها با تورفتگی مشخص می‌شوند. پس از شرط `if` دونقطه می‌آید، `elif` جای `else if` را می‌گیرد و پرانتز دور شرط لازم نیست. اگر تورفتگی‌ها ناهماهنگ باشند، مفسر `IndentationError` می‌دهد.",
+        "note_id": "w06-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "compare3",
+        "lang": "python",
+        "content": "# Conditionals, Boolean expressions, relational operators\n\nfrom cs50 import get_int\n\n# Prompt user for integers\nx = get_int(\"What's x? \")\ny = get_int(\"What's y? \")\n\n# Compare integers\nif x < y:\n    print(\"x is less than y\")\nelif x > y:\n    print(\"x is greater than y\")\nelse:\n    print(\"x is equal to y\")",
+        "source_ref": "src-notes-6#conditionals",
+        "explain_fa": "compare3.py رسمی."
+      },
+      "check": {
+        "id": "w06-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام سطر در پایتون درست و معادل `else if (x > y)` در C است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`elif x > y:`",
+            "correct": true,
+            "feedback_fa": "درست. `elif` با دونقطه در پایان."
+          },
+          {
+            "id": "b",
+            "text_fa": "`else if x > y:`",
+            "correct": false,
+            "feedback_fa": "در پایتون `else if` نوشته نمی‌شود؛ `elif` به کار می‌رود."
+          },
+          {
+            "id": "c",
+            "text_fa": "`elif (x > y)`",
+            "correct": false,
+            "feedback_fa": "دونقطهٔ پایانی جا افتاده و این سطر خطای نحوی می‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l03-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "سطرها را بچین تا برنامهٔ تألیفی برای عددهای `1`، `3` و `9` به ترتیب `small`، `medium` و `large` چاپ کند. تورفتگی هر سطر ثابت است.",
+        "lang": "python",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "for x in [1, 3, 9]:",
+            "text": "for x in [1, 3, 9]:"
+          },
+          {
+            "id": "p2",
+            "code": "    if x < 2:",
+            "text": "    if x < 2:"
+          },
+          {
+            "id": "p3",
+            "code": "        print(\"small\")",
+            "text": "        print(\"small\")"
+          },
+          {
+            "id": "p4",
+            "code": "    elif x < 5:",
+            "text": "    elif x < 5:"
+          },
+          {
+            "id": "p5",
+            "code": "        print(\"medium\")",
+            "text": "        print(\"medium\")"
+          },
+          {
+            "id": "p6",
+            "code": "    else:",
+            "text": "    else:"
+          },
+          {
+            "id": "p7",
+            "code": "        print(\"large\")",
+            "text": "        print(\"large\")"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "    else if x < 5:",
+            "why_wrong_fa": "در پایتون `else if` نیست؛ `elif` به کار می‌رود."
+          },
+          {
+            "id": "d2",
+            "code": "    if x < 5",
+            "why_wrong_fa": "دونقطهٔ پایانی ندارد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6",
+            "p7"
+          ]
+        },
+        "indentation_matters": true,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "`else` همیشه آخرین شاخه است و هر `print` زیر شرط خودش می‌آید."
+        },
+        "hints_fa": [
+          "اگر `x < 5` پیش از `x < 2` بیاید، عدد `1` هم `medium` می‌شود."
+        ],
+        "qa": {
+          "stdin": "",
+          "expected_stdout_exact": "small\nmedium\nlarge\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l03-u02",
+      "order": 2,
+      "title_fa": "or، and و in",
+      "concept_ids": [
+        "w06-c-logical-words",
+        "w06-c-in-list",
+        "w06-c-no-char"
+      ],
+      "objective_ids": [
+        "w06-o05"
+      ],
+      "note_id": "w06-n07",
+      "source_refs": [
+        "src-notes-6#conditionals",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در پایتون `||` به `or` و `&&` به `and` تبدیل شده است. `char` در پایتون نیست و به جایش `str` به کار می‌رود. راه دیگر برای پذیرفتن چند پاسخ، فهرست است: `if s in [\"y\", \"yes\"]:` می‌پرسد آیا `s` یکی از عضوهای فهرست است. مقایسه به بزرگی و کوچکی حرف حساس است.",
+        "note_id": "w06-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "agree1",
+        "lang": "python",
+        "content": "# Logical operators, using lists\n\nfrom cs50 import get_string\n\n# Prompt user to agree\ns = get_string(\"Do you agree? \")\n\n# Check whether agreed\nif s in [\"y\", \"yes\"]:\n    print(\"Agreed.\")\nelse:\n    print(\"Not agreed.\")",
+        "source_ref": "src-notes-6#conditionals",
+        "explain_fa": "agree1.py رسمی با فهرست."
+      },
+      "check": {
+        "id": "w06-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام شرط فقط وقتی درست است که `s` برابر `\"y\"` یا `\"yes\"` باشد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`s in [\"y\", \"yes\"]`",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "`s == \"y\" or \"yes\"`",
+            "correct": false,
+            "feedback_fa": "`\"yes\"` به‌تنهایی رشتهٔ غیرخالی و درست است؛ پس این شرط همیشه درست است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`s == \"y\" and s == \"yes\"`",
+            "correct": false,
+            "feedback_fa": "یک رشته نمی‌تواند هم‌زمان برابر هر دو باشد؛ این شرط هیچ‌وقت درست نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l03-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟",
+        "expected": {
+          "output": "Not agreed.\nAgreed.\nNot agreed."
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `Y` بزرگ در فهرست نیست.",
+          "incorrect_fa": "مقایسهٔ رشته‌ها به بزرگی و کوچکی حرف حساس است."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "for s in [\"Y\", \"yes\", \"no\"]:\n    if s in [\"y\", \"yes\"]:\n        print(\"Agreed.\")\n    else:\n        print(\"Not agreed.\")",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l03-u03",
+      "order": 3,
+      "title_fa": "متدهای رشته رشتهٔ تازه برمی‌گردانند",
+      "concept_ids": [
+        "w06-c-object-method",
+        "w06-c-string-methods",
+        "w06-c-method-returns-new"
+      ],
+      "objective_ids": [
+        "w06-o06"
+      ],
+      "note_id": "w06-n08",
+      "source_refs": [
+        "src-notes-6#object-oriented-programming",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در پایتون مقدارها شیء‌اند و می‌توانند تابع داشته باشند؛ تابعی که متعلق به شیء است متد نام دارد. `str` متدهایی مثل `lower`، `upper` و `capitalize` دارد. در `copy.py` با `t = s.capitalize()` رونوشتی با حرف اول بزرگ ساخته می‌شود و `s` دست نمی‌خورد، چون رشته‌ها تغییرناپذیرند و متد رشتهٔ تازه برمی‌گرداند (استنتاجی، بر پایهٔ مستندات پایتون).",
+        "note_id": "w06-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "copy",
+        "lang": "python",
+        "content": "# Capitalizes a copy of a string\n\n# Get a string\ns = input(\"s: \")\n\n# Capitalize copy of string\nt = s.capitalize()\n\n# Print strings\nprint(f\"s: {s}\")\nprint(f\"t: {t}\")",
+        "source_ref": "src-notes-6#object-oriented-programming",
+        "explain_fa": "copy.py رسمی."
+      },
+      "check": {
+        "id": "w06-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "پس از اجرای `s = \"Hi\"` و سپس سطر `s.upper()` (بدون انتساب)، مقدار `s` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`Hi`",
+            "correct": true,
+            "feedback_fa": "درست. `upper` رشتهٔ تازه برمی‌گرداند و چون نتیجه در جایی ذخیره نشده، از دست می‌رود."
+          },
+          {
+            "id": "b",
+            "text_fa": "`HI`",
+            "correct": false,
+            "feedback_fa": "رشته‌ها تغییرناپذیرند؛ `s` تنها با `s = s.upper()` عوض می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "`hi`",
+            "correct": false,
+            "feedback_fa": "`upper` حرف‌ها را بزرگ می‌کند، نه کوچک؛ و `s` هم عوض نمی‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l03-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را با نام یک متد رشته پر کن تا خروجی دقیقاً `hello, world` و سپس `Hello, world` باشد.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "s = \"hello, world\"\nt = s.[[b1]]()\nprint(s)\nprint(t)",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "capitalize"
+            ],
+            "hint_fa": "کدام متد فقط حرف اول رشته را بزرگ می‌کند؟",
+            "wrong_feedback": {
+              "upper": "`upper` همهٔ حرف‌ها را بزرگ می‌کند: `HELLO, WORLD`.",
+              "title": "`title` حرف اول هر واژه را بزرگ می‌کند: `Hello, World`.",
+              "lower": "`lower` چیزی را بزرگ نمی‌کند.",
+              "swapcase": "`swapcase` بزرگی و کوچکی همهٔ حرف‌ها را برعکس می‌کند."
+            },
+            "default_wrong_fa": "متدی را بنویس که در `copy.py` به کار رفت."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "capitalize"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `capitalize` فقط حرف اول را بزرگ می‌کند و `s` دست نمی‌خورد.",
+          "incorrect_fa": "به `copy.py` درس‌نامه نگاه کن."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "expected_stdout_exact": "hello, world\nHello, world\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

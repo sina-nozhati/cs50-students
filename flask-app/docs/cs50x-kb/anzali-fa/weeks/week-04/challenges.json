@@ -1,0 +1,861 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 4,
+  "title": "چالش‌های هفتهٔ ۴ — حافظه",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. کدها فقط از مفاهیم هفته‌های ۰ تا ۴ استفاده می‌کنند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w04-ch01-address-and-value",
+      "type": "token_tap",
+      "concept_tag": "اشاره‌گر (pointer)",
+      "title": "نشانی و مقدار",
+      "instruction": "توکن‌های درست را به ترتیب جاهای خالی بزن تا 50 چاپ شود.",
+      "prompt": "int n = 50;\nint *p = ___n;\nprintf(\"%i\\n\", ___p);",
+      "token_bank": [
+        "&",
+        "*",
+        "%",
+        "#"
+      ],
+      "expected_answer": [
+        "&",
+        "*"
+      ],
+      "explanation": "`&n` نشانی n را می‌دهد و `*p` به آن نشانی می‌رود و مقدار را می‌خواند.",
+      "hint": "یکی نشانی می‌گیرد، دیگری به نشانی می‌رود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-address-of",
+        "w04-c-dereference"
+      ],
+      "source_ref": "src-notes-4#pointers",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch02-pointer-arithmetic-chars",
+      "type": "token_tap",
+      "concept_tag": "حساب اشاره‌گر (pointer arithmetic)",
+      "title": "کاراکترهای HI!",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا `I!` چاپ شود.",
+      "prompt": "char *s = \"HI!\";\nprintf(\"%c%c\\n\", *(s ___ 1), s[___]);",
+      "token_bank": [
+        "+",
+        "-",
+        "2",
+        "3"
+      ],
+      "expected_answer": [
+        "+",
+        "2"
+      ],
+      "explanation": "`*(s + 1)` همان `s[1]` یعنی I است و `s[2]` علامت تعجب.",
+      "hint": "اندیس‌ها از صفر شروع می‌شوند.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-pointer-arithmetic",
+        "w04-c-bracket-as-pointer"
+      ],
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch03-malloc-room",
+      "type": "token_tap",
+      "concept_tag": "تخصیص حافظه (malloc)",
+      "title": "جای کافی و بررسی NULL",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا کپی امن ساخته شود.",
+      "prompt": "char *s = \"hi\";\nchar *t = malloc(strlen(s) ___ 1);\nif (t == ___)\n{\n    return 1;\n}\nstrcpy(t, s);\nprintf(\"%s\\n\", t);\nfree(t);",
+      "token_bank": [
+        "+",
+        "-",
+        "NULL",
+        "0x1"
+      ],
+      "expected_answer": [
+        "+",
+        "NULL"
+      ],
+      "explanation": "یک بایت اضافه برای `\\0`، و اگر malloc شکست بخورد NULL برمی‌گرداند.",
+      "hint": "strlen کاراکتر پایانی را نمی‌شمارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-nul-byte-room",
+        "w04-c-malloc-null-check",
+        "w04-c-strcpy"
+      ],
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch04-swap-pointers",
+      "type": "token_tap",
+      "concept_tag": "جابه‌جایی با اشاره‌گر (swap)",
+      "title": "swap که واقعاً کار می‌کند",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن.",
+      "prompt": "void swap(int ___a, int *b)\n{\n    int tmp = *a;\n    *a = *b;\n    *b = tmp;\n}\n\nint main(void)\n{\n    int x = 1;\n    int y = 2;\n    swap(___x, ___y);\n    printf(\"%i %i\\n\", x, y);\n}",
+      "token_bank": [
+        "*",
+        "&",
+        "%"
+      ],
+      "expected_answer": [
+        "*",
+        "&",
+        "&"
+      ],
+      "explanation": "تابع اشاره‌گر می‌گیرد و main نشانی‌ها را می‌فرستد؛ پس swap به خود x و y دسترسی دارد.",
+      "hint": "در امضا ستاره، در فراخوانی امپرسند.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-swap-by-pointer"
+      ],
+      "source_ref": "src-notes-4#swapping",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch05-fopen-check",
+      "type": "token_tap",
+      "concept_tag": "فایل (fopen)",
+      "title": "باز کردن فایل برای نوشتن",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن.",
+      "prompt": "FILE *f = fopen(\"note.txt\", ___);\nif (f ___ NULL)\n{\n    return 1;\n}\nfprintf(f, \"hi\\n\");\nfclose(f);\nprintf(\"saved\\n\");",
+      "token_bank": [
+        "\"w\"",
+        "\"r\"",
+        "==",
+        "!=",
+        "="
+      ],
+      "expected_answer": [
+        "\"w\"",
+        "=="
+      ],
+      "explanation": "برای نوشتن حالت \"w\" لازم است و اگر fopen شکست بخورد NULL برمی‌گرداند.",
+      "hint": "`=` انتساب است، نه مقایسه.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-fopen-null-check",
+        "w04-c-fprintf-fclose"
+      ],
+      "source_ref": "src-notes-4#file-io",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch06-sizeof-free",
+      "type": "token_tap",
+      "concept_tag": "sizeof و free",
+      "title": "تخصیص سه int",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا حافظه درست گرفته و پس داده شود.",
+      "prompt": "int *x = malloc(3 * ___(int));\nif (x == NULL)\n{\n    return 1;\n}\nx[0] = 1;\nx[1] = 2;\nx[2] = 3;\nprintf(\"%i\\n\", x[0] + x[1] + x[2]);\nfree(___);",
+      "token_bank": [
+        "sizeof",
+        "strlen",
+        "x",
+        "&x",
+        "*x"
+      ],
+      "expected_answer": [
+        "sizeof",
+        "x"
+      ],
+      "explanation": "sizeof(int) اندازهٔ هر int است و به free همان نشانی‌ای را می‌دهیم که malloc برگرداند.",
+      "hint": "free نشانی بلوک را می‌خواهد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-sizeof",
+        "w04-c-free"
+      ],
+      "source_ref": "src-notes-4#valgrind",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch07-copy-string",
+      "type": "parsons",
+      "concept_tag": "کپی رشته (copy)",
+      "title": "کپی مستقل یک رشته",
+      "instruction": "خط‌ها را بچین تا t کپی مستقل s شود و فقط t بزرگ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L7",
+          "text": "strcpy(t, s);"
+        },
+        {
+          "id": "L2",
+          "text": "char *t = malloc(strlen(s) + 1);"
+        },
+        {
+          "id": "L10",
+          "text": "free(t);"
+        },
+        {
+          "id": "L1",
+          "text": "char *s = \"hi\";"
+        },
+        {
+          "id": "L9",
+          "text": "printf(\"%s %s\\n\", s, t);"
+        },
+        {
+          "id": "L3",
+          "text": "if (t == NULL)"
+        },
+        {
+          "id": "L5",
+          "text": "    return 1;"
+        },
+        {
+          "id": "L4",
+          "text": "{"
+        },
+        {
+          "id": "L8",
+          "text": "t[0] = toupper(t[0]);"
+        },
+        {
+          "id": "L6",
+          "text": "}"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "L10"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "اول حافظه، بعد بررسی NULL، بعد کپی، بعد تغییر، چاپ و در آخر free.",
+      "hint": "free باید آخرین کار با t باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-malloc",
+        "w04-c-strcpy",
+        "w04-c-free"
+      ],
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch08-swap-body",
+      "type": "parsons",
+      "concept_tag": "جابه‌جایی با اشاره‌گر (swap)",
+      "title": "بدنهٔ swap",
+      "instruction": "خط‌ها را بچین تا تابع مقدارها را جابه‌جا کند.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "    *b = tmp;"
+        },
+        {
+          "id": "L3",
+          "text": "    int tmp = *a;"
+        },
+        {
+          "id": "L1",
+          "text": "void swap(int *a, int *b)"
+        },
+        {
+          "id": "L6",
+          "text": "}"
+        },
+        {
+          "id": "L4",
+          "text": "    *a = *b;"
+        },
+        {
+          "id": "L2",
+          "text": "{"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "مقدار a اول در tmp نجات داده می‌شود؛ بعد a مقدار b را می‌گیرد و b مقدار tmp را.",
+      "hint": "بدون tmp یکی از مقدارها گم می‌شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-swap-by-pointer",
+        "w04-c-stack-frame"
+      ],
+      "source_ref": "src-notes-4#swapping",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch09-count-chars",
+      "type": "parsons",
+      "concept_tag": "خواندن فایل (fgetc)",
+      "title": "شمردن کاراکترهای فایل",
+      "instruction": "خط‌ها را بچین تا تعداد کاراکترهای فایل چاپ شود. (فایل را کد آزمون از قبل می‌سازد.)",
+      "scrambled_lines": [
+        {
+          "id": "L12",
+          "text": "printf(\"%i\\n\", count);"
+        },
+        {
+          "id": "L6",
+          "text": "int count = 0;"
+        },
+        {
+          "id": "L1",
+          "text": "FILE *f = fopen(\"abc.txt\", \"r\");"
+        },
+        {
+          "id": "L9",
+          "text": "    count++;"
+        },
+        {
+          "id": "L3",
+          "text": "{"
+        },
+        {
+          "id": "L11",
+          "text": "fclose(f);"
+        },
+        {
+          "id": "L7",
+          "text": "while (fgetc(f) != EOF)"
+        },
+        {
+          "id": "L2",
+          "text": "if (f == NULL)"
+        },
+        {
+          "id": "L10",
+          "text": "}"
+        },
+        {
+          "id": "L4",
+          "text": "    return 1;"
+        },
+        {
+          "id": "L8",
+          "text": "{"
+        },
+        {
+          "id": "L5",
+          "text": "}"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "L10",
+        "L11",
+        "L12"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "باز کن، NULL را بررسی کن، تا EOF بخوان، ببند و چاپ کن.",
+      "hint": "fgetc در انتهای فایل EOF برمی‌گرداند.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-fgetc-eof",
+        "w04-c-file-pointer"
+      ],
+      "source_ref": "src-short-file-pointers",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch10-malloc-array",
+      "type": "parsons",
+      "concept_tag": "تخصیص حافظه (malloc)",
+      "title": "سه int روی heap",
+      "instruction": "خط‌ها را بچین تا HI! چاپ شود و حافظه پس داده شود.",
+      "scrambled_lines": [
+        {
+          "id": "L10",
+          "text": "free(x);"
+        },
+        {
+          "id": "L1",
+          "text": "int *x = malloc(3 * sizeof(int));"
+        },
+        {
+          "id": "L6",
+          "text": "x[0] = 72;"
+        },
+        {
+          "id": "L3",
+          "text": "{"
+        },
+        {
+          "id": "L9",
+          "text": "printf(\"%c%c%c\\n\", x[0], x[1], x[2]);"
+        },
+        {
+          "id": "L2",
+          "text": "if (x == NULL)"
+        },
+        {
+          "id": "L8",
+          "text": "x[2] = 33;"
+        },
+        {
+          "id": "L4",
+          "text": "    return 1;"
+        },
+        {
+          "id": "L7",
+          "text": "x[1] = 73;"
+        },
+        {
+          "id": "L5",
+          "text": "}"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "L10"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "همان الگوی درست memory.c: سه خانه، اندیس 0 تا 2، و free در پایان.",
+      "hint": "x[3] وجود ندارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-malloc",
+        "w04-c-sizeof",
+        "w04-c-free"
+      ],
+      "source_ref": "src-notes-4#valgrind",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch11-scanf-int",
+      "type": "parsons",
+      "concept_tag": "ورودی با scanf",
+      "title": "خواندن یک عدد",
+      "instruction": "خط‌ها را بچین تا عدد ورودی چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "printf(\"%i\\n\", x);"
+        },
+        {
+          "id": "L3",
+          "text": "scanf(\"%i\", &x);"
+        },
+        {
+          "id": "L1",
+          "text": "int x;"
+        },
+        {
+          "id": "L2",
+          "text": "printf(\"x: \");"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "اول متغیر، بعد اعلان، بعد scanf با نشانی x، بعد چاپ.",
+      "hint": "scanf نشانی x را می‌خواهد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-scanf"
+      ],
+      "source_ref": "src-notes-4#scanf",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch12-off-by-one-heap",
+      "type": "spot_bug",
+      "concept_tag": "سرریز بافر (buffer overflow)",
+      "title": "یک خانه بیشتر از سهم",
+      "instruction": "این برنامه بیرون از حافظهٔ گرفته‌شده می‌نویسد. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "int *x = malloc(3 * sizeof(int));"
+        },
+        {
+          "index": 1,
+          "text": "if (x == NULL)"
+        },
+        {
+          "index": 2,
+          "text": "{"
+        },
+        {
+          "index": 3,
+          "text": "    return 1;"
+        },
+        {
+          "index": 4,
+          "text": "}"
+        },
+        {
+          "index": 5,
+          "text": "for (int i = 0; i <= 3; i++)"
+        },
+        {
+          "index": 6,
+          "text": "{"
+        },
+        {
+          "index": 7,
+          "text": "    x[i] = i;"
+        },
+        {
+          "index": 8,
+          "text": "}"
+        },
+        {
+          "index": 9,
+          "text": "printf(\"%i\\n\", x[0] + x[1] + x[2]);"
+        },
+        {
+          "index": 10,
+          "text": "free(x);"
+        }
+      ],
+      "bug_line_index": 5,
+      "fix": {
+        "action": "replace_line",
+        "text": "for (int i = 0; i < 3; i++)"
+      },
+      "explanation": "سه خانه یعنی اندیس 0 تا 2؛ `<=` در x[3] می‌نویسد، همان خطای Invalid write که Valgrind در memory.c نشان داد.",
+      "hint": "آخرین اندیس معتبر برای سه خانه چیست؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-buffer-overflow-write",
+        "w04-c-valgrind"
+      ],
+      "source_ref": "src-notes-4#valgrind",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch13-assign-not-copy",
+      "type": "spot_bug",
+      "concept_tag": "کپی اشاره‌گر (pointer copy)",
+      "title": "انتساب به‌جای کپی",
+      "instruction": "این برنامه قرار بود فقط t را بزرگ کند، ولی s هم عوض می‌شود و free دو بار صدا زده می‌شود. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "char *s = malloc(3);"
+        },
+        {
+          "index": 1,
+          "text": "char *t = malloc(3);"
+        },
+        {
+          "index": 2,
+          "text": "if (s == NULL || t == NULL)"
+        },
+        {
+          "index": 3,
+          "text": "{"
+        },
+        {
+          "index": 4,
+          "text": "    free(s);"
+        },
+        {
+          "index": 5,
+          "text": "    free(t);"
+        },
+        {
+          "index": 6,
+          "text": "    return 1;"
+        },
+        {
+          "index": 7,
+          "text": "}"
+        },
+        {
+          "index": 8,
+          "text": "strcpy(s, \"hi\");"
+        },
+        {
+          "index": 9,
+          "text": "t = s;"
+        },
+        {
+          "index": 10,
+          "text": "t[0] = toupper(t[0]);"
+        },
+        {
+          "index": 11,
+          "text": "printf(\"%s %s\\n\", s, t);"
+        },
+        {
+          "index": 12,
+          "text": "free(s);"
+        },
+        {
+          "index": 13,
+          "text": "free(t);"
+        }
+      ],
+      "bug_line_index": 9,
+      "fix": {
+        "action": "replace_line",
+        "text": "strcpy(t, s);"
+      },
+      "explanation": "`t = s` فقط نشانی را کپی می‌کند: بلوک دوم malloc گم می‌شود (نشت)، s هم بزرگ می‌شود و یک بلوک دو بار free می‌شود. باید کاراکترها را با strcpy کپی کرد.",
+      "hint": "= روی اشاره‌گرها چه چیزی را کپی می‌کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-pointer-copy",
+        "w04-c-strcpy",
+        "w04-c-memory-leak"
+      ],
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch14-null-deref",
+      "type": "spot_bug",
+      "concept_tag": "اشاره‌گر NULL",
+      "title": "نوشتن در NULL",
+      "instruction": "این برنامه segmentation fault می‌دهد. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "int n = 50;"
+        },
+        {
+          "index": 1,
+          "text": "int *p = NULL;"
+        },
+        {
+          "index": 2,
+          "text": "*p = 13;"
+        },
+        {
+          "index": 3,
+          "text": "printf(\"%i\\n\", n);"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "int *p = &n;"
+      },
+      "explanation": "p به هیچ جا اشاره نمی‌کند؛ dereference کردن NULL برنامه را متوقف می‌کند. p باید نشانی n را داشته باشد.",
+      "hint": "p باید به کدام متغیر اشاره کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-null-pointer",
+        "w04-c-dereference"
+      ],
+      "source_ref": "src-short-pointers",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch15-compare-pointers",
+      "type": "spot_bug",
+      "concept_tag": "مقایسهٔ رشته (strcmp)",
+      "title": "مقایسهٔ نشانی‌ها",
+      "instruction": "دو رشته محتوای یکسان دارند ولی برنامه Different چاپ می‌کند. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "char *s = malloc(4);"
+        },
+        {
+          "index": 1,
+          "text": "char *t = malloc(4);"
+        },
+        {
+          "index": 2,
+          "text": "if (s == NULL || t == NULL)"
+        },
+        {
+          "index": 3,
+          "text": "{"
+        },
+        {
+          "index": 4,
+          "text": "    free(s);"
+        },
+        {
+          "index": 5,
+          "text": "    free(t);"
+        },
+        {
+          "index": 6,
+          "text": "    return 1;"
+        },
+        {
+          "index": 7,
+          "text": "}"
+        },
+        {
+          "index": 8,
+          "text": "strcpy(s, \"cat\");"
+        },
+        {
+          "index": 9,
+          "text": "strcpy(t, \"cat\");"
+        },
+        {
+          "index": 10,
+          "text": "if (s == t)"
+        },
+        {
+          "index": 11,
+          "text": "{"
+        },
+        {
+          "index": 12,
+          "text": "    printf(\"Same\\n\");"
+        },
+        {
+          "index": 13,
+          "text": "}"
+        },
+        {
+          "index": 14,
+          "text": "else"
+        },
+        {
+          "index": 15,
+          "text": "{"
+        },
+        {
+          "index": 16,
+          "text": "    printf(\"Different\\n\");"
+        },
+        {
+          "index": 17,
+          "text": "}"
+        },
+        {
+          "index": 18,
+          "text": "free(s);"
+        },
+        {
+          "index": 19,
+          "text": "free(t);"
+        }
+      ],
+      "bug_line_index": 10,
+      "fix": {
+        "action": "replace_line",
+        "text": "if (strcmp(s, t) == 0)"
+      },
+      "explanation": "`s == t` دو نشانی را مقایسه می‌کند و دو بلوک malloc همیشه نشانی‌های متفاوت دارند. برای محتوا strcmp لازم است.",
+      "hint": "این دو اشاره‌گر به یک جا اشاره می‌کنند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-compare-addresses",
+        "w04-c-strcmp-content"
+      ],
+      "source_ref": "src-notes-4#string-comparison",
+      "lang": "c"
+    },
+    {
+      "id": "w04-ch16-swap-lost-value",
+      "type": "spot_bug",
+      "concept_tag": "جابه‌جایی با اشاره‌گر (swap)",
+      "title": "مقدار گم‌شده",
+      "instruction": "این swap هر دو را 2 می‌کند. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "void swap(int *a, int *b)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    int tmp = *b;"
+        },
+        {
+          "index": 3,
+          "text": "    *a = *b;"
+        },
+        {
+          "index": 4,
+          "text": "    *b = tmp;"
+        },
+        {
+          "index": 5,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "    int tmp = *a;"
+      },
+      "explanation": "tmp باید مقدار قدیم a را نجات دهد، چون خط بعد a را بازنویسی می‌کند. اگر tmp مقدار b را بگیرد، مقدار a برای همیشه گم می‌شود.",
+      "hint": "کدام مقدار در خط بعد از بین می‌رود؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w04-c-swap-by-pointer"
+      ],
+      "source_ref": "src-notes-4#swapping",
+      "lang": "c"
+    }
+  ]
+}

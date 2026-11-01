@@ -1,0 +1,912 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 6,
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities",
+    "src-notes-1",
+    "src-pset-1-mario-less",
+    "src-pset-1-mario-more",
+    "src-pset-1-cash",
+    "src-pset-1-credit"
+  ],
+  "shared_sources_from_week_2": [
+    "src-check50-docs",
+    "src-pset-2-readability",
+    "src-notes-2"
+  ],
+  "shared_sources_from_week_4": [
+    "src-notes-4"
+  ],
+  "shared_sources_from_week_5": [
+    "src-notes-5",
+    "src-pset-5-speller"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-6",
+      "url": "https://cs50.harvard.edu/x/weeks/6/",
+      "title": "Week 6 Python (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:01+03:30",
+      "verified_at": "2026-10-29T04:03:21+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "b23d1891f3c61211c1891f0aab476d67eefb6500fc0e51b9765f755cbc5f5db7"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/6/",
+      "anchors": [
+        "week-6-python"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/week.md",
+      "notes": "Topic line (Python: Functions, Arguments, Return Values; Variables; Boolean Expressions, Conditionals; Loops. Modules, Packages.) and media list; lists one short (Python). Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-notes-6",
+      "url": "https://cs50.harvard.edu/x/notes/6/",
+      "title": "Lecture 6 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "verified_at": "2026-10-29T04:03:02+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "07299c9d1c8bd72dbf83f89afef289df6444bbe9f973ae312e0f0504d701954c"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/6/",
+      "anchors": [
+        "abstraction",
+        "calculator",
+        "command-line-arguments",
+        "conditionals",
+        "csv-files",
+        "exceptions",
+        "exit-status",
+        "filter",
+        "functions",
+        "hello-python",
+        "lecture-6",
+        "libraries-modules-and-packages",
+        "lists",
+        "loops",
+        "mario",
+        "object-oriented-programming",
+        "positional-parameters-and-named-parameters",
+        "searching-and-dictionaries",
+        "speller",
+        "strings",
+        "summing-up",
+        "third-party-libraries",
+        "truncation-and-floating-point-imprecision",
+        "types",
+        "variables",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/lecture.md",
+      "notes": "All 25 sections read in full; Python and C code blocks copied verbatim into examples6.py. Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-transcript-6",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/lang/en/lecture6.txt",
+      "title": "Lecture 6 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "verified_at": "2026-10-29T04:00:00+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/transcripts/lecture-en.txt",
+      "notes": "Spoken text with transcription errors. Cited only for content absent from the notes and labelled «از سخنرانی»."
+    },
+    {
+      "id": "src-srt-6",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/lang/en/lecture6.srt",
+      "title": "Lecture 6 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-29T04:00:00+03:30",
+      "verified_at": "2026-10-29T04:00:00+03:30",
+      "local_copy": "_tools/refetch/week6/srt/lecture6.srt",
+      "notes": "Used only to derive chapter start times (chapter titles: inference; timestamps real). No time offset (first cue 00:00:43)."
+    },
+    {
+      "id": "src-video-6",
+      "url": "https://video.cs50.io/Rl0ludWTLxs",
+      "title": "Lecture 6 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "notes": "Also https://youtu.be/Rl0ludWTLxs ; Portuguese and Spanish versions are listed on the week page."
+    },
+    {
+      "id": "src-audio-6",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/lecture6.mp3",
+      "title": "Lecture 6 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30"
+    },
+    {
+      "id": "src-slides-6-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/lecture6.pdf",
+      "title": "Lecture 6 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-6-google",
+      "url": "https://docs.google.com/presentation/d/1dawZYqjfCOZ3byPyqbQ6lUFiw80g2YUJhvT7x9JyKIU/edit?usp=sharing",
+      "title": "Lecture 6 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30"
+    },
+    {
+      "id": "src-src6-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/src6.zip",
+      "title": "Lecture 6 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/source-code/",
+      "notes": "Code in the notes was used (verbatim); the zip itself is linked, not repackaged. Two different programs in the notes link to the same agree2.py (d103)."
+    },
+    {
+      "id": "src-src6-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/src6/",
+      "title": "Lecture 6 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30"
+    },
+    {
+      "id": "src-src6-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/6/src6.pdf",
+      "title": "Lecture 6 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30"
+    },
+    {
+      "id": "src-section-6",
+      "url": "https://cs50.harvard.edu/x/sections/6/",
+      "title": "Section 6",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:35+03:30",
+      "verified_at": "2026-10-29T04:03:19+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "273a1c415d2fb7b5f3c903e918df357415dc1c3998bd1ac6803310bc4d5cdb05"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/6/",
+      "anchors": [
+        "week-6-python"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/sections.md"
+    },
+    {
+      "id": "src-section-6-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/6/lang/en/section6.txt",
+      "title": "Section 6 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "verified_at": "2026-10-29T04:00:00+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary; chapter times from section6.srt."
+    },
+    {
+      "id": "src-section-6-video",
+      "url": "https://video.cs50.io/SHbahshnkAs",
+      "title": "Section 6 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "notes": "Also https://youtu.be/SHbahshnkAs ; audio https://cdn.cs50.net/2025/fall/sections/6/section6.mp3"
+    },
+    {
+      "id": "src-section-6-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/6/section6.pdf",
+      "title": "Section 6 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30"
+    },
+    {
+      "id": "src-section-6-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/6/src6.zip",
+      "title": "Section 6 source code (str_prediction.py, playlist.py, 2018_top100.csv)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/section-code/files/",
+      "notes": "str_prediction.py reproduced verbatim (string-indexing warm-up, unrelated to any pset); playlist.py link-only because its csv.DictReader loop with a numeric filter mirrors the DNA reading step (D47). Index https://cdn.cs50.net/2025/fall/sections/6/src6/"
+    },
+    {
+      "id": "src-pset-6",
+      "url": "https://cs50.harvard.edu/x/psets/6/",
+      "title": "Problem Set 6",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:36+03:30",
+      "verified_at": "2026-10-29T04:03:09+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "7f9c06fa83b2fce0cda5793c9fc255953095b317f31ba37bfcfb699dfe9e8964"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/",
+      "anchors": [
+        "problem-set-6",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help",
+        "academic-honesty"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/README.md"
+    },
+    {
+      "id": "src-pset-6-hello",
+      "url": "https://cs50.harvard.edu/x/psets/6/hello/",
+      "title": "Hello, Again",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:35+03:30",
+      "verified_at": "2026-10-29T04:03:14+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "d37e1ef65ebec7f328381e07e4dc0f17b87c15379b8e464515e7a43f56498452"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/hello/",
+      "anchors": [
+        "hello-again",
+        "problem-to-solve",
+        "demo",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/hello.md"
+    },
+    {
+      "id": "src-pset-6-mario-less",
+      "url": "https://cs50.harvard.edu/x/psets/6/mario/less/",
+      "title": "Mario (less comfortable)",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:36+03:30",
+      "verified_at": "2026-10-29T04:03:15+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "eac6bbc09b3de5cacf2e5b0b45e9b2df1135351d7eb90da8b8c367f5a48330f6"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/mario/less/",
+      "anchors": [
+        "mario",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/mario-less.md"
+    },
+    {
+      "id": "src-pset-6-mario-more",
+      "url": "https://cs50.harvard.edu/x/psets/6/mario/more/",
+      "title": "Mario (more comfortable)",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:37+03:30",
+      "verified_at": "2026-10-29T04:03:16+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "76a0f6d6127538c4028aa09abe7b86e2c64f3c4fa6626db334970a09bc074a1c"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/mario/more/",
+      "anchors": [
+        "mario",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/mario-more.md"
+    },
+    {
+      "id": "src-pset-6-cash",
+      "url": "https://cs50.harvard.edu/x/psets/6/cash/",
+      "title": "Cash",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:38+03:30",
+      "verified_at": "2026-10-29T04:03:10+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f549e1f6516bb0254776d841200ed6d1514cbb46e313e06052c1098c7e3058f0"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/cash/",
+      "anchors": [
+        "cash",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/cash.md"
+    },
+    {
+      "id": "src-pset-6-credit",
+      "url": "https://cs50.harvard.edu/x/psets/6/credit/",
+      "title": "Credit",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:39+03:30",
+      "verified_at": "2026-10-29T04:03:12+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "39fd82d23c9590f294d673e55b8054eb2c5bd02da015d74d02cfd8342b685548"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/credit/",
+      "anchors": [
+        "credit",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "hints",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/credit.md"
+    },
+    {
+      "id": "src-pset-6-readability",
+      "url": "https://cs50.harvard.edu/x/psets/6/readability/",
+      "title": "Readability",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:40+03:30",
+      "verified_at": "2026-10-29T04:03:18+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "c66705e6abbc3d9031ca00d81540617204dce49dc204849b0627cbce2412dc8e"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/readability/",
+      "anchors": [
+        "readability",
+        "problem-to-solve",
+        "demo",
+        "specification",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/readability.md"
+    },
+    {
+      "id": "src-pset-6-dna",
+      "url": "https://cs50.harvard.edu/x/psets/6/dna/",
+      "title": "DNA",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:41+03:30",
+      "verified_at": "2026-10-29T04:03:13+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "5eaad6d9681eee2cc9f17591d799445893721bd312394bb89946a3acff454767"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/6/dna/",
+      "anchors": [
+        "dna",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "background",
+        "specification",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/dna.md"
+    },
+    {
+      "id": "src-practice-bank",
+      "url": "https://cs50.harvard.edu/x/practice/bank/",
+      "title": "Home Federal Savings Bank",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:03+03:30",
+      "verified_at": "2026-10-29T04:03:04+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "c88d038f649e9f35f112e3f26d49c9c1b6ecea380fbb379522a303ee80bc5477"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/bank/",
+      "anchors": [
+        "home-federal-savings-bank",
+        "demo",
+        "before-you-begin",
+        "how-to-test",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/practice/bank.md"
+    },
+    {
+      "id": "src-practice-figlet",
+      "url": "https://cs50.harvard.edu/x/practice/figlet/",
+      "title": "Frank, Ian and Glen’s Letters",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:04+03:30",
+      "verified_at": "2026-10-29T04:03:05+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "1f683742e80b88e7f9cde902652f3562c9550a74c6d5d48d497617b2f3f43158"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/figlet/",
+      "anchors": [
+        "frank-ian-and-glens-letters",
+        "demo",
+        "before-you-begin",
+        "how-to-test",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/practice/figlet.md"
+    },
+    {
+      "id": "src-practice-jar",
+      "url": "https://cs50.harvard.edu/x/practice/jar/",
+      "title": "Cookie Jar",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:05+03:30",
+      "verified_at": "2026-10-29T04:03:06+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "8a650b6c7f0eb6cb38427448d611920c7359a24d638ab7b76c55269e876e2b8b"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/jar/",
+      "anchors": [
+        "cookie-jar",
+        "demo",
+        "before-you-begin",
+        "how-to-test",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/practice/jar.md"
+    },
+    {
+      "id": "src-practice-seven-day-average",
+      "url": "https://cs50.harvard.edu/x/practice/seven-day-average/",
+      "title": "Seven Day Averages",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:06+03:30",
+      "verified_at": "2026-10-29T04:03:07+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f0485029374ab53adb70591c1907f257eb048874cb8666f3e72de29dddbd444f"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/seven-day-average/",
+      "anchors": [
+        "seven-day-averages",
+        "learning-goals",
+        "background",
+        "getting-started",
+        "implementation-details",
+        "calculate",
+        "comparative_averages",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/practice/seven-day-average.md"
+    },
+    {
+      "id": "src-practice-taqueria",
+      "url": "https://cs50.harvard.edu/x/practice/taqueria/",
+      "title": "Felipe’s Taqueria",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:07+03:30",
+      "verified_at": "2026-10-29T04:03:08+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "809eef8181b0f8820649cd640b02d3108a60e2e8c0d4a0e66f0992a4523d40ce"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/taqueria/",
+      "anchors": [
+        "felipes-taqueria",
+        "demo",
+        "before-you-begin",
+        "how-to-test",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/practice/taqueria.md"
+    },
+    {
+      "id": "src-short-python",
+      "url": "https://cs50.harvard.edu/x/shorts/python/",
+      "title": "Short: Python (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:03+03:30",
+      "verified_at": "2026-10-29T04:03:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "c127a19e26af9bf3a4e6bb8b8a4c8526355f5d55ed4d08a8003ba9a194809ea7"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/shorts/python.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/python/lang/en/python.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/python/lang/en/python.srt. Video https://youtu.be/mgBpcQRDtl0. Slides https://cdn.cs50.net/2017/fall/shorts/python/python.pdf (link only). Recorded 2017: describes Python 3 but some remarks predate later CS50 tooling (d108)."
+    },
+    {
+      "id": "src-python-docs",
+      "url": "https://docs.python.org/3/",
+      "title": "Python 3 documentation (linked from the notes and pset pages)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "notes": "Linked by src-notes-6 (functions, print, string methods, lists, dict, sys) and the pset/practice pages (csv, re, random, exceptions). Only cited for facts the official pages point to."
+    },
+    {
+      "id": "src-dna-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/6/dna.zip",
+      "title": "DNA distribution code (dna.py with longest_match, databases/, sequences/)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-06-python/psets/dna-distribution/",
+      "notes": "Not reproduced: dna.py contains the staff longest_match helper and TODO structure of the pset (hard rule: no longest_match usage or STR matching code). Linked only."
+    },
+    {
+      "id": "src-time-cs50-deadline-6",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 6 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:34+03:30"
+    },
+    {
+      "id": "src-python-box-6",
+      "url": "urn:cs50x-anzali:box:python3",
+      "title": "Python 3.13 and gcc 14.2 on the CS50x Anzali build box (run evidence in validation/compile-checks.week-06.json and validation/question-qa-week06.md)",
+      "source_type": "tool",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T05:00:00+03:30",
+      "notes": "Box-only verification; learners run python in cs50.dev. Outputs of authored snippets do not depend on the minor Python 3 version."
+    },
+    {
+      "id": "src-anzali-authored-6",
+      "url": "urn:cs50x-anzali:authored:week-06",
+      "title": "Material authored by CS50x Anzali for Week 6 (examples marked تألیفی, exercises, challenges, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T05:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-6",
+      "url": "urn:cs50x-anzali:inference:week-06",
+      "title": "Editorial inferences for Week 6 (chapter boundaries from official .srt cue times; concept graph; topic order; corrections of imprecise wording such as sum being a function, labelled استنتاجی)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-29T05:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d99",
+      "topic": "Speller dictionary.py: rstrip in prose, splitlines in code",
+      "a": {
+        "source": "src-notes-6#speller",
+        "value": "'For each line in that file, we add that line to words. Using rstrip, the trailing new line is removed'"
+      },
+      "b": {
+        "source": "src-notes-6#speller",
+        "value": "load() calls words.update(file.read().splitlines()); no loop and no rstrip"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The prose describes an earlier version. splitlines() already drops the newline characters; the Persian note describes the code as shown."
+    },
+    {
+      "id": "d100",
+      "topic": "edges.py header comment",
+      "a": {
+        "source": "src-notes-6#filter",
+        "value": "edges.py begins with the comment '# Blurs an image'"
+      },
+      "b": {
+        "source": "src-notes-6#filter",
+        "value": "The same program uses ImageFilter.FIND_EDGES ('# Find edges')"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Copy-paste comment in the official file; code kept verbatim, the Persian note names the program by what it does."
+    },
+    {
+      "id": "d101",
+      "topic": "integer2.py 'repeatedly tries'",
+      "a": {
+        "source": "src-notes-6#exceptions",
+        "value": "'the above code repeatedly tries to get the correct type of data, providing additional prompts when needed'"
+      },
+      "b": {
+        "source": "src-python-box-6",
+        "value": "integer2.py has no loop: one prompt, then 'Integer.' or 'Not integer.' (run on the box with input cat)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note states the actual behaviour (one attempt); a loop would need while True around the try."
+    },
+    {
+      "id": "d102",
+      "topic": "'built-in sum method'",
+      "a": {
+        "source": "src-notes-6#lists",
+        "value": "'you can use the built-in sum method to calculate the average'"
+      },
+      "b": {
+        "source": "src-python-docs",
+        "value": "sum is a built-in function (sum(scores)), not a list method; scores.sum() raises AttributeError"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note calls sum and len built-in functions and append a method; quiz w06-q item on this distinction (D49)."
+    },
+    {
+      "id": "d103",
+      "topic": "Two different programs linked as agree2.py",
+      "a": {
+        "source": "src-notes-6#conditionals",
+        "value": "The get_string + 'or' version is linked as src6/1/agree2.py"
+      },
+      "b": {
+        "source": "src-notes-6#object-oriented-programming",
+        "value": "The input().lower() + list version is also linked as src6/1/agree2.py; the zip's agree2.py is the lower() version"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Both code blocks kept verbatim with their own sections; link text notes the zip file holds the lower() version."
+    },
+    {
+      "id": "d104",
+      "topic": "integer1.py vs integer2.py output text",
+      "a": {
+        "source": "src-notes-6#exceptions",
+        "value": "integer1.py prints 'Integer' (no period)"
+      },
+      "b": {
+        "source": "src-notes-6#exceptions",
+        "value": "integer2.py prints 'Integer.' (period)"
+      },
+      "status": "consistent",
+      "note": "Different teaching versions; quizzes that predict output use the exact string of the version shown."
+    },
+    {
+      "id": "d105",
+      "topic": "'constant time using their built-in searches'",
+      "a": {
+        "source": "src-notes-6#searching-and-dictionaries",
+        "value": "'Python has done their best to get to constant time using their built-in searches.'"
+      },
+      "b": {
+        "source": "src-transcript-6",
+        "value": "David relates dict to the hash table of Problem Set 5; 'in' on a list is the linear-search example earlier in the same section"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note: membership in a dict or set is close to constant time on average (hash table); 'in' on a list is still linear search (inference, labelled)."
+    },
+    {
+      "id": "d106",
+      "topic": "Credit page typos",
+      "a": {
+        "source": "src-pset-6-credit#problem-to-solve",
+        "value": "'In a filed called credit.py'"
+      },
+      "b": {
+        "source": "src-pset-6-credit#specification",
+        "value": "'depending on how you to decide to implement this one'"
+      },
+      "status": "consistent",
+      "note": "Typos in the official page; requirement text quoted verbatim, Persian rewrite reads correctly."
+    },
+    {
+      "id": "d107",
+      "topic": "Practice pages use 2022 distribution and check50 slugs",
+      "a": {
+        "source": "src-practice-bank",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/6/bank.zip and check50 cs50/problems/2022/python/bank"
+      },
+      "b": {
+        "source": "src-pset-6",
+        "value": "Problem Set 6 uses 2026 slugs (cs50/problems/2026/x/...)"
+      },
+      "status": "consistent",
+      "note": "Practice problems come from CS50P 2022; commands copied verbatim, flagged in each practice guide."
+    },
+    {
+      "id": "d108",
+      "topic": "Python short recorded in 2017",
+      "a": {
+        "source": "src-short-python",
+        "value": "Short recorded 2017 (CS50 IDE era)"
+      },
+      "b": {
+        "source": "src-notes-6",
+        "value": "2025 notes use cs50.dev and python hello.py"
+      },
+      "status": "consistent",
+      "note": "Concepts unchanged; environment references in the short are dated. Persian short page says so."
+    },
+    {
+      "id": "d109",
+      "topic": "Cookie Jar emoji in the spec",
+      "a": {
+        "source": "src-practice-jar",
+        "value": "__str__ should return n cookie emoji characters (U+1F36A)"
+      },
+      "b": {
+        "source": "src-anzali-authored-6",
+        "value": "Package rule: no emoji in authored Persian text"
+      },
+      "status": "consistent",
+      "note": "The Persian guide names the character by its Unicode code point (U+1F36A) instead of printing it (D50)."
+    },
+    {
+      "id": "d110",
+      "topic": "Mario Specification says 'positive integer between 1 and 8' and tests 0, foo, empty",
+      "a": {
+        "source": "src-pset-6-mario-less#specification",
+        "value": "re-prompt if not a positive integer no greater than 8"
+      },
+      "b": {
+        "source": "src-pset-6-mario-less#how-to-test",
+        "value": "'foo' and empty input must also be rejected"
+      },
+      "status": "consistent",
+      "note": "get_int from the CS50 library already re-prompts for non-integers; the range check is the student's job. Guide states both."
+    },
+    {
+      "id": "d111",
+      "topic": "Seven Day Averages slicing hint wording",
+      "a": {
+        "source": "src-practice-seven-day-average#comparative_averages",
+        "value": "'values[3:5] will return the 3rd through 4th indexed elements'"
+      },
+      "b": {
+        "source": "src-python-docs",
+        "value": "values[3:5] returns the elements at indices 3 and 4 (the 4th and 5th elements when counting from 1)"
+      },
+      "status": "consistent",
+      "note": "'indexed' means index numbers; Persian guide spells out indices 3 and 4 to avoid off-by-one confusion."
+    },
+    {
+      "id": "d112",
+      "topic": "Lecture shows calculator with get_int but notes say 'remove the training wheels'",
+      "a": {
+        "source": "src-notes-6#calculator",
+        "value": "calculator0.py uses get_int"
+      },
+      "b": {
+        "source": "src-notes-6#calculator",
+        "value": "calculator1.py uses int(input(...)), which raises ValueError on non-numeric input instead of re-prompting"
+      },
+      "status": "consistent",
+      "note": "Persian note explains the behaviour difference and links to the Exceptions section."
+    },
+    {
+      "id": "d113",
+      "topic": "Python short: dictionary iteration order 'not guaranteed'",
+      "a": {
+        "source": "src-short-python",
+        "value": "2017 short: iterating pizzas.items() is 'not guaranteed' to keep the order the pairs were added"
+      },
+      "b": {
+        "source": "src-python-docs",
+        "value": "Since Python 3.7 dictionaries preserve insertion order (language guarantee)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page reports what the 2017 video says and adds a labelled inference note that current Python 3 keeps insertion order."
+    },
+    {
+      "id": "d114",
+      "topic": "Python short: %-formatting called 'deprecated in Python 3'",
+      "a": {
+        "source": "src-short-python",
+        "value": "printf-style '%' string formatting is described as deprecated in Python 3"
+      },
+      "b": {
+        "source": "src-python-docs",
+        "value": "printf-style formatting is still supported; the docs recommend f-strings or str.format() for new code but do not deprecate %"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page says to prefer f-strings (as the lecture does) without claiming % was removed."
+    }
+  ]
+}

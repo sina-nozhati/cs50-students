@@ -1,0 +1,379 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w99-l02",
+  "type": "lesson",
+  "week": 99,
+  "week_slug": "final-project",
+  "order": 2,
+  "stage_id": "w99-s2",
+  "title_fa": "دامنه، نقطه‌های عطف و صداقت تحصیلی",
+  "title_en": "Scope, milestones and honesty",
+  "note_ids": [
+    "w99-n03",
+    "w99-n04"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w99-l01"
+  ],
+  "concept_ids": [
+    "w99-c-fp-questions",
+    "w99-c-fp-outcomes",
+    "w99-c-fp-milestones",
+    "w99-c-fp-project-dir",
+    "w99-c-fp-version-control",
+    "w99-c-fp-ai-allowed",
+    "w99-c-fp-ai-cite",
+    "w99-c-fp-honesty-cite"
+  ],
+  "objective_ids": [
+    "w99-o02",
+    "w99-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the official Final Project specification (and, where cited, the academic honesty page); examples are the two official blocks or verbatim English quotations checked against the live page. Guidance only: no project code, no prescribed idea (D88).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w99-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "units": [
+    {
+      "id": "w99-l02-u01",
+      "order": 1,
+      "title_fa": "خوب، بهتر، بهترین و نقطه‌های عطف",
+      "concept_ids": [
+        "w99-c-fp-questions",
+        "w99-c-fp-outcomes",
+        "w99-c-fp-milestones"
+      ],
+      "objective_ids": [
+        "w99-o02"
+      ],
+      "note_id": "w99-n03",
+      "source_refs": [
+        "src-project-99#getting-started",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "صفحهٔ رسمی پیشنهاد می‌کند در شروع بپرسی نرم‌افزارت چه می‌کند، چه مهارت تازه‌ای لازم داری و در گروه چه کسی چه می‌کند. چون در نرم‌افزار تقریباً همه‌چیز بیش از انتظار طول می‌کشد، برای پروژه نتیجهٔ **خوب**، **بهتر** و **بهترین** تعریف کن و **نقطه‌های عطف** هدف بگذار.",
+        "note_id": "w99-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "milestones",
+        "lang": "text",
+        "content": "Consider making goal milestones to keep you on track.",
+        "source_ref": "src-project-99#getting-started",
+        "explain_fa": "توصیهٔ رسمی دربارهٔ نقطه‌های عطف."
+      },
+      "check": {
+        "id": "w99-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا صفحهٔ رسمی پیشنهاد می‌کند نتیجهٔ خوب، بهتر و بهترین را از پیش تعریف کنی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون در نرم‌افزار تقریباً همه‌چیز بیش از انتظار طول می‌کشد و ممکن است کمتر از امیدت انجام شود.",
+            "correct": true,
+            "feedback_fa": "درست؛ همین دلیل در صفحهٔ رسمی آمده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون نمرهٔ پروژه بر اساس این سه سطح داده می‌شود.",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی چنین معیار نمره‌دهی‌ای نمی‌گوید."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون باید این سطح‌ها را در README.md بنویسی.",
+            "correct": false,
+            "feedback_fa": "این الزام README.md نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l02-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "**تألیفی:** کدام یک نقطهٔ عطف «قابل‌آزمون» است؟ (۱) «کاربر می‌تواند یک مورد تازه اضافه کند و آن را در فهرست ببیند»؛ (۲) «بخش اصلی تقریباً تمام شد».",
+        "expected": {
+          "answers": {
+            "1": "قابل‌آزمون",
+            "2": "مبهم"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. اولی را می‌شود امتحان کرد؛ دومی فقط یک حس است.",
+          "incorrect_fa": "بپرس: آیا می‌توانم با یک بار اجرا بگویم انجام شده یا نه؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l02-u02",
+      "order": 2,
+      "title_fa": "پوشهٔ project و نسخه‌بندی",
+      "concept_ids": [
+        "w99-c-fp-project-dir",
+        "w99-c-fp-version-control"
+      ],
+      "objective_ids": [
+        "w99-o02"
+      ],
+      "note_id": "w99-n03",
+      "source_refs": [
+        "src-project-99#getting-started",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "اگر از CS50 Codespace استفاده می‌کنی، پوشه‌ای به نام `project` بساز و کد و فایل‌ها را در آن نگه دار. صفحهٔ پروژه نسخه‌بندی را آموزش نمی‌دهد؛ Git در هفتهٔ ۱۰ به‌عنوان ابزار نسخه‌بندی معرفی شد. **تألیفی:** نسخه‌بندی کمک می‌کند به نسخهٔ سالم قبلی برگردی و در گروه ببینی چه کسی چه چیزی را تغییر داده است.",
+        "note_id": "w99-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "project-dir",
+        "lang": "text",
+        "content": "If using the CS50 Codespace, create a directory called project to store your project source code and other files.",
+        "source_ref": "src-project-99#getting-started",
+        "explain_fa": "نام پوشه در Codespace."
+      },
+      "check": {
+        "id": "w99-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق صفحهٔ رسمی، در CS50 Codespace پوشهٔ پروژه چه نامی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`project`",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "`final`",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی نام `project` را می‌گوید."
+          },
+          {
+            "id": "c",
+            "text_fa": "`cs50x`",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی نام `project` را می‌گوید."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l02-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «صفحهٔ رسمی پروژهٔ نهایی استفاده از Git را الزامی می‌کند.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. صفحهٔ پروژه Git را الزامی نمی‌کند؛ نسخه‌بندی پیشنهاد است (d202).",
+          "incorrect_fa": "دنبال واژهٔ Git در صفحهٔ رسمی بگرد؛ فقط از GitHub برای ورود و بارگذاری نام برده شده است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l02-u03",
+      "order": 3,
+      "title_fa": "قاعدهٔ هوش مصنوعی در پروژهٔ نهایی",
+      "concept_ids": [
+        "w99-c-fp-ai-allowed",
+        "w99-c-fp-ai-cite"
+      ],
+      "objective_ids": [
+        "w99-o03"
+      ],
+      "note_id": "w99-n04",
+      "source_refs": [
+        "src-project-99#getting-started",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "**فقط** در پروژهٔ نهایی، استفاده از نرم‌افزار هوش مصنوعی غیر از ابزارهای خود CS50 (مثل ChatGPT، GitHub Copilot و Bing Chat) معقول است، اما جوهر کار باید مال خودت باشد. این ابزارها باید بهره‌وری‌ات را تقویت کنند، نه جای تو را بگیرند، و هر استفاده را باید در توضیحات کد ذکر کنی. در بقیهٔ درس، طبق سیاست صداقت تحصیلی، فقط ابزارهای هوش مصنوعی خود CS50 معقول‌اند.",
+        "note_id": "w99-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "ai",
+        "lang": "text",
+        "content": "For your final project (and your final project only!) it is reasonable to use AI-based software other than CS50’s own (e.g., ChatGPT, GitHub Copilot, Bing Chat, et al.), but the essence of the work must still be your own.",
+        "source_ref": "src-project-99#getting-started",
+        "explain_fa": "متن رسمی قاعده."
+      },
+      "check": {
+        "id": "w99-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "دانشجویی در پروژهٔ نهایی از GitHub Copilot کمک گرفته است. طبق صفحهٔ رسمی، چه باید بکند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "استفاده را در توضیحات کد ذکر کند و مطمئن باشد جوهر کار مال خودش است.",
+            "correct": true,
+            "feedback_fa": "درست؛ هر دو شرط در متن رسمی آمده‌اند."
+          },
+          {
+            "id": "b",
+            "text_fa": "هیچ کاری؛ در پروژهٔ نهایی هر استفاده‌ای آزاد است.",
+            "correct": false,
+            "feedback_fa": "متن رسمی ذکر استفاده در توضیحات کد را الزامی می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "آن بخش‌ها را حذف کند، چون هر ابزاری غیر از CS50 ممنوع است.",
+            "correct": false,
+            "feedback_fa": "این قاعدهٔ بقیهٔ درس است؛ در پروژهٔ نهایی استثنا وجود دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l02-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «چون ChatGPT در پروژهٔ نهایی مجاز است، در پرابلم‌ست ۹ هم با ذکر منبع مجاز است.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. استثنا «فقط برای پروژهٔ نهایی» است و ذکر منبع، استفادهٔ نامعقول را معقول نمی‌کند.",
+          "incorrect_fa": "عبارت «(and your final project only!)» را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w99-l02-u04",
+      "order": 4,
+      "title_fa": "ذکر منشأ کد و کار خودت",
+      "concept_ids": [
+        "w99-c-fp-honesty-cite"
+      ],
+      "objective_ids": [
+        "w99-o03"
+      ],
+      "note_id": "w99-n04",
+      "source_refs": [
+        "src-project-99#getting-started",
+        "src-honesty-99",
+        "src-anzali-authored-99"
+      ],
+      "reading": {
+        "text_fa": "سیاست صداقت تحصیلی آوردن **چند سطر** کد از وب را، به شرط آن‌که راه‌حل کار تعیین‌شده نباشد و منشأش را ذکر کنی، معقول می‌داند. ذکر نکردن منشأ کد یا تکنیک بیرونی، و ارسال کار کس دیگر بیش از آن چند سطر، نامعقول است. ارسال کار یکسان یا مشابه به این درس و درسی دیگر هم نامعقول است، مگر صریحاً مجاز باشد.",
+        "note_id": "w99-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w99-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "own",
+        "lang": "text",
+        "content": "For your final project (and your final project only!) it is reasonable to use AI-based software other than CS50’s own (e.g., ChatGPT, GitHub Copilot, Bing Chat, et al.), but the essence of the work must still be your own.",
+        "source_ref": "src-project-99#getting-started",
+        "explain_fa": "«the essence of the work must still be your own»."
+      },
+      "check": {
+        "id": "w99-l02-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام کار طبق سیاست صداقت تحصیلی **نامعقول** است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "ارسال پروژه‌ای که پیش‌تر برای درس دیگری ارسال کرده‌ای، بی‌آن‌که صریحاً مجاز باشد.",
+            "correct": true,
+            "feedback_fa": "درست؛ این در فهرست Not Reasonable آمده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "آوردن چند سطر کد از یک مرجع آنلاین با ذکر منشأ آن.",
+            "correct": false,
+            "feedback_fa": "این در فهرست Reasonable آمده است، به شرط آن‌که خود آن سطرها راه‌حل کار تعیین‌شده نباشند."
+          },
+          {
+            "id": "c",
+            "text_fa": "گفت‌وگو با اردک CS50 دربارهٔ یک باگ.",
+            "correct": false,
+            "feedback_fa": "استفاده از ابزارهای هوش مصنوعی خود CS50 معقول است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w99-l02-u04-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «اگر کدی را از وب برداشتی و کمی تغییرش دادی، دیگر لازم نیست منشأش را ذکر کنی.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. ذکر نکردن منشأ کد یا تکنیک بیرونی نامعقول است، حتی پس از تغییر.",
+          "incorrect_fa": "سطر «Failing to cite … the origins of code or techniques» را در صفحهٔ صداقت تحصیلی ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

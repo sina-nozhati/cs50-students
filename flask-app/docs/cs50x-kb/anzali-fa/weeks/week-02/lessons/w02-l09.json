@@ -1,0 +1,213 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l09",
+  "type": "lesson",
+  "week": 2,
+  "order": 9,
+  "stage_id": "w02-s4",
+  "title_fa": "رمزنگاری",
+  "title_en": "Cryptography",
+  "note_ids": [
+    "w02-n18"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w02-l07",
+    "w02-l08"
+  ],
+  "concept_ids": [
+    "w02-c-cryptography",
+    "w02-c-cipher-key",
+    "w02-c-rotation-cipher"
+  ],
+  "objective_ids": [
+    "w02-o12"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l07",
+      "w02-l08"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l09-u01",
+      "order": 1,
+      "title_fa": "متن ساده، رمز و کلید",
+      "concept_ids": [
+        "w02-c-cryptography",
+        "w02-c-cipher-key"
+      ],
+      "objective_ids": [
+        "w02-o12"
+      ],
+      "note_id": "w02-n18",
+      "source_refs": [
+        "src-transcript-2",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "در سخنرانی، رمزنگاری هنر به‌هم‌ریختن اطلاعات برای ارتباط امن معرفی شد. **رمز** (`cipher`) الگوریتمی است که **متن ساده** (`plaintext`) را با یک **کلید** (`key`) به **متن رمز** (`ciphertext`) تبدیل می‌کند. گیرنده با همان کلید و برعکس کردن الگوریتم متن را رمزگشایی می‌کند.",
+        "note_id": "w02-n18",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n18"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "plaintext + key -> cipher -> ciphertext\nciphertext + key -> decrypt -> plaintext",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "نمودار تألیفی بر پایهٔ سخنرانی."
+      },
+      "check": {
+        "id": "w02-l09-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در اصطلاح رمزنگاری، ورودی خوانا برای انسان را چه می‌نامیم؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "plaintext",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "ciphertext",
+            "correct": false,
+            "feedback_fa": "ciphertext خروجی رمز شده است."
+          },
+          {
+            "id": "c",
+            "text_fa": "key",
+            "correct": false,
+            "feedback_fa": "key ورودی دوم الگوریتم است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l09-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مفهوم را نام ببر: (۱) پیام خوانا (۲) پیام به‌هم‌ریخته (۳) عدد یا رازی که الگوریتم با آن کار می‌کند",
+        "expected": {
+          "answers": {
+            "1": "plaintext",
+            "2": "ciphertext",
+            "3": "key"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "سه واژهٔ اصلی سخنرانی."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l09-u02",
+      "order": 2,
+      "title_fa": "رمز چرخشی",
+      "concept_ids": [
+        "w02-c-rotation-cipher"
+      ],
+      "objective_ids": [
+        "w02-o12"
+      ],
+      "note_id": "w02-n18",
+      "source_refs": [
+        "src-transcript-2",
+        "src-anzali-authored-2",
+        "src-pset-2-caesar"
+      ],
+      "reading": {
+        "text_fa": "در سخنرانی، با کلید ۱ هر حرف یک جا جلو می‌رود: `HI!` به `IJ!` تبدیل می‌شود و علامت‌ها دست نمی‌خورند. با کلید ۱۳ (ROT13) همان پیام `UV!` می‌شود. کلید ۲۶ هیچ کاری نمی‌کند، چون الفبا ۲۶ حرف دارد. رمزگشایی یعنی همان مقدار را برگرداندن. پیاده‌سازی کامل کار پرابلم‌ست Caesar است، پس اینجا کدی نمی‌آوریم.",
+        "note_id": "w02-n18",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n18"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "key 1:   HI! -> IJ!\nkey 13:  HI! -> UV!\nkey 26:  HI! -> HI!",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "خلاصهٔ تألیفی مثال‌های سخنرانی."
+      },
+      "check": {
+        "id": "w02-l09-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا در سخنرانی گفته شد کلید ۲۶ برای این رمز بی‌فایده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون بعد از ۲۶ جابه‌جایی هر حرف به خودش برمی‌گردد",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون ۲۶ عدد زوج است",
+            "correct": false,
+            "feedback_fa": "زوج بودن ربطی ندارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون کلید باید منفی باشد",
+            "correct": false,
+            "feedback_fa": "چنین قاعده‌ای نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l09-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "با کلید ۱ و به روش سخنرانی، `CAT` به چه تبدیل می‌شود؟ (با دست حساب کن.)",
+        "expected": {
+          "output": "DBU"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "هر حرف یک جا جلو برود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}
