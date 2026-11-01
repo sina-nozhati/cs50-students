@@ -26,7 +26,12 @@ from typing import Any
 
 import jinja2
 import markdown
-from pygments.formatters import HtmlFormatter
+try:
+    from pygments.formatters import HtmlFormatter
+    PYGMENTS_CSS = HtmlFormatter(style="friendly").get_style_defs(".hl")
+except Exception:
+    HtmlFormatter = None
+    PYGMENTS_CSS = """
 
 GEN_VERSION = "0.2.0"
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -400,7 +405,7 @@ def build_week(
     }
     css = env.get_template("theme.css").render(
         fonts=fonts,
-        pygments_css=HtmlFormatter(style="friendly").get_style_defs(".hl"),
+        pygments_css=PYGMENTS_CSS,
     )
     built_fa = jalali(w.built)
     prefix = re.sub(r"[^a-z0-9]+", "", slug.replace("week-", "week"))
