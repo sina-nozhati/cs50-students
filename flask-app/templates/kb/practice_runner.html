@@ -442,7 +442,7 @@
 
                       {# سطر دارای جای خالی #}
                       <template x-if="line.hasSlots">
-                        <div class="inline-flex items-center flex-wrap gap-y-1 [direction:ltr]" dir="ltr">
+                        <div class="inline-flex items-center flex-nowrap [direction:ltr]" dir="ltr">
                           <template x-for="(seg, sIdx) in line.segments" :key="sIdx">
                             <span class="inline-flex items-center [direction:ltr]" dir="ltr">
                               <template x-if="seg.type === 'text'">
@@ -837,12 +837,13 @@ function practiceApp(week, initialXp, initialStreak) {
 
       if (ch.type === 'token_tap') {
         const rawCode = ch.prompt || ch.code || '';
-        const lines = rawCode.split('\n');
+        const lines = rawCode.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+        const marker = ch.blank_marker || '___';
         let globalSlotIdx = 0;
 
         this.codeLines = lines.map((lineStr, lineIdx) => {
-          if (lineStr.includes('___')) {
-            const parts = lineStr.split('___');
+          if (lineStr.includes(marker)) {
+            const parts = lineStr.split(marker);
             const segments = [];
             for (let p = 0; p < parts.length; p++) {
               segments.push({ type: 'text', text: parts[p] });
