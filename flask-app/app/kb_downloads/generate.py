@@ -31,7 +31,7 @@ try:
     PYGMENTS_CSS = HtmlFormatter(style="friendly").get_style_defs(".hl")
 except Exception:
     HtmlFormatter = None
-    PYGMENTS_CSS = """
+    PYGMENTS_CSS = ""
 
 GEN_VERSION = "0.2.0"
 HERE = os.path.dirname(os.path.abspath(__file__))
