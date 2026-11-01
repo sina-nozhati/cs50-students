@@ -13,7 +13,10 @@ from app.services import events as event_service
 from app.services import kb_interactive
 from app.services import practice as practice_service
 from app.models import WeekProgress
-from flask import request, jsonify
+from flask import request, jsonify, make_response, send_file
+from urllib.parse import quote
+from app.services import downloads as downloads_service
+import re
 
 bp = Blueprint("kb", __name__, url_prefix="/kb")
 
@@ -78,6 +81,7 @@ def week_page(week: int):
     interactive_summary = kb_interactive.get_week_interactive_summary(current_user.id, week)
     quiz_meta = interactive_summary.get("attempt_meta", {})
     has_practice = practice_service.has_practice_session(week)
+    dynamic_downloads = downloads_service.get_week_manifest(week)
 
     return render_template(
         "kb/week.html",
@@ -89,6 +93,7 @@ def week_page(week: int):
         already_read=already_read,
         can_mark_read=can_mark_read,
         files=files,
+        dynamic_downloads=dynamic_downloads,
         exercises=exercises,
         exercise_attempts=exercise_attempts,
         flashcards=flashcards,
@@ -227,11 +232,91 @@ def doc_page(doc_id: str):
         if week_obj is None or not week_obj.is_published:
             abort(404)
 
+    pset_downloads = None
+    if site_n is not None:
+        slug = downloads_service.resolve_week_slug(site_n)
+        manifest = downloads_service.get_week_manifest(slug)
+        if manifest:
+            for it in manifest.get("items", []):
+                if it.get("kind") == "pset-guide":
+                    p_id = it.get("pset_id") or ""
+                    p_slug = it.get("pset_slug") or ""
+                    if p_id == doc_id or (p_slug and p_slug in doc_id) or it.get("id") == doc_id:
+                        pset_downloads = {
+                            "slug": slug,
+                            "item": it,
+                            "formats": {f["format"]: f for f in it.get("formats", [])}
+                        }
+                        break
+
     return render_template(
         "kb/doc.html",
         doc=doc,
+        pset_downloads=pset_downloads,
         certificate=kb_service.certificate(),
     )
+
+
+@bp.route("/downloads/<week_slug>/<item_and_fmt>")
+@login_required
+def download_item(week_slug: str, item_and_fmt: str):
+    """سرو امن فایل‌های دانلودی پایگاه دانش با ETag، هدرهای استاندارد و مهار Path Traversal."""
+    if "." not in item_and_fmt:
+        abort(404)
+    item_id, fmt = item_and_fmt.rsplit(".", 1)
+
+    # بررسی دسترسی انتشار هفته
+    slug = downloads_service.resolve_week_slug(week_slug)
+    m_week = re.search(r"week-(\d+)", slug)
+    if m_week:
+        w_num = int(m_week.group(1))
+        _get_visible_week_or_404(w_num)
+    elif slug == "week-ai":
+        _get_visible_week_or_404(71)
+    elif slug == "final-project":
+        _get_visible_week_or_404(99)
+
+    file_info = downloads_service.get_download_file(slug, item_id, fmt)
+    if not file_info:
+        abort(404)
+
+    # پشتیبانی از ETag و پاسخ 304 Not Modified
+    etag = f'"{file_info["sha256"]}"'
+    client_etag = request.headers.get("If-None-Match")
+    if client_etag and client_etag.strip() == etag:
+        res = make_response("", 304)
+        res.headers["ETag"] = etag
+        res.headers["Cache-Control"] = "private, max-age=31536000, immutable"
+        return res
+
+    abs_path = str(file_info["abs_path"])
+    mime_type = file_info["mime_type"]
+    ascii_name = file_info["ascii_filename"]
+    utf8_name = file_info["utf8_filename"]
+    is_inline = file_info["is_inline"]
+
+    disposition_type = "inline" if is_inline else "attachment"
+    encoded_utf8 = quote(utf8_name.encode("utf-8"))
+    content_disp = f'{disposition_type}; filename="{ascii_name}"; filename*=UTF-8\'\'{encoded_utf8}'
+
+    response = send_file(
+        abs_path,
+        mimetype=mime_type,
+        as_attachment=False,
+    )
+    response.headers["Content-Disposition"] = content_disp
+    response.headers["ETag"] = etag
+    response.headers["Cache-Control"] = "private, max-age=31536000, immutable"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+
+    if is_inline:
+        response.headers["Content-Security-Policy"] = (
+            "default-src 'self' 'unsafe-inline' data:; "
+            "style-src 'self' 'unsafe-inline' data:; "
+            "font-src 'self' data:; img-src 'self' data:;"
+        )
+
+    return response
 
 
 @bp.route("/week/<int:week>/read", methods=["POST"])

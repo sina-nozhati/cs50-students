@@ -944,10 +944,116 @@
   </section>
   {% endif %}
 
-  {# منابع دانلود پنل کارت‌محور #}
-  <section class="mb-8">
-    <h2 class="kb-section-title">منابع و فایل‌های دانلودی</h2>
-    {% if files %}
+  {# منابع دانلود و بسته‌های آفلاین (پویا و استاتیک) #}
+  <section class="mb-8" id="section-downloads">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="kb-section-title mb-0">منابع و بسته‌های دانلودی آفلاین</h2>
+      {% if dynamic_downloads and dynamic_downloads.get('items') %}
+      <span class="text-xs text-[var(--slate)] font-semibold num">{{ dynamic_downloads['items']|length }} بستهٔ آفلاین آماده</span>
+      {% endif %}
+    </div>
+
+    {% if dynamic_downloads and dynamic_downloads.get('items') %}
+    {# ─── سیستم دانلودهای پویا CS50x Anzali ─── #}
+    <div class="space-y-4">
+      {# دسته‌بندی اقلام بر اساس نوع و اولویت نمایش #}
+      {% set kind_labels = {
+        'handout': 'جزوهٔ جامع هفته',
+        'summary': 'خلاصه و واژه‌نامه',
+        'pset-guide': 'راهنمای تمرین',
+        'source-code': 'کد منبع و سورس',
+        'slides': 'اسلایدهای درسی',
+        'flashcards': 'فلش‌کارت‌های مرور'
+      } %}
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {% for item in dynamic_downloads['items'] %}
+        <div class="card-harvard p-4 sm:p-5 flex flex-col justify-between gap-4 border border-[var(--border)] hover:border-crimson/30 transition-all shadow-xs">
+          <div>
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+                  {% if item.kind == 'handout' %}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                  {% elif item.kind == 'summary' %}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  {% elif item.kind == 'pset-guide' %}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  {% elif item.kind == 'source-code' %}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+                  {% elif item.kind == 'slides' %}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  {% else %}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                  {% endif %}
+                </div>
+                <div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-gray-100 text-[var(--slate)] mb-1">
+                    {{ kind_labels.get(item.kind, item.kind) }}
+                  </span>
+                  <h4 class="font-bold text-sm text-[var(--ink)] leading-snug">{{ item.title_fa }}</h4>
+                </div>
+              </div>
+            </div>
+
+            {% if item.pset_id %}
+            <div class="mt-1 text-[11px] text-[var(--slate)] font-mono">
+              <bdi class="bg-gray-50 px-1.5 py-0.5 rounded border border-[var(--border)]">{{ item.pset_id }}</bdi>
+            </div>
+            {% endif %}
+          </div>
+
+          {# دکمه‌های دریافت فرمت‌های مختلف #}
+          <div class="pt-3 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-1.5">
+              {% for f in item.formats %}
+                {% set sz = f.get('size') or f.get('bytes') or f.get('size_bytes') or 0 %}
+                {% set pgs = f.get('pages') or f.get('page_count') %}
+                {% if f.format == 'html' %}
+                <a href="{{ url_for('kb.download_item', week_slug=dynamic_downloads.week, item_and_fmt=item.id + '.html') }}"
+                   target="_blank"
+                   class="btn-soft-crimson text-[11px] py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <span>نسخه آفلاین HTML</span>
+                  {% if sz > 0 %}
+                  <span class="text-[9px] opacity-75 num font-normal">({{ (sz // 1024) if sz < 1048576 else ((sz / 1048576)|round(1)) }} {% if sz < 1048576 %}کیلوبایت{% else %}مگابایت{% endif %})</span>
+                  {% endif %}
+                </a>
+                {% elif f.format == 'pdf' %}
+                <a href="{{ url_for('kb.download_item', week_slug=dynamic_downloads.week, item_and_fmt=item.id + '.pdf') }}"
+                   class="btn-outline-crimson text-[11px] py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer transition">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                  <span>دانلود PDF</span>
+                  {% if pgs %}
+                  <span class="text-[9px] opacity-75 num font-normal">({{ pgs }} صفحه)</span>
+                  {% elif sz > 0 %}
+                  <span class="text-[9px] opacity-75 num font-normal">({{ (sz // 1024) if sz < 1048576 else ((sz / 1048576)|round(1)) }} {% if sz < 1048576 %}کیلوبایت{% else %}مگابایت{% endif %})</span>
+                  {% endif %}
+                </a>
+                {% elif f.format == 'zip' %}
+                <a href="{{ url_for('kb.download_item', week_slug=dynamic_downloads.week, item_and_fmt=item.id + '.zip') }}"
+                   class="btn-outline-crimson text-[11px] py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer transition">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+                  <span>دانلود ZIP</span>
+                  {% if sz > 0 %}
+                  <span class="text-[9px] opacity-75 num font-normal">({{ (sz // 1024) if sz < 1048576 else ((sz / 1048576)|round(1)) }} {% if sz < 1048576 %}کیلوبایت{% else %}مگابایت{% endif %})</span>
+                  {% endif %}
+                </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            <span class="text-[10px] text-[var(--slate)] font-mono">
+              <bdi>{{ item.id }}</bdi>
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% elif files %}
+    {# ─── حالت سازگاری با منابع استاتیک قدیمی (Legacy Fallback) ─── #}
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
       {% for file in files %}
       <div class="card-harvard p-4 flex items-center justify-between gap-3 border border-[var(--border)]">

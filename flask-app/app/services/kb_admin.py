@@ -518,6 +518,14 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None, course_id
         db.session.commit()
 
         kb_repo.clear_cache()
+        try:
+            from flask import current_app
+            if not current_app.config.get("TESTING"):
+                from app.services import downloads as downloads_service
+                downloads_service.build_all_downloads(force=True)
+        except Exception:
+            pass
+
         return {
             "success": True,
             "is_master": True,
@@ -735,6 +743,13 @@ def install_kb_package(
 
     # ۶. پاک‌سازی کش درون حافظه‌ای kb_repo
     kb_repo.clear_cache()
+    try:
+        from flask import current_app
+        if not current_app.config.get("TESTING"):
+            from app.services import downloads as downloads_service
+            downloads_service.build_downloads_for_week(dest_slug, force=True)
+    except Exception:
+        pass
 
     # ۷. همگام‌سازی وضعیت انتشار در دیتابیس
     try:

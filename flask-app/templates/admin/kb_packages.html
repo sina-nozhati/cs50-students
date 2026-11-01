@@ -111,6 +111,70 @@
         </div>
     </section>
 
+        {# ─── بخش سیستم دانلودهای پویا و خروجی‌های آفلاین ─── #}
+    <section class="card-harvard p-5 sm:p-6 overflow-hidden border border-[var(--border)]">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-[var(--border)]">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div>
+                    <h2 class="text-base font-bold text-[var(--ink)]">موتور دانلودهای پویای پایگاه دانش (Dynamic Exports)</h2>
+                    <p class="text-xs text-[var(--slate)] mt-0.5">تولید اتمیک بسته‌های آفلاین HTML، نسخه‌های چاپی PDF بدون درز و فایل‌های آرشیو ZIP</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                {% if downloads_status and downloads_status.dynamic_enabled %}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    حالت پویا فعال
+                </span>
+                {% else %}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    حالت سازگاری (Legacy Fallback)
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)]">
+                <span class="text-[var(--slate)] block font-medium mb-1">موتور رندر PDF چاپی:</span>
+                <span class="font-bold text-[var(--ink)] font-mono text-[11px] truncate block" title="{{ downloads_status.pdf_engine_available if downloads_status else '' }}">
+                    {{ downloads_status.pdf_engine_available if downloads_status else 'نامشخص' }}
+                </span>
+            </div>
+
+            <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)]">
+                <span class="text-[var(--slate)] block font-medium mb-1">هفته‌های آماده دانلود پویا:</span>
+                {% set built_count = (downloads_status.weeks|selectattr('is_built')|list|length) if downloads_status and downloads_status.weeks else 0 %}
+                {% set total_w = downloads_status.weeks|length if downloads_status and downloads_status.weeks else 0 %}
+                <span class="font-bold text-emerald-700 num text-sm">
+                    {{ built_count }} از {{ total_w }} هفته
+                </span>
+            </div>
+
+            <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)] flex items-center justify-between">
+                <div>
+                    <span class="text-[var(--slate)] block font-medium mb-0.5">عملیات بازتولید کلی:</span>
+                    <span class="text-[11px] text-[var(--slate)]">تولید اتمیک تمام فایل‌ها</span>
+                </div>
+                <form method="POST" action="{{ url_for('admin.kb_packages_rebuild_downloads') }}"
+                      onsubmit="return confirm('آیا از بازتولید کلیه خروجی‌های دانلودی (HTML، PDF، ZIP) برای تمام هفته‌ها اطمینان دارید؟ این فرآیند ممکن است چند ثانیه زمان ببرد.');">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input type="hidden" name="course_id" value="{{ selected_course.id if selected_course else '' }}"/>
+                    <button type="submit" class="btn-soft-crimson text-xs py-2 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                        <span>تولید مجدد همه</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
     {# ─── جدول وضعیت هفته‌ها ─── #}
     <section class="card-harvard p-5 sm:p-6 overflow-hidden">
         <div class="flex items-center justify-between mb-4">
@@ -129,6 +193,7 @@
                         <th class="py-3 px-3 font-semibold">فلش‌کارت‌ها</th>
                         <th class="py-3 px-3 font-semibold">آزمون تسلط</th>
                         <th class="py-3 px-3 font-semibold">تمرین تعاملی</th>
+                        <th class="py-3 px-3 font-semibold">دانلودهای پویا</th>
                         <th class="py-3 px-3 font-semibold">انتشار در سایت</th>
                         <th class="py-3 px-3 font-semibold text-center">عملیات</th>
                     </tr>
@@ -164,6 +229,19 @@
                             {{ w.challenges_count }} چالش
                             {% else %}
                             ندارد
+                            {% endif %}
+                        </td>
+                        <td class="py-3 px-3">
+                            {% set dl_entry = downloads_status.by_week.get(w.number) if downloads_status and downloads_status.by_week else None %}
+                            {% if dl_entry and dl_entry.is_built %}
+                            <div class="flex items-center gap-1.5">
+                                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800" title="{{ dl_entry.formats }}">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    آماده ({{ dl_entry.items_count }} آیتم)
+                                </span>
+                            </div>
+                            {% else %}
+                            <span class="text-gray-400 text-[10px]">آماده‌نشده</span>
                             {% endif %}
                         </td>
                         <td class="py-3 px-3">

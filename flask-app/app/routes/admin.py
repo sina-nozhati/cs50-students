@@ -52,6 +52,8 @@ from app.services import notifications as notif_service
 from app.services import kb_admin
 from app.services import diagnostics as diag_service
 from app.services import cohorts as cohort_service
+from app.services import downloads as downloads_service
+from app.services import events as event_service
 
 bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -669,12 +671,15 @@ def kb_packages_dashboard():
     weeks_status = kb_admin.get_all_weeks_kb_status()
     recent_installs = KBPackageInstall.query.order_by(KBPackageInstall.installed_at.desc()).limit(10).all()
 
+    downloads_status = downloads_service.get_admin_downloads_status()
+
     return render_template(
         "admin/kb_packages.html",
         weeks_status=weeks_status,
         courses=courses,
         selected_course=selected_course,
         recent_installs=recent_installs,
+        downloads_status=downloads_status,
     )
 
 
@@ -739,6 +744,36 @@ def kb_packages_upload():
                 tmp_path.unlink()
         except Exception:
             pass
+
+    return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
+
+
+
+
+@bp.route("/kb-packages/rebuild-downloads", methods=["POST"])
+@admin_required
+def kb_packages_rebuild_downloads():
+    """تولید مجدد کلیه خروجی‌های دانلودی پویا (HTML / PDF / ZIP)."""
+    course_id = request.form.get("course_id", type=int)
+    try:
+        res = downloads_service.build_all_downloads(force=True)
+        event_service.log_event(
+            user_id=current_user.id,
+            event_type="admin_rebuild_downloads",
+            data={
+                "weeks_count": len(res.get("weeks", {})),
+                "pdf_engine": res.get("pdf_engine"),
+                "status": res.get("status"),
+            },
+        )
+        if res.get("status") == "success":
+            flash("کلیه فایل‌های دانلودی پویا با موفقیت تولید و جای‌گذاری شدند.", "success")
+        elif res.get("status") == "partial":
+            flash("تولید فایل‌های دانلودی با موفقیت نسبی انجام شد؛ لطفاً گزارش هفتگی را بررسی کنید.", "warning")
+        else:
+            flash(f"خطا در تولید فایل‌های دانلودی: {res.get('error', 'خطای نامشخص')}", "error")
+    except Exception as e:
+        flash(f"خطای سیستمی در بازتولید دانلودها: {e}", "error")
 
     return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
 

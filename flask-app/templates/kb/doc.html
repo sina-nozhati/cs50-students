@@ -104,6 +104,44 @@
   </div>
 </header>
 
+{% if pset_downloads %}
+<div class="card-harvard p-3 sm:p-4 mb-6 bg-gray-50/80 border border-[var(--border)] rounded-xl flex flex-wrap items-center justify-between gap-3">
+  <div class="flex items-center gap-2.5">
+    <div class="w-8 h-8 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </div>
+    <div>
+      <span class="text-xs font-bold text-[var(--ink)] block">دریافت نسخهٔ آفلاین و چاپی راهنما</span>
+      <span class="text-[11px] text-[var(--slate)]">فایل‌های استاندارد برای مطالعه آفلاین یا چاپ</span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-2">
+    {% if pset_downloads.formats.html %}
+    <a href="{{ url_for('kb.download_item', week_slug=pset_downloads.slug, item_and_fmt=pset_downloads.item.id + '.html') }}"
+       target="_blank"
+       class="btn-soft-crimson text-xs py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>مشاهده آفلاین HTML</span>
+    </a>
+    {% endif %}
+
+    {% if pset_downloads.formats.get('pdf') %}
+    {% set pset_pdf = pset_downloads.formats.get('pdf') %}
+    {% set pset_pages = pset_pdf.get('pages') or pset_pdf.get('page_count') %}
+    <a href="{{ url_for('kb.download_item', week_slug=pset_downloads.slug, item_and_fmt=pset_downloads.item.id + '.pdf') }}"
+       class="btn-outline-crimson text-xs py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer transition">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      <span>دانلود PDF</span>
+      {% if pset_pages %}
+      <span class="text-[10px] opacity-75 num">({{ pset_pages }} صفحه)</span>
+      {% endif %}
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
 <!-- اگر سند فارسی است و همتای انگلیسی دارد: دکمه/آکاردئون «متن اصلی (English)» -->
 {% if doc.is_fa and doc.counterpart and not doc.counterpart.is_fa %}
 <section class="mb-6">

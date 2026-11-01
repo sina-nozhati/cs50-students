@@ -1,0 +1,72 @@
+/* CS50x Anzali export theme: Harvard-inspired academic palette, Persian RTL. Not an official Harvard/CS50 design. */
+@font-face{font-family:"Vazirmatn";src:url(data:font/woff2;base64,{{ fonts.vaz_r }}) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Vazirmatn";src:url(data:font/woff2;base64,{{ fonts.vaz_b }}) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Noto Naskh Arabic";src:url(data:font/woff2;base64,{{ fonts.naskh }}) format("woff2");font-weight:400 700}
+@font-face{font-family:"Plex Mono";src:url(data:font/woff2;base64,{{ fonts.mono }}) format("woff2");font-weight:400}
+:root{--crimson:#A51C30;--crimson-dark:#7A1324;--ink:#1E1E1E;--slate:#5B5550;--warm:#8C8179;--paper:#FBFAF7;--rule:#E4DFD6;--code-bg:#F6F4EF}
+*{box-sizing:border-box}
+html{font-size:17px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.95;text-rendering:optimizeLegibility}
+a{color:var(--crimson);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.masthead{background:var(--crimson);color:#fff;padding:1.1rem 1rem;border-bottom:4px solid var(--crimson-dark)}
+.masthead .inner,.wrap,.foot .inner{max-width:46rem;margin:0 auto}
+.masthead .kicker{font-size:.8rem;letter-spacing:.02em;opacity:.9}
+.masthead h1{color:#fff;font-family:"Noto Naskh Arabic",Georgia,serif;font-weight:700;font-size:1.9rem;line-height:1.5;margin:.2rem 0 0}
+.masthead .sub{opacity:.92;font-size:.95rem}
+.wrap{padding:1.2rem 1rem 2rem}
+main h1,main h2,main h3,main h4{font-family:"Noto Naskh Arabic",Georgia,serif;color:var(--ink);line-height:1.55;font-weight:700}
+h1.doc{color:var(--crimson);font-size:1.7rem;border-bottom:2px solid var(--crimson);padding-bottom:.3rem;margin-top:2.4rem}
+h2{font-size:1.32rem;margin-top:2rem;border-bottom:1px solid var(--rule);padding-bottom:.2rem}
+h3{font-size:1.12rem;color:var(--crimson-dark)}
+p,li{text-align:justify;text-justify:inter-word}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-inline-start:4px solid var(--crimson);background:#fff;color:var(--slate)}
+code{font-family:"Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:var(--code-bg);border:1px solid var(--rule);border-radius:3px;padding:0 .25em;direction:ltr;unicode-bidi:isolate}
+.codeblock{position:relative;margin:1rem 0}
+.codeblock .lang{position:absolute;top:0;left:0;font:600 .7rem "Plex Mono",monospace;color:var(--warm);padding:.2rem .5rem;text-transform:uppercase}
+pre{direction:ltr;text-align:left;unicode-bidi:isolate;font-family:"Plex Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.82rem;line-height:1.6;background:var(--code-bg);border:1px solid var(--rule);border-left:4px solid var(--crimson);border-radius:4px;padding:1.4rem .9rem .8rem;overflow-x:auto;white-space:pre}
+pre code{background:none;border:0;padding:0;font-size:inherit}
+button.copy{position:absolute;top:.25rem;right:.35rem;font:600 .72rem "Vazirmatn",sans-serif;background:#fff;color:var(--crimson);border:1px solid var(--crimson);border-radius:3px;padding:.05rem .5rem;cursor:pointer}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--rule);padding:.35rem .55rem;vertical-align:top}
+td.en{font-family:"Plex Mono",monospace;font-size:.82em;text-align:left;color:var(--slate)}td.nw{white-space:nowrap}
+th{background:#F1ECE3;font-family:"Noto Naskh Arabic",serif}
+img{max-width:100%;height:auto;border:1px solid var(--rule)}
+figure{margin:1rem 0}figcaption{font-size:.8rem;color:var(--warm)}
+.toc{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--crimson);padding:.8rem 1.2rem;margin:1rem 0}
+ol{list-style-type:persian}
+.toc ol{margin:0;padding-inline-start:1.3rem}.toc ol ol{font-size:.9rem}
+.toc a{text-decoration:none;color:var(--ink)}
+.meta{color:var(--warm);font-size:.85rem}
+.badge{display:inline-block;border:1px solid var(--crimson);color:var(--crimson);border-radius:2px;font-size:.75rem;padding:0 .4rem;margin-inline-end:.3rem}
+.card{background:#fff;border:1px solid var(--rule);border-top:3px solid var(--crimson);padding:1rem 1.2rem;margin:1rem 0}
+.card h2{border:0;margin-top:0}
+.dl li{margin:.35rem 0}
+.fc{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.6rem}
+.fc .c{background:#fff;border:1px dashed var(--warm);padding:.7rem .9rem;break-inside:avoid;page-break-inside:avoid}
+.fc .q{font-weight:700}.fc .a{color:var(--slate);border-top:1px solid var(--rule);margin-top:.4rem;padding-top:.4rem}
+.foot{border-top:3px solid var(--crimson);background:#fff;color:var(--slate);font-size:.8rem;padding:1rem;line-height:1.8}
+bdi.nw{white-space:nowrap}
+.foot p{text-align:start;margin:.2rem 0}
+.cover{display:none}
+@media (max-width:600px){html{font-size:16px}.masthead h1{font-size:1.5rem}pre{font-size:.76rem}p,li{text-align:start}}
+/* Highlighting (Pygments, light) */
+{{ pygments_css }}
+@media print{
+ @page{size:A4;margin:20mm 18mm 20mm 18mm;@bottom-center{content:counter(page,persian);font:9pt "Vazirmatn";color:#8C8179}
+   @top-right{content:string(doctitle);font:8.5pt "Vazirmatn";color:#8C8179}}
+ @page:first{@bottom-center{content:none}@top-right{content:none}}
+ html{font-size:10.5pt}body{background:#fff}
+ .masthead,button.copy,.noprint{display:none}
+ .cover{display:flex;flex-direction:column;justify-content:space-between;height:257mm;page-break-after:always;border-top:14mm solid #A51C30;padding:14mm 4mm 0}
+ .cover .k{color:#8C8179;font-size:11pt}.cover h1{font-family:"Noto Naskh Arabic",serif;color:#A51C30;font-size:30pt;line-height:1.5;margin:6mm 0}
+ .cover .s{font-size:13pt;color:#5B5550}.cover .f{font-size:8.5pt;color:#5B5550;border-top:1px solid #A51C30;padding-top:3mm;line-height:1.7}
+ h1.doc{string-set:doctitle content();page-break-before:always}
+ .toc+h1.doc,.first{page-break-before:avoid}
+ h2,h3{page-break-after:avoid}pre,table,figure,blockquote{page-break-inside:avoid}
+ pre{white-space:pre-wrap;overflow:visible;word-break:break-all}
+ table{display:table}
+ .toc a::after{content:leader('.') target-counter(attr(href),page,persian);color:#8C8179}
+ a{color:#7A1324;text-decoration:none}
+ .wrap{max-width:none;padding:0}
+ .foot{border-top:1px solid #A51C30;page-break-inside:avoid;margin-top:8mm}
+}
