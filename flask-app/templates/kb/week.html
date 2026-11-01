@@ -686,25 +686,35 @@
       <div class="card-harvard p-5 sm:p-6" id="quiz-box-{{ q.id }}">
         <div class="flex items-center justify-between mb-3">
           <span class="badge-crimson num">سوال {{ loop.index }}</span>
-          <span class="text-xs text-gray-400">
-            {% if q.type == 'mcq' %}چهارگزینه‌ای
-            {% elif q.type == 'true_false' %}درست / نادرست
-            {% elif q.type == 'parsons' %}مرتب‌سازی خطوط کد (Parsons)
-            {% elif q.type == 'predict_output' %}پیش‌بینی خروجی کد
-            {% else %}پر کردن جای خالی{% endif %}
+          <span class="text-xs font-bold text-crimson bg-crimson-tint/60 px-2.5 py-0.5 rounded-full">
+            {{ q.type_label or (q|quiz_type_label) }}
           </span>
         </div>
 
         <h3 class="text-base sm:text-lg font-bold text-[var(--ink)] mb-4 leading-snug">{{ q.prompt_fa }}</h3>
 
-        {# قطعه‌کد برای سوالات پیش‌بینی خروجی #}
+        {# قطعه‌کد طبق قرارداد D90 #}
         {% if q.code %}
         <div class="mb-4 rounded-xl bg-slate-900 border border-slate-800 p-4 text-slate-100 font-mono text-xs text-left overflow-x-auto shadow-inner" dir="ltr">
           <div class="text-[10px] text-slate-400 mb-2 border-b border-slate-800 pb-1 flex justify-between items-center">
             <span>{{ q.lang|upper if q.lang else 'C' }}</span>
-            <span class="text-[9px] uppercase tracking-wider">code snippet</span>
+            <span class="text-[9px] uppercase tracking-wider">code snippet (LTR)</span>
           </div>
-          <pre class="m-0 leading-relaxed"><code>{{ q.code }}</code></pre>
+          <pre class="m-0 leading-relaxed font-mono"><code>{{ q.code }}</code></pre>
+        </div>
+        {% endif %}
+
+        {# دکمه راهنما قبل از ارسال پاسخ #}
+        {% if (q.hint_fa or q.hints_fa) and not q.attempted and not q.is_finalized %}
+        <div class="mb-3">
+          <button type="button" onclick="var h = document.getElementById('quiz-hint-{{ q.id }}'); if (h) h.classList.toggle('hidden');"
+                  class="text-xs text-[var(--slate)] hover:text-crimson flex items-center gap-1 font-medium transition-colors">
+            <svg class="w-3.5 h-3.5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>راهنما</span>
+          </button>
+          <div id="quiz-hint-{{ q.id }}" class="hidden mt-2 p-2.5 rounded-xl bg-amber-50/80 border border-amber-200 text-xs text-amber-950 leading-relaxed">
+            {{ q.hint_fa or (q.hints_fa|join(' ')) }}
+          </div>
         </div>
         {% endif %}
 
@@ -716,7 +726,13 @@
                   {% if not q.attempted and not q.is_finalized %}onclick="submitQuizAnswer('{{ week }}', '{{ q.id }}', '{{ opt.id }}')"{% endif %}
                   {% if q.attempted or q.is_finalized %}disabled{% endif %}
                   class="quiz-option-card group {% if q.attempted and q.submitted_answer == opt.id %}{% if q.is_correct %}border-emerald-500 bg-emerald-50 font-bold{% else %}border-crimson bg-crimson-tint font-bold{% endif %}{% endif %} {% if q.attempted or q.is_finalized %}cursor-not-allowed opacity-85{% endif %}">
-            <span class="font-medium text-xs sm:text-sm text-[var(--ink)] {% if not q.attempted and not q.is_finalized %}group-hover:text-crimson{% endif %} transition-colors">{{ opt.text_fa }}</span>
+            <span class="font-medium text-xs sm:text-sm text-[var(--ink)] {% if not q.attempted and not q.is_finalized %}group-hover:text-crimson{% endif %} transition-colors">
+              {% if opt.text_is_code %}
+                <span class="font-mono text-xs dir-ltr inline-block text-left" dir="ltr">{{ opt.text_fa }}</span>
+              {% else %}
+                {{ opt.text_fa }}
+              {% endif %}
+            </span>
             <span class="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center text-xs font-bold text-gray-500 {% if not q.attempted and not q.is_finalized %}group-hover:border-crimson group-hover:text-crimson{% endif %}">
               {{ opt.id|upper }}
             </span>
@@ -734,7 +750,7 @@
                 data-line-id="{{ line.id }}" data-index="{{ loop.index0 }}">
               <div class="flex items-center gap-2 min-w-0">
                 <span class="w-5 h-5 rounded-md bg-slate-200 text-slate-600 flex items-center justify-center text-[10px] font-bold shrink-0">{{ loop.index }}</span>
-                <code class="truncate text-left">{{ line.code }}</code>
+                <code class="truncate text-left font-mono" dir="ltr">{{ line.code }}</code>
               </div>
               {% if not q.attempted and not q.is_finalized %}
               <div class="flex items-center gap-1 shrink-0">
@@ -753,19 +769,31 @@
           {% endif %}
         </div>
 
-        {# فرمت ورودی متنی / پیش‌بینی خروجی / جای خالی #}
+        {# فرمت ورودی متنی / پیش‌بینی خروجی / جای خالی با textarea و استانداردهای بخش ۵ #}
         {% else %}
-        <form onsubmit="event.preventDefault(); submitQuizInput('{{ week }}', '{{ q.id }}');" class="flex gap-2 mb-3">
-          <input type="text" id="quiz-input-{{ q.id }}"
-                 class="form-input flex-1 font-mono text-left dir-ltr {% if q.attempted or q.is_finalized %}cursor-not-allowed bg-gray-50 opacity-80{% endif %}"
-                 placeholder="پاسخ یا خروجی کد را بنویسید..."
-                 value="{{ q.submitted_answer or '' }}"
-                 {% if q.attempted or q.is_finalized %}disabled{% endif %}
-                 style="font-size: 16px;" />
-          <button type="submit" class="btn-crimson shrink-0 {% if q.attempted or q.is_finalized %}cursor-not-allowed opacity-60{% endif %}"
-                  {% if q.attempted or q.is_finalized %}disabled{% endif %}>
-            بررسی پاسخ
-          </button>
+        <form onsubmit="event.preventDefault(); submitQuizInput('{{ week }}', '{{ q.id }}');" class="mb-3">
+          <textarea id="quiz-input-{{ q.id }}"
+                    dir="ltr"
+                    spellcheck="false"
+                    autocapitalize="off"
+                    autocomplete="off"
+                    autocorrect="off"
+                    enterkeyhint="enter"
+                    rows="3"
+                    class="form-input font-mono text-left dir-ltr w-full py-2.5 px-3 rounded-xl border border-[var(--border)] {% if q.attempted or q.is_finalized %}cursor-not-allowed bg-gray-50 opacity-80{% endif %}"
+                    placeholder="پاسخ یا خروجی کد را بنویسید..."
+                    {% if q.attempted or q.is_finalized %}disabled{% endif %}
+                    onkeydown="handleCodeTextareaKeydown(event, this)">{{ q.submitted_answer or '' }}</textarea>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] text-[var(--slate)] mt-1.5 px-1 select-none">
+            <span>با Tab تورفتگی درج می‌شود (Esc برای خروج از کادر).</span>
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-[10px] bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded border border-[var(--border)]">Ctrl + Enter برای ارسال</span>
+              <button type="submit" class="btn-crimson py-1 px-3.5 text-xs shrink-0 {% if q.attempted or q.is_finalized %}cursor-not-allowed opacity-60{% endif %}"
+                      {% if q.attempted or q.is_finalized %}disabled{% endif %}>
+                بررسی پاسخ
+              </button>
+            </div>
+          </div>
         </form>
         {% endif %}
 
@@ -1162,6 +1190,66 @@
     if (!input) return;
     submitQuizAnswer(week, questionId, input.value);
   }
+
+  // ─── مدیریت هوشمند کادر کد: Enter سطر جدید، Tab تورفتگی، Esc خروج، Ctrl+Enter ارسال ───
+  var tabTrapActive = true;
+  function handleCodeTextareaKeydown(e, textarea) {
+    if (e.isComposing || e.keyCode === 229) return;
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      var form = textarea.closest("form");
+      if (form) {
+        if (form.requestSubmit) {
+          form.requestSubmit();
+        } else {
+          form.dispatchEvent(new Event("submit", { cancelable: true }));
+        }
+      }
+      return;
+    }
+    if (e.key === "Enter") {
+      // فقط ایجاد سطر جدید در جعبه متن، فرم هرگز ناخواسته ارسال نمی‌شود
+      e.stopPropagation();
+      return;
+    }
+    if (e.key === "Escape") {
+      // غیرفعال کردن گرفتن کلید Tab جهت دسترسی‌پذیری و پیمایش به المان بعدی
+      tabTrapActive = false;
+      return;
+    }
+    if (e.key === "Tab" && tabTrapActive) {
+      e.preventDefault();
+      var start = textarea.selectionStart;
+      var end = textarea.selectionEnd;
+      var val = textarea.value;
+      if (e.shiftKey) {
+        // Shift + Tab: حذف تا ۴ فاصله از ابتدای سطر جاری (Unindent)
+        var before = val.substring(0, start);
+        var after = val.substring(end);
+        var lineStart = before.lastIndexOf("\n") + 1;
+        var line = val.substring(lineStart, start);
+        var spacesToRemove = 0;
+        while (spacesToRemove < 4 && line[spacesToRemove] === " ") {
+          spacesToRemove++;
+        }
+        if (spacesToRemove > 0) {
+          textarea.value = val.substring(0, lineStart) + line.substring(spacesToRemove) + after;
+          textarea.selectionStart = textarea.selectionEnd = Math.max(lineStart, start - spacesToRemove);
+        }
+      } else {
+        // Tab: درج ۴ فاصله در محل کرسر (Indent)
+        textarea.value = val.substring(0, start) + "    " + val.substring(end);
+        textarea.selectionStart = textarea.selectionEnd = start + 4;
+      }
+      return;
+    }
+  }
+
+  document.addEventListener("focusin", function(e) {
+    if (e.target && e.target.tagName === "TEXTAREA") {
+      tabTrapActive = true;
+    }
+  });
 
   // ─── اسکریپت مرتب‌سازی تعاملی پارسونز (Parsons Ordering) ───
   function moveParsonsLine(qid, index, direction) {

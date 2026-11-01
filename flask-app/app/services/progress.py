@@ -237,12 +237,12 @@ def mark_kb_read(user_id: int, week: int) -> bool:
     return True
 
 
-def mark_quiz_completed(user_id: int, week: int, score: int, total: int) -> None:
-    """نتیجه‌ی کوییز را ثبت و quiz_completed=True می‌کند (برای فاز ۲)."""
+def mark_quiz_completed(user_id: int, week: int, score: int, total: int, pass_threshold: float = 0.8) -> None:
+    """نتیجه‌ی کوییز را ثبت و وضعیت تکمیل را بر اساس pass_threshold تعیین می‌کند."""
     wp = get_or_create_week_progress(user_id, week)
     wp.quiz_score = score
     wp.quiz_total = total
-    if score >= wp.quiz_total * 0.6:  # حداقل ۶۰٪ برای تکمیل
+    if total > 0 and (score / total) >= pass_threshold:
         wp.quiz_completed = True
     wp.last_activity = datetime.utcnow()
     db.session.commit()

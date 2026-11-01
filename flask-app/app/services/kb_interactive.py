@@ -279,24 +279,110 @@ def start_new_quiz_attempt(user_id: int, week: int, total_questions: int = 5) ->
     }
 
 
-def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[str, Any]]:
-    """بارگذاری آزمون‌های هفته به همراه خطوط پارسونز، کد پیش‌بینی و وضعیت تلاش فعال."""
+def get_quiz_type_label(q: dict[str, Any]) -> str:
+    """تولید برچسب پویای نوع پرسش طبق جدول قرارداد CS50x Anzali v1.0.0."""
+    if not isinstance(q, dict):
+        return "پرسش"
+    q_type = str(q.get("type", "mcq")).strip().lower()
+    options = q.get("options") or []
+    ans = q.get("answer") or {}
+    correct_ids = ans.get("correct_option_ids") or []
+
+    if q_type == "mcq":
+        if len(correct_ids) > 1:
+            return "چندپاسخی"
+        n = len(options)
+        if n == 2:
+            return "دوگزینه‌ای"
+        elif n == 3:
+            return "سه‌گزینه‌ای"
+        elif n == 4:
+            return "چهارگزینه‌ای"
+        elif n == 5:
+            return "پنج‌گزینه‌ای"
+        return "چندگزینه‌ای"
+    elif q_type == "true_false":
+        return "درست یا نادرست"
+    elif q_type == "predict_output":
+        return "پیش‌بینی خروجی"
+    elif q_type in ("fill_blank", "fill_blank_code"):
+        return "جای خالی"
+    elif q_type == "token_tap":
+        return "انتخاب توکن"
+    elif q_type in ("parsons", "ordering"):
+        return "مرتب‌سازی سطرها"
+    elif q_type in ("spot_bug", "find_the_bug"):
+        return "پیدا کردن اشکال"
+    elif q_type == "short_answer":
+        return "پاسخ کوتاه"
+    return "چندگزینه‌ای"
+
+
+def get_mastery_quiz_info(week: int) -> dict[str, Any]:
+    """استخراج اطلاعات آزمون تسلط هفته شامل فهرست پرسش‌ها، آستانه قبولی و زمان انتظار."""
     path = kb_repo.get_anzali_week_dir(week) / "quizzes.json"
     if not path.is_file():
-        return []
-
+        return {
+            "items": [],
+            "item_ids": [],
+            "total_questions": 5,
+            "pass_threshold": 0.8,
+            "cooldown_hours": 0,
+            "mastery_qz": None,
+        }
     try:
         with open(path, encoding="utf-8") as f:
             data = json.load(f)
     except Exception:
-        return []
+        return {
+            "items": [],
+            "item_ids": [],
+            "total_questions": 5,
+            "pass_threshold": 0.8,
+            "cooldown_hours": 0,
+            "mastery_qz": None,
+        }
 
     items = data.get("items", [])
-    if not items:
+    items_by_id = {it["id"]: it for it in items if isinstance(it, dict) and "id" in it}
+    quizzes = data.get("quizzes", [])
+    mastery_qz = next((qz for qz in quizzes if qz.get("kind") == "mastery_test"), None)
+
+    if mastery_qz:
+        item_ids = mastery_qz.get("item_ids", [])
+        selected = [items_by_id[iid] for iid in item_ids if iid in items_by_id]
+        retake = mastery_qz.get("retake", {})
+        return {
+            "items": selected,
+            "item_ids": item_ids,
+            "total_questions": len(selected) or len(items[:5]) or 5,
+            "pass_threshold": float(mastery_qz.get("pass_threshold", 0.8)),
+            "cooldown_hours": int(retake.get("cooldown_hours", 0)),
+            "mastery_qz": mastery_qz,
+        }
+
+    # در صورت نبود آزمون تسلط صریح، سوالات اولیه به کار می‌روند
+    fallback_items = items[:5] if len(items) >= 5 else items
+    return {
+        "items": fallback_items,
+        "item_ids": [it["id"] for it in fallback_items],
+        "total_questions": len(fallback_items) or 5,
+        "pass_threshold": 0.8,
+        "cooldown_hours": 0,
+        "mastery_qz": None,
+    }
+
+
+def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[str, Any]]:
+    """بارگذاری آزمون تسلط هفته طبق quizzes[kind=='mastery_test'].item_ids با قرارداد D90."""
+    path = kb_repo.get_anzali_week_dir(week) / "quizzes.json"
+    if not path.is_file():
         return []
 
-    # ۵ سوال اول به عنوان آزمون تسلط استاندارد
-    selected_items = items[:5]
+    mastery_info = get_mastery_quiz_info(week)
+    selected_items = mastery_info.get("items", [])
+    if not selected_items:
+        return []
 
     active_attempt = None
     if user_id:
@@ -319,12 +405,23 @@ def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[st
         is_correct = bool(recorded_ans and recorded_ans.get("is_correct"))
         sub_answer = recorded_ans.get("answer") if recorded_ans else None
 
-        options = q.get("options") or []
-        if q_type == "true_false" and not options:
-            options = [
+        raw_options = q.get("options") or []
+        if q_type == "true_false" and not raw_options:
+            raw_options = [
                 {"id": "true", "text_fa": "درست"},
                 {"id": "false", "text_fa": "نادرست"},
             ]
+
+        # پشتیبانی قرارداد D90 برای گزینه‌های کدی (text_is_code)
+        options = []
+        for opt in raw_options:
+            options.append({
+                "id": opt.get("id"),
+                "text_fa": opt.get("text_fa", ""),
+                "feedback_fa": opt.get("feedback_fa", ""),
+                "text_is_code": bool(opt.get("text_is_code", False)),
+                "misconception": opt.get("misconception"),
+            })
 
         # خطوط پارسونز (شامل خطوط اصلی و distractors)
         lines = q.get("lines") or []
@@ -337,18 +434,24 @@ def load_quizzes_for_week(week: int, user_id: int | None = None) -> list[dict[st
 
         code_snippet = q.get("code") or ""
         code_lang = q.get("lang") or "c"
+        type_lbl = get_quiz_type_label(q)
 
         out.append({
             "id": qid,
             "type": q_type,
+            "type_label": type_lbl,
             "prompt_fa": q.get("prompt_fa", ""),
+            "prompt_full_fa": q.get("prompt_full_fa", ""),
             "explanation_fa": q.get("explanation_fa", ""),
+            "hint_fa": q.get("hint_fa") or "",
+            "hints_fa": q.get("hints_fa") or [],
             "options": options,
             "lines": all_parsons_lines,
             "code": code_snippet,
             "lang": code_lang,
             "difficulty": q.get("difficulty", 1),
             "lesson_id": q.get("lesson_id"),
+            "concept_ids": q.get("concept_ids") or [],
             "attempted": attempted,
             "is_correct": is_correct,
             "submitted_answer": sub_answer,
@@ -371,16 +474,20 @@ def submit_quiz_question(
     except Exception:
         return {"success": False, "error": "quiz_read_error", "message": "خطا در بارگذاری فایل آزمون."}
 
-    items = data.get("items", [])
-    selected_items = items[:5]
+    mastery_info = get_mastery_quiz_info(week)
+    selected_items = mastery_info.get("items", [])
+    total_quiz_questions = mastery_info.get("total_questions", len(selected_items) or 5)
+
     target = next((item for item in selected_items if item.get("id") == question_id), None)
     if not target:
+        items = data.get("items", [])
         target = next((item for item in items if item.get("id") == question_id), None)
     if not target:
         return {"success": False, "error": "question_not_found", "message": "سوال یافت نشد."}
 
-    total_quiz_questions = len(selected_items)
     attempt = get_or_create_active_quiz_attempt(user_id, week, total_questions=total_quiz_questions)
+    if attempt.total_questions != total_quiz_questions and not attempt.is_completed:
+        attempt.total_questions = total_quiz_questions
 
     # ۱. قفل تلاش نهایی‌شده: پاسخ‌ها پس از تکمیل آزمون غیرقابل تغییرند
     if attempt.is_completed:
@@ -413,7 +520,7 @@ def submit_quiz_question(
     ans_obj = target.get("answer", {})
     explanation = target.get("explanation_fa", "")
 
-    clean_ans = str(answer_value or "").strip()
+    clean_ans = str(answer_value or "").replace("\r\n", "\n").replace("\r", "\n").strip()
     is_correct = False
 
     if q_type == "mcq":
@@ -430,6 +537,8 @@ def submit_quiz_question(
         if isinstance(accept_list, str):
             accept_list = [accept_list]
         normalized_accepts = [str(x).strip().lower() for x in accept_list]
+        if ans_obj.get("value") is not None:
+            normalized_accepts.append(str(ans_obj.get("value")).strip().lower())
         is_correct = clean_ans.lower() in normalized_accepts
 
     elif q_type == "parsons":
@@ -450,6 +559,27 @@ def submit_quiz_question(
         expected_norm = [str(x).strip() for x in expected_order]
         is_correct = (user_order == expected_norm)
 
+    # استخراج بازخورد گزینه یا سوال (feedback_fa)
+    feedback_text = ""
+    misconception_info = None
+    if q_type == "mcq":
+        for opt in target.get("options", []):
+            if str(opt.get("id")).lower() == clean_ans.lower():
+                feedback_text = opt.get("feedback_fa", "")
+                if not is_correct and opt.get("misconception"):
+                    misconception_info = {
+                        "misconception": opt.get("misconception"),
+                        "remediation_fa": opt.get("remediation_fa") or target.get("remediation_fa"),
+                        "anchor": opt.get("anchor") or target.get("anchor"),
+                    }
+                break
+    else:
+        q_fb = target.get("feedback") or {}
+        if is_correct:
+            feedback_text = q_fb.get("correct_fa") or target.get("feedback_fa", "")
+        else:
+            feedback_text = q_fb.get("incorrect_fa") or target.get("feedback_fa", "")
+
     # ۳. ذخیره پاسخ در تلاش جاری
     answers[question_id] = {
         "answer": clean_ans,
@@ -467,7 +597,10 @@ def submit_quiz_question(
         attempt.is_completed = True
         attempt.completed_at = datetime.utcnow()
 
-    # ۵. به‌روزرسانی نمره نهایی در WeekProgress بر اساس بیشترین امتیاز در تمام تلاش‌های کاربر
+    # ۵. به‌روزرسانی نمره نهایی در WeekProgress بر اساس آستانه قبولی آزمون تسلط
+    mastery_info = get_mastery_quiz_info(week)
+    pass_threshold = float(mastery_info.get("pass_threshold", 0.8))
+
     wp = WeekProgress.query.filter_by(user_id=user_id, week=week).first()
     if not wp:
         wp = WeekProgress(user_id=user_id, week=week, quiz_total=attempt.total_questions, quiz_score=0)
@@ -477,7 +610,9 @@ def submit_quiz_question(
     best_score = max([a.score for a in all_user_attempts] + [attempt.score])
     wp.quiz_score = min(best_score, attempt.total_questions)
     wp.quiz_total = attempt.total_questions
-    if wp.quiz_total > 0 and (wp.quiz_score / wp.quiz_total) >= 0.8:
+
+    is_passed = (wp.quiz_total > 0 and (wp.quiz_score / wp.quiz_total) >= pass_threshold)
+    if is_passed:
         wp.quiz_completed = True
 
     # ثبت تلاش در ExerciseAttempt برای حفظ backward compatibility و آمار کلی
@@ -499,11 +634,12 @@ def submit_quiz_question(
 
     db.session.commit()
 
+    # اعطای ۲۵ XP فقط در صورت قبولی در آزمون تسلط به صورت ایدمپوتنت (تک‌پاسخ = ۰ XP)
     xp_awarded = 0
-    if is_correct:
-        quiz_xp = 10
-        awarded = xp_service.award(user_id, quiz_xp, f"quiz_{week}_{question_id}")
-        xp_awarded = quiz_xp if awarded else 0
+    if is_passed:
+        reason = f"quiz:mastery:w{week:02d}:pass"
+        if xp_service.award(user_id, 25, reason):
+            xp_awarded = 25
 
     event_service.log_event(user_id, "quiz_submit", {
         "week": week,
@@ -543,11 +679,16 @@ def submit_quiz_question(
         "success": True,
         "question_id": question_id,
         "is_correct": is_correct,
+        "feedback_fa": feedback_text,
         "explanation": explanation,
+        "misconception": misconception_info.get("misconception") if misconception_info else None,
+        "remediation_fa": misconception_info.get("remediation_fa") if misconception_info else None,
+        "anchor": misconception_info.get("anchor") if misconception_info else None,
         "xp_awarded": xp_awarded,
         "current_score": attempt.score,
         "total_score": attempt.total_questions,
         "quiz_completed": wp.quiz_completed,
+        "pass_threshold": pass_threshold,
         "is_finalized": attempt.is_completed,
         "attempt_number": attempt.attempt_number,
         "remaining_attempts": max(0, MAX_QUIZ_ATTEMPTS - attempt.attempt_number),

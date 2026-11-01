@@ -5,6 +5,7 @@
     /dashboard   — داشبورد دانش‌آموز (login_required)
     /health      — uptime monitoring (عمومی)
 """
+import json
 from flask import Blueprint, render_template, jsonify, redirect, url_for, flash, request, session
 from flask_login import login_required, current_user
 
@@ -14,6 +15,7 @@ from app.services import streak as streak_service
 from app.services import events as event_service
 from app.services import diagnostics as diag_service
 from app.services import cohorts as cohort_service
+from app.services import adaptive as adaptive_service
 
 bp = Blueprint("main", __name__)
 
@@ -171,3 +173,81 @@ def offline():
 def health():
     """برای uptime monitoring — پاسخ سبک بدون تمپلیت."""
     return jsonify(status="ok", service="anzali-cs50-hub")
+
+
+@bp.route("/practice", methods=["GET"])
+@login_required
+def practice():
+    """شروع یا ادامه نشست ۵ دقیقه‌ای تمرین تطبیقی."""
+    session_data = adaptive_service.start_user_practice_session(current_user.id)
+    if (
+        request.is_json
+        or request.headers.get("Accept") == "application/json"
+        or request.args.get("format") == "json"
+    ):
+        return jsonify(session_data)
+
+    bank = adaptive_service.load_question_bank_for_practice()
+    bank_map = {item["id"]: item for item in bank}
+    items = [bank_map[iid] for iid in session_data.get("item_ids", []) if iid in bank_map]
+
+    return render_template(
+        "kb/practice_runner.html",
+        week=0,
+        week_title="تمرین تطبیقی ۵ دقیقه‌ای (Adaptive Practice)",
+        session_data=session_data,
+        challenges_json=json.dumps(items, ensure_ascii=False),
+        user_xp=current_user.xp,
+        user_streak=current_user.streak,
+    )
+
+
+@bp.route("/practice/answer", methods=["POST"])
+@login_required
+def practice_answer():
+    """ثبت پاسخ یک پرسش در نشست تطبیقی جاری."""
+    data = request.get_json(silent=True) or request.form.to_dict()
+    session_id = data.get("session_id")
+    question_id = data.get("question_id")
+    answer = data.get("answer") if "answer" in data else data.get("answer_value")
+
+    if not session_id:
+        state = adaptive_service.get_or_create_adaptive_state(current_user.id)
+        current = state.get("current_session")
+        if current:
+            session_id = current.get("session_id")
+
+    if not session_id or not question_id:
+        return jsonify({"success": False, "error": "شناسه نشست یا شناسه سوال نامعتبر است."}), 400
+
+    res = adaptive_service.submit_user_practice_answer(
+        user_id=current_user.id,
+        session_id=session_id,
+        question_id=question_id,
+        answer_value=answer,
+    )
+    return jsonify(res)
+
+
+@bp.route("/practice/finish", methods=["POST"])
+@login_required
+def practice_finish():
+    """پایان نشست تمرین تطبیقی و به‌روزرسانی استریک."""
+    data = request.get_json(silent=True) or request.form.to_dict()
+    session_id = data.get("session_id")
+
+    if not session_id:
+        state = adaptive_service.get_or_create_adaptive_state(current_user.id)
+        current = state.get("current_session")
+        if current:
+            session_id = current.get("session_id")
+
+    if not session_id:
+        return jsonify({"success": False, "error": "نشست فعالی یافت نشد."}), 400
+
+    res = adaptive_service.complete_user_practice_session(
+        user_id=current_user.id,
+        session_id=session_id,
+    )
+    return jsonify(res)
+

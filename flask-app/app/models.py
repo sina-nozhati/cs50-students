@@ -172,7 +172,7 @@ class WeekProgress(db.Model):
     )
     week = db.Column(db.Integer, nullable=False, index=True)
     quiz_score = db.Column(db.Integer, default=0)        # بهترین نمره‌ی کوییز (۰..total)
-    quiz_total = db.Column(db.Integer, default=5)        # تعداد سؤال‌های کوییز این هفته
+    quiz_total = db.Column(db.Integer, default=0)        # تعداد سؤال‌های آزمون تسلط هفته
     quiz_completed = db.Column(db.Boolean, default=False)
     kb_read = db.Column(db.Boolean, default=False)       # تقلب‌نامه را خوانده؟
     flashcards_reviewed = db.Column(db.Boolean, default=False)
@@ -354,6 +354,29 @@ class StudentMistake(db.Model):
     __table_args__ = (
         db.UniqueConstraint("user_id", "item_id", name="uq_user_item_mistake"),
     )
+
+
+class KBPackageInstall(db.Model):
+    """تاریخچه و گزارش بسته‌های پایگاه دانش نصب‌شده در پلتفرم."""
+    __tablename__ = "kb_package_installs"
+    id = db.Column(db.Integer, primary_key=True)
+    package_type = db.Column(db.String(50), nullable=False)  # master | single_week
+    version = db.Column(db.String(20), nullable=False)       # e.g. "1.0.0"
+    sha256 = db.Column(db.String(64), nullable=False, unique=True, index=True)
+    installed_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    installed_at_tehran = db.Column(db.String(50), nullable=True)
+    admin_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="SET NULL"), nullable=True)
+    metadata_json = db.Column(db.JSON, nullable=True)
+
+
+class AdaptiveState(db.Model):
+    """وضعیت یادگیری تطبیقی دانش‌آموز (BKT، جعبه‌های لایتنر، و تاریخچه جلسات)."""
+    __tablename__ = "adaptive_states"
+    user_id = db.Column(
+        db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
+    )
+    state_json = db.Column(db.JSON, nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
 
 @login_manager.user_loader

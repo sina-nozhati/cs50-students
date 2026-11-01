@@ -12,19 +12,23 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import json
 import os
 import re
 import shutil
+import subprocess
+import sys
 import tarfile
 import tempfile
 import zipfile
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
 from app import db
 from app.content import kb_repo
-from app.models import Week
+from app.models import KBPackageInstall, Week
 
 
 def _get_kb_root() -> Path:
@@ -252,40 +256,267 @@ def validate_challenges_schema(data: dict[str, Any]) -> list[str]:
     return errors
 
 
-def install_kb_package(archive_path: Path | str, target_week: int | None = None) -> dict[str, Any]:
-    """استخراج و نصب کامل بسته آموزشی یک هفته در پایگاه دانش انزلی."""
-    archive_path = Path(archive_path)
-    info = inspect_archive(archive_path)
-    if not info.get("valid"):
+def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[str, Any]:
+    """اعتبارسنجی دقیق و ادغام ایدمپوتنت بسته نهایی CS50x Anzali نسخه 1.0.0."""
+    master_index_path = pkg_dir / "MASTER_INDEX.json"
+    if not master_index_path.is_file():
         return {
             "success": False,
-            "error": info.get("error") or "بسته فاقد محتوای معتبر آموزشی (یادداشت‌ها یا نمای کلی) است.",
+            "is_master": True,
+            "error": "فایل MASTER_INDEX.json در ریشه بسته یافت نشد.",
+            "error_list": ["MASTER_INDEX.json missing"],
         }
 
-    week = target_week if target_week is not None else info.get("week_number")
-    if week is None:
-        return {"success": False, "error": "شماره هفته مشخص نشده و از بسته قابل استخراج نیست."}
+    try:
+        data = json.loads(master_index_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        return {
+            "success": False,
+            "is_master": True,
+            "error": f"خطا در خواندن فایل MASTER_INDEX.json: {e}",
+            "error_list": [str(e)],
+        }
 
-    kb_root = _get_kb_root()
-    anzali_root = _get_anzali_root()
-    dest_slug = info.get("week_dir") or kb_repo.get_week_folder_slug(week)
-    dest_week_dir = anzali_root / "weeks" / dest_slug
-    dest_week_dir.mkdir(parents=True, exist_ok=True)
+    files_list = data.get("files", [])
+    if not isinstance(files_list, list):
+        return {
+            "success": False,
+            "is_master": True,
+            "error": "فرمت فیلد files در MASTER_INDEX.json نامعتبر است.",
+            "error_list": ["files list invalid"],
+        }
 
-    extracted_notes = 0
-    extracted_flashcards = 0
-    extracted_quizzes = 0
-    glossary_updated = 0
-    learning_map_updated = False
-    index_nodes_merged = 0
+    # ۲.۲ بررسی ۱: تطبیق sha256، اندازه و عدم وجود فایل‌های فهرست‌نشده
+    expected_paths: set[str] = set()
+    mismatches: list[str] = []
+
+    for entry in files_list:
+        rel_path = entry.get("path")
+        exp_sha = entry.get("sha256")
+        exp_bytes = entry.get("bytes")
+
+        if not rel_path or not exp_sha:
+            continue
+
+        norm_rel = Path(rel_path).as_posix()
+        expected_paths.add(norm_rel)
+        file_path = pkg_dir / rel_path
+
+        if not file_path.is_file():
+            mismatches.append(f"فایل {rel_path} در بسته وجود ندارد.")
+            continue
+
+        actual_size = file_path.stat().st_size
+        if exp_bytes is not None and actual_size != exp_bytes:
+            mismatches.append(
+                f"اندازه فایل {rel_path} ({actual_size} بایت) با مقدار فهرست‌شده ({exp_bytes} بایت) جور نیست."
+            )
+            continue
+
+        hasher = hashlib.sha256()
+        with open(file_path, "rb") as f:
+            while chunk := f.read(65536):
+                hasher.update(chunk)
+        actual_sha = hasher.hexdigest()
+
+        if actual_sha.lower() != str(exp_sha).lower():
+            mismatches.append(
+                f"sha256 فایل {rel_path} جور نیست (انتظار: {exp_sha[:12]}...، واقعی: {actual_sha[:12]}...)."
+            )
+
+    # بررسی فایل‌های فهرست‌نشده در بسته (هیچ فایل فهرست‌نشده‌ای مجاز نیست)
+    for p in pkg_dir.rglob("*"):
+        if p.is_file() and p.name != "MASTER_INDEX.json":
+            rel = p.relative_to(pkg_dir).as_posix()
+            if rel not in expected_paths:
+                mismatches.append(f"فایل فهرست‌نشده در بسته: {rel}")
+
+    if mismatches:
+        return {
+            "success": False,
+            "is_master": True,
+            "error": f"بسته رد شد: {len(mismatches)} فایل با sha256 فهرست‌شده جور نیست. هیچ تغییری در سایت ایجاد نشد.",
+            "error_list": mismatches[:20],
+        }
+
+    # ۲.۲ بررسی ۲: بررسی نسخه در manifest.json
+    manifest_path = pkg_dir / "knowledge-base" / "manifest.json"
+    if not manifest_path.is_file():
+        manifest_path = pkg_dir / "manifest.json"
+
+    if not manifest_path.is_file():
+        return {
+            "success": False,
+            "is_master": True,
+            "error": "بسته رد شد: فایل knowledge-base/manifest.json یافت نشد. هیچ تغییری در سایت ایجاد نشد.",
+            "error_list": ["manifest.json not found"],
+        }
+
+    try:
+        m_data = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if str(m_data.get("version")) != "1.0.0":
+            return {
+                "success": False,
+                "is_master": True,
+                "error": f"بسته رد شد: نسخه manifest.json ({m_data.get('version')}) برابر 1.0.0 نیست. هیچ تغییری در سایت ایجاد نشد.",
+                "error_list": [f"manifest version {m_data.get('version')} != 1.0.0"],
+            }
+    except Exception as e:
+        return {
+            "success": False,
+            "is_master": True,
+            "error": f"بسته رد شد: خطا در خواندن manifest.json: {e}. هیچ تغییری در سایت ایجاد نشد.",
+            "error_list": [str(e)],
+        }
+
+    # ۲.۲ بررسی ۳: اجرای اعتبارسنج همراه بسته
+    val_script = pkg_dir / "knowledge-base" / "validator" / "validate_master.py"
+    if not val_script.is_file():
+        val_script = pkg_dir / "validator" / "validate_master.py"
+
+    if val_script.is_file():
+        with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as v_tmp:
+            v_tmp_path = Path(v_tmp.name)
+        try:
+            cmd = [sys.executable, str(val_script), str(pkg_dir), "--json", str(v_tmp_path)]
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+            if proc.returncode != 0:
+                err_list = []
+                try:
+                    if v_tmp_path.is_file():
+                        v_data = json.loads(v_tmp_path.read_text(encoding="utf-8"))
+                        err_list = v_data.get("error_list", [])
+                except Exception:
+                    pass
+                if not err_list and (proc.stderr or proc.stdout):
+                    err_list = [line.strip() for line in (proc.stderr + "\n" + proc.stdout).splitlines() if line.strip()]
+                return {
+                    "success": False,
+                    "is_master": True,
+                    "error": "بسته رد شد: اعتبارسنجی با خطا مواجه شد. هیچ تغییری در سایت ایجاد نشد.",
+                    "error_list": err_list[:20],
+                }
+        finally:
+            try:
+                if v_tmp_path.is_file():
+                    v_tmp_path.unlink()
+            except Exception:
+                pass
+
+    # ۲.۲ بررسی ۴: اجرای آزمون‌های موتور تطبیقی
+    adaptive_tests_dir = pkg_dir / "knowledge-base" / "adaptive" / "tests"
+    if not adaptive_tests_dir.is_dir():
+        adaptive_tests_dir = pkg_dir / "adaptive" / "tests"
+
+    if adaptive_tests_dir.is_dir():
+        proc = subprocess.run(
+            [sys.executable, "-m", "unittest", "discover", "-s", str(adaptive_tests_dir)],
+            capture_output=True,
+            text=True,
+            timeout=60,
+            cwd=str(pkg_dir),
+        )
+        if proc.returncode != 0:
+            err_lines = [l.strip() for l in (proc.stderr + "\n" + proc.stdout).splitlines() if l.strip()]
+            return {
+                "success": False,
+                "is_master": True,
+                "error": "بسته رد شد: آزمون‌های موتور تطبیقی ناموفق بودند. هیچ تغییری در سایت ایجاد نشد.",
+                "error_list": err_lines[:20],
+            }
+
+    # ۲.۳ نصب ایدمپوتنت: بررسی sha256 بسته
+    master_sha = hashlib.sha256(master_index_path.read_bytes()).hexdigest()
+    existing_install = KBPackageInstall.query.filter_by(sha256=master_sha).first()
+    if existing_install:
+        return {
+            "success": True,
+            "is_master": True,
+            "already_installed": True,
+            "version": "1.0.0",
+            "message": "این بسته قبلاً نصب شده است.",
+        }
+
+    # ۲.۳ انجام نصب در یک تراکنش دیتابیس با حفظ پیشرفت دانشجو
+    try:
+        anzali_root = _get_anzali_root()
+        kb_src = pkg_dir / "knowledge-base" if (pkg_dir / "knowledge-base").is_dir() else pkg_dir
+
+        # کپی هفته‌ها
+        weeks_src = kb_src / "weeks"
+        if weeks_src.is_dir():
+            weeks_dst = anzali_root / "weeks"
+            weeks_dst.mkdir(parents=True, exist_ok=True)
+            for w_dir in weeks_src.iterdir():
+                if w_dir.is_dir():
+                    target_dst = weeks_dst / w_dir.name
+                    if target_dst.exists():
+                        shutil.rmtree(target_dst)
+                    shutil.copytree(w_dir, target_dst)
+
+        # کپی سایر ماژول‌ها (curriculum, gamification, adaptive, integration, schemas)
+        for sub in ["curriculum", "gamification", "adaptive", "integration", "schemas"]:
+            s_dir = kb_src / sub
+            if s_dir.is_dir():
+                d_dir = anzali_root / sub
+                if d_dir.exists():
+                    shutil.rmtree(d_dir)
+                shutil.copytree(s_dir, d_dir)
+
+        # کپی manifest.json
+        if (kb_src / "manifest.json").is_file():
+            shutil.copy2(kb_src / "manifest.json", anzali_root / "manifest.json")
+
+        # ثبت تاریخچه نصب با زمان به وقت تهران
+        tehran_time = datetime.now(timezone(timedelta(hours=3, minutes=30))).strftime("%Y-%m-%d %H:%M:%S Asia/Tehran")
+        install_rec = KBPackageInstall(
+            package_type="master",
+            version="1.0.0",
+            sha256=master_sha,
+            installed_at=datetime.utcnow(),
+            installed_at_tehran=tehran_time,
+            admin_id=admin_id,
+            metadata_json={"files_count": len(files_list)},
+        )
+        db.session.add(install_rec)
+        db.session.commit()
+
+        kb_repo.clear_cache()
+        return {
+            "success": True,
+            "is_master": True,
+            "already_installed": False,
+            "version": "1.0.0",
+            "message": "بسته نهایی نسخه 1.0.0 با موفقیت تایید و ادغام شد.",
+        }
+    except Exception as e:
+        db.session.rollback()
+        return {
+            "success": False,
+            "is_master": True,
+            "error": f"خطا در تراکنش پایگاه داده هنگام ادغام: {e}",
+            "error_list": [str(e)],
+        }
+
+
+def install_kb_package(archive_path: Path | str, target_week: int | None = None, admin_id: int | None = None) -> dict[str, Any]:
+    """استخراج و نصب کامل بسته آموزشی یک هفته یا بسته نهایی در پایگاه دانش انزلی."""
+    archive_path = Path(archive_path)
+
+    # بررسی اولیه آرشیو
+    is_tar = tarfile.is_tarfile(archive_path)
+    is_zip = zipfile.is_zipfile(archive_path)
+    if not is_tar and not is_zip:
+        return {"success": False, "error": "فرمت فایل نامعتبر است. فرمت‌های مجاز: .tar.gz, .tgz, .tar, .zip"}
 
     with tempfile.TemporaryDirectory() as tmpdir:
         tmp_path = Path(tmpdir)
-        # ۱. استخراج در دایرکتوری موقت
-        if info["is_tar"]:
+        # ۱. استخراج در دایرکتوری موقت با محافظت کامل در برابر Zip Slip
+        if is_tar:
             with tarfile.open(archive_path, "r:*") as tar:
-                # بررسی ایمنی path traversal
                 for member in tar.getmembers():
+                    if member.issym() or member.islnk():
+                        return {"success": False, "error": "تشخیص پیوند نمادین ناامن در فایل آرشیو."}
                     member_path = (tmp_path / member.name).resolve()
                     if not _is_safe_path(tmp_path, member_path):
                         return {"success": False, "error": "تشخیص مسیر ناامن در فایل آرشیو (Zip Slip)."}
@@ -293,10 +524,50 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None)
         else:
             with zipfile.ZipFile(archive_path, "r") as zf:
                 for member in zf.namelist():
+                    p_member = Path(member)
+                    if p_member.is_absolute() or ".." in p_member.parts:
+                        return {"success": False, "error": "تشخیص مسیر ناامن در فایل آرشیو (Zip Slip)."}
                     member_path = (tmp_path / member).resolve()
                     if not _is_safe_path(tmp_path, member_path):
                         return {"success": False, "error": "تشخیص مسیر ناامن در فایل آرشیو (Zip Slip)."}
                 zf.extractall(tmp_path)
+
+        # ۲. بررسی بسته نهایی (Master Package v1.0.0) بر اساس وجود MASTER_INDEX.json
+        master_index_file = None
+        if (tmp_path / "MASTER_INDEX.json").is_file():
+            master_index_file = tmp_path / "MASTER_INDEX.json"
+        else:
+            for r, dirs, files in os.walk(tmp_path):
+                if "MASTER_INDEX.json" in files:
+                    master_index_file = Path(r) / "MASTER_INDEX.json"
+                    break
+
+        if master_index_file:
+            return install_master_package(master_index_file.parent, admin_id=admin_id)
+
+        # در صورت نبود MASTER_INDEX.json: رفتار بسته تک‌هفته‌ای حفظ می‌شود
+        info = inspect_archive(archive_path)
+        if not info.get("valid"):
+            return {
+                "success": False,
+                "error": info.get("error") or "بسته فاقد محتوای معتبر آموزشی است.",
+            }
+
+        week = target_week if target_week is not None else info.get("week_number")
+        if week is None:
+            return {"success": False, "error": "شماره هفته مشخص نشده و از بسته قابل استخراج نیست."}
+
+        anzali_root = _get_anzali_root()
+        dest_slug = info.get("week_dir") or kb_repo.get_week_folder_slug(week)
+        dest_week_dir = anzali_root / "weeks" / dest_slug
+        dest_week_dir.mkdir(parents=True, exist_ok=True)
+
+        extracted_notes = 0
+        extracted_flashcards = 0
+        extracted_quizzes = 0
+        glossary_updated = 0
+        learning_map_updated = False
+        index_nodes_merged = 0
 
         # ۲. یافتن ریشه پوشه هفته در دایرکتوری موقت
         src_week_path = None

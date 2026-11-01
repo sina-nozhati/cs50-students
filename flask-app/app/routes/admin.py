@@ -631,17 +631,26 @@ def kb_packages_upload():
         tmp_path = Path(tmp.name)
 
     try:
-        result = kb_admin.install_kb_package(tmp_path, target_week=target_week)
+        result = kb_admin.install_kb_package(tmp_path, target_week=target_week, admin_id=current_user.id)
         if result.get("success"):
-            w_disp = "۷.۵" if result["week"] == 71 else ("۹.۵" if result["week"] == 99 else str(result["week"]))
-            flash(
-                f"بسته هفته {w_disp} با موفقیت نصب و ادغام شد! "
-                f"({result['notes_count']} یادداشت درس، {result['flashcards_count']} فلش‌کارت، "
-                f"{result['quiz_count']} سوال آزمون، {result['glossary_count']} اصطلاح واژه‌نامه)",
-                "success",
-            )
+            if result.get("is_master"):
+                if result.get("already_installed"):
+                    flash(result.get("message", "این بسته قبلاً نصب شده است."), "info")
+                else:
+                    flash(result.get("message", "بسته نهایی نسخه 1.0.0 با موفقیت تایید و ادغام شد!"), "success")
+            else:
+                w_disp = "۷.۵" if result.get("week") == 71 else ("۹.۵" if result.get("week") == 99 else str(result.get("week", "")))
+                flash(
+                    f"بسته هفته {w_disp} با موفقیت نصب و ادغام شد! "
+                    f"({result.get('notes_count', 0)} یادداشت درس، {result.get('flashcards_count', 0)} فلش‌کارت، "
+                    f"{result.get('quiz_count', 0)} سوال آزمون، {result.get('glossary_count', 0)} اصطلاح واژه‌نامه)",
+                    "success",
+                )
         else:
-            flash(f"خطا در نصب بسته: {result.get('error', 'خطای ناشناخته')}", "error")
+            flash(result.get("error", "خطای ناشناخته در نصب بسته"), "error")
+            if result.get("error_list"):
+                for err in result["error_list"][:5]:
+                    flash(f"جزئیات خطا: {err}", "error")
     finally:
         try:
             if tmp_path.exists():

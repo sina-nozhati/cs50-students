@@ -92,6 +92,10 @@ def create_app(config_object: str = "app.config.Config") -> Flask:
     def page_not_found(e):
         return render_template("errors/404.html"), 404
 
+    # ثبت فیلترهای سفارشی Jinja
+    from app.services.kb_interactive import get_quiz_type_label
+    app.jinja_env.filters["quiz_type_label"] = get_quiz_type_label
+
     return app
 
 
