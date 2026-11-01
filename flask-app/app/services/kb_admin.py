@@ -28,7 +28,7 @@ from typing import Any
 
 from app import db
 from app.content import kb_repo
-from app.models import KBPackageInstall, Week
+from app.models import Course, KBPackageInstall, Week
 
 
 def _get_kb_root() -> Path:
@@ -256,8 +256,8 @@ def validate_challenges_schema(data: dict[str, Any]) -> list[str]:
     return errors
 
 
-def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[str, Any]:
-    """اعتبارسنجی دقیق و ادغام ایدمپوتنت بسته نهایی CS50x Anzali نسخه 1.0.0."""
+def install_master_package(pkg_dir: Path, admin_id: int | None = None, course_id: int | None = None) -> dict[str, Any]:
+    """اعتبارسنجی دقیق و ادغام ایدمپوتنت بسته نهایی چنددوره‌ای پایگاه دانش."""
     master_index_path = pkg_dir / "MASTER_INDEX.json"
     if not master_index_path.is_file():
         return {
@@ -354,12 +354,13 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
 
     try:
         m_data = json.loads(manifest_path.read_text(encoding="utf-8"))
-        if str(m_data.get("version")) != "1.0.0":
+        pkg_version = str(m_data.get("version") or data.get("version") or "1.0.0").strip()
+        if not pkg_version or not re.match(r"^\d+(\.\d+)*(-[0-9A-Za-z.-]+)?$", pkg_version):
             return {
                 "success": False,
                 "is_master": True,
-                "error": f"بسته رد شد: نسخه manifest.json ({m_data.get('version')}) برابر 1.0.0 نیست. هیچ تغییری در سایت ایجاد نشد.",
-                "error_list": [f"manifest version {m_data.get('version')} != 1.0.0"],
+                "error": f"بسته رد شد: نسخه نامعتبر در manifest.json ({pkg_version}). نسخه باید در قالب استاندارد معنایی (مانند 1.0.0 یا 1.0.1) باشد.",
+                "error_list": [f"manifest version '{pkg_version}' is invalid"],
             }
     except Exception as e:
         return {
@@ -369,7 +370,7 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
             "error_list": [str(e)],
         }
 
-    # ۲.۲ بررسی ۳: اجرای اعتبارسنج همراه بسته
+    # ۲.۲ بررسی ۳: اجرای اعتبارسنج همراه بسته (با سازگاری کامل ویندوز/لینوکس و UTF-8)
     val_script = pkg_dir / "knowledge-base" / "validator" / "validate_master.py"
     if not val_script.is_file():
         val_script = pkg_dir / "validator" / "validate_master.py"
@@ -378,8 +379,22 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
         with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as v_tmp:
             v_tmp_path = Path(v_tmp.name)
         try:
-            cmd = [sys.executable, str(val_script), str(pkg_dir), "--json", str(v_tmp_path)]
-            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+            wrapper_code = (
+                "import sys, glob\n"
+                "_orig = glob.glob\n"
+                "def _posix_glob(*a, **kw):\n"
+                "    return [p.replace('\\\\', '/') for p in _orig(*a, **kw)]\n"
+                "glob.glob = _posix_glob\n"
+                "val_p = sys.argv[1]\n"
+                "sys.argv = sys.argv[1:]\n"
+                "with open(val_p, 'r', encoding='utf-8') as f:\n"
+                "    code = compile(f.read(), val_p, 'exec')\n"
+                "    exec(code, {'__name__': '__main__', '__file__': val_p})\n"
+            )
+            val_env = os.environ.copy()
+            val_env["PYTHONUTF8"] = "1"
+            cmd = [sys.executable, "-c", wrapper_code, str(val_script), str(pkg_dir), "--json", str(v_tmp_path)]
+            proc = subprocess.run(cmd, capture_output=True, text=True, timeout=120, env=val_env)
             if proc.returncode != 0:
                 err_list = []
                 try:
@@ -409,12 +424,15 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
         adaptive_tests_dir = pkg_dir / "adaptive" / "tests"
 
     if adaptive_tests_dir.is_dir():
+        test_env = os.environ.copy()
+        test_env["PYTHONUTF8"] = "1"
         proc = subprocess.run(
             [sys.executable, "-m", "unittest", "discover", "-s", str(adaptive_tests_dir)],
             capture_output=True,
             text=True,
             timeout=60,
             cwd=str(pkg_dir),
+            env=test_env,
         )
         if proc.returncode != 0:
             err_lines = [l.strip() for l in (proc.stderr + "\n" + proc.stdout).splitlines() if l.strip()]
@@ -425,6 +443,15 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
                 "error_list": err_lines[:20],
             }
 
+    # حل دوره هدف برای پشتیبانی چنددوره‌ای پویا
+    course = None
+    if course_id:
+        course = db.session.get(Course, course_id)
+    if not course:
+        course = Course.query.filter_by(is_active=True).first() or Course.query.first()
+    course_title = course.title if course else "CS50x Anzali"
+    course_code = course.code if course else "cs50x"
+
     # ۲.۳ نصب ایدمپوتنت: بررسی sha256 بسته
     master_sha = hashlib.sha256(master_index_path.read_bytes()).hexdigest()
     existing_install = KBPackageInstall.query.filter_by(sha256=master_sha).first()
@@ -433,8 +460,10 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
             "success": True,
             "is_master": True,
             "already_installed": True,
-            "version": "1.0.0",
-            "message": "این بسته قبلاً نصب شده است.",
+            "version": existing_install.version or pkg_version,
+            "course_title": course_title,
+            "course_code": course_code,
+            "message": f"این بسته قبلاً نصب شده است. (نسخه {existing_install.version or pkg_version})",
         }
 
     # ۲.۳ انجام نصب در یک تراکنش دیتابیس با حفظ پیشرفت دانشجو
@@ -467,16 +496,23 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
         if (kb_src / "manifest.json").is_file():
             shutil.copy2(kb_src / "manifest.json", anzali_root / "manifest.json")
 
-        # ثبت تاریخچه نصب با زمان به وقت تهران
+        # ثبت تاریخچه نصب با زمان به وقت تهران و ارجاع به دوره
         tehran_time = datetime.now(timezone(timedelta(hours=3, minutes=30))).strftime("%Y-%m-%d %H:%M:%S Asia/Tehran")
+        meta = {
+            "files_count": len(files_list),
+            "course_id": course.id if course else None,
+            "course_code": course_code,
+            "course_title": course_title,
+        }
         install_rec = KBPackageInstall(
             package_type="master",
-            version="1.0.0",
+            version=pkg_version,
             sha256=master_sha,
             installed_at=datetime.utcnow(),
             installed_at_tehran=tehran_time,
             admin_id=admin_id,
-            metadata_json={"files_count": len(files_list)},
+            course_id=course.id if course else None,
+            metadata_json=meta,
         )
         db.session.add(install_rec)
         db.session.commit()
@@ -486,8 +522,10 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
             "success": True,
             "is_master": True,
             "already_installed": False,
-            "version": "1.0.0",
-            "message": "بسته نهایی نسخه 1.0.0 با موفقیت تایید و ادغام شد.",
+            "version": pkg_version,
+            "course_title": course_title,
+            "course_code": course_code,
+            "message": f"بسته نهایی نسخه {pkg_version} برای دوره «{course_title}» با موفقیت تایید و ادغام شد.",
         }
     except Exception as e:
         db.session.rollback()
@@ -499,7 +537,12 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None) -> dict[s
         }
 
 
-def install_kb_package(archive_path: Path | str, target_week: int | None = None, admin_id: int | None = None) -> dict[str, Any]:
+def install_kb_package(
+    archive_path: Path | str,
+    target_week: int | None = None,
+    admin_id: int | None = None,
+    course_id: int | None = None,
+) -> dict[str, Any]:
     """استخراج و نصب کامل بسته آموزشی یک هفته یا بسته نهایی در پایگاه دانش انزلی."""
     archive_path = Path(archive_path)
 
@@ -532,7 +575,7 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None,
                         return {"success": False, "error": "تشخیص مسیر ناامن در فایل آرشیو (Zip Slip)."}
                 zf.extractall(tmp_path)
 
-        # ۲. بررسی بسته نهایی (Master Package v1.0.0) بر اساس وجود MASTER_INDEX.json
+        # ۲. بررسی بسته نهایی (Master Package) بر اساس وجود MASTER_INDEX.json
         master_index_file = None
         if (tmp_path / "MASTER_INDEX.json").is_file():
             master_index_file = tmp_path / "MASTER_INDEX.json"
@@ -543,7 +586,7 @@ def install_kb_package(archive_path: Path | str, target_week: int | None = None,
                     break
 
         if master_index_file:
-            return install_master_package(master_index_file.parent, admin_id=admin_id)
+            return install_master_package(master_index_file.parent, admin_id=admin_id, course_id=course_id)
 
         # در صورت نبود MASTER_INDEX.json: رفتار بسته تک‌هفته‌ای حفظ می‌شود
         info = inspect_archive(archive_path)

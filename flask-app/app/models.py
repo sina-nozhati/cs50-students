@@ -361,12 +361,15 @@ class KBPackageInstall(db.Model):
     __tablename__ = "kb_package_installs"
     id = db.Column(db.Integer, primary_key=True)
     package_type = db.Column(db.String(50), nullable=False)  # master | single_week
-    version = db.Column(db.String(20), nullable=False)       # e.g. "1.0.0"
+    version = db.Column(db.String(20), nullable=False)       # e.g. "1.0.0", "1.0.1"
     sha256 = db.Column(db.String(64), nullable=False, unique=True, index=True)
     installed_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     installed_at_tehran = db.Column(db.String(50), nullable=True)
     admin_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="SET NULL"), nullable=True)
+    course_id = db.Column(db.Integer, db.ForeignKey("course.id", ondelete="SET NULL"), nullable=True, index=True)
     metadata_json = db.Column(db.JSON, nullable=True)
+
+    course = db.relationship("Course", backref=db.backref("kb_installs", lazy=True))
 
 
 class AdaptiveState(db.Model):

@@ -110,6 +110,7 @@ def _ensure_sqlite_columns() -> None:
     alters = [
         ("user", "is_active", "ALTER TABLE user ADD COLUMN is_active BOOLEAN NOT NULL DEFAULT 1"),
         ("submission", "graded_at", "ALTER TABLE submission ADD COLUMN graded_at DATETIME"),
+        ("kb_package_installs", "course_id", "ALTER TABLE kb_package_installs ADD COLUMN course_id INTEGER REFERENCES course(id)"),
     ]
     with db.engine.begin() as conn:
         for table, column, sql in alters:

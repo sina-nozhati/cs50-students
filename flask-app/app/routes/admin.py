@@ -39,7 +39,7 @@ from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 
 from app import db
-from app.models import Resource, Submission, Assignment, User
+from app.models import Resource, Submission, Assignment, User, Course, KBPackageInstall
 from app.services import resources as res_service
 from app.services import weeks as weeks_service
 from app.services import users as users_service
@@ -602,42 +602,69 @@ def weeks_toggle(week_number: int):
 @bp.route("/kb-packages")
 @admin_required
 def kb_packages_dashboard():
-    """داشبورد مدیریت و وضعیت بسته‌های هفتگی پایگاه دانش (KB)."""
-    weeks_status = kb_admin.get_all_weeks_kb_status()
-    return render_template("admin/kb_packages.html", weeks_status=weeks_status)
+    """داشبورد مدیریت و وضعیت بسته‌های هفتگی پایگاه دانش (KB) با پشتیبانی چنددوره‌ای پویا."""
+    courses = Course.query.filter_by(is_active=True).order_by(Course.id).all()
+    selected_course_id = request.args.get("course_id", type=int)
+    selected_course = None
+    if selected_course_id:
+        selected_course = db.session.get(Course, selected_course_id)
+    if not selected_course and courses:
+        selected_course = courses[0]
 
+    weeks_status = kb_admin.get_all_weeks_kb_status()
+    recent_installs = KBPackageInstall.query.order_by(KBPackageInstall.installed_at.desc()).limit(10).all()
+
+    return render_template(
+        "admin/kb_packages.html",
+        weeks_status=weeks_status,
+        courses=courses,
+        selected_course=selected_course,
+        recent_installs=recent_installs,
+    )
 
 
 @bp.route("/kb-packages/upload", methods=["POST"])
 @admin_required
 def kb_packages_upload():
-    """دریافت و استخراج فایل فشرده بسته هفته و ادغام آن در پایگاه دانش."""
+    """دریافت و استخراج فایل فشرده بسته هفته یا مستر و ادغام آن در پایگاه دانش دوره انتخابی."""
     uploaded = request.files.get("package_file")
     target_week_raw = request.form.get("target_week")
     target_week = int(target_week_raw) if target_week_raw and target_week_raw.strip().isdigit() else None
+    course_id = request.form.get("course_id", type=int)
 
     if not uploaded or not uploaded.filename:
-        flash("لطفاً یک فایل فشرده بسته هفتگی (.tar.gz, .zip) انتخاب کنید.", "error")
-        return redirect(url_for("admin.kb_packages_dashboard"))
+        flash("لطفاً یک فایل فشرده بسته آموزشی (.tar.gz یا .zip) انتخاب کنید.", "error")
+        return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
 
     filename = secure_filename(uploaded.filename) or "kb_package.tar.gz"
     lower_name = filename.lower()
     if not (lower_name.endswith(".tar.gz") or lower_name.endswith(".tgz") or lower_name.endswith(".tar") or lower_name.endswith(".zip")):
         flash("فرمت فایل معتبر نیست. لطفاً فایل با پسوند .tar.gz یا .zip آپلود کنید.", "error")
-        return redirect(url_for("admin.kb_packages_dashboard"))
+        return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
 
     with tempfile.NamedTemporaryFile(suffix="_" + filename, delete=False) as tmp:
         uploaded.save(tmp.name)
         tmp_path = Path(tmp.name)
 
     try:
-        result = kb_admin.install_kb_package(tmp_path, target_week=target_week, admin_id=current_user.id)
+        result = kb_admin.install_kb_package(
+            tmp_path,
+            target_week=target_week,
+            admin_id=current_user.id,
+            course_id=course_id,
+        )
         if result.get("success"):
             if result.get("is_master"):
                 if result.get("already_installed"):
                     flash(result.get("message", "این بسته قبلاً نصب شده است."), "info")
                 else:
-                    flash(result.get("message", "بسته نهایی نسخه 1.0.0 با موفقیت تایید و ادغام شد!"), "success")
+                    flash(
+                        result.get(
+                            "message",
+                            f"بسته نهایی نسخه {result.get('version', '')} با موفقیت تایید و ادغام شد!",
+                        ),
+                        "success",
+                    )
             else:
                 w_disp = "۷.۵" if result.get("week") == 71 else ("۹.۵" if result.get("week") == 99 else str(result.get("week", "")))
                 flash(
@@ -658,7 +685,7 @@ def kb_packages_upload():
         except Exception:
             pass
 
-    return redirect(url_for("admin.kb_packages_dashboard"))
+    return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
 
 
 # ──────────────────────────────────────────────────────────────────────────────
