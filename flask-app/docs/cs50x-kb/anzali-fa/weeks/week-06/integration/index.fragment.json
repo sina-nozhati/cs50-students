@@ -1,0 +1,725 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 6,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-6",
+      "append_child": "w06-fa"
+    }
+  ],
+  "note": "Week-6-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Week 6 notes use the same callout-plus-bold-label convention as Weeks 3-5 (D25); code blocks are Python (```python)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 6,
+      "node_id": "week-6",
+      "path": "anzali-fa/weeks/week-06/summary.fa.md",
+      "doc_id": "w06-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w06-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۶ — پایتون (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-06/overview.fa.md",
+      "parent": "week-6",
+      "children": [
+        "w06-n01",
+        "w06-n02",
+        "w06-n03",
+        "w06-n04",
+        "w06-n05",
+        "w06-n06",
+        "w06-n07",
+        "w06-n08",
+        "w06-n09",
+        "w06-n10",
+        "w06-n11",
+        "w06-n12",
+        "w06-n13",
+        "w06-n14",
+        "w06-n15",
+        "w06-summary",
+        "w06-sec",
+        "w06-sh-python",
+        "w06-ps-hello",
+        "w06-ps-mario-less",
+        "w06-ps-mario-more",
+        "w06-ps-cash",
+        "w06-ps-credit",
+        "w06-ps-readability",
+        "w06-ps-dna",
+        "w06-pr-bank",
+        "w06-pr-figlet",
+        "w06-pr-jar",
+        "w06-pr-seven-day-average",
+        "w06-pr-taqueria"
+      ],
+      "week": 6,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/6/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/6/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n01",
+      "type": "anzali-note",
+      "title": "سلام پایتون: زبان تفسیری (Welcome! and Hello Python!)",
+      "path": "anzali-fa/weeks/week-06/notes/01-hello-python.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#hello-python",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#hello-python"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n02",
+      "type": "anzali-note",
+      "title": "Speller و Filter در پایتون: چرا زبان سطح بالا (Speller and Filter)",
+      "path": "anzali-fa/weeks/week-06/notes/02-speller-filter.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#speller",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#speller"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n03",
+      "type": "anzali-note",
+      "title": "تابع، کتابخانه، ماژول و بسته (Functions; Libraries, Modules, and Packages)",
+      "path": "anzali-fa/weeks/week-06/notes/03-functions-libraries.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#libraries-modules-and-packages",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#libraries-modules-and-packages"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n04",
+      "type": "anzali-note",
+      "title": "رشته‌ها، f-string و پارامترهای نام‌دار print (Strings; Positional and Named Parameters)",
+      "path": "anzali-fa/weeks/week-06/notes/04-strings-print.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#strings",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#strings"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n05",
+      "type": "anzali-note",
+      "title": "متغیرها و نوع‌ها (Variables and Types)",
+      "path": "anzali-fa/weeks/week-06/notes/05-variables-types.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#types",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#types"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n06",
+      "type": "anzali-note",
+      "title": "ماشین‌حساب: input همیشه str برمی‌گرداند (Calculator)",
+      "path": "anzali-fa/weeks/week-06/notes/06-calculator.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#calculator",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#calculator"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n07",
+      "type": "anzali-note",
+      "title": "شرط‌ها، تورفتگی و or (Conditionals)",
+      "path": "anzali-fa/weeks/week-06/notes/07-conditionals.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#conditionals",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#conditionals"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n08",
+      "type": "anzali-note",
+      "title": "شیء و متد: lower و capitalize (Object-Oriented Programming)",
+      "path": "anzali-fa/weeks/week-06/notes/08-objects-methods.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#object-oriented-programming",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#object-oriented-programming"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n09",
+      "type": "anzali-note",
+      "title": "حلقه‌ها و تابع‌سازی (main) (Loops and Abstraction)",
+      "path": "anzali-fa/weeks/week-06/notes/09-loops-abstraction.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#loops",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#loops"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n10",
+      "type": "anzali-note",
+      "title": "تقسیم، ناپایداری اعشاری و استثناها (Truncation, Floating-Point Imprecision and Exceptions)",
+      "path": "anzali-fa/weeks/week-06/notes/10-division-exceptions.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#truncation-and-floating-point-imprecision",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#truncation-and-floating-point-imprecision"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n11",
+      "type": "anzali-note",
+      "title": "ماریو در پایتون: while True و end (Mario)",
+      "path": "anzali-fa/weeks/week-06/notes/11-mario.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#mario",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#mario"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n12",
+      "type": "anzali-note",
+      "title": "فهرست‌ها (list)، sum و len (Lists)",
+      "path": "anzali-fa/weeks/week-06/notes/12-lists.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#lists",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#lists"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n13",
+      "type": "anzali-note",
+      "title": "جست‌وجو، in و دیکشنری (Searching and Dictionaries)",
+      "path": "anzali-fa/weeks/week-06/notes/13-dictionaries.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#searching-and-dictionaries",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#searching-and-dictionaries"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n14",
+      "type": "anzali-note",
+      "title": "آرگومان خط فرمان و وضعیت خروج (Command-Line Arguments and Exit Status)",
+      "path": "anzali-fa/weeks/week-06/notes/14-argv-exit.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#command-line-arguments",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#command-line-arguments"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-n15",
+      "type": "anzali-note",
+      "title": "فایل CSV و کتابخانه‌های شخص ثالث (CSV Files and Third-Party Libraries)",
+      "path": "anzali-fa/weeks/week-06/notes/15-csv-libraries.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/6/#csv-files",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/6/#csv-files"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۶ (Summing Up)",
+      "path": "anzali-fa/weeks/week-06/summary.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/6/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/6/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۶ (Section 6)",
+      "path": "anzali-fa/weeks/week-06/section/section-6.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/sections/6/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/6/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-sh-python",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: پایتون (Python)",
+      "path": "anzali-fa/weeks/week-06/shorts/python.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/shorts/python/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/python/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-hello",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای سلام دوباره (Sentimental Hello)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/hello.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/hello/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/hello/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-mario-less",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای ماریو، نسخهٔ ساده‌تر (Sentimental Mario)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/mario-less.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/mario/less/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/mario/less/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-mario-more",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای ماریو، نسخهٔ چالشی (Sentimental Mario)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/mario-more.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/mario/more/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/mario/more/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-cash",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای پول خرد (Sentimental Cash)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/cash.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/cash/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/cash/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-credit",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای کارت اعتباری (Sentimental Credit)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/credit.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/credit/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/credit/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-readability",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای خوانایی متن (Sentimental Readability)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/readability.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 24,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/readability/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/readability/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-ps-dna",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای شناسایی DNA",
+      "path": "anzali-fa/weeks/week-06/problem-sets/dna.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 25,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/6/dna/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/6/dna/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-pr-bank",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای بانک (Bank)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/bank.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 26,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/bank/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/bank/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-pr-figlet",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای حروف بزرگ FIGlet",
+      "path": "anzali-fa/weeks/week-06/problem-sets/figlet.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 27,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/figlet/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/figlet/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-pr-jar",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای ظرف کلوچه (Cookie Jar)",
+      "path": "anzali-fa/weeks/week-06/problem-sets/jar.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/jar/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/jar/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-pr-seven-day-average",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای میانگین هفت‌روزه",
+      "path": "anzali-fa/weeks/week-06/problem-sets/seven-day-average.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 29,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/seven-day-average/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/seven-day-average/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    },
+    {
+      "id": "w06-pr-taqueria",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای تاکوفروشی Felipe",
+      "path": "anzali-fa/weeks/week-06/problem-sets/taqueria.fa.md",
+      "parent": "w06-fa",
+      "children": [],
+      "week": 6,
+      "order": 30,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/taqueria/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/taqueria/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-6"
+      ]
+    }
+  ]
+}

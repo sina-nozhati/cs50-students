@@ -1,0 +1,436 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w08-curriculum",
+  "week": 8,
+  "title_fa": "هفتهٔ ۸ — HTML، CSS و جاوااسکریپت",
+  "title_en": "Week 8 — HTML, CSS, JavaScript",
+  "panel_week_number": 8,
+  "kb_parent_node": "week-8",
+  "hub_doc_id": "w08-fa",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-8",
+    "src-notes-8",
+    "src-transcript-8",
+    "src-section-8",
+    "src-pset-8"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w08-o01",
+    "w08-o02",
+    "w08-o03",
+    "w08-o04",
+    "w08-o05",
+    "w08-o06",
+    "w08-o07",
+    "w08-o08",
+    "w08-o09",
+    "w08-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: اول بیرون پاکت (مسیریاب، IP، TCP، DNS و DHCP)، سپس HTTP، بعد HTML (ساختار، عنصرها، فرم و عبارت باقاعده)، CSS و Bootstrap، و در آخر جاوااسکریپت (زبان و رویداد، سپس تغییر DOM و تکمیل خودکار). Homepage و Redo پس از درس CSS و Bootstrap باز می‌شوند، چون HTML و CSS پایهٔ آن‌هاست و جاوااسکریپت Homepage را می‌توان بعد افزود؛ Trivia پس از درس آخر باز می‌شود، چون به querySelector، رویداد click و تغییر سبک نیاز دارد.",
+  "stages": [
+    {
+      "id": "w08-s1",
+      "lesson_ids": [
+        "w08-l01"
+      ]
+    },
+    {
+      "id": "w08-s2",
+      "lesson_ids": [
+        "w08-l02"
+      ]
+    },
+    {
+      "id": "w08-s3",
+      "lesson_ids": [
+        "w08-l03"
+      ]
+    },
+    {
+      "id": "w08-s4",
+      "lesson_ids": [
+        "w08-l04"
+      ]
+    },
+    {
+      "id": "w08-s5",
+      "lesson_ids": [
+        "w08-l05"
+      ]
+    },
+    {
+      "id": "w08-s6",
+      "lesson_ids": [
+        "w08-l06"
+      ]
+    },
+    {
+      "id": "w08-s7",
+      "lesson_ids": [
+        "w08-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w08-l01",
+      "order": 1,
+      "file": "lessons/w08-l01.json",
+      "title_fa": "اینترنت: بسته، IP، TCP، DNS و DHCP",
+      "stage_id": "w08-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w08-l01-u01",
+        "w08-l01-u02",
+        "w08-l01-u03"
+      ],
+      "note_ids": [
+        "w08-n01",
+        "w08-n02",
+        "w08-n03",
+        "w08-n04",
+        "w08-n05"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w08-l02",
+      "order": 2,
+      "file": "lessons/w08-l02.json",
+      "title_fa": "HTTP و HTTPS: نشانی، درخواست و کد وضعیت",
+      "stage_id": "w08-s2",
+      "prerequisite_lesson_ids": [
+        "w08-l01"
+      ],
+      "unit_ids": [
+        "w08-l02-u01",
+        "w08-l02-u02"
+      ],
+      "note_ids": [
+        "w08-n06"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w08-l03",
+      "order": 3,
+      "file": "lessons/w08-l03.json",
+      "title_fa": "HTML: ساختار سند و عنصرها",
+      "stage_id": "w08-s3",
+      "prerequisite_lesson_ids": [
+        "w08-l02"
+      ],
+      "unit_ids": [
+        "w08-l03-u01",
+        "w08-l03-u02",
+        "w08-l03-u03"
+      ],
+      "note_ids": [
+        "w08-n07",
+        "w08-n08"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w08-l04",
+      "order": 4,
+      "file": "lessons/w08-l04.json",
+      "title_fa": "فرم و عبارت باقاعده",
+      "stage_id": "w08-s4",
+      "prerequisite_lesson_ids": [
+        "w08-l03"
+      ],
+      "unit_ids": [
+        "w08-l04-u01",
+        "w08-l04-u02"
+      ],
+      "note_ids": [
+        "w08-n09",
+        "w08-n10"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w08-l05",
+      "order": 5,
+      "file": "lessons/w08-l05.json",
+      "title_fa": "CSS و Bootstrap",
+      "stage_id": "w08-s5",
+      "prerequisite_lesson_ids": [
+        "w08-l04"
+      ],
+      "unit_ids": [
+        "w08-l05-u01",
+        "w08-l05-u02",
+        "w08-l05-u03"
+      ],
+      "note_ids": [
+        "w08-n11",
+        "w08-n12"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w08-l06",
+      "order": 6,
+      "file": "lessons/w08-l06.json",
+      "title_fa": "جاوااسکریپت: زبان و رویداد",
+      "stage_id": "w08-s6",
+      "prerequisite_lesson_ids": [
+        "w08-l05"
+      ],
+      "unit_ids": [
+        "w08-l06-u01",
+        "w08-l06-u02",
+        "w08-l06-u03"
+      ],
+      "note_ids": [
+        "w08-n13"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w08-l07",
+      "order": 7,
+      "file": "lessons/w08-l07.json",
+      "title_fa": "تغییر DOM و تکمیل خودکار",
+      "stage_id": "w08-s7",
+      "prerequisite_lesson_ids": [
+        "w08-l06"
+      ],
+      "unit_ids": [
+        "w08-l07-u01",
+        "w08-l07-u02",
+        "w08-l07-u03"
+      ],
+      "note_ids": [
+        "w08-n14",
+        "w08-n15"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w08-n01",
+      "file": "notes/01-internet.fa.md",
+      "official_anchor": "the-internet"
+    },
+    {
+      "id": "w08-n02",
+      "file": "notes/02-ip-packets.fa.md",
+      "official_anchor": "routers"
+    },
+    {
+      "id": "w08-n03",
+      "file": "notes/03-tcp-ports.fa.md",
+      "official_anchor": "routers"
+    },
+    {
+      "id": "w08-n04",
+      "file": "notes/04-dns.fa.md",
+      "official_anchor": "dns"
+    },
+    {
+      "id": "w08-n05",
+      "file": "notes/05-dhcp.fa.md",
+      "official_anchor": "dhcp"
+    },
+    {
+      "id": "w08-n06",
+      "file": "notes/06-http.fa.md",
+      "official_anchor": "https"
+    },
+    {
+      "id": "w08-n07",
+      "file": "notes/07-html-basics.fa.md",
+      "official_anchor": "html"
+    },
+    {
+      "id": "w08-n08",
+      "file": "notes/08-html-elements.fa.md",
+      "official_anchor": "html"
+    },
+    {
+      "id": "w08-n09",
+      "file": "notes/09-html-forms.fa.md",
+      "official_anchor": "html"
+    },
+    {
+      "id": "w08-n10",
+      "file": "notes/10-regex.fa.md",
+      "official_anchor": "regular-expressions"
+    },
+    {
+      "id": "w08-n11",
+      "file": "notes/11-css.fa.md",
+      "official_anchor": "css"
+    },
+    {
+      "id": "w08-n12",
+      "file": "notes/12-frameworks.fa.md",
+      "official_anchor": "frameworks"
+    },
+    {
+      "id": "w08-n13",
+      "file": "notes/13-js-events.fa.md",
+      "official_anchor": "javascript"
+    },
+    {
+      "id": "w08-n14",
+      "file": "notes/14-js-dom.fa.md",
+      "official_anchor": "javascript"
+    },
+    {
+      "id": "w08-n15",
+      "file": "notes/15-js-autocomplete.fa.md",
+      "official_anchor": "javascript"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-8.fa.md",
+    "shorts": [
+      {
+        "id": "w08-sh-internet-primer",
+        "file": "shorts/internet-primer.fa.md"
+      },
+      {
+        "id": "w08-sh-ip",
+        "file": "shorts/ip.fa.md"
+      },
+      {
+        "id": "w08-sh-tcp",
+        "file": "shorts/tcp.fa.md"
+      },
+      {
+        "id": "w08-sh-http",
+        "file": "shorts/http.fa.md"
+      },
+      {
+        "id": "w08-sh-html",
+        "file": "shorts/html.fa.md"
+      },
+      {
+        "id": "w08-sh-css",
+        "file": "shorts/css.fa.md"
+      },
+      {
+        "id": "w08-sh-javascript",
+        "file": "shorts/javascript.fa.md"
+      },
+      {
+        "id": "w08-sh-dom",
+        "file": "shorts/dom.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w08-ps-trivia",
+        "file": "problem-sets/trivia.fa.md"
+      },
+      {
+        "id": "w08-ps-homepage",
+        "file": "problem-sets/homepage.fa.md"
+      },
+      {
+        "id": "w08-pr-redo",
+        "file": "problem-sets/redo.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w08-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w08-ps-trivia",
+      "kind": "pset",
+      "file": "problem-sets/trivia.json",
+      "guide": "problem-sets/trivia.fa.md",
+      "unlock_after_lesson": "w08-l07"
+    },
+    {
+      "id": "w08-ps-homepage",
+      "kind": "pset",
+      "file": "problem-sets/homepage.json",
+      "guide": "problem-sets/homepage.fa.md",
+      "unlock_after_lesson": "w08-l05"
+    },
+    {
+      "id": "w08-pr-redo",
+      "kind": "practice",
+      "file": "problem-sets/redo.json",
+      "guide": "problem-sets/redo.fa.md",
+      "unlock_after_lesson": "w08-l05"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۸: Trivia و Homepage هر دو لازم‌اند. تمرین Practice (Radio Shack Redo) اختیاری است و تحویل ندارد.",
+    "groups": [
+      {
+        "required": [
+          "w08-ps-trivia"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w08-ps-homepage"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w08-pr-redo"
+    ],
+    "source_ref": "src-pset-8#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids": [
+          "w08-ps-trivia",
+          "w08-ps-homepage"
+        ],
+        "note": "checklists of the two Problem Set 8 problems"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w08-ps-trivia",
+          "w08-ps-homepage"
+        ],
+        "note": "Panel Assignment/Submission; official grade remains the CS50 gradebook (no check50 for these problems)"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

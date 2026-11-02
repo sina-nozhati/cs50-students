@@ -1,0 +1,774 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 7,
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities"
+  ],
+  "shared_sources_from_week_2": [
+    "src-check50-docs"
+  ],
+  "shared_sources_from_week_6": [
+    "src-notes-6",
+    "src-python-docs"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-7",
+      "url": "https://cs50.harvard.edu/x/weeks/7/",
+      "title": "Week 7 SQL (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:02+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "2811591a3da53c6bba8aef1fa4b6f9a5b7b7cce208387a686a4e0783cb37a9b2"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/7/",
+      "anchors": [
+        "week-7-sql"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/week.md",
+      "notes": "Topic line (SQL: Tables; Types; Statements; Constraints; Indexes; Keywords, Functions; Transactions. Race Conditions. SQL Injection Attacks.) and media list; lists one short (SQL). Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-notes-7",
+      "url": "https://cs50.harvard.edu/x/notes/7/",
+      "title": "Lecture 7 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "bffd754240cd947e08aa355c716055abeb535d640fe7ce82c46605ff8b33ee27"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/7/",
+      "anchors": [
+        "delete",
+        "flat-file-database",
+        "imdb",
+        "indexes",
+        "insert",
+        "joins",
+        "lecture-7",
+        "race-conditions",
+        "relational-databases",
+        "select",
+        "sql-injection-attacks",
+        "summing-up",
+        "update",
+        "using-sql-in-python",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/lecture.md",
+      "notes": "All 14 sections read in full; the 28 code/listing blocks copied verbatim into examples7.py. Re-fetched 2026-10-29; main text identical."
+    },
+    {
+      "id": "src-transcript-7",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/lang/en/lecture7.txt",
+      "title": "Lecture 7 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/transcripts/lecture-en.txt",
+      "notes": "Read for facts marked «از سخنرانی» (e.g. the f-string login demo, 'any dangerous characters will be escaped for you', the milk/fridge and likes race-condition stories)."
+    },
+    {
+      "id": "src-srt-7",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/lang/en/lecture7.srt",
+      "title": "Lecture 7 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-29T05:22:43+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "local_copy": "_tools/refetch/week7/srt/lecture7.srt",
+      "notes": "Cue times used for note start times (chapter boundaries are inference)."
+    },
+    {
+      "id": "src-video-7",
+      "url": "https://video.cs50.io/oqRU2So6Z2Y",
+      "title": "Lecture 7 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "Also https://youtu.be/oqRU2So6Z2Y ; Portuguese and Spanish versions are listed on the week page."
+    },
+    {
+      "id": "src-audio-7",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/lecture7.mp3",
+      "title": "Lecture 7 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30"
+    },
+    {
+      "id": "src-slides-7-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/lecture7.pdf",
+      "title": "Lecture 7 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-7-google",
+      "url": "https://docs.google.com/presentation/d/1LIwdwxj6Byq9RMe2Pwz9RiurtWDBX1YDrCgju_uirEI/edit?usp=sharing",
+      "title": "Lecture 7 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30"
+    },
+    {
+      "id": "src-src7-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/src7.zip",
+      "title": "Lecture 7 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/source-code/",
+      "notes": "favorites0-10.py, favorites.csv, favorites.db, imdb/shows.db (not inventoried here). favorites9.py is not shown in the notes; its query is summarised in prose only. The databases are never used for QA (D59)."
+    },
+    {
+      "id": "src-src7-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/src7/",
+      "title": "Lecture 7 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30"
+    },
+    {
+      "id": "src-src7-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/7/src7.pdf",
+      "title": "Lecture 7 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30"
+    },
+    {
+      "id": "src-section-7",
+      "url": "https://cs50.harvard.edu/x/sections/7/",
+      "title": "Section 7",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:38+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "5006b234ab098f3f166fadd0e90258349c8fabae1a1d29f3a4cc94540dc01638"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/7/",
+      "anchors": [
+        "week-7-sql"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/sections.md"
+    },
+    {
+      "id": "src-section-7-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/7/lang/en/section7.txt",
+      "title": "Section 7 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary; chapter times from section7.srt. The second half walks through Songs queries; it is summarised without any query (D57)."
+    },
+    {
+      "id": "src-section-7-video",
+      "url": "https://video.cs50.io/g1gKEPqikOE",
+      "title": "Section 7 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "Also https://youtu.be/g1gKEPqikOE ; audio https://cdn.cs50.net/2025/fall/sections/7/section7.mp3"
+    },
+    {
+      "id": "src-section-7-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/7/section7.pdf",
+      "title": "Section 7 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "HTTP 200 on 2026-10-29; not downloaded."
+    },
+    {
+      "id": "src-section-7-code",
+      "url": "https://cs50.harvard.edu/x/sections/psets/7/songs",
+      "title": "Section 7 source code link (Songs)",
+      "source_type": "source-code",
+      "extraction_status": "unavailable",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "notes": "The section page links 'Source Code: Songs' to this URL, which returned HTTP 404 on 2026-10-29 (also https://cdn.cs50.net/2025/fall/sections/7/src7.zip and https://cdn.cs50.net/2025/fall/sections/7/src7/ returned 404). Recorded as d119; the section is summarised from its transcript only."
+    },
+    {
+      "id": "src-pset-7",
+      "url": "https://cs50.harvard.edu/x/psets/7/",
+      "title": "Problem Set 7",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:39+03:30",
+      "verified_at": "2026-10-29T05:22:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "7d2649ba8d41b9e174abe42e51a016abb77bd74437be357c2905e2067aa39dcf"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/7/",
+      "anchors": [
+        "problem-set-7",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/psets/README.md"
+    },
+    {
+      "id": "src-pset-7-songs",
+      "url": "https://cs50.harvard.edu/x/psets/7/songs/",
+      "title": "Songs",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:42+03:30",
+      "verified_at": "2026-10-29T05:22:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "d6b475bcf1a424980b35dcbc60ebd426b1a97ed7a7c8a0e5c89bdfdce55315e7"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/7/songs/",
+      "anchors": [
+        "songs",
+        "problem-to-solve",
+        "demo",
+        "getting-started",
+        "understanding",
+        "implementation-details",
+        "hints",
+        "walkthrough",
+        "spotify-wrapped",
+        "how-to-test",
+        "correctness",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/psets/songs.md"
+    },
+    {
+      "id": "src-pset-7-movies",
+      "url": "https://cs50.harvard.edu/x/psets/7/movies/",
+      "title": "Movies",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:43+03:30",
+      "verified_at": "2026-10-29T05:22:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "6358820103358014786f7874c61ead57dd33ebd19cc3d1ec08030c433c570f31"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/7/movies/",
+      "anchors": [
+        "movies",
+        "problem-to-solve",
+        "demo",
+        "getting-started",
+        "specification",
+        "hints",
+        "walkthrough",
+        "usage",
+        "how-to-test",
+        "correctness",
+        "how-to-submit",
+        "acknowledgements"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/psets/movies.md"
+    },
+    {
+      "id": "src-pset-7-fiftyville",
+      "url": "https://cs50.harvard.edu/x/psets/7/fiftyville/",
+      "title": "Fiftyville",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:44+03:30",
+      "verified_at": "2026-10-29T05:22:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "fe0d5d070d1602c711ade411cb5b302b91f4e99adf9f47b9884f8fa5f91ddb67"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/7/fiftyville/",
+      "anchors": [
+        "fiftyville",
+        "problem-to-solve",
+        "demo",
+        "getting-started",
+        "specification",
+        "walkthrough",
+        "hints",
+        "how-to-test",
+        "correctness",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/psets/fiftyville.md"
+    },
+    {
+      "id": "src-practice-favorites",
+      "url": "https://cs50.harvard.edu/x/practice/favorites/",
+      "title": "Favorites",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:08+03:30",
+      "verified_at": "2026-10-29T05:22:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "f6824d475e6ca38d1e2b7fb2902870a36c628a85fcef34da3a4165168e29d05f"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/favorites/",
+      "anchors": [
+        "favorites",
+        "learning-goals",
+        "background",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/practice/favorites.md"
+    },
+    {
+      "id": "src-practice-prophecy",
+      "url": "https://cs50.harvard.edu/x/practice/prophecy/",
+      "title": "Hall of Prophecy",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:09+03:30",
+      "verified_at": "2026-10-29T05:22:45+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "36489b9b02d5729aa232dd60793c78ddd4dcc701e3dd8e0fb8beb998653d3d48"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/prophecy/",
+      "anchors": [
+        "hall-of-prophecy",
+        "learning-goals",
+        "background",
+        "getting-started",
+        "implementation-details",
+        "developing-a-schema",
+        "inserting-data",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/practice/prophecy.md"
+    },
+    {
+      "id": "src-short-sql",
+      "url": "https://cs50.harvard.edu/x/shorts/sql/",
+      "title": "Short: SQL (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:42:05+03:30",
+      "verified_at": "2026-10-29T05:22:45+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "332aab4b82d70ce3b01dfadd73d0e00c5778808c731914bc4f14a1cbe8b92851"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/shorts/sql.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/sql/lang/en/sql.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/sql/lang/en/sql.srt. Video https://youtu.be/AywtnUjQ6X4. Slides https://cdn.cs50.net/2017/fall/shorts/sql/sql.pdf (link only). Recorded 2017 for the web-development part of an older CS50 (MySQL, phpMyAdmin); see d126-d127."
+    },
+    {
+      "id": "src-sqlite-docs",
+      "url": "https://www.sqlite.org/docs.html",
+      "title": "SQLite documentation",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "Cited only for facts the official pages leave open: datatypes/affinity (datatype3.html), double-quoted string literals (quirks.html#dblquote), join operators (lang_select.html), LIKE case-insensitivity (lang_expr.html#like), transactions (lang_transaction.html)."
+    },
+    {
+      "id": "src-cs50-sql-docs",
+      "url": "https://cs50.readthedocs.io/libraries/cs50/python/#cs50.SQL",
+      "title": "CS50 Library for Python: SQL (documentation linked from the notes)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "Linked by src-notes-7 (Using SQL in Python). Facts used: db.execute returns a list of dicts for SELECT, the new primary key for INSERT, the number of rows changed for UPDATE/DELETE; ? placeholders. Behaviour re-checked with cs50 9.5.0 on the build box (src-sql-box-7)."
+    },
+    {
+      "id": "src-w3schools-sql",
+      "url": "https://www.w3schools.com/sql/",
+      "title": "W3Schools SQL reference (recommended in Problem Set 7 Advice)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:37+03:30"
+    },
+    {
+      "id": "src-songs-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/7/songs.zip",
+      "title": "Songs distribution (empty 1.sql-8.sql, answers.txt, songs.db)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/psets/songs-distribution/",
+      "notes": "songs.db is never opened by this package; all QA runs use authored fixtures (D59)."
+    },
+    {
+      "id": "src-movies-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/7/movies.zip",
+      "title": "Movies distribution (empty 1.sql-13.sql, movies.db, about 77 MB zip)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "notes": "Not downloaded into the package (size); link only."
+    },
+    {
+      "id": "src-fiftyville-distribution",
+      "url": "https://cdn.cs50.net/2026/x/psets/7/fiftyville.zip",
+      "title": "Fiftyville distribution (log.sql, answers.txt, fiftyville.db)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-07-sql/psets/fiftyville-distribution/",
+      "notes": "fiftyville.db is never opened by this package; no table contents, no queries against it, no answers (D58)."
+    },
+    {
+      "id": "src-time-cs50-deadline-7",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 7 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:37+03:30"
+    },
+    {
+      "id": "src-sql-box-7",
+      "url": "urn:cs50x-anzali:box:sqlite3",
+      "title": "SQLite 3.46 (Python sqlite3 module), Python 3.13 and the real cs50 library 9.5.0 (separate venv) on the CS50x Anzali build box; run evidence in validation/compile-checks.week-07.json and validation/question-qa-week07.md",
+      "source_type": "tool",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T06:00:00+03:30",
+      "notes": "Box-only verification against small authored fixture databases (knowledge-base/weeks/week-07/fixtures/*.sql). Learners run sqlite3 in cs50.dev; the list-mode output format (columns separated by |) matches the sqlite3 CLI default."
+    },
+    {
+      "id": "src-anzali-authored-7",
+      "url": "urn:cs50x-anzali:authored:week-07",
+      "title": "Material authored by CS50x Anzali for Week 7 (examples marked تألیفی, fixtures, exercises, challenges, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-29T06:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-7",
+      "url": "urn:cs50x-anzali:inference:week-07",
+      "title": "Editorial inferences for Week 7 (chapter boundaries from official .srt cue times; concept graph; topic order; corrections of imprecise wording such as 'sanitize and remove', labelled استنتاجی)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-29T06:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d115",
+      "topic": "Injection section shows only the safe query",
+      "a": {
+        "source": "src-notes-7#sql-injection-attacks",
+        "value": "'Without the proper protections in our own code, a bad actor could run malicious code. Consider the following:' followed by the ? placeholder version"
+      },
+      "b": {
+        "source": "src-transcript-7",
+        "value": "The lecture first builds the query with an f-string, shows the attack, and then says this is 'not how you should ever write SQL code in Python' before switching to ?"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The notes' code is the protected version. The Persian note says so explicitly and adds an authored, fixture-run demo of the unsafe f-string next to the safe ? version (labelled تألیفی)."
+    },
+    {
+      "id": "d116",
+      "topic": "'sanitize and remove any potentially malicious characters'",
+      "a": {
+        "source": "src-notes-7#sql-injection-attacks",
+        "value": "'the library will sanitize and remove any potentially malicious characters'; '? ... validation can be run on username and password'"
+      },
+      "b": {
+        "source": "src-transcript-7",
+        "value": "'Any dangerous characters will be escaped for you' (lecture); on the build box cs50 9.5.0 stores and matches an input containing ' and -- literally, nothing is removed (src-sql-box-7)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Placeholders bind the value as data (escaping it), they neither delete characters nor validate the value. The Persian note uses 'escape/bind' and keeps 'never trust user input' as the official rule."
+    },
+    {
+      "id": "d117",
+      "topic": "'index by the keys of a list'",
+      "a": {
+        "source": "src-notes-7#flat-file-database",
+        "value": "'Python also allows you to index by the keys of a list' (introducing csv.DictReader)"
+      },
+      "b": {
+        "source": "src-python-docs",
+        "value": "csv.DictReader yields one dict per row (keys from the header row); a list is indexed by integers only"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note: each row is a dictionary whose keys are the column names."
+    },
+    {
+      "id": "d118",
+      "topic": "Topic order differs between lecture and notes",
+      "a": {
+        "source": "src-notes-7#flat-file-database",
+        "value": "sorted(counts) and sorted(..., key=counts.get, reverse=True) appear in the flat-file section; Race Conditions precedes SQL Injection Attacks"
+      },
+      "b": {
+        "source": "src-srt-7",
+        "value": "The lecture demonstrates sorted() at about 1:47:51 (just before Using SQL in Python) and covers SQL injection (about 1:58:00) before race conditions (about 2:06:24)"
+      },
+      "status": "complementary",
+      "note": "Notes keep the official notes' order; each note links to its own place in the video, so two notes have start times out of order (n01's sorted part and n12)."
+    },
+    {
+      "id": "d119",
+      "topic": "Section source-code link is a 404",
+      "a": {
+        "source": "src-section-7",
+        "value": "Section page lists 'Source Code: Songs' -> https://cs50.harvard.edu/x/sections/psets/7/songs"
+      },
+      "b": {
+        "source": "src-section-7-code",
+        "value": "HTTP 404 on 2026-10-29; cdn.cs50.net/2025/fall/sections/7/src7.zip and src7/ also 404; only section7.pdf answers 200"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The Persian section page is built from the transcript only and says the code link was unavailable when checked. Anything Songs-specific is summarised without queries (D57)."
+    },
+    {
+      "id": "d120",
+      "topic": "Section: 'there aren't different types' of join",
+      "a": {
+        "source": "src-section-7-transcript",
+        "value": "'this is the only way of using joining. There aren't different types.'"
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "SQLite supports INNER JOIN (plain JOIN), LEFT [OUTER] JOIN, CROSS JOIN and, since 3.39, RIGHT and FULL OUTER JOIN"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian section page: CS50 Week 7 only needs the plain (inner) JOIN; other kinds exist. Authored note in w07-n08 mentions LEFT JOIN as 'beyond this course'."
+    },
+    {
+      "id": "d121",
+      "topic": "Single vs double quotes 'just a styling thing'",
+      "a": {
+        "source": "src-section-7-transcript",
+        "value": "'the single quote versus the double quotes, it's really just a styling thing'; src-practice-favorites uses UPDATE ... SET title = \"How I Met Your Mother\""
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "In standard SQL single quotes delimit strings and double quotes delimit identifiers; SQLite accepts a double-quoted string only as a legacy fallback when no column has that name (quirks.html#dblquote). On the box, WHERE name = \"name\" compares the column with itself and matches every row"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Package rule: string literals always in single quotes. The Favorites guide reproduces nothing from the official UPDATE examples and explains the quoting rule."
+    },
+    {
+      "id": "d122",
+      "topic": "Section: joins 'typically a bit slower than nested selects'",
+      "a": {
+        "source": "src-section-7-transcript",
+        "value": "'joins are typically going to be a bit slower than nested selects, but it does depend on the situation'"
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "SQLite's query planner may rewrite subqueries and joins; there is no general rule that one form is slower (the speaker also says it depends)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian page says: choose the form you can read and check; measure with .timer on if speed matters."
+    },
+    {
+      "id": "d123",
+      "topic": "Official Songs and Movies hints contain full answer queries",
+      "a": {
+        "source": "src-pset-7-songs#hints",
+        "value": "Each Songs hint block shows the complete query for the corresponding numbered file; the Movies hints show a complete nested query for one numbered file"
+      },
+      "b": {
+        "source": "src-syllabus-honesty",
+        "value": "Package rule FR-13 / D56: no solution content; the CS50 honesty policy forbids copying solutions"
+      },
+      "status": "consistent",
+      "note": "Hint sections are link-only in the Persian guides; validate.py forbids the hint query strings anywhere in week-07 (D56)."
+    },
+    {
+      "id": "d124",
+      "topic": "Practice problems use 2022 lab distributions and refer to a 2021 lecture",
+      "a": {
+        "source": "src-practice-favorites#background",
+        "value": "'In 2021’s Week 7 lecture, we created a SQL database, favorites.db, with a table of CS50 students’ favorite TV shows'; downloads come from cdn.cs50.net/2022/fall/labs/7/"
+      },
+      "b": {
+        "source": "src-notes-7#flat-file-database",
+        "value": "The 2026 lecture's favorites.csv holds favourite languages and problems (Timestamp, language, problem), not TV shows"
+      },
+      "status": "complementary",
+      "note": "Guides say the practice favorites.db (tables shows and genres) is a different data set from the lecture's; both practice pages say 'No check50 for this one!' and 'No need to submit'."
+    },
+    {
+      "id": "d125",
+      "topic": "Favorites practice typo",
+      "a": {
+        "source": "src-practice-favorites#implementation-details",
+        "value": "'muliple'"
+      },
+      "b": {
+        "source": "src-practice-favorites#implementation-details",
+        "value": "intended word: 'multiple'"
+      },
+      "status": "consistent",
+      "note": "Typo only; requirement text quoted verbatim keeps it."
+    },
+    {
+      "id": "d126",
+      "topic": "SQL short (2017) is from the web-development unit of an older CS50",
+      "a": {
+        "source": "src-short-sql",
+        "value": "'in our videos on web development...'; uses MySQL types (CHAR, VARCHAR, ENUM...) and phpMyAdmin; 'You probably won't do too many joins'"
+      },
+      "b": {
+        "source": "src-week-7",
+        "value": "CS50x 2026 teaches SQL in Week 7, before Flask (Week 9), with sqlite3 in cs50.dev; Movies and Fiftyville rely on joins or nested queries"
+      },
+      "status": "complementary",
+      "note": "Persian short page flags the MySQL-only parts and maps the SQLite affinities to the lecture's list."
+    },
+    {
+      "id": "d127",
+      "topic": "SQL short: CHAR padded with 'null bytes'",
+      "a": {
+        "source": "src-short-sql",
+        "value": "CHAR(10) storing a 2-letter string 'would also store 8 extra-- the equivalent of null bytes'"
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "SQLite ignores the length in CHAR(n)/VARCHAR(n) (TEXT affinity, no padding); MySQL pads CHAR with spaces, not null bytes, and strips them on retrieval"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian short page states the SQLite behaviour and keeps the short's idea (fixed vs variable width) as MySQL background."
+    },
+    {
+      "id": "d128",
+      "topic": "Copy-paste comment '# Search for title'",
+      "a": {
+        "source": "src-notes-7#using-sql-in-python",
+        "value": "favorites10.py: comment '# Search for title' above a query that counts a problem"
+      },
+      "b": {
+        "source": "src-src7-zip",
+        "value": "favorites9.py has the same comment above a GROUP BY language query; neither searches titles"
+      },
+      "status": "consistent",
+      "note": "Code kept verbatim; the Persian note describes what the query does."
+    },
+    {
+      "id": "d129",
+      "topic": "'five data types' including NUMERIC 'like dates'",
+      "a": {
+        "source": "src-notes-7#imdb",
+        "value": "'In sqlite, we have five data types': BLOB, INTEGER, NUMERIC ('for numbers that are formatted specially like dates'), REAL, TEXT"
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "SQLite has five storage classes (NULL, INTEGER, REAL, TEXT, BLOB) and five column type affinities (TEXT, NUMERIC, INTEGER, REAL, BLOB); there is no date type, dates are stored as TEXT, REAL or INTEGER"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note keeps the official list as 'column types (affinities)' and adds a labelled inference about storage classes and dates."
+    },
+    {
+      "id": "d130",
+      "topic": "sqlite3 asks to create the file",
+      "a": {
+        "source": "src-notes-7#relational-databases",
+        "value": "'Upon being prompted, we will agree that we want to create favorites.db by pressing y'"
+      },
+      "b": {
+        "source": "src-sqlite-docs",
+        "value": "The stock sqlite3 shell opens or creates the file without asking; the y/n prompt is added by the cs50.dev environment"
+      },
+      "status": "complementary",
+      "note": "Persian note: in cs50.dev you are asked; elsewhere the file is created (on the first write) without a question."
+    },
+    {
+      "id": "d131",
+      "topic": "Movies 2026 changes",
+      "a": {
+        "source": "src-pset-7-movies#movies",
+        "value": "'Changes for 2026': 5.sql now uses titles beginning 'Harry Potter and the ' and 9.sql outputs two columns"
+      },
+      "b": {
+        "source": "src-pset-7-movies#how-to-test",
+        "value": "How to Test lists 5.sql as 2 columns x 18 rows and 9.sql as 2 columns x 36,219 rows"
+      },
+      "status": "consistent",
+      "note": "Guide quotes the 2026 requirement text verbatim; older third-party write-ups describe the previous versions."
+    }
+  ]
+}

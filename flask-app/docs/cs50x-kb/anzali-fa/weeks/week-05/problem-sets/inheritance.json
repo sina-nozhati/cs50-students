@@ -1,0 +1,292 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w05-ps-inheritance",
+  "kind": "pset",
+  "week": 5,
+  "title_en": "Inheritance",
+  "title_fa": "وراثت گروه خونی (Inheritance)",
+  "guide_doc_id": "w05-ps-inheritance",
+  "guide_file": "inheritance.fa.md",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/5/inheritance/",
+    "index_url": "https://cs50.harvard.edu/x/psets/5/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w05-ps-inheritance-r1",
+        "text_fa": "`inheritance.c` را در پوشهٔ `inheritance` کامل کن تا خانواده‌ای با تعداد نسل مشخص بسازد و به هر عضو آلل‌های گروه خونی بدهد.",
+        "text_en": "Complete the implementation of `inheritance.c`, such that it creates a family of a specified generation size and assigns blood type alleles to each family member.",
+        "source_ref": "src-pset-5-inheritance#implementation-details"
+      },
+      {
+        "id": "w05-ps-inheritance-r2",
+        "text_fa": "آلل‌های قدیمی‌ترین نسل به‌تصادف تعیین می‌شوند.",
+        "text_en": "The oldest generation will have alleles assigned randomly to them.",
+        "source_ref": "src-pset-5-inheritance#implementation-details"
+      },
+      {
+        "id": "w05-ps-inheritance-r3",
+        "text_fa": "`create_family` یک عدد صحیح (`generations`) می‌گیرد، برای هر عضو خانواده یک `person` با `malloc` می‌سازد و اشاره‌گری به فرد جوان‌ترین نسل برمی‌گرداند.",
+        "text_en": "The `create_family` function takes an integer (`generations`) as input and should allocate (as via `malloc`) one `person` for each member of the family of that number of generations, returning a pointer to the `person` in the youngest generation.",
+        "source_ref": "src-pset-5-inheritance#implementation-details"
+      },
+      {
+        "id": "w05-ps-inheritance-r4",
+        "text_fa": "مثلاً `create_family(3)` اشاره‌گری به فردی با دو والد برمی‌گرداند که هر والد هم دو والد دارد.",
+        "text_en": "For example, `create_family(3)` should return a pointer to a person with two parents, where each parent also has two parents.",
+        "source_ref": "src-pset-5-inheritance#implementation-details"
+      },
+      {
+        "id": "w05-ps-inheritance-r5",
+        "text_fa": "قدیمی‌ترین نسل آلل‌هایش را با `random_allele` می‌گیرد؛ نسل‌های جوان‌تر از هر والد یک آلل (به‌تصادف) به ارث می‌برند.",
+        "text_en": "The oldest generation should have alleles randomly chosen (as by calling the `random_allele` function), and younger generations should inherit one allele (chosen at random) from each parent.",
+        "source_ref": "src-pset-5-inheritance#implementation-details"
+      },
+      {
+        "id": "w05-ps-inheritance-r6",
+        "text_fa": "در قدیمی‌ترین نسل هر دو `parents` برابر `NULL` است؛ در نسل‌های جوان‌تر `parents` دو اشاره‌گر به دو والد متفاوت است.",
+        "text_en": "The oldest generation should have both `parents` set to `NULL`, and younger generations should have `parents` be an array of two pointers, each pointing to a different parent.",
+        "source_ref": "src-pset-5-inheritance#implementation-details"
+      },
+      {
+        "id": "w05-ps-inheritance-r7",
+        "text_fa": "`free_family` اشاره‌گری به یک `person` می‌گیرد، حافظهٔ او و به‌صورت بازگشتی حافظهٔ همهٔ نیاکانش را آزاد می‌کند.",
+        "text_en": "The `free_family` function should accept as input a pointer to a `person`, free memory for that person, and then recursively free memory for all of their ancestors.",
+        "source_ref": "src-pset-5-inheritance#hints"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/inheritance",
+      "style50": "style50 inheritance.c",
+      "submit50": "submit50 cs50/problems/2026/x/inheritance",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/5/inheritance.zip\nunzip inheritance.zip\nrm inheritance.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی خروجی برای خانوادهٔ سه‌نسلی",
+        "text": "$ ./inheritance\nChild (Generation 0): blood type OO\n    Parent (Generation 1): blood type AO\n        Grandparent (Generation 2): blood type OA\n        Grandparent (Generation 2): blood type BO\n    Parent (Generation 1): blood type OB\n        Grandparent (Generation 2): blood type AO\n        Grandparent (Generation 2): blood type BO",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/inheritance",
+      "style50": "style50 inheritance.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "xfZhb6lmxjk",
+        "caption_fa": "معرفی مسئله"
+      },
+      {
+        "youtube_id": "9p7ddI3ozTY",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "J9DnbdokgIAjWUbzC2CBqP22N",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d89",
+      "d90"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w05-c-blood-type-alleles",
+      "w05-c-struct-pointer-array",
+      "w05-c-self-referential-struct",
+      "w05-c-arrow-operator",
+      "w05-c-random-modulo",
+      "w05-c-tree",
+      "w05-c-bst-search",
+      "w05-c-free-list",
+      "w05-c-unload-on-error"
+    ],
+    "prerequisite_lesson_ids": [
+      "w05-l03",
+      "w05-l05",
+      "w05-l06"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w05-c-blood-type-alleles",
+        "note_id": "w05-ps-inheritance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-struct-pointer-array",
+        "note_id": "w05-ps-inheritance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-self-referential-struct",
+        "note_id": "w05-n07",
+        "lesson_id": "w05-l03",
+        "unit_id": "w05-l03-u01"
+      },
+      {
+        "concept_id": "w05-c-arrow-operator",
+        "note_id": "w05-n07",
+        "lesson_id": "w05-l03",
+        "unit_id": "w05-l03-u02"
+      },
+      {
+        "concept_id": "w05-c-random-modulo",
+        "note_id": "w05-ps-inheritance",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w05-c-tree",
+        "note_id": "w05-n10",
+        "lesson_id": "w05-l06",
+        "unit_id": "w05-l06-u01"
+      },
+      {
+        "concept_id": "w05-c-bst-search",
+        "note_id": "w05-n10",
+        "lesson_id": "w05-l06",
+        "unit_id": "w05-l06-u02"
+      },
+      {
+        "concept_id": "w05-c-free-list",
+        "note_id": "w05-n09",
+        "lesson_id": "w05-l05",
+        "unit_id": "w05-l05-u03"
+      },
+      {
+        "concept_id": "w05-c-unload-on-error",
+        "note_id": "w05-n09",
+        "lesson_id": "w05-l05",
+        "unit_id": "w05-l05-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول خروجی رسمی را با تعریف `person` تطبیق بده: هر خط یک `person` است و تورفتگی نسل را نشان می‌دهد. چند `person` برای سه نسل لازم است؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "کد آغازین دو فراخوانی بازگشتی را آماده دارد. از خودت بپرس: هر فراخوانی چه چیزی برمی‌گرداند، و پس از آن‌ها چه کارهایی برای فرد فعلی مانده است؟ کِی دیگر نسلی برای ساختن نمی‌ماند (حالت پایه)؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "دو حالت را از هم جدا کن: فردی که هنوز نسل‌هایی پشت سرش هست، و فردی در قدیمی‌ترین نسل. در هر حالت `parents` و `alleles` باید چه باشند؟ خواسته‌های ۵ و ۶ را دوباره بخوان."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای انتخاب تصادفی یکی از دو آلل یک والد، به عددی نیاز داری که فقط ۰ یا ۱ باشد. صفحهٔ رسمی تابعی را برای این کار نام می‌برد. یادداشت گره‌ها را برای دسترسی به فیلدِ آرایه‌ای از راه اشاره‌گر مرور کن."
+      },
+      {
+        "n": 5,
+        "hint_fa": "برای `free_family` از خودت بپرس: اگر اول خود فرد را آزاد کنی، هنوز می‌توانی به والدهایش برسی؟ ترتیب درست آزاد کردن در یادداشت آزادسازی فهرست هم همین منطق را دارد."
+      },
+      {
+        "n": 6,
+        "hint_fa": "حالت پایهٔ `free_family` را فراموش نکن: والدهای قدیمی‌ترین نسل `NULL` هستند."
+      },
+      {
+        "n": 7,
+        "hint_fa": "بعد از کامل کردن هر تابع، برنامه را چند بار اجرا کن و آلل‌ها را با دست بررسی کن. سپس `valgrind` را اجرا کن."
+      }
+    ],
+    "common_mistakes_fa": [
+      "آزاد کردن فرزند پیش از والدهایش و از دست دادن اشاره‌گرها به آن‌ها",
+      "فراموش کردن حالت پایه و رفتن به نشانی `NULL` (segfault)",
+      "دادن آلل تصادفی به همهٔ نسل‌ها، نه فقط قدیمی‌ترین",
+      "برداشتن هر دو آلل فرزند از یک والد",
+      "مقداردهی نکردن `parents` در نسل آخر",
+      "نسنجیدن نتیجهٔ `malloc`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w05-ps-inheritance-c01",
+        "text_fa": "فقط `TODO`های `create_family` و `free_family` را عوض کرده‌ام؛ بقیهٔ کد آغازین دست‌نخورده است.",
+        "maps_to": "w05-ps-inheritance-r1"
+      },
+      {
+        "id": "w05-ps-inheritance-c02",
+        "text_fa": "خروجی سه نسل دارد: یک فرزند، دو والد و چهار پدربزرگ و مادربزرگ.",
+        "maps_to": "w05-ps-inheritance-r4"
+      },
+      {
+        "id": "w05-ps-inheritance-c03",
+        "text_fa": "آلل‌های نسل آخر (پدربزرگ‌ها و مادربزرگ‌ها) تصادفی‌اند و در هر اجرا ممکن است عوض شوند.",
+        "maps_to": "w05-ps-inheritance-r2"
+      },
+      {
+        "id": "w05-ps-inheritance-c04",
+        "text_fa": "هر آلل هر فرد در نسل‌های جوان‌تر واقعاً از یکی از دو آلل والد مربوط آمده است.",
+        "maps_to": "w05-ps-inheritance-r5"
+      },
+      {
+        "id": "w05-ps-inheritance-c05",
+        "text_fa": "والدهای نسل آخر `NULL` هستند و پیش از استفاده از اشاره‌گر، `NULL` نبودنش را می‌سنجم.",
+        "maps_to": "w05-ps-inheritance-r6"
+      },
+      {
+        "id": "w05-ps-inheritance-c06",
+        "text_fa": "هر `person` با `malloc` ساخته شده و نتیجهٔ `malloc` را سنجیده‌ام.",
+        "maps_to": "w05-ps-inheritance-r3"
+      },
+      {
+        "id": "w05-ps-inheritance-c07",
+        "text_fa": "`free_family` پیش از آزاد کردن هر فرد، نیاکانش را آزاد می‌کند و با `NULL` درست برمی‌گردد.",
+        "maps_to": "w05-ps-inheritance-r7"
+      },
+      {
+        "id": "w05-ps-inheritance-c08",
+        "text_fa": "`valgrind ./inheritance` هیچ نشت یا خطای حافظه نشان نمی‌دهد.",
+        "maps_to": "w05-ps-inheritance-r7"
+      },
+      {
+        "id": "w05-ps-inheritance-c09",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w05-ps-inheritance-c10",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w05-ps-inheritance-c11",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی‌های رسمی «Complete the create_family function» و «Complete the free_family function»",
+      "url": "https://cs50.harvard.edu/x/2026/psets/5/inheritance/#hints",
+      "reason_fa": "کد این راهنمایی‌ها عملاً بدنهٔ کامل دو تابع خواسته‌شده است؛ فقط پیوند (D33)."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://video.cs50.io/9p7ddI3ozTY",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

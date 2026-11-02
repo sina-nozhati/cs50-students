@@ -1,0 +1,323 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w09-ps-birthdays",
+  "kind": "pset",
+  "week": 9,
+  "title_en": "Birthdays",
+  "title_fa": "زادروزها (Birthdays)",
+  "guide_doc_id": "w09-ps-birthdays",
+  "guide_file": "birthdays.fa.md",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/9/birthdays/",
+    "index_url": "https://cs50.harvard.edu/x/2026/psets/9/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w09-ps-birthdays-r1",
+        "text_fa": "برنامهٔ وبی را کامل کن که کاربر بتواند تولدها را ذخیره و پیگیری کند.",
+        "text_en": "Complete the implementation of a web application to let users store and keep track of birthdays.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r2",
+        "text_fa": "وقتی `/` با GET خواسته شود، همهٔ افراد پایگاه داده همراه تولدشان در یک جدول نشان داده شوند.",
+        "text_en": "When the / route is requested via GET, your web application should display, in a table, all of the people in your database along with their birthdays.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r3",
+        "text_fa": "در `app.py`، در بخش GET، همهٔ تولدها را از `birthdays.db` بخوان و همه را به قالب `index.html` بده.",
+        "text_en": "First, in app.py, add logic in your GET request handling to query the birthdays.db database for all birthdays. Pass all of that data to your index.html template.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r4",
+        "text_fa": "در `index.html` هر تولد را یک سطر جدول کن با دو ستون: نام و تاریخ تولد.",
+        "text_en": "Then, in index.html, add logic to render each birthday as a row in the table. Each row should have two columns: one column for the person’s name and another column for the person’s birthday.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r5",
+        "text_fa": "وقتی `/` با POST خواسته شود، تولد تازه به پایگاه داده اضافه شود و سپس صفحهٔ اصلی دوباره نمایش داده شود.",
+        "text_en": "When the / route is requested via POST, your web application should add a new birthday to your database and then re-render the index page.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r6",
+        "text_fa": "در `index.html` فرمی بساز که نام، ماه و روز تولد را بگیرد و به `/` (action) با روش `post` بفرستد.",
+        "text_en": "First, in index.html, add an HTML form. The form should let users type in a name, a birthday month, and a birthday day. Be sure the form submits to / (its “action”) with a method of post.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r7",
+        "text_fa": "در `app.py`، در بخش POST، بر اساس دادهٔ کاربر یک سطر تازه با `INSERT` به جدول `birthdays` اضافه کن.",
+        "text_en": "Then, in app.py, add logic in your POST request handling to INSERT a new row into the birthdays table based on the data supplied by the user.",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r8",
+        "text_fa": "اختیاری: امکان حذف یا ویرایش تولدها، یا هر امکان دیگری به انتخاب خودت.",
+        "text_en": "Optionally, you may also: Add the ability to delete and/or edit birthday entries. Add any additional features of your choosing!",
+        "source_ref": "src-pset-9-birthdays#implementation-details"
+      },
+      {
+        "id": "w09-ps-birthdays-r9",
+        "text_fa": "check50 ندارد؛ چند تولد اضافه کن و ببین در جدول درست ظاهر می‌شوند. در پوشهٔ `birthdays` فرمان `flask run` را اجرا کن.",
+        "text_en": "No check50 for this problem set! But be sure to test your web application by adding some birthdays and ensuring that the data appears in your table as expected.",
+        "source_ref": "src-pset-9-birthdays#testing"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/birthdays",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/9/birthdays.zip\nunzip birthdays.zip\nrm birthdays.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "خروجی رسمی `ls`",
+        "text": "app.py  birthdays.db  static/  templates/",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [
+      "صفحهٔ رسمی در بخش Hints گام‌به‌گام فرم، خواندن دادهٔ فرم، `INSERT`، اعتبارسنجی و حلقهٔ قالب را نشان می‌دهد. چون این گام‌ها روی هم تقریباً کل راه‌حل‌اند، در این بسته فقط پیوند داده شده‌اند (بخش «فقط پیوند» پایین)."
+    ],
+    "official_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "HXwvj8x1Fcs",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d174",
+      "d175",
+      "d176"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w09-c-flask-run",
+      "w09-c-request-method",
+      "w09-c-request-form",
+      "w09-c-form-to-route",
+      "w09-c-flask-sql",
+      "w09-c-sql-in-route",
+      "w09-c-render-template",
+      "w09-c-jinja-for",
+      "w09-c-redirect",
+      "w09-c-post-redirect-get",
+      "w09-c-server-validation",
+      "w09-c-hidden-input",
+      "w09-c-post-for-changes"
+    ],
+    "prerequisite_lesson_ids": [
+      "w09-l01",
+      "w09-l02",
+      "w09-l03",
+      "w09-l04",
+      "w09-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w09-c-flask-run",
+        "note_id": "w09-n02",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u02"
+      },
+      {
+        "concept_id": "w09-c-request-method",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u02"
+      },
+      {
+        "concept_id": "w09-c-request-form",
+        "note_id": "w09-n06",
+        "lesson_id": "w09-l03",
+        "unit_id": "w09-l03-u01"
+      },
+      {
+        "concept_id": "w09-c-form-to-route",
+        "note_id": "w09-n04",
+        "lesson_id": "w09-l02",
+        "unit_id": "w09-l02-u01"
+      },
+      {
+        "concept_id": "w09-c-flask-sql",
+        "note_id": "w09-n10",
+        "lesson_id": "w09-l05",
+        "unit_id": "w09-l05-u01"
+      },
+      {
+        "concept_id": "w09-c-sql-in-route",
+        "note_id": "w09-n10",
+        "lesson_id": "w09-l05",
+        "unit_id": "w09-l05-u01"
+      },
+      {
+        "concept_id": "w09-c-render-template",
+        "note_id": "w09-n03",
+        "lesson_id": "w09-l01",
+        "unit_id": "w09-l01-u03"
+      },
+      {
+        "concept_id": "w09-c-jinja-for",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      },
+      {
+        "concept_id": "w09-c-redirect",
+        "note_id": "w09-n09",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u02"
+      },
+      {
+        "concept_id": "w09-c-post-redirect-get",
+        "note_id": "w09-ps-birthdays",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w09-c-server-validation",
+        "note_id": "w09-n08",
+        "lesson_id": "w09-l04",
+        "unit_id": "w09-l04-u01"
+      },
+      {
+        "concept_id": "w09-c-hidden-input",
+        "note_id": "w09-n10",
+        "lesson_id": "w09-l05",
+        "unit_id": "w09-l05-u02"
+      },
+      {
+        "concept_id": "w09-c-post-for-changes",
+        "note_id": "w09-n10",
+        "lesson_id": "w09-l05",
+        "unit_id": "w09-l05-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول کد آغازین را بخوان: کدام شاخهٔ `if` مال POST و کدام مال GET است؟ هر کدام اکنون چه برمی‌گرداند؟ با `sqlite3 birthdays.db` و `.schema` ستون‌های جدول را ببین."
+      },
+      {
+        "n": 2,
+        "hint_fa": "از GET شروع کن، چون بدون فرم هم آزمودنی است. در store و froshims دیدی چطور نتیجهٔ `db.execute` (فهرستی از دیکشنری‌ها) را با یک نام به `render_template` بدهی."
+      },
+      {
+        "n": 3,
+        "hint_fa": "در قالب، برای هر عضو فهرست یک `<tr>` لازم داری. در یادداشت اعتبارسنجی دیدی `{% for %}` چطور برای هر عضو یک تکه HTML تکرار می‌کند؛ از هر دیکشنری کلیدهای لازم را بخوان."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای فرم از خودت بپرس: هر ورودی چه `name`ی باید داشته باشد تا در `app.py` پیدایش کنی؟ `type` مناسب برای ماه و روز چیست؟ `action` و `method` فرم چه باید باشند؟"
+      },
+      {
+        "n": 5,
+        "hint_fa": "در POST سه مقدار را با `request.form.get` بخوان و پیش از نوشتن در پایگاه داده فکر کن اگر خالی یا خارج از بازه باشند چه کنی. یادت باشد اعتبارسنجی سمت سرور لازم است، چون HTML را می‌شود دور زد."
+      },
+      {
+        "n": 6,
+        "hint_fa": "برای `INSERT` الگوی froshims را به یاد بیاور: یک رشتهٔ SQL با `?` و مقدارها به‌عنوان آرگومان‌های بعدی. پس از آن، همان کاری را نگه دار که کد آغازین می‌کند (برگشت به `/`)."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نوشتن پرس‌وجو با f-string یا `+` به جای `?` (خطر تزریق SQL)",
+      "فراموش کردن `method=\"post\"` در فرم؛ فرم با GET فرستاده می‌شود و شاخهٔ POST اجرا نمی‌شود",
+      "نام‌گذاری ورودی‌های فرم متفاوت با آنچه `request.form.get` می‌خواند",
+      "فرستادن فهرست به قالب با نامی و خواندنش با نامی دیگر",
+      "رندر کردن مستقیم قالب پس از POST به جای redirect؛ بارگذاری دوباره فرم را دوباره می‌فرستد",
+      "نپذیرفتن ورودی خالی فقط در HTML و نه در سرور"
+    ],
+    "self_checklist": [
+      {
+        "id": "w09-ps-birthdays-c01",
+        "text_fa": "`GET /` جدولی با همهٔ سطرهای `birthdays.db` نشان می‌دهد.",
+        "maps_to": "w09-ps-birthdays-r2"
+      },
+      {
+        "id": "w09-ps-birthdays-c02",
+        "text_fa": "هر سطر جدول دقیقاً دو ستون دارد: نام و تاریخ تولد.",
+        "maps_to": "w09-ps-birthdays-r4"
+      },
+      {
+        "id": "w09-ps-birthdays-c03",
+        "text_fa": "فرم سه ورودی نام، ماه و روز دارد و با `post` به `/` فرستاده می‌شود.",
+        "maps_to": "w09-ps-birthdays-r6"
+      },
+      {
+        "id": "w09-ps-birthdays-c04",
+        "text_fa": "پس از فرستادن فرم، تولد تازه در جدول دیده می‌شود (و با `sqlite3 birthdays.db` هم در جدول هست).",
+        "maps_to": "w09-ps-birthdays-r7"
+      },
+      {
+        "id": "w09-ps-birthdays-c05",
+        "text_fa": "پرس‌وجوها با جای‌نگهدار `?` نوشته شده‌اند، نه با f-string یا `+`.",
+        "maps_to": "design"
+      },
+      {
+        "id": "w09-ps-birthdays-c06",
+        "text_fa": "فرم خالی یا ماه و روز نامعتبر سطر خرابی به پایگاه داده اضافه نمی‌کند.",
+        "maps_to": "design"
+      },
+      {
+        "id": "w09-ps-birthdays-c07",
+        "text_fa": "پس از POST، بارگذاری دوبارهٔ صفحه فرم را دوباره نمی‌فرستد (redirect به GET).",
+        "maps_to": "w09-ps-birthdays-r5"
+      },
+      {
+        "id": "w09-ps-birthdays-c08",
+        "text_fa": "چند تولد را با `flask run` در مرورگر آزموده‌ام.",
+        "maps_to": "w09-ps-birthdays-r9"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی‌های گام‌به‌گام صفحهٔ رسمی (Hints)",
+      "url": "https://cs50.harvard.edu/x/psets/9/birthdays/#hints",
+      "reason_fa": "این بلوک‌ها فرم، `INSERT`، اعتبارسنجی، `SELECT` و حلقهٔ قالب را با کد نشان می‌دهند و روی هم تقریباً کل راه‌حل‌اند (D75)؛ بازتولید نشده‌اند. اول خودت تلاش کن."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://video.cs50.io/HXwvj8x1Fcs",
+      "reason_fa": "ویدئوی رسمی؛ در زمان CS50 IDE ضبط شده است (d175). فقط پیوند."
+    },
+    {
+      "title_fa": "ویدئوی راه‌حل («Not sure how to solve?»)",
+      "url": "https://video.cs50.io/lVwv4o8vmvI",
+      "reason_fa": "**هشدار:** این ویدئو راه‌حل کامل را نشان می‌دهد. فقط پس از اینکه خودت برنامه را ساختی یا واقعاً گیر کردی نگاهش کن. در نسخهٔ ذخیره‌شدهٔ صفحه نبود و فقط در صفحهٔ زنده یافت شد (d176)."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

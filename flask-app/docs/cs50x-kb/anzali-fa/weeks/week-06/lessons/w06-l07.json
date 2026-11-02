@@ -1,0 +1,429 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w06-l07",
+  "type": "lesson",
+  "week": 6,
+  "order": 7,
+  "stage_id": "w06-s6",
+  "title_fa": "جست‌وجو، واژه‌نامه، خط فرمان و CSV",
+  "title_en": "Searching, dictionaries, command line and CSV",
+  "note_ids": [
+    "w06-n13",
+    "w06-n14",
+    "w06-n15"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w06-l06"
+  ],
+  "concept_ids": [
+    "w06-c-linear-search-py",
+    "w06-c-for-else",
+    "w06-c-dict",
+    "w06-c-list-of-dicts",
+    "w06-c-dict-lookup",
+    "w06-c-sys-argv",
+    "w06-c-sys-exit",
+    "w06-c-csv-module",
+    "w06-c-with-open",
+    "w06-c-dictwriter",
+    "w06-c-third-party"
+  ],
+  "objective_ids": [
+    "w06-o09",
+    "w06-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/6 or the section code.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w06-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "units": [
+    {
+      "id": "w06-l07-u01",
+      "order": 1,
+      "title_fa": "جست‌وجوی خطی و for ... else",
+      "concept_ids": [
+        "w06-c-linear-search-py",
+        "w06-c-for-else"
+      ],
+      "objective_ids": [
+        "w06-o09"
+      ],
+      "note_id": "w06-n13",
+      "source_refs": [
+        "src-notes-6#searching-and-dictionaries",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "`phonebook0.py` با حلقه روی فهرست نام‌ها جست‌وجوی خطی انجام می‌دهد و با یافتن نام `break` می‌کند. بخش `else` حلقه فقط وقتی اجرا می‌شود که حلقه بدون `break` تمام شود. `phonebook1.py` همین جست‌وجوی خطی را با `if name in names:` انجام می‌دهد.",
+        "note_id": "w06-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook0",
+        "lang": "python",
+        "content": "# Implements linear search for names using loop\n\n# A list of names\nnames = [\"Kelly\", \"David\", \"John\"]\n\n# Ask for name\nname = input(\"Name: \")\n\n# Search for name\nfor n in names:\n    if name == n:\n        print(\"Found\")\n        break\nelse:\n    print(\"Not found\")",
+        "source_ref": "src-notes-6#searching-and-dictionaries",
+        "explain_fa": "phonebook0.py رسمی."
+      },
+      "check": {
+        "id": "w06-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `phonebook0.py` بخش `else` کِی اجرا می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "وقتی حلقه بدون `break` تمام شود، یعنی نام پیدا نشود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "پس از هر دور ناموفق حلقه.",
+            "correct": false,
+            "feedback_fa": "`else` حلقه یک بار و پس از پایان حلقه اجرا می‌شود، نه در هر دور."
+          },
+          {
+            "id": "c",
+            "text_fa": "هرگز، چون فهرست خالی نیست.",
+            "correct": false,
+            "feedback_fa": "اگر نام در فهرست نباشد، `break` اجرا نمی‌شود و `else` اجرا می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l07-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟",
+        "expected": {
+          "output": "Found\nNot found"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: برای `Brian` حلقهٔ درونی بدون `break` تمام می‌شود.",
+          "incorrect_fa": "`else` به حلقهٔ درونی تعلق دارد."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "names = [\"Kelly\", \"David\", \"John\"]\nfor name in [\"David\", \"Brian\"]:\n    for n in names:\n        if n == name:\n            print(\"Found\")\n            break\n    else:\n        print(\"Not found\")",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l07-u02",
+      "order": 2,
+      "title_fa": "واژه‌نامه: کلید و مقدار",
+      "concept_ids": [
+        "w06-c-dict",
+        "w06-c-list-of-dicts",
+        "w06-c-dict-lookup"
+      ],
+      "objective_ids": [
+        "w06-o09"
+      ],
+      "note_id": "w06-n13",
+      "source_refs": [
+        "src-notes-6#searching-and-dictionaries",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "واژه‌نامه یا `dict` مجموعه‌ای از جفت‌های کلید و مقدار است. `phonebook2.py` و `phonebook3.py` فهرستی از واژه‌نامه‌ها با کلیدهای `name` و `number` دارند؛ `phonebook4.py` ساده‌تر است: نام کلید و شماره مقدار است. `if name in people` بررسی می‌کند نام در کلیدها هست یا نه و `people[name]` شماره را می‌دهد. `in` روی واژه‌نامه فقط کلیدها را می‌گردد و نمایهٔ کلیدِ ناموجود `KeyError` می‌دهد.",
+        "note_id": "w06-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook4",
+        "lang": "python",
+        "content": "# Implements a phone book using a dictionary\n\nfrom cs50 import get_string\n\npeople = {\n    \"Kelly\": \"+1-617-495-1000\",\n    \"David\": \"+1-617-495-1000\",\n    \"John\": \"+1-949-468-2750\",\n}\n\n# Search for name\nname = get_string(\"Name: \")\nif name in people:\n    print(f\"Number: {people[name]}\")\nelse:\n    print(\"Not found\")",
+        "source_ref": "src-notes-6#searching-and-dictionaries",
+        "explain_fa": "phonebook4.py رسمی."
+      },
+      "check": {
+        "id": "w06-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `phonebook4.py`، عبارت `\"+1-617-495-1000\" in people` چه مقداری دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`False`",
+            "correct": true,
+            "feedback_fa": "درست. `in` روی واژه‌نامه فقط کلیدها را بررسی می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`True`",
+            "correct": false,
+            "feedback_fa": "این رشته مقدار است، نه کلید."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای `KeyError`",
+            "correct": false,
+            "feedback_fa": "`in` خطا نمی‌دهد؛ `KeyError` برای نمایه‌گذاری با کلید ناموجود است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l07-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا برنامه شمارهٔ `John` را چاپ کند: `+1-949-468-2750`.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "people = {\"Kelly\": \"+1-617-495-1000\", \"John\": \"+1-949-468-2750\"}\nname = \"John\"\nif name [[b1]] people:\n    number = people[name]\n    print(number)\nelse:\n    print(\"Not found\")",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "in"
+            ],
+            "hint_fa": "کدام عملگر عضویت کلید را در واژه‌نامه می‌پرسد؟",
+            "wrong_feedback": {
+              "==": "نام با کل واژه‌نامه برابر نیست؛ `Not found` چاپ می‌شود.",
+              "not in": "این شرط را برعکس می‌کند؛ `Not found` چاپ می‌شود.",
+              "is": "`is` یکی بودن شیء را می‌سنجد، نه عضویت را."
+            },
+            "default_wrong_fa": "عملگری که در `phonebook4.py` آمده."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "in"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "به سطر `if name in people` در درس‌نامه نگاه کن."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "expected_stdout_exact": "+1-949-468-2750\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l07-u03",
+      "order": 3,
+      "title_fa": "sys.argv و sys.exit",
+      "concept_ids": [
+        "w06-c-sys-argv",
+        "w06-c-sys-exit"
+      ],
+      "objective_ids": [
+        "w06-o10"
+      ],
+      "note_id": "w06-n14",
+      "source_refs": [
+        "src-notes-6#command-line-arguments",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در پایتون آرگومان‌های خط فرمان در `sys.argv` هستند: فهرستی از رشته‌ها که `argv[0]` آن نام فایل برنامه است. `len(sys.argv)` جای `argc` را می‌گیرد. `sys.exit(1)` برنامه را با وضعیت خروج ۱ تمام می‌کند و سطرهای بعد از آن اجرا نمی‌شوند. با `from sys import argv` می‌شود `argv` را بدون پیشوند نوشت.",
+        "note_id": "w06-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "exit",
+        "lang": "python",
+        "content": "# Exits with explicit value, importing sys\n\nimport sys\n\nif len(sys.argv) != 2:\n    print(\"Missing command-line argument\")\n    sys.exit(1)\n\nprint(f\"hello, {sys.argv[1]}\")\nsys.exit(0)",
+        "source_ref": "src-notes-6#command-line-arguments",
+        "explain_fa": "exit.py رسمی."
+      },
+      "check": {
+        "id": "w06-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در اجرای `python greet.py David`، مقدار `argv[0]` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`greet.py`",
+            "correct": true,
+            "feedback_fa": "درست. نخستین عضو نام فایل برنامه است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`David`",
+            "correct": false,
+            "feedback_fa": "`David` در `argv[1]` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`python`",
+            "correct": false,
+            "feedback_fa": "نام مفسر در `argv` نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l07-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی با دستور `python p.py a b` اجرا می‌شود. خروجی چیست؟",
+        "expected": {
+          "output": "b a"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `argv` سه عضو دارد (`p.py`، `a`، `b`).",
+          "incorrect_fa": "`argv[0]` را هم بشمار."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "import sys\n\nif len(sys.argv) != 3:\n    print(\"Usage: two arguments\")\n    sys.exit(1)\nprint(sys.argv[2], sys.argv[1])",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [
+          "a",
+          "b"
+        ],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l07-u04",
+      "order": 4,
+      "title_fa": "CSV و کتابخانه‌های شخص ثالث",
+      "concept_ids": [
+        "w06-c-csv-module",
+        "w06-c-with-open",
+        "w06-c-dictwriter",
+        "w06-c-third-party"
+      ],
+      "objective_ids": [
+        "w06-o10"
+      ],
+      "note_id": "w06-n15",
+      "source_refs": [
+        "src-notes-6#csv-files",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "پایتون کتابخانهٔ داخلی `csv` دارد. `csv.writer(file)` و `writerow([name, number])` ویرگول‌ها را خودشان می‌گذارند. `with open(\"phonebook.csv\", \"a\") as file:` فایل را برای افزودن باز می‌کند و پس از پایان بلوک خودکار می‌بندد. `csv.DictWriter` با `fieldnames` ستون‌ها را نام‌گذاری می‌کند و `writerow` یک واژه‌نامه می‌گیرد. کتابخانه‌های شخص ثالث مثل `cs50`، `cowsay` و `qrcode` با `pip install` نصب می‌شوند.",
+        "note_id": "w06-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook-csv1",
+        "lang": "python",
+        "content": "# Uses `with`\n\nimport csv\n\n# Get name and number\nname = input(\"Name: \")\nnumber = input(\"Number: \")\n\n# Open CSV file\nwith open(\"phonebook.csv\", \"a\") as file:\n\n    # Print to file\n    writer = csv.writer(file)\n    writer.writerow([name, number])",
+        "source_ref": "src-notes-6#csv-files",
+        "explain_fa": "phonebook.py رسمی با with."
+      },
+      "check": {
+        "id": "w06-l07-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "حالت `\"a\"` در `open(\"phonebook.csv\", \"a\")` یعنی چه؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "افزودن به انتهای فایل، بدون پاک کردن محتوای قبلی",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "بازنویسی فایل از ابتدا",
+            "correct": false,
+            "feedback_fa": "این حالت `\"w\"` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "فقط خواندن فایل",
+            "correct": false,
+            "feedback_fa": "این حالت `\"r\"` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l07-u04-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را به «csv.writer» یا «csv.DictWriter» نسبت بده: (۱) `writerow([name, number])` (۲) `writerow({\"name\": name, \"number\": number})` (۳) پارامتر `fieldnames` الزامی است",
+        "expected": {
+          "answers": {
+            "1": "csv.writer",
+            "2": "csv.DictWriter",
+            "3": "csv.DictWriter"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "فهرست برای writer، واژه‌نامه برای DictWriter."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

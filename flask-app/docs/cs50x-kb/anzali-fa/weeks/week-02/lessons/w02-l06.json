@@ -1,0 +1,292 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l06",
+  "type": "lesson",
+  "week": 2,
+  "order": 6,
+  "stage_id": "w02-s3",
+  "title_fa": "نویسه‌ها و رشته‌ها",
+  "title_en": "Characters and strings",
+  "note_ids": [
+    "w02-n11",
+    "w02-n12",
+    "w02-n13"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w02-l04"
+  ],
+  "concept_ids": [
+    "w02-c-char-ascii",
+    "w02-c-string-char-array",
+    "w02-c-nul",
+    "w02-c-array-of-strings"
+  ],
+  "objective_ids": [
+    "w02-o07",
+    "w02-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l06-u01",
+      "order": 1,
+      "title_fa": "char و کد ASCII",
+      "concept_ids": [
+        "w02-c-char-ascii"
+      ],
+      "objective_ids": [
+        "w02-o07"
+      ],
+      "note_id": "w02-n11",
+      "source_refs": [
+        "src-notes-2#strings",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "نویسه‌ها (`char`) در تک‌کوتیشن می‌آیند و رشته‌ها در دابل‌کوتیشن. هر char در حافظه یک عدد است: اگر `'H'` را با `%i` چاپ کنی، کد ASCII آن، یعنی ۷۲، را می‌بینی.",
+        "note_id": "w02-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hi-ints",
+        "lang": "c",
+        "content": "// Prints chars' ASCII codes\n\n#include <stdio.h>\n\nint main(void)\n{\n    char c1 = 'H';\n    char c2 = 'I';\n    char c3 = '!';\n\n    printf(\"%i %i %i\\n\", c1, c2, c3);\n}",
+        "source_ref": "src-notes-2#strings",
+        "explain_fa": "چاپ کد ASCII نویسه‌ها."
+      },
+      "check": {
+        "id": "w02-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی برنامهٔ بالا چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "72 73 33",
+            "correct": true,
+            "feedback_fa": "درست: H=72، I=73، !=33."
+          },
+          {
+            "id": "b",
+            "text_fa": "HI!",
+            "correct": false,
+            "feedback_fa": "با %i عدد چاپ می‌شود، نه حرف."
+          },
+          {
+            "id": "c",
+            "text_fa": "72 73",
+            "correct": false,
+            "feedback_fa": "سه نویسه داریم."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l06-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟ (کد ASCII حرف A برابر ۶۵ است.)\n\nchar c = 'A';\nprintf(\"%i\\n\", c + 1);",
+        "expected": {
+          "output": "66\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "یک واحد بیشتر از ۶۵."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l06-u02",
+      "order": 2,
+      "title_fa": "رشته یعنی آرایهٔ char با NUL",
+      "concept_ids": [
+        "w02-c-string-char-array",
+        "w02-c-nul"
+      ],
+      "objective_ids": [
+        "w02-o07"
+      ],
+      "note_id": "w02-n12",
+      "source_refs": [
+        "src-notes-2#strings",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "رشته در واقع آرایه‌ای از char است: در `string s = \"HI!\";`، `s[0]` برابر `'H'` است. در پایان هر رشته یک بایت اضافه با مقدار صفر می‌آید: **NUL**، یعنی `'\\0'`. پس \"HI!\" چهار بایت می‌گیرد. `printf` تا رسیدن به NUL چاپ می‌کند.",
+        "note_id": "w02-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hi-nul",
+        "lang": "c",
+        "content": "// Prints string's ASCII codes, including NUL\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    string s = \"HI!\";\n    printf(\"%i %i %i %i\\n\", s[0], s[1], s[2], s[3]);\n}",
+        "source_ref": "src-notes-2#strings",
+        "explain_fa": "چاپ کد ASCII همهٔ بایت‌ها، از جمله NUL."
+      },
+      "check": {
+        "id": "w02-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی برنامهٔ بالا چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "72 73 33 0",
+            "correct": true,
+            "feedback_fa": "درست: آخرین بایت NUL است."
+          },
+          {
+            "id": "b",
+            "text_fa": "72 73 33",
+            "correct": false,
+            "feedback_fa": "s[3] هم چاپ می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "HI!0",
+            "correct": false,
+            "feedback_fa": "با %i عدد چاپ می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l06-u02-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "رشتهٔ \"CS50\" در حافظه چند بایت می‌گیرد؟",
+        "expected": {
+          "accept": [
+            "5",
+            "۵"
+          ]
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: چهار نویسه به‌علاوهٔ NUL.",
+          "incorrect_fa": "NUL را فراموش نکن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l06-u03",
+      "order": 3,
+      "title_fa": "آرایه‌ای از رشته‌ها",
+      "concept_ids": [
+        "w02-c-array-of-strings"
+      ],
+      "objective_ids": [
+        "w02-o08"
+      ],
+      "note_id": "w02-n13",
+      "source_refs": [
+        "src-notes-2#strings",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "می‌توان آرایه‌ای از رشته‌ها ساخت: `string words[2];`. و چون هر رشته خودش آرایه‌ای از char است، `words[0][0]` اولین حرف اولین رشته است.",
+        "note_id": "w02-n13",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n13"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "words",
+        "lang": "c",
+        "content": "// Array of strings\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    string words[2];\n\n    words[0] = \"HI!\";\n    words[1] = \"BYE!\";\n\n    printf(\"%s\\n\", words[0]);\n    printf(\"%s\\n\", words[1]);\n}",
+        "source_ref": "src-notes-2#strings",
+        "explain_fa": "نسخهٔ رسمی آرایهٔ رشته‌ها."
+      },
+      "check": {
+        "id": "w02-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در برنامهٔ بالا `words[1][0]` کدام نویسه است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "'B'",
+            "correct": true,
+            "feedback_fa": "درست: اولین حرف \"BYE!\"."
+          },
+          {
+            "id": "b",
+            "text_fa": "'H'",
+            "correct": false,
+            "feedback_fa": "این words[0][0] است."
+          },
+          {
+            "id": "c",
+            "text_fa": "'I'",
+            "correct": false,
+            "feedback_fa": "این words[0][1] است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l06-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nstring pets[2];\npets[0] = \"cat\";\npets[1] = \"dog\";\nprintf(\"%c%c\\n\", pets[0][0], pets[1][2]);",
+        "expected": {
+          "output": "cg\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "pets[1][2] سومین حرف dog است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

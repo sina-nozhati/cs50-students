@@ -1,0 +1,715 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 8,
+  "title": "چالش‌های هفتهٔ ۸ — HTML، CSS و جاوااسکریپت",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. همهٔ کدها روی جعبهٔ ساخت با node و jsdom اجرا و بررسی شده‌اند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w08-ch01-strict-equal",
+      "type": "token_tap",
+      "concept_tag": "===",
+      "title": "مقایسهٔ دقیق",
+      "instruction": "توکن درست را بزن تا برنامه false چاپ کند، چون عدد 1 و رشتهٔ \"1\" نوع متفاوتی دارند.",
+      "prompt": "console.log(1 ___ \"1\");",
+      "token_bank": [
+        "===",
+        "==",
+        "=",
+        "=>"
+      ],
+      "expected_answer": [
+        "==="
+      ],
+      "blank_marker": "___",
+      "explanation": "`===` هم مقدار و هم نوع را مقایسه می‌کند؛ `==` رشته را به عدد تبدیل می‌کرد و true می‌داد.",
+      "hint": "کدام عملگر نوع را تبدیل نمی‌کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-equality-operators"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch02-let-counter",
+      "type": "token_tap",
+      "concept_tag": "let",
+      "title": "شمارنده‌ای که عوض می‌شود",
+      "instruction": "توکن درست را بزن تا برنامه 2 چاپ کند.",
+      "prompt": "let n = 1;\nn ___ 1;\nconsole.log(n);",
+      "token_bank": [
+        "+=",
+        "-=",
+        "==",
+        "="
+      ],
+      "expected_answer": [
+        "+="
+      ],
+      "blank_marker": "___",
+      "explanation": "`n += 1` همان `n = n + 1` است.",
+      "hint": "کدام عملگر یک واحد اضافه می‌کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-variables"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch03-template",
+      "type": "token_tap",
+      "concept_tag": "template literal",
+      "title": "جای‌گذاری در رشته",
+      "instruction": "توکن درست را بزن تا برنامه `hello, Sina` چاپ کند.",
+      "prompt": "let name = \"Sina\";\nconsole.log(`hello, ___`);",
+      "token_bank": [
+        "${name}",
+        "name",
+        "{name}",
+        "$name"
+      ],
+      "expected_answer": [
+        "${name}"
+      ],
+      "blank_marker": "___",
+      "explanation": "درون بک‌تیک، `${...}` مقدار عبارت را جای‌گذاری می‌کند.",
+      "hint": "نشانهٔ دلار و آکولاد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-template-literal"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch04-class-selector",
+      "type": "token_tap",
+      "concept_tag": "selector",
+      "title": "انتخابگر کلاس",
+      "instruction": "توکن درست را بزن تا تعداد بندهای با کلاس `tip` (یعنی 2) چاپ شود.",
+      "prompt": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <title>demo</title>\n    </head>\n    <body>\n        <p class=\"tip\">a</p>\n        <p>b</p>\n        <p class=\"tip\">c</p>\n        <script>\n            console.log(document.querySelectorAll(\"___\").length);\n        </script>\n    </body>\n</html>",
+      "token_bank": [
+        ".tip",
+        "#tip",
+        "tip",
+        "p"
+      ],
+      "expected_answer": [
+        ".tip"
+      ],
+      "blank_marker": "___",
+      "explanation": "نقطه پیش از نام، انتخابگر کلاس است.",
+      "hint": "`#` برای شناسه است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-selectors",
+        "w08-c-queryselectorall"
+      ],
+      "source_ref": "src-notes-8#css",
+      "lang": "html"
+    },
+    {
+      "id": "w08-ch05-event-name",
+      "type": "token_tap",
+      "concept_tag": "event",
+      "title": "نام رویداد",
+      "instruction": "توکن درست را بزن تا کلیک روی دکمه clicked چاپ کند.",
+      "prompt": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <title>demo</title>\n    </head>\n    <body>\n        <button>Go</button>\n        <script>\n            document.querySelector(\"button\").addEventListener(\"___\", function() {\n                console.log(\"clicked\");\n            });\n        </script>\n    </body>\n</html>",
+      "token_bank": [
+        "click",
+        "onclick",
+        "submit",
+        "keyup"
+      ],
+      "expected_answer": [
+        "click"
+      ],
+      "blank_marker": "___",
+      "explanation": "در `addEventListener` نام رویداد بدون پیشوند `on` نوشته می‌شود.",
+      "hint": "پیشوند on فقط در ویژگی‌های HTML است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-event-listener",
+        "w08-c-click-event"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "html"
+    },
+    {
+      "id": "w08-ch06-starts-with",
+      "type": "token_tap",
+      "concept_tag": "startsWith",
+      "title": "آغاز رشته",
+      "instruction": "توکن درست را بزن تا برنامه true چاپ کند.",
+      "prompt": "console.log(\"javascript\".___(\"java\"));",
+      "token_bank": [
+        "startsWith",
+        "endsWith",
+        "includes(\"x\") &&",
+        "length"
+      ],
+      "expected_answer": [
+        "startsWith"
+      ],
+      "blank_marker": "___",
+      "explanation": "`startsWith` می‌پرسد آیا رشته با این پیشوند آغاز می‌شود.",
+      "hint": "java پیشوند است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-startswith"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch07-loop-sum",
+      "type": "parsons",
+      "concept_tag": "for",
+      "title": "جمع با حلقه",
+      "instruction": "خط‌ها را مرتب کن تا برنامه 6 چاپ کند.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "console.log(sum);"
+        },
+        {
+          "id": "L3",
+          "text": "    sum += i;"
+        },
+        {
+          "id": "L1",
+          "text": "let sum = 0;"
+        },
+        {
+          "id": "L4",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "for (let i = 1; i <= 3; i++) {"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول متغیر، بعد حلقه با بدنه‌اش، و در پایان چاپ.",
+      "hint": "چاپ باید پس از پایان حلقه باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-loops"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch08-function-call",
+      "type": "parsons",
+      "concept_tag": "function",
+      "title": "تعریف و صدا زدن",
+      "instruction": "خط‌ها را مرتب کن تا برنامه `hi, Ada` چاپ کند.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "console.log(greet(\"Ada\"));"
+        },
+        {
+          "id": "L2",
+          "text": "    return \"hi, \" + name;"
+        },
+        {
+          "id": "L1",
+          "text": "let greet = function(name) {"
+        },
+        {
+          "id": "L3",
+          "text": "};"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "بدنهٔ تابع میان آکولادهاست؛ تابع بی‌نام در متغیر `greet` است، پس صدا زدن باید پس از تعریف بیاید.",
+      "hint": "`return` درون تابع است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-function"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch09-array-loop",
+      "type": "parsons",
+      "concept_tag": "for...of",
+      "title": "حلقه روی آرایه",
+      "instruction": "خط‌ها را مرتب کن تا هر میوه در یک سطر چاپ شود: fig سپس kiwi.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "    console.log(fruit);"
+        },
+        {
+          "id": "L1",
+          "text": "let fruits = [\"fig\", \"kiwi\"];"
+        },
+        {
+          "id": "L4",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "for (let fruit of fruits) {"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "`for...of` روی هر عضو آرایه می‌چرخد.",
+      "hint": "آرایه باید پیش از حلقه ساخته شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-array",
+        "w08-c-js-loops"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch10-if-else",
+      "type": "parsons",
+      "concept_tag": "if",
+      "title": "شرط دوشاخه",
+      "instruction": "خط‌ها را مرتب کن تا برنامه برای هر عدد 4، 7 و 8 به ترتیب even یا odd را در یک سطر چاپ کند. (دو خط `}` یکسان‌اند و جابه‌جایی‌شان فرقی نمی‌کند.)",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "        console.log(\"odd\");"
+        },
+        {
+          "id": "L3",
+          "text": "        console.log(\"even\");"
+        },
+        {
+          "id": "L7",
+          "text": "}"
+        },
+        {
+          "id": "L1",
+          "text": "for (let n of [4, 7, 8]) {"
+        },
+        {
+          "id": "L6",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "    if (n % 2 === 0) {"
+        },
+        {
+          "id": "L4",
+          "text": "    } else {"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "`if` با بدنه‌اش، سپس `else` با بدنهٔ خودش.",
+      "hint": "`else` در همان سطر آکولاد بستهٔ `if` می‌آید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-conditionals",
+        "w08-c-js-loops"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch11-object-update",
+      "type": "parsons",
+      "concept_tag": "object",
+      "title": "به‌روزرسانی شیء",
+      "instruction": "خط‌ها را مرتب کن تا برنامه 11 چاپ کند.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "console.log(score.points);"
+        },
+        {
+          "id": "L1",
+          "text": "let score = {team: \"A\", points: 10};"
+        },
+        {
+          "id": "L2",
+          "text": "score.points++;"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "شیء ساخته، سپس ویژگی‌اش افزایش می‌یابد و در پایان چاپ می‌شود.",
+      "hint": "پیش از افزایش باید شیء وجود داشته باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-objects"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch12-assign-in-if",
+      "type": "spot_bug",
+      "concept_tag": "= vs ===",
+      "title": "مقایسه یا مقداردهی؟",
+      "instruction": "این برنامه باید not ten چاپ کند ولی ten چاپ می‌کند. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "let score = 3;"
+        },
+        {
+          "index": 1,
+          "text": "if (score = 10)"
+        },
+        {
+          "index": 2,
+          "text": "{"
+        },
+        {
+          "index": 3,
+          "text": "    console.log(\"ten\");"
+        },
+        {
+          "index": 4,
+          "text": "}"
+        },
+        {
+          "index": 5,
+          "text": "else"
+        },
+        {
+          "index": 6,
+          "text": "{"
+        },
+        {
+          "index": 7,
+          "text": "    console.log(\"not ten\");"
+        },
+        {
+          "index": 8,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "if (score === 10)"
+      },
+      "explanation": "`=` مقدار می‌دهد و حاصلش 10 است که truthy است؛ برای مقایسه `===` لازم است.",
+      "hint": "شرط چه چیزی را بررسی می‌کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-equality-operators",
+        "w08-c-js-conditionals"
+      ],
+      "source_ref": "src-section-8-transcript",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch13-string-concat",
+      "type": "spot_bug",
+      "concept_tag": "+",
+      "title": "جمع رشته و عدد",
+      "instruction": "این برنامه باید 3 چاپ کند ولی 12 چاپ می‌کند. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "let a = \"1\";"
+        },
+        {
+          "index": 1,
+          "text": "let b = 2;"
+        },
+        {
+          "index": 2,
+          "text": "console.log(a + b);"
+        }
+      ],
+      "bug_line_index": 0,
+      "fix": {
+        "action": "replace_line",
+        "text": "let a = 1;"
+      },
+      "explanation": "وقتی یکی از دو طرف `+` رشته باشد، جاوااسکریپت آن‌ها را به هم می‌چسباند.",
+      "hint": "نوع `a` چیست؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-variables"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    },
+    {
+      "id": "w08-ch14-camel-style",
+      "type": "spot_bug",
+      "concept_tag": "style",
+      "title": "نام ویژگی سبک",
+      "instruction": "کلیک روی دکمه باید پس‌زمینه را قرمز کند (پس از کلیک مقدار `document.body.style.backgroundColor` چاپ می‌شود) ولی چیزی چاپ نمی‌شود جز سطر خالی. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "<!DOCTYPE html>"
+        },
+        {
+          "index": 1,
+          "text": "<html lang=\"en\">"
+        },
+        {
+          "index": 2,
+          "text": "    <head>"
+        },
+        {
+          "index": 3,
+          "text": "        <title>demo</title>"
+        },
+        {
+          "index": 4,
+          "text": "    </head>"
+        },
+        {
+          "index": 5,
+          "text": "    <body>"
+        },
+        {
+          "index": 6,
+          "text": "        <button>R</button>"
+        },
+        {
+          "index": 7,
+          "text": "        <script>"
+        },
+        {
+          "index": 8,
+          "text": "            document.querySelector(\"button\").addEventListener(\"click\", function() {"
+        },
+        {
+          "index": 9,
+          "text": "                document.body.style.background_color = \"red\";"
+        },
+        {
+          "index": 10,
+          "text": "            });"
+        },
+        {
+          "index": 11,
+          "text": "        </script>"
+        },
+        {
+          "index": 12,
+          "text": "    </body>"
+        },
+        {
+          "index": 13,
+          "text": "</html>"
+        }
+      ],
+      "bug_line_index": 9,
+      "fix": {
+        "action": "replace_line",
+        "text": "                document.body.style.backgroundColor = \"red\";"
+      },
+      "explanation": "نام ویژگی‌های CSS در جاوااسکریپت camelCase است؛ `background_color` فقط یک ویژگی تازهٔ بی‌اثر می‌سازد.",
+      "hint": "خط تیرهٔ CSS در جاوااسکریپت چه می‌شود؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-style-property"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "html"
+    },
+    {
+      "id": "w08-ch15-missing-hash",
+      "type": "spot_bug",
+      "concept_tag": "selector",
+      "title": "شناسهٔ گم‌شده",
+      "instruction": "این صفحه باید پس از بارگذاری Ready چاپ کند ولی خطا می‌دهد. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "<!DOCTYPE html>"
+        },
+        {
+          "index": 1,
+          "text": "<html lang=\"en\">"
+        },
+        {
+          "index": 2,
+          "text": "    <head>"
+        },
+        {
+          "index": 3,
+          "text": "        <title>demo</title>"
+        },
+        {
+          "index": 4,
+          "text": "    </head>"
+        },
+        {
+          "index": 5,
+          "text": "    <body>"
+        },
+        {
+          "index": 6,
+          "text": "        <p id=\"status\">Ready</p>"
+        },
+        {
+          "index": 7,
+          "text": "        <script>"
+        },
+        {
+          "index": 8,
+          "text": "            let status = document.querySelector(\"status\");"
+        },
+        {
+          "index": 9,
+          "text": "            console.log(status.innerHTML);"
+        },
+        {
+          "index": 10,
+          "text": "        </script>"
+        },
+        {
+          "index": 11,
+          "text": "    </body>"
+        },
+        {
+          "index": 12,
+          "text": "</html>"
+        }
+      ],
+      "bug_line_index": 8,
+      "fix": {
+        "action": "replace_line",
+        "text": "            let status = document.querySelector(\"#status\");"
+      },
+      "explanation": "بدون `#`، تگی به نام status جست‌وجو می‌شود که وجود ندارد و نتیجه `null` است.",
+      "hint": "انتخابگر شناسه با چه نویسه‌ای آغاز می‌شود؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-queryselector",
+        "w08-c-selectors"
+      ],
+      "source_ref": "src-notes-8#javascript",
+      "lang": "html"
+    },
+    {
+      "id": "w08-ch16-loop-bound",
+      "type": "spot_bug",
+      "concept_tag": "for",
+      "title": "یکی کمتر",
+      "instruction": "این برنامه باید هر سه رنگ را چاپ کند ولی فقط دو تا چاپ می‌کند. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "let colors = [\"red\", \"green\", \"blue\"];"
+        },
+        {
+          "index": 1,
+          "text": "for (let i = 0; i < colors.length - 1; i++)"
+        },
+        {
+          "index": 2,
+          "text": "{"
+        },
+        {
+          "index": 3,
+          "text": "    console.log(colors[i]);"
+        },
+        {
+          "index": 4,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "for (let i = 0; i < colors.length; i++)"
+      },
+      "explanation": "شاخص‌ها از 0 تا `length - 1` هستند، پس شرط باید `i < colors.length` باشد.",
+      "hint": "آخرین شاخص چند است؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w08-c-js-loops",
+        "w08-c-js-array"
+      ],
+      "source_ref": "src-mdn-js",
+      "lang": "javascript"
+    }
+  ]
+}

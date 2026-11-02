@@ -1,0 +1,442 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w07-curriculum",
+  "week": 7,
+  "title_fa": "هفتهٔ ۷ — SQL",
+  "title_en": "Week 7 — SQL",
+  "panel_week_number": 7,
+  "kb_parent_node": "week-7",
+  "hub_doc_id": "w07-fa",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-7",
+    "src-notes-7",
+    "src-transcript-7",
+    "src-section-7",
+    "src-pset-7"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w07-o01",
+    "w07-o02",
+    "w07-o03",
+    "w07-o04",
+    "w07-o05",
+    "w07-o06",
+    "w07-o07",
+    "w07-o08",
+    "w07-o09",
+    "w07-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: از CSV و پایتون به پایگاه دادهٔ رابطه‌ای، خواندن با SELECT، تغییر داده، طراحی چندجدولی و پرس‌وجوی تودرتو، JOIN، شاخص و SQL در پایتون، و در آخر شرایط رقابتی و تزریق SQL. Songs و Favorites پس از درس تغییر داده باز می‌شوند (Songs فقط به SELECT و تابع‌ها نیاز دارد)، Hall of Prophecy پس از درس طراحی، و Movies و Fiftyville پس از درس JOIN. در سخنرانی تزریق SQL پیش از شرایط رقابتی آمده است؛ اینجا شرایط رقابتی اول آمده تا درس با جای‌نگهدار امن تمام شود (d118).",
+  "stages": [
+    {
+      "id": "w07-s1",
+      "lesson_ids": [
+        "w07-l01"
+      ]
+    },
+    {
+      "id": "w07-s2",
+      "lesson_ids": [
+        "w07-l02"
+      ]
+    },
+    {
+      "id": "w07-s3",
+      "lesson_ids": [
+        "w07-l03"
+      ]
+    },
+    {
+      "id": "w07-s4",
+      "lesson_ids": [
+        "w07-l04"
+      ]
+    },
+    {
+      "id": "w07-s5",
+      "lesson_ids": [
+        "w07-l05"
+      ]
+    },
+    {
+      "id": "w07-s6",
+      "lesson_ids": [
+        "w07-l06"
+      ]
+    },
+    {
+      "id": "w07-s7",
+      "lesson_ids": [
+        "w07-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w07-l01",
+      "order": 1,
+      "file": "lessons/w07-l01.json",
+      "title_fa": "از فایل تخت تا پایگاه دادهٔ رابطه‌ای",
+      "stage_id": "w07-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w07-l01-u01",
+        "w07-l01-u02",
+        "w07-l01-u03"
+      ],
+      "note_ids": [
+        "w07-n01",
+        "w07-n02"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w07-l02",
+      "order": 2,
+      "file": "lessons/w07-l02.json",
+      "title_fa": "خواندن داده با SELECT",
+      "stage_id": "w07-s2",
+      "prerequisite_lesson_ids": [
+        "w07-l01"
+      ],
+      "unit_ids": [
+        "w07-l02-u01",
+        "w07-l02-u02",
+        "w07-l02-u03",
+        "w07-l02-u04"
+      ],
+      "note_ids": [
+        "w07-n03"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w07-l03",
+      "order": 3,
+      "file": "lessons/w07-l03.json",
+      "title_fa": "تغییر داده: INSERT، DELETE و UPDATE",
+      "stage_id": "w07-s3",
+      "prerequisite_lesson_ids": [
+        "w07-l02"
+      ],
+      "unit_ids": [
+        "w07-l03-u01",
+        "w07-l03-u02",
+        "w07-l03-u03",
+        "w07-l03-u04"
+      ],
+      "note_ids": [
+        "w07-n04",
+        "w07-n05",
+        "w07-n06"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w07-l04",
+      "order": 4,
+      "file": "lessons/w07-l04.json",
+      "title_fa": "طراحی چندجدولی",
+      "stage_id": "w07-s4",
+      "prerequisite_lesson_ids": [
+        "w07-l03"
+      ],
+      "unit_ids": [
+        "w07-l04-u01",
+        "w07-l04-u02",
+        "w07-l04-u03"
+      ],
+      "note_ids": [
+        "w07-n07"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w07-l05",
+      "order": 5,
+      "file": "lessons/w07-l05.json",
+      "title_fa": "JOIN و رابطه‌ها",
+      "stage_id": "w07-s5",
+      "prerequisite_lesson_ids": [
+        "w07-l04"
+      ],
+      "unit_ids": [
+        "w07-l05-u01",
+        "w07-l05-u02",
+        "w07-l05-u03",
+        "w07-l05-u04"
+      ],
+      "note_ids": [
+        "w07-n08"
+      ],
+      "related_doc_ids": [
+        "w07-sec"
+      ]
+    },
+    {
+      "id": "w07-l06",
+      "order": 6,
+      "file": "lessons/w07-l06.json",
+      "title_fa": "شاخص‌ها و SQL در پایتون",
+      "stage_id": "w07-s6",
+      "prerequisite_lesson_ids": [
+        "w07-l05"
+      ],
+      "unit_ids": [
+        "w07-l06-u01",
+        "w07-l06-u02",
+        "w07-l06-u03",
+        "w07-l06-u04"
+      ],
+      "note_ids": [
+        "w07-n09",
+        "w07-n10"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w07-l07",
+      "order": 7,
+      "file": "lessons/w07-l07.json",
+      "title_fa": "شرایط رقابتی و تزریق SQL",
+      "stage_id": "w07-s7",
+      "prerequisite_lesson_ids": [
+        "w07-l06"
+      ],
+      "unit_ids": [
+        "w07-l07-u01",
+        "w07-l07-u02",
+        "w07-l07-u03",
+        "w07-l07-u04"
+      ],
+      "note_ids": [
+        "w07-n11",
+        "w07-n12"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w07-n01",
+      "file": "notes/01-flat-file-database.fa.md",
+      "official_anchor": "flat-file-database"
+    },
+    {
+      "id": "w07-n02",
+      "file": "notes/02-relational-databases.fa.md",
+      "official_anchor": "relational-databases"
+    },
+    {
+      "id": "w07-n03",
+      "file": "notes/03-select.fa.md",
+      "official_anchor": "select"
+    },
+    {
+      "id": "w07-n04",
+      "file": "notes/04-insert.fa.md",
+      "official_anchor": "insert"
+    },
+    {
+      "id": "w07-n05",
+      "file": "notes/05-delete.fa.md",
+      "official_anchor": "delete"
+    },
+    {
+      "id": "w07-n06",
+      "file": "notes/06-update.fa.md",
+      "official_anchor": "update"
+    },
+    {
+      "id": "w07-n07",
+      "file": "notes/07-imdb.fa.md",
+      "official_anchor": "imdb"
+    },
+    {
+      "id": "w07-n08",
+      "file": "notes/08-joins.fa.md",
+      "official_anchor": "joins"
+    },
+    {
+      "id": "w07-n09",
+      "file": "notes/09-indexes.fa.md",
+      "official_anchor": "indexes"
+    },
+    {
+      "id": "w07-n10",
+      "file": "notes/10-sql-in-python.fa.md",
+      "official_anchor": "using-sql-in-python"
+    },
+    {
+      "id": "w07-n11",
+      "file": "notes/11-race-conditions.fa.md",
+      "official_anchor": "race-conditions"
+    },
+    {
+      "id": "w07-n12",
+      "file": "notes/12-sql-injection.fa.md",
+      "official_anchor": "sql-injection-attacks"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-7.fa.md",
+    "shorts": [
+      {
+        "id": "w07-sh-sql",
+        "file": "shorts/sql.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w07-ps-songs",
+        "file": "problem-sets/songs.fa.md"
+      },
+      {
+        "id": "w07-ps-movies",
+        "file": "problem-sets/movies.fa.md"
+      },
+      {
+        "id": "w07-ps-fiftyville",
+        "file": "problem-sets/fiftyville.fa.md"
+      },
+      {
+        "id": "w07-pr-favorites",
+        "file": "problem-sets/favorites.fa.md"
+      },
+      {
+        "id": "w07-pr-prophecy",
+        "file": "problem-sets/prophecy.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w07-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "fixtures": {
+    "dir": "fixtures",
+    "files": [
+      "fixtures/favorites.sql",
+      "fixtures/shows.sql",
+      "fixtures/library.sql",
+      "fixtures/users.sql",
+      "fixtures/posts.sql"
+    ],
+    "origin": "authored",
+    "note": "Invented practice databases (D59); every runnable SQL item names one of them. Build with: sqlite3 NAME.db < NAME.sql"
+  },
+  "problem_sets": [
+    {
+      "id": "w07-ps-songs",
+      "kind": "pset",
+      "file": "problem-sets/songs.json",
+      "guide": "problem-sets/songs.fa.md",
+      "unlock_after_lesson": "w07-l03"
+    },
+    {
+      "id": "w07-ps-movies",
+      "kind": "pset",
+      "file": "problem-sets/movies.json",
+      "guide": "problem-sets/movies.fa.md",
+      "unlock_after_lesson": "w07-l05"
+    },
+    {
+      "id": "w07-ps-fiftyville",
+      "kind": "pset",
+      "file": "problem-sets/fiftyville.json",
+      "guide": "problem-sets/fiftyville.fa.md",
+      "unlock_after_lesson": "w07-l05"
+    },
+    {
+      "id": "w07-pr-favorites",
+      "kind": "practice",
+      "file": "problem-sets/favorites.json",
+      "guide": "problem-sets/favorites.fa.md",
+      "unlock_after_lesson": "w07-l03"
+    },
+    {
+      "id": "w07-pr-prophecy",
+      "kind": "practice",
+      "file": "problem-sets/prophecy.json",
+      "guide": "problem-sets/prophecy.fa.md",
+      "unlock_after_lesson": "w07-l04"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۷: Songs، Movies و Fiftyville هر سه لازم‌اند. تمرین‌های Practice (Favorites و Hall of Prophecy) اختیاری‌اند و تحویل ندارند.",
+    "groups": [
+      {
+        "required": [
+          "w07-ps-songs"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w07-ps-movies"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w07-ps-fiftyville"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w07-pr-favorites",
+      "w07-pr-prophecy"
+    ],
+    "source_ref": "src-pset-7#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids": [
+          "w07-ps-songs",
+          "w07-ps-movies",
+          "w07-ps-fiftyville"
+        ],
+        "note": "checklists of the three Problem Set 7 problems"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w07-ps-songs",
+          "w07-ps-movies",
+          "w07-ps-fiftyville"
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

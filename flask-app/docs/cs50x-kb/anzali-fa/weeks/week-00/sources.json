@@ -1,0 +1,603 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 0,
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official notes.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-0",
+      "url": "https://cs50.harvard.edu/x/weeks/0/",
+      "title": "Week 0 Scratch (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "verified_at": "2026-10-18T07:35:00+03:30",
+      "anchors": [
+        "week-0-scratch"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-00-scratch/week.md",
+      "notes": "Topic line and media list. Re-fetched 2026-10-18; byte-identical to the Task 1 copy."
+    },
+    {
+      "id": "src-notes-0",
+      "url": "https://cs50.harvard.edu/x/notes/0/",
+      "title": "Lecture 0 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "verified_at": "2026-10-18T07:35:00+03:30",
+      "anchors": [
+        "lecture-0",
+        "welcome",
+        "visual-studio-code-and-chatpy",
+        "computer-science-and-problem-solving",
+        "ascii",
+        "unicode",
+        "rgb",
+        "algorithms",
+        "pseudocode",
+        "whats-ahead",
+        "scratch",
+        "hello-world",
+        "hello-you",
+        "meow-loops-and-abstraction",
+        "conditionals",
+        "oscartime",
+        "ivys-hardest-game",
+        "summing-up"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-00-scratch/lecture.md",
+      "notes": "All 17 sections were read in full. Re-fetched 2026-10-18; byte-identical."
+    },
+    {
+      "id": "src-transcript-0",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/0/lang/en/lecture0.txt",
+      "title": "Lecture 0 transcript (English, auto/edited captions)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:40:23+03:30",
+      "verified_at": "2026-10-18T07:35:00+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-00-scratch/transcripts/lecture-en.txt",
+      "notes": "About 23,200 words, read in full. Spoken text with transcription errors (e.g. 'chat.ie' for chat.py, 'Asky' for ASCII). Cited only for content that is absent from the notes, and labelled as such."
+    },
+    {
+      "id": "src-pset-0",
+      "url": "https://cs50.harvard.edu/x/psets/0/",
+      "title": "Problem Set 0",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "verified_at": "2026-10-18T07:35:00+03:30",
+      "anchors": [
+        "problem-set-0",
+        "preliminary-course-setup",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-00-scratch/psets/README.md"
+    },
+    {
+      "id": "src-pset-0-scratch",
+      "url": "https://cs50.harvard.edu/x/psets/0/scratch/",
+      "title": "Starting from Scratch",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "verified_at": "2026-10-18T07:35:00+03:30",
+      "anchors": [
+        "starting-from-scratch",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-00-scratch/psets/scratch.md"
+    },
+    {
+      "id": "src-src0-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/0/src0.zip",
+      "title": "Lecture 0 source code (21 .sb3 files)",
+      "source_type": "source-code",
+      "extraction_status": "partially-inspected",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:12:00+03:30",
+      "local_copy": "/workspace/cs50x-kb/_build/downloads/cdn.cs50.net/2025/fall/lectures/0/src0.zip",
+      "notes": "project.json was read for hello0-2, meow0-4 and pet0-1. The Oscartime*.sb3 and Ivy's Hardest Game*.sb3 files were not inspected. The week page notes that chat.py is intentionally excluded from the source code and should not be run by students."
+    },
+    {
+      "id": "src-src0-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/0/src0/",
+      "title": "Lecture 0 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-slides-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/0/lecture0.pdf",
+      "title": "Lecture 0 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "notes": "Not downloaded and not read."
+    },
+    {
+      "id": "src-slides-google",
+      "url": "https://docs.google.com/presentation/d/1jPu1GoistjUQtZAr-Elp0W_weH2gSa9Y3gMwlBrkW1Y/edit?usp=sharing",
+      "title": "Lecture 0 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-video",
+      "url": "https://video.cs50.io/UuIEbpQms8o",
+      "title": "Lecture 0 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "notes": "Also https://youtu.be/UuIEbpQms8o"
+    },
+    {
+      "id": "src-audio",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/0/lecture0.mp3",
+      "title": "Lecture 0 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-srt-en",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/0/lang/en/lecture0.srt",
+      "title": "Lecture 0 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-demo-this-is-cs50",
+      "url": "https://www.youtube.com/watch?v=zkPUmtxeji8",
+      "title": "Demo: This is CS50",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-studio-lecture",
+      "url": "https://scratch.mit.edu/studios/50827060/",
+      "title": "Lecture 0 Scratch Studio",
+      "source_type": "scratch-studio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-studio-david",
+      "url": "https://scratch.mit.edu/studios/30233348/",
+      "title": "David's examples from lecture (linked from Problem Set 0 'Advice')",
+      "source_type": "scratch-studio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-oscartime",
+      "url": "https://scratch.mit.edu/projects/277537196",
+      "title": "Oscartime (full game)",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-trash-fall",
+      "url": "https://scratch.mit.edu/projects/726782167",
+      "title": "Oscartime step: falling trash",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-trash-drag",
+      "url": "https://scratch.mit.edu/projects/726780064",
+      "title": "Oscartime step: trash touching Oscar",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-go-to-top",
+      "url": "https://scratch.mit.edu/projects/726779570",
+      "title": "Oscartime step: go to top custom block",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-ivy-1",
+      "url": "https://scratch.mit.edu/projects/577647301",
+      "title": "Ivy's Hardest Game step: keyboard + walls",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-ivy-2",
+      "url": "https://scratch.mit.edu/projects/577647503",
+      "title": "Ivy's Hardest Game step: Yale bouncing",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-ivy-3",
+      "url": "https://scratch.mit.edu/projects/577647729",
+      "title": "Ivy's Hardest Game step: MIT follows Harvard",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-ivy-full-notes",
+      "url": "https://scratch.mit.edu/projects/565742837",
+      "title": "Ivy's Hardest Game (full; as linked from the notes)",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-ivy-full-pset",
+      "url": "https://scratch.mit.edu/projects/326129433",
+      "title": "Ivy's Hardest Game (as linked from the Scratch pset spec)",
+      "source_type": "scratch-project",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-home",
+      "url": "https://scratch.mit.edu",
+      "title": "Scratch (MIT)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-tutorials",
+      "url": "https://scratch.mit.edu/projects/editor/?tutorial=all",
+      "title": "Scratch tutorials (linked from pset)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-starters",
+      "url": "https://scratch.mit.edu/starter-projects",
+      "title": "Scratch starter projects (linked from pset)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-scratch-wiki-comment",
+      "url": "https://en.scratch-wiki.info/wiki/Comment_(programming_feature)",
+      "title": "Scratch Wiki: Comment (linked from pset for citing media)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-submit-scratch",
+      "url": "https://submit.cs50.io/upload/cs50/problems/2026/x/scratch",
+      "title": "Submit Starting from Scratch",
+      "source_type": "submission",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-submit-invite",
+      "url": "https://submit.cs50.io/invites/9770b67479384c4d8c37790779e466d9",
+      "title": "Preliminary Course Setup invite",
+      "source_type": "submission",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-gradebook",
+      "url": "https://cs50.me/cs50x",
+      "title": "CS50x gradebook",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-syllabus-honesty",
+      "url": "https://cs50.harvard.edu/x/syllabus/#academic-honesty",
+      "title": "Syllabus: Academic Honesty",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "local_copy": "/workspace/cs50x-kb/",
+      "notes": "Extracted in Task 1 (syllabus doc). Only the policy statement quoted in the notes is used here."
+    },
+    {
+      "id": "src-cs50-ai",
+      "url": "https://cs50.ai",
+      "title": "CS50 Duck (CS50.ai)",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-license",
+      "url": "https://cs50.harvard.edu/x/license/",
+      "title": "CS50x license (CC BY-NC-SA 4.0)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "local_copy": "/workspace/cs50x-kb/LICENSE-NOTICE.md"
+    },
+    {
+      "id": "src-wiki-ascii",
+      "url": "https://en.wikipedia.org/wiki/ASCII",
+      "title": "Wikipedia: ASCII (linked from notes)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-wiki-unicode",
+      "url": "https://en.wikipedia.org/wiki/Unicode",
+      "title": "Wikipedia: Unicode (linked from notes)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-wiki-emoji",
+      "url": "https://en.wikipedia.org/wiki/Emoji",
+      "title": "Wikipedia: Emoji (linked from notes)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:16+03:30"
+    },
+    {
+      "id": "src-faqs",
+      "url": "https://cs50.harvard.edu/x/faqs/",
+      "title": "CS50x FAQs",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:12+03:30",
+      "anchors": [
+        "can-i-obtain-a-letter-confirming-my-enrollment-and-details-of-the-course"
+      ],
+      "local_copy": "/workspace/cs50x-kb/course/faqs.md",
+      "notes": "Time guidance: 'add together the time of each week's course lectures yourself ... estimate between 10-20 hours for each week's problem sets.'"
+    },
+    {
+      "id": "src-certificate",
+      "url": "https://cs50.harvard.edu/x/certificate/",
+      "title": "CS50 Certificate (requirements and grading)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:16+03:30",
+      "local_copy": "/workspace/cs50x-kb/course/deadlines-and-grading.md"
+    },
+    {
+      "id": "src-syllabus",
+      "url": "https://cs50.harvard.edu/x/syllabus/",
+      "title": "CS50x Syllabus",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:12+03:30",
+      "anchors": [
+        "syllabus",
+        "expectations",
+        "academic-honesty"
+      ],
+      "local_copy": "/workspace/cs50x-kb/course/syllabus.md",
+      "notes": "States that the course is 'Designed for concentrators and non-concentrators alike, with or without prior programming experience.'"
+    },
+    {
+      "id": "src-anzali-authored",
+      "url": "urn:cs50x-anzali:authored:week-00",
+      "title": "Material authored by CS50x Anzali for this package (examples marked تألیفی, quizzes, flashcards, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-18T08:00:00+03:30"
+    },
+    {
+      "id": "src-repo-local",
+      "url": "urn:cs50x-anzali:local-snapshot:2026-10-18",
+      "title": "Local snapshot of Sina's working copy (design system, loader, models, gamification rules)",
+      "source_type": "repo",
+      "extraction_status": "read-only-audit",
+      "origin": "internal",
+      "retrieved_at": "2026-10-18T07:22:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d01",
+      "topic": "Ivy's Hardest Game link",
+      "a": {
+        "source": "src-notes-0#ivys-hardest-game",
+        "value": "https://scratch.mit.edu/projects/565742837"
+      },
+      "b": {
+        "source": "src-pset-0-scratch#starting-from-scratch",
+        "value": "https://scratch.mit.edu/projects/326129433"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The two official pages link different project ids. Both are listed, and neither is chosen."
+    },
+    {
+      "id": "d02",
+      "topic": "Order of meow examples / meow1",
+      "a": {
+        "source": "src-notes-0#meow-loops-and-abstraction",
+        "value": "Three 'play sound (Meow) until done' blocks with 'wait (1) seconds' between them"
+      },
+      "b": {
+        "source": "src-src0-zip",
+        "value": "meow1.sb3: 'say [cough] for (1) seconds' + 'wait (1) seconds', repeated 3 times"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The source file and the notes differ. The notes are used for the pseudocode; the difference is shown in note w00-n13."
+    },
+    {
+      "id": "d03",
+      "topic": "Wait duration in the repeated meow demo",
+      "a": {
+        "source": "src-notes-0#meow-loops-and-abstraction",
+        "value": "wait (1) seconds"
+      },
+      "b": {
+        "source": "src-transcript-0",
+        "value": "In the lecture the waits were changed to 2 seconds before refactoring into a loop ('let's see if we change it to 2')"
+      },
+      "status": "recorded-not-resolved"
+    },
+    {
+      "id": "d04",
+      "topic": "Colour of RGB (72, 73, 33)",
+      "a": {
+        "source": "src-notes-0#rgb",
+        "value": "'a light shade of yellow'"
+      },
+      "b": {
+        "source": "src-transcript-0",
+        "value": "'a dark shade of yellow' (the slide was brightened for the projector)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The transcript also misrecognises the green value as 23 at one point. The notes say 73."
+    },
+    {
+      "id": "d05",
+      "topic": "Petting the cat demo",
+      "a": {
+        "source": "src-notes-0#conditionals",
+        "value": "forever / if touching mouse-pointer / play sound Meow"
+      },
+      "b": {
+        "source": "src-src0-zip",
+        "value": "pet1.sb3 uses if/else: Roar when touching, otherwise Meow + wait 1 s"
+      },
+      "status": "recorded-not-resolved",
+      "note": "pet1 is not described in the notes. It is used only as a labelled extra example."
+    },
+    {
+      "id": "d06",
+      "topic": "hello2.sb3",
+      "a": {
+        "source": "src-notes-0#hello-you",
+        "value": "Notes' Hello, You section shows ask/join/say and speak (text-to-speech extension)"
+      },
+      "b": {
+        "source": "src-src0-zip",
+        "value": "hello2.sb3 contains 'forever: point towards mouse-pointer; move 1 steps'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "File naming does not map one-to-one onto the note sections."
+    },
+    {
+      "id": "d07",
+      "topic": "Number of patterns on one hand (binary)",
+      "a": {
+        "source": "src-notes-0#computer-science-and-problem-solving",
+        "value": "Notes use 3 light bulbs, counting to 7"
+      },
+      "b": {
+        "source": "src-transcript-0",
+        "value": "Lecture also counts to 31 on 5 fingers (32 patterns)"
+      },
+      "status": "complementary",
+      "note": "These do not conflict; the transcript adds an example."
+    },
+    {
+      "id": "d08",
+      "topic": "Academic honesty and AI",
+      "a": {
+        "source": "src-notes-0#visual-studio-code-and-chatpy",
+        "value": "Policy 'prohibits the use of any AI tool besides the CS50 Duck'"
+      },
+      "b": {
+        "source": "src-transcript-0",
+        "value": "'it is not reasonable ... to use AI-based software other than CS50's own'"
+      },
+      "status": "consistent"
+    },
+    {
+      "id": "d09",
+      "topic": "Running-time labels",
+      "a": {
+        "source": "src-notes-0#algorithms",
+        "value": "n, n/2, log2 n"
+      },
+      "b": {
+        "source": "src-transcript-0",
+        "value": "second algorithm described as 'N divided by 2 steps plus 1, give or take' (double-back step)"
+      },
+      "status": "complementary"
+    },
+    {
+      "id": "d10",
+      "topic": "Week topics vs note headings",
+      "a": {
+        "source": "src-week-0#week-0-scratch",
+        "value": "Topics include Events, Threads, Decimal, Computational Thinking, Running Times"
+      },
+      "b": {
+        "source": "src-notes-0#lecture-0",
+        "value": "No note section is titled Events or Threads; 'decimal' does not appear in the notes"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Covered from the transcript (Events category; two scripts running 'in parallel'; base 10). Each use is labelled with its transcript origin."
+    }
+  ]
+}

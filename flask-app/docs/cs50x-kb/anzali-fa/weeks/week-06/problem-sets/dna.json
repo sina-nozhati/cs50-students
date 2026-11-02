@@ -1,0 +1,425 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-ps-dna",
+  "kind": "pset",
+  "week": 6,
+  "title_en": "DNA",
+  "title_fa": "شناسایی DNA",
+  "guide_doc_id": "w06-ps-dna",
+  "guide_file": "dna.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/6/dna/",
+    "index_url": "https://cs50.harvard.edu/x/psets/6/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w06-ps-dna-r1",
+        "text_fa": "در فایل `dna.py` در پوشهٔ `dna` برنامه‌ای بنویس که تشخیص بدهد یک توالی DNA به چه کسی تعلق دارد.",
+        "text_en": "In a file called `dna.py` in a folder called `dna`, implement a program that identifies to whom a sequence of DNA belongs",
+        "source_ref": "src-pset-6-dna#problem-to-solve"
+      },
+      {
+        "id": "w06-ps-dna-r2",
+        "text_fa": "آرگومان اول خط فرمان نام فایل CSV شمارهٔ STRهای افراد و آرگومان دوم نام فایل متنی توالی DNA است.",
+        "text_en": "The program should require as its first command-line argument the name of a CSV file containing the STR counts for a list of individuals and should require as its second command-line argument the name of a text file containing the DNA sequence to identify",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r3",
+        "text_fa": "اگر تعداد آرگومان‌ها نادرست بود، یک پیام خطای دلخواه (با `print`) چاپ کن.",
+        "text_en": "If your program is executed with the incorrect number of command-line arguments, your program should print an error message of your choice (with `print`)",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r4",
+        "text_fa": "فایل CSV را باز کن و محتوایش را در حافظه بخوان؛ سطر اول نام ستون‌هاست.",
+        "text_en": "Your program should open the CSV file and read its contents into memory",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r5",
+        "text_fa": "ستون اول واژهٔ `name` است و ستون‌های بعدی خود توالی‌های STR.",
+        "text_en": "The first column will be the word `name` and the remaining columns will be the STR sequences themselves",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r6",
+        "text_fa": "فایل توالی DNA را باز کن و محتوایش را در حافظه بخوان.",
+        "text_en": "Your program should open the DNA sequence and read its contents into memory",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r7",
+        "text_fa": "برای هر STR (از سطر اول CSV) طولانی‌ترین تکرار پیاپی آن را در توالی پیدا کن؛ تابع کمکی `longest_match` همین کار را می‌کند.",
+        "text_en": "For each of the STRs (from the first line of the CSV file), your program should compute the longest run of consecutive repeats of the STR in the DNA sequence to identify",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r8",
+        "text_fa": "اگر شمارهٔ STRها دقیقاً با یکی از افراد CSV یکی بود، نام او را چاپ کن.",
+        "text_en": "If the STR counts match exactly with any of the individuals in the CSV file, your program should print out the name of the matching individual",
+        "source_ref": "src-pset-6-dna#specification"
+      },
+      {
+        "id": "w06-ps-dna-r9",
+        "text_fa": "اگر با هیچ‌کس دقیقاً یکی نبود، `No match` چاپ کن.",
+        "text_en": "If the STR counts do not match exactly with any of the individuals in the CSV file, your program should print `No match`",
+        "source_ref": "src-pset-6-dna#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/dna",
+      "style50": "style50 dna.py",
+      "submit50": "submit50 cs50/problems/2026/x/dna",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/6/dna.zip\nunzip dna.zip\nrm dna.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "فایل‌ها و پوشه‌ها پس از `ls`",
+        "text": "databases/ dna.py sequences/",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی پایگاه دادهٔ CSV (بخش Background)",
+        "text": "name,AGAT,AATG,TATC\nAlice,28,42,14\nBob,17,22,19\nCharlie,36,18,25",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [
+      {
+        "text": "python dna.py databases/small.csv sequences/1.txt",
+        "expected": "Bob",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/small.csv sequences/2.txt",
+        "expected": "No match",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/small.csv sequences/3.txt",
+        "expected": "No match",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/small.csv sequences/4.txt",
+        "expected": "Alice",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/5.txt",
+        "expected": "Lavender",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/6.txt",
+        "expected": "Luna",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/7.txt",
+        "expected": "Ron",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/8.txt",
+        "expected": "Ginny",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/9.txt",
+        "expected": "Draco",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/10.txt",
+        "expected": "Albus",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/11.txt",
+        "expected": "Hermione",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/12.txt",
+        "expected": "Lily",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/13.txt",
+        "expected": "No match",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/14.txt",
+        "expected": "Severus",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/15.txt",
+        "expected": "Sirius",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/16.txt",
+        "expected": "No match",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/17.txt",
+        "expected": "Harry",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/18.txt",
+        "expected": "No match",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/19.txt",
+        "expected": "Fred",
+        "origin": "official"
+      },
+      {
+        "text": "python dna.py databases/large.csv sequences/20.txt",
+        "expected": "No match",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [
+      {
+        "caption_fa": "چاپ نام ستون‌های یک CSV با `fieldnames` (از بخش Hints)",
+        "code": "import csv\n\nwith open(\"foo.csv\") as file:\n    reader = csv.DictReader(file)\n    print(reader.fieldnames)",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "خواندن همهٔ سطرهای CSV در فهرستی از واژه‌نامه‌ها (از بخش Hints)",
+        "code": "import csv\n\nrows = []\nwith open(\"foo.csv\") as file:\n    reader = csv.DictReader(file)\n    for row in reader:\n        rows.append(row)",
+        "origin": "official"
+      }
+    ],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/dna",
+      "style50": "style50 dna.py",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "j84b_EgntcQ",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "5onE9BNq1zhL2D72gfu9IbdsD",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-sys-argv",
+      "w06-c-sys-exit",
+      "w06-c-with-open",
+      "w06-c-csv-module",
+      "w06-c-csv-dictreader",
+      "w06-c-list-of-dicts",
+      "w06-c-dict",
+      "w06-c-list",
+      "w06-c-int-conversion",
+      "w06-c-str-dna",
+      "w06-c-def-function"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l02",
+      "w06-l04",
+      "w06-l06",
+      "w06-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-sys-argv",
+        "note_id": "w06-n14",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u03"
+      },
+      {
+        "concept_id": "w06-c-sys-exit",
+        "note_id": "w06-n14",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u03"
+      },
+      {
+        "concept_id": "w06-c-with-open",
+        "note_id": "w06-n15",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u04"
+      },
+      {
+        "concept_id": "w06-c-csv-module",
+        "note_id": "w06-n15",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u04"
+      },
+      {
+        "concept_id": "w06-c-csv-dictreader",
+        "note_id": "w06-ps-dna",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w06-c-list-of-dicts",
+        "note_id": "w06-n13",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u02"
+      },
+      {
+        "concept_id": "w06-c-dict",
+        "note_id": "w06-n13",
+        "lesson_id": "w06-l07",
+        "unit_id": "w06-l07-u02"
+      },
+      {
+        "concept_id": "w06-c-list",
+        "note_id": "w06-n12",
+        "lesson_id": "w06-l06",
+        "unit_id": "w06-l06-u03"
+      },
+      {
+        "concept_id": "w06-c-int-conversion",
+        "note_id": "w06-n06",
+        "lesson_id": "w06-l02",
+        "unit_id": "w06-l02-u04"
+      },
+      {
+        "concept_id": "w06-c-str-dna",
+        "note_id": "w06-ps-dna",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w06-c-def-function",
+        "note_id": "w06-n09",
+        "lesson_id": "w06-l04",
+        "unit_id": "w06-l04-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "`dna.py` را باز کن و `TODO`ها را به ترتیب بخوان. هر `TODO` یک گام است: بررسی آرگومان‌ها، خواندن CSV، خواندن توالی، یافتن تکرارها، یافتن فرد."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای بررسی آرگومان‌ها، یادداشت خط فرمان را مرور کن: `sys.argv` چند عضو دارد اگر کاربر دو نام فایل بدهد؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "برای CSV، دو قطعه‌کد رسمی بالا را ببین: یکی نام ستون‌ها را می‌دهد و دیگری همهٔ سطرها را. از خودت بپرس کدام ستون‌ها STR هستند."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای فایل توالی، صفحهٔ رسمی تابع‌های `open` و `read` را پیشنهاد می‌کند. توالی فقط یک رشتهٔ بلند است."
+      },
+      {
+        "n": 5,
+        "hint_fa": "`longest_match` را برای هر STR صدا بزن و نتیجه‌ها را در ساختاری نگه دار که بعداً مقایسه‌اش با یک سطر CSV آسان باشد. صفحهٔ رسمی فهرست یا واژه‌نامه را پیشنهاد می‌کند."
+      },
+      {
+        "n": 6,
+        "hint_fa": "یادت باشد هر مقداری که از CSV خوانده می‌شود رشته است، همان‌طور که در جلسهٔ حل تمرین دیدی. عدد `17` و رشتهٔ `\"17\"` با `==` برابر نیستند."
+      },
+      {
+        "n": 7,
+        "hint_fa": "برنامه نباید به `small.csv` وابسته باشد: `large.csv` STRهای بیشتری دارد. با هر دو پایگاه داده آزمایش کن."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نوشتن نام STRها در کد به جای خواندن از سطر اول CSV",
+      "مقایسهٔ رشته با عدد و نگرفتن هیچ تطبیقی",
+      "چاپ نام فرد وقتی فقط بخشی از STRها یکی است",
+      "چاپ `No match` درون حلقه برای هر سطر به جای یک بار در پایان",
+      "تغییر یا بازنویسی `longest_match`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-ps-dna-c01",
+        "text_fa": "فقط `TODO`های `main` را کامل کرده‌ام و از `longest_match` آماده استفاده می‌کنم.",
+        "maps_to": "w06-ps-dna-r7"
+      },
+      {
+        "id": "w06-ps-dna-c02",
+        "text_fa": "با تعداد نادرست آرگومان پیام خطا چاپ می‌شود.",
+        "maps_to": "w06-ps-dna-r3"
+      },
+      {
+        "id": "w06-ps-dna-c03",
+        "text_fa": "نام STRها را از سطر اول CSV می‌خوانم، نه این‌که در کد بنویسم.",
+        "maps_to": "w06-ps-dna-r5"
+      },
+      {
+        "id": "w06-ps-dna-c04",
+        "text_fa": "مقدارهای CSV را پیش از مقایسه با عددهای محاسبه‌شده به نوع درست تبدیل می‌کنم.",
+        "maps_to": "w06-ps-dna-r8"
+      },
+      {
+        "id": "w06-ps-dna-c05",
+        "text_fa": "فقط وقتی نام چاپ می‌شود که همهٔ STRها دقیقاً یکی باشند.",
+        "maps_to": "w06-ps-dna-r8"
+      },
+      {
+        "id": "w06-ps-dna-c06",
+        "text_fa": "در غیر این صورت `No match` چاپ می‌شود.",
+        "maps_to": "w06-ps-dna-r9"
+      },
+      {
+        "id": "w06-ps-dna-c07",
+        "text_fa": "هر بیست اجرای رسمی خروجی درست می‌دهند، هم با `small.csv` و هم با `large.csv`.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w06-ps-dna-c08",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w06-ps-dna-c09",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w06-ps-dna-c10",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50، style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "کد آغازین `dna.py` (شامل `longest_match`)",
+      "url": "https://cdn.cs50.net/2026/x/psets/6/dna.zip",
+      "reason_fa": "کد آغازین رسمی را دانلود کن و بخوان؛ در این بسته بازتولید نشده است."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/watch?v=j84b_EgntcQ",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

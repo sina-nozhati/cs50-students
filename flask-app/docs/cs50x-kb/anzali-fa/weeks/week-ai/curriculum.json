@@ -1,0 +1,215 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w71-curriculum",
+  "week": 71,
+  "week_slug": "week-ai",
+  "title_fa": "جلسهٔ هوش مصنوعی",
+  "title_en": "Artificial Intelligence",
+  "panel_week_number": 71,
+  "panel_site_number": 71,
+  "kb_parent_node": "week-ai",
+  "hub_doc_id": "w71-fa",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-71",
+    "src-notes-71",
+    "src-transcript-71",
+    "src-code-71",
+    "src-honesty-71"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w71-o01",
+    "w71-o02",
+    "w71-o03",
+    "w71-o04",
+    "w71-o05",
+    "w71-o06"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه پیروی می‌کند: اردک و هوش مصنوعی مولد و پرامپت، سپس درخت تصمیم و مینی‌ماکس، یادگیری ماشین و کاوش، و در آخر یادگیری عمیق و مدل‌های زبانی. این جلسه پرابلم‌ست، جلسهٔ حل تمرین یا ویدئوی کوتاه ندارد (D82).",
+  "stages": [
+    {
+      "id": "w71-s1",
+      "lesson_ids": [
+        "w71-l01"
+      ]
+    },
+    {
+      "id": "w71-s2",
+      "lesson_ids": [
+        "w71-l02"
+      ]
+    },
+    {
+      "id": "w71-s3",
+      "lesson_ids": [
+        "w71-l03"
+      ]
+    },
+    {
+      "id": "w71-s4",
+      "lesson_ids": [
+        "w71-l04"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w71-l01",
+      "order": 1,
+      "file": "lessons/w71-l01.json",
+      "title_fa": "اردک، هوش مصنوعی مولد و پرامپت",
+      "stage_id": "w71-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w71-l01-u01",
+        "w71-l01-u02",
+        "w71-l01-u03",
+        "w71-l01-u04"
+      ],
+      "note_ids": [
+        "w71-n01",
+        "w71-n02",
+        "w71-n03"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w71-l02",
+      "order": 2,
+      "file": "lessons/w71-l02.json",
+      "title_fa": "درخت تصمیم و مینی‌ماکس",
+      "stage_id": "w71-s2",
+      "prerequisite_lesson_ids": [
+        "w71-l01"
+      ],
+      "unit_ids": [
+        "w71-l02-u01",
+        "w71-l02-u02"
+      ],
+      "note_ids": [
+        "w71-n04",
+        "w71-n05"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w71-l03",
+      "order": 3,
+      "file": "lessons/w71-l03.json",
+      "title_fa": "یادگیری ماشین و کاوش",
+      "stage_id": "w71-s3",
+      "prerequisite_lesson_ids": [
+        "w71-l02"
+      ],
+      "unit_ids": [
+        "w71-l03-u01",
+        "w71-l03-u02"
+      ],
+      "note_ids": [
+        "w71-n06"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w71-l04",
+      "order": 4,
+      "file": "lessons/w71-l04.json",
+      "title_fa": "یادگیری عمیق و مدل‌های زبانی",
+      "stage_id": "w71-s4",
+      "prerequisite_lesson_ids": [
+        "w71-l03"
+      ],
+      "unit_ids": [
+        "w71-l04-u01",
+        "w71-l04-u02",
+        "w71-l04-u03"
+      ],
+      "note_ids": [
+        "w71-n07",
+        "w71-n08"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w71-n01",
+      "file": "notes/01-welcome.fa.md",
+      "official_anchor": "welcome"
+    },
+    {
+      "id": "w71-n02",
+      "file": "notes/02-generative-ai.fa.md",
+      "official_anchor": "generative-artificial-intelligence"
+    },
+    {
+      "id": "w71-n03",
+      "file": "notes/03-prompt-engineering.fa.md",
+      "official_anchor": "prompt-engineering-and-copilot"
+    },
+    {
+      "id": "w71-n04",
+      "file": "notes/04-decision-trees.fa.md",
+      "official_anchor": "decision-trees"
+    },
+    {
+      "id": "w71-n05",
+      "file": "notes/05-minimax.fa.md",
+      "official_anchor": "minimax"
+    },
+    {
+      "id": "w71-n06",
+      "file": "notes/06-machine-learning.fa.md",
+      "official_anchor": "machine-learning"
+    },
+    {
+      "id": "w71-n07",
+      "file": "notes/07-deep-learning.fa.md",
+      "official_anchor": "deep-learning"
+    },
+    {
+      "id": "w71-n08",
+      "file": "notes/08-large-language-models.fa.md",
+      "official_anchor": "large-language-models"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "shorts": [],
+    "problem_guides": []
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w71-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [],
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). این جلسه مسئلهٔ تحویلی ندارد؛ چالش‌ها اختیاری‌اند."
+  }
+}

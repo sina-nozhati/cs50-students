@@ -1,0 +1,4812 @@
+{
+  "$schema": "../schemas/glossary.schema.json",
+  "version": "0.1.0",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "conventions": {
+    "ezafe": "ـهٔ (as in the newest KB templates)",
+    "digits": "Persian digits in prose; Latin digits inside code, binary and ASCII values",
+    "zwnj": "required (می‌شود، فلش‌کارت)",
+    "arabic_letters_forbidden": [
+      "U+064A ARABIC LETTER YEH (use U+06CC)",
+      "U+0643 ARABIC LETTER KAF (use U+06A9)"
+    ],
+    "first_use": "Persian term followed by the English term in parentheses on first use in each document"
+  },
+  "origin": "authored",
+  "terms": [
+    {
+      "id": "g-ai-fundamentals",
+      "fa": "هوش مصنوعی و اصول پایه",
+      "en": "AI and fundamentals",
+      "concept_id": "w00-c-ai-fundamentals",
+      "kind": "concept",
+      "source_ref": "src-notes-0#welcome"
+    },
+    {
+      "id": "g-academic-honesty-ai",
+      "fa": "سیاست صداقت علمی دربارهٔ هوش مصنوعی",
+      "en": "Academic honesty policy on AI",
+      "concept_id": "w00-c-academic-honesty-ai",
+      "kind": "concept",
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy"
+    },
+    {
+      "id": "g-ide",
+      "fa": "محیط توسعهٔ یکپارچه",
+      "en": "integrated development environment (IDE)",
+      "concept_id": "w00-c-ide",
+      "kind": "concept",
+      "source_ref": "src-notes-0#visual-studio-code-and-chatpy"
+    },
+    {
+      "id": "g-problem-solving",
+      "fa": "حل مسئله: ورودی، خروجی، جعبهٔ سیاه",
+      "en": "problem solving: input, output, black box",
+      "concept_id": "w00-c-problem-solving",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-computational-thinking",
+      "fa": "تفکر محاسباتی",
+      "en": "computational thinking",
+      "concept_id": "w00-c-computational-thinking",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-unary",
+      "fa": "یکانی (پایهٔ ۱)",
+      "en": "unary (base-1)",
+      "concept_id": "w00-c-unary",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-decimal",
+      "fa": "دهدهی (پایهٔ ۱۰)",
+      "en": "decimal (base-10)",
+      "concept_id": "w00-c-decimal",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-binary",
+      "fa": "دودویی (پایهٔ ۲)",
+      "en": "binary (base-2)",
+      "concept_id": "w00-c-binary",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-bit",
+      "fa": "بیت",
+      "en": "bit",
+      "concept_id": "w00-c-bit",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-transistor",
+      "fa": "ترانزیستور",
+      "en": "transistor",
+      "concept_id": "w00-c-transistor",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-byte",
+      "fa": "بایت",
+      "en": "byte",
+      "concept_id": "w00-c-byte",
+      "kind": "concept",
+      "source_ref": "src-notes-0#computer-science-and-problem-solving"
+    },
+    {
+      "id": "g-ascii",
+      "fa": "اَسکی",
+      "en": "ASCII",
+      "concept_id": "w00-c-ascii",
+      "kind": "concept",
+      "source_ref": "src-notes-0#ascii"
+    },
+    {
+      "id": "g-unicode",
+      "fa": "یونیکد",
+      "en": "Unicode",
+      "concept_id": "w00-c-unicode",
+      "kind": "concept",
+      "source_ref": "src-notes-0#unicode"
+    },
+    {
+      "id": "g-rgb",
+      "fa": "RGB (قرمز، سبز، آبی)",
+      "en": "RGB",
+      "concept_id": "w00-c-rgb",
+      "kind": "concept",
+      "source_ref": "src-notes-0#rgb"
+    },
+    {
+      "id": "g-pixel",
+      "fa": "پیکسل",
+      "en": "pixel",
+      "concept_id": "w00-c-pixel",
+      "kind": "concept",
+      "source_ref": "src-notes-0#rgb"
+    },
+    {
+      "id": "g-media-representation",
+      "fa": "نمایش ویدئو و موسیقی",
+      "en": "representing video and music",
+      "concept_id": "w00-c-media-representation",
+      "kind": "concept",
+      "source_ref": "src-notes-0#rgb"
+    },
+    {
+      "id": "g-context-interpretation",
+      "fa": "تفسیر بیت‌ها وابسته به زمینه",
+      "en": "context determines interpretation",
+      "concept_id": "w00-c-context-interpretation",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-algorithm",
+      "fa": "الگوریتم",
+      "en": "algorithm",
+      "concept_id": "w00-c-algorithm",
+      "kind": "concept",
+      "source_ref": "src-notes-0#algorithms"
+    },
+    {
+      "id": "g-running-time",
+      "fa": "زمان اجرا",
+      "en": "running time",
+      "concept_id": "w00-c-running-time",
+      "kind": "concept",
+      "source_ref": "src-notes-0#algorithms"
+    },
+    {
+      "id": "g-big-o",
+      "fa": "نماد O بزرگ",
+      "en": "big-O notation",
+      "concept_id": "w00-c-big-o",
+      "kind": "concept",
+      "source_ref": "src-notes-0#algorithms"
+    },
+    {
+      "id": "g-correctness-vs-design",
+      "fa": "درستی در برابر طراحی خوب",
+      "en": "correctness vs design",
+      "concept_id": "w00-c-correctness-vs-design",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-pseudocode",
+      "fa": "شبه‌کد",
+      "en": "pseudocode",
+      "concept_id": "w00-c-pseudocode",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-function",
+      "fa": "تابع",
+      "en": "function",
+      "concept_id": "w00-c-function",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-conditional",
+      "fa": "شرط",
+      "en": "conditional",
+      "concept_id": "w00-c-conditional",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-boolean-expression",
+      "fa": "عبارت بولی",
+      "en": "boolean expression",
+      "concept_id": "w00-c-boolean-expression",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-loop",
+      "fa": "حلقه",
+      "en": "loop",
+      "concept_id": "w00-c-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-0#pseudocode"
+    },
+    {
+      "id": "g-corner-case",
+      "fa": "حالت مرزی",
+      "en": "corner case",
+      "concept_id": "w00-c-corner-case",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-abstraction",
+      "fa": "انتزاع",
+      "en": "abstraction",
+      "concept_id": "w00-c-abstraction",
+      "kind": "concept",
+      "source_ref": "src-notes-0#whats-ahead"
+    },
+    {
+      "id": "g-compiler",
+      "fa": "کامپایلر",
+      "en": "compiler",
+      "concept_id": "w00-c-compiler",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-scratch-interface",
+      "fa": "محیط Scratch: پالت بلوک‌ها، ناحیهٔ برنامه، صحنه",
+      "en": "Scratch interface: blocks palette, programming area, stage",
+      "concept_id": "w00-c-scratch-interface",
+      "kind": "concept",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-sprite",
+      "fa": "اسپرایت",
+      "en": "sprite",
+      "concept_id": "w00-c-sprite",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-coordinates",
+      "fa": "دستگاه مختصات Scratch",
+      "en": "Scratch coordinate system",
+      "concept_id": "w00-c-coordinates",
+      "kind": "concept",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-event",
+      "fa": "رویداد",
+      "en": "event",
+      "concept_id": "w00-c-event",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-argument",
+      "fa": "آرگومان (ورودی تابع)",
+      "en": "argument (input)",
+      "concept_id": "w00-c-argument",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-world"
+    },
+    {
+      "id": "g-side-effect",
+      "fa": "اثر جانبی",
+      "en": "side effect",
+      "concept_id": "w00-c-side-effect",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-world"
+    },
+    {
+      "id": "g-variable",
+      "fa": "متغیر",
+      "en": "variable",
+      "concept_id": "w00-c-variable",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-you"
+    },
+    {
+      "id": "g-return-value",
+      "fa": "مقدار بازگشتی",
+      "en": "return value",
+      "concept_id": "w00-c-return-value",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-you"
+    },
+    {
+      "id": "g-string-join",
+      "fa": "رشته و پیوند دادن رشته‌ها",
+      "en": "string, join",
+      "concept_id": "w00-c-string-join",
+      "kind": "concept",
+      "source_ref": "src-notes-0#hello-you"
+    },
+    {
+      "id": "g-custom-block",
+      "fa": "بلوک سفارشی (تابع خودمان)",
+      "en": "custom block (define)",
+      "concept_id": "w00-c-custom-block",
+      "kind": "concept",
+      "source_ref": "src-notes-0#meow-loops-and-abstraction"
+    },
+    {
+      "id": "g-parameter-input",
+      "fa": "ورودی بلوک سفارشی",
+      "en": "custom block input (parameter)",
+      "concept_id": "w00-c-parameter-input",
+      "kind": "concept",
+      "source_ref": "src-notes-0#meow-loops-and-abstraction"
+    },
+    {
+      "id": "g-forever-loop",
+      "fa": "حلقهٔ همیشگی",
+      "en": "forever loop",
+      "concept_id": "w00-c-forever-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-0#conditionals"
+    },
+    {
+      "id": "g-costume",
+      "fa": "لباس (کاستوم)",
+      "en": "costume",
+      "concept_id": "w00-c-costume",
+      "kind": "concept",
+      "source_ref": "src-notes-0#oscartime"
+    },
+    {
+      "id": "g-thread",
+      "fa": "اسکریپت‌های هم‌زمان (ریسه)",
+      "en": "threads: scripts running in parallel",
+      "concept_id": "w00-c-thread",
+      "kind": "concept",
+      "source_ref": "src-transcript-0"
+    },
+    {
+      "id": "g-incremental-development",
+      "fa": "توسعهٔ گام‌به‌گام",
+      "en": "incremental development (baby steps)",
+      "concept_id": "w00-c-incremental-development",
+      "kind": "concept",
+      "source_ref": "src-pset-0-scratch#starting-from-scratch"
+    },
+    {
+      "id": "g-movement-collision",
+      "fa": "حرکت و برخورد با دیوار",
+      "en": "movement and wall collision",
+      "concept_id": "w00-c-movement-collision",
+      "kind": "concept",
+      "source_ref": "src-notes-0#ivys-hardest-game"
+    },
+    {
+      "id": "g-boolean-operators",
+      "fa": "عملگر بولی «یا»",
+      "en": "boolean operator or",
+      "concept_id": "w00-c-boolean-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-0#ivys-hardest-game"
+    },
+    {
+      "id": "g-ui-knowledge-base",
+      "fa": "پایگاه دانش",
+      "en": "knowledge base",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-week",
+      "fa": "هفته",
+      "en": "week",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-topics",
+      "fa": "مباحث",
+      "en": "topics",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-official-source",
+      "fa": "منبع رسمی",
+      "en": "official source",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-assignment",
+      "fa": "تکلیف",
+      "en": "assignment",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-problem",
+      "fa": "مسئله",
+      "en": "problem",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-problem-set",
+      "fa": "پرابلم‌ست",
+      "en": "problem set",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-required",
+      "fa": "اجباری",
+      "en": "required",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-practice",
+      "fa": "تمرینی",
+      "en": "practice",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-flashcard",
+      "fa": "فلش‌کارت",
+      "en": "flashcard",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-quiz",
+      "fa": "کوییز",
+      "en": "quiz",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-timed-challenge",
+      "fa": "چالش زمان‌دار",
+      "en": "timed challenge",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-streak",
+      "fa": "استریک",
+      "en": "streak",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-leaderboard",
+      "fa": "رتبه‌بندی",
+      "en": "leaderboard",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-certificate-path",
+      "fa": "مسیر مدرک",
+      "en": "certificate path",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-mark-as-read",
+      "fa": "من خواندم",
+      "en": "mark as read",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-weekly-goal",
+      "fa": "هدف هفتگی",
+      "en": "weekly goal",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-achievement",
+      "fa": "دستاورد",
+      "en": "achievement",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-badge",
+      "fa": "نشان",
+      "en": "badge",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-xp",
+      "fa": "XP",
+      "en": "XP (experience points)",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-mastery",
+      "fa": "تسلط",
+      "en": "mastery",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-spaced-review",
+      "fa": "مرور فاصله‌دار",
+      "en": "spaced review",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-learning-unit",
+      "fa": "واحد آموزشی",
+      "en": "learning unit",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-micro-lesson",
+      "fa": "درس کوتاه",
+      "en": "micro-lesson",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-ui-daily-mission",
+      "fa": "مأموریت روزانه",
+      "en": "daily mission",
+      "kind": "ui",
+      "source_ref": "src-repo-local"
+    },
+    {
+      "id": "g-x-block",
+      "fa": "بلوک",
+      "en": "block",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-script",
+      "fa": "اسکریپت",
+      "en": "script",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-stage",
+      "fa": "صحنه",
+      "en": "stage",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-green-flag",
+      "fa": "پرچم سبز",
+      "en": "green flag",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-string",
+      "fa": "رشته",
+      "en": "string",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-source-code",
+      "fa": "کد منبع",
+      "en": "source code",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-syntax",
+      "fa": "نحو",
+      "en": "syntax",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-x-bug",
+      "fa": "اشکال (باگ)",
+      "en": "bug",
+      "kind": "term",
+      "source_ref": "src-notes-0#scratch"
+    },
+    {
+      "id": "g-w01-scratch-to-c",
+      "fa": "انتقال بلوک‌های سازنده از Scratch به C",
+      "en": "carrying building blocks from Scratch to C",
+      "concept_id": "w01-c-scratch-to-c",
+      "kind": "concept",
+      "source_ref": "src-notes-1#welcome",
+      "week": 1
+    },
+    {
+      "id": "g-w01-source-code",
+      "fa": "کد منبع",
+      "en": "source code",
+      "concept_id": "w01-c-source-code",
+      "kind": "concept",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1
+    },
+    {
+      "id": "g-w01-machine-code",
+      "fa": "کد ماشین",
+      "en": "machine code",
+      "concept_id": "w01-c-machine-code",
+      "kind": "concept",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1
+    },
+    {
+      "id": "g-w01-compiler",
+      "fa": "کامپایلر و کامپایل کردن",
+      "en": "compiler / compiling",
+      "concept_id": "w01-c-compiler",
+      "kind": "concept",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1
+    },
+    {
+      "id": "g-w01-ide-regions",
+      "fa": "بخش‌های VS Code: کاوشگر فایل، ویرایشگر، ترمینال",
+      "en": "VS Code regions: file explorer, text editor, terminal",
+      "concept_id": "w01-c-ide-regions",
+      "kind": "concept",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1
+    },
+    {
+      "id": "g-w01-gui-cli",
+      "fa": "رابط گرافیکی و رابط خط فرمان",
+      "en": "GUI vs CLI",
+      "concept_id": "w01-c-gui-cli",
+      "kind": "concept",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1
+    },
+    {
+      "id": "g-w01-code-make-run",
+      "fa": "چرخهٔ code، make و اجرا با ./",
+      "en": "the code → make → ./ cycle",
+      "concept_id": "w01-c-code-make-run",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-world",
+      "week": 1
+    },
+    {
+      "id": "g-w01-main",
+      "fa": "تابع main",
+      "en": "the main function",
+      "concept_id": "w01-c-main",
+      "kind": "concept",
+      "source_ref": "src-transcript-1",
+      "week": 1
+    },
+    {
+      "id": "g-w01-printf",
+      "fa": "تابع printf",
+      "en": "printf",
+      "concept_id": "w01-c-printf",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-syntax",
+      "fa": "نحو C: نقطه‌ویرگول، پرانتز، آکولاد و نقل‌قول",
+      "en": "C syntax: semicolons, parentheses, braces, quotes",
+      "concept_id": "w01-c-syntax",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-escape-sequence",
+      "fa": "دنبالهٔ گریز",
+      "en": "escape sequence",
+      "concept_id": "w01-c-escape-sequence",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-recompile",
+      "fa": "کامپایل دوباره پس از هر تغییر",
+      "en": "recompiling after every change",
+      "concept_id": "w01-c-recompile",
+      "kind": "concept",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1
+    },
+    {
+      "id": "g-w01-header-file",
+      "fa": "فایل سرآیند و #include",
+      "en": "header file / #include",
+      "concept_id": "w01-c-header-file",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-library",
+      "fa": "کتابخانه",
+      "en": "library",
+      "concept_id": "w01-c-library",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-manual-pages",
+      "fa": "صفحه‌های راهنما (manual.cs50.io)",
+      "en": "manual pages",
+      "concept_id": "w01-c-manual-pages",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-cs50-library",
+      "fa": "کتابخانهٔ CS50 و توابع get_*",
+      "en": "CS50 library (get_* functions)",
+      "concept_id": "w01-c-cs50-library",
+      "kind": "concept",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1
+    },
+    {
+      "id": "g-w01-get-string",
+      "fa": "get_string و مقدار بازگشتی",
+      "en": "get_string and its return value",
+      "concept_id": "w01-c-get-string",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-variable-declaration",
+      "fa": "اعلان متغیر با نوع",
+      "en": "declaring a typed variable",
+      "concept_id": "w01-c-variable-declaration",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-assignment-operator",
+      "fa": "عملگر انتساب =",
+      "en": "assignment operator =",
+      "concept_id": "w01-c-assignment-operator",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-placeholder",
+      "fa": "جای‌نگهدار %s",
+      "en": "the %s placeholder",
+      "concept_id": "w01-c-placeholder",
+      "kind": "concept",
+      "source_ref": "src-notes-1#hello-you",
+      "week": 1
+    },
+    {
+      "id": "g-w01-linux-commands",
+      "fa": "فرمان‌های پایهٔ لینوکس",
+      "en": "basic Linux commands",
+      "concept_id": "w01-c-linux-commands",
+      "kind": "concept",
+      "source_ref": "src-notes-1#linux",
+      "week": 1
+    },
+    {
+      "id": "g-w01-paths-navigation",
+      "fa": "پوشهٔ جاری، پوشهٔ والد و خانه (. .. ~ pwd)",
+      "en": "current/parent/home directory (. .. ~ pwd)",
+      "concept_id": "w01-c-paths-navigation",
+      "kind": "concept",
+      "source_ref": "src-short-command-line",
+      "week": 1
+    },
+    {
+      "id": "g-w01-if-else",
+      "fa": "if و else در C",
+      "en": "if / else in C",
+      "concept_id": "w01-c-if-else",
+      "kind": "concept",
+      "source_ref": "src-notes-1#conditionals",
+      "week": 1
+    },
+    {
+      "id": "g-w01-else-if-chain",
+      "fa": "زنجیرهٔ else if و شاخه‌های ناسازگار",
+      "en": "else-if chains and mutually exclusive branches",
+      "concept_id": "w01-c-else-if-chain",
+      "kind": "concept",
+      "source_ref": "src-notes-1#conditionals",
+      "week": 1
+    },
+    {
+      "id": "g-w01-switch",
+      "fa": "دستور switch",
+      "en": "switch statement",
+      "concept_id": "w01-c-switch",
+      "kind": "concept",
+      "source_ref": "src-short-conditional-statements",
+      "week": 1
+    },
+    {
+      "id": "g-w01-ternary",
+      "fa": "عملگر سه‌تایی ?:",
+      "en": "ternary operator ?:",
+      "concept_id": "w01-c-ternary",
+      "kind": "concept",
+      "source_ref": "src-short-conditional-statements",
+      "week": 1
+    },
+    {
+      "id": "g-w01-data-types",
+      "fa": "انواع داده در C",
+      "en": "C data types",
+      "concept_id": "w01-c-data-types",
+      "kind": "concept",
+      "source_ref": "src-notes-1#types",
+      "week": 1
+    },
+    {
+      "id": "g-w01-type-sizes",
+      "fa": "اندازهٔ انواع (بایت) و بازه",
+      "en": "type sizes and ranges",
+      "concept_id": "w01-c-type-sizes",
+      "kind": "concept",
+      "source_ref": "src-short-data-types",
+      "week": 1
+    },
+    {
+      "id": "g-w01-void",
+      "fa": "void: نبودِ ورودی یا خروجی",
+      "en": "void",
+      "concept_id": "w01-c-void",
+      "kind": "concept",
+      "source_ref": "src-short-data-types",
+      "week": 1
+    },
+    {
+      "id": "g-w01-format-codes",
+      "fa": "کدهای قالب",
+      "en": "format codes",
+      "concept_id": "w01-c-format-codes",
+      "kind": "concept",
+      "source_ref": "src-notes-1#format-codes",
+      "week": 1
+    },
+    {
+      "id": "g-w01-increment",
+      "fa": "افزایش و کاهش (+= ++ --)",
+      "en": "increment / decrement",
+      "concept_id": "w01-c-increment",
+      "kind": "concept",
+      "source_ref": "src-notes-1#variables",
+      "week": 1
+    },
+    {
+      "id": "g-w01-relational-operators",
+      "fa": "عملگرهای مقایسه‌ای",
+      "en": "relational operators",
+      "concept_id": "w01-c-relational-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-1#comparec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-get-int",
+      "fa": "get_int",
+      "en": "get_int",
+      "concept_id": "w01-c-get-int",
+      "kind": "concept",
+      "source_ref": "src-notes-1#comparec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-comments",
+      "fa": "توضیح (comment) با //",
+      "en": "comments (//)",
+      "concept_id": "w01-c-comments",
+      "kind": "concept",
+      "source_ref": "src-notes-1#comparec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-char",
+      "fa": "نوع char و نقل‌قول تکی",
+      "en": "char and single quotes",
+      "concept_id": "w01-c-char",
+      "kind": "concept",
+      "source_ref": "src-notes-1#agreec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-equality-vs-assignment",
+      "fa": "== در برابر =",
+      "en": "== vs =",
+      "concept_id": "w01-c-equality-vs-assignment",
+      "kind": "concept",
+      "source_ref": "src-notes-1#agreec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-logical-operators",
+      "fa": "عملگرهای منطقی && || !",
+      "en": "logical operators && || !",
+      "concept_id": "w01-c-logical-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-1#agreec",
+      "week": 1
+    },
+    {
+      "id": "g-w01-while-loop",
+      "fa": "حلقهٔ while",
+      "en": "while loop",
+      "concept_id": "w01-c-while-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-for-loop",
+      "fa": "حلقهٔ for",
+      "en": "for loop",
+      "concept_id": "w01-c-for-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-zero-indexing",
+      "fa": "شمارش از صفر",
+      "en": "counting from zero",
+      "concept_id": "w01-c-zero-indexing",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-infinite-loop",
+      "fa": "حلقهٔ بی‌پایان و control-C",
+      "en": "infinite loop and control-C",
+      "concept_id": "w01-c-infinite-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-do-while",
+      "fa": "حلقهٔ do while",
+      "en": "do-while loop",
+      "concept_id": "w01-c-do-while",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-input-validation",
+      "fa": "اعتبارسنجی ورودی و درخواست دوباره",
+      "en": "input validation / re-prompting",
+      "concept_id": "w01-c-input-validation",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-break-continue",
+      "fa": "break و continue",
+      "en": "break and continue",
+      "concept_id": "w01-c-break-continue",
+      "kind": "concept",
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "week": 1
+    },
+    {
+      "id": "g-w01-function-definition",
+      "fa": "تعریف تابع",
+      "en": "defining a function",
+      "concept_id": "w01-c-function-definition",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-prototype",
+      "fa": "پیش‌نمونهٔ تابع",
+      "en": "function prototype",
+      "concept_id": "w01-c-prototype",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-parameter",
+      "fa": "پارامتر تابع در C",
+      "en": "function parameters in C",
+      "concept_id": "w01-c-parameter",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-scope",
+      "fa": "حوزهٔ متغیر",
+      "en": "scope",
+      "concept_id": "w01-c-scope",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-return-value",
+      "fa": "مقدار بازگشتی و return",
+      "en": "return values and return",
+      "concept_id": "w01-c-return-value",
+      "kind": "concept",
+      "source_ref": "src-notes-1#functions",
+      "week": 1
+    },
+    {
+      "id": "g-w01-correctness-design-style",
+      "fa": "درستی، طراحی، سبک (check50، design50، style50)",
+      "en": "correctness, design, style",
+      "concept_id": "w01-c-correctness-design-style",
+      "kind": "concept",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1
+    },
+    {
+      "id": "g-w01-nested-loops",
+      "fa": "حلقه‌های تودرتو",
+      "en": "nested loops",
+      "concept_id": "w01-c-nested-loops",
+      "kind": "concept",
+      "source_ref": "src-notes-1#mario",
+      "week": 1
+    },
+    {
+      "id": "g-w01-constant",
+      "fa": "ثابت با const",
+      "en": "constants (const)",
+      "concept_id": "w01-c-constant",
+      "kind": "concept",
+      "source_ref": "src-notes-1#mario",
+      "week": 1
+    },
+    {
+      "id": "g-w01-helper-function",
+      "fa": "تابع کمکی برای زیرمسئله",
+      "en": "helper functions",
+      "concept_id": "w01-c-helper-function",
+      "kind": "concept",
+      "source_ref": "src-notes-1#mario",
+      "week": 1
+    },
+    {
+      "id": "g-w01-magic-numbers",
+      "fa": "عدد جادویی و #define",
+      "en": "magic numbers and #define",
+      "concept_id": "w01-c-magic-numbers",
+      "kind": "concept",
+      "source_ref": "src-short-magic-numbers",
+      "week": 1
+    },
+    {
+      "id": "g-w01-arithmetic-operators",
+      "fa": "عملگرهای حسابی و باقی‌مانده %",
+      "en": "arithmetic operators and modulo",
+      "concept_id": "w01-c-arithmetic-operators",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-integer-overflow",
+      "fa": "سرریز عدد صحیح",
+      "en": "integer overflow",
+      "concept_id": "w01-c-integer-overflow",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-truncation",
+      "fa": "بریدن بخش اعشاری در تقسیم صحیح",
+      "en": "truncation",
+      "concept_id": "w01-c-truncation",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-type-casting",
+      "fa": "تبدیل نوع (casting)",
+      "en": "type casting",
+      "concept_id": "w01-c-type-casting",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-floating-point-imprecision",
+      "fa": "عدم دقت اعداد اعشاری",
+      "en": "floating-point imprecision",
+      "concept_id": "w01-c-floating-point-imprecision",
+      "kind": "concept",
+      "source_ref": "src-notes-1#operators",
+      "week": 1
+    },
+    {
+      "id": "g-w01-debugging-errors",
+      "fa": "خواندن پیام خطای کامپایلر",
+      "en": "reading compiler error messages",
+      "concept_id": "w01-c-debugging-errors",
+      "kind": "concept",
+      "source_ref": "src-pset-1#advice",
+      "week": 1
+    },
+    {
+      "id": "g-w01-x-compiler",
+      "fa": "کامپایلر",
+      "en": "compiler",
+      "kind": "term",
+      "source_ref": "src-notes-1#source-code",
+      "week": 1,
+      "also_in_week_0": true
+    },
+    {
+      "id": "g-w01-x-terminal",
+      "fa": "ترمینال",
+      "en": "terminal",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-command-line",
+      "fa": "خط فرمان",
+      "en": "command line",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-text-editor",
+      "fa": "ویرایشگر متن",
+      "en": "text editor",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-file-explorer",
+      "fa": "کاوشگر فایل",
+      "en": "file explorer",
+      "kind": "term",
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-prompt",
+      "fa": "اعلان ترمینال",
+      "en": "prompt",
+      "kind": "term",
+      "source_ref": "src-notes-1#hello-world",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-directory",
+      "fa": "پوشه",
+      "en": "directory (folder)",
+      "kind": "term",
+      "source_ref": "src-notes-1#linux",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-format-code",
+      "fa": "کد قالب",
+      "en": "format code",
+      "kind": "term",
+      "source_ref": "src-notes-1#format-codes",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-semicolon",
+      "fa": "نقطه‌ویرگول",
+      "en": "semicolon",
+      "kind": "term",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-curly-brace",
+      "fa": "آکولاد",
+      "en": "curly brace",
+      "kind": "term",
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-indentation",
+      "fa": "تورفتگی",
+      "en": "indentation",
+      "kind": "term",
+      "source_ref": "src-style-guide-c",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-overflow",
+      "fa": "سرریز",
+      "en": "overflow",
+      "kind": "term",
+      "source_ref": "src-notes-1#operators",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-precision",
+      "fa": "دقت",
+      "en": "precision",
+      "kind": "term",
+      "source_ref": "src-notes-1#operators",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-function-call",
+      "fa": "فراخوانی تابع",
+      "en": "function call",
+      "kind": "term",
+      "source_ref": "src-notes-1#functions",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-argument",
+      "fa": "آرگومان",
+      "en": "argument",
+      "kind": "term",
+      "source_ref": "src-notes-1#functions",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-return",
+      "fa": "بازگشت",
+      "en": "return",
+      "kind": "term",
+      "source_ref": "src-notes-1#functions",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-standard-i-o-library",
+      "fa": "کتابخانهٔ استاندارد ورودی/خروجی",
+      "en": "standard I/O library (stdio)",
+      "kind": "term",
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-check50",
+      "fa": "check50",
+      "en": "check50",
+      "kind": "term",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-style50",
+      "fa": "style50",
+      "en": "style50",
+      "kind": "term",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-submit50",
+      "fa": "submit50",
+      "en": "submit50",
+      "kind": "term",
+      "source_ref": "src-pset-1#what-to-do",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w01-x-design50",
+      "fa": "design50",
+      "en": "design50",
+      "kind": "term",
+      "source_ref": "src-notes-1#correctness-design-style",
+      "week": 1,
+      "also_in_week_0": false
+    },
+    {
+      "id": "g-w02-bottom-up",
+      "fa": "یادگیری از پایین به بالا و حل مسئله",
+      "en": "learning bottom-up; problem solving",
+      "concept_id": "w02-c-bottom-up",
+      "kind": "concept",
+      "source_ref": "src-notes-2#welcome",
+      "week": 2
+    },
+    {
+      "id": "g-w02-reading-level",
+      "fa": "سطح خوانایی متن",
+      "en": "reading levels",
+      "concept_id": "w02-c-reading-level",
+      "kind": "concept",
+      "source_ref": "src-notes-2#reading-levels",
+      "week": 2
+    },
+    {
+      "id": "g-w02-bug",
+      "fa": "باگ و اشکال‌زدایی",
+      "en": "bugs and debugging",
+      "concept_id": "w02-c-bug",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-compile-error",
+      "fa": "خطای کامپایل: سرآیند جاافتاده، غلط املایی، نوع و نقطه‌ویرگول",
+      "en": "compile errors",
+      "concept_id": "w02-c-compile-error",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-logical-error",
+      "fa": "خطای منطقی",
+      "en": "logical error",
+      "concept_id": "w02-c-logical-error",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-printf-debugging",
+      "fa": "اشکال‌زدایی با printf",
+      "en": "printf debugging",
+      "concept_id": "w02-c-printf-debugging",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-debugger",
+      "fa": "دیباگر و debug50",
+      "en": "debugger / debug50",
+      "concept_id": "w02-c-debugger",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-breakpoint",
+      "fa": "نقطهٔ توقف (breakpoint)",
+      "en": "breakpoint",
+      "concept_id": "w02-c-breakpoint",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-step-over-into",
+      "fa": "Step Over و Step Into",
+      "en": "step over / step into",
+      "concept_id": "w02-c-step-over-into",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-rubber-duck",
+      "fa": "اشکال‌زدایی با اردک پلاستیکی و CS50 Duck",
+      "en": "rubber duck debugging",
+      "concept_id": "w02-c-rubber-duck",
+      "kind": "concept",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2
+    },
+    {
+      "id": "g-w02-clang",
+      "fa": "کامپایلر clang و clang -o",
+      "en": "clang and -o",
+      "concept_id": "w02-c-clang",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-link-flag",
+      "fa": "پرچم -lcs50",
+      "en": "the -lcs50 flag",
+      "concept_id": "w02-c-link-flag",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-make-vs-clang",
+      "fa": "make همان clang را با آرگومان‌های لازم اجرا می‌کند",
+      "en": "make runs clang for you",
+      "concept_id": "w02-c-make-vs-clang",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-preprocessing",
+      "fa": "پیش‌پردازش",
+      "en": "preprocessing",
+      "concept_id": "w02-c-preprocessing",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-compiling-step",
+      "fa": "کامپایل به کد اسمبلی",
+      "en": "compiling to assembly code",
+      "concept_id": "w02-c-compiling-step",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-assembling",
+      "fa": "اسمبل کردن",
+      "en": "assembling",
+      "concept_id": "w02-c-assembling",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-linking",
+      "fa": "پیوند (linking)",
+      "en": "linking",
+      "concept_id": "w02-c-linking",
+      "kind": "concept",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2
+    },
+    {
+      "id": "g-w02-memory-bytes",
+      "fa": "حافظه و اندازهٔ انواع داده بر حسب بایت",
+      "en": "memory and type sizes in bytes",
+      "concept_id": "w02-c-memory-bytes",
+      "kind": "concept",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array",
+      "fa": "آرایه",
+      "en": "array",
+      "concept_id": "w02-c-array",
+      "kind": "concept",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array-index",
+      "fa": "اندیس آرایه از صفر",
+      "en": "array indexing",
+      "concept_id": "w02-c-array-index",
+      "kind": "concept",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array-loop",
+      "fa": "پیمایش آرایه با حلقه",
+      "en": "looping over an array",
+      "concept_id": "w02-c-array-loop",
+      "kind": "concept",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-global-const",
+      "fa": "ثابت سراسری برای اندازهٔ آرایه",
+      "en": "global constant for an array size",
+      "concept_id": "w02-c-global-const",
+      "kind": "concept",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array-parameter",
+      "fa": "آرایه به‌عنوان پارامتر تابع",
+      "en": "passing an array to a function",
+      "concept_id": "w02-c-array-parameter",
+      "kind": "concept",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-char-ascii",
+      "fa": "نویسه‌ها عددند: کدهای ASCII",
+      "en": "chars as ASCII numbers",
+      "concept_id": "w02-c-char-ascii",
+      "kind": "concept",
+      "source_ref": "src-notes-2#strings",
+      "week": 2
+    },
+    {
+      "id": "g-w02-string-char-array",
+      "fa": "رشته، آرایه‌ای از char",
+      "en": "a string is an array of chars",
+      "concept_id": "w02-c-string-char-array",
+      "kind": "concept",
+      "source_ref": "src-notes-2#strings",
+      "week": 2
+    },
+    {
+      "id": "g-w02-nul",
+      "fa": "نویسهٔ پایانی NUL",
+      "en": "the NUL terminator",
+      "concept_id": "w02-c-nul",
+      "kind": "concept",
+      "source_ref": "src-notes-2#strings",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array-of-strings",
+      "fa": "آرایه‌ای از رشته‌ها",
+      "en": "array of strings",
+      "concept_id": "w02-c-array-of-strings",
+      "kind": "concept",
+      "source_ref": "src-notes-2#strings",
+      "week": 2
+    },
+    {
+      "id": "g-w02-string-length",
+      "fa": "شمردن طول رشته تا NUL",
+      "en": "computing a string's length",
+      "concept_id": "w02-c-string-length",
+      "kind": "concept",
+      "source_ref": "src-notes-2#string-length",
+      "week": 2
+    },
+    {
+      "id": "g-w02-strlen",
+      "fa": "strlen و string.h",
+      "en": "strlen and string.h",
+      "concept_id": "w02-c-strlen",
+      "kind": "concept",
+      "source_ref": "src-notes-2#string-length",
+      "week": 2
+    },
+    {
+      "id": "g-w02-ascii-case",
+      "fa": "تبدیل حروف با حساب ASCII (تفاضل ۳۲)",
+      "en": "case conversion by ASCII arithmetic",
+      "concept_id": "w02-c-ascii-case",
+      "kind": "concept",
+      "source_ref": "src-notes-2#string-length",
+      "week": 2
+    },
+    {
+      "id": "g-w02-ctype",
+      "fa": "کتابخانهٔ ctype.h: islower و toupper",
+      "en": "ctype.h: islower and toupper",
+      "concept_id": "w02-c-ctype",
+      "kind": "concept",
+      "source_ref": "src-notes-2#string-length",
+      "week": 2
+    },
+    {
+      "id": "g-w02-argc-argv",
+      "fa": "argc و argv",
+      "en": "argc and argv",
+      "concept_id": "w02-c-argc-argv",
+      "kind": "concept",
+      "source_ref": "src-notes-2#command-line-arguments",
+      "week": 2
+    },
+    {
+      "id": "g-w02-argv0",
+      "fa": "argv[0] نام خود برنامه است",
+      "en": "argv[0] is the program's name",
+      "concept_id": "w02-c-argv0",
+      "kind": "concept",
+      "source_ref": "src-notes-2#command-line-arguments",
+      "week": 2
+    },
+    {
+      "id": "g-w02-exit-status",
+      "fa": "وضعیت خروج (exit status)",
+      "en": "exit status",
+      "concept_id": "w02-c-exit-status",
+      "kind": "concept",
+      "source_ref": "src-notes-2#exit-status",
+      "week": 2
+    },
+    {
+      "id": "g-w02-echo-status",
+      "fa": "دیدن وضعیت خروج با echo $?",
+      "en": "echo $?",
+      "concept_id": "w02-c-echo-status",
+      "kind": "concept",
+      "source_ref": "src-notes-2#exit-status",
+      "week": 2
+    },
+    {
+      "id": "g-w02-cryptography",
+      "fa": "رمزنگاری",
+      "en": "cryptography",
+      "concept_id": "w02-c-cryptography",
+      "kind": "concept",
+      "source_ref": "src-transcript-2",
+      "week": 2
+    },
+    {
+      "id": "g-w02-cipher-key",
+      "fa": "متن ساده، متن رمز، کلید و الگوریتم رمز",
+      "en": "plaintext, ciphertext, key and cipher",
+      "concept_id": "w02-c-cipher-key",
+      "kind": "concept",
+      "source_ref": "src-transcript-2",
+      "week": 2
+    },
+    {
+      "id": "g-w02-rotation-cipher",
+      "fa": "رمز چرخشی (سزار و ROT13) و آزمودن همهٔ کلیدها",
+      "en": "rotation ciphers and brute force",
+      "concept_id": "w02-c-rotation-cipher",
+      "kind": "concept",
+      "source_ref": "src-transcript-2",
+      "week": 2
+    },
+    {
+      "id": "g-w02-function-anatomy",
+      "fa": "اجزای اعلان تابع: نوع بازگشتی، نام، فهرست آرگومان‌ها",
+      "en": "function declaration anatomy",
+      "concept_id": "w02-c-function-anatomy",
+      "kind": "concept",
+      "source_ref": "src-short-functions",
+      "week": 2
+    },
+    {
+      "id": "g-w02-function-benefits",
+      "fa": "چرا تابع: سازمان‌دهی، ساده‌سازی، استفادهٔ دوباره",
+      "en": "why functions: organization, simplification, reusability",
+      "concept_id": "w02-c-function-benefits",
+      "kind": "concept",
+      "source_ref": "src-short-functions",
+      "week": 2
+    },
+    {
+      "id": "g-w02-local-global",
+      "fa": "متغیر محلی و متغیر سراسری",
+      "en": "local vs global variables",
+      "concept_id": "w02-c-local-global",
+      "kind": "concept",
+      "source_ref": "src-short-variables-and-scope",
+      "week": 2
+    },
+    {
+      "id": "g-w02-pass-by-value",
+      "fa": "ارسال با مقدار: تابع کپی می‌گیرد",
+      "en": "pass by value",
+      "concept_id": "w02-c-pass-by-value",
+      "kind": "concept",
+      "source_ref": "src-short-variables-and-scope",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array-init",
+      "fa": "مقداردهی اولیهٔ آرایه با آکولاد و آرایهٔ چندبعدی",
+      "en": "array initializer lists and multi-dimensional arrays",
+      "concept_id": "w02-c-array-init",
+      "kind": "concept",
+      "source_ref": "src-short-arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-array-bounds",
+      "fa": "بیرون زدن از مرز آرایه و segmentation fault",
+      "en": "out-of-bounds access and segmentation faults",
+      "concept_id": "w02-c-array-bounds",
+      "kind": "concept",
+      "source_ref": "src-short-arrays",
+      "week": 2
+    },
+    {
+      "id": "g-w02-strcmp",
+      "fa": "مقایسهٔ رشته‌ها با strcmp، نه ==",
+      "en": "comparing strings with strcmp, not ==",
+      "concept_id": "w02-c-strcmp",
+      "kind": "concept",
+      "source_ref": "src-short-debugging-step-into",
+      "week": 2
+    },
+    {
+      "id": "g-w02-argv-strings",
+      "fa": "همهٔ عناصر argv رشته‌اند",
+      "en": "every argv element is a string",
+      "concept_id": "w02-c-argv-strings",
+      "kind": "concept",
+      "source_ref": "src-short-command-line-arguments",
+      "week": 2
+    },
+    {
+      "id": "g-w02-design-efficiency",
+      "fa": "طراحی: محاسبهٔ تکراری نکن (strlen بیرون از شرط حلقه)",
+      "en": "design: avoid repeated work",
+      "concept_id": "w02-c-design-efficiency",
+      "kind": "concept",
+      "source_ref": "src-section-2",
+      "week": 2
+    },
+    {
+      "id": "g-w02-early-return",
+      "fa": "طراحی: بازگشت زودهنگام و else زائد",
+      "en": "design: early return and redundant else",
+      "concept_id": "w02-c-early-return",
+      "kind": "concept",
+      "source_ref": "src-section-2",
+      "week": 2
+    },
+    {
+      "id": "g-w02-x-debugger",
+      "fa": "اشکال‌زدا",
+      "en": "debugger",
+      "kind": "term",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-breakpoint",
+      "fa": "نقطهٔ توقف",
+      "en": "breakpoint",
+      "kind": "term",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-rubber-duck-debugging",
+      "fa": "اردک پلاستیکی",
+      "en": "rubber duck debugging",
+      "kind": "term",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-preprocessing",
+      "fa": "پیش‌پردازش",
+      "en": "preprocessing",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-compiling",
+      "fa": "کامپایل کردن",
+      "en": "compiling",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-assembling",
+      "fa": "اسمبل کردن",
+      "en": "assembling",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-linking",
+      "fa": "پیوند دادن",
+      "en": "linking",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-assembly-code",
+      "fa": "کد اسمبلی",
+      "en": "assembly code",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-machine-code",
+      "fa": "کد ماشین",
+      "en": "machine code",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w02-x-header-file",
+      "fa": "فایل سرآیند",
+      "en": "header file",
+      "kind": "term",
+      "source_ref": "src-notes-2#compiling",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-byte",
+      "fa": "بایت",
+      "en": "byte",
+      "kind": "term",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2,
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w02-x-memory",
+      "fa": "حافظه",
+      "en": "memory (RAM)",
+      "kind": "term",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-index",
+      "fa": "اندیس",
+      "en": "index",
+      "kind": "term",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-element",
+      "fa": "عنصر",
+      "en": "element",
+      "kind": "term",
+      "source_ref": "src-notes-2#arrays",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-character",
+      "fa": "نویسه",
+      "en": "character (char)",
+      "kind": "term",
+      "source_ref": "src-notes-2#strings",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-nul-terminator",
+      "fa": "نویسهٔ پایانی NUL",
+      "en": "NUL terminator",
+      "kind": "term",
+      "source_ref": "src-notes-2#strings",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-string-comparison",
+      "fa": "مقایسهٔ رشته",
+      "en": "string comparison (strcmp)",
+      "kind": "term",
+      "source_ref": "src-short-arrays",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-command-line-argument",
+      "fa": "آرگومان خط فرمان",
+      "en": "command-line argument",
+      "kind": "term",
+      "source_ref": "src-notes-2#command-line-arguments",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-exit-status",
+      "fa": "وضعیت خروج",
+      "en": "exit status",
+      "kind": "term",
+      "source_ref": "src-notes-2#exit-status",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-plaintext",
+      "fa": "متن ساده",
+      "en": "plaintext",
+      "kind": "term",
+      "source_ref": "src-notes-2#lecture-2",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-ciphertext",
+      "fa": "متن رمز",
+      "en": "ciphertext",
+      "kind": "term",
+      "source_ref": "src-notes-2#lecture-2",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-key",
+      "fa": "کلید",
+      "en": "key",
+      "kind": "term",
+      "source_ref": "src-notes-2#lecture-2",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-decryption",
+      "fa": "رمزگشایی",
+      "en": "decryption",
+      "kind": "term",
+      "source_ref": "src-notes-2#lecture-2",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-magic-number",
+      "fa": "عدد جادویی",
+      "en": "magic number",
+      "kind": "term",
+      "source_ref": "src-section-2#week-2-arrays",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w02-x-debug50",
+      "fa": "debug50",
+      "en": "debug50",
+      "kind": "term",
+      "source_ref": "src-notes-2#debugging",
+      "week": 2,
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-algorithm-black-box",
+      "fa": "الگوریتم به‌عنوان جعبهٔ سیاه: ورودی، الگوریتم، خروجی",
+      "en": "algorithm as a black box",
+      "concept_id": "w03-c-algorithm-black-box",
+      "kind": "concept",
+      "source_ref": "src-notes-3#welcome",
+      "week": 3
+    },
+    {
+      "id": "g-w03-growth-graph",
+      "fa": "نمودار رشد زمان اجرا: n، n/2 و log n",
+      "en": "growth of running time: n, n/2, log n",
+      "concept_id": "w03-c-growth-graph",
+      "kind": "concept",
+      "source_ref": "src-notes-3#welcome",
+      "week": 3
+    },
+    {
+      "id": "g-w03-array-memory-lockers",
+      "fa": "آرایه به‌شکل کمدهای بسته: فقط یک خانه را می‌شود دید",
+      "en": "an array as closed lockers",
+      "concept_id": "w03-c-array-memory-lockers",
+      "kind": "concept",
+      "source_ref": "src-notes-3#linear-search",
+      "week": 3
+    },
+    {
+      "id": "g-w03-linear-search",
+      "fa": "جست‌وجوی خطی",
+      "en": "linear search",
+      "concept_id": "w03-c-linear-search",
+      "kind": "concept",
+      "source_ref": "src-notes-3#linear-search",
+      "week": 3
+    },
+    {
+      "id": "g-w03-pseudocode-precision",
+      "fa": "دقیق‌تر کردن شبه‌کد: از «هر در» تا doors[i]",
+      "en": "refining pseudocode",
+      "concept_id": "w03-c-pseudocode-precision",
+      "kind": "concept",
+      "source_ref": "src-notes-3#linear-search",
+      "week": 3
+    },
+    {
+      "id": "g-w03-binary-search",
+      "fa": "جست‌وجوی دودویی روی آرایهٔ مرتب",
+      "en": "binary search on a sorted array",
+      "concept_id": "w03-c-binary-search",
+      "kind": "concept",
+      "source_ref": "src-notes-3#binary-search",
+      "week": 3
+    },
+    {
+      "id": "g-w03-sorted-precondition",
+      "fa": "پیش‌شرط مرتب بودن برای جست‌وجوی دودویی",
+      "en": "sorted precondition",
+      "concept_id": "w03-c-sorted-precondition",
+      "kind": "concept",
+      "source_ref": "src-notes-3#binary-search",
+      "week": 3
+    },
+    {
+      "id": "g-w03-big-o",
+      "fa": "نماد O بزرگ: کران بالا یا بدترین حالت",
+      "en": "big O: upper bound / worst case",
+      "concept_id": "w03-c-big-o",
+      "kind": "concept",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3
+    },
+    {
+      "id": "g-w03-common-running-times",
+      "fa": "زمان‌های اجرای رایج: n²، n log n، n، log n، 1",
+      "en": "common running times",
+      "concept_id": "w03-c-common-running-times",
+      "kind": "concept",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3
+    },
+    {
+      "id": "g-w03-drop-constants",
+      "fa": "کنار گذاشتن ضریب‌ها و جمله‌های کوچک‌تر",
+      "en": "dropping constants and lower-order terms",
+      "concept_id": "w03-c-drop-constants",
+      "kind": "concept",
+      "source_ref": "src-transcript-3",
+      "week": 3
+    },
+    {
+      "id": "g-w03-omega",
+      "fa": "نماد Ω: کران پایین یا بهترین حالت",
+      "en": "Omega: lower bound / best case",
+      "concept_id": "w03-c-omega",
+      "kind": "concept",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3
+    },
+    {
+      "id": "g-w03-theta",
+      "fa": "نماد Θ: وقتی کران بالا و پایین یکی‌اند",
+      "en": "Theta: upper and lower bound coincide",
+      "concept_id": "w03-c-theta",
+      "kind": "concept",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3
+    },
+    {
+      "id": "g-w03-asymptotic-notation",
+      "fa": "نمادگذاری مجانبی",
+      "en": "asymptotic notation",
+      "concept_id": "w03-c-asymptotic-notation",
+      "kind": "concept",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3
+    },
+    {
+      "id": "g-w03-search-int",
+      "fa": "جست‌وجوی خطی در آرایهٔ اعداد صحیح با C",
+      "en": "linear search over ints in C",
+      "concept_id": "w03-c-search-int",
+      "kind": "concept",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-return-from-main",
+      "fa": "بازگرداندن 0 یا 1 از main پس از پیدا شدن یا نشدن",
+      "en": "returning 0 or 1 from main",
+      "concept_id": "w03-c-return-from-main",
+      "kind": "concept",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-search-strings",
+      "fa": "جست‌وجو در آرایهٔ رشته‌ها با strcmp",
+      "en": "searching strings with strcmp",
+      "concept_id": "w03-c-search-strings",
+      "kind": "concept",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-strcmp-return",
+      "fa": "مقدار بازگشتی strcmp: صفر یعنی برابر",
+      "en": "strcmp returns 0 when equal",
+      "concept_id": "w03-c-strcmp-return",
+      "kind": "concept",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-hardcoded-length",
+      "fa": "عدد طول آرایهٔ سخت‌کد شده و خطر segmentation fault",
+      "en": "hard-coded array length and segfaults",
+      "concept_id": "w03-c-hardcoded-length",
+      "kind": "concept",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-parallel-arrays",
+      "fa": "آرایه‌های موازی و ضعف طراحی آن",
+      "en": "parallel arrays as a design smell",
+      "concept_id": "w03-c-parallel-arrays",
+      "kind": "concept",
+      "source_ref": "src-notes-3#phonebookc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-numbers-as-strings",
+      "fa": "نگه‌داشتن شمارهٔ تلفن به‌صورت رشته",
+      "en": "phone numbers as strings",
+      "concept_id": "w03-c-numbers-as-strings",
+      "kind": "concept",
+      "source_ref": "src-notes-3#phonebookc",
+      "week": 3
+    },
+    {
+      "id": "g-w03-struct",
+      "fa": "ساختار داده با typedef struct",
+      "en": "defining a struct with typedef",
+      "concept_id": "w03-c-struct",
+      "kind": "concept",
+      "source_ref": "src-notes-3#structs",
+      "week": 3
+    },
+    {
+      "id": "g-w03-dot-notation",
+      "fa": "دسترسی به فیلدها با نماد نقطه",
+      "en": "dot notation for fields",
+      "concept_id": "w03-c-dot-notation",
+      "kind": "concept",
+      "source_ref": "src-notes-3#structs",
+      "week": 3
+    },
+    {
+      "id": "g-w03-array-of-structs",
+      "fa": "آرایه‌ای از struct",
+      "en": "array of structs",
+      "concept_id": "w03-c-array-of-structs",
+      "kind": "concept",
+      "source_ref": "src-notes-3#structs",
+      "week": 3
+    },
+    {
+      "id": "g-w03-encapsulation",
+      "fa": "کپسوله‌سازی داده‌های مرتبط",
+      "en": "encapsulation",
+      "concept_id": "w03-c-encapsulation",
+      "kind": "concept",
+      "source_ref": "src-transcript-3",
+      "week": 3
+    },
+    {
+      "id": "g-w03-sorting",
+      "fa": "مرتب‌سازی و چرا مرتب کردن ارزشمند است",
+      "en": "sorting and why it pays off",
+      "concept_id": "w03-c-sorting",
+      "kind": "concept",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-selection-sort",
+      "fa": "مرتب‌سازی انتخابی",
+      "en": "selection sort",
+      "concept_id": "w03-c-selection-sort",
+      "kind": "concept",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-swap",
+      "fa": "جابه‌جا کردن دو خانه با متغیر موقت",
+      "en": "swapping two elements with a temporary",
+      "concept_id": "w03-c-swap",
+      "kind": "concept",
+      "source_ref": "src-transcript-3",
+      "week": 3
+    },
+    {
+      "id": "g-w03-counting-steps",
+      "fa": "شمردن گام‌ها: (n-1)+(n-2)+...+1 = n(n-1)/2",
+      "en": "counting steps of selection sort",
+      "concept_id": "w03-c-counting-steps",
+      "kind": "concept",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-bubble-sort",
+      "fa": "مرتب‌سازی حبابی",
+      "en": "bubble sort",
+      "concept_id": "w03-c-bubble-sort",
+      "kind": "concept",
+      "source_ref": "src-notes-3#bubble-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-early-exit-no-swaps",
+      "fa": "توقف زودهنگام وقتی جابه‌جایی رخ نداد",
+      "en": "stopping when no swaps happened",
+      "concept_id": "w03-c-early-exit-no-swaps",
+      "kind": "concept",
+      "source_ref": "src-notes-3#bubble-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-recursion",
+      "fa": "بازگشت: تابعی که خودش را صدا می‌زند",
+      "en": "recursion",
+      "concept_id": "w03-c-recursion",
+      "kind": "concept",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3
+    },
+    {
+      "id": "g-w03-base-case",
+      "fa": "حالت پایه",
+      "en": "base case",
+      "concept_id": "w03-c-base-case",
+      "kind": "concept",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3
+    },
+    {
+      "id": "g-w03-recursive-case",
+      "fa": "حالت بازگشتی",
+      "en": "recursive case",
+      "concept_id": "w03-c-recursive-case",
+      "kind": "concept",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3
+    },
+    {
+      "id": "g-w03-call-stack",
+      "fa": "پشتهٔ فراخوانی و قاب‌های تابع",
+      "en": "call stack and stack frames",
+      "concept_id": "w03-c-call-stack",
+      "kind": "concept",
+      "source_ref": "src-short-call-stacks",
+      "week": 3
+    },
+    {
+      "id": "g-w03-factorial-fib",
+      "fa": "فاکتوریل و فیبوناچی به‌صورت بازگشتی",
+      "en": "recursive factorial and Fibonacci",
+      "concept_id": "w03-c-factorial-fib",
+      "kind": "concept",
+      "source_ref": "src-section-3",
+      "week": 3
+    },
+    {
+      "id": "g-w03-iteration-vs-recursion",
+      "fa": "تکرار در برابر بازگشت: هرم با حلقه و با بازگشت",
+      "en": "iteration vs recursion (pyramid)",
+      "concept_id": "w03-c-iteration-vs-recursion",
+      "kind": "concept",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3
+    },
+    {
+      "id": "g-w03-merge-sort",
+      "fa": "مرتب‌سازی ادغامی",
+      "en": "merge sort",
+      "concept_id": "w03-c-merge-sort",
+      "kind": "concept",
+      "source_ref": "src-notes-3#merge-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-merging",
+      "fa": "ادغام دو نیمهٔ مرتب",
+      "en": "merging two sorted halves",
+      "concept_id": "w03-c-merging",
+      "kind": "concept",
+      "source_ref": "src-notes-3#merge-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-n-log-n",
+      "fa": "چرا ادغامی n log n است: log n سطح × n کار",
+      "en": "why merge sort is n log n",
+      "concept_id": "w03-c-n-log-n",
+      "kind": "concept",
+      "source_ref": "src-notes-3#merge-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-memory-tradeoff",
+      "fa": "بده‌بستان زمان و حافظه در ادغامی",
+      "en": "time vs memory trade-off",
+      "concept_id": "w03-c-memory-tradeoff",
+      "kind": "concept",
+      "source_ref": "src-short-merge-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-time-command",
+      "fa": "سنجیدن زمان اجرا با time",
+      "en": "measuring with time",
+      "concept_id": "w03-c-time-command",
+      "kind": "concept",
+      "source_ref": "src-pset-3-sort",
+      "week": 3
+    },
+    {
+      "id": "g-w03-x-algorithm",
+      "fa": "الگوریتم",
+      "en": "algorithm",
+      "kind": "term",
+      "source_ref": "src-notes-3#welcome",
+      "week": 3,
+      "definition_fa": "دنباله‌ای از گام‌های دقیق که ورودی را به خروجی مطلوب تبدیل می‌کند.",
+      "week_glossary_key": "algorithm",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w03-x-running-time",
+      "fa": "زمان اجرا",
+      "en": "running time",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "تعداد گام‌هایی که الگوریتم برای ورودی به اندازهٔ n برمی‌دارد؛ معیار مقایسهٔ الگوریتم‌ها.",
+      "week_glossary_key": "running_time",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w03-x-linear-search",
+      "fa": "جست‌وجوی خطی",
+      "en": "linear search",
+      "kind": "term",
+      "source_ref": "src-notes-3#linear-search",
+      "week": 3,
+      "definition_fa": "بررسی خانه‌ها یکی‌یکی از ابتدا تا انتها تا هدف پیدا شود یا خانه‌ها تمام شوند.",
+      "week_glossary_key": "linear_search",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-binary-search",
+      "fa": "جست‌وجوی دودویی",
+      "en": "binary search",
+      "kind": "term",
+      "source_ref": "src-notes-3#binary-search",
+      "week": 3,
+      "definition_fa": "مقایسه با خانهٔ میانی و کنار گذاشتن نیمی از دادهٔ مرتب در هر گام.",
+      "week_glossary_key": "binary_search",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-sorted",
+      "fa": "مرتب",
+      "en": "sorted",
+      "kind": "term",
+      "source_ref": "src-notes-3#binary-search",
+      "week": 3,
+      "definition_fa": "داده‌ای که عنصرهایش به ترتیب (مثلاً از کوچک به بزرگ) چیده شده‌اند؛ پیش‌شرط جست‌وجوی دودویی.",
+      "week_glossary_key": "sorted",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-pseudocode",
+      "fa": "شبه‌کد",
+      "en": "pseudocode",
+      "kind": "term",
+      "source_ref": "src-notes-3#linear-search",
+      "week": 3,
+      "definition_fa": "توصیف گام‌های الگوریتم به زبان ساده و دقیق، پیش از نوشتن کد واقعی.",
+      "week_glossary_key": "pseudocode",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w03-x-big-o",
+      "fa": "نماد O بزرگ",
+      "en": "big O notation",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "کران بالای رشد زمان اجرا؛ معمولاً برای بدترین حالت به کار می‌رود.",
+      "week_glossary_key": "big_o",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-omega",
+      "fa": "نماد Ω",
+      "en": "Omega notation (Ω)",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "کران پایین رشد زمان اجرا؛ معمولاً برای بهترین حالت به کار می‌رود.",
+      "week_glossary_key": "omega",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-theta",
+      "fa": "نماد Θ",
+      "en": "Theta notation (Θ)",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "وقتی کران بالا و کران پایین یک الگوریتم یکی باشند.",
+      "week_glossary_key": "theta",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-asymptotic-notation",
+      "fa": "نمادگذاری مجانبی",
+      "en": "asymptotic notation",
+      "kind": "term",
+      "source_ref": "src-week-3#week-3-algorithms",
+      "week": 3,
+      "definition_fa": "زبان توصیف رشد زمان اجرا وقتی n خیلی بزرگ می‌شود؛ ضریب‌ها کنار گذاشته می‌شوند.",
+      "week_glossary_key": "asymptotic_notation",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-worst-case",
+      "fa": "بدترین حالت",
+      "en": "worst case",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "ورودی‌ای که الگوریتم بیشترین گام را برایش برمی‌دارد.",
+      "week_glossary_key": "worst_case",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-best-case",
+      "fa": "بهترین حالت",
+      "en": "best case",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "ورودی‌ای که الگوریتم کمترین گام را برایش برمی‌دارد.",
+      "week_glossary_key": "best_case",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-constant-time",
+      "fa": "زمان ثابت",
+      "en": "constant time, O(1)",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "تعداد گام‌ها به اندازهٔ ورودی بستگی ندارد.",
+      "week_glossary_key": "constant_time",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-logarithmic-time",
+      "fa": "زمان لگاریتمی",
+      "en": "logarithmic time, O(log n)",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "با هر دو برابر شدن ورودی فقط یک گام اضافه می‌شود؛ مثل جست‌وجوی دودویی.",
+      "week_glossary_key": "logarithmic_time",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-quadratic-time",
+      "fa": "زمان درجه دو",
+      "en": "quadratic time, O(n²)",
+      "kind": "term",
+      "source_ref": "src-notes-3#running-time",
+      "week": 3,
+      "definition_fa": "گام‌ها با مجذور اندازهٔ ورودی رشد می‌کنند؛ مثل انتخابی و حبابی در بدترین حالت.",
+      "week_glossary_key": "quadratic_time",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-n-log-n",
+      "fa": "n log n",
+      "en": "n log n",
+      "kind": "term",
+      "source_ref": "src-notes-3#merge-sort",
+      "week": 3,
+      "definition_fa": "log n سطح نصف کردن ضرب در حدود n کار در هر سطح؛ زمان مرتب‌سازی ادغامی.",
+      "week_glossary_key": "n_log_n",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-strcmp",
+      "fa": "strcmp",
+      "en": "strcmp",
+      "kind": "term",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3,
+      "definition_fa": "تابع string.h برای مقایسهٔ دو رشته؛ اگر برابر باشند ۰ برمی‌گرداند.",
+      "week_glossary_key": "strcmp",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-segmentation-fault",
+      "fa": "خطای segmentation fault",
+      "en": "segmentation fault",
+      "kind": "term",
+      "source_ref": "src-notes-3#searchc",
+      "week": 3,
+      "definition_fa": "خطایی که وقتی برنامه به حافظه‌ای خارج از محدودهٔ مجاز دست می‌زند رخ می‌دهد.",
+      "week_glossary_key": "segmentation_fault",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-data-structure",
+      "fa": "ساختار داده",
+      "en": "data structure",
+      "kind": "term",
+      "source_ref": "src-notes-3#structs",
+      "week": 3,
+      "definition_fa": "روشی برای سازمان دادن داده در حافظه؛ struct اولین نمونهٔ ساختهٔ خودمان است.",
+      "week_glossary_key": "data_structure",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-struct",
+      "fa": "ساختار (struct)",
+      "en": "struct",
+      "kind": "term",
+      "source_ref": "src-notes-3#structs",
+      "week": 3,
+      "definition_fa": "نوع داده‌ای که چند فیلد مرتبط، حتی با نوع‌های متفاوت، را کنار هم نگه می‌دارد.",
+      "week_glossary_key": "struct",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-typedef",
+      "fa": "typedef",
+      "en": "typedef",
+      "kind": "term",
+      "source_ref": "src-notes-3#structs",
+      "week": 3,
+      "definition_fa": "کلیدواژه‌ای برای نام‌گذاری یک نوع داده، مثلاً نام person برای یک struct.",
+      "week_glossary_key": "typedef",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-dot-notation",
+      "fa": "نماد نقطه",
+      "en": "dot notation",
+      "kind": "term",
+      "source_ref": "src-notes-3#structs",
+      "week": 3,
+      "definition_fa": "دسترسی به فیلد یک struct با نقطه، مثل people[0].name.",
+      "week_glossary_key": "dot_notation",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-field",
+      "fa": "فیلد",
+      "en": "field (member)",
+      "kind": "term",
+      "source_ref": "src-notes-3#structs",
+      "week": 3,
+      "definition_fa": "هر یک از متغیرهای داخل یک struct.",
+      "week_glossary_key": "field",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-encapsulation",
+      "fa": "کپسوله‌سازی",
+      "en": "encapsulation",
+      "kind": "term",
+      "source_ref": "src-transcript-3",
+      "week": 3,
+      "definition_fa": "کنار هم نگه داشتن داده‌های مرتبط در یک واحد تا از هم جدا نشوند.",
+      "week_glossary_key": "encapsulation",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-selection-sort",
+      "fa": "مرتب‌سازی انتخابی",
+      "en": "selection sort",
+      "kind": "term",
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "week": 3,
+      "definition_fa": "در هر دور کوچک‌ترین عنصر باقی‌مانده پیدا و به جای درستش منتقل می‌شود.",
+      "week_glossary_key": "selection_sort",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-bubble-sort",
+      "fa": "مرتب‌سازی حبابی",
+      "en": "bubble sort",
+      "kind": "term",
+      "source_ref": "src-notes-3#bubble-sort",
+      "week": 3,
+      "definition_fa": "جفت‌های کنار هم مقایسه و در صورت نامرتب بودن جابه‌جا می‌شوند تا دیگر جابه‌جایی لازم نباشد.",
+      "week_glossary_key": "bubble_sort",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-merge-sort",
+      "fa": "مرتب‌سازی ادغامی",
+      "en": "merge sort",
+      "kind": "term",
+      "source_ref": "src-notes-3#merge-sort",
+      "week": 3,
+      "definition_fa": "نیمهٔ چپ و نیمهٔ راست به‌صورت بازگشتی مرتب و سپس ادغام می‌شوند.",
+      "week_glossary_key": "merge_sort",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-swap",
+      "fa": "جابه‌جایی",
+      "en": "swap",
+      "kind": "term",
+      "source_ref": "src-transcript-3",
+      "week": 3,
+      "definition_fa": "عوض کردن مقدار دو خانه با کمک یک متغیر موقت.",
+      "week_glossary_key": "swap",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-recursion",
+      "fa": "بازگشت",
+      "en": "recursion",
+      "kind": "term",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3,
+      "definition_fa": "حل مسئله با فراخوانی همان تابع روی نسخهٔ کوچک‌تر مسئله.",
+      "week_glossary_key": "recursion",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-base-case",
+      "fa": "حالت پایه",
+      "en": "base case",
+      "kind": "term",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3,
+      "definition_fa": "حالتی که تابع بازگشتی بدون فراخوانی دوباره جواب می‌دهد و بازگشت را متوقف می‌کند.",
+      "week_glossary_key": "base_case",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-recursive-case",
+      "fa": "حالت بازگشتی",
+      "en": "recursive case",
+      "kind": "term",
+      "source_ref": "src-notes-3#recursion",
+      "week": 3,
+      "definition_fa": "حالتی که تابع خودش را روی ورودی کوچک‌تر صدا می‌زند.",
+      "week_glossary_key": "recursive_case",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-call-stack",
+      "fa": "پشتهٔ فراخوانی",
+      "en": "call stack",
+      "kind": "term",
+      "source_ref": "src-short-call-stacks",
+      "week": 3,
+      "definition_fa": "پشته‌ای از قاب‌های تابع؛ تابعی که آخر صدا زده شده اول تمام می‌شود.",
+      "week_glossary_key": "call_stack",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-stack-frame",
+      "fa": "قاب پشته",
+      "en": "stack frame",
+      "kind": "term",
+      "source_ref": "src-short-call-stacks",
+      "week": 3,
+      "definition_fa": "فضایی در حافظه برای متغیرهای محلی و آرگومان‌های یک فراخوانی تابع.",
+      "week_glossary_key": "stack_frame",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-factorial",
+      "fa": "فاکتوریل",
+      "en": "factorial",
+      "kind": "term",
+      "source_ref": "src-section-3#week-3-algorithms",
+      "week": 3,
+      "definition_fa": "حاصل‌ضرب همهٔ عددهای صحیح مثبت تا n؛ مثال کلاسیک بازگشت.",
+      "week_glossary_key": "factorial",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-fibonacci",
+      "fa": "دنبالهٔ فیبوناچی",
+      "en": "Fibonacci sequence",
+      "kind": "term",
+      "source_ref": "src-section-3#week-3-algorithms",
+      "week": 3,
+      "definition_fa": "دنباله‌ای که هر عضوش جمع دو عضو قبلی است و با ۰ و ۱ شروع می‌شود.",
+      "week_glossary_key": "fibonacci",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-time-command",
+      "fa": "فرمان time",
+      "en": "time (command)",
+      "kind": "term",
+      "source_ref": "src-pset-3-sort#hints",
+      "week": 3,
+      "definition_fa": "فرمان ترمینال که زمان اجرای یک برنامه را گزارش می‌دهد.",
+      "week_glossary_key": "time_command",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-ranked-choice-voting",
+      "fa": "رأی‌گیری رتبه‌ای",
+      "en": "ranked-choice voting",
+      "kind": "term",
+      "source_ref": "src-pset-3-runoff#problem-to-solve",
+      "week": 3,
+      "definition_fa": "هر رأی‌دهنده نامزدها را به ترتیب ترجیح رتبه‌بندی می‌کند.",
+      "week_glossary_key": "ranked_choice_voting",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w03-x-condorcet-winner",
+      "fa": "برندهٔ کندورسه",
+      "en": "Condorcet winner",
+      "kind": "term",
+      "source_ref": "src-pset-3-tideman#problem-to-solve",
+      "week": 3,
+      "definition_fa": "نامزدی که در مقایسهٔ دوبه‌دو از همهٔ نامزدهای دیگر جلوتر است.",
+      "week_glossary_key": "condorcet_winner",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-pixel-art",
+      "fa": "تصویر به‌شکل شبکه‌ای از پیکسل‌ها (هنر پیکسلی)",
+      "en": "an image as a grid of pixels",
+      "concept_id": "w04-c-pixel-art",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pixel-art",
+      "week": 4
+    },
+    {
+      "id": "g-w04-rgb-hex-color",
+      "fa": "رنگ RGB با سه عدد هگزادسیمال: #FF0000",
+      "en": "RGB colors written in hex",
+      "concept_id": "w04-c-rgb-hex-color",
+      "kind": "concept",
+      "source_ref": "src-notes-4#hexadecimal",
+      "week": 4
+    },
+    {
+      "id": "g-w04-hexadecimal",
+      "fa": "مبنای شانزده: رقم‌های 0 تا 9 و A تا F",
+      "en": "hexadecimal (base-16)",
+      "concept_id": "w04-c-hexadecimal",
+      "kind": "concept",
+      "source_ref": "src-notes-4#hexadecimal",
+      "week": 4
+    },
+    {
+      "id": "g-w04-hex-place-values",
+      "fa": "ارزش مکانی در مبنای شانزده: 1، 16، 256",
+      "en": "hex place values",
+      "concept_id": "w04-c-hex-place-values",
+      "kind": "concept",
+      "source_ref": "src-notes-4#hexadecimal",
+      "week": 4
+    },
+    {
+      "id": "g-w04-hex-byte",
+      "fa": "هر رقم هگزادسیمال ۴ بیت است و دو رقم یک بایت؛ FF یعنی 255",
+      "en": "one hex digit = 4 bits; two = one byte",
+      "concept_id": "w04-c-hex-byte",
+      "kind": "concept",
+      "source_ref": "src-notes-4#hexadecimal",
+      "week": 4
+    },
+    {
+      "id": "g-w04-0x-prefix",
+      "fa": "پیشوند 0x برای نوشتن عدد هگزادسیمال",
+      "en": "the 0x prefix",
+      "concept_id": "w04-c-0x-prefix",
+      "kind": "concept",
+      "source_ref": "src-notes-4#memory",
+      "week": 4
+    },
+    {
+      "id": "g-w04-memory-addresses",
+      "fa": "هر بایت حافظه نشانی (address) دارد",
+      "en": "every byte of memory has an address",
+      "concept_id": "w04-c-memory-addresses",
+      "kind": "concept",
+      "source_ref": "src-notes-4#memory",
+      "week": 4
+    },
+    {
+      "id": "g-w04-address-of",
+      "fa": "عملگر & : نشانی یک متغیر",
+      "en": "the & (address-of) operator",
+      "concept_id": "w04-c-address-of",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-percent-p",
+      "fa": "چاپ نشانی با %p",
+      "en": "printing an address with %p",
+      "concept_id": "w04-c-percent-p",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-pointer",
+      "fa": "اشاره‌گر: متغیری که نشانی نگه می‌دارد (int *p)",
+      "en": "a pointer is a variable that stores an address",
+      "concept_id": "w04-c-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-dereference",
+      "fa": "عملگر * : رفتن به نشانی (dereference)",
+      "en": "the * (dereference) operator",
+      "concept_id": "w04-c-dereference",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-pointer-size",
+      "fa": "اندازهٔ اشاره‌گر: ۸ بایت در سیستم ۶۴ بیتی",
+      "en": "pointer size (8 bytes on 64-bit)",
+      "concept_id": "w04-c-pointer-size",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-null-pointer",
+      "fa": "اشاره‌گر NULL: نشانی‌ای که به هیچ‌جا اشاره نمی‌کند",
+      "en": "the NULL pointer",
+      "concept_id": "w04-c-null-pointer",
+      "kind": "concept",
+      "source_ref": "src-short-pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-string-char-star",
+      "fa": "رشته همان char * است: نشانی اولین نویسه",
+      "en": "a string is a char *",
+      "concept_id": "w04-c-string-char-star",
+      "kind": "concept",
+      "source_ref": "src-notes-4#strings",
+      "week": 4
+    },
+    {
+      "id": "g-w04-typedef",
+      "fa": "typedef: نام تازه برای یک نوع (مثل string در cs50.h)",
+      "en": "typedef: a new name for a type",
+      "concept_id": "w04-c-typedef",
+      "kind": "concept",
+      "source_ref": "src-notes-4#strings",
+      "week": 4
+    },
+    {
+      "id": "g-w04-typedef-struct",
+      "fa": "typedef همراه struct برای ساختن نوع دلخواه",
+      "en": "typedef with struct",
+      "concept_id": "w04-c-typedef-struct",
+      "kind": "concept",
+      "source_ref": "src-short-defining-custom-types",
+      "week": 4
+    },
+    {
+      "id": "g-w04-pointer-arithmetic",
+      "fa": "حساب اشاره‌گرها: s + 1 یعنی نویسهٔ بعدی",
+      "en": "pointer arithmetic",
+      "concept_id": "w04-c-pointer-arithmetic",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "week": 4
+    },
+    {
+      "id": "g-w04-bracket-as-pointer",
+      "fa": "s[i] همان *(s + i) است",
+      "en": "s[i] is *(s + i)",
+      "concept_id": "w04-c-bracket-as-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "week": 4
+    },
+    {
+      "id": "g-w04-compare-addresses",
+      "fa": "== روی دو رشته نشانی‌ها را مقایسه می‌کند، نه محتوا را",
+      "en": "== on strings compares addresses",
+      "concept_id": "w04-c-compare-addresses",
+      "kind": "concept",
+      "source_ref": "src-notes-4#string-comparison",
+      "week": 4
+    },
+    {
+      "id": "g-w04-strcmp-content",
+      "fa": "strcmp محتوای دو رشته را نویسه‌به‌نویسه مقایسه می‌کند",
+      "en": "strcmp compares contents",
+      "concept_id": "w04-c-strcmp-content",
+      "kind": "concept",
+      "source_ref": "src-notes-4#string-comparison",
+      "week": 4
+    },
+    {
+      "id": "g-w04-pointer-copy",
+      "fa": "t = s فقط نشانی را کپی می‌کند: دو نام برای یک رشته",
+      "en": "t = s copies the address only",
+      "concept_id": "w04-c-pointer-copy",
+      "kind": "concept",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4
+    },
+    {
+      "id": "g-w04-malloc",
+      "fa": "malloc: گرفتن چند بایت حافظه از سیستم عامل",
+      "en": "malloc: ask for bytes of memory",
+      "concept_id": "w04-c-malloc",
+      "kind": "concept",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4
+    },
+    {
+      "id": "g-w04-free",
+      "fa": "free: پس دادن حافظه‌ای که malloc داده است",
+      "en": "free: give memory back",
+      "concept_id": "w04-c-free",
+      "kind": "concept",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4
+    },
+    {
+      "id": "g-w04-malloc-null-check",
+      "fa": "بررسی NULL پس از malloc (و هر تابعی که اشاره‌گر برمی‌گرداند)",
+      "en": "check for NULL after malloc",
+      "concept_id": "w04-c-malloc-null-check",
+      "kind": "concept",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4
+    },
+    {
+      "id": "g-w04-strcpy",
+      "fa": "strcpy برای کپی کردن محتوای رشته",
+      "en": "copying a string with strcpy",
+      "concept_id": "w04-c-strcpy",
+      "kind": "concept",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4
+    },
+    {
+      "id": "g-w04-nul-byte-room",
+      "fa": "جا گذاشتن برای \\0 : strlen(s) + 1 بایت",
+      "en": "room for the NUL: strlen(s) + 1",
+      "concept_id": "w04-c-nul-byte-room",
+      "kind": "concept",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4
+    },
+    {
+      "id": "g-w04-sizeof",
+      "fa": "sizeof برای اندازهٔ یک نوع به بایت",
+      "en": "sizeof",
+      "concept_id": "w04-c-sizeof",
+      "kind": "concept",
+      "source_ref": "src-notes-4#valgrind",
+      "week": 4
+    },
+    {
+      "id": "g-w04-valgrind",
+      "fa": "valgrind: ابزار یافتن خطاهای حافظه",
+      "en": "valgrind",
+      "concept_id": "w04-c-valgrind",
+      "kind": "concept",
+      "source_ref": "src-notes-4#valgrind",
+      "week": 4
+    },
+    {
+      "id": "g-w04-buffer-overflow-write",
+      "fa": "نوشتن بیرون از حافظهٔ گرفته‌شده (invalid write)",
+      "en": "writing past allocated memory",
+      "concept_id": "w04-c-buffer-overflow-write",
+      "kind": "concept",
+      "source_ref": "src-notes-4#valgrind",
+      "week": 4
+    },
+    {
+      "id": "g-w04-memory-leak",
+      "fa": "نشت حافظه: malloc بدون free",
+      "en": "memory leak",
+      "concept_id": "w04-c-memory-leak",
+      "kind": "concept",
+      "source_ref": "src-notes-4#valgrind",
+      "week": 4
+    },
+    {
+      "id": "g-w04-garbage-values",
+      "fa": "مقدار زباله: متغیر مقداردهی‌نشده هر چیزی می‌تواند باشد",
+      "en": "garbage values",
+      "concept_id": "w04-c-garbage-values",
+      "kind": "concept",
+      "source_ref": "src-notes-4#garbage-values",
+      "week": 4
+    },
+    {
+      "id": "g-w04-uninitialized-pointer",
+      "fa": "اشاره‌گر مقداردهی‌نشده و Binky",
+      "en": "dereferencing an uninitialized pointer",
+      "concept_id": "w04-c-uninitialized-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-4#pointer-fun-with-binky",
+      "week": 4
+    },
+    {
+      "id": "g-w04-swap-by-pointer",
+      "fa": "جابه‌جایی واقعی با فرستادن نشانی‌ها به تابع",
+      "en": "swapping via pointers",
+      "concept_id": "w04-c-swap-by-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4
+    },
+    {
+      "id": "g-w04-memory-layout",
+      "fa": "چیدمان حافظه: کد ماشین، globals، هیپ و پشته",
+      "en": "memory layout: machine code, globals, heap, stack",
+      "concept_id": "w04-c-memory-layout",
+      "kind": "concept",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4
+    },
+    {
+      "id": "g-w04-stack-frame",
+      "fa": "قاب پشته: متغیرهای محلی هر فراخوانی",
+      "en": "stack frames",
+      "concept_id": "w04-c-stack-frame",
+      "kind": "concept",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4
+    },
+    {
+      "id": "g-w04-overflow",
+      "fa": "سرریز پشته و سرریز هیپ",
+      "en": "stack overflow and heap overflow",
+      "concept_id": "w04-c-overflow",
+      "kind": "concept",
+      "source_ref": "src-notes-4#overflow",
+      "week": 4
+    },
+    {
+      "id": "g-w04-scanf",
+      "fa": "scanf: خواندن ورودی با نشانی متغیر",
+      "en": "scanf with an address",
+      "concept_id": "w04-c-scanf",
+      "kind": "concept",
+      "source_ref": "src-notes-4#scanf",
+      "week": 4
+    },
+    {
+      "id": "g-w04-scanf-string-danger",
+      "fa": "خطر scanf برای رشته: نمی‌داند چند بایت جا داری",
+      "en": "why scanf for strings is dangerous",
+      "concept_id": "w04-c-scanf-string-danger",
+      "kind": "concept",
+      "source_ref": "src-notes-4#scanf",
+      "week": 4
+    },
+    {
+      "id": "g-w04-file-pointer",
+      "fa": "FILE * و fopen با حالت r، w، a",
+      "en": "FILE * and fopen modes",
+      "concept_id": "w04-c-file-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4
+    },
+    {
+      "id": "g-w04-fopen-null-check",
+      "fa": "بررسی NULL پس از fopen",
+      "en": "checking fopen for NULL",
+      "concept_id": "w04-c-fopen-null-check",
+      "kind": "concept",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4
+    },
+    {
+      "id": "g-w04-fprintf-fclose",
+      "fa": "fprintf برای نوشتن در فایل و fclose برای بستن",
+      "en": "fprintf and fclose",
+      "concept_id": "w04-c-fprintf-fclose",
+      "kind": "concept",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4
+    },
+    {
+      "id": "g-w04-fread-fwrite",
+      "fa": "fread و fwrite: خواندن و نوشتن بایت‌ها",
+      "en": "fread and fwrite",
+      "concept_id": "w04-c-fread-fwrite",
+      "kind": "concept",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4
+    },
+    {
+      "id": "g-w04-byte-type",
+      "fa": "نوع BYTE با typedef unsigned char",
+      "en": "a BYTE type via typedef",
+      "concept_id": "w04-c-byte-type",
+      "kind": "concept",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4
+    },
+    {
+      "id": "g-w04-fgetc-eof",
+      "fa": "fgetc، fputc و EOF",
+      "en": "fgetc, fputc and EOF",
+      "concept_id": "w04-c-fgetc-eof",
+      "kind": "concept",
+      "source_ref": "src-short-file-pointers",
+      "week": 4
+    },
+    {
+      "id": "g-w04-heap-vs-stack-alloc",
+      "fa": "حافظهٔ ایستا (پشته) در برابر پویا (هیپ)",
+      "en": "static (stack) vs dynamic (heap) memory",
+      "concept_id": "w04-c-heap-vs-stack-alloc",
+      "kind": "concept",
+      "source_ref": "src-short-dynamic-memory-allocation",
+      "week": 4
+    },
+    {
+      "id": "g-w04-free-rules",
+      "fa": "سه قانون free: همه را آزاد کن، فقط malloc شده‌ها، یک بار",
+      "en": "three rules of free",
+      "concept_id": "w04-c-free-rules",
+      "kind": "concept",
+      "source_ref": "src-short-dynamic-memory-allocation",
+      "week": 4
+    },
+    {
+      "id": "g-w04-stdint-types",
+      "fa": "نوع‌های اندازه‌دقیق stdint.h: uint8_t و int16_t",
+      "en": "exact-width types uint8_t and int16_t",
+      "concept_id": "w04-c-stdint-types",
+      "kind": "concept",
+      "source_ref": "src-pset-4-volume#hints",
+      "week": 4
+    },
+    {
+      "id": "g-w04-file-header",
+      "fa": "سرآیند فایل: فرادادهٔ ابتدای فایل (WAV و BMP)",
+      "en": "file headers (metadata at the start of a file)",
+      "concept_id": "w04-c-file-header",
+      "kind": "concept",
+      "source_ref": "src-pset-4-volume#problem-to-solve",
+      "week": 4
+    },
+    {
+      "id": "g-w04-bmp-rgbtriple",
+      "fa": "BMP، RGBTRIPLE و ترتیب BGR",
+      "en": "BMP, RGBTRIPLE and BGR order",
+      "concept_id": "w04-c-bmp-rgbtriple",
+      "kind": "concept",
+      "source_ref": "src-pset-4-filter-less#a-bitmap-more-technical",
+      "week": 4
+    },
+    {
+      "id": "g-w04-file-signature",
+      "fa": "امضای فایل: بایت‌های اول که نوع فایل را نشان می‌دهند",
+      "en": "file signatures (magic bytes)",
+      "concept_id": "w04-c-file-signature",
+      "kind": "concept",
+      "source_ref": "src-pset-4-recover#background",
+      "week": 4
+    },
+    {
+      "id": "g-w04-x-pixel",
+      "fa": "پیکسل",
+      "en": "pixel",
+      "kind": "term",
+      "source_ref": "src-notes-4#pixel-art",
+      "week": 4,
+      "definition_fa": "کوچک‌ترین نقطهٔ رنگی تصویر؛ در تصویر بیت‌مپ هر پیکسل با چند بیت ذخیره می‌شود.",
+      "week_glossary_key": "pixel",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w04-x-rgb",
+      "fa": "RGB",
+      "en": "RGB",
+      "kind": "term",
+      "source_ref": "src-notes-4#hexadecimal",
+      "week": 4,
+      "definition_fa": "نمایش رنگ با سه مقدار قرمز، سبز و آبی که هر کدام معمولاً یک بایت (۰ تا ۲۵۵) است.",
+      "week_glossary_key": "rgb",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w04-x-hexadecimal",
+      "fa": "هگزادسیمال (مبنای شانزده)",
+      "en": "hexadecimal (base-16)",
+      "kind": "term",
+      "source_ref": "src-notes-4#hexadecimal",
+      "week": 4,
+      "definition_fa": "دستگاه عددی با رقم‌های 0 تا 9 و A تا F؛ هر رقم آن ۴ بیت را نشان می‌دهد.",
+      "week_glossary_key": "hexadecimal",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-hex-prefix",
+      "fa": "پیشوند 0x",
+      "en": "0x prefix",
+      "kind": "term",
+      "source_ref": "src-notes-4#memory",
+      "week": 4,
+      "definition_fa": "نشانه‌ای قراردادی که می‌گوید عدد بعدی در مبنای شانزده نوشته شده است.",
+      "week_glossary_key": "hex_prefix",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-memory-address",
+      "fa": "نشانی حافظه",
+      "en": "memory address",
+      "kind": "term",
+      "source_ref": "src-notes-4#memory",
+      "week": 4,
+      "definition_fa": "شمارهٔ یکتای هر بایت از حافظه که معمولاً به هگزادسیمال نمایش داده می‌شود.",
+      "week_glossary_key": "memory_address",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-address-of-operator",
+      "fa": "عملگر نشانی (&)",
+      "en": "address-of operator (&)",
+      "kind": "term",
+      "source_ref": "src-notes-4#memory",
+      "week": 4,
+      "definition_fa": "نشانی یک متغیر در حافظه را برمی‌گرداند؛ ‎&n یعنی «نشانی n».",
+      "week_glossary_key": "address_of_operator",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-dereference-operator",
+      "fa": "عملگر ارجاع‌زدایی (*)",
+      "en": "dereference operator (*)",
+      "kind": "term",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4,
+      "definition_fa": "به خانه‌ای که اشاره‌گر به آن اشاره می‌کند می‌رود و مقدارش را می‌خواند یا عوض می‌کند.",
+      "week_glossary_key": "dereference_operator",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-pointer",
+      "fa": "اشاره‌گر",
+      "en": "pointer",
+      "kind": "term",
+      "source_ref": "src-notes-4#pointers",
+      "week": 4,
+      "definition_fa": "متغیری که نشانی یک مقدار دیگر را نگه می‌دارد؛ در سیستم ۶۴ بیتی ۸ بایت است.",
+      "week_glossary_key": "pointer",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-null-pointer",
+      "fa": "NULL",
+      "en": "NULL",
+      "kind": "term",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4,
+      "definition_fa": "مقدار ویژهٔ اشاره‌گر به معنای «به هیچ‌جا»؛ malloc، get_string و fopen در صورت شکست آن را برمی‌گردانند.",
+      "week_glossary_key": "null_pointer",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-char-star",
+      "fa": "char *",
+      "en": "char *",
+      "kind": "term",
+      "source_ref": "src-notes-4#strings",
+      "week": 4,
+      "definition_fa": "نوع اشاره‌گر به کاراکتر؛ همان چیزی که CS50 با نام string پنهان کرده بود.",
+      "week_glossary_key": "char_star",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-nul-terminator",
+      "fa": "پایان‌دهندهٔ \\0",
+      "en": "NUL terminator (\\0)",
+      "kind": "term",
+      "source_ref": "src-notes-4#strings",
+      "week": 4,
+      "definition_fa": "بایت صفری که انتهای هر رشته را نشان می‌دهد.",
+      "week_glossary_key": "nul_terminator",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-pointer-arithmetic",
+      "fa": "حساب اشاره‌گر",
+      "en": "pointer arithmetic",
+      "kind": "term",
+      "source_ref": "src-notes-4#pointer-arithmetic",
+      "week": 4,
+      "definition_fa": "جمع یا تفریق عدد با اشاره‌گر؛ p + 1 به عنصر بعدی (به اندازهٔ نوع) اشاره می‌کند.",
+      "week_glossary_key": "pointer_arithmetic",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-strcmp-compare",
+      "fa": "مقایسهٔ رشته با strcmp",
+      "en": "string comparison with strcmp",
+      "kind": "term",
+      "source_ref": "src-notes-4#string-comparison",
+      "week": 4,
+      "definition_fa": "== فقط نشانی‌ها را مقایسه می‌کند؛ برای مقایسهٔ متن رشته‌ها باید strcmp به کار رود.",
+      "week_glossary_key": "strcmp_compare",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-malloc",
+      "fa": "malloc",
+      "en": "malloc",
+      "kind": "term",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4,
+      "definition_fa": "تابع stdlib.h که چند بایت از هیپ می‌گیرد و نشانی اولین بایت را برمی‌گرداند.",
+      "week_glossary_key": "malloc",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-free",
+      "fa": "free",
+      "en": "free",
+      "kind": "term",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4,
+      "definition_fa": "حافظه‌ای را که با malloc گرفته شده به سیستم پس می‌دهد.",
+      "week_glossary_key": "free",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-strcpy",
+      "fa": "strcpy",
+      "en": "strcpy",
+      "kind": "term",
+      "source_ref": "src-notes-4#copying-and-malloc",
+      "week": 4,
+      "definition_fa": "تابع string.h که یک رشته را همراه \\0 در حافظهٔ مقصد کپی می‌کند.",
+      "week_glossary_key": "strcpy",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-memory-leak",
+      "fa": "نشت حافظه",
+      "en": "memory leak",
+      "kind": "term",
+      "source_ref": "src-notes-4#valgrind",
+      "week": 4,
+      "definition_fa": "حافظه‌ای که گرفته شده ولی هرگز آزاد نشده است.",
+      "week_glossary_key": "memory_leak",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-valgrind",
+      "fa": "valgrind",
+      "en": "valgrind",
+      "kind": "term",
+      "source_ref": "src-notes-4#valgrind",
+      "week": 4,
+      "definition_fa": "ابزاری که دسترسی نامعتبر به حافظه و نشت حافظه را در برنامه پیدا می‌کند.",
+      "week_glossary_key": "valgrind",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-buffer-overflow",
+      "fa": "سرریز بافر",
+      "en": "buffer overflow",
+      "kind": "term",
+      "source_ref": "src-notes-4#overflow",
+      "week": 4,
+      "definition_fa": "نوشتن یا خواندن بیرون از مرز آرایه یا حافظهٔ گرفته‌شده.",
+      "week_glossary_key": "buffer_overflow",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-garbage-value",
+      "fa": "مقدار زباله",
+      "en": "garbage value",
+      "kind": "term",
+      "source_ref": "src-notes-4#garbage-values",
+      "week": 4,
+      "definition_fa": "مقدار باقی‌مانده در حافظه‌ای که هنوز مقداردهی نشده است.",
+      "week_glossary_key": "garbage_value",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-pass-by-value",
+      "fa": "فرستادن با مقدار",
+      "en": "passing by value",
+      "kind": "term",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4,
+      "definition_fa": "تابع کپی آرگومان‌ها را می‌گیرد؛ تغییر آن‌ها اثری بر متغیرهای فراخواننده ندارد.",
+      "week_glossary_key": "pass_by_value",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-pass-by-reference",
+      "fa": "فرستادن با ارجاع",
+      "en": "passing by reference",
+      "kind": "term",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4,
+      "definition_fa": "فرستادن نشانی متغیر به تابع تا بتواند خود متغیر را تغییر دهد.",
+      "week_glossary_key": "pass_by_reference",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-heap",
+      "fa": "هیپ",
+      "en": "heap",
+      "kind": "term",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4,
+      "definition_fa": "ناحیه‌ای از حافظه که malloc از آن می‌گیرد؛ در نمودار درس به سمت پایین رشد می‌کند.",
+      "week_glossary_key": "heap",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-stack",
+      "fa": "پشته",
+      "en": "stack",
+      "kind": "term",
+      "source_ref": "src-notes-4#swapping",
+      "week": 4,
+      "definition_fa": "ناحیه‌ای از حافظه برای قاب‌های تابع و متغیرهای محلی؛ در نمودار درس به سمت بالا رشد می‌کند.",
+      "week_glossary_key": "stack",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-stack-overflow",
+      "fa": "سرریز پشته",
+      "en": "stack overflow",
+      "kind": "term",
+      "source_ref": "src-notes-4#overflow",
+      "week": 4,
+      "definition_fa": "وقتی تعداد قاب‌های پشته (مثلاً در بازگشت بی‌پایان) از فضای پشته بیشتر شود.",
+      "week_glossary_key": "stack_overflow",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-heap-overflow",
+      "fa": "سرریز هیپ",
+      "en": "heap overflow",
+      "kind": "term",
+      "source_ref": "src-notes-4#overflow",
+      "week": 4,
+      "definition_fa": "نوشتن بیرون از محدودهٔ حافظه‌ای که از هیپ گرفته شده است.",
+      "week_glossary_key": "heap_overflow",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-scanf",
+      "fa": "scanf",
+      "en": "scanf",
+      "kind": "term",
+      "source_ref": "src-notes-4#scanf",
+      "week": 4,
+      "definition_fa": "تابع stdio.h برای خواندن ورودی بر اساس الگو؛ آرگومانش نشانی متغیر است.",
+      "week_glossary_key": "scanf",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-file-pointer",
+      "fa": "اشاره‌گر فایل (FILE *)",
+      "en": "FILE *",
+      "kind": "term",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4,
+      "definition_fa": "اشاره‌گری که fopen برمی‌گرداند و همهٔ تابع‌های فایل با آن کار می‌کنند.",
+      "week_glossary_key": "file_pointer",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-fopen",
+      "fa": "fopen",
+      "en": "fopen",
+      "kind": "term",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4,
+      "definition_fa": "فایلی را با حالت \"r\"، \"w\" یا \"a\" باز می‌کند و در صورت شکست NULL برمی‌گرداند.",
+      "week_glossary_key": "fopen",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-fclose",
+      "fa": "fclose",
+      "en": "fclose",
+      "kind": "term",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4,
+      "definition_fa": "فایل باز را می‌بندد تا داده‌ها نوشته و منابع آزاد شوند.",
+      "week_glossary_key": "fclose",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-fread",
+      "fa": "fread",
+      "en": "fread",
+      "kind": "term",
+      "source_ref": "src-manual",
+      "week": 4,
+      "definition_fa": "تعدادی قلم با اندازهٔ مشخص را از فایل در حافظه می‌خواند و تعداد قلم‌های خوانده‌شده را برمی‌گرداند.",
+      "week_glossary_key": "fread",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-fwrite",
+      "fa": "fwrite",
+      "en": "fwrite",
+      "kind": "term",
+      "source_ref": "src-short-file-pointers",
+      "week": 4,
+      "definition_fa": "تعدادی قلم با اندازهٔ مشخص را از حافظه در فایل می‌نویسد.",
+      "week_glossary_key": "fwrite",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-eof",
+      "fa": "EOF",
+      "en": "EOF",
+      "kind": "term",
+      "source_ref": "src-short-file-pointers",
+      "week": 4,
+      "definition_fa": "مقدار ویژه‌ای که fgetc در پایان فایل برمی‌گرداند؛ از نوع int است.",
+      "week_glossary_key": "eof",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-byte-type",
+      "fa": "نوع BYTE",
+      "en": "BYTE (uint8_t)",
+      "kind": "term",
+      "source_ref": "src-notes-4#file-io",
+      "week": 4,
+      "definition_fa": "نامی که با typedef برای uint8_t (عدد صحیح بی‌علامت ۸ بیتی) ساخته می‌شود.",
+      "week_glossary_key": "byte_type",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-bitmap",
+      "fa": "بیت‌مپ (BMP)",
+      "en": "bitmap (BMP)",
+      "kind": "term",
+      "source_ref": "src-pset-4-filter-less#background",
+      "week": 4,
+      "definition_fa": "قالب تصویری که پیکسل‌ها را شبکه‌وار و همراه سرآیندهای فراداده ذخیره می‌کند.",
+      "week_glossary_key": "bitmap",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-metadata-header",
+      "fa": "سرآیند (فراداده)",
+      "en": "header (metadata)",
+      "kind": "term",
+      "source_ref": "src-pset-4-volume#problem-to-solve",
+      "week": 4,
+      "definition_fa": "بایت‌های آغاز فایل که دربارهٔ خود داده (مثلاً اندازه و قالب) اطلاعات می‌دهند.",
+      "week_glossary_key": "metadata_header",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-wav",
+      "fa": "فایل WAV",
+      "en": "WAV file",
+      "kind": "term",
+      "source_ref": "src-pset-4-volume#hints",
+      "week": 4,
+      "definition_fa": "قالب صوتی با سرآیند ۴۴ بایتی و پس از آن نمونه‌های صوتی.",
+      "week_glossary_key": "wav",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-jpeg-signature",
+      "fa": "امضای JPEG",
+      "en": "JPEG signature",
+      "kind": "term",
+      "source_ref": "src-pset-4-recover#background",
+      "week": 4,
+      "definition_fa": "چند بایت آغازین ثابت که شروع یک فایل JPEG را نشان می‌دهند.",
+      "week_glossary_key": "jpeg_signature",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-block",
+      "fa": "بلوک",
+      "en": "block (512 bytes)",
+      "kind": "term",
+      "source_ref": "src-pset-4-recover#background",
+      "week": 4,
+      "definition_fa": "واحد ذخیره‌سازی ۵۱۲ بایتی در سیستم فایل FAT کارت حافظه.",
+      "week_glossary_key": "block",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-forensic-image",
+      "fa": "تصویر فارنزیک",
+      "en": "forensic image",
+      "kind": "term",
+      "source_ref": "src-pset-4-recover#background",
+      "week": 4,
+      "definition_fa": "کپی بایت‌به‌بایت یک کارت حافظه برای بازیابی داده.",
+      "week_glossary_key": "forensic_image",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w04-x-typedef-struct",
+      "fa": "typedef struct",
+      "en": "typedef struct",
+      "kind": "term",
+      "source_ref": "src-short-defining-custom-types",
+      "week": 4,
+      "definition_fa": "ساختن نوع داده‌ای تازه با نام دلخواه برای یک struct.",
+      "week_glossary_key": "typedef_struct",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-organizing-memory",
+      "fa": "سازمان‌دهی داده در حافظه و امکان‌های طراحی",
+      "en": "organizing data in memory",
+      "concept_id": "w05-c-organizing-memory",
+      "kind": "concept",
+      "source_ref": "src-notes-5#welcome",
+      "week": 5
+    },
+    {
+      "id": "g-w05-data-structure",
+      "fa": "ساختمان داده: شکلی از سازمان‌دهی در حافظه",
+      "en": "a data structure is a form of organization in memory",
+      "concept_id": "w05-c-data-structure",
+      "kind": "concept",
+      "source_ref": "src-notes-5#data-structures",
+      "week": 5
+    },
+    {
+      "id": "g-w05-abstract-data-type",
+      "fa": "نوع دادهٔ انتزاعی (ADT): ساختاری که مفهومی تصورش می‌کنیم",
+      "en": "abstract data types",
+      "concept_id": "w05-c-abstract-data-type",
+      "kind": "concept",
+      "source_ref": "src-notes-5#data-structures",
+      "week": 5
+    },
+    {
+      "id": "g-w05-dictionary-adt",
+      "fa": "دیکشنری: نگاشت کلید به مقدار",
+      "en": "the dictionary ADT (keys and values)",
+      "concept_id": "w05-c-dictionary-adt",
+      "kind": "concept",
+      "source_ref": "src-transcript-5",
+      "week": 5
+    },
+    {
+      "id": "g-w05-queue",
+      "fa": "صف (queue)",
+      "en": "queues",
+      "concept_id": "w05-c-queue",
+      "kind": "concept",
+      "source_ref": "src-notes-5#queues",
+      "week": 5
+    },
+    {
+      "id": "g-w05-fifo",
+      "fa": "FIFO: اول وارد، اول خارج",
+      "en": "FIFO (first in, first out)",
+      "concept_id": "w05-c-fifo",
+      "kind": "concept",
+      "source_ref": "src-notes-5#queues",
+      "week": 5
+    },
+    {
+      "id": "g-w05-enqueue-dequeue",
+      "fa": "enqueue و dequeue",
+      "en": "enqueue and dequeue",
+      "concept_id": "w05-c-enqueue-dequeue",
+      "kind": "concept",
+      "source_ref": "src-notes-5#queues",
+      "week": 5
+    },
+    {
+      "id": "g-w05-capacity-vs-size",
+      "fa": "ظرفیت (CAPACITY) در برابر اندازهٔ فعلی (size)",
+      "en": "capacity versus size",
+      "concept_id": "w05-c-capacity-vs-size",
+      "kind": "concept",
+      "source_ref": "src-notes-5#queues",
+      "week": 5
+    },
+    {
+      "id": "g-w05-queue-wraparound",
+      "fa": "صف آرایه‌ای با front و چرخش (mod CAPACITY)",
+      "en": "array queue with front and wraparound",
+      "concept_id": "w05-c-queue-wraparound",
+      "kind": "concept",
+      "source_ref": "src-short-queues",
+      "week": 5
+    },
+    {
+      "id": "g-w05-stack",
+      "fa": "پشته (stack)",
+      "en": "stacks",
+      "concept_id": "w05-c-stack",
+      "kind": "concept",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5
+    },
+    {
+      "id": "g-w05-lifo",
+      "fa": "LIFO: آخر وارد، اول خارج",
+      "en": "LIFO (last in, first out)",
+      "concept_id": "w05-c-lifo",
+      "kind": "concept",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5
+    },
+    {
+      "id": "g-w05-push-pop",
+      "fa": "push و pop",
+      "en": "push and pop",
+      "concept_id": "w05-c-push-pop",
+      "kind": "concept",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5
+    },
+    {
+      "id": "g-w05-fixed-capacity-limit",
+      "fa": "محدودیت ظرفیت ثابت: یا کم می‌آید یا هدر می‌رود",
+      "en": "the limit of a fixed capacity",
+      "concept_id": "w05-c-fixed-capacity-limit",
+      "kind": "concept",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5
+    },
+    {
+      "id": "g-w05-array-contiguous",
+      "fa": "آرایه بلوکی پیوسته از حافظه است",
+      "en": "an array is contiguous memory",
+      "concept_id": "w05-c-array-contiguous",
+      "kind": "concept",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5
+    },
+    {
+      "id": "g-w05-array-resize-copy",
+      "fa": "بزرگ کردن آرایه: بلوک تازه، کپی، free قدیمی",
+      "en": "growing an array by allocating, copying and freeing",
+      "concept_id": "w05-c-array-resize-copy",
+      "kind": "concept",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5
+    },
+    {
+      "id": "g-w05-tmp-pointer",
+      "fa": "اشاره‌گر موقت tmp و list = tmp",
+      "en": "a temporary pointer during resizing",
+      "concept_id": "w05-c-tmp-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5
+    },
+    {
+      "id": "g-w05-realloc",
+      "fa": "realloc: تغییر اندازهٔ بلوک",
+      "en": "resizing with realloc",
+      "concept_id": "w05-c-realloc",
+      "kind": "concept",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5
+    },
+    {
+      "id": "g-w05-realloc-null",
+      "fa": "اگر realloc شکست بخورد NULL می‌دهد و بلوک قدیمی هنوز معتبر است",
+      "en": "realloc failure keeps the old block",
+      "concept_id": "w05-c-realloc-null",
+      "kind": "concept",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5
+    },
+    {
+      "id": "g-w05-overallocation",
+      "fa": "تخصیص بیش از نیاز (مثلاً ۳۰ خانه) طراحی بدی است",
+      "en": "over-allocating is bad design",
+      "concept_id": "w05-c-overallocation",
+      "kind": "concept",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5
+    },
+    {
+      "id": "g-w05-arrow-operator",
+      "fa": "عملگر پیکان -> : رفتن به نشانی و نگاه به فیلد",
+      "en": "the -> operator",
+      "concept_id": "w05-c-arrow-operator",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-linked-list",
+      "fa": "فهرست پیوندی (linked list)",
+      "en": "linked lists",
+      "concept_id": "w05-c-linked-list",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-node",
+      "fa": "گره: یک مقدار و اشاره‌گر next",
+      "en": "nodes (item + next pointer)",
+      "concept_id": "w05-c-node",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-self-referential-struct",
+      "fa": "struct خودارجاع: struct node *next",
+      "en": "self-referential struct",
+      "concept_id": "w05-c-self-referential-struct",
+      "kind": "concept",
+      "source_ref": "src-short-singly-linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-list-null-end",
+      "fa": "NULL پایان فهرست را نشان می‌دهد",
+      "en": "NULL marks the end of a list",
+      "concept_id": "w05-c-list-null-end",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-head-pointer",
+      "fa": "اشاره‌گر سر فهرست (head)",
+      "en": "the head pointer",
+      "concept_id": "w05-c-head-pointer",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-prepend",
+      "fa": "افزودن به ابتدای فهرست (prepend)",
+      "en": "prepending a node",
+      "concept_id": "w05-c-prepend",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-link-before-move",
+      "fa": "اول n->next = list، بعد list = n؛ وگرنه فهرست یتیم می‌شود",
+      "en": "link the new node before moving the head",
+      "concept_id": "w05-c-link-before-move",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-list-traversal",
+      "fa": "پیمایش فهرست با اشاره‌گر ptr",
+      "en": "traversing a list with ptr",
+      "concept_id": "w05-c-list-traversal",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-prepend-reverses",
+      "fa": "prepend ترتیب ورود را برعکس می‌کند",
+      "en": "prepending reverses the order",
+      "concept_id": "w05-c-prepend-reverses",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-list-complexity",
+      "fa": "هزینهٔ فهرست: درج در ابتدا O(1)، جست‌وجو O(n)",
+      "en": "list running times",
+      "concept_id": "w05-c-list-complexity",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-list-tradeoffs",
+      "fa": "بده‌بستان فهرست: پویایی در برابر حافظهٔ اضافه و نبود دسترسی تصادفی",
+      "en": "linked-list trade-offs",
+      "concept_id": "w05-c-list-tradeoffs",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-append",
+      "fa": "افزودن به انتها (append) با پیمایش؛ O(n)",
+      "en": "appending a node",
+      "concept_id": "w05-c-append",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-sorted-insert",
+      "fa": "درج مرتب در فهرست",
+      "en": "sorted insertion",
+      "concept_id": "w05-c-sorted-insert",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-free-list",
+      "fa": "آزاد کردن کل فهرست با next موقت",
+      "en": "freeing a whole list",
+      "concept_id": "w05-c-free-list",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-unload-on-error",
+      "fa": "آزادسازی در مسیر خطا هم (unload)",
+      "en": "freeing on the error path too",
+      "concept_id": "w05-c-unload-on-error",
+      "kind": "concept",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-doubly-linked-list",
+      "fa": "فهرست پیوندی دوطرفه (prev و next)",
+      "en": "doubly-linked lists",
+      "concept_id": "w05-c-doubly-linked-list",
+      "kind": "concept",
+      "source_ref": "src-short-doubly-linked-lists",
+      "week": 5
+    },
+    {
+      "id": "g-w05-tree",
+      "fa": "درخت: گره‌هایی با فرزند",
+      "en": "trees",
+      "concept_id": "w05-c-tree",
+      "kind": "concept",
+      "source_ref": "src-notes-5#trees",
+      "week": 5
+    },
+    {
+      "id": "g-w05-bst",
+      "fa": "درخت جست‌وجوی دودویی: کوچک‌تر چپ، بزرگ‌تر راست",
+      "en": "binary search trees",
+      "concept_id": "w05-c-bst",
+      "kind": "concept",
+      "source_ref": "src-notes-5#trees",
+      "week": 5
+    },
+    {
+      "id": "g-w05-bst-search",
+      "fa": "جست‌وجوی بازگشتی در درخت",
+      "en": "recursive tree search",
+      "concept_id": "w05-c-bst-search",
+      "kind": "concept",
+      "source_ref": "src-notes-5#trees",
+      "week": 5
+    },
+    {
+      "id": "g-w05-balanced-tree",
+      "fa": "درخت متوازن: جست‌وجو O(log n)",
+      "en": "balanced trees and O(log n)",
+      "concept_id": "w05-c-balanced-tree",
+      "kind": "concept",
+      "source_ref": "src-notes-5#trees",
+      "week": 5
+    },
+    {
+      "id": "g-w05-constant-time",
+      "fa": "O(1)، «جام مقدس» زمان اجرا",
+      "en": "constant time, the holy grail",
+      "concept_id": "w05-c-constant-time",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-hashing",
+      "fa": "درهم‌سازی: مقدار ← میان‌بُری به جای آن",
+      "en": "hashing",
+      "concept_id": "w05-c-hashing",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-hash-function",
+      "fa": "تابع درهم‌سازی: ورودی ← اندیس آرایه",
+      "en": "hash functions",
+      "concept_id": "w05-c-hash-function",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-hash-table",
+      "fa": "جدول درهم‌سازی: آرایه‌ای از اشاره‌گر به گره",
+      "en": "hash tables (array of pointers to nodes)",
+      "concept_id": "w05-c-hash-table",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-bucket",
+      "fa": "سطل (bucket) و سطل‌بندی",
+      "en": "buckets",
+      "concept_id": "w05-c-bucket",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-collision",
+      "fa": "برخورد (collision)",
+      "en": "collisions",
+      "concept_id": "w05-c-collision",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-chaining",
+      "fa": "زنجیره‌سازی: فهرست پیوندی در هر سطل",
+      "en": "chaining",
+      "concept_id": "w05-c-chaining",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-time-space-tradeoff",
+      "fa": "بده‌بستان زمان و حافظه",
+      "en": "the time-space trade-off",
+      "concept_id": "w05-c-time-space-tradeoff",
+      "kind": "concept",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-good-hash-properties",
+      "fa": "تابع درهم‌سازی خوب: قطعی، با توزیع یکنواخت، فقط از داده",
+      "en": "properties of a good hash function",
+      "concept_id": "w05-c-good-hash-properties",
+      "kind": "concept",
+      "source_ref": "src-short-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-linear-probing",
+      "fa": "کاوش خطی (linear probing) و خوشه‌شدن",
+      "en": "linear probing and clustering",
+      "concept_id": "w05-c-linear-probing",
+      "kind": "concept",
+      "source_ref": "src-short-hash-tables",
+      "week": 5
+    },
+    {
+      "id": "g-w05-trie",
+      "fa": "ترای: درختی از آرایه‌ها",
+      "en": "tries (trees of arrays)",
+      "concept_id": "w05-c-trie",
+      "kind": "concept",
+      "source_ref": "src-notes-5#tries",
+      "week": 5
+    },
+    {
+      "id": "g-w05-trie-lookup",
+      "fa": "جست‌وجو در ترای: حرف به حرف، مستقل از تعداد کلمه‌ها",
+      "en": "trie lookup",
+      "concept_id": "w05-c-trie-lookup",
+      "kind": "concept",
+      "source_ref": "src-notes-5#tries",
+      "week": 5
+    },
+    {
+      "id": "g-w05-trie-memory",
+      "fa": "هزینهٔ حافظهٔ ترای",
+      "en": "the memory cost of tries",
+      "concept_id": "w05-c-trie-memory",
+      "kind": "concept",
+      "source_ref": "src-notes-5#tries",
+      "week": 5
+    },
+    {
+      "id": "g-w05-structure-choice",
+      "fa": "انتخاب ساختمان داده بر اساس عملیات غالب",
+      "en": "choosing a data structure by its main operations",
+      "concept_id": "w05-c-structure-choice",
+      "kind": "concept",
+      "source_ref": "src-section-5-transcript",
+      "week": 5
+    },
+    {
+      "id": "g-w05-blood-type-alleles",
+      "fa": "گروه خونی با دو آلل؛ فرزند از هر والد یکی می‌گیرد",
+      "en": "blood types and alleles",
+      "concept_id": "w05-c-blood-type-alleles",
+      "kind": "concept",
+      "source_ref": "src-pset-5-inheritance#problem-to-solve",
+      "week": 5
+    },
+    {
+      "id": "g-w05-struct-pointer-array",
+      "fa": "آرایه‌ای از اشاره‌گر در struct (parents[2])",
+      "en": "an array of pointers inside a struct",
+      "concept_id": "w05-c-struct-pointer-array",
+      "kind": "concept",
+      "source_ref": "src-pset-5-inheritance#implementation-details",
+      "week": 5
+    },
+    {
+      "id": "g-w05-random-modulo",
+      "fa": "random() % 2 برای انتخاب ۰ یا ۱",
+      "en": "random() % 2",
+      "concept_id": "w05-c-random-modulo",
+      "kind": "concept",
+      "source_ref": "src-pset-5-inheritance#hints",
+      "week": 5
+    },
+    {
+      "id": "g-w05-multi-file-program",
+      "fa": "برنامهٔ چندفایلی: .h، .c و Makefile",
+      "en": "multi-file programs and Makefiles",
+      "concept_id": "w05-c-multi-file-program",
+      "kind": "concept",
+      "source_ref": "src-pset-5-speller#background",
+      "week": 5
+    },
+    {
+      "id": "g-w05-define-const",
+      "fa": "#define و const در پارامترها",
+      "en": "#define constants and const parameters",
+      "concept_id": "w05-c-define-const",
+      "kind": "concept",
+      "source_ref": "src-pset-5-speller#dictionaryh",
+      "week": 5
+    },
+    {
+      "id": "g-w05-case-insensitive",
+      "fa": "مقایسهٔ بی‌حساس به حروف بزرگ و کوچک (strcasecmp)",
+      "en": "case-insensitive comparison",
+      "concept_id": "w05-c-case-insensitive",
+      "kind": "concept",
+      "source_ref": "src-pset-5-speller#specification",
+      "week": 5
+    },
+    {
+      "id": "g-w05-wall-clock",
+      "fa": "زمان واقعی (wall-clock) در برابر زمان مجانبی",
+      "en": "wall-clock versus asymptotic time",
+      "concept_id": "w05-c-wall-clock",
+      "kind": "concept",
+      "source_ref": "src-pset-5-speller#background",
+      "week": 5
+    },
+    {
+      "id": "g-w05-x-data-structure",
+      "fa": "ساختمان داده",
+      "en": "data structure",
+      "kind": "term",
+      "source_ref": "src-notes-5#data-structures",
+      "week": 5,
+      "definition_fa": "شکلی از سازمان‌دهی داده در حافظهٔ کامپیوتر.",
+      "week_glossary_key": "data_structure",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w05-x-abstract-data-type",
+      "fa": "نوع دادهٔ انتزاعی",
+      "en": "abstract data type (ADT)",
+      "kind": "term",
+      "source_ref": "src-notes-5#data-structures",
+      "week": 5,
+      "definition_fa": "تعریف رفتار یک ساختار (چه عملیاتی دارد) بدون تعیین اینکه در حافظه چطور پیاده شود.",
+      "week_glossary_key": "abstract_data_type",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-queue",
+      "fa": "صف",
+      "en": "queue",
+      "kind": "term",
+      "source_ref": "src-notes-5#queues",
+      "week": 5,
+      "definition_fa": "نوع انتزاعی با رفتار FIFO: عنصری که اول وارد شده اول خارج می‌شود.",
+      "week_glossary_key": "queue",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-fifo",
+      "fa": "FIFO (اول وارد، اول خارج)",
+      "en": "FIFO",
+      "kind": "term",
+      "source_ref": "src-notes-5#queues",
+      "week": 5,
+      "definition_fa": "قاعدهٔ صف: ترتیب خروج همان ترتیب ورود است.",
+      "week_glossary_key": "fifo",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-enqueue",
+      "fa": "enqueue (افزودن به صف)",
+      "en": "enqueue",
+      "kind": "term",
+      "source_ref": "src-notes-5#queues",
+      "week": 5,
+      "definition_fa": "افزودن عنصر به انتهای صف.",
+      "week_glossary_key": "enqueue",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-dequeue",
+      "fa": "dequeue (برداشتن از صف)",
+      "en": "dequeue",
+      "kind": "term",
+      "source_ref": "src-notes-5#queues",
+      "week": 5,
+      "definition_fa": "برداشتن عنصر جلوی صف.",
+      "week_glossary_key": "dequeue",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-stack",
+      "fa": "پشته (ساختمان داده)",
+      "en": "stack (data structure)",
+      "kind": "term",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5,
+      "definition_fa": "نوع انتزاعی با رفتار LIFO؛ با پشتهٔ حافظهٔ هفتهٔ ۴ فرق دارد.",
+      "week_glossary_key": "stack",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-lifo",
+      "fa": "LIFO (آخر وارد، اول خارج)",
+      "en": "LIFO",
+      "kind": "term",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5,
+      "definition_fa": "قاعدهٔ پشته: آخرین عنصر واردشده اول خارج می‌شود.",
+      "week_glossary_key": "lifo",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-push",
+      "fa": "push",
+      "en": "push",
+      "kind": "term",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5,
+      "definition_fa": "گذاشتن عنصر روی پشته.",
+      "week_glossary_key": "push",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-pop",
+      "fa": "pop",
+      "en": "pop",
+      "kind": "term",
+      "source_ref": "src-notes-5#stacks",
+      "week": 5,
+      "definition_fa": "برداشتن عنصر بالای پشته.",
+      "week_glossary_key": "pop",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-capacity",
+      "fa": "ظرفیت",
+      "en": "capacity",
+      "kind": "term",
+      "source_ref": "src-notes-5#queues",
+      "week": 5,
+      "definition_fa": "بیشترین تعداد عنصری که ساختار با اندازهٔ ثابت می‌تواند نگه دارد (CAPACITY در کد درس‌نامه).",
+      "week_glossary_key": "capacity",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-contiguous-memory",
+      "fa": "حافظهٔ پیوسته",
+      "en": "contiguous memory",
+      "kind": "term",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5,
+      "definition_fa": "بایت‌هایی که پشت سر هم در حافظه قرار دارند؛ آرایه همیشه پیوسته است.",
+      "week_glossary_key": "contiguous_memory",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-realloc",
+      "fa": "realloc",
+      "en": "realloc",
+      "kind": "term",
+      "source_ref": "src-notes-5#arrays",
+      "week": 5,
+      "definition_fa": "تابع stdlib.h که اندازهٔ بلوکی را که با malloc گرفته شده تغییر می‌دهد و در صورت شکست NULL برمی‌گرداند.",
+      "week_glossary_key": "realloc",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-linked-list",
+      "fa": "فهرست پیوندی",
+      "en": "linked list",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "زنجیره‌ای از گره‌ها که هر کدام نشانی گرهٔ بعدی را دارد و لازم نیست در حافظه کنار هم باشند.",
+      "week_glossary_key": "linked_list",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-node",
+      "fa": "گره",
+      "en": "node",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "واحد سازندهٔ فهرست، درخت یا ترای؛ داده به‌علاوهٔ یک یا چند اشاره‌گر.",
+      "week_glossary_key": "node",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-arrow-operator",
+      "fa": "عملگر پیکان (->)",
+      "en": "arrow operator (->)",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "ترکیب ارجاع‌زدایی و نقطه: p->x یعنی (*p).x.",
+      "week_glossary_key": "arrow_operator",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-head-pointer",
+      "fa": "اشاره‌گر سر فهرست",
+      "en": "head pointer",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "اشاره‌گری که نشانی گرهٔ اول فهرست را نگه می‌دارد (list در کد درس‌نامه).",
+      "week_glossary_key": "head_pointer",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-prepend",
+      "fa": "افزودن به ابتدا",
+      "en": "prepend",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "افزودن گره به ابتدای فهرست؛ O(1) و ترتیب را برعکس می‌کند.",
+      "week_glossary_key": "prepend",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-append",
+      "fa": "افزودن به انتها",
+      "en": "append",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "افزودن گره به انتهای فهرست؛ بدون اشاره‌گر انتها O(n).",
+      "week_glossary_key": "append",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-traversal",
+      "fa": "پیمایش",
+      "en": "traversal",
+      "kind": "term",
+      "source_ref": "src-notes-5#linked-lists",
+      "week": 5,
+      "definition_fa": "گذر از همهٔ گره‌ها، معمولاً با اشاره‌گر موقت ptr از سر تا NULL.",
+      "week_glossary_key": "traversal",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-doubly-linked-list",
+      "fa": "فهرست پیوندی دوطرفه",
+      "en": "doubly linked list",
+      "kind": "term",
+      "source_ref": "src-short-doubly-linked-lists",
+      "week": 5,
+      "definition_fa": "فهرستی که هر گره‌اش هم next و هم prev دارد.",
+      "week_glossary_key": "doubly_linked_list",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-tree",
+      "fa": "درخت",
+      "en": "tree",
+      "kind": "term",
+      "source_ref": "src-notes-5#trees",
+      "week": 5,
+      "definition_fa": "ساختاری از گره‌ها با یک ریشه که هر گره می‌تواند فرزند داشته باشد.",
+      "week_glossary_key": "tree",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-binary-search-tree",
+      "fa": "درخت جست‌وجوی دودویی",
+      "en": "binary search tree",
+      "kind": "term",
+      "source_ref": "src-notes-5#trees",
+      "week": 5,
+      "definition_fa": "درختی که در هر گره، مقدارهای چپ کوچک‌تر و مقدارهای راست بزرگ‌ترند.",
+      "week_glossary_key": "binary_search_tree",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-root",
+      "fa": "ریشه",
+      "en": "root",
+      "kind": "term",
+      "source_ref": "src-notes-5#trees",
+      "week": 5,
+      "definition_fa": "گره بالای درخت که همهٔ گره‌ها از آن در دسترس‌اند.",
+      "week_glossary_key": "root",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-leaf",
+      "fa": "برگ",
+      "en": "leaf",
+      "kind": "term",
+      "source_ref": "src-notes-5#trees",
+      "week": 5,
+      "definition_fa": "گرهی که فرزندی ندارد (هر دو اشاره‌گرش NULL است).",
+      "week_glossary_key": "leaf",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-balanced-tree",
+      "fa": "درخت متوازن",
+      "en": "balanced tree",
+      "kind": "term",
+      "source_ref": "src-notes-5#trees",
+      "week": 5,
+      "definition_fa": "درختی که ارتفاعش حدود log n است تا جست‌وجو O(log n) بماند.",
+      "week_glossary_key": "balanced_tree",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-dictionary",
+      "fa": "دیکشنری",
+      "en": "dictionary",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "نوع انتزاعی شامل جفت‌های کلید و مقدار.",
+      "week_glossary_key": "dictionary",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-hashing",
+      "fa": "درهم‌سازی",
+      "en": "hashing",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "تبدیل یک مقدار به مقداری کوچک‌تر (معمولاً یک عدد) برای دسترسی سریع.",
+      "week_glossary_key": "hashing",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-hash-function",
+      "fa": "تابع درهم‌سازی",
+      "en": "hash function",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "تابعی که ورودی را به اندیسی در آرایه نگاشت می‌کند؛ نمونهٔ درس‌نامه حرف اول را به 0 تا 25 می‌برد.",
+      "week_glossary_key": "hash_function",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-hash-table",
+      "fa": "جدول درهم‌سازی",
+      "en": "hash table",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "آرایه‌ای از سطل‌ها که با تابع درهم‌سازی پر می‌شود؛ در درس‌نامه آرایه‌ای از اشاره‌گر به گره.",
+      "week_glossary_key": "hash_table",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-bucket",
+      "fa": "سطل",
+      "en": "bucket",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "یک خانهٔ جدول درهم‌سازی که ورودی‌های هم‌اندیس در آن می‌روند.",
+      "week_glossary_key": "bucket",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-collision",
+      "fa": "برخورد",
+      "en": "collision",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "وقتی دو ورودی متفاوت به یک اندیس درهم‌سازی شوند.",
+      "week_glossary_key": "collision",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-chaining",
+      "fa": "زنجیره‌سازی",
+      "en": "chaining",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "حل برخورد با نگه داشتن ورودی‌های هم‌سطل در یک فهرست پیوندی.",
+      "week_glossary_key": "chaining",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-linear-probing",
+      "fa": "کاوش خطی",
+      "en": "linear probing",
+      "kind": "term",
+      "source_ref": "src-short-hash-tables",
+      "week": 5,
+      "definition_fa": "حل برخورد با گذاشتن ورودی در نخستین خانهٔ خالی بعدی؛ مستعد خوشه‌شدن.",
+      "week_glossary_key": "linear_probing",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-constant-time",
+      "fa": "زمان ثابت O(1)",
+      "en": "constant time, O(1)",
+      "kind": "term",
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "week": 5,
+      "definition_fa": "زمانی که به اندازهٔ ورودی بستگی ندارد.",
+      "week_glossary_key": "constant_time",
+      "definition_origin": "authored",
+      "also_in_earlier_week": true
+    },
+    {
+      "id": "g-w05-x-trie",
+      "fa": "ترای",
+      "en": "trie",
+      "kind": "term",
+      "source_ref": "src-notes-5#tries",
+      "week": 5,
+      "definition_fa": "درختی که هر گره‌اش آرایه‌ای از اشاره‌گر (مثلاً ۲۶ تا) است و واژه‌ها حرف به حرف در آن ذخیره می‌شوند.",
+      "week_glossary_key": "trie",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-time-space-tradeoff",
+      "fa": "بده‌بستان زمان و حافظه",
+      "en": "time-space trade-off",
+      "kind": "term",
+      "source_ref": "src-notes-5#tries",
+      "week": 5,
+      "definition_fa": "معامله‌ای که در آن سرعت بیشتر با حافظهٔ بیشتر خریده می‌شود یا برعکس.",
+      "week_glossary_key": "time_space_tradeoff",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-allele",
+      "fa": "آلل",
+      "en": "allele",
+      "kind": "term",
+      "source_ref": "src-pset-5-inheritance#problem-to-solve",
+      "week": 5,
+      "definition_fa": "یکی از دو نسخهٔ ژن گروه خونی (A، B یا O) که هر والد یکی‌اش را به فرزند می‌دهد.",
+      "week_glossary_key": "allele",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-makefile",
+      "fa": "Makefile",
+      "en": "Makefile",
+      "kind": "term",
+      "source_ref": "src-pset-5-speller#makefile",
+      "week": 5,
+      "definition_fa": "فایلی که به make می‌گوید برنامهٔ چندفایلی Speller را چطور کامپایل کند.",
+      "week_glossary_key": "makefile",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-header-file",
+      "fa": "فایل سرآیند (.h)",
+      "en": "header file (.h)",
+      "kind": "term",
+      "source_ref": "src-pset-5-speller#dictionaryh",
+      "week": 5,
+      "definition_fa": "فایلی شامل اعلان تابع‌ها و ثابت‌ها، مثل dictionary.h که LENGTH را تعریف می‌کند.",
+      "week_glossary_key": "header_file",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    },
+    {
+      "id": "g-w05-x-define-macro",
+      "fa": "#define",
+      "en": "#define",
+      "kind": "term",
+      "source_ref": "src-pset-5-speller#dictionaryh",
+      "week": 5,
+      "definition_fa": "دستور پیش‌پردازنده که نامی را با یک مقدار جایگزین می‌کند، مثل LENGTH برابر 45.",
+      "week_glossary_key": "define_macro",
+      "definition_origin": "authored",
+      "also_in_earlier_week": false
+    }
+  ],
+  "count": 505
+}

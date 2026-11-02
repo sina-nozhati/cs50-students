@@ -1,0 +1,427 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w05-curriculum",
+  "week": 5,
+  "title_fa": "هفتهٔ ۵ — ساختمان‌های داده",
+  "title_en": "Week 5 — Data Structures",
+  "panel_week_number": 5,
+  "kb_parent_node": "week-5",
+  "hub_doc_id": "w05-fa",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-5",
+    "src-notes-5",
+    "src-transcript-5",
+    "src-section-5",
+    "src-pset-5"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w05-o01",
+    "w05-o02",
+    "w05-o03",
+    "w05-o04",
+    "w05-o05",
+    "w05-o06",
+    "w05-o07",
+    "w05-o08",
+    "w05-o09",
+    "w05-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: نوع‌های انتزاعی (صف و پشته)، آرایهٔ پویا و realloc، گره و عملگر پیکان، ساختن و پیمایش فهرست، افزودن به انتها و درج مرتب و آزادسازی، درخت‌ها، و در آخر جدول درهم‌سازی و ترای. Inheritance به گره، اشاره‌گر، بازگشت و آزادسازی نیاز دارد و پس از درس درخت‌ها باز می‌شود؛ Speller و Trie پس از درس جدول درهم‌سازی و ترای باز می‌شوند.",
+  "stages": [
+    {
+      "id": "w05-s1",
+      "lesson_ids": [
+        "w05-l01"
+      ]
+    },
+    {
+      "id": "w05-s2",
+      "lesson_ids": [
+        "w05-l02"
+      ]
+    },
+    {
+      "id": "w05-s3",
+      "lesson_ids": [
+        "w05-l03",
+        "w05-l04"
+      ]
+    },
+    {
+      "id": "w05-s4",
+      "lesson_ids": [
+        "w05-l05"
+      ]
+    },
+    {
+      "id": "w05-s5",
+      "lesson_ids": [
+        "w05-l06"
+      ]
+    },
+    {
+      "id": "w05-s6",
+      "lesson_ids": [
+        "w05-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w05-l01",
+      "order": 1,
+      "file": "lessons/w05-l01.json",
+      "title_fa": "ساختمان داده، صف و پشته",
+      "stage_id": "w05-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w05-l01-u01",
+        "w05-l01-u02",
+        "w05-l01-u03"
+      ],
+      "note_ids": [
+        "w05-n01",
+        "w05-n02",
+        "w05-n03",
+        "w05-n04"
+      ],
+      "related_doc_ids": [
+        "w05-sh-queues",
+        "w05-sh-stacks"
+      ]
+    },
+    {
+      "id": "w05-l02",
+      "order": 2,
+      "file": "lessons/w05-l02.json",
+      "title_fa": "آرایهٔ پویا و realloc",
+      "stage_id": "w05-s2",
+      "prerequisite_lesson_ids": [
+        "w05-l01"
+      ],
+      "unit_ids": [
+        "w05-l02-u01",
+        "w05-l02-u02"
+      ],
+      "note_ids": [
+        "w05-n05",
+        "w05-n06"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w05-l03",
+      "order": 3,
+      "file": "lessons/w05-l03.json",
+      "title_fa": "گره‌ها و عملگر پیکان",
+      "stage_id": "w05-s3",
+      "prerequisite_lesson_ids": [
+        "w05-l02"
+      ],
+      "unit_ids": [
+        "w05-l03-u01",
+        "w05-l03-u02"
+      ],
+      "note_ids": [
+        "w05-n07"
+      ],
+      "related_doc_ids": [
+        "w05-sh-structures",
+        "w05-sh-singly-linked-lists"
+      ]
+    },
+    {
+      "id": "w05-l04",
+      "order": 4,
+      "file": "lessons/w05-l04.json",
+      "title_fa": "ساختن و پیمایش فهرست پیوندی",
+      "stage_id": "w05-s3",
+      "prerequisite_lesson_ids": [
+        "w05-l03"
+      ],
+      "unit_ids": [
+        "w05-l04-u01",
+        "w05-l04-u02",
+        "w05-l04-u03"
+      ],
+      "note_ids": [
+        "w05-n08"
+      ],
+      "related_doc_ids": [
+        "w05-sh-singly-linked-lists"
+      ]
+    },
+    {
+      "id": "w05-l05",
+      "order": 5,
+      "file": "lessons/w05-l05.json",
+      "title_fa": "افزودن به انتها، درج مرتب و آزادسازی",
+      "stage_id": "w05-s4",
+      "prerequisite_lesson_ids": [
+        "w05-l04"
+      ],
+      "unit_ids": [
+        "w05-l05-u01",
+        "w05-l05-u02",
+        "w05-l05-u03",
+        "w05-l05-u04"
+      ],
+      "note_ids": [
+        "w05-n09"
+      ],
+      "related_doc_ids": [
+        "w05-sh-singly-linked-lists",
+        "w05-sh-doubly-linked-lists"
+      ]
+    },
+    {
+      "id": "w05-l06",
+      "order": 6,
+      "file": "lessons/w05-l06.json",
+      "title_fa": "درخت‌ها",
+      "stage_id": "w05-s5",
+      "prerequisite_lesson_ids": [
+        "w05-l05"
+      ],
+      "unit_ids": [
+        "w05-l06-u01",
+        "w05-l06-u02"
+      ],
+      "note_ids": [
+        "w05-n10"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w05-l07",
+      "order": 7,
+      "file": "lessons/w05-l07.json",
+      "title_fa": "جدول درهم‌سازی و ترای",
+      "stage_id": "w05-s6",
+      "prerequisite_lesson_ids": [
+        "w05-l06"
+      ],
+      "unit_ids": [
+        "w05-l07-u01",
+        "w05-l07-u02",
+        "w05-l07-u03",
+        "w05-l07-u04"
+      ],
+      "note_ids": [
+        "w05-n11",
+        "w05-n12"
+      ],
+      "related_doc_ids": [
+        "w05-sh-hash-tables",
+        "w05-sh-tries",
+        "w05-sh-data-structures",
+        "w05-sec"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "w05-n01",
+      "file": "notes/01-welcome.fa.md",
+      "official_anchor": "welcome"
+    },
+    {
+      "id": "w05-n02",
+      "file": "notes/02-data-structures.fa.md",
+      "official_anchor": "data-structures"
+    },
+    {
+      "id": "w05-n03",
+      "file": "notes/03-queues.fa.md",
+      "official_anchor": "queues"
+    },
+    {
+      "id": "w05-n04",
+      "file": "notes/04-stacks.fa.md",
+      "official_anchor": "stacks"
+    },
+    {
+      "id": "w05-n05",
+      "file": "notes/05-arrays.fa.md",
+      "official_anchor": "arrays"
+    },
+    {
+      "id": "w05-n06",
+      "file": "notes/06-realloc.fa.md",
+      "official_anchor": "arrays"
+    },
+    {
+      "id": "w05-n07",
+      "file": "notes/07-nodes.fa.md",
+      "official_anchor": "linked-lists"
+    },
+    {
+      "id": "w05-n08",
+      "file": "notes/08-prepending.fa.md",
+      "official_anchor": "linked-lists"
+    },
+    {
+      "id": "w05-n09",
+      "file": "notes/09-append-sorted-free.fa.md",
+      "official_anchor": "linked-lists"
+    },
+    {
+      "id": "w05-n10",
+      "file": "notes/10-trees.fa.md",
+      "official_anchor": "trees"
+    },
+    {
+      "id": "w05-n11",
+      "file": "notes/11-hash-tables.fa.md",
+      "official_anchor": "hashing-and-hash-tables"
+    },
+    {
+      "id": "w05-n12",
+      "file": "notes/12-tries.fa.md",
+      "official_anchor": "tries"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-5.fa.md",
+    "shorts": [
+      {
+        "id": "w05-sh-structures",
+        "file": "shorts/structures.fa.md"
+      },
+      {
+        "id": "w05-sh-singly-linked-lists",
+        "file": "shorts/singly-linked-lists.fa.md"
+      },
+      {
+        "id": "w05-sh-doubly-linked-lists",
+        "file": "shorts/doubly-linked-lists.fa.md"
+      },
+      {
+        "id": "w05-sh-stacks",
+        "file": "shorts/stacks.fa.md"
+      },
+      {
+        "id": "w05-sh-queues",
+        "file": "shorts/queues.fa.md"
+      },
+      {
+        "id": "w05-sh-hash-tables",
+        "file": "shorts/hash-tables.fa.md"
+      },
+      {
+        "id": "w05-sh-tries",
+        "file": "shorts/tries.fa.md"
+      },
+      {
+        "id": "w05-sh-data-structures",
+        "file": "shorts/data-structures.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w05-ps-inheritance",
+        "file": "problem-sets/inheritance.fa.md"
+      },
+      {
+        "id": "w05-ps-speller",
+        "file": "problem-sets/speller.fa.md"
+      },
+      {
+        "id": "w05-pr-trie",
+        "file": "problem-sets/trie.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w05-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w05-ps-inheritance",
+      "kind": "pset",
+      "file": "problem-sets/inheritance.json",
+      "guide": "problem-sets/inheritance.fa.md",
+      "unlock_after_lesson": "w05-l06"
+    },
+    {
+      "id": "w05-ps-speller",
+      "kind": "pset",
+      "file": "problem-sets/speller.json",
+      "guide": "problem-sets/speller.fa.md",
+      "unlock_after_lesson": "w05-l07"
+    },
+    {
+      "id": "w05-pr-trie",
+      "kind": "practice",
+      "file": "problem-sets/trie.json",
+      "guide": "problem-sets/trie.fa.md",
+      "unlock_after_lesson": "w05-l07"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۵: Inheritance و Speller هر دو باید تحویل شوند؛ برخلاف هفته‌های ۱ تا ۴ نسخهٔ less/more ندارد. Trie تمرین اختیاری است و تحویل ندارد.",
+    "groups": [
+      {
+        "required": [
+          "w05-ps-inheritance"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w05-ps-speller"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w05-pr-trie"
+    ],
+    "source_ref": "src-pset-5#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids_any_of_groups": true,
+        "note": "checklists of Inheritance and Speller"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w05-ps-inheritance",
+          "w05-ps-speller"
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

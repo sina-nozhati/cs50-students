@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/coverage-report.schema.json",
+  "title": "Coverage report",
+  "type": "object",
+  "required": [
+    "sections",
+    "summary"
+  ],
+  "properties": {
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "anchor",
+          "official_heading",
+          "covered_by",
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "covered",
+              "partial",
+              "not-covered"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

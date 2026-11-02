@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} — {{ week.title }} — CS50x انزلی (غیررسمی)</title>
+<meta name="description" content="{{ title }}، {{ week.title }}. ترجمه و بازآرایی فارسی غیررسمی CS50x 2026.">
+<meta name="author" content="CS50x انزلی">
+<meta name="dcterms.created" content="{{ built }}">
+<meta name="generator" content="cs50x-anzali-exports {{ gen_version }}">
+<style>{{ css }}</style>
+</head>
+<body>
+<section class="cover" aria-hidden="true">
+ <div><div class="k">CS50x انزلی · ترجمه و بازآرایی فارسی غیررسمی</div><h1>{{ title }}</h1><div class="s">{{ week.title }}</div></div>
+ <div class="f">بر پایهٔ CS50x 2026، دانشگاه هاروارد. این فایل محصول رسمی هاروارد یا CS50 نیست.<br>مجوز: CC BY-NC-SA 4.0 · ساخته‌شده از دادهٔ بسته در {{ built_fa }}</div>
+</section>
+<header class="masthead"><div class="inner"><div class="kicker">CS50x انزلی · {{ week.title }}</div><h1>{{ title }}</h1>{% if subtitle %}<div class="sub">{{ subtitle }}</div>{% endif %}</div></header>
+<main class="wrap">
+{{ body }}
+</main>
+<footer class="foot"><div class="inner">
+<p><strong>ترجمه و بازآرایی فارسی CS50x انزلی — غیررسمی.</strong> این فایل محصول رسمی دانشگاه هاروارد یا CS50 نیست و از سوی آن‌ها تأیید نشده است.</p>
+<p>بر پایهٔ <a href="https://cs50.harvard.edu/x/">CS50x 2026</a>، © David J. Malan، دانشگاه هاروارد، با مجوز <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fa">CC BY-NC-SA 4.0</a>. بازنویسی فارسی و محتوای تألیفی CS50x انزلی هم با همین مجوز (غیرتجاری، اشتراک یکسان) منتشر می‌شود.</p>
+<p>پیوندهای رسمی: <a href="{{ week.official_url }}">صفحهٔ رسمی {{ week.title_short }}</a> · <a href="https://cs50.harvard.edu/x/license/">مجوز CS50x</a> · <a href="https://cs50.harvard.edu/x/syllabus/#academic-honesty">صداقت علمی</a></p>
+<p class="meta">نسخهٔ بسته {{ kb_version }} · ساخته‌شده در {{ built_fa }} · قلم‌ها: Vazirmatn، Noto Naskh Arabic و IBM Plex Mono (مجوز OFL)</p>
+</div></footer>
+{% if copy_js %}<script>
+document.querySelectorAll('.codeblock').forEach(function(b){var t=b.querySelector('pre');var k=document.createElement('button');k.className='copy';k.type='button';k.textContent='کپی';k.setAttribute('aria-label','کپی کد');k.onclick=function(){navigator.clipboard.writeText(t.innerText).then(function(){k.textContent='کپی شد';setTimeout(function(){k.textContent='کپی'},1500)})};b.appendChild(k)});
+</script>{% endif %}
+</body>
+</html>

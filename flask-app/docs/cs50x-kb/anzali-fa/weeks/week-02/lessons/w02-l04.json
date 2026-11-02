@@ -1,0 +1,396 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l04",
+  "type": "lesson",
+  "week": 2,
+  "order": 4,
+  "stage_id": "w02-s2",
+  "title_fa": "حافظه و آرایه",
+  "title_en": "Memory and arrays",
+  "note_ids": [
+    "w02-n08",
+    "w02-n09"
+  ],
+  "related_doc_ids": [
+    "w02-sh-arrays"
+  ],
+  "prerequisite_lesson_ids": [
+    "w02-l03"
+  ],
+  "concept_ids": [
+    "w02-c-memory-bytes",
+    "w02-c-array",
+    "w02-c-array-index",
+    "w02-c-array-loop",
+    "w02-c-array-init",
+    "w02-c-array-bounds"
+  ],
+  "objective_ids": [
+    "w02-o04",
+    "w02-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l04-u01",
+      "order": 1,
+      "title_fa": "بایت‌ها و حافظه",
+      "concept_ids": [
+        "w02-c-memory-bytes"
+      ],
+      "objective_ids": [
+        "w02-o04"
+      ],
+      "note_id": "w02-n08",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "هر نوع داده جای مشخصی در حافظه می‌گیرد: `bool` و `char` یک بایت، `int` و `float` چهار بایت، `long` و `double` هشت بایت. اندازهٔ `string` در درس‌نامه عمداً «؟» نوشته شده و بعدها روشن می‌شود. حافظهٔ کامپیوتر را مثل شبکه‌ای از بایت‌ها تصور کن که پشت سر هم قرار گرفته‌اند. سه عدد `int` روی هم ۱۲ بایت می‌گیرند.",
+        "note_id": "w02-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n08"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "bool   1 byte\nchar   1 byte\nint    4 bytes\nfloat  4 bytes\nlong   8 bytes\ndouble 8 bytes\nstring ? bytes",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "خلاصهٔ تألیفی از فهرست رسمی اندازه‌ها در درس‌نامه."
+      },
+      "check": {
+        "id": "w02-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "سه متغیر int که پشت سر هم ذخیره شوند روی هم چند بایت می‌گیرند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "۱۲",
+            "correct": true,
+            "feedback_fa": "درست: ۳ × ۴."
+          },
+          {
+            "id": "b",
+            "text_fa": "۳",
+            "correct": false,
+            "feedback_fa": "هر int چهار بایت است، نه یک."
+          },
+          {
+            "id": "c",
+            "text_fa": "۲۴",
+            "correct": false,
+            "feedback_fa": "۸ بایت اندازهٔ long و double است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l04-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "اندازهٔ هر نوع را طبق درس‌نامه بنویس: (۱) char (۲) int (۳) double",
+        "expected": {
+          "answers": {
+            "1": "1",
+            "2": "4",
+            "3": "8"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "فهرست اندازه‌ها در بخش Arrays درس‌نامه آمده است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l04-u02",
+      "order": 2,
+      "title_fa": "اعلان آرایه و اندیس",
+      "concept_ids": [
+        "w02-c-array",
+        "w02-c-array-index"
+      ],
+      "objective_ids": [
+        "w02-o05"
+      ],
+      "note_id": "w02-n09",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "**آرایه** (`array`) دنباله‌ای از مقدارهای هم‌نوع است که پشت سر هم در حافظه قرار دارند. `int scores[3];` جا برای سه int می‌سازد. خانه‌ها با اندیس از `0` شمرده می‌شوند: `scores[0]`، `scores[1]` و `scores[2]`.",
+        "note_id": "w02-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scores1",
+        "lang": "c",
+        "content": "// Averages three (hardcoded) numbers using an array\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Scores\n    int scores[3];\n    scores[0] = 72;\n    scores[1] = 73;\n    scores[2] = 33;\n\n    // Print average\n    printf(\"Average: %f\\n\", (scores[0] + scores[1] + scores[2]) / 3.0);\n}",
+        "source_ref": "src-notes-2#arrays",
+        "explain_fa": "نسخهٔ رسمی با آرایه."
+      },
+      "check": {
+        "id": "w02-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `int scores[3];` آخرین اندیس معتبر کدام است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "2",
+            "correct": true,
+            "feedback_fa": "درست: اندیس‌ها ۰، ۱ و ۲ هستند."
+          },
+          {
+            "id": "b",
+            "text_fa": "3",
+            "correct": false,
+            "feedback_fa": "۳ اندازه است، نه آخرین اندیس."
+          },
+          {
+            "id": "c",
+            "text_fa": "1",
+            "correct": false,
+            "feedback_fa": "سه خانه داریم."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l04-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا عدد ۹۰ در خانهٔ اول آرایه قرار بگیرد.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "int grades[5];\ngrades[[[b1]]] = 90;",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "0"
+            ],
+            "hint_fa": "اندیس از صفر شروع می‌شود.",
+            "wrong_feedback": {
+              "1": "اندیس ۱ خانهٔ دوم است."
+            },
+            "default_wrong_fa": "اندیس خانهٔ اول را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "0"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "در C شمارش اندیس از صفر است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l04-u03",
+      "order": 3,
+      "title_fa": "پیمایش آرایه با حلقه",
+      "concept_ids": [
+        "w02-c-array-loop"
+      ],
+      "objective_ids": [
+        "w02-o05"
+      ],
+      "note_id": "w02-n09",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "به‌جای سه خط `get_int` می‌توان با حلقهٔ `for` آرایه را پر کرد: متغیر `i` از `0` تا کمتر از `3` می‌رود و هر بار `scores[i]` مقدار می‌گیرد. حلقه و آرایه جفت طبیعی‌اند.",
+        "note_id": "w02-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scores2",
+        "lang": "c",
+        "content": "// Averages three numbers using an array and a loop\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Get scores\n    int scores[3];\n    for (int i = 0; i < 3; i++)\n    {\n        scores[i] = get_int(\"Score: \");\n    }\n\n    // Print average\n    printf(\"Average: %f\\n\", (scores[0] + scores[1] + scores[2]) / 3.0);\n}",
+        "source_ref": "src-notes-2#arrays",
+        "explain_fa": "نسخهٔ رسمی با حلقه."
+      },
+      "check": {
+        "id": "w02-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در حلقهٔ برنامهٔ بالا، در دور سوم مقدار i چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "2",
+            "correct": true,
+            "feedback_fa": "درست: ۰، ۱، ۲."
+          },
+          {
+            "id": "b",
+            "text_fa": "3",
+            "correct": false,
+            "feedback_fa": "حلقه وقتی i به ۳ برسد تمام می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "1",
+            "correct": false,
+            "feedback_fa": "این دور دوم است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l04-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nint a[4];\nfor (int i = 0; i < 4; i++)\n{\n    a[i] = i * 10;\n}\nprintf(\"%i\\n\", a[3]);",
+        "expected": {
+          "output": "30\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "a[3] در دور چهارم مقدار ۳ × ۱۰ را گرفته است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l04-u04",
+      "order": 4,
+      "title_fa": "مقداردهی اولیه و مرز آرایه",
+      "concept_ids": [
+        "w02-c-array-init",
+        "w02-c-array-bounds"
+      ],
+      "objective_ids": [
+        "w02-o05"
+      ],
+      "note_id": "w02-n09",
+      "source_refs": [
+        "src-notes-2#arrays",
+        "src-anzali-authored-2",
+        "src-short-arrays"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Arrays (۲۰۱۷) نشان می‌دهد می‌توان آرایه را هنگام اعلان مقدار داد: `bool truthtable[3] = { false, true, true };` و در این حالت اندازه را می‌شود حذف کرد. C جلوی دسترسی بیرون از مرز را نمی‌گیرد؛ خواندن یا نوشتن بیرون از آرایه ممکن است به **خطای segmentation** (`segmentation fault`) برسد. آرایه‌ها را هم نمی‌توان یک‌جا به هم نسبت داد؛ باید خانه‌به‌خانه کپی کرد.",
+        "note_id": "w02-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n09"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "bool truthtable[] = { false, true, true };",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "شکل رسمی ویدئوی کوتاه Arrays، بدون اندازه."
+      },
+      "check": {
+        "id": "w02-l04-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر `int x[5];` داشته باشیم و `x[5] = 1;` بنویسیم چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "C جلویش را نمی‌گیرد و ممکن است برنامه با segmentation fault خراب شود",
+            "correct": true,
+            "feedback_fa": "درست. x[5] بیرون از مرز است."
+          },
+          {
+            "id": "b",
+            "text_fa": "کامپایلر همیشه خطا می‌دهد",
+            "correct": false,
+            "feedback_fa": "C این را بررسی نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "آرایه خودکار بزرگ‌تر می‌شود",
+            "correct": false,
+            "feedback_fa": "اندازهٔ آرایه ثابت است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l04-u04-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در C می‌توان با `b = a;` همهٔ خانه‌های آرایهٔ a را یک‌جا در آرایهٔ b کپی کرد.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: باید با حلقه خانه‌به‌خانه کپی کرد.",
+          "incorrect_fa": "ویدئوی کوتاه Arrays را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

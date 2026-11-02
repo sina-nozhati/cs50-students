@@ -1,0 +1,345 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w07-ps-songs",
+  "kind": "pset",
+  "week": 7,
+  "title_en": "Songs",
+  "title_fa": "آهنگ‌ها (Songs)",
+  "guide_doc_id": "w07-ps-songs",
+  "guide_file": "songs.fa.md",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/7/songs/",
+    "index_url": "https://cs50.harvard.edu/x/psets/7/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w07-ps-songs-r1",
+        "text_fa": "برای هر مسئله یک پرس‌وجوی SQL بنویس که نتیجهٔ خواسته‌شده را بدهد؛ پاسخ باید **یک** پرس‌وجو باشد، هرچند می‌توانی پرس‌وجوهای دیگر را درون آن تودرتو کنی.",
+        "text_en": "For each of the following problems, you should write a single SQL query that outputs the results specified by each problem. Your response must take the form of a single SQL query, though you may nest other queries inside of your query",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r2",
+        "text_fa": "دربارهٔ `id` هیچ آهنگ یا خواننده‌ای فرض نکن؛ پرس‌وجو باید حتی اگر `id`ها فرق کنند درست باشد.",
+        "text_en": "You should not assume anything about the ids of any particular songs or artists: your queries should be accurate even if the id of any particular song or person were different",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r3",
+        "text_fa": "هر پرس‌وجو فقط دادهٔ لازم را برگرداند؛ اگر فقط نام آهنگ خواسته شده، ستون دیگری نیاور.",
+        "text_en": "Each query should return only the data necessary to answer the question",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r4",
+        "text_fa": "`1.sql`: نام همهٔ آهنگ‌های پایگاه داده (یک ستون).",
+        "text_en": "In 1.sql, write a SQL query to list the names of all songs in the database",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r5",
+        "text_fa": "`2.sql`: نام همهٔ آهنگ‌ها به ترتیب صعودی tempo (یک ستون).",
+        "text_en": "In 2.sql, write a SQL query to list the names of all songs in increasing order of tempo",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r6",
+        "text_fa": "`3.sql`: نام ۵ آهنگ طولانی‌تر، به ترتیب نزولی طول (یک ستون).",
+        "text_en": "In 3.sql, write a SQL query to list the names of the top 5 longest songs, in descending order of length",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r7",
+        "text_fa": "`4.sql`: نام آهنگ‌هایی که danceability، energy و valence هر سه بیشتر از 0.75 دارند (یک ستون).",
+        "text_en": "In 4.sql, write a SQL query that lists the names of any songs that have danceability, energy, and valence greater than 0.75",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r8",
+        "text_fa": "`5.sql`: میانگین energy همهٔ آهنگ‌ها (یک ستون و یک سطر).",
+        "text_en": "In 5.sql, write a SQL query that returns the average energy of all the songs",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r9",
+        "text_fa": "`6.sql`: نام آهنگ‌های Post Malone (یک ستون)، بدون فرض دربارهٔ `artist_id` او.",
+        "text_en": "In 6.sql, write a SQL query that lists the names of songs that are by Post Malone",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r10",
+        "text_fa": "`7.sql`: میانگین energy آهنگ‌های Drake (یک ستون و یک سطر)، بدون فرض دربارهٔ `artist_id` او.",
+        "text_en": "In 7.sql, write a SQL query that returns the average energy of songs that are by Drake",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r11",
+        "text_fa": "`8.sql`: نام آهنگ‌هایی که خوانندهٔ دیگری را همراه دارند؛ نام این آهنگ‌ها «feat.» دارد (یک ستون).",
+        "text_en": "In 8.sql, write a SQL query that lists the names of the songs that feature other artists",
+        "source_ref": "src-pset-7-songs#implementation-details"
+      },
+      {
+        "id": "w07-ps-songs-r12",
+        "text_fa": "در `answers.txt` به دو پرسش Audio Aura پاسخ بده: اگر `songs.db` صد آهنگ برتر یک شنونده در ۲۰۱۸ باشد، aura او را چطور توصیف می‌کنی؟ و چرا این روش محاسبه ممکن است نمایندهٔ خوبی نباشد و چه روش بهتری پیشنهاد می‌کنی؟",
+        "text_en": "In answers.txt, reflect on the following questions ... how would you characterize their audio aura? ... What better ways of calculating this aura would you propose?",
+        "source_ref": "src-pset-7-songs#spotify-wrapped"
+      },
+      {
+        "id": "w07-ps-songs-r13",
+        "text_fa": "`answers.txt` را همراه همهٔ فایل‌های `.sql` تحویل بده.",
+        "text_en": "Be sure to submit answers.txt along with each of your .sql files",
+        "source_ref": "src-pset-7-songs#spotify-wrapped"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/songs",
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/songs",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/7/songs.zip\nunzip songs.zip\nrm songs.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [],
+    "official_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/songs",
+      "style50": null,
+      "has_check50": true,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "wgKPUd_95AA",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "DsiNSGFrMq2J6t9aDYhIQUQHy",
+    "media_ids": [
+      "w07-m-songs-wrapped"
+    ],
+    "discrepancy_ids": [
+      "d123"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w07-c-sqlite3-cli",
+      "w07-c-schema",
+      "w07-c-select",
+      "w07-c-where",
+      "w07-c-and-or",
+      "w07-c-order-by",
+      "w07-c-limit",
+      "w07-c-sql-functions",
+      "w07-c-like-wildcard",
+      "w07-c-nested-query",
+      "w07-c-join",
+      "w07-c-qualified-column",
+      "w07-c-no-id-assumption",
+      "w07-c-sql-file-pipe"
+    ],
+    "prerequisite_lesson_ids": [
+      "w07-l01",
+      "w07-l02",
+      "w07-l04",
+      "w07-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w07-c-sqlite3-cli",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-schema",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-select",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-where",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-and-or",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-order-by",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u03"
+      },
+      {
+        "concept_id": "w07-c-limit",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-sql-functions",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-like-wildcard",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-nested-query",
+        "note_id": "w07-n07",
+        "lesson_id": "w07-l04",
+        "unit_id": "w07-l04-u03"
+      },
+      {
+        "concept_id": "w07-c-join",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u01"
+      },
+      {
+        "concept_id": "w07-c-qualified-column",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u01"
+      },
+      {
+        "concept_id": "w07-c-no-id-assumption",
+        "note_id": "w07-ps-songs",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w07-c-sql-file-pipe",
+        "note_id": "w07-ps-movies",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "`.schema` را اجرا کن و برای هر پرسش اول بنویس به کدام جدول و کدام ستون‌ها نیاز داری. اگر همهٔ داده در یک جدول است، `JOIN` لازم نیست."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای هر پرسش، کلیدواژه‌ها را از متن آن پیدا کن: «به ترتیب» یعنی کدام بند؟ «۵ تا» یعنی کدام بند؟ «میانگین» کدام تابع است؟ یادداشت SELECT همه را دارد."
+      },
+      {
+        "n": 3,
+        "hint_fa": "وقتی پرسش با نام یک خواننده است ولی جدول آهنگ‌ها فقط `artist_id` دارد، دو راه داری: پرس‌وجوی تودرتو یا `JOIN`. هر دو را روی پایگاه دادهٔ ساختگی درس‌های کوتاه تمرین کرده‌ای."
+      },
+      {
+        "n": 4,
+        "hint_fa": "پرس‌وجوی درونی را اول جدا اجرا کن و ببین دقیقاً یک مقدار برمی‌گرداند یا چند تا. اگر ممکن است چند مقدار باشد، `IN` امن‌تر از `=` است."
+      },
+      {
+        "n": 5,
+        "hint_fa": "برای تطبیق بخشی از یک رشته، `LIKE` و `%` را در یادداشت SELECT مرور کن. به جای `%` در ابتدا، انتها یا دو طرف فکر کن."
+      },
+      {
+        "n": 6,
+        "hint_fa": "هر پرس‌وجو را در یک فایل ذخیره کن و با `cat N.sql | sqlite3 songs.db` اجرا کن تا مطمئن شوی فایل همان چیزی است که در اعلان آزموده‌ای."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نوشتن عدد `id` یک خواننده در پرس‌وجو (خواستهٔ رسمی صریحاً منع می‌کند)",
+      "برگرداندن ستون‌های اضافه مثل tempo کنار نام",
+      "فراموش کردن `DESC` وقتی ترتیب نزولی خواسته شده",
+      "استفاده از `OR` به جای `AND` وقتی هر سه شرط باید برقرار باشند",
+      "نوشتن دو پرس‌وجو در یک فایل",
+      "خالی گذاشتن `answers.txt`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w07-ps-songs-c01",
+        "text_fa": "هر فایل `.sql` فقط یک پرس‌وجو دارد (تودرتو مجاز است).",
+        "maps_to": "w07-ps-songs-r1"
+      },
+      {
+        "id": "w07-ps-songs-c02",
+        "text_fa": "در هیچ پرس‌وجویی عدد `id` را دستی ننوشته‌ام؛ `id` را از روی نام پیدا می‌کنم.",
+        "maps_to": "w07-ps-songs-r2"
+      },
+      {
+        "id": "w07-ps-songs-c03",
+        "text_fa": "هر پرس‌وجو فقط ستون‌های خواسته‌شده را برمی‌گرداند.",
+        "maps_to": "w07-ps-songs-r3"
+      },
+      {
+        "id": "w07-ps-songs-c04",
+        "text_fa": "جهت مرتب‌سازی (`2.sql` صعودی، `3.sql` نزولی) با خواستهٔ رسمی می‌خواند.",
+        "maps_to": "w07-ps-songs-r5"
+      },
+      {
+        "id": "w07-ps-songs-c05",
+        "text_fa": "`5.sql` و `7.sql` یک ستون و یک سطر برمی‌گردانند.",
+        "maps_to": "w07-ps-songs-r8"
+      },
+      {
+        "id": "w07-ps-songs-c06",
+        "text_fa": "هر پرس‌وجو را در `sqlite3 songs.db` اجرا کرده و نتیجه را با پرسش سنجیده‌ام.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w07-ps-songs-c07",
+        "text_fa": "به هر دو پرسش `answers.txt` پاسخ داده‌ام.",
+        "maps_to": "w07-ps-songs-r12"
+      },
+      {
+        "id": "w07-ps-songs-c08",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w07-ps-songs-c09",
+        "text_fa": "همهٔ فایل‌ها را با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "بخش Hints صفحهٔ رسمی Songs",
+      "url": "https://cs50.harvard.edu/x/psets/7/songs/#hints",
+      "reason_fa": "هر بلوک این بخش پرس‌وجوی کامل یکی از فایل‌های شماره‌دار را نشان می‌دهد (d123، D56)؛ در این بسته بازنویسی نشده است."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://video.cs50.io/wgKPUd_95AA",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

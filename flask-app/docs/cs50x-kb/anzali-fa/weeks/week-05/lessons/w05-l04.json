@@ -1,0 +1,355 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w05-l04",
+  "type": "lesson",
+  "week": 5,
+  "order": 4,
+  "stage_id": "w05-s3",
+  "title_fa": "ساختن و پیمایش فهرست پیوندی",
+  "title_en": "Building and traversing a linked list",
+  "note_ids": [
+    "w05-n08"
+  ],
+  "related_doc_ids": [
+    "w05-sh-singly-linked-lists"
+  ],
+  "prerequisite_lesson_ids": [
+    "w05-l03"
+  ],
+  "concept_ids": [
+    "w05-c-prepend",
+    "w05-c-link-before-move",
+    "w05-c-prepend-reverses",
+    "w05-c-list-traversal",
+    "w05-c-list-complexity",
+    "w05-c-list-tradeoffs"
+  ],
+  "objective_ids": [
+    "w05-o05",
+    "w05-o06",
+    "w05-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/5.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w05-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "units": [
+    {
+      "id": "w05-l04-u01",
+      "order": 1,
+      "title_fa": "افزودن به ابتدا",
+      "concept_ids": [
+        "w05-c-prepend",
+        "w05-c-link-before-move",
+        "w05-c-prepend-reverses"
+      ],
+      "objective_ids": [
+        "w05-o05"
+      ],
+      "note_id": "w05-n08",
+      "source_refs": [
+        "src-notes-5#linked-lists",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "در `list3.c` برای هر عدد یک گره ساخته و به ابتدای فهرست اضافه می‌شود. ترتیب دو خط مهم است: اول `n->next = list;` تا گرهٔ تازه به فهرست فعلی وصل شود، بعد `list = n;` تا سر فهرست گرهٔ تازه باشد. اگر برعکس شود، اشاره‌گر به بقیهٔ فهرست گم می‌شود و آن گره‌ها یتیم می‌شوند. افزودن به ابتدا سریع است (O(1)) ولی ترتیب را برعکس می‌کند.",
+        "note_id": "w05-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list3",
+        "lang": "c",
+        "content": "// Start to build a linked list by prepending nodes\n\n#include <cs50.h>\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n} node;\n\nint main(void)\n{\n    // Memory for numbers\n    node *list = NULL;\n\n    // Build list\n    for (int i = 0; i < 3; i++)\n    {\n        // Allocate node for number\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = get_int(\"Number: \");\n        n->next = NULL;\n\n        // Prepend node to list\n        n->next = list;\n        list = n;\n    }\n    return 0;\n}",
+        "source_ref": "src-notes-5#linked-lists",
+        "explain_fa": "کد رسمی list3.c."
+      },
+      "check": {
+        "id": "w05-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر در `list3.c` به ترتیب 1، 2 و 3 وارد شود، گره سر فهرست چه عددی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "3",
+            "correct": true,
+            "feedback_fa": "درست. هر گرهٔ تازه به ابتدا اضافه می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "1",
+            "correct": false,
+            "feedback_fa": "1 اول آمده و حالا ته فهرست است."
+          },
+          {
+            "id": "c",
+            "text_fa": "2",
+            "correct": false,
+            "feedback_fa": "2 وسط فهرست است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l04-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌های این قطعهٔ تألیفی را بچین تا یک گره با مقدار `number` به ابتدای `list` اضافه شود.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "node *n = malloc(sizeof(node));",
+            "text": "node *n = malloc(sizeof(node));"
+          },
+          {
+            "id": "p2",
+            "code": "if (n == NULL) { return 1; }",
+            "text": "if (n == NULL) { return 1; }"
+          },
+          {
+            "id": "p3",
+            "code": "n->number = number;",
+            "text": "n->number = number;"
+          },
+          {
+            "id": "p4",
+            "code": "n->next = list;",
+            "text": "n->next = list;"
+          },
+          {
+            "id": "p5",
+            "code": "list = n;",
+            "text": "list = n;"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "list = n->next;",
+            "why_wrong_fa": "این سر فهرست را به NULL یا گرهٔ اشتباه می‌برد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: اول وصل کن، بعد سر فهرست را جابه‌جا کن.",
+          "incorrect_fa": "اگر list = n پیش از n->next = list بیاید، بقیهٔ فهرست گم می‌شود."
+        },
+        "hints_fa": [
+          "دو خط آخر ترتیب حساسی دارند."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l04-u02",
+      "order": 2,
+      "title_fa": "پیمایش با ptr",
+      "concept_ids": [
+        "w05-c-list-traversal"
+      ],
+      "objective_ids": [
+        "w05-o06"
+      ],
+      "note_id": "w05-n08",
+      "source_refs": [
+        "src-notes-5#linked-lists",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "برای چاپ فهرست، اشاره‌گر موقتی مثل `ptr` از سر فهرست شروع می‌کند، مقدار هر گره را چاپ می‌کند و با `ptr = ptr->next;` به گرهٔ بعدی می‌رود تا به `NULL` برسد. `list` دست نمی‌خورد تا سر فهرست گم نشود.",
+        "note_id": "w05-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list4",
+        "lang": "c",
+        "content": "// Print nodes in a linked list with a while loop\n\n#include <cs50.h>\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n} node;\n\nint main(void)\n{\n    // Memory for numbers\n    node *list = NULL;\n\n    // Build list\n    for (int i = 0; i < 3; i++)\n    {\n        // Allocate node for number\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = get_int(\"Number: \");\n        n->next = NULL;\n\n        // Prepend node to list\n        n->next = list;\n        list = n;\n    }\n\n    // Print numbers\n    node *ptr = list;\n    while (ptr != NULL)\n    {\n        printf(\"%i\\n\", ptr->number);\n        ptr = ptr->next;\n    }\n    return 0;\n}",
+        "source_ref": "src-notes-5#linked-lists",
+        "explain_fa": "کد رسمی list4.c."
+      },
+      "check": {
+        "id": "w05-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا در پیمایش از `ptr` استفاده می‌شود، نه خود `list`؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تا سر فهرست گم نشود و بعداً بتوان دوباره پیمایش یا آزاد کرد.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون list را نمی‌شود با -> خواند.",
+            "correct": false,
+            "feedback_fa": "list هم اشاره‌گر به node است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون ptr سریع‌تر است.",
+            "correct": false,
+            "feedback_fa": "سرعت یکسان است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l04-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟ (هر عدد در یک خط)",
+        "expected": {
+          "output": "30\n20\n10"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: افزودن به ابتدا ترتیب را برعکس می‌کند.",
+          "incorrect_fa": "گره‌ها به ابتدا اضافه می‌شوند؛ کدام آخر آمد؟"
+        },
+        "hints_fa": [
+          "i از ۱ تا ۳ است و هر بار i * 10 ذخیره می‌شود."
+        ],
+        "lang": "c",
+        "code": "// تألیفی\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n}\nnode;\n\nint main(void)\n{\n    node *list = NULL;\n    for (int i = 1; i <= 3; i++)\n    {\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = i * 10;\n        n->next = list;\n        list = n;\n    }\n    for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n    {\n        printf(\"%i\\n\", ptr->number);\n    }\n    node *ptr = list;\n    while (ptr != NULL)\n    {\n        node *next = ptr->next;\n        free(ptr);\n        ptr = next;\n    }\n    return 0;\n}",
+        "code_origin": "authored",
+        "stdin": "",
+        "compile_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l04-u03",
+      "order": 3,
+      "title_fa": "هزینه و بده‌بستان فهرست",
+      "concept_ids": [
+        "w05-c-list-complexity",
+        "w05-c-list-tradeoffs"
+      ],
+      "objective_ids": [
+        "w05-o06",
+        "w05-o10"
+      ],
+      "note_id": "w05-n08",
+      "source_refs": [
+        "src-notes-5#linked-lists",
+        "src-anzali-authored-5",
+        "src-transcript-5"
+      ],
+      "reading": {
+        "text_fa": "فهرست پیوندی پویاست: بدون کپی کردن همهٔ مقدارها بزرگ می‌شود. اما بهایی دارد: هر گره حافظهٔ اضافه برای `next` می‌خواهد و چون گره‌ها پیوسته نیستند، نمی‌شود با اندیس به وسط رفت؛ پس جست‌وجوی دودویی ممکن نیست و جست‌وجو O(n) است. افزودن به ابتدا O(1) است.",
+        "note_id": "w05-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n08"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "عملیات               آرایه           فهرست پیوندی\n-------------------  ---------------  -------------\nدسترسی با اندیس       O(1)             O(n)\nجست‌وجو                O(log n) اگر مرتب  O(n)\nافزودن به ابتدا        O(n)             O(1)\nبزرگ کردن             کپی (O(n))       بدون کپی\nحافظهٔ اضافه            ندارد            next در هر گره",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "جدول تألیفی بر اساس سخنرانی (استنتاجی در ردیف دسترسی با اندیس آرایه)."
+      },
+      "check": {
+        "id": "w05-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا روی فهرست پیوندی نمی‌شود جست‌وجوی دودویی کرد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون گره‌ها پیوسته نیستند و نمی‌شود مستقیم به وسط پرید.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون فهرست پیوندی همیشه نامرتب است.",
+            "correct": false,
+            "feedback_fa": "می‌شود فهرست مرتب ساخت؛ مسئله دسترسی به وسط است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون next عدد صحیح نیست.",
+            "correct": false,
+            "feedback_fa": "این ربطی به جست‌وجو ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l04-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "برای هر کار بنویس «آرایه» بهتر است یا «فهرست پیوندی»: (۱) دسترسی سریع به عنصر صدم (۲) افزودن مکرر به ابتدا (۳) جست‌وجوی دودویی روی داده‌های مرتب",
+        "expected": {
+          "answers": {
+            "1": "آرایه",
+            "2": "فهرست پیوندی",
+            "3": "آرایه"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "به پیوستگی حافظه و هزینهٔ کپی فکر کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

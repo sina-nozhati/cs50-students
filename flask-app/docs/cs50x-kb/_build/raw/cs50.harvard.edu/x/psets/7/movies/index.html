@@ -1,0 +1,718 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="Movies - CS50x 2026">
+
+        <link href="../../../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../../../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../../../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../../../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../../../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../../../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../../../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../../../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../../../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../../../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../../../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>Movies - CS50x 2026</title>
+
+
+    <meta property="og:description" content="Changes for 2026: 5.sql now requires matching movies that begin with “Harry Potter and the “ (not just “Harry Potter”). 9.sql now requires outputting two...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../../../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="../../..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../../../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../../../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../../../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../../../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../../../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../../../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../../../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../../../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../../../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../../../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../../../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../../../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../../../practice/"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../../../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="../../../seminars/">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../../../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="../../../faqs/">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../../../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../../../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../../../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <h1 id="movies">Movies</h1>
+
+<div class="alert" data-alert="warning" role="alert"><p><strong>Changes for 2026:</strong> <code class="language-plaintext highlighter-rouge">5.sql</code> now requires matching movies that begin with “Harry Potter and the “ (not just “Harry Potter”). <code class="language-plaintext highlighter-rouge">9.sql</code> now requires outputting <strong>two columns</strong> (the ID and name of each person), not just names. If you started this problem prior to 2026, be sure to update your queries accordingly!</p></div>
+
+<p class="w-50"><img src="imdb.png" alt="IMDb Logo"></p>
+
+<h2 id="problem-to-solve">Problem to Solve</h2>
+
+<p>Provided to you is a file called <code class="language-plaintext highlighter-rouge">movies.db</code>, a SQLite database that stores data from <a href="https://www.imdb.com/">IMDb</a> about movies, the people who directed and starred in them, and their ratings. Write SQL queries to answer questions about this database of movies.</p>
+
+<h2 id="demo">Demo</h2>
+
+<script async="" data-autoplay="1" data-cols="100" data-loop="1" data-rows="12" id="asciicast-uPWDqSe0NjjqXLF3qxzpsMnfv" src="https://asciinema.org/a/uPWDqSe0NjjqXLF3qxzpsMnfv.js"></script>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>For this problem, you’ll use a database provided to you by CS50’s staff.</p>
+
+<details><summary>Download the distribution code</summary><p>Log into <a href="https://cs50.dev/">cs50.dev</a>, click on your terminal window, and execute <code class="language-plaintext highlighter-rouge">cd</code> by itself. You should find that your terminal window’s prompt resembles the below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$
+</code></pre></div></div>
+
+<p>Next execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://cdn.cs50.net/2026/x/psets/7/movies.zip
+</code></pre></div></div>
+
+<p>in order to download a ZIP called <code class="language-plaintext highlighter-rouge">movies.zip</code> into your codespace.</p>
+
+<p>Then execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip movies.zip
+</code></pre></div></div>
+
+<p>to create a folder called <code class="language-plaintext highlighter-rouge">movies</code>. You no longer need the ZIP file, so you can execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm movies.zip
+</code></pre></div></div>
+
+<p>and respond with “y” followed by Enter at the prompt to remove the ZIP file you downloaded.</p>
+
+<p>Now type</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd movies
+</code></pre></div></div>
+
+<p>followed by Enter to move yourself into (i.e., open) that directory. Your prompt should now resemble the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>movies/ $
+</code></pre></div></div>
+
+<p>Execute <code class="language-plaintext highlighter-rouge">ls</code> by itself, and you should see 13 .sql files, as well as <code class="language-plaintext highlighter-rouge">movies.db</code>.</p>
+
+<p>If you run into any trouble, follow these same steps again and see if you can determine where you went wrong!</p></details>
+
+<h2 id="specification">Specification</h2>
+
+<p>For each of the following problems, you should write a single SQL query that outputs the results specified by each problem. Your response must take the form of a single SQL query, though you may nest other queries inside of your query. You <strong>should not</strong> assume anything about the <code class="language-plaintext highlighter-rouge">id</code>s of any particular movies or people: your queries should be accurate even if the <code class="language-plaintext highlighter-rouge">id</code> of any particular movie or person were different. Finally, each query should return only the data necessary to answer the question: if the problem only asks you to output the names of movies, for example, then your query should not also output each movie’s release year.</p>
+
+<p>You’re welcome to check your queries’ results against <a href="https://www.imdb.com/">IMDb</a> itself, but realize that ratings on the website might differ from those in <code class="language-plaintext highlighter-rouge">movies.db</code>, as more votes might have been cast since we downloaded the data!</p>
+
+<ol>
+  <li>In <code class="language-plaintext highlighter-rouge">1.sql</code>, write a SQL query to list the titles of all movies released in 2008.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the title of each movie.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">2.sql</code>, write a SQL query to determine the birth year of Emma Stone.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column and a single row (not counting the header) containing Emma Stone’s birth year.</li>
+      <li data-marker="*">You may assume that there is only one person in the database with the name Emma Stone.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">3.sql</code>, write a SQL query to list the titles of all movies with a release date on or after 2018, in alphabetical order.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the title of each movie.</li>
+      <li data-marker="*">Movies released in 2018 should be included, as should movies with release dates in the future.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">4.sql</code>, write a SQL query to determine the number of movies with an IMDb rating of 10.0.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column and a single row (not counting the header) containing the number of movies with a 10.0 rating.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">5.sql</code>, write a SQL query to list the titles and release years of all Harry Potter movies, in chronological order.
+    <ul>
+      <li data-marker="*">Your query should output a table with two columns, one for the title of each movie and one for the release year of each movie.</li>
+      <li data-marker="*">You may assume that the title of all Harry Potter movies will begin with the words “Harry Potter and the “, and that if a movie title begins with the words “Harry Potter and the “, it is a Harry Potter movie.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">6.sql</code>, write a SQL query to determine the average rating of all movies released in 2012.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column and a single row (not counting the header) containing the average rating.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">7.sql</code>, write a SQL query to list all movies released in 2010 and their ratings, in descending order by rating. For movies with the same rating, order them alphabetically by title.
+    <ul>
+      <li data-marker="*">Your query should output a table with two columns, one for the title of each movie and one for the rating of each movie.</li>
+      <li data-marker="*">Movies that do not have ratings should not be included in the result.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">8.sql</code>, write a SQL query to list the names of all people who starred in Toy Story.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the name of each person.</li>
+      <li data-marker="*">You may assume that there is only one movie in the database with the title Toy Story.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">9.sql</code>, write a SQL query to list the ID and names of all people who starred in a movie released in 2004, ordered by birth year.
+    <ul>
+      <li data-marker="*">Your query should output a table with two columns: one for the ID and one for the name of each person.</li>
+      <li data-marker="*">People with the same birth year may be listed in any order.</li>
+      <li data-marker="*">No need to worry about people who have no birth year listed, so long as those who do have a birth year are listed in order.</li>
+      <li data-marker="*">If a person appeared in more than one movie in 2004, they should only appear in your results once.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">10.sql</code>, write a SQL query to list the names of all people who have directed a movie that received a rating of at least 9.0.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the name of each person.</li>
+      <li data-marker="*">If a person directed more than one movie that received a rating of at least 9.0, they should only appear in your results once.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">11.sql</code>, write a SQL query to list the titles of the five highest rated movies (in order) that Chadwick Boseman starred in, starting with the highest rated.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the title of each movie.</li>
+      <li data-marker="*">You may assume that there is only one person in the database with the name Chadwick Boseman.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">12.sql</code>, write a SQL query to list the titles of all movies in which both Bradley Cooper and Jennifer Lawrence starred.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the title of each movie.</li>
+      <li data-marker="*">You may assume that there is only one person in the database with the name Bradley Cooper.</li>
+      <li data-marker="*">You may assume that there is only one person in the database with the name Jennifer Lawrence.</li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">13.sql</code>, write a SQL query to list the names of all people who starred in a movie in which Kevin Bacon also starred.
+    <ul>
+      <li data-marker="*">Your query should output a table with a single column for the name of each person.</li>
+      <li data-marker="*">There may be multiple people named Kevin Bacon in the database. Be sure to only select the Kevin Bacon born in 1958.</li>
+      <li data-marker="*">Kevin Bacon himself should not be included in the resulting list.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="hints">Hints</h2>
+
+<details><summary>Understand the schema of <code>movies.db</code></summary><p>Whenever you engage with a new database, it’s best to first understand its <em>schema</em>. In a terminal window, run <code class="language-plaintext highlighter-rouge">sqlite3 movies.db</code> so that you can begin executing queries on the database.</p>
+
+<p>First, when <code class="language-plaintext highlighter-rouge">sqlite3</code> prompts you to provide a query, type <code class="language-plaintext highlighter-rouge">.schema</code> and press enter. This will output the <code class="language-plaintext highlighter-rouge">CREATE TABLE</code> statements that were used to generate each of the tables in the database. By examining those statements, you can identify the columns present in each table.</p>
+
+<p>Notice that the <code class="language-plaintext highlighter-rouge">movies</code> table has an <code class="language-plaintext highlighter-rouge">id</code> column that uniquely identifies each movie, as well as columns for the <code class="language-plaintext highlighter-rouge">title</code> of a movie and the <code class="language-plaintext highlighter-rouge">year</code> in which the movie was released. The <code class="language-plaintext highlighter-rouge">people</code> table also has an <code class="language-plaintext highlighter-rouge">id</code> column, and also has columns for each person’s <code class="language-plaintext highlighter-rouge">name</code> and <code class="language-plaintext highlighter-rouge">birth</code> year.</p>
+
+<p>Movie ratings, meanwhile, are stored in the <code class="language-plaintext highlighter-rouge">ratings</code> table. The first column in the table is <code class="language-plaintext highlighter-rouge">movie_id</code>: a foreign key that references the <code class="language-plaintext highlighter-rouge">id</code> of the <code class="language-plaintext highlighter-rouge">movies</code> table. The rest of the row contains data about the <code class="language-plaintext highlighter-rouge">rating</code> for each movie and the number of <code class="language-plaintext highlighter-rouge">votes</code> the movie has received on IMDb.</p>
+
+<p>Finally, the <code class="language-plaintext highlighter-rouge">stars</code> and <code class="language-plaintext highlighter-rouge">directors</code> tables match people to the movies in which they acted or directed. (Only <a href="https://www.imdb.com/interfaces/">principal</a> stars and directors are included.) Each table has just two columns: <code class="language-plaintext highlighter-rouge">movie_id</code> and <code class="language-plaintext highlighter-rouge">person_id</code>, which reference a specific movie and person, respectively.</p>
+
+<p>The challenge ahead of you is to write SQL queries to answer a variety of different questions by selecting data from one or more of these tables.</p></details>
+
+<details><summary>Consistently style your queries</summary><p>See <a href="https://www.sqlstyle.guide/">sqlstyle.guide</a> for pointers on good style in SQL, especially as your queries get more complex!</p></details>
+
+<details><summary>List the titles of all movies released in 2008</summary><p>Recall that you can select one (or more) columns from a database using <code class="language-plaintext highlighter-rouge">SELECT</code>, per the example below,</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">column0</span><span class="p">,</span> <span class="n">column1</span> <span class="k">FROM</span> <span class="k">table</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">column0</code> is the title of one column, and <code class="language-plaintext highlighter-rouge">column1</code> is the title of another.</p>
+
+<p>And recall that you can filter the rows returned in a query with the <code class="language-plaintext highlighter-rouge">WHERE</code> keyword, followed by a condition. You can use <code class="language-plaintext highlighter-rouge">=</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, and <a href="https://www.w3schools.com/sql/sql_operators.asp">other operators</a> too.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">column</span> <span class="k">FROM</span> <span class="k">table</span>
+<span class="k">WHERE</span> <span class="n">condition</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>See <a href="https://www.w3schools.com/sql/sql_ref_keywords.asp">this SQL keywords reference</a> for some SQL syntax that may be helpful!</p></details>
+
+<details><summary>Determine the birth year of Emma Stone</summary><p>Recall that a <code class="language-plaintext highlighter-rouge">WHERE</code> clause can evaluate conditions not just with numbers, but with strings.</p></details>
+
+<details><summary>List the titles of all movies with a release date on or after 2018, in alphabetical order</summary><p>Try breaking this query into two steps. First, find the movies with a release date on or after 2018. Then, put those movies’ titles in alphabetical order.</p>
+
+<p>To find the movies with a release date on or after 2018, recall that a condition in SQL supports the use of many common <a href="https://www.w3schools.com/sql/sql_operators.asp">comparison operators</a>, including <code class="language-plaintext highlighter-rouge">&gt;=</code> for “greater than or equal to.” Check to see if your query returns the correct number of movies, per <a href="#how-to-test">How to Test</a>.</p>
+
+<p>Finally, sort the query’s results alphabetically by title. Recall that <code class="language-plaintext highlighter-rouge">ORDER BY</code> can sort data by a column in your results, per the example below.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">column</span><span class="p">;</span>
+</code></pre></div></div></details>
+
+<details><summary>Determine the number of movies with an IMDb rating of 10.0</summary><p>Notice this question asks you not for <em>individual</em> movies with a rating of 10.0, but for the <em>number</em> of movies with such a rating. In other words, you should collect (“aggregate”) the results of your query into a single number (the number of rows). Recall that SQL supports an “aggregation function” called <code class="language-plaintext highlighter-rouge">COUNT</code>, which you can use on a column per the example below.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">column</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="k">table</span><span class="p">;</span>
+</code></pre></div></div></details>
+
+<details><summary>List the titles and release years of all Harry Potter movies, in chronological order</summary><p>For this query, you’ll likely want to make use of SQL’s <code class="language-plaintext highlighter-rouge">LIKE</code> keyword. Recall that <code class="language-plaintext highlighter-rouge">LIKE</code> can make use of so-called “wildcard characters”, such as <code class="language-plaintext highlighter-rouge">%</code>, that will match any character (or sequence thereof).</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">column0</span><span class="p">,</span> <span class="n">column1</span>
+<span class="k">FROM</span> <span class="k">table</span>
+<span class="k">WHERE</span> <span class="n">column1</span> <span class="k">LIKE</span> <span class="n">pattern</span><span class="p">;</span>
+</code></pre></div></div></details>
+
+<details><summary>Determine the average rating of all movies released in 2012</summary><p>Here’s another example of a query in which you’ll need to aggregate data. Consider SQL’s <code class="language-plaintext highlighter-rouge">AVG</code> aggregation function, to compute an average.</p>
+
+<p>Consider, too, that this query makes use of data stored in two separate tables: <code class="language-plaintext highlighter-rouge">ratings</code> and <code class="language-plaintext highlighter-rouge">movies</code>. Recall that—so long as one table has a foreign key that matches a column in another table—you can combine two tables using SQL’s <code class="language-plaintext highlighter-rouge">JOIN</code> keyword. To use the <code class="language-plaintext highlighter-rouge">JOIN</code> keyword, you should specify the table you’d like to join and the column by which to do so.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">column0</span>
+<span class="k">FROM</span> <span class="n">table0</span>
+<span class="k">JOIN</span> <span class="n">table1</span> <span class="k">ON</span> <span class="n">table0</span><span class="p">.</span><span class="n">column1</span> <span class="o">=</span> <span class="n">table1</span><span class="p">.</span><span class="n">column2</span>
+</code></pre></div></div></details>
+
+<details><summary>List all movies released in 2010 and their ratings, in descending order by rating</summary><p>Recall that <code class="language-plaintext highlighter-rouge">ORDER BY</code> need not always sort in ascending order. You can specify that your results be sorted in <em>descending</em> order by appending <code class="language-plaintext highlighter-rouge">DESC</code>.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">column</span> <span class="k">DESC</span><span class="p">;</span>
+</code></pre></div></div></details>
+
+<details><summary>List the names of all people who starred in Toy Story</summary><p>When you see a more complex query such as this one, it’s best to break it down into smaller pieces. Ultimately, your query should arrive at a list of names, per the below.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Select names</span>
+<span class="k">SELECT</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">people</span>
+<span class="k">WHERE</span> <span class="p">...</span>
+</code></pre></div></div>
+
+<p>But how’s best to arrive at the names of those who starred in Toy Story? Consider that the <code class="language-plaintext highlighter-rouge">people</code> table alone doesn’t have this information (but the <code class="language-plaintext highlighter-rouge">stars</code> table might!). Indeed, the <code class="language-plaintext highlighter-rouge">stars</code> table combines two columns, <code class="language-plaintext highlighter-rouge">person_id</code> and <code class="language-plaintext highlighter-rouge">movie_id</code>: any person with a <code class="language-plaintext highlighter-rouge">person_id</code> that is associated with Toy Story’s <code class="language-plaintext highlighter-rouge">movie_id</code> starred in Toy Story.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Select names</span>
+<span class="k">SELECT</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">people</span>
+<span class="k">WHERE</span> <span class="p">...</span>
+
+<span class="c1">-- Select person IDs</span>
+<span class="k">SELECT</span> <span class="n">person_id</span>
+<span class="k">FROM</span> <span class="n">stars</span>
+<span class="k">WHERE</span> <span class="n">movie_id</span> <span class="o">=</span> <span class="p">...</span>
+</code></pre></div></div>
+
+<p>A natural next step, then, is to find Toy Story’s movie ID.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Select names</span>
+<span class="k">SELECT</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">people</span>
+<span class="k">WHERE</span> <span class="p">...</span>
+
+<span class="c1">-- Select person IDs</span>
+<span class="k">SELECT</span> <span class="n">person_id</span>
+<span class="k">FROM</span> <span class="n">stars</span>
+<span class="k">WHERE</span> <span class="n">movie_id</span> <span class="o">=</span> <span class="p">...</span>
+
+<span class="c1">-- Find Toy Story's ID</span>
+<span class="k">SELECT</span> <span class="n">id</span>
+<span class="k">FROM</span> <span class="n">movies</span>
+<span class="k">WHERE</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Toy Story'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Of course, you’ve presently written three <em>separate</em> queries. But notice that some queries (the first two) would be complete by including results of the query directly below them. The process of making a query that depends on the results of a “subquery” is called “nesting” queries. It’s quite the hint, but here’s one way to nest the above queries!</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Select names</span>
+<span class="k">SELECT</span> <span class="n">name</span>
+<span class="k">FROM</span> <span class="n">people</span>
+<span class="k">WHERE</span> <span class="n">id</span> <span class="k">IN</span>
+<span class="p">(</span>
+    <span class="c1">-- Select person IDs</span>
+    <span class="k">SELECT</span> <span class="n">person_id</span>
+    <span class="k">FROM</span> <span class="n">stars</span>
+    <span class="k">WHERE</span> <span class="n">movie_id</span> <span class="o">=</span> <span class="p">(</span>
+
+        <span class="c1">-- Select Toy Story's ID</span>
+        <span class="k">SELECT</span> <span class="n">id</span>
+        <span class="k">FROM</span> <span class="n">movies</span>
+        <span class="k">WHERE</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Toy Story'</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div></details>
+
+<details><summary>List the ID and names of all people who starred in a movie released in 2004, ordered by birth year</summary><p>Notice that this query, like the previous, requires you to use data from multiple tables. Recall that you can “nest” queries in SQL, which allows you to break a larger query into smaller ones. Perhaps you could write queries to…</p>
+
+<ol>
+  <li>Find the IDs of movies released in 2004</li>
+  <li>Find the IDs of people who starred in those movies</li>
+  <li>Find the IDs and names of people with those people IDs</li>
+</ol>
+
+<p>Then, try nesting those queries to arrive at a single query that returns all the IDs and names of people who starred in a movie released in 2004. Consider how you might then order the results of your query.</p>
+
+<p>As a closing note, keep in mind that multiple people can have the same name. Although each person should only appear in your results once, two stars having the same name does not necessarily mean they are the same person.</p></details>
+
+<details><summary>List the names of all people who have directed a movie that received a rating of at least 9.0</summary><p>Notice that this query, like the previous, requires you to use data from multiple tables. Recall that you can “nest” queries in SQL, which allows you to break a larger query into smaller ones. Perhaps you could write queries to…</p>
+
+<ol>
+  <li>Find the IDs of movies with at least a 9.0 rating</li>
+  <li>Find the IDs of people who directed those movies</li>
+  <li>Find the names of people with those people IDs</li>
+</ol>
+
+<p>Then, try nesting those queries to arrive at a single query that returns the names of all people who have directed a movie that received a rating of at least 9.0.</p></details>
+
+<details><summary>List the titles of the five highest rated movies (in order) that Chadwick Boseman starred in, starting with the highest rated</summary><p>Notice that this query, like the previous, requires you to use data from multiple tables. Recall that you can “nest” queries in SQL, which allows you to break a larger query into smaller ones. Perhaps you could write queries to…</p>
+
+<ol>
+  <li>Find the ID of Chadwick Boseman</li>
+  <li>Find the IDs of movies associated with Chadwick Boseman’s ID</li>
+  <li>Find the movie titles with those movie IDs</li>
+</ol>
+
+<p>Then, try nesting those queries to arrive at a single query that returns the titles of Chadwick Boseman’s movies.</p>
+
+<p>From there, you’ll need to determine the ratings of those titles and sort those titles by rating, in descending order. Consider how you could combine a relevant table (likely <code class="language-plaintext highlighter-rouge">ratings</code>!) and order the results by a relevant column.</p>
+
+<p>Finally, read up on SQL’s <a href="https://www.sqlitetutorial.net/sqlite-limit/"><code class="language-plaintext highlighter-rouge">LIMIT</code></a> keyword, which will return the top \(n\) rows in a query.</p></details>
+
+<details><summary>List the titles of all movies in which both Bradley Cooper and Jennifer Lawrence starred</summary><p>Notice that this query, like the previous, requires you to use data from multiple tables. Recall that you can “nest” queries in SQL, which allows you to break a larger query into smaller ones. Perhaps you could write queries to…</p>
+
+<ol>
+  <li>Find the ID of Bradley Cooper</li>
+  <li>Find the ID of Jennifer Lawrence</li>
+  <li>Find the IDs of movies associated with Bradley Cooper’s ID</li>
+  <li>Find the IDs of movies associated with Jennifer Lawrence’s ID</li>
+  <li>Find movie titles from the movie IDs associated with <em>both</em> Bradley Cooper and Jennifer Lawrence</li>
+</ol>
+
+<p>Then, try nesting those queries to arrive at a single query that returns the movies in which both Bradley Cooper and Jennifer Lawrence starred.</p>
+
+<p>Recall that you can build compound conditions in SQL using <code class="language-plaintext highlighter-rouge">AND</code> or <code class="language-plaintext highlighter-rouge">OR</code>.</p></details>
+
+<details><summary>List the names of all people who starred in a movie in which Kevin Bacon also starred</summary><p>Notice that this query, like the previous, requires you to use data from multiple tables. Recall that you can “nest” queries in SQL, which allows you to break a larger query into smaller ones. Perhaps you could write queries to…</p>
+
+<ol>
+  <li>Find the ID of Kevin Bacon (the one born in 1958!)</li>
+  <li>Find the IDs of movies associated with Kevin Bacon’s ID</li>
+  <li>Find the IDs of people associated with those movie IDs</li>
+  <li>Find the names of people with those people IDs</li>
+</ol>
+
+<p>Then, try nesting those queries to arrive at a single query that returns the names of all people who starred in a movie in which Kevin Bacon also starred. <strong>Keep in mind that you’ll want to exclude Kevin Bacon himself from the results!</strong></p></details>
+
+<h2 id="walkthrough">Walkthrough</h2>
+
+<div class="ratio ratio-16x9" data-video=""><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" src="https://www.youtube.com/embed/v5_A3giDlQs?modestbranding=0&amp;rel=0&amp;showinfo=0"></iframe></div>
+
+<h2 id="usage">Usage</h2>
+
+<p>To test your queries in VS Code, you can query the database by running</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat filename.sql | sqlite3 movies.db
+</code></pre></div></div>
+
+<p>where <code class="language-plaintext highlighter-rouge">filename.sql</code> is the file containing your SQL query.</p>
+
+<p>You can also run</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat filename.sql | sqlite3 movies.db &gt; output.txt
+</code></pre></div></div>
+
+<p>to redirect the output of the query to a text file called <code class="language-plaintext highlighter-rouge">output.txt</code>. (This can be useful for checking how many rows are returned by your query!)</p>
+
+<h2 id="how-to-test">How to Test</h2>
+
+<p>While <code class="language-plaintext highlighter-rouge">check50</code> is available for this problem, you’re encouraged to instead test your code on your own for each of the following. You can run <code class="language-plaintext highlighter-rouge">sqlite3 movies.db</code> to run additional queries on the database to ensure that your result is correct.</p>
+
+<p>If you’re using the <code class="language-plaintext highlighter-rouge">movies.db</code> database provided in this problem set’s distribution, you should find that</p>
+<ul>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">1.sql</code> results in a table with 1 column and 10,647 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">2.sql</code> results in a table with 1 column and 1 row.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">3.sql</code> results in a table with 1 column and  154,665 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">4.sql</code> results in a table with 1 column and 1 row.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">5.sql</code> results in a table with 2 columns and 18 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">6.sql</code> results in a table with 1 column and 1 row.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">7.sql</code> results in a table with 2 columns and 7,386 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">8.sql</code> results in a table with 1 column and 10 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">9.sql</code> results in a table with 2 columns and 36,219 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">10.sql</code> results in a table with 1 column and 4,675 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">11.sql</code> results in a table with 1 column and 5 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">12.sql</code> results in a table with 1 column and 4 rows.</li>
+  <li data-marker="*">Executing <code class="language-plaintext highlighter-rouge">13.sql</code> results in a table with 1 column and 550 rows.</li>
+</ul>
+
+<p>Note that row counts do not include header rows that only show column names.</p>
+
+<p>If your query returns a number of rows that is slightly different from the expected output, be sure that you’re properly handling duplicates! For queries that ask for a list of names, no one person should be listed twice, but two different people who have the same name should each be listed.</p>
+
+<h3 id="correctness">Correctness</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>check50 cs50/problems/2026/x/movies
+</code></pre></div></div>
+
+<h2 id="how-to-submit">How to Submit</h2>
+
+<p>In your terminal, execute the below to submit your work, answering the prompts that come up as well.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>submit50 cs50/problems/2026/x/movies
+</code></pre></div></div>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Information courtesy of
+IMDb
+(<a href="https://www.imdb.com">imdb.com</a>).
+Used with permission.</p>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../../../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

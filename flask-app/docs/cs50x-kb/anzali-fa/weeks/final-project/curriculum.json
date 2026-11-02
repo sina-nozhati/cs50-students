@@ -1,0 +1,191 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w99-curriculum",
+  "week": 99,
+  "week_slug": "final-project",
+  "title_fa": "پروژهٔ نهایی",
+  "title_en": "Final Project",
+  "panel_week_number": 99,
+  "panel_site_number": 99,
+  "kb_parent_node": "final-project",
+  "hub_doc_id": "w99-fa",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-project-99",
+    "src-honesty-99",
+    "src-certificate-99",
+    "src-faqs-99",
+    "src-syllabus-99"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w99-o01",
+    "w99-o02",
+    "w99-o03",
+    "w99-o04",
+    "w99-o05",
+    "w99-o06"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب صفحهٔ رسمی پیروی می‌کند: چیستی و ایده‌ها، سپس شروع کار و صداقت تحصیلی، و در آخر سه گام تحویل. این بخش سخنرانی، پرابلم‌ست یا ویدئوی آموزشی ندارد (D87)؛ فهرست بررسی (`checklist.json`) خوداظهاری است (D89).",
+  "stages": [
+    {
+      "id": "w99-s1",
+      "lesson_ids": [
+        "w99-l01"
+      ]
+    },
+    {
+      "id": "w99-s2",
+      "lesson_ids": [
+        "w99-l02"
+      ]
+    },
+    {
+      "id": "w99-s3",
+      "lesson_ids": [
+        "w99-l03"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w99-l01",
+      "order": 1,
+      "file": "lessons/w99-l01.json",
+      "title_fa": "پروژهٔ نهایی چیست، ایده و ابزار",
+      "stage_id": "w99-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w99-l01-u01",
+        "w99-l01-u02",
+        "w99-l01-u03"
+      ],
+      "note_ids": [
+        "w99-n01",
+        "w99-n02"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w99-l02",
+      "order": 2,
+      "file": "lessons/w99-l02.json",
+      "title_fa": "دامنه، نقطه‌های عطف و صداقت تحصیلی",
+      "stage_id": "w99-s2",
+      "prerequisite_lesson_ids": [
+        "w99-l01"
+      ],
+      "unit_ids": [
+        "w99-l02-u01",
+        "w99-l02-u02",
+        "w99-l02-u03",
+        "w99-l02-u04"
+      ],
+      "note_ids": [
+        "w99-n03",
+        "w99-n04"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w99-l03",
+      "order": 3,
+      "file": "lessons/w99-l03.json",
+      "title_fa": "سه گام تحویل",
+      "stage_id": "w99-s3",
+      "prerequisite_lesson_ids": [
+        "w99-l02"
+      ],
+      "unit_ids": [
+        "w99-l03-u01",
+        "w99-l03-u02",
+        "w99-l03-u03",
+        "w99-l03-u04",
+        "w99-l03-u05",
+        "w99-l03-u06"
+      ],
+      "note_ids": [
+        "w99-n05",
+        "w99-n06",
+        "w99-n07"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w99-n01",
+      "file": "notes/01-what-is-it.fa.md",
+      "official_anchor": "final-project"
+    },
+    {
+      "id": "w99-n02",
+      "file": "notes/02-ideas-and-stack.fa.md",
+      "official_anchor": "ideas"
+    },
+    {
+      "id": "w99-n03",
+      "file": "notes/03-scope-and-milestones.fa.md",
+      "official_anchor": "getting-started"
+    },
+    {
+      "id": "w99-n04",
+      "file": "notes/04-honesty-and-ai.fa.md",
+      "official_anchor": "getting-started"
+    },
+    {
+      "id": "w99-n05",
+      "file": "notes/05-video.fa.md",
+      "official_anchor": "step-1-of-3"
+    },
+    {
+      "id": "w99-n06",
+      "file": "notes/06-readme.fa.md",
+      "official_anchor": "step-2-of-3"
+    },
+    {
+      "id": "w99-n07",
+      "file": "notes/07-submit-and-certificate.fa.md",
+      "official_anchor": "step-3-of-3"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "shorts": [],
+    "problem_guides": []
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w99-mt-final",
+    "checklist": "checklist.json",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [],
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). تسلط بر این راهنما با تحویل پروژه یکی نیست؛ تحویل را فقط کارنامهٔ رسمی CS50 تأیید می‌کند."
+  }
+}

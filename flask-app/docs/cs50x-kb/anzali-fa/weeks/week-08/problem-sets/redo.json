@@ -1,0 +1,221 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w08-pr-redo",
+  "kind": "practice",
+  "week": 8,
+  "title_en": "Radio Shack Redo",
+  "title_fa": "بازطراحی Radio Shack (Redo)",
+  "guide_doc_id": "w08-pr-redo",
+  "guide_file": "redo.fa.md",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/redo/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "choice_group": null,
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w08-pr-redo-r1",
+        "text_fa": "صفحهٔ اصلی RadioShack را با ابزارهای امروزی توسعهٔ وب بازطراحی کن (فقط صفحهٔ اصلی کافی است).",
+        "text_en": "Now you'll re-design RadioShack's website (just the homepage is fine!) using modern web development tools.",
+        "source_ref": "src-practice-redo#background"
+      },
+      {
+        "id": "w08-pr-redo-r2",
+        "text_fa": "جدول، `map` و لوگوی چرخان نه!",
+        "text_en": "No tables, html maps or spinning logos please!",
+        "source_ref": "src-practice-redo#background"
+      },
+      {
+        "id": "w08-pr-redo-r3",
+        "text_fa": "نسخهٔ خودت را در پوشهٔ `radiotoday/` بساز.",
+        "text_en": "you'll ultimately create your own iteration in radiotoday/.",
+        "source_ref": "src-practice-redo#implementation-details"
+      },
+      {
+        "id": "w08-pr-redo-r4",
+        "text_fa": "با امکان Navbar در Bootstrap شروع کن و گزینه‌های منو را به گزینه‌های مناسب صفحهٔ RadioShack تغییر بده.",
+        "text_en": "Start your redesign by trying out bootstrap's Navbar feature ... Change these to represent the appropriate menu items for your RadioShack homepage.",
+        "source_ref": "src-practice-redo#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/8/redo.zip\nunzip redo.zip\nrm redo.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [],
+    "official_commands": [
+      {
+        "caption_fa": "نقشهٔ تصویر (`map`) صفحهٔ ۱۹۹۶، فقط برای شناخت تاریخ؛ در بازطراحی به کار نبر",
+        "command": "<map name=\"rsmap\">\n<area shape=\"rect\" coords=\"8,246,122,297\" href=\"https://www.radioshack.com/rsstorelocator/rszip?1\">\n<area shape=\"rect\" coords=\"123,246,240,297\" href=\"https://www.radioshack.com/rsfuture.html\">\n<area shape=\"rect\" coords=\"241,246,358,297\" href=\"https://www.tandy.com/contacts/\">\n<area shape=\"rect\" coords=\"359,246,475,297\" href=\"https://www.tandy.com/press.html\">\n<area shape=\"rect\" coords=\"476,246,599,297\" href=\"https://www.radioshack.com/history/\">\n</map>",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نوار پیمایش سادهٔ Bootstrap که صفحهٔ رسمی پیشنهاد می‌کند در بالای `body` فایل `index.html` بگذاری",
+        "command": "<nav class=\"navbar navbar-expand-lg bg-light\">\n  <div class=\"container-fluid\">\n    <a class=\"navbar-brand\" href=\"#\">Navbar</a>\n    <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarNavAltMarkup\" aria-controls=\"navbarNavAltMarkup\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\n      <div class=\"navbar-nav\">\n        <a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Home</a>\n        <a class=\"nav-link\" href=\"#\">Features</a>\n        <a class=\"nav-link\" href=\"#\">Pricing</a>\n        <a class=\"nav-link disabled\">Disabled</a>\n      </div>\n    </div>\n  </div>\n</nav>",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d137",
+      "d138",
+      "d147"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w08-c-web-history",
+      "w08-c-http-server",
+      "w08-c-bootstrap",
+      "w08-c-bootstrap-navbar",
+      "w08-c-responsive",
+      "w08-c-markup-validation",
+      "w08-c-table"
+    ],
+    "prerequisite_lesson_ids": [
+      "w08-l03",
+      "w08-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w08-c-web-history",
+        "note_id": "w08-pr-redo",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-http-server",
+        "note_id": "w08-n07",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u01"
+      },
+      {
+        "concept_id": "w08-c-bootstrap",
+        "note_id": "w08-n12",
+        "lesson_id": "w08-l05",
+        "unit_id": "w08-l05-u03"
+      },
+      {
+        "concept_id": "w08-c-bootstrap-navbar",
+        "note_id": "w08-pr-redo",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-responsive",
+        "note_id": "w08-ps-homepage",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-markup-validation",
+        "note_id": "w08-ps-homepage",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w08-c-table",
+        "note_id": "w08-n08",
+        "lesson_id": "w08-l03",
+        "unit_id": "w08-l03-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول فایل‌های `radio1996/index.html` و `radio1997/index.html` را باز کن و ببین چیدمان چطور با جدول و تصویر ساخته شده است. همین تفاوت هدف مسئله است."
+      },
+      {
+        "n": 2,
+        "hint_fa": "نوار پیمایش رسمی را بگذار و فقط متن گزینه‌ها را عوض کن. اگر صفحهٔ دیگری نمی‌سازی، `href` می‌تواند `#` بماند."
+      },
+      {
+        "n": 3,
+        "hint_fa": "برای چیدمان چندستونی، صفحهٔ «columns» مستندات Bootstrap را ببین؛ به جای جدول، از کلاس‌های ردیف و ستون استفاده می‌شود."
+      },
+      {
+        "n": 4,
+        "hint_fa": "اندازهٔ پنجره را تغییر بده یا حالت موبایل ابزار توسعه‌دهنده را روشن کن و ببین تصویرها و ستون‌ها چطور رفتار می‌کنند."
+      }
+    ],
+    "common_mistakes_fa": [
+      "چیدن صفحه با `<table>` مثل ۱۹۹۷",
+      "فراموش کردن پیوند CSS و JS Bootstrap در `<head>`",
+      "باقی گذاشتن گزینه‌های نمونهٔ Features و Pricing",
+      "ساختن صفحه در پوشهٔ اشتباه"
+    ],
+    "self_checklist": [
+      {
+        "id": "w08-pr-redo-c01",
+        "text_fa": "صفحه‌ام در `radiotoday/index.html` است و با `http-server` باز می‌شود.",
+        "maps_to": "w08-pr-redo-r3"
+      },
+      {
+        "id": "w08-pr-redo-c02",
+        "text_fa": "هیچ `<table>`، `<map>` یا لوگوی چرخانی برای چیدمان به کار نرفته است.",
+        "maps_to": "w08-pr-redo-r2"
+      },
+      {
+        "id": "w08-pr-redo-c03",
+        "text_fa": "نوار پیمایش Bootstrap دارم و گزینه‌هایش مال RadioShack است، نه Features و Pricing.",
+        "maps_to": "w08-pr-redo-r4"
+      },
+      {
+        "id": "w08-pr-redo-c04",
+        "text_fa": "چیدمان با ستون‌های Bootstrap است و در حالت موبایل هم درست دیده می‌شود.",
+        "maps_to": "w08-pr-redo-r1"
+      },
+      {
+        "id": "w08-pr-redo-c05",
+        "text_fa": "HTML را در اعتبارسنج W3C آزموده‌ام.",
+        "maps_to": "advice"
+      },
+      {
+        "id": "w08-pr-redo-c06",
+        "text_fa": "به پرسش فکری پاسخ داده‌ام.",
+        "maps_to": "submission"
+      }
+    ],
+    "thought_question_fa": "به نظرت چرا این‌همه طراح به جای نوشتن CSS خودشان از Bootstrap استفاده می‌کنند؟",
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "نمونهٔ کد جدول ۱۹۹۷ در صفحهٔ رسمی",
+      "url": "https://cs50.harvard.edu/x/practice/redo/#background",
+      "reason_fa": "این بلوک ناقص است (با `...` بریده شده) و فقط نمونهٔ تاریخی است؛ بازتولید نشده است."
+    },
+    {
+      "title_fa": "طراحی‌های دیگر دههٔ ۹۰",
+      "url": "https://www.justinmind.com/blog/10-90s-websites-designs-you-wont-believe-existed/",
+      "reason_fa": "پیوند بیرونی صفحهٔ رسمی."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

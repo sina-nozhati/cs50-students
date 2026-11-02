@@ -1,0 +1,128 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w10-l03",
+  "type": "lesson",
+  "week": 10,
+  "order": 3,
+  "stage_id": "w10-s3",
+  "title_fa": "جمع‌بندی و مسابقهٔ مرور",
+  "title_en": "Summing up and the review quiz",
+  "note_ids": [
+    "w10-n04"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w10-l02"
+  ],
+  "concept_ids": [
+    "w10-c-summing-up",
+    "w10-c-review-quiz"
+  ],
+  "objective_ids": [
+    "w10-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/10 and the lecture transcript (marked «از سخنرانی»); examples are verbatim English quotations from notes/10 (D79). Week 10 has no code, so no item is run.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w10-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w10-l03-u01",
+      "order": 1,
+      "title_fa": "سه توصیهٔ پایانی و مرور کل درس",
+      "concept_ids": [
+        "w10-c-summing-up",
+        "w10-c-review-quiz"
+      ],
+      "objective_ids": [
+        "w10-o05"
+      ],
+      "note_id": "w10-n04",
+      "source_refs": [
+        "src-notes-10#thank-you",
+        "src-notes-10#summing-up",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "درس با سه توصیه تمام می‌شود: مهارت‌های برنامه‌نویسی را برای **حل مسئله‌های دنیا** به کار ببر، **یادگیری را ادامه بده**، و **قوی تمام کن و پروژهٔ نهایی را ارسال کن**. از سخنرانی: آخرین بخش جلسه یک مسابقهٔ مرور بود که پرسش‌هایش را خود دانشجویان نوشته بودند؛ از ۲۵۵ و مسئلهٔ ۲۰۳۸ تا اشاره‌گر، صف، `DISTINCT` ، کد 418 و DNS. فهرست کامل با پاسخ‌ها در یادداشت همین بخش آمده است.",
+        "note_id": "w10-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "summing-up",
+        "lang": "text",
+        "content": "Finish strong and submit your final project.",
+        "source_ref": "src-notes-10#summing-up",
+        "explain_fa": "یکی از سه توصیهٔ پایانی درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "از مسابقهٔ پایانی سخنرانی: کدام ساختمان‌داده «اول وارد، اول خارج» (FIFO) است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "صف (queue).",
+            "correct": true,
+            "feedback_fa": "درست؛ مثل صف رستوران. پشته برعکس، LIFO است."
+          },
+          {
+            "id": "b",
+            "text_fa": "پشته (stack).",
+            "correct": false,
+            "feedback_fa": "پشته «آخر وارد، اول خارج» (LIFO) است، مثل سینی‌های روی هم."
+          },
+          {
+            "id": "c",
+            "text_fa": "جدول درهم‌سازی (hash table).",
+            "correct": false,
+            "feedback_fa": "جدول درهم‌سازی ترتیب ورود و خروج ندارد؛ بر اساس کلید کار می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l03-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «در مسابقهٔ پایانی، بزرگ‌ترین عدد ۸ بیتی بدون علامت ۲۵۶ اعلام شد.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. پاسخ ۲۵۵ بود، چون شمارش از ۰ شروع می‌شود.",
+          "incorrect_fa": "۸ بیت ۲۵۶ حالت دارد، اما یکی از آن‌ها ۰ است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

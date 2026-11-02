@@ -1,0 +1,244 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l08",
+  "type": "lesson",
+  "week": 1,
+  "order": 8,
+  "stage_id": "w01-s3",
+  "title_fa": "نویسه‌ها و عملگرهای منطقی",
+  "title_en": "Chars and logical operators",
+  "note_ids": [
+    "w01-n14"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w01-l07"
+  ],
+  "concept_ids": [
+    "w01-c-char",
+    "w01-c-equality-vs-assignment",
+    "w01-c-logical-operators"
+  ],
+  "objective_ids": [
+    "w01-o06",
+    "w01-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l07"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l08-u01",
+      "order": 1,
+      "title_fa": "char و == در برابر =",
+      "concept_ids": [
+        "w01-c-char",
+        "w01-c-equality-vs-assignment"
+      ],
+      "objective_ids": [
+        "w01-o06"
+      ],
+      "note_id": "w01-n14",
+      "source_refs": [
+        "src-notes-1#agreec",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "در agree.c با `get_char` یک نویسه گرفته می‌شود. نویسه‌ها داخل نقل‌قول **تکی** می‌آیند (`'y'`) و رشته‌ها داخل نقل‌قول دوتایی. برای مقایسه `==` به کار می‌رود؛ `=` انتساب است.",
+        "note_id": "w01-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "agree0",
+        "lang": "c",
+        "content": "// Comparing against lowercase char\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user to agree\n    char c = get_char(\"Do you agree? \");\n\n    // Check whether agreed\n    if (c == 'y')\n    {\n        printf(\"Agreed.\\n\");\n    }\n    else if (c == 'n')\n    {\n        printf(\"Not agreed.\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#agreec",
+        "explain_fa": "agree.c رسمی، نسخهٔ نخست."
+      },
+      "check": {
+        "id": "w01-l08-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام شرط درست می‌پرسد «آیا c حرف y است؟»",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "c == 'y'",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "c = 'y'",
+            "correct": false,
+            "feedback_fa": "= مقدار را عوض می‌کند، مقایسه نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "c == \"y\"",
+            "correct": false,
+            "feedback_fa": "\"y\" رشته است؛ c یک char است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l08-u01-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "این قطعهٔ تألیفی یک اشکال دارد؛ آن را پیدا کن.\n\nchar c = get_char(\"Continue? \");\nif (c = 'n')\n{\n    printf(\"Stopped.\\n\");\n}",
+        "expected": {
+          "bug_line": 2,
+          "fix": "if (c == 'n')"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: = باید == باشد.",
+          "incorrect_fa": "به عملگر داخل شرط نگاه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l08-u02",
+      "order": 2,
+      "title_fa": "|| و &&",
+      "concept_ids": [
+        "w01-c-logical-operators"
+      ],
+      "objective_ids": [
+        "w01-o06",
+        "w01-o10"
+      ],
+      "note_id": "w01-n14",
+      "source_refs": [
+        "src-notes-1#agreec",
+        "src-short-operators",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "`||` یعنی «یا» و `&&` یعنی «و». در agree.c با `c == 'Y' || c == 'y'` هر دو حرف بزرگ و کوچک پذیرفته می‌شوند و شرط‌های تکراری حذف می‌شوند.",
+        "note_id": "w01-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "agree2",
+        "lang": "c",
+        "content": "// Logical operators\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user to agree\n    char c = get_char(\"Do you agree? \");\n\n    // Check whether agreed\n    if (c == 'Y' || c == 'y')\n    {\n        printf(\"Agreed.\\n\");\n    }\n    else\n    {\n        printf(\"Not agreed.\\n\");\n    }\n}",
+        "source_ref": "src-notes-1#agreec",
+        "explain_fa": "agree.c رسمی با ||."
+      },
+      "check": {
+        "id": "w01-l08-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "شرط `x > 0 && x < 10` برای x = 10 چه نتیجه‌ای دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "نادرست",
+            "correct": true,
+            "feedback_fa": "درست؛ ۱۰ کوچک‌تر از ۱۰ نیست و && هر دو را لازم دارد."
+          },
+          {
+            "id": "b",
+            "text_fa": "درست",
+            "correct": false,
+            "feedback_fa": "بخش دوم نادرست است."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطا",
+            "correct": false,
+            "feedback_fa": "این شرط معتبر است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l08-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی‌ها را در این شرط تألیفی پر کن تا هم 'N' و هم 'n' پذیرفته شوند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "if (c [[b1]] 'N' [[b2]] c == 'n')",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "=="
+            ],
+            "hint_fa": "مقایسه برای برابری",
+            "wrong_feedback": {
+              "=": "= انتساب است."
+            },
+            "default_wrong_fa": "عملگر برابری را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "||"
+            ],
+            "hint_fa": "هر کدام از دو حالت کافی است.",
+            "wrong_feedback": {
+              "&&": "&& یعنی هر دو هم‌زمان؛ c نمی‌تواند هم N باشد هم n.",
+              "|": "| عملگر بیتی است؛ «یا»ی منطقی || است."
+            },
+            "default_wrong_fa": "«یا»ی منطقی را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "=="
+          ],
+          "b2": [
+            "||"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "«یا» در C با دو خط عمودی نوشته می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

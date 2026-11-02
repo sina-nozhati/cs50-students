@@ -1,0 +1,479 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l03",
+  "type": "lesson",
+  "week": 7,
+  "order": 3,
+  "stage_id": "w07-s3",
+  "title_fa": "تغییر داده: INSERT، DELETE و UPDATE",
+  "title_en": "Changing data: INSERT, DELETE and UPDATE",
+  "note_ids": [
+    "w07-n04",
+    "w07-n05",
+    "w07-n06"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w07-l02"
+  ],
+  "concept_ids": [
+    "w07-c-insert",
+    "w07-c-null",
+    "w07-c-delete",
+    "w07-c-is-null",
+    "w07-c-update",
+    "w07-c-missing-where-danger",
+    "w07-c-backups-permissions"
+  ],
+  "objective_ids": [
+    "w07-o04"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w07-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l03-u01",
+      "order": 1,
+      "title_fa": "INSERT و NULL",
+      "concept_ids": [
+        "w07-c-insert",
+        "w07-c-null"
+      ],
+      "objective_ids": [
+        "w07-o04"
+      ],
+      "note_id": "w07-n04",
+      "source_refs": [
+        "src-notes-7#insert",
+        "src-anzali-authored-7",
+        "src-transcript-7"
+      ],
+      "reading": {
+        "text_fa": "`INSERT INTO table (column, ...) VALUES (value, ...)` یک سطر تازه اضافه می‌کند. ستون‌هایی که نام نبری مقدار `NULL` می‌گیرند، یعنی «مقداری وجود ندارد». در سخنرانی سطری بدون `Timestamp` درج شد و ستون زمان آن `NULL` ماند. تعداد ستون‌های نام‌برده و تعداد مقدارها باید برابر باشد، وگرنه SQLite خطا می‌دهد.",
+        "note_id": "w07-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n04"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "INSERT INTO favorites (language, problem) VALUES ('SQL', 'Hello, World');\nSELECT language, problem FROM favorites WHERE language = 'SQL';",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "درج سطر و خواندن دوباره‌اش (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "SQL|Hello, World\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بعد از `INSERT INTO favorites (language, problem) VALUES ('SQL', 'Hello, World');` ستون `Timestamp` این سطر چه دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`NULL`",
+            "correct": true,
+            "feedback_fa": "درست. ستونی که در `INSERT` نیامده مقداری نمی‌گیرد."
+          },
+          {
+            "id": "b",
+            "text_fa": "رشتهٔ خالی `''`",
+            "correct": false,
+            "feedback_fa": "رشتهٔ خالی یک مقدار است؛ اینجا اصلاً مقداری داده نشده، پس `NULL` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "زمان فعلی",
+            "correct": false,
+            "feedback_fa": "SQLite بدون قید `DEFAULT` زمان را خودکار نمی‌گذارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l03-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "پایگاه دادهٔ `favorites` در آغاز ۱۲ سطر دارد: یکی بدون `Timestamp` و سه تا با مسئلهٔ `Hello, World`. خروجی این برنامه دقیقاً چیست؟",
+        "expected": {
+          "output": "2\n4"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: سطر تازه هم `Timestamp` ندارد و هم یک `Hello, World` دیگر است.",
+          "incorrect_fa": "سطر درج‌شده را در هر دو شمارش در نظر بگیر."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "INSERT INTO favorites (language, problem) VALUES ('SQL', 'Hello, World');\nSELECT COUNT(*) FROM favorites WHERE \"Timestamp\" IS NULL;\nSELECT COUNT(*) FROM favorites WHERE problem = 'Hello, World';",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "2\n4\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        },
+        "fixture": "favorites"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l03-u02",
+      "order": 2,
+      "title_fa": "DELETE و IS NULL",
+      "concept_ids": [
+        "w07-c-delete",
+        "w07-c-is-null"
+      ],
+      "objective_ids": [
+        "w07-o04"
+      ],
+      "note_id": "w07-n05",
+      "source_refs": [
+        "src-notes-7#delete",
+        "src-anzali-authored-7",
+        "src-transcript-7"
+      ],
+      "reading": {
+        "text_fa": "`DELETE FROM table WHERE condition` سطرهای مطابق شرط را پاک می‌کند. در سخنرانی سطرهایی که `Timestamp` نداشتند با `WHERE Timestamp IS NULL` پاک شدند. نکتهٔ مهم: `NULL` با هیچ چیز، حتی خودش، برابر نیست، پس `= NULL` هیچ سطری را پیدا نمی‌کند و باید `IS NULL` یا `IS NOT NULL` بنویسی.",
+        "note_id": "w07-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n05"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "SELECT COUNT(*) FROM favorites WHERE \"Timestamp\" IS NULL;",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "پیش از DELETE همان شرط را با SELECT بیازما (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "1\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا `DELETE FROM favorites WHERE \"Timestamp\" = NULL;` هیچ سطری را پاک نمی‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون مقایسه با `NULL` با `=` هرگز درست نیست؛ باید `IS NULL` نوشت.",
+            "correct": true,
+            "feedback_fa": "درست. نتیجهٔ `= NULL` نامعلوم است و سطر انتخاب نمی‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `DELETE` به `LIMIT` نیاز دارد.",
+            "correct": false,
+            "feedback_fa": "`DELETE` بدون `LIMIT` هم کار می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون نام ستون در نقل‌قول دوتایی است.",
+            "correct": false,
+            "feedback_fa": "نقل‌قول دوتایی برای نام ستون درست است؛ مشکل از `= NULL` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l03-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا فقط سطرهای بدون `Timestamp` پاک شوند. `favorites` ۱۲ سطر دارد و یکی از آن‌ها `Timestamp` ندارد، پس باید `11` چاپ شود.",
+        "lang": "sql",
+        "code_origin": "authored",
+        "template": "DELETE FROM favorites WHERE \"Timestamp\" [[b1]];\nSELECT COUNT(*) FROM favorites;",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "IS NULL",
+              "is null"
+            ],
+            "hint_fa": "برای پیدا کردن نبودِ مقدار، `=` کار نمی‌کند.",
+            "wrong_feedback": {
+              "= NULL": "`= NULL` هیچ سطری را انتخاب نمی‌کند و همان `12` چاپ می‌شود.",
+              "== NULL": "`==` در SQLite همان `=` است؛ هیچ سطری پاک نمی‌شود و `12` چاپ می‌شود.",
+              "IS NOT NULL": "این برعکس است: ۱۱ سطرِ دارای زمان پاک می‌شوند و `1` چاپ می‌شود."
+            },
+            "default_wrong_fa": "از `IS NULL` استفاده کن."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "IS NULL",
+            "is null"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `IS NULL` تنها راه درست پیدا کردن `NULL` است.",
+          "incorrect_fa": "مقایسه با `NULL` شکل خاصی دارد."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "11\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l03-u03",
+      "order": 3,
+      "title_fa": "UPDATE",
+      "concept_ids": [
+        "w07-c-update",
+        "w07-c-missing-where-danger"
+      ],
+      "objective_ids": [
+        "w07-o04"
+      ],
+      "note_id": "w07-n06",
+      "source_refs": [
+        "src-notes-7#update",
+        "src-anzali-authored-7",
+        "src-transcript-7"
+      ],
+      "reading": {
+        "text_fa": "`UPDATE table SET column = value WHERE condition` مقدار ستون را در سطرهای مطابق عوض می‌کند. در سخنرانی همهٔ پاسخ‌های `Hello, World` با یک `UPDATE` به زبان SQL تغییر کرد. اگر `WHERE` را جا بیندازی، همهٔ سطرهای جدول عوض می‌شوند؛ `DELETE` بدون `WHERE` هم همهٔ سطرها را پاک می‌کند.",
+        "note_id": "w07-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n06"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "UPDATE favorites SET language = 'SQL' WHERE problem = 'Mario';\nSELECT language, problem FROM favorites WHERE problem = 'Mario';",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "تغییر زبان پاسخ‌های Mario روی پایگاه دادهٔ تمرینی (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "SQL|Mario\nSQL|Mario\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`UPDATE favorites SET language = 'SQL';` بدون `WHERE` چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "زبان همهٔ سطرهای جدول را `SQL` می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. بدون `WHERE` هیچ سطری کنار گذاشته نمی‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "فقط سطر اول را عوض می‌کند.",
+            "correct": false,
+            "feedback_fa": "`UPDATE` به سطر اول محدود نیست؛ همهٔ سطرهای مطابق عوض می‌شوند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطا می‌دهد چون `WHERE` اجباری است.",
+            "correct": false,
+            "feedback_fa": "`WHERE` اختیاری است؛ برای همین جا انداختنش خطرناک است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l03-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامه روی `favorites` (چهار `C`، شش `Python` و دو `Scratch`) دقیقاً چیست؟",
+        "expected": {
+          "output": "C++|4\nPython|6\nScratch|2"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: هر چهار `C` به `C++` تبدیل شدند و نتیجه الفبایی مرتب است.",
+          "incorrect_fa": "اول اثر `UPDATE` را حساب کن، بعد گروه‌ها را الفبایی بنویس."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "UPDATE favorites SET language = 'C++' WHERE language = 'C';\nSELECT language, COUNT(*) FROM favorites GROUP BY language ORDER BY language;",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "C++|4\nPython|6\nScratch|2\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        },
+        "fixture": "favorites"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l03-u04",
+      "order": 4,
+      "title_fa": "پیش از تغییر: مجوز و نسخهٔ پشتیبان",
+      "concept_ids": [
+        "w07-c-backups-permissions",
+        "w07-c-missing-where-danger"
+      ],
+      "objective_ids": [
+        "w07-o04"
+      ],
+      "note_id": "w07-n06",
+      "source_refs": [
+        "src-notes-7#update",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه یادآوری می‌کند که دستورهای `UPDATE` و `DELETE` برگشت ندارند، پس در عمل به همه اجازهٔ اجرای آن‌ها داده نمی‌شود و پیش از تغییرهای بزرگ از داده نسخهٔ پشتیبان گرفته می‌شود. عادت خوب این است که همان شرط `WHERE` را اول با `SELECT` اجرا کنی و ببینی کدام سطرها انتخاب می‌شوند. `DELETE FROM favorites;` همهٔ سطرها را پاک می‌کند ولی خود جدول و طرح‌واره‌اش می‌ماند.",
+        "note_id": "w07-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n06"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "SELECT * FROM favorites WHERE problem = 'Scratch';\nDELETE FROM favorites WHERE problem = 'Scratch';",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "تألیفی: اول همان شرط را با SELECT ببین، بعد پاک کن (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "10/20/2025 13:01:09|Scratch|Scratch\n10/20/2025 13:02:15|Scratch|Scratch\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l03-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "پیش از اجرای یک `DELETE` با شرط پیچیده، کدام کار عاقلانه‌تر است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "همان شرط را با `SELECT` اجرا کنی و سطرهای انتخاب‌شده را ببینی.",
+            "correct": true,
+            "feedback_fa": "درست. این کار نشان می‌دهد دقیقاً چه چیزی پاک خواهد شد."
+          },
+          {
+            "id": "b",
+            "text_fa": "`WHERE` را حذف کنی تا دستور ساده‌تر شود.",
+            "correct": false,
+            "feedback_fa": "بدون `WHERE` همهٔ سطرها پاک می‌شوند."
+          },
+          {
+            "id": "c",
+            "text_fa": "دستور را دو بار اجرا کنی تا مطمئن شوی.",
+            "correct": false,
+            "feedback_fa": "اجرای دوباره چیزی را بررسی نمی‌کند و فقط دوباره پاک می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l03-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامه روی `favorites` دقیقاً چیست؟ (توجه: اگر جدول حذف شده بود، `SELECT` خطا می‌داد.)",
+        "expected": {
+          "output": "0"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: سطرها پاک شدند ولی جدول هنوز هست و `COUNT(*)` صفر می‌دهد.",
+          "incorrect_fa": "`DELETE` سطرها را پاک می‌کند، نه خود جدول را."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "DELETE FROM favorites;\nSELECT COUNT(*) FROM favorites;",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "0\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        },
+        "fixture": "favorites"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

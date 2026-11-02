@@ -1,0 +1,184 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-pr-snackbar",
+  "kind": "practice",
+  "week": 3,
+  "title_en": "Snackbar",
+  "title_fa": "اسنک‌بار (Snackbar)",
+  "guide_doc_id": "w03-pr-snackbar",
+  "guide_file": "snackbar.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/snackbar/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w03-pr-snackbar-r1",
+        "text_fa": "`add_items` دست‌کم چهار قلم اول منو را به آرایهٔ `menu` اضافه کند.",
+        "text_en": "`add_items`, which adds at least the first four menu items",
+        "source_ref": "src-practice-snackbar#implementation-details"
+      },
+      {
+        "id": "w03-pr-snackbar-r2",
+        "text_fa": "`get_cost` با جست‌وجوی خطی قیمت هر قلم را برگرداند.",
+        "text_en": "`get_cost` to return the cost of each item.",
+        "source_ref": "src-practice-snackbar#implementation-details"
+      },
+      {
+        "id": "w03-pr-snackbar-r3",
+        "text_fa": "جست‌وجو به بزرگی و کوچکی حرف حساس نباشد.",
+        "text_en": "When you are creating a linear search algorithm in `get_cost`, do make sure that it is case insentive.",
+        "source_ref": "src-practice-snackbar#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": "style50 snackbar.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/3/snackbar.zip\nunzip snackbar.zip\nrm snackbar.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی ۱",
+        "text": "snackbar/ $ ./snackbar\n\nWelcome to Beach Burger Shack!\nChoose from the following menu to order. Press enter when done.\n\nBurger: $9.50\nVegan Burger: $11.00\nHot Dog: $5.00\nCheese Dog: $7.00\nFries: $5.00\nCheese Fries: $6.00\nCold Pressed Juice: $7.00\nCold Brew: $3.00\nWater: $2.00\nSoda: $2.00\n\nEnter a food item: burger\nEnter a food item: fries\nEnter a food item: soda\nEnter a food item: \n\nYour total cost is: $16.50",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی ۲",
+        "text": "snackbar/ $ ./snackbar\n\nWelcome to Beach Burger Shack!\nChoose from the following menu to order. Press enter when done.\n\nBurger: $9.50\nVegan Burger: $11.00\nHot Dog: $5.00\nCheese Dog: $7.00\nFries: $5.00\nCheese Fries: $6.00\nCold Pressed Juice: $7.00\nCold Brew: $3.00\nWater: $2.00\nSoda: $2.00\n\nEnter a food item: cold brew\nEnter a food item: hot dog\nEnter a food item: \n\nYour total cost is: $8.00",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": "style50 snackbar.c",
+      "has_check50": false,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "sNDasPt6uPRp8mWF12ZePqNn1",
+    "media_ids": [
+      "w03-m-snackbar-beach"
+    ],
+    "discrepancy_ids": [
+      "d40",
+      "d45"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-struct",
+      "w03-c-array-of-structs",
+      "w03-c-linear-search",
+      "w03-c-search-strings",
+      "w03-c-strcmp-return",
+      "w03-c-encapsulation"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l03",
+      "w03-l04"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-struct",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-array-of-structs",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-linear-search",
+        "note_id": "w03-n02",
+        "lesson_id": "w03-l01",
+        "unit_id": "w03-l01-u02"
+      },
+      {
+        "concept_id": "w03-c-search-strings",
+        "note_id": "w03-n07",
+        "lesson_id": "w03-l03",
+        "unit_id": "w03-l03-u02"
+      },
+      {
+        "concept_id": "w03-c-strcmp-return",
+        "note_id": "w03-n07",
+        "lesson_id": "w03-l03",
+        "unit_id": "w03-l03-u02"
+      },
+      {
+        "concept_id": "w03-c-encapsulation",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "این همان الگوی phonebook سخنرانی است: آرایه‌ای از struct که در آن با نام می‌گردی. یادداشت ۹ را مرور کن."
+      },
+      {
+        "n": 2,
+        "hint_fa": "صفحهٔ رسمی می‌گوید تابعی در `strings.h` به کار می‌آید. در manual.cs50.io ببین کدام تابع رشته‌ها را بدون توجه به بزرگی و کوچکی حرف مقایسه می‌کند."
+      },
+      {
+        "n": 3,
+        "hint_fa": "اگر قلمی پیدا نشد، `get_cost` چه باید برگرداند؟ کد آغازین را بخوان."
+      }
+    ],
+    "common_mistakes_fa": [
+      "مقایسهٔ رشته‌ها با `==`",
+      "حساس بودن جست‌وجو به بزرگی و کوچکی حرف",
+      "پیمایش بیشتر از تعداد قلم‌های اضافه‌شده"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-pr-snackbar-c01",
+        "text_fa": "دست‌کم چهار قلم اول منو اضافه شده‌اند.",
+        "maps_to": "w03-pr-snackbar-r1"
+      },
+      {
+        "id": "w03-pr-snackbar-c02",
+        "text_fa": "قیمت‌ها با جست‌وجوی خطی پیدا می‌شوند.",
+        "maps_to": "w03-pr-snackbar-r2"
+      },
+      {
+        "id": "w03-pr-snackbar-c03",
+        "text_fa": "`burger` و `Burger` هر دو کار می‌کنند.",
+        "maps_to": "w03-pr-snackbar-r3"
+      },
+      {
+        "id": "w03-pr-snackbar-c04",
+        "text_fa": "هر دو نمونهٔ رسمی جمع درست می‌دهند.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w03-pr-snackbar-c05",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "Why is an array of `struct`s a better solution here than multiple arrays?",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

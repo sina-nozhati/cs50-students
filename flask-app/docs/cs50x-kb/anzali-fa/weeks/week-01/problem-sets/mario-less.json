@@ -1,0 +1,237 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-ps-mario-less",
+  "kind": "pset",
+  "week": 1,
+  "title_en": "Mario (Feeling Less Comfortable)",
+  "title_fa": "ماریو (نسخهٔ آسان‌تر)",
+  "guide_doc_id": "w01-ps-mario-less",
+  "guide_file": "mario-less.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/psets/1/mario/less/",
+    "index_url": "https://cs50.harvard.edu/x/psets/1/",
+    "submission": "one-of-mario",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w01-ps-mario-less-r1",
+        "text_fa": "فایل `mario.c` در پوشهٔ `mario-less`",
+        "text_en": "In a file called `mario.c` in a folder called `mario-less`",
+        "source_ref": "src-pset-1-mario-less#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-mario-less-r2",
+        "text_fa": "هرم راست‌چین از `#`",
+        "text_en": "recreates that pyramid, using hashes (`#`) for bricks",
+        "source_ref": "src-pset-1-mario-less#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-mario-less-r3",
+        "text_fa": "ارتفاع را با `int` از کاربر بگیرد.",
+        "text_en": "prompt the user for an `int` for the pyramid's actual height",
+        "source_ref": "src-pset-1-mario-less#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-mario-less-r4",
+        "text_fa": "اگر ورودی بزرگ‌تر از ۰ نبود یا int نبود، دوباره بپرسد.",
+        "text_en": "Re-prompt the user, again and again as needed, if their input is not greater than 0 or not an `int` altogether.",
+        "source_ref": "src-pset-1-mario-less#problem-to-solve"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/mario/less",
+      "style50": "style50 mario.c",
+      "submit50": "submit50 cs50/problems/2026/x/mario/less",
+      "wget": null
+    },
+    "sample_io": [
+      {
+        "caption_fa": "هرم رسمی با ارتفاع ۸",
+        "text": "       #\n      ##\n     ###\n    ####\n   #####\n  ######\n #######\n########",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "هرم رسمی با ارتفاع ۳",
+        "text": "  #\n ##\n###",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/mario/less",
+      "style50": "style50 mario.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "cWOkHQXw0JQ",
+        "caption_fa": "ویدئوی معرفی"
+      },
+      {
+        "youtube_id": "NAs4FIWkJ4s",
+        "caption_fa": "راهنمای گام‌به‌گام"
+      }
+    ],
+    "asciinema": "WPrv7PFVLaLkJ2BU96uTEQKuA",
+    "media_ids": [
+      "w01-m-pyramid"
+    ],
+    "discrepancy_ids": [
+      "d11"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-get-int",
+      "w01-c-do-while",
+      "w01-c-input-validation",
+      "w01-c-nested-loops",
+      "w01-c-for-loop",
+      "w01-c-helper-function",
+      "w01-c-escape-sequence"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l09",
+      "w01-l11"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-get-int",
+        "note_id": "w01-n13",
+        "lesson_id": "w01-l07",
+        "unit_id": "w01-l07-u03"
+      },
+      {
+        "concept_id": "w01-c-do-while",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u04"
+      },
+      {
+        "concept_id": "w01-c-input-validation",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u04"
+      },
+      {
+        "concept_id": "w01-c-nested-loops",
+        "note_id": "w01-n18",
+        "lesson_id": "w01-l11",
+        "unit_id": "w01-l11-u02"
+      },
+      {
+        "concept_id": "w01-c-for-loop",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u02"
+      },
+      {
+        "concept_id": "w01-c-helper-function",
+        "note_id": "w01-n18",
+        "lesson_id": "w01-l11",
+        "unit_id": "w01-l11-u04"
+      },
+      {
+        "concept_id": "w01-c-escape-sequence",
+        "note_id": "w01-n05",
+        "lesson_id": "w01-l02",
+        "unit_id": "w01-l02-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "مسئله در واقع دو زیرمسئله است: گرفتن ارتفاع و چاپ هرم. اول برای هر کدام توضیح (شبه‌کد) بنویس."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای «بپرس تا معتبر شود» کدام حلقه دست‌کم یک بار اجرا می‌شود؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "هرم را روی کاغذ برای ارتفاع ۳ بکش و در هر ردیف دو چیز را بشمار: چند نویسه پیش از اولین `#` و چند `#`."
+      },
+      {
+        "n": 4,
+        "hint_fa": "رابطهٔ این دو عدد با شمارهٔ ردیف و ارتفاع را پیدا کن. اول یک هرم چپ‌چین بساز، بعد راست‌چینش کن."
+      }
+    ],
+    "common_mistakes_fa": [
+      "چاپ فاصله‌های اضافه در انتهای ردیف",
+      "هرم چپ‌چین به‌جای راست‌چین",
+      "استفاده از if به‌جای حلقه برای ورودی نامعتبر",
+      "یک ردیف کم یا زیاد به‌خاطر شمارش از ۰ یا ۱"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-ps-mario-less-c01",
+        "text_fa": "برای ورودی -1 و 0 دوباره پرسیده می‌شود.",
+        "maps_to": "w01-ps-mario-less-r4"
+      },
+      {
+        "id": "w01-ps-mario-less-c02",
+        "text_fa": "برای ورودی غیرعددی (مثل حروف) و ورودی خالی دوباره پرسیده می‌شود.",
+        "maps_to": "w01-ps-mario-less-r4"
+      },
+      {
+        "id": "w01-ps-mario-less-c03",
+        "text_fa": "برای 1 تا 8 هرم درست چاپ می‌شود.",
+        "maps_to": "w01-ps-mario-less-r2"
+      },
+      {
+        "id": "w01-ps-mario-less-c04",
+        "text_fa": "هرم راست‌چین است: لبهٔ راست ردیف‌ها زیر هم است.",
+        "maps_to": "w01-ps-mario-less-r2"
+      },
+      {
+        "id": "w01-ps-mario-less-c05",
+        "text_fa": "هیچ فاصلهٔ اضافه‌ای بعد از آخرین `#` هر ردیف نیست.",
+        "maps_to": "w01-ps-mario-less-r2"
+      },
+      {
+        "id": "w01-ps-mario-less-c06",
+        "text_fa": "هر ردیف با `\\n` تمام می‌شود.",
+        "maps_to": "w01-ps-mario-less-r2"
+      },
+      {
+        "id": "w01-ps-mario-less-c07",
+        "text_fa": "check50 و style50 را اجرا کرده‌ام.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w01-ps-mario-less-c08",
+        "text_fa": "با submit50 تحویل داده‌ام (یا نسخهٔ more را).",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "بخش «Advice» صفحهٔ رسمی (گام‌های کد تا تابع print_row)",
+      "url": "https://cs50.harvard.edu/x/psets/1/mario/less/#advice",
+      "reason_fa": "این بخش تقریباً کل راه‌حل را مرحله‌به‌مرحله نشان می‌دهد؛ طبق سیاست «بدون راه‌حل» در این بسته بازتولید نشده است. اگر پس از تلاش جدی گیر کردی، از آنجا کمک بگیر."
+    },
+    {
+      "title_fa": "ویدئوی walkthrough",
+      "url": "https://www.youtube.com/watch?v=NAs4FIWkJ4s",
+      "reason_fa": "توضیح مسئله؛ دربارهٔ بازهٔ ۱ تا ۸ تفاوتی با متن دارد (پایین را ببین)."
+    },
+    {
+      "title_fa": "کد mario.c جلسهٔ حل تمرین",
+      "url": "https://cdn.cs50.net/2025/fall/sections/1/src1/",
+      "reason_fa": "هرم چپ‌چین کامل؛ بسیار نزدیک به راه‌حل."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

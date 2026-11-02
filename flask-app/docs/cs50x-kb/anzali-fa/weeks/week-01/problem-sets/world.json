@@ -1,0 +1,172 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-ps-world",
+  "kind": "pset",
+  "week": 1,
+  "title_en": "Hello, World",
+  "title_fa": "سلام، دنیا",
+  "guide_doc_id": "w01-ps-world",
+  "guide_file": "world.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/psets/1/world/",
+    "index_url": "https://cs50.harvard.edu/x/psets/1/",
+    "submission": "do-not-submit",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w01-ps-world-r1",
+        "text_fa": "فایل `hello.c` در پوشهٔ `world`",
+        "text_en": "In a file called `hello.c`, in a folder called `world`",
+        "source_ref": "src-pset-1-world#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-world-r2",
+        "text_fa": "برنامه دقیقاً `hello, world\\n` چاپ کند.",
+        "text_en": "implement a program in C that prints `hello, world\\n`, and that's it!",
+        "source_ref": "src-pset-1-world#problem-to-solve"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/world",
+      "style50": "style50 hello.c",
+      "submit50": null,
+      "wget": null
+    },
+    "sample_io": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/world",
+      "style50": "style50 hello.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "ufB53UE2Cvo",
+        "caption_fa": "ویدئوی معرفی مسئله"
+      }
+    ],
+    "asciinema": "C5rag3703OZpKxGJ6dSwHnUEF",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-code-make-run",
+      "w01-c-printf",
+      "w01-c-escape-sequence",
+      "w01-c-header-file",
+      "w01-c-main",
+      "w01-c-linux-commands"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l01",
+      "w01-l02"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-code-make-run",
+        "note_id": "w01-n04",
+        "lesson_id": "w01-l01",
+        "unit_id": "w01-l01-u04"
+      },
+      {
+        "concept_id": "w01-c-printf",
+        "note_id": "w01-n05",
+        "lesson_id": "w01-l02",
+        "unit_id": "w01-l02-u01"
+      },
+      {
+        "concept_id": "w01-c-escape-sequence",
+        "note_id": "w01-n05",
+        "lesson_id": "w01-l02",
+        "unit_id": "w01-l02-u02"
+      },
+      {
+        "concept_id": "w01-c-header-file",
+        "note_id": "w01-n06",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u01"
+      },
+      {
+        "concept_id": "w01-c-main",
+        "note_id": "w01-n04",
+        "lesson_id": "w01-l01",
+        "unit_id": "w01-l01-u04"
+      },
+      {
+        "concept_id": "w01-c-linux-commands",
+        "note_id": "w01-n08",
+        "lesson_id": "w01-l04",
+        "unit_id": "w01-l04-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اگر make خطا داد، اولین خطا را بخوان و در help50 یا CS50 Duck بپرس."
+      },
+      {
+        "n": 2,
+        "hint_fa": "اگر اعلان ترمینال کنار خروجی آمد، به یادداشت دنبالهٔ گریز برگرد."
+      }
+    ],
+    "common_mistakes_fa": [
+      "اجرای make در پوشهٔ اشتباه",
+      "نوشتن `make hello.c` به‌جای `make hello`",
+      "فراموش‌کردن `\\n`",
+      "فراموش‌کردن `;`",
+      "بزرگ نوشتن H در hello"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-ps-world-c01",
+        "text_fa": "پوشهٔ `world` و فایل `hello.c` را ساخته‌ام.",
+        "maps_to": "w01-ps-world-r1"
+      },
+      {
+        "id": "w01-ps-world-c02",
+        "text_fa": "کد را خودم تایپ کرده‌ام، نه کپی.",
+        "maps_to": "advice"
+      },
+      {
+        "id": "w01-ps-world-c03",
+        "text_fa": "`make hello` بدون خطا اجرا شد.",
+        "maps_to": "w01-ps-world-r2"
+      },
+      {
+        "id": "w01-ps-world-c04",
+        "text_fa": "`./hello` دقیقاً hello, world را در یک خط چاپ می‌کند و اعلان در خط بعد می‌آید.",
+        "maps_to": "w01-ps-world-r2"
+      },
+      {
+        "id": "w01-ps-world-c05",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w01-ps-world-c06",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "کد کامل در «Hint» صفحهٔ رسمی",
+      "url": "https://cs50.harvard.edu/x/psets/1/world/#problem-to-solve",
+      "reason_fa": "صفحهٔ رسمی خودش کد را می‌دهد و می‌گوید تایپش کن. این راهنما آن را تکرار نمی‌کند؛ کد همان hello.c درس‌نامه است: [یادداشت سلام دنیا](/kb/d/w01-n04)."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

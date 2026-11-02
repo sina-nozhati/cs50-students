@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="CS50 Library for Python" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://cs50.readthedocs.io/libraries/cs50/python/" />
+  
+<meta property="og:description" content="Installation: Usage: FAQs: How can I use% with LIKE?: If s is a str, you can prepend and/or append% to it as follows: How can I add optional clauses to a query?: Based on user input, you might want..." />
+  
+<meta property="og:image" content="https://cs50.readthedocs.io/_images/2ep2od.jpg" />
+  
+<meta property="og:image:alt" content="ALL THE DOCS" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS50 Library for Python &mdash; CS50 Docs</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="/_static/custom.css?1790806731" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="/_static/custom.js?1790806731"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Style Guide for C" href="../../../style/c/" />
+    <link rel="prev" title="CS50 Library for C" href="../c/" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cs50" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/libraries/cs50/python/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../" class="icon icon-home"> CS50 Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/dining/">Dining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/map/">Map</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Command-Line Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cli50/"><code class="docutils literal notranslate"><span class="pre">cli50</span></code></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help50/"><code class="docutils literal notranslate"><span class="pre">help50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render50/"><code class="docutils literal notranslate"><span class="pre">render50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../style50/"><code class="docutils literal notranslate"><span class="pre">style50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../submit50/"><code class="docutils literal notranslate"><span class="pre">submit50</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docker Images</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50/check/"><code class="docutils literal notranslate"><span class="pre">cs50/check</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50/cli/"><code class="docutils literal notranslate"><span class="pre">cs50/cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50/server/"><code class="docutils literal notranslate"><span class="pre">cs50/server</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../">cs50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/lib50/">lib50</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Style Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../style/c/">C</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://peps.python.org/pep-0008/">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../themes/jekyll/">Jekyll</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Third-Party Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../github/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../heroku/">Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../python/"><code class="docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../terminal/">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zoom/">Zoom</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Web Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50.ai/">CS50.ai</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../certificates.cs50.io/">CS50 Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../forms.cs50.io/">CS50 Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../id.cs50.io/">CS50 ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../manual.cs50.io/">CS50 Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render.cs50.io/">CS50 Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../time.cs50.io/">CS50 Time Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../vault.cs50.io/">CS50 Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../video.cs50.io/">CS50 Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50.codes/">CS50’s QR Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cs50.dev/">Visual Studio Code for CS50</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">CS50 Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../">CS50 Library</a> &raquo;</li>
+      <li>CS50 Library for Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/libraries/cs50/python.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cs50-library-for-python">
+<h1>CS50 Library for Python<a class="headerlink" href="#cs50-library-for-python" title="Permalink to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>cs50
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use these functions, be sure to include <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">cs50</span></code> atop your file.</p>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="cs50.get_float">
+<span class="sig-prename descclassname"><span class="pre">cs50.</span></span><span class="sig-name descname"><span class="pre">get_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cs50.get_float" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prompt</strong> – the <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> with which to prompt the user for input</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> equivalent to the line read from stdin as precisely as possible, or <cite>None</cite> on error</p>
+</dd>
+</dl>
+<p>Prompts user for a line of text from standard input and returns the equivalent <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>;
+if text does not represent a floating-point value or would cause overflow or underflow, user is reprompted.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">get_float</span><span class="p">(</span><span class="s2">"Input a floating-point number: "</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cs50.get_int">
+<span class="sig-prename descclassname"><span class="pre">cs50.</span></span><span class="sig-name descname"><span class="pre">get_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cs50.get_int" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prompt</strong> – the <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> with which to prompt the user for input</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> equivalent to the line read from stdin, or <cite>None</cite> on error</p>
+</dd>
+</dl>
+<p>Prompts user for a line of text from standard input and returns the equivalent <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>;
+if text does not represent an integer, user is reprompted.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">get_int</span><span class="p">(</span><span class="s2">"Input an integer: "</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cs50.get_string">
+<span class="sig-prename descclassname"><span class="pre">cs50.</span></span><span class="sig-name descname"><span class="pre">get_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cs50.get_string" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prompt</strong> – the <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> with which to prompt the user for input</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the read line as a string sans line endings, or <cite>None</cite> on EOF.</p>
+</dd>
+</dl>
+<p>Prompts user for a line of text from standard input and returns it as a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>,
+sans trailing line ending. Supports CR (<code class="docutils literal notranslate"><span class="pre">\r</span></code>), LF (<code class="docutils literal notranslate"><span class="pre">\n</span></code>), and CRLF (<code class="docutils literal notranslate"><span class="pre">\r\n</span></code>) as line
+endings.</p>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">get_string</span><span class="p">(</span><span class="s2">"Input a string: "</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cs50.SQL">
+<span class="sig-prename descclassname"><span class="pre">cs50.</span></span><span class="sig-name descname"><span class="pre">SQL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cs50.SQL" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> – a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> that indicates database dialect and connection arguments</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a <a class="reference internal" href="#cs50.SQL" title="cs50.SQL"><code class="xref py py-class docutils literal notranslate"><span class="pre">cs50.SQL</span></code></a> object that represents a connection to a database</p>
+</dd>
+</dl>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">cs50</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">"sqlite:///file.db"</span><span class="p">)</span>  <span class="c1"># For SQLite, file.db must exist</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">cs50</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">"mysql://username:password@host:port/database"</span><span class="p">)</span>  <span class="c1"># For MySQL</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">cs50</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">"postgres://username:password@host:port/database"</span><span class="p">)</span>  <span class="c1"># For PostgreSQL</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cs50.SQL.execute">
+<span class="sig-prename descclassname"><span class="pre">cs50.SQL.</span></span><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sql</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cs50.SQL.execute" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sql</strong> – a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> that represents a single SQL statement, possibly with <a class="reference external" href="https://www.python.org/dev/peps/pep-0249/#paramstyle">parameter markers</a>, with or without a trailing semicolon</p></li>
+<li><p><strong>*args</strong> – zero or more positional arguments with which any parameter markers should be substituted</p></li>
+<li><p><strong>**kwargs</strong> – zero or more named arguments with which any parameter markers should be substituted</p></li>
+</ul>
+</dd>
+</dl>
+<p>Any argument whose value is a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code> of other values is converted to a comma-separated list of those values, formatted for SQL’s <code class="docutils literal notranslate"><span class="pre">IN</span></code> operator. Any argument whose value is <cite>None</cite> is converted to <cite>NULL</cite> for SQL.</p>
+<p>Supported placeholders include question marks (qmark style) and named placeholders (named style).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p>for <code class="docutils literal notranslate"><span class="pre">CREATE</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code> on success or <code class="docutils literal notranslate"><span class="pre">False</span></code> on failure</p></li>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>, the number of rows deleted</p></li>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">INSERT</span></code>, the primary key of a newly inserted row (or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none)</p></li>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>, a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> objects, each of which represents a row in the result set</p></li>
+<li><p>for <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>, the number of rows updated</p></li>
+<li><p>on integrity errors (as when a constraint is violated), a <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code> is raised</p></li>
+<li><p>on other errors, a <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code> is raised</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p>Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cs50</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">cs50</span><span class="o">.</span><span class="n">SQL</span><span class="p">(</span><span class="s2">"sqlite:///file.db"</span><span class="p">)</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo"</span><span class="p">)</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo WHERE bar = ? AND baz = ?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo WHERE bar IN (?) AND baz IN (?)"</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo WHERE bar = :bar AND baz = :baz"</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baz</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo WHERE bar IN (:bar) AND baz IN (:baz)"</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">baz</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO foo (bar, baz) VALUES(?, ?)"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"INSERT INTO foo (bar, baz) VALUES(:bar, :baz)"</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baz</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"UPDATE foo SET bar = ?, baz = ?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"UPDATE foo SET bar = :bar, baz = :baz"</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baz</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"DELETE FROM foo WHERE bar = ? AND baz = ?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"DELETE FROM foo WHERE bar = :bar AND baz = :baz"</span><span class="p">,</span> <span class="n">bar</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baz</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this heading"></a></h2>
+<section id="how-can-i-use-with-like">
+<h3>How can I use <code class="docutils literal notranslate"><span class="pre">%</span></code> with <code class="docutils literal notranslate"><span class="pre">LIKE</span></code>?<a class="headerlink" href="#how-can-i-use-with-like" title="Permalink to this heading"></a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">s</span></code> is a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, you can prepend and/or append <code class="docutils literal notranslate"><span class="pre">%</span></code> to it as follows:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo WHERE bar LIKE ?"</span><span class="p">,</span> <span class="s2">"%"</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"%"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="how-can-i-add-optional-clauses-to-a-query">
+<h3>How can I add optional clauses to a query?<a class="headerlink" href="#how-can-i-add-optional-clauses-to-a-query" title="Permalink to this heading"></a></h3>
+<p>Based on user input, you might want to include or not include some clauses in a query. For instance, you might want to include <cite>bar</cite> and <cite>baz</cite> in a query only if they have values, in which case the number of placeholders you have in your query might vary. You could thus construct your query dynamically by joining the clauses and unpacking the placeholders’ values as follows:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">"SELECT * FROM foo"</span>
+
+<span class="n">clauses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">if</span> <span class="n">bar</span><span class="p">:</span>
+    <span class="n">clauses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"bar = ?"</span><span class="p">)</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">baz</span><span class="p">:</span>
+    <span class="n">clauses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"baz = ?"</span><span class="p">)</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">baz</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">clauses</span><span class="p">:</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">" WHERE "</span> <span class="o">+</span> <span class="s2">" AND "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">clauses</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The end result is equivalent to:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"SELECT * FROM foo WHERE bar = ? AND baz = ?"</span><span class="p">,</span> <span class="n">bar</span><span class="p">,</span> <span class="n">baz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>But you don’t need to know in advance if <cite>bar</cite> and <cite>baz</cite> will have values.</p>
+</section>
+<section id="how-come-i-can-t-use-parameter-markers-as-placeholders-for-tables-or-columns-names">
+<h3>How come I can’t use parameter markers as placeholders for tables’ or columns’ names?<a class="headerlink" href="#how-come-i-can-t-use-parameter-markers-as-placeholders-for-tables-or-columns-names" title="Permalink to this heading"></a></h3>
+<p>Parameter markers (e.g., <code class="docutils literal notranslate"><span class="pre">?</span></code>) can only be used as placeholders for “literals” like integers and strings, not for “identifiers” like tables’ and columns’ names. If a user’s input will determine the table or column on which you execute a statement, you can use a format string (f-string) instead, but <strong>you must validate the user’s input first, to ensure the table or column exists, lest you risk a SQL-injection attack</strong>, as in the below:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">column</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"foo"</span><span class="p">,</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"baz"</span><span class="p">]:</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SELECT * FROM </span><span class="si">{</span><span class="n">column</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="how-can-i-enable-logging-of-sql-statements">
+<h3>How can I enable logging of SQL statements?<a class="headerlink" href="#how-can-i-enable-logging-of-sql-statements" title="Permalink to this heading"></a></h3>
+<p>By default, logging of SQL statements is disabled unless you have an environment variable called <code class="docutils literal notranslate"><span class="pre">FLASK_ENV</span></code>, the value of which is <code class="docutils literal notranslate"><span class="pre">development</span></code>, as is the case in <a class="reference external" href="https://cs50.readthedocs.io/code/">Visual Studio Code for CS50</a>. You can enable logging of SQL statements with code like:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"cs50"</span><span class="p">)</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Statements that succeed will be prefixed with <code class="docutils literal notranslate"><span class="pre">INFO</span></code>. Statements that fail will be prefixed with <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>.</p>
+</section>
+<section id="how-can-i-disable-logging-of-sql-statements">
+<h3>How can I disable logging of SQL statements?<a class="headerlink" href="#how-can-i-disable-logging-of-sql-statements" title="Permalink to this heading"></a></h3>
+<p>To disable logging of SQL statements, even if you have an environment variable called <code class="docutils literal notranslate"><span class="pre">FLASK_ENV</span></code>, the value of which is <code class="docutils literal notranslate"><span class="pre">development</span></code>, as is the case in <a class="reference external" href="https://cs50.readthedocs.io/code/">Visual Studio Code for CS50</a>, you can use code like:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"cs50"</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s2">"CRITICAL"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<section id="modulenotfounderror-no-module-named-sqlite3">
+<h3>ModuleNotFoundError: No module named ‘_sqlite3’<a class="headerlink" href="#modulenotfounderror-no-module-named-sqlite3" title="Permalink to this heading"></a></h3>
+<p>If on an <code class="docutils literal notranslate"><span class="pre">apt</span></code>-based system, try:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">libsqlite3</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If on a <code class="docutils literal notranslate"><span class="pre">yum</span></code>-based system, try:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">sqlite</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

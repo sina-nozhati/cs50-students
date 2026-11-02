@@ -1,0 +1,303 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w10-l01",
+  "type": "lesson",
+  "week": 10,
+  "order": 1,
+  "stage_id": "w10-s1",
+  "title_fa": "مرور: حل مسئله، دقت و انتزاع",
+  "title_en": "Recap: problem solving, precision and abstraction",
+  "note_ids": [
+    "w10-n01"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w10-c-delta",
+    "w10-c-learn-to-program",
+    "w10-c-teach-yourself",
+    "w10-c-input-algorithm-output",
+    "w10-c-verbal-instructions",
+    "w10-c-precision-correctness",
+    "w10-c-high-low-level",
+    "w10-c-abstraction-recap"
+  ],
+  "objective_ids": [
+    "w10-o01",
+    "w10-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/10 and the lecture transcript (marked «از سخنرانی»); examples are verbatim English quotations from notes/10 (D79). Week 10 has no code, so no item is run.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w09-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۹ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w10-l01-u01",
+      "order": 1,
+      "title_fa": "فاصلهٔ خودت و یاد گرفتن خود برنامه‌نویسی",
+      "concept_ids": [
+        "w10-c-delta",
+        "w10-c-learn-to-program",
+        "w10-c-teach-yourself"
+      ],
+      "objective_ids": [
+        "w10-o01"
+      ],
+      "note_id": "w10-n01",
+      "source_refs": [
+        "src-notes-10#recap",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامهٔ پایانی می‌گوید موفقیت‌ات را با **فاصله** (delta) میان مهارت آغاز درس و مهارت امروزت بسنج، نه با مقایسه با دیگران. امید این است که فارغ از زبان، *برنامه‌نویسی* را یاد گرفته باشی و بالاتر از همه، یاد گرفته باشی **چطور خودت را آموزش بدهی** و از منابع یادگیری استفاده کنی. از سخنرانی: مالان گفت در نخستین تکلیف CS50 خودش (۱۹۹۶) به‌خاطر پیروی نکردن از دستورها ۲ نمره از دست داد.",
+        "note_id": "w10-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "delta",
+        "lang": "text",
+        "content": "You should measure your success as the delta between your skill at the start of the course and your skill now, at the end of the course.",
+        "source_ref": "src-notes-10#recap",
+        "explain_fa": "معیار موفقیت در درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق درس‌نامه، موفقیت‌ات در CS50 را با چه چیزی بسنجی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "با فاصلهٔ مهارت‌ات در آغاز درس تا مهارت‌ات حالا.",
+            "correct": true,
+            "feedback_fa": "درست. معیار، پیشرفت خود توست."
+          },
+          {
+            "id": "b",
+            "text_fa": "با جایگاه‌ات در میان هم‌کلاسی‌ها.",
+            "correct": false,
+            "feedback_fa": "درس صریحاً می‌گوید مهم فاصلهٔ تو با نقطهٔ شروع خودت است، نه با دیگران."
+          },
+          {
+            "id": "c",
+            "text_fa": "با تعداد زبان‌هایی که یاد گرفتی.",
+            "correct": false,
+            "feedback_fa": "امید درس این است که خود برنامه‌نویسی را یاد بگیری، فارغ از زبان."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «به گفتهٔ درس‌نامه، بالاتر از همهٔ ابزارها، یاد گرفتی چطور خودت را آموزش بدهی و از منابع یادگیری استفاده کنی.»",
+        "expected": {
+          "answer": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ این جملهٔ پایانی بخش Recap است.",
+          "incorrect_fa": "بخش Recap را دوباره ببین: «Above all, though, you learned how to teach yourself…»"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w10-l01-u02",
+      "order": 2,
+      "title_fa": "ورودی، الگوریتم، خروجی و بازی تصویرکشی",
+      "concept_ids": [
+        "w10-c-input-algorithm-output",
+        "w10-c-verbal-instructions",
+        "w10-c-precision-correctness"
+      ],
+      "objective_ids": [
+        "w10-o02"
+      ],
+      "note_id": "w10-n01",
+      "source_refs": [
+        "src-notes-10#recap",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "کل درس دربارهٔ یک تصویر بود: **ورودی** (مسئله)، **الگوریتم** (گام‌های دقیق) و **خروجی** (راه‌حل). در جلسهٔ آخر بازی‌ای شد که تصویر با **دستورهای کلامی** کشیده می‌شد. از سخنرانی: داوطلب گام‌به‌گام خط و نقطه توصیف کرد ولی هرگز نگفت قرار است **مکعب** کشیده شود؛ بیشتر نقاشی‌ها شبیه آن نشد. مالان یادآوری کرد که از جلسهٔ اول خودش دو نکته را یادداشت کرده بود: **دقت** و **درستی**.",
+        "note_id": "w10-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "solve-problems",
+        "lang": "text",
+        "content": "how to take input, process it through an algorithm, and produce some output",
+        "source_ref": "src-notes-10#recap",
+        "explain_fa": "تصویر حل مسئله در درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "از سخنرانی: چرا بیشتر نقاشی‌های دور اول شبیه مکعب نشد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون داوطلب فقط جزئیات خط‌ها را گفت و هیچ انتزاعی مثل «یک مکعب بکش» به کار نبرد.",
+            "correct": true,
+            "feedback_fa": "درست. مالان گفت گفتن «مکعب» کار را ساده‌تر می‌کرد، هرچند به‌تنهایی هم دقیق نبود."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون حاضران اجازهٔ پرسیدن داشتند.",
+            "correct": false,
+            "feedback_fa": "مشکل در خود دستورها بود: نبودِ انتزاع و ابهام در جزئیات."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون داوطلب از اشارهٔ دست استفاده کرد.",
+            "correct": false,
+            "feedback_fa": "قانون بازی همین بود که فقط دستور کلامی مجاز است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l01-u02-ex",
+        "type": "ordering",
+        "origin": "authored",
+        "prompt_fa": "سه بخش تصویر حل مسئله را به ترتیب بچین: (الف) خروجی؛ (ب) ورودی؛ (ج) الگوریتم.",
+        "expected": {
+          "order": [
+            "ب",
+            "ج",
+            "الف"
+          ]
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: ورودی → الگوریتم → خروجی.",
+          "incorrect_fa": "از مسئله (ورودی) شروع کن، با گام‌ها پردازش کن و به راه‌حل (خروجی) برس."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w10-l01-u03",
+      "order": 3,
+      "title_fa": "سطح بالا، سطح پایین و انتزاع",
+      "concept_ids": [
+        "w10-c-high-low-level",
+        "w10-c-abstraction-recap"
+      ],
+      "objective_ids": [
+        "w10-o02"
+      ],
+      "note_id": "w10-n01",
+      "source_refs": [
+        "src-notes-10#recap",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "بعضی دستورهای کلامی **سطح بالا** بودند و بعضی **سطح پایین**، مثل زبان‌های مختلف درس. بعضی دقیق‌تر بودند، مثل وقتی که کدت را آن‌قدر اصلاح می‌کردی تا دقیقاً همان کار را بکند. بعضی هم **انتزاعی** بودند، مثل «دست‌ها را بکش»؛ همان‌طور که کد را در **تابع** انتزاعی کردیم. از سخنرانی: در دور دوم، «قرار است آدمک بکشی» مثل توضیح بالای یک تابع بود و جزئیات خط‌ها مثل بدنهٔ آن.",
+        "note_id": "w10-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "abstraction",
+        "lang": "text",
+        "content": "Also, notice how some instructions were abstracted away, like draw arms. This is similar to how we abstracted away code into functions.",
+        "source_ref": "src-notes-10#recap",
+        "explain_fa": "انتزاع در درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "«دست‌ها را بکش» در بازی شبیه کدام مفهوم برنامه‌نویسی است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "تابع: جزئیات پشت یک نام پنهان می‌شود.",
+            "correct": true,
+            "feedback_fa": "درست؛ درس‌نامه همین مقایسه را می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "حلقه: یک کار چند بار تکرار می‌شود.",
+            "correct": false,
+            "feedback_fa": "«دست‌ها را بکش» دربارهٔ پنهان کردن جزئیات است، نه تکرار."
+          },
+          {
+            "id": "c",
+            "text_fa": "متغیر: یک مقدار ذخیره می‌شود.",
+            "correct": false,
+            "feedback_fa": "این دستور مقداری ذخیره نمی‌کند؛ مجموعه‌ای از گام‌ها را با یک نام می‌گوید."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l01-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر دستور را «سطح بالا» یا «سطح پایین» علامت بزن: (۱) «یک آدمک بکش»؛ (۲) «قلم را بالای صفحه بگذار و به سمت جنوب‌غربی خط صاف بکش».",
+        "expected": {
+          "answers": {
+            "1": "سطح بالا",
+            "2": "سطح پایین"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "دستور سطح بالا کل چیز را با یک نام می‌گوید؛ سطح پایین تک‌تک گام‌ها را."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

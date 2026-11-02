@@ -1,0 +1,303 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w04-ps-recover",
+  "kind": "pset",
+  "week": 4,
+  "title_en": "Recover",
+  "title_fa": "بازیابی عکس‌ها (Recover)",
+  "guide_doc_id": "w04-ps-recover",
+  "guide_file": "recover.fa.md",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/4/recover/",
+    "index_url": "https://cs50.harvard.edu/x/psets/4/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w04-ps-recover-r1",
+        "text_fa": "برنامه‌ای به نام `recover` در فایل `recover.c` و پوشهٔ `recover` بنویس.",
+        "text_en": "Implement your program in a file called `recover.c` in a directory called `recover`.",
+        "source_ref": "src-pset-4-recover#specification"
+      },
+      {
+        "id": "w04-ps-recover-r2",
+        "text_fa": "برنامه دقیقاً یک آرگومان خط فرمان می‌گیرد: نام تصویر قانونی.",
+        "text_en": "Your program should accept exactly one command-line argument, the name of a forensic image from which to recover JPEGs.",
+        "source_ref": "src-pset-4-recover#specification"
+      },
+      {
+        "id": "w04-ps-recover-r3",
+        "text_fa": "اگر تعداد آرگومان درست نبود، روش درست اجرا را یادآوری کن و `main` مقدار ۱ برگرداند.",
+        "text_en": "If your program is not executed with exactly one command-line argument, it should remind the user of correct usage, and `main` should return `1`.",
+        "source_ref": "src-pset-4-recover#specification"
+      },
+      {
+        "id": "w04-ps-recover-r4",
+        "text_fa": "اگر فایل برای خواندن باز نشد، به کاربر بگو و `main` مقدار ۱ برگرداند.",
+        "text_en": "If the forensic image cannot be opened for reading, your program should inform the user as much, and `main` should return `1`.",
+        "source_ref": "src-pset-4-recover#specification"
+      },
+      {
+        "id": "w04-ps-recover-r5",
+        "text_fa": "نام فایل‌های ساخته‌شده `###.jpg` باشد: عدد سه‌رقمی دهدهی، از `000` برای اولین عکس به بالا.",
+        "text_en": "The files you generate should each be named `###.jpg`, where `###` is a three-digit decimal number, starting with `000` for the first image and counting up.",
+        "source_ref": "src-pset-4-recover#specification"
+      },
+      {
+        "id": "w04-ps-recover-r6",
+        "text_fa": "اگر از `malloc` استفاده کردی، نباید حافظه نشت کند.",
+        "text_en": "Your program, if it uses `malloc`, must not leak any memory.",
+        "source_ref": "src-pset-4-recover#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/recover",
+      "style50": "style50 recover.c",
+      "submit50": "submit50 cs50/problems/2026/x/recover",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/4/recover.zip\nunzip recover.zip\nrm recover.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "سه بایت اول هر JPEG (از چپ به راست)",
+        "text": "0xff 0xd8 0xff",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اجرای برنامه روی کارت",
+        "text": "./recover card.raw",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "پاک کردن عکس‌های اجرای قبلی، پیش از اجرای دوباره",
+        "text": "rm -f *.jpg",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/recover",
+      "style50": "style50 recover.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "ooL0r_8N9ms",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [
+      "w04-m-recover-image"
+    ],
+    "discrepancy_ids": [
+      "d57",
+      "d68"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w04-c-file-signature",
+      "w04-c-hexadecimal",
+      "w04-c-byte-type",
+      "w04-c-stdint-types",
+      "w04-c-fread-fwrite",
+      "w04-c-file-pointer",
+      "w04-c-fopen-null-check",
+      "w04-c-fprintf-fclose",
+      "w04-c-nul-byte-room",
+      "w04-c-memory-leak",
+      "w04-c-valgrind"
+    ],
+    "prerequisite_lesson_ids": [
+      "w04-l07",
+      "w04-l04",
+      "w04-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w04-c-file-signature",
+        "note_id": "w04-ps-recover",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      },
+      {
+        "concept_id": "w04-c-hexadecimal",
+        "note_id": "w04-n02",
+        "lesson_id": "w04-l01",
+        "unit_id": "w04-l01-u02"
+      },
+      {
+        "concept_id": "w04-c-byte-type",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u02"
+      },
+      {
+        "concept_id": "w04-c-stdint-types",
+        "note_id": "w04-ps-volume",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u03"
+      },
+      {
+        "concept_id": "w04-c-fread-fwrite",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u02"
+      },
+      {
+        "concept_id": "w04-c-file-pointer",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u01"
+      },
+      {
+        "concept_id": "w04-c-fopen-null-check",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u01"
+      },
+      {
+        "concept_id": "w04-c-fprintf-fclose",
+        "note_id": "w04-n15",
+        "lesson_id": "w04-l07",
+        "unit_id": "w04-l07-u01"
+      },
+      {
+        "concept_id": "w04-c-nul-byte-room",
+        "note_id": "w04-n09",
+        "lesson_id": "w04-l04",
+        "unit_id": "w04-l04-u02"
+      },
+      {
+        "concept_id": "w04-c-memory-leak",
+        "note_id": "w04-n10",
+        "lesson_id": "w04-l05",
+        "unit_id": "w04-l05-u01"
+      },
+      {
+        "concept_id": "w04-c-valgrind",
+        "note_id": "w04-n10",
+        "lesson_id": "w04-l05",
+        "unit_id": "w04-l05-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "مسئله را به چند مسئلهٔ کوچک بشکن: باز کردن کارت، خواندن بلوک‌به‌بلوک، تشخیص شروع یک JPEG، نوشتن بلوک‌ها در فایل جاری، و بستن فایل‌ها در پایان. صفحهٔ رسمی هم همین را پیشنهاد می‌کند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "هر بلوک ۵۱۲ بایت است. چه نوعی برای «یک بایت» مناسب است، و آرایه‌ای از چند تا از آن لازم داری؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "سه بایت اول امضا ثابت‌اند. بایت چهارم یکی از شانزده مقدار است؛ صفحهٔ رسمی می‌گوید چهار بیت اولش چه الگویی دارند. چطور فقط به آن چهار بیت نگاه کنی؟ یادداشت هگزادسیمال را مرور کن."
+      },
+      {
+        "n": 4,
+        "hint_fa": "وقتی امضای تازه‌ای پیدا شد، دو حالت داری: هنوز هیچ JPEGی باز نکرده‌ای، یا یکی باز است. در هر حالت چه باید بکنی؟"
+      },
+      {
+        "n": 5,
+        "hint_fa": "برای نام فایل، `sprintf` (در صفحهٔ راهنمای CS50) یک رشتهٔ قالب‌بندی‌شده را در حافظه می‌نویسد. نام سه‌رقمی به‌علاوهٔ `.jpg` به چند بایت نیاز دارد؟ `\\0` را فراموش نکن."
+      },
+      {
+        "n": 6,
+        "hint_fa": "پایان کار را `fread` به تو می‌گوید: مقدار برگشتی‌اش را بخوان. یادت باشد آخرین JPEG هم باید بسته شود."
+      },
+      {
+        "n": 7,
+        "hint_fa": "قبل از هر اجرای دوباره، عکس‌های قبلی را با فرمان رسمی پاک کن تا با نتیجهٔ قدیمی گیج نشوی."
+      }
+    ],
+    "common_mistakes_fa": [
+      "جست‌وجوی امضا در هر بایت، به‌جای فقط ابتدای هر بلوک",
+      "مقایسهٔ بایت چهارم فقط با یک مقدار",
+      "باز کردن فایل تازه بدون بستن فایل قبلی",
+      "جا نگذاشتن برای `\\0` در نام فایل",
+      "فراموش کردن بستن آخرین JPEG و خود کارت",
+      "نوشتن بلوک‌های پیش از اولین امضا در فایلی که هنوز باز نشده"
+    ],
+    "self_checklist": [
+      {
+        "id": "w04-ps-recover-c01",
+        "text_fa": "فایل `recover.c` در پوشهٔ `recover` است.",
+        "maps_to": "w04-ps-recover-r1"
+      },
+      {
+        "id": "w04-ps-recover-c02",
+        "text_fa": "بدون آرگومان یا با دو آرگومان، پیام راهنما می‌دهد و ۱ برمی‌گرداند.",
+        "maps_to": "w04-ps-recover-r3"
+      },
+      {
+        "id": "w04-ps-recover-c03",
+        "text_fa": "با فایلی که وجود ندارد، پیام خطا می‌دهد و ۱ برمی‌گرداند.",
+        "maps_to": "w04-ps-recover-r4"
+      },
+      {
+        "id": "w04-ps-recover-c04",
+        "text_fa": "۵۰ فایل `000.jpg` تا `049.jpg` ساخته می‌شود و همه باز می‌شوند.",
+        "maps_to": "w04-ps-recover-r5"
+      },
+      {
+        "id": "w04-ps-recover-c05",
+        "text_fa": "رشتهٔ نام فایل جای `\\0` را هم دارد.",
+        "maps_to": "w04-ps-recover-r5"
+      },
+      {
+        "id": "w04-ps-recover-c06",
+        "text_fa": "هر فایلی که باز کرده‌ام، بسته‌ام.",
+        "maps_to": "w04-ps-recover-r6"
+      },
+      {
+        "id": "w04-ps-recover-c07",
+        "text_fa": "`valgrind ./recover card.raw` نشت و خطای حافظه نشان نمی‌دهد.",
+        "maps_to": "w04-ps-recover-r6"
+      },
+      {
+        "id": "w04-ps-recover-c08",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w04-ps-recover-c09",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w04-ps-recover-c10",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی‌های رسمی «Write some pseudocode» و «Convert the pseudocode to code»",
+      "url": "https://cs50.harvard.edu/x/2026/psets/4/recover/#hints",
+      "reason_fa": "شبه‌کد و کد گام‌به‌گام رسمی نزدیک به راه‌حل است؛ فقط پیوند (D28)."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://video.cs50.io/ooL0r_8N9ms",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

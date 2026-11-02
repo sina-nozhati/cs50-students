@@ -1,0 +1,218 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w02-pr-no-vowels",
+  "kind": "practice",
+  "week": 2,
+  "title_en": "No Vowels",
+  "title_fa": "بی‌واکه (No Vowels)",
+  "guide_doc_id": "w02-pr-no-vowels",
+  "guide_file": "no-vowels.fa.md",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/no-vowels/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w02-pr-no-vowels-r1",
+        "text_fa": "فایل `no-vowels.c` در پوشهٔ `no-vowels`",
+        "text_en": "Implement your program in a file called `no-vowels.c` in a directory called `no-vowels`.",
+        "source_ref": "src-practice-no-vowels#implementation-details"
+      },
+      {
+        "id": "w02-pr-no-vowels-r2",
+        "text_fa": "دقیقاً یک آرگومان خط فرمان، یعنی واژه، بپذیرد.",
+        "text_en": "Your program must accept a single command-line argument, which will be the word that you want to convert.",
+        "source_ref": "src-practice-no-vowels#implementation-details"
+      },
+      {
+        "id": "w02-pr-no-vowels-r3",
+        "text_fa": "بدون آرگومان یا با بیش از یکی، پیام خطا و return 1.",
+        "text_en": "If your program is executed without any command-line arguments or with more than one command-line argument, your program should print an error message of your choice (with `printf`) and `return` from `main` a value of 1 (which tends to signify an error) immediately.",
+        "source_ref": "src-practice-no-vowels#implementation-details"
+      },
+      {
+        "id": "w02-pr-no-vowels-r4",
+        "text_fa": "تابعی به نام `replace` داشته باشد که string بگیرد و string برگرداند.",
+        "text_en": "Your program must contain a function called `replace` which takes a `string` input and returns a `string` output.",
+        "source_ref": "src-practice-no-vowels#implementation-details"
+      },
+      {
+        "id": "w02-pr-no-vowels-r5",
+        "text_fa": "a به 6، e به 3، i به 1 و o به 0 تبدیل شود و u تغییر نکند.",
+        "text_en": "This function will change the following vowels to numbers: `a` becomes `6`, `e` becomes `3`, `i` becomes `1`, `o` becomes `0` and `u` does not change.",
+        "source_ref": "src-practice-no-vowels#implementation-details"
+      },
+      {
+        "id": "w02-pr-no-vowels-r6",
+        "text_fa": "main واژهٔ تبدیل‌شده و سپس `\\n` را چاپ کند.",
+        "text_en": "The main function will then print the converted word, followed by `\\n`.",
+        "source_ref": "src-practice-no-vowels#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/no-vowels",
+      "style50": "style50 no-vowels.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/2/no-vowels.c"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی: بدون آرگومان",
+        "text": "no-vowels/ $ ./no-vowels\nUsage: ./no-vowels word",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: hello",
+        "text": "no-vowels/ $ ./no-vowels hello\nh3ll0",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: pseudocode",
+        "text": "no-vowels/ $ ./no-vowels pseudocode\nps3ud0c0d3",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/no-vowels",
+      "style50": "style50 no-vowels.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d27"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w02-c-argc-argv",
+      "w02-c-argv-strings",
+      "w02-c-exit-status",
+      "w02-c-early-return",
+      "w02-c-string-char-array",
+      "w02-c-function-anatomy"
+    ],
+    "prerequisite_lesson_ids": [
+      "w02-l06",
+      "w02-l08"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w02-c-argc-argv",
+        "note_id": "w02-n16",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u01"
+      },
+      {
+        "concept_id": "w02-c-argv-strings",
+        "note_id": "w02-sh-command-line-arguments",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u02"
+      },
+      {
+        "concept_id": "w02-c-exit-status",
+        "note_id": "w02-n17",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u03"
+      },
+      {
+        "concept_id": "w02-c-early-return",
+        "note_id": "w02-sec",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u04"
+      },
+      {
+        "concept_id": "w02-c-string-char-array",
+        "note_id": "w02-n12",
+        "lesson_id": "w02-l06",
+        "unit_id": "w02-l06-u02"
+      },
+      {
+        "concept_id": "w02-c-function-anatomy",
+        "note_id": "w02-sh-functions",
+        "lesson_id": "w02-l05",
+        "unit_id": "w02-l05-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "صفحهٔ رسمی تأکید می‌کند main در کد آغازین argc و argv دارد؛ از آن‌ها استفاده کن."
+      },
+      {
+        "n": 2,
+        "hint_fa": "رشته آرایه‌ای از char است؛ می‌توانی نویسه‌به‌نویسه روی argv[1] حرکت کنی."
+      },
+      {
+        "n": 3,
+        "hint_fa": "صفحهٔ رسمی پیشنهاد می‌کند دستور switch را امتحان کنی؛ راهنمای سبک CS50 را ببین."
+      }
+    ],
+    "common_mistakes_fa": [
+      "دسترسی به argv[1] پیش از بررسی argc",
+      "فراموش کردن `\\n` در پایان",
+      "تبدیل u"
+    ],
+    "self_checklist": [
+      {
+        "id": "w02-pr-no-vowels-c01",
+        "text_fa": "تعداد آرگومان‌ها را پیش از هر کار دیگری بررسی کرده‌ام.",
+        "maps_to": "w02-pr-no-vowels-r3"
+      },
+      {
+        "id": "w02-pr-no-vowels-c02",
+        "text_fa": "تابع replace با امضای خواسته‌شده دارم.",
+        "maps_to": "w02-pr-no-vowels-r4"
+      },
+      {
+        "id": "w02-pr-no-vowels-c03",
+        "text_fa": "هر چهار واکه درست تبدیل می‌شوند و u دست نمی‌خورد.",
+        "maps_to": "w02-pr-no-vowels-r5"
+      },
+      {
+        "id": "w02-pr-no-vowels-c04",
+        "text_fa": "نمونه‌های رسمی همان خروجی را می‌دهند.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w02-pr-no-vowels-c05",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w02-pr-no-vowels-c06",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "چرا ممکن است آرگومان خط فرمان را به get_string یا get_int ترجیح بدهی؟",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "کد آغازین no-vowels.c",
+      "url": "https://cdn.cs50.net/2022/fall/labs/2/no-vowels.c",
+      "reason_fa": "با wget دانلود کن."
+    },
+    {
+      "title_fa": "راهنمای سبک: switch",
+      "url": "https://cs50.readthedocs.io/style/c/#switches",
+      "reason_fa": "پیوند رسمی صفحه."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

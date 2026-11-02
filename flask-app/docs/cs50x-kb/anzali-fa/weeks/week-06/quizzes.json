@@ -1,0 +1,2419 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 6,
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w06-q-001",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l01",
+      "concept_ids": [
+        "w06-c-run-python"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#hello-python",
+      "prompt_fa": "در CS50 برنامهٔ `hello.py` را چطور اجرا می‌کنی؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در پایتون گام جداگانهٔ کامپایل وجود ندارد؛ مستقیم `python hello.py`.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`python hello.py`",
+          "feedback_fa": "درست؛ مفسر پایتون فایل را می‌خواند و اجرا می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "`make hello`",
+          "feedback_fa": "`make` برای کامپایل C بود؛ برنامهٔ پایتون این گام را ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "`clang hello.py -o hello`",
+          "feedback_fa": "clang کامپایلر C است و کد پایتون را نمی‌فهمد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-002",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l01",
+      "concept_ids": [
+        "w06-c-interpreted"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#hello-python",
+      "prompt_fa": "«پایتون زبانی تفسیری است» یعنی چه؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مفسر کد پایتون را هنگام اجرا می‌خواند؛ برای همین `make` لازم نیست.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "برنامه هنگام اجرا به دست مفسر خوانده و اجرا می‌شود",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامه پیش از اجرا باید با `make` کامپایل شود",
+          "feedback_fa": "این روال C است."
+        },
+        {
+          "id": "c",
+          "text_fa": "برنامه فقط در مرورگر اجرا می‌شود",
+          "feedback_fa": "پایتون در خط فرمان اجرا می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-003",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l01",
+      "concept_ids": [
+        "w06-c-python-syntax-basics"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#hello-python",
+      "prompt_fa": "درست یا نادرست: در پایتون هر دستور باید با نقطه‌ویرگول (`;`) تمام شود.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "پایان سطر پایان دستور است؛ نقطه‌ویرگول لازم نیست.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-004",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l01",
+      "concept_ids": [
+        "w06-c-import"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#libraries-modules-and-packages",
+      "prompt_fa": "پس از `from cs50 import get_string`، کدام فراخوانی درست کار می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`from cs50 import get_string` فقط خود نام `get_string` را می‌آورد؛ `import cs50` لازمهٔ شکل `cs50.get_string` است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`get_string(\"Name: \")`",
+          "feedback_fa": "درست؛ نام تابع مستقیم در دسترس است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`cs50.get_string(\"Name: \")`",
+          "feedback_fa": "با این شکل import، نام `cs50` تعریف نشده و `NameError` می‌گیری."
+        },
+        {
+          "id": "c",
+          "text_fa": "`cs50::get_string(\"Name: \")`",
+          "feedback_fa": "`::` در پایتون نحو معتبری نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-005",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l01",
+      "concept_ids": [
+        "w06-c-set"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#speller",
+      "prompt_fa": "چرا نسخهٔ پایتونی Speller در درس‌نامه واژه‌ها را در `set()` نگه می‌دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "set مجموعه‌ای از مقدارهای یکتاست و برای پرسیدن «این واژه هست؟» مناسب است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "مقدارها یکتا می‌مانند و آزمون عضویت با `in` سریع است",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "set واژه‌ها را به ترتیب الفبا نگه می‌دارد",
+          "feedback_fa": "set ترتیب تضمین‌شده ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "set اجازه می‌دهد هر واژه چند بار شمرده شود",
+          "feedback_fa": "set تکرار را حذف می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-006",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l01",
+      "concept_ids": [
+        "w06-c-high-level-tradeoff"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#speller",
+      "prompt_fa": "درست یا نادرست: طبق سخنرانی، کوتاه‌تر بودن Speller پایتونی به این معناست که حتماً سریع‌تر از نسخهٔ C اجرا می‌شود.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "کد کوتاه‌تر است ولی اجرای پایتون معمولاً کندتر است؛ بده‌بستان زمان برنامه‌نویس و زمان اجرا.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-007",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-input-returns-str"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#calculator",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "12"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "12"
+        ]
+      },
+      "explanation_fa": "هر دو رشته‌اند، پس `+` آن‌ها را به هم می‌چسباند: `12`. همین اتفاق برای مقدار برگشتی `input` می‌افتد.",
+      "code": "x = \"1\"\ny = \"2\"\nprint(x + y)",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "12\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "12",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-008",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-f-string"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#strings",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "hello, Sina\nhello, Sina\nhello, {name}"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hello, Sina\nhello, Sina\nhello, {name}"
+        ]
+      },
+      "explanation_fa": "`print` میان آرگومان‌ها یک فاصله می‌گذارد؛ f-string جای‌گذاری می‌کند؛ رشتهٔ بدون `f` همان متن `{name}` را چاپ می‌کند.",
+      "code": "name = \"Sina\"\nprint(\"hello,\", name)\nprint(f\"hello, {name}\")\nprint(\"hello, {name}\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "hello, Sina\nhello, Sina\nhello, {name}\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hello, Sina\nhello, Sina\nhello, {name}",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-009",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-named-parameters"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#positional-parameters-and-named-parameters",
+      "prompt_fa": "خروجی `print(\"a\", \"b\", sep=\"-\", end=\"!\")` چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`sep` میان آرگومان‌ها و `end` پس از آخرین آرگومان چاپ می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`a-b!` بدون سطر تازه",
+          "feedback_fa": "درست؛ `sep` جداکننده و `end` پایان را عوض کرده‌اند."
+        },
+        {
+          "id": "b",
+          "text_fa": "`a b!`",
+          "feedback_fa": "`sep=\"-\"` فاصلهٔ پیش‌فرض را با `-` عوض کرده است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`a-b` و سپس سطر تازه",
+          "feedback_fa": "`end=\"!\"` سطر تازهٔ پیش‌فرض را با `!` عوض کرده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-010",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-no-long-double"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#types",
+      "prompt_fa": "درست یا نادرست: در پایتون ۳ نوع `int` مثل C حد بالای ثابت دارد و `2 ** 31` سرریز می‌کند.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "`int` پایتون اندازهٔ ثابت ندارد؛ `2 ** 31` برابر `2147483648` است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-011",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-input-returns-str"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#calculator",
+      "prompt_fa": "اگر کاربر `20` وارد کند، `age = input(\"Age: \")` و سپس `print(age + 1)` چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`input` همیشه `str` برمی‌گرداند و پایتون `str + int` را نمی‌پذیرد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`TypeError` می‌دهد",
+          "feedback_fa": "درست؛ نمی‌شود `str` و `int` را با `+` جمع کرد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`21` چاپ می‌کند",
+          "feedback_fa": "`age` رشته است، نه عدد؛ اول باید `int(age)` بنویسی."
+        },
+        {
+          "id": "c",
+          "text_fa": "`201` چاپ می‌کند",
+          "feedback_fa": "پایتون عدد را خودکار به رشته تبدیل نمی‌کند؛ خطا می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-012",
+      "origin": "authored",
+      "week": 6,
+      "type": "fill_blank_code",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-int-conversion"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#calculator",
+      "prompt_fa": "(کد تألیفی) جای خالی `[[b1]]` را با همان تابع تبدیلی پر کن که برای `x` به کار رفته، تا با ورودی‌های `1` و `2` خروجی پایانی `3` باشد.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "int"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "int"
+        ]
+      },
+      "explanation_fa": "`int(\"2\")` عدد 2 می‌دهد و جمع برابر 3 است.",
+      "template": "x = input(\"x: \")\ny = input(\"y: \")\ntotal = int(x) + [[b1]](y)\nprint(total)",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "int"
+          ],
+          "hint_fa": "تابعی که رشته را به عدد صحیح تبدیل می‌کند.",
+          "wrong_feedback": {
+            "str": "با `str` حاصل `int + str` می‌شود و `TypeError` می‌گیری.",
+            "float": "با `float` حاصل `3.0` چاپ می‌شود، نه `3`.",
+            "len": "`len(\"2\")` برابر 1 است، پس حاصل 2 می‌شود.",
+            "eval": "`eval` اینجا هم 2 می‌دهد، اما تابع تبدیل نیست: رشته را مثل کد پایتون اجرا می‌کند و برای ورودی کاربر ناامن است. همان `int` را بنویس که برای `x` به کار رفته."
+          },
+          "default_wrong_fa": "تابع تبدیل رشته به عدد صحیح را بنویس."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "1\n2\n",
+        "expected_stdout_exact": "x: y: 3\n",
+        "extra_alternatives": [
+          "round",
+          "abs",
+          "bool",
+          "ord",
+          "repr"
+        ],
+        "spec_excludes": {
+          "eval": "eval(\"2\") also yields 2; excluded by the prompt (must be the same conversion used for x) and the wrong_feedback explains why eval is unsafe for user input"
+        }
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w06-q-013",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l02",
+      "concept_ids": [
+        "w06-c-augmented-assignment"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#variables",
+      "prompt_fa": "درست یا نادرست: `counter++` در پایتون معتبر است و یکی به `counter` اضافه می‌کند.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "پایتون `++` ندارد؛ `counter += 1` بنویس.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-014",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l03",
+      "concept_ids": [
+        "w06-c-elif"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#conditionals",
+      "prompt_fa": "معادل درست `else if (x < y)` در پایتون کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پایتون کلیدواژهٔ `elif` و دونقطه دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`elif x < y:`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`else if (x < y)`",
+          "feedback_fa": "پایتون `else if` را به این شکل نمی‌پذیرد و دونقطه هم لازم است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`elseif x < y:`",
+          "feedback_fa": "کلیدواژه `elseif` نداریم؛ `elif` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-015",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l03",
+      "concept_ids": [
+        "w06-c-string-methods"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#object-oriented-programming",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "Agreed."
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Agreed."
+        ]
+      },
+      "explanation_fa": "`s.lower()` برابر `\"yes\"` است که در فهرست اول هست.",
+      "code": "s = \"Yes\"\nif s.lower() in [\"y\", \"yes\"]:\n    print(\"Agreed.\")\nelif s.lower() in [\"n\", \"no\"]:\n    print(\"Not agreed.\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "Agreed.\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "Agreed.",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-016",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l03",
+      "concept_ids": [
+        "w06-c-method-returns-new"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#object-oriented-programming",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "hi\nHI"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hi\nHI"
+        ]
+      },
+      "explanation_fa": "`upper` رشتهٔ تازه برمی‌گرداند و `s` را تغییر نمی‌دهد؛ فقط نتیجهٔ ذخیره‌شده در `t` بزرگ است.",
+      "code": "s = \"hi\"\ns.upper()\nprint(s)\nt = s.upper()\nprint(t)",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "hi\nHI\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hi\nHI",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-017",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l03",
+      "concept_ids": [
+        "w06-c-no-char"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#conditionals",
+      "prompt_fa": "درست یا نادرست: پایتون نوع جداگانهٔ `char` برای یک نویسه مثل `'y'` دارد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "`'y'` و `\"y\"` هر دو `str` هستند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-018",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l03",
+      "concept_ids": [
+        "w06-c-logical-words"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#conditionals",
+      "prompt_fa": "در `agree.py` سخنرانی، کدام واژه جای `||` زبان C را می‌گیرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پایتون برای عملگرهای منطقی واژه‌های `or` و `and` و `not` دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`or`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`||`",
+          "feedback_fa": "در پایتون خطای نحوی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`orelse`",
+          "feedback_fa": "چنین کلیدواژه‌ای نداریم."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-019",
+      "origin": "authored",
+      "week": 6,
+      "type": "find_the_bug",
+      "lesson_id": "w06-l03",
+      "concept_ids": [
+        "w06-c-indentation-blocks"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-6",
+      "prompt_fa": "(کد تألیفی) کدام سطر خطا دارد؟",
+      "answer": {
+        "bug_line": 3,
+        "key_points_fa": [
+          "مقایسه با `==` است؛ `=` انتساب است و این‌جا خطای نحوی می‌دهد."
+        ]
+      },
+      "explanation_fa": "در شرط باید `==` نوشت.",
+      "code": "x = 1\ny = 2\nif x = y:\n    print(\"x is equal to y\")\nelse:\n    print(\"x is not equal to y\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "fixed_line": "if x == y:",
+        "stdin": "",
+        "expected_stdout_exact": "x is not equal to y\n",
+        "other_line_edits": [
+          {
+            "line": 1,
+            "code": "x = 2"
+          },
+          {
+            "line": 2,
+            "code": "y = 1"
+          },
+          {
+            "line": 4,
+            "code": "    print(\"x is not equal to y\")"
+          }
+        ]
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w06-q-020",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-for-range"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#loops",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "[1, 4, 7]"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "[1, 4, 7]"
+        ]
+      },
+      "explanation_fa": "از 1 شروع، گام 3، و 10 ناشامل است.",
+      "code": "print(list(range(1, 10, 3)))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "[1, 4, 7]\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "[1, 4, 7]",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-021",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-while-py"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#loops",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "3\n2\n1"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "3\n2\n1"
+        ]
+      },
+      "explanation_fa": "حلقه تا وقتی `i` مثبت است اجرا می‌شود.",
+      "code": "i = 3\nwhile i > 0:\n    print(i)\n    i -= 1",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "3\n2\n1\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "3\n2\n1",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-022",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-def-function"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#abstraction",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "meow\nmeow\nmeow"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "meow\nmeow\nmeow"
+        ]
+      },
+      "explanation_fa": "تابع `meow` سه بار حلقه می‌زند.",
+      "code": "def meow(n):\n    for i in range(n):\n        print(\"meow\")\n\n\nmeow(3)",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "meow\nmeow\nmeow\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "meow\nmeow\nmeow",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-023",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-main-convention"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#abstraction",
+      "prompt_fa": "چرا در `meow.py` سخنرانی، `main()` در پایان فایل صدا زده می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در پایتون تابع باید پیش از فراخوانی تعریف شده باشد؛ صدا زدن `main()` در پایان این را تضمین می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "پایتون `main` را خودکار صدا نمی‌زند و تا آن‌جا همهٔ تابع‌ها تعریف شده‌اند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "بدون آن پایتون خطای نحوی می‌دهد",
+          "feedback_fa": "خطای نحوی نیست؛ فقط هیچ کاری انجام نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "برنامه را سریع‌تر می‌کند",
+          "feedback_fa": "ربطی به سرعت ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-024",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-bool-capitalized"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-short-python",
+      "prompt_fa": "درست یا نادرست: مقدارهای بولی پایتون `True` و `False` هستند و `true` (با حرف کوچک) `NameError` می‌دهد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "پایتون به بزرگی و کوچکی حرف حساس است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-025",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-tuple"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-python",
+      "prompt_fa": "کدام مقدار تغییرناپذیر است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "tuple با پرانتز ساخته می‌شود و پس از ساخت عوض نمی‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`(1, 2)`",
+          "feedback_fa": "درست؛ tuple تغییرناپذیر است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`[1, 2]`",
+          "feedback_fa": "list تغییرپذیر است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`{1, 2}`",
+          "feedback_fa": "set تغییرپذیر است (با `add`)."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-026",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-dict-iteration"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-python",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "a 1\nb 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "a 1\nb 2"
+        ]
+      },
+      "explanation_fa": "حلقه روی کلیدهاست؛ از پایتون ۳.۷ ترتیب درج حفظ می‌شود (ناسازگاری d113 با ویدئوی کوتاه ۲۰۱۷).",
+      "code": "d = {\"a\": 1, \"b\": 2}\nfor k in d:\n    print(k, d[k])",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "a 1\nb 2\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "a 1\nb 2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-027",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l04",
+      "concept_ids": [
+        "w06-c-class-init"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-short-python",
+      "prompt_fa": "در `def __init__(self, name):`، پارامتر `self` به چه اشاره می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پایتون شیء را خودکار به‌عنوان آرگومان اول متد می‌فرستد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "به خود شیئی که ساخته یا صدا زده می‌شود",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "به کلاس والد",
+          "feedback_fa": "`self` نمونهٔ کنونی است، نه والد."
+        },
+        {
+          "id": "c",
+          "text_fa": "به یک متغیر سراسری",
+          "feedback_fa": "`self` پارامتر عادی متد است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-028",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-floor-division"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-python-docs",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "3.5\n3\n-4"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "3.5\n3\n-4"
+        ]
+      },
+      "explanation_fa": "`/` همیشه `float` می‌دهد؛ `//` به سمت پایین گرد می‌کند، پس `-7 // 2` برابر `-4` است.",
+      "code": "print(7 / 2)\nprint(7 // 2)\nprint(-7 // 2)",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "3.5\n3\n-4\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "3.5\n3\n-4",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-029",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-true-division"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#truncation-and-floating-point-imprecision",
+      "prompt_fa": "(کد تألیفی) (مقایسه با C) این برنامهٔ C چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "3 -3"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "3 -3"
+        ]
+      },
+      "explanation_fa": "تقسیم صحیح در C به سمت صفر می‌بُرد: `-7 / 2` برابر `-3`؛ در پایتون `-7 // 2` برابر `-4` است.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    printf(\"%i %i\\n\", 7 / 2, -7 / 2);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "3 -3\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "3 -3",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-030",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-floor-division"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-python-docs",
+      "prompt_fa": "کدام عبارت در پایتون ۳ عدد صحیح `3` می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`//` تقسیم کف است و برای دو `int` نتیجهٔ `int` می‌دهد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`7 // 2`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`7 / 2`",
+          "feedback_fa": "حاصل `3.5` است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`round(7 / 2)`",
+          "feedback_fa": "`round(3.5)` برابر `4` است (گرد کردن نیمه به عدد زوج)."
+        },
+        {
+          "id": "d",
+          "text_fa": "`7 % 2`",
+          "feedback_fa": "باقی‌مانده است: `1`."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-031",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-float-imprecision-py"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#truncation-and-floating-point-imprecision",
+      "prompt_fa": "درست یا نادرست: در پایتون `0.1 + 0.2 == 0.3` برابر `True` است چون پایتون عدم دقت ممیز شناور ندارد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "پایتون هم از ممیز شناور دودویی استفاده می‌کند؛ حاصل `False` است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-032",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-float-imprecision-py"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-6#truncation-and-floating-point-imprecision",
+      "prompt_fa": "(کد تألیفی) این برنامه که از درس‌نامه الهام گرفته چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "0.33333333333333331483"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "0.33333333333333331483"
+        ]
+      },
+      "explanation_fa": "با ۲۰ رقم اعشار، عدم دقت ممیز شناور دیده می‌شود.",
+      "code": "print(f\"{1 / 3:.20f}\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "0.33333333333333331483\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "0.33333333333333331483",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-033",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-true-division"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-python-docs",
+      "prompt_fa": "درست یا نادرست: در پایتون ۳، `round(2.5)` برابر `3` است.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "پایتون نیمه‌ها را به عدد زوج گرد می‌کند: `round(2.5)` برابر `2` است. در Readability به این تفاوت با C توجه کن.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-034",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-try-except"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#exceptions",
+      "prompt_fa": "این کد چه می‌کند؟\n\n```python\ntry:\n    x = int(\"cat\")\nexcept ValueError:\n    print(\"Not an integer.\")\n```",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "بلوک `except` فقط وقتی اجرا می‌شود که نوع استثنا جور باشد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`Not an integer.` چاپ می‌کند",
+          "feedback_fa": "درست؛ `int(\"cat\")` استثنای `ValueError` می‌دهد و گرفته می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامه با traceback متوقف می‌شود",
+          "feedback_fa": "استثنا با `except ValueError` گرفته شده است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`x` برابر `0` می‌شود",
+          "feedback_fa": "انتساب انجام نمی‌شود؛ استثنا پیش از آن رخ می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-035",
+      "origin": "authored",
+      "week": 6,
+      "type": "fill_blank_code",
+      "lesson_id": "w06-l05",
+      "concept_ids": [
+        "w06-c-floor-division"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-python-docs",
+      "prompt_fa": "(کد تألیفی) جای خالی `[[b1]]` را با یک عملگر پر کن تا خروجی `2` (تعداد ساعت‌های کامل در 135 دقیقه) باشد.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "//"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "//"
+        ]
+      },
+      "explanation_fa": "`135 // 60` برابر `2` است.",
+      "template": "minutes = 135\nhours = minutes [[b1]] 60\nprint(hours)",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "//"
+          ],
+          "hint_fa": "تقسیم صحیح پایتون.",
+          "wrong_feedback": {
+            "/": "`/` حاصل `2.25` می‌دهد.",
+            "%": "`%` باقی‌مانده است: `15`.",
+            "*": "ضرب: `8100`."
+          },
+          "default_wrong_fa": "عملگر تقسیم صحیح را بنویس."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "2\n",
+        "extra_alternatives": [
+          "+",
+          "-",
+          "**",
+          ">>",
+          "<<",
+          "&",
+          "|",
+          "^",
+          "==",
+          "<",
+          ">"
+        ]
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w06-q-036",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-nested-loops-py"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#mario",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "###\n###"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "###\n###"
+        ]
+      },
+      "explanation_fa": "حلقهٔ درونی سه `#` روی یک سطر می‌گذارد و `print()` به سطر بعد می‌رود.",
+      "code": "for i in range(2):\n    for j in range(3):\n        print(\"#\", end=\"\")\n    print()",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "###\n###\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "###\n###",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-037",
+      "origin": "authored",
+      "week": 6,
+      "type": "fill_blank_code",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-print-end"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#mario",
+      "prompt_fa": "(کد تألیفی) جای خالی `[[b1]]` را پر کن تا سه `?` روی یک سطر چاپ شود (خروجی `???`).",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "\"\"",
+            "''",
+            "str()"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "\"\"",
+          "''",
+          "str()"
+        ]
+      },
+      "explanation_fa": "`end=\"\"` سطر تازهٔ پیش‌فرض را حذف می‌کند.",
+      "template": "for i in range(3):\n    print(\"?\", end=[[b1]])\nprint()",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "\"\"",
+            "''",
+            "str()"
+          ],
+          "hint_fa": "رشتهٔ خالی.",
+          "wrong_feedback": {
+            "\"\\n\"": "با `\"\\n\"` هر `?` در سطر جداگانه می‌آید.",
+            "\" \"": "با فاصله خروجی `? ? ? ` می‌شود.",
+            "None": "`end=None` یعنی همان سطر تازهٔ پیش‌فرض."
+          },
+          "default_wrong_fa": "یک رشتهٔ خالی بنویس."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "???\n",
+        "extra_alternatives": [
+          "\"?\"",
+          "0",
+          "False",
+          "\"\\t\""
+        ]
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w06-q-038",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-while-true-break"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#mario",
+      "prompt_fa": "پایتون `do-while` ندارد. درس‌نامه برای «بپرس تا ورودی مثبت شود» از چه استفاده می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "حلقهٔ بی‌پایان با `break` نقش `do-while` را بازی می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`while True:` و `break` پس از ورودی درست",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`do: ... while n < 1`",
+          "feedback_fa": "این نحو در پایتون وجود ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "`repeat ... until n > 0`",
+          "feedback_fa": "پایتون `repeat` ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-039",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-append"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#lists",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "4 268"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "4 268"
+        ]
+      },
+      "explanation_fa": "پس از `append` چهار عضو داریم و جمع‌شان 268 است.",
+      "code": "scores = [72, 73, 33]\nscores.append(90)\nprint(len(scores), sum(scores))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "4 268\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "4 268",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-040",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-sum-len"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#lists",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "59.333333333333336"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "59.333333333333336"
+        ]
+      },
+      "explanation_fa": "`/` نمی‌بُرد و رقم آخر نشانهٔ عدم دقت ممیز شناور است.",
+      "code": "scores = [72, 73, 33]\nprint(sum(scores) / len(scores))",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "59.333333333333336\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "59.333333333333336",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-041",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-string-slicing"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-section-6-transcript",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "ah\nwa\no"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "ah\nwa\no"
+        ]
+      },
+      "explanation_fa": "شروع شامل و پایان ناشامل است؛ نمایهٔ `-1` آخرین نویسه است.",
+      "code": "s = \"wahoo\"\nprint(s[1:3])\nprint(s[:2])\nprint(s[-1])",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "ah\nwa\no\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "ah\nwa\no",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-042",
+      "origin": "authored",
+      "week": 6,
+      "type": "find_the_bug",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-string-slicing"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-6",
+      "prompt_fa": "(کد تألیفی) این برنامه باید `hello` را برعکس چاپ کند (`olleh`). کدام سطر خطا دارد؟",
+      "answer": {
+        "bug_line": 4,
+        "key_points_fa": [
+          "در دور اول `i` برابر `len(s)` است و `s[i]` خطای `IndexError` می‌دهد.",
+          "درستش `s[i - 1]` است."
+        ]
+      },
+      "explanation_fa": "همان خطای دور ۶ جلسهٔ حل تمرین.",
+      "code": "s = \"hello\"\ni = len(s)\nwhile i > 0:\n    print(s[i], end=\"\")\n    i -= 1\nprint()",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "fixed_line": "    print(s[i - 1], end=\"\")",
+        "stdin": "",
+        "expected_stdout_exact": "olleh\n",
+        "other_line_edits": [
+          {
+            "line": 2,
+            "code": "i = len(s) - 1"
+          },
+          {
+            "line": 3,
+            "code": "while i >= 0:"
+          },
+          {
+            "line": 5,
+            "code": "    i -= 2"
+          }
+        ]
+      },
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w06-q-043",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-string-slicing"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-section-6-transcript",
+      "prompt_fa": "درست یا نادرست: `s[-1]` آخرین نویسهٔ رشتهٔ `s` است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "نمایه‌های منفی از انتها می‌شمارند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-044",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l06",
+      "concept_ids": [
+        "w06-c-sum-len"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#lists",
+      "prompt_fa": "طول فهرست `scores` را چطور به دست می‌آوری؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در پایتون `len` یک تابع داخلی است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`len(scores)`",
+          "feedback_fa": "درست؛ `len` تابع داخلی است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`scores.len()`",
+          "feedback_fa": "فهرست متد `len` ندارد (`AttributeError`)."
+        },
+        {
+          "id": "c",
+          "text_fa": "`scores.length`",
+          "feedback_fa": "این ویژگی وجود ندارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "`length(scores)`",
+          "feedback_fa": "تابعی به این نام نداریم."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-045",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-for-else"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "Not found"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Not found"
+        ]
+      },
+      "explanation_fa": "حلقه بدون `break` تمام شد، پس `else` اجرا می‌شود.",
+      "code": "names = [\"Yuliia\", \"David\", \"John\"]\nname = \"Kelly\"\nfor n in names:\n    if n == name:\n        print(\"Found\")\n        break\nelse:\n    print(\"Not found\")",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "Not found\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "Not found",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-046",
+      "origin": "authored",
+      "week": 6,
+      "type": "predict_output",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-dict-lookup"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "True\nFalse"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "True\nFalse"
+        ]
+      },
+      "explanation_fa": "`in` روی dict فقط کلیدها را می‌سنجد.",
+      "code": "people = {\"Yuliia\": \"+1-617-495-1000\", \"David\": \"+1-617-495-1000\"}\nprint(\"David\" in people)\nprint(\"+1-617-495-1000\" in people)",
+      "lang": "python",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "expected_stdout_exact": "True\nFalse\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "Python 3.13.5",
+        "compiled": true,
+        "compile_note": "CPython bytecode compile + run",
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "True\nFalse",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T05:00:00+03:30"
+      }
+    },
+    {
+      "id": "w06-q-047",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-list-of-dicts"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "prompt_fa": "در `people = [{\"name\": \"Yuliia\", \"number\": \"+1-617-495-1000\"}, ...]`، شمارهٔ نفر اول کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "فهرست با نمایهٔ عددی و واژه‌نامه با کلید.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`people[0][\"number\"]`",
+          "feedback_fa": "درست؛ اول عضو فهرست، بعد کلید واژه‌نامه."
+        },
+        {
+          "id": "b",
+          "text_fa": "`people[\"number\"][0]`",
+          "feedback_fa": "نمایهٔ فهرست باید عدد باشد؛ `TypeError`."
+        },
+        {
+          "id": "c",
+          "text_fa": "`people.number[0]`",
+          "feedback_fa": "فهرست ویژگی `number` ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-048",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-sys-argv"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#command-line-arguments",
+      "prompt_fa": "با `python greet.py David Malan`، مقدار `len(sys.argv)` چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`sys.argv` مثل `argv` در C نام برنامه را هم دارد، ولی واژهٔ `python` را نه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "3",
+          "feedback_fa": "درست: نام برنامه و دو واژه."
+        },
+        {
+          "id": "b",
+          "text_fa": "2",
+          "feedback_fa": "نام برنامه هم در `sys.argv[0]` شمرده می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "1",
+          "feedback_fa": "هر واژهٔ پس از نام برنامه یک آرگومان است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-049",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-sys-exit"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#exit-status",
+      "prompt_fa": "`sys.exit(1)` چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "وضعیت خروج غیرصفر یعنی خطا، مثل `return 1` در `main` زبان C.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "برنامه را با وضعیت خروج 1 (نشانهٔ خطا) پایان می‌دهد",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "عدد 1 را چاپ می‌کند",
+          "feedback_fa": "چیزی چاپ نمی‌شود؛ وضعیت خروج تنظیم می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط از حلقهٔ جاری بیرون می‌رود",
+          "feedback_fa": "این کار `break` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-050",
+      "origin": "authored",
+      "week": 6,
+      "type": "true_false",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-with-open"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#csv-files",
+      "prompt_fa": "درست یا نادرست: با `with open(\"phonebook.csv\", \"a\") as file:` باید پس از بلوک خودت `file.close()` را صدا بزنی.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "`with` فایل را پس از پایان بلوک خودکار می‌بندد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w06-q-051",
+      "origin": "authored",
+      "week": 6,
+      "type": "parsons",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-csv-module"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#csv-files",
+      "prompt_fa": "(کد تألیفی) سطرها را به ترتیب درست بچین تا یک سطر به `phonebook.csv` افزوده شود.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "اول `import`، سپس باز کردن فایل و ساختن writer درون بلوک، بعد نوشتن سطر.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "import csv",
+          "text": "import csv"
+        },
+        {
+          "id": "p2",
+          "code": "with open(\"phonebook.csv\", \"a\") as file:",
+          "text": "with open(\"phonebook.csv\", \"a\") as file:"
+        },
+        {
+          "id": "p3",
+          "code": "    writer = csv.writer(file)",
+          "text": "    writer = csv.writer(file)"
+        },
+        {
+          "id": "p4",
+          "code": "    writer.writerow([\"David\", \"+1-617-495-1000\"])",
+          "text": "    writer.writerow([\"David\", \"+1-617-495-1000\"])"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "    writer = csv.writer(\"phonebook.csv\")",
+          "text": "    writer = csv.writer(\"phonebook.csv\")",
+          "why_wrong_fa": "`csv.writer` شیء فایل می‌خواهد، نه نام فایل؛ `TypeError` می‌دهد."
+        },
+        {
+          "id": "d2",
+          "code": "    writer.write([\"David\", \"+1-617-495-1000\"])",
+          "text": "    writer.write([\"David\", \"+1-617-495-1000\"])",
+          "why_wrong_fa": "متد درست `writerow` است؛ `write` وجود ندارد."
+        }
+      ],
+      "lang": "python",
+      "code_origin": "authored",
+      "indentation_matters": true,
+      "shuffle": true,
+      "qa": {
+        "check_suffix": "\nprint(repr(open(\"phonebook.csv\").read()))",
+        "expected_stdout_exact": "'David,+1-617-495-1000\\n'\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w06-q-052",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-csv-dictreader"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-section-6-transcript",
+      "prompt_fa": "مقدارهای هر سطری که `csv.DictReader` برمی‌گرداند چه نوعی دارند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در جلسهٔ حل تمرین، مقایسهٔ این رشته با عدد خطای `TypeError` داد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`str`",
+          "feedback_fa": "درست؛ حتی ستون‌های عددی رشته‌اند."
+        },
+        {
+          "id": "b",
+          "text_fa": "`int` برای ستون‌های عددی",
+          "feedback_fa": "تبدیل خودکار انجام نمی‌شود؛ خودت باید `int(...)` بزنی."
+        },
+        {
+          "id": "c",
+          "text_fa": "`float` برای همه",
+          "feedback_fa": "هیچ تبدیلی انجام نمی‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-053",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-third-party"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-6#third-party-libraries",
+      "prompt_fa": "کتابخانهٔ `cowsay` را چطور نصب می‌کنی؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`pip` مدیر بستهٔ پایتون است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`pip install cowsay`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`import install cowsay`",
+          "feedback_fa": "`import` فقط کتابخانهٔ نصب‌شده را بارگذاری می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "`make cowsay`",
+          "feedback_fa": "`make` برای کامپایل C است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w06-q-054",
+      "origin": "authored",
+      "week": 6,
+      "type": "mcq",
+      "lesson_id": "w06-l07",
+      "concept_ids": [
+        "w06-c-linear-search-py"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "prompt_fa": "`if name in names:` وقتی `names` یک list است چه نوع جست‌وجویی انجام می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "درس‌نامه یادآوری می‌کند که پشت `in` روی فهرست همان جست‌وجوی خطی است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خطی",
+          "feedback_fa": "درست؛ عضوها یکی‌یکی سنجیده می‌شوند."
+        },
+        {
+          "id": "b",
+          "text_fa": "دودویی",
+          "feedback_fa": "جست‌وجوی دودویی فهرست مرتب می‌خواهد و `in` آن را انجام نمی‌دهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "درهم‌سازی",
+          "feedback_fa": "این برای dict و set است، نه list."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w06-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w06-q-001",
+        "w06-q-002",
+        "w06-q-003",
+        "w06-q-004",
+        "w06-q-005",
+        "w06-q-006"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w06-q-007",
+        "w06-q-008",
+        "w06-q-009",
+        "w06-q-010",
+        "w06-q-011",
+        "w06-q-012",
+        "w06-q-013"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w06-q-014",
+        "w06-q-015",
+        "w06-q-016",
+        "w06-q-017",
+        "w06-q-018",
+        "w06-q-019"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w06-q-020",
+        "w06-q-021",
+        "w06-q-022",
+        "w06-q-023",
+        "w06-q-024",
+        "w06-q-025",
+        "w06-q-026",
+        "w06-q-027"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w06-q-028",
+        "w06-q-029",
+        "w06-q-030",
+        "w06-q-031",
+        "w06-q-032",
+        "w06-q-033",
+        "w06-q-034",
+        "w06-q-035"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w06-q-036",
+        "w06-q-037",
+        "w06-q-038",
+        "w06-q-039",
+        "w06-q-040",
+        "w06-q-041",
+        "w06-q-042",
+        "w06-q-043",
+        "w06-q-044"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w06-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w06-q-045",
+        "w06-q-046",
+        "w06-q-047",
+        "w06-q-048",
+        "w06-q-049",
+        "w06-q-050",
+        "w06-q-051",
+        "w06-q-052",
+        "w06-q-053",
+        "w06-q-054"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w06-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۶",
+      "item_ids": [
+        "w06-q-004",
+        "w06-q-005",
+        "w06-q-009",
+        "w06-q-010",
+        "w06-q-016",
+        "w06-q-014",
+        "w06-q-027",
+        "w06-q-020",
+        "w06-q-032",
+        "w06-q-028",
+        "w06-q-036",
+        "w06-q-038",
+        "w06-q-045",
+        "w06-q-046"
+      ],
+      "item_pool_ids": [
+        "w06-q-001",
+        "w06-q-002",
+        "w06-q-003",
+        "w06-q-004",
+        "w06-q-005",
+        "w06-q-006",
+        "w06-q-007",
+        "w06-q-008",
+        "w06-q-009",
+        "w06-q-010",
+        "w06-q-011",
+        "w06-q-012",
+        "w06-q-013",
+        "w06-q-014",
+        "w06-q-015",
+        "w06-q-016",
+        "w06-q-017",
+        "w06-q-018",
+        "w06-q-020",
+        "w06-q-021",
+        "w06-q-022",
+        "w06-q-023",
+        "w06-q-024",
+        "w06-q-025",
+        "w06-q-026",
+        "w06-q-027",
+        "w06-q-028",
+        "w06-q-029",
+        "w06-q-030",
+        "w06-q-031",
+        "w06-q-032",
+        "w06-q-033",
+        "w06-q-034",
+        "w06-q-035",
+        "w06-q-036",
+        "w06-q-037",
+        "w06-q-038",
+        "w06-q-039",
+        "w06-q-040",
+        "w06-q-041",
+        "w06-q-043",
+        "w06-q-044",
+        "w06-q-045",
+        "w06-q-046",
+        "w06-q-047",
+        "w06-q-048",
+        "w06-q-049",
+        "w06-q-050",
+        "w06-q-051",
+        "w06-q-052",
+        "w06-q-053",
+        "w06-q-054"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

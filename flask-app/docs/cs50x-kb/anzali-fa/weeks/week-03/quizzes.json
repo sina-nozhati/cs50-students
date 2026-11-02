@@ -1,0 +1,1889 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 3,
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w03-q-001",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l01",
+      "concept_ids": [
+        "w03-c-algorithm-black-box"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#welcome",
+      "prompt_fa": "طبق درس‌نامه، الگوریتم چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تعریف بخش Welcome.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "دستورهای گام‌به‌گام برای حل یک مسئله",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک زبان برنامه‌نویسی",
+          "feedback_fa": "زبان برنامه‌نویسی راهی برای بیان الگوریتم است، نه خود آن."
+        },
+        {
+          "id": "c",
+          "text_fa": "سخت‌افزار کامپیوتر",
+          "feedback_fa": "الگوریتم مستقل از سخت‌افزار است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-002",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l01",
+      "concept_ids": [
+        "w03-c-growth-graph"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#welcome",
+      "prompt_fa": "در نمودار رشد، اگر اندازهٔ دفترچه دو برابر شود، الگوریتم نصف کردن چند گام بیشتر می‌خواهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "log n با دو برابر شدن n یکی زیاد می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "یک گام",
+          "feedback_fa": "درست؛ همین ویژگی log n است."
+        },
+        {
+          "id": "b",
+          "text_fa": "دو برابر گام",
+          "feedback_fa": "این رفتار n است."
+        },
+        {
+          "id": "c",
+          "text_fa": "نصف گام",
+          "feedback_fa": "گام‌ها کمتر نمی‌شوند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-003",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l01",
+      "concept_ids": [
+        "w03-c-linear-search"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#linear-search",
+      "prompt_fa": "کدام جمله دربارهٔ جست‌وجوی خطی درست است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "خطی به ترتیب داده اهمیت نمی‌دهد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "روی آرایهٔ نامرتب هم کار می‌کند",
+          "feedback_fa": "درست؛ پیش‌شرطی ندارد."
+        },
+        {
+          "id": "b",
+          "text_fa": "فقط روی آرایهٔ مرتب کار می‌کند",
+          "feedback_fa": "این پیش‌شرط جست‌وجوی دودویی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "همیشه از وسط شروع می‌کند",
+          "feedback_fa": "از چپ شروع می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-004",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l01",
+      "concept_ids": [
+        "w03-c-sorted-precondition"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#binary-search",
+      "prompt_fa": "درست یا نادرست: جست‌وجوی دودویی روی آرایهٔ نامرتب همیشه درست کار می‌کند.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "فقط روی دادهٔ مرتب.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-005",
+      "origin": "authored",
+      "week": 3,
+      "type": "parsons",
+      "lesson_id": "w03-l01",
+      "concept_ids": [
+        "w03-c-binary-search"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#binary-search",
+      "prompt_fa": "خط‌های شبه‌کد رسمی جست‌وجوی دودویی را به ترتیب بچین.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7",
+          "p8"
+        ]
+      },
+      "explanation_fa": "اول حالت «دری نماند»، بعد وسط، بعد دو نیمه.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "If no doors left",
+          "text": "If no doors left"
+        },
+        {
+          "id": "p2",
+          "code": "    Return false",
+          "text": "    Return false"
+        },
+        {
+          "id": "p3",
+          "code": "If 50 is behind middle door",
+          "text": "If 50 is behind middle door"
+        },
+        {
+          "id": "p4",
+          "code": "    Return true",
+          "text": "    Return true"
+        },
+        {
+          "id": "p5",
+          "code": "Else if 50 < middle door",
+          "text": "Else if 50 < middle door"
+        },
+        {
+          "id": "p6",
+          "code": "    Search left half",
+          "text": "    Search left half"
+        },
+        {
+          "id": "p7",
+          "code": "Else if 50 > middle door",
+          "text": "Else if 50 > middle door"
+        },
+        {
+          "id": "p8",
+          "code": "    Search right half",
+          "text": "    Search right half"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "For each door from left to right",
+          "text": "For each door from left to right",
+          "why_wrong_fa": "این خط جست‌وجوی خطی است."
+        }
+      ],
+      "lang": "text",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w03-q-006",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l01",
+      "concept_ids": [
+        "w03-c-linear-search"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "4"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "4"
+        ]
+      },
+      "explanation_fa": "16 در خانهٔ [3] است؛ چهار خانه دیده می‌شود.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int numbers[] = {4, 8, 15, 16, 23, 42};\n    int steps = 0;\n    for (int i = 0; i < 6; i++)\n    {\n        steps++;\n        if (numbers[i] == 16)\n        {\n            break;\n        }\n    }\n    printf(\"%i\\n\", steps);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "4",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-007",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l02",
+      "concept_ids": [
+        "w03-c-big-o"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#running-time",
+      "prompt_fa": "O بزرگ چه چیزی را نشان می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "O = upper bound.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کران بالا یا بدترین حالت",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "کران پایین یا بهترین حالت",
+          "feedback_fa": "این Ω است."
+        },
+        {
+          "id": "c",
+          "text_fa": "میانگین دقیق زمان",
+          "feedback_fa": "O میانگین نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-008",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l02",
+      "concept_ids": [
+        "w03-c-common-running-times"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#running-time",
+      "prompt_fa": "کدام ترتیب از **کند به سریع** درست است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "n² بیشترین رشد را دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "O(n²)، O(n log n)، O(n)، O(log n)، O(1)",
+          "feedback_fa": "درست؛ همان ترتیب درس‌نامه."
+        },
+        {
+          "id": "b",
+          "text_fa": "O(1)، O(log n)، O(n)، O(n log n)، O(n²)",
+          "feedback_fa": "این از سریع به کند است."
+        },
+        {
+          "id": "c",
+          "text_fa": "O(n)، O(n²)، O(log n)، O(1)، O(n log n)",
+          "feedback_fa": "ترتیب به‌هم‌ریخته است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-009",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l02",
+      "concept_ids": [
+        "w03-c-drop-constants"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#running-time",
+      "prompt_fa": "الگوریتمی 3n + 5 گام برمی‌دارد. با O بزرگ؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "فقط جملهٔ غالب می‌ماند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "O(n)",
+          "feedback_fa": "درست؛ ضریب و ثابت حذف می‌شوند."
+        },
+        {
+          "id": "b",
+          "text_fa": "O(3n)",
+          "feedback_fa": "ضریب نوشته نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "O(1)",
+          "feedback_fa": "گام‌ها با n زیاد می‌شوند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-010",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l02",
+      "concept_ids": [
+        "w03-c-omega"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#running-time",
+      "prompt_fa": "بهترین حالت جست‌وجوی خطی چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اگر عدد در اولین خانه باشد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "Ω(1)",
+          "feedback_fa": "درست؛ عدد در اولین خانه."
+        },
+        {
+          "id": "b",
+          "text_fa": "Ω(n)",
+          "feedback_fa": "این بدترین حالت است."
+        },
+        {
+          "id": "c",
+          "text_fa": "Ω(log n)",
+          "feedback_fa": "خطی نصف نمی‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-011",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l02",
+      "concept_ids": [
+        "w03-c-theta"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#running-time",
+      "prompt_fa": "درست یا نادرست: اگر O و Ω یک الگوریتم برابر باشند، Θ آن همان مقدار است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "تعریف Θ.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-012",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l02",
+      "concept_ids": [
+        "w03-c-theta"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-3#running-time",
+      "prompt_fa": "کدام الگوریتم Θ دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "Θ فقط وقتی O = Ω.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "مرتب‌سازی انتخابی، Θ(n²)",
+          "feedback_fa": "درست؛ O(n²) و Ω(n²)."
+        },
+        {
+          "id": "b",
+          "text_fa": "جست‌وجوی خطی",
+          "feedback_fa": "O(n) و Ω(1) برابر نیستند."
+        },
+        {
+          "id": "c",
+          "text_fa": "مرتب‌سازی حبابی",
+          "feedback_fa": "O(n²) و Ω(n) برابر نیستند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-013",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l03",
+      "concept_ids": [
+        "w03-c-return-from-main"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#searchc",
+      "prompt_fa": "در search.c وقتی عدد پیدا نشود، `echo $?` چه نشان می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "return 1 بعد از حلقه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "1",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "0",
+          "feedback_fa": "0 برای پیدا شدن است."
+        },
+        {
+          "id": "c",
+          "text_fa": "-1",
+          "feedback_fa": "کد return 1 دارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-014",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l03",
+      "concept_ids": [
+        "w03-c-strcmp-return"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#searchc",
+      "prompt_fa": "کدام شرط بررسی می‌کند دو رشتهٔ a و b برابرند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "strcmp برای برابری 0 برمی‌گرداند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "strcmp(a, b) == 0",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "a == b",
+          "feedback_fa": "== رشته‌ها را حرف‌به‌حرف مقایسه نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "strcmp(a, b) == 1",
+          "feedback_fa": "برابری با صفر نشان داده می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-015",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l03",
+      "concept_ids": [
+        "w03-c-search-strings"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-3",
+      "prompt_fa": "درست یا نادرست: در سخنرانی، نسخهٔ search.c با `==` واژهٔ battleship را پیدا کرد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "پیدا نکرد؛ دلیلش در هفتهٔ ۴ روشن می‌شود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-016",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l03",
+      "concept_ids": [
+        "w03-c-strcmp-return"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "2"
+        ]
+      },
+      "explanation_fa": "hat در خانهٔ [2] است.",
+      "code": "#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    string words[] = {\"cat\", \"dog\", \"hat\"};\n    int found = -1;\n    for (int i = 0; i < 3; i++)\n    {\n        if (strcmp(words[i], \"hat\") == 0)\n        {\n            found = i;\n        }\n    }\n    printf(\"%i\\n\", found);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "2",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-017",
+      "origin": "authored",
+      "week": 3,
+      "type": "find_the_bug",
+      "lesson_id": "w03-l03",
+      "concept_ids": [
+        "w03-c-hardcoded-length"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه گاهی segmentation fault می‌دهد. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 6,
+        "key_points_fa": [
+          "حد حلقه 4 است ولی آرایه 3 خانه دارد",
+          "باید i < 3 باشد"
+        ]
+      },
+      "explanation_fa": "numbers[3] بیرون از آرایه است.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int numbers[] = {3, 1, 4};\n    for (int i = 0; i < 4; i++)\n    {\n        printf(\"%i\\n\", numbers[i]);\n    }\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w03-q-018",
+      "origin": "authored",
+      "week": 3,
+      "type": "fill_blank_code",
+      "lesson_id": "w03-l03",
+      "concept_ids": [
+        "w03-c-search-int"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا حلقه همهٔ ۷ خانهٔ آرایه را ببیند.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "<"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "<"
+        ]
+      },
+      "explanation_fa": "۰ تا ۶.",
+      "template": "for (int i = 0; i [[b1]] 7; i++)\n{\n    if (numbers[i] == n)\n    {\n        printf(\"Found\\n\");\n        return 0;\n    }\n}",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "<"
+          ],
+          "hint_fa": "اندیس‌ها ۰ تا ۶.",
+          "wrong_feedback": {
+            "<=": "با <= خانهٔ [7] هم خوانده می‌شود که بیرون آرایه است."
+          },
+          "default_wrong_fa": "عملگر مقایسه را بنویس."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w03-q-019",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l04",
+      "concept_ids": [
+        "w03-c-parallel-arrays"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#phonebookc",
+      "prompt_fa": "چرا درس‌نامه از آرایه‌های موازی به struct می‌رود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "طراحی بهتر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا نام و شمارهٔ هر نفر همیشه با هم بمانند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون آرایه در C ممنوع است",
+          "feedback_fa": "struct هم در آرایه نگه داشته می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "تا برنامه سریع‌تر کامپایل شود",
+          "feedback_fa": "هدف طراحی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-020",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l04",
+      "concept_ids": [
+        "w03-c-dot-notation"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#structs",
+      "prompt_fa": "کدام عبارت فیلد number اولین نفر را می‌خواند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اندیس از صفر، بعد نقطه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "people[0].number",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "people.number[0]",
+          "feedback_fa": "اول خانهٔ آرایه."
+        },
+        {
+          "id": "c",
+          "text_fa": "people[1].number",
+          "feedback_fa": "این دومین نفر است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-021",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l04",
+      "concept_ids": [
+        "w03-c-numbers-as-strings"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#phonebookc",
+      "prompt_fa": "درست یا نادرست: در phonebook.c شمارهٔ تلفن از نوع string است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "برای +، - و صفر اول.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-022",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l04",
+      "concept_ids": [
+        "w03-c-struct"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "Reza 19"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "Reza 19"
+        ]
+      },
+      "explanation_fa": "name از خانهٔ [1] و age از خانهٔ [0].",
+      "code": "#include <cs50.h>\n#include <stdio.h>\n\ntypedef struct\n{\n    string name;\n    int age;\n}\nstudent;\n\nint main(void)\n{\n    student s[2];\n    s[0].name = \"Sara\";\n    s[0].age = 19;\n    s[1].name = \"Reza\";\n    s[1].age = 21;\n    printf(\"%s %i\\n\", s[1].name, s[0].age);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "Reza 19",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-023",
+      "origin": "authored",
+      "week": 3,
+      "type": "parsons",
+      "lesson_id": "w03-l04",
+      "concept_ids": [
+        "w03-c-struct"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) خط‌ها را بچین تا نوع `book` با فیلدهای title و pages تعریف شود.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6"
+        ]
+      },
+      "explanation_fa": "الگوی typedef struct.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "typedef struct",
+          "text": "typedef struct"
+        },
+        {
+          "id": "p2",
+          "code": "{",
+          "text": "{"
+        },
+        {
+          "id": "p3",
+          "code": "    string title;",
+          "text": "    string title;"
+        },
+        {
+          "id": "p4",
+          "code": "    int pages;",
+          "text": "    int pages;"
+        },
+        {
+          "id": "p5",
+          "code": "}",
+          "text": "}"
+        },
+        {
+          "id": "p6",
+          "code": "book;",
+          "text": "book;"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "book struct",
+          "text": "book struct",
+          "why_wrong_fa": "ترتیب کلیدواژه‌ها غلط است."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w03-q-024",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-selection-sort"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "prompt_fa": "مرتب‌سازی انتخابی در هر دور چه چیزی را «انتخاب» می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "Find smallest number.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کوچک‌ترین عدد بخش مرتب‌نشده",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "بزرگ‌ترین جفت کنار هم",
+          "feedback_fa": "این شبیه حبابی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "عدد وسط",
+          "feedback_fa": "عدد وسط مال جست‌وجوی دودویی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-025",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-bubble-sort"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#bubble-sort",
+      "prompt_fa": "زمان اجرای حبابی در بدترین و بهترین حالت؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "به لطف If no swaps.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "O(n²) و Ω(n)",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "O(n²) و Ω(n²)",
+          "feedback_fa": "این انتخابی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "O(n log n) و Ω(n log n)",
+          "feedback_fa": "این ادغامی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-026",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-counting-steps"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-3#sorting-and-selection-sort",
+      "prompt_fa": "(n-1)+(n-2)+...+1 برابر کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در O بزرگ می‌شود O(n²).",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "n(n-1)/2",
+          "feedback_fa": "درست؛ همان ساده‌سازی درس‌نامه."
+        },
+        {
+          "id": "b",
+          "text_fa": "n²",
+          "feedback_fa": "به n² نزدیک است اما برابر نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "n log n",
+          "feedback_fa": "این ادغامی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-027",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-early-exit-no-swaps"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#bubble-sort",
+      "prompt_fa": "درست یا نادرست: بدون شرط «If no swaps / Quit»، بهترین حالت حبابی هم n² می‌شد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "همین شرط Ω(n) را ممکن می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-028",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-swap"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "7 3"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "7 3"
+        ]
+      },
+      "explanation_fa": "جابه‌جایی با متغیر موقت.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int a = 3;\n    int b = 7;\n    int tmp = a;\n    a = b;\n    b = tmp;\n    printf(\"%i %i\\n\", a, b);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "7 3",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-029",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-bubble-sort"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه یک گذر حبابی انجام می‌دهد. چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "1 3 2 4"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1 3 2 4"
+        ]
+      },
+      "explanation_fa": "4 به انتها می‌رود: 1 4 3 2، 1 3 4 2، 1 3 2 4.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int a[] = {4, 1, 3, 2};\n    for (int i = 0; i < 3; i++)\n    {\n        if (a[i] > a[i + 1])\n        {\n            int tmp = a[i];\n            a[i] = a[i + 1];\n            a[i + 1] = tmp;\n        }\n    }\n    for (int i = 0; i < 4; i++)\n    {\n        printf(\"%i \", a[i]);\n    }\n    printf(\"\\n\");\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "1 3 2 4",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-030",
+      "origin": "authored",
+      "week": 3,
+      "type": "find_the_bug",
+      "lesson_id": "w03-l05",
+      "concept_ids": [
+        "w03-c-bubble-sort"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این گذر حبابی از آرایه بیرون می‌زند. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 6,
+        "key_points_fa": [
+          "حد حلقه باید 3 باشد (n - 1)",
+          "با i = 3، a[4] خوانده می‌شود"
+        ]
+      },
+      "explanation_fa": "i < n - 1.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int a[] = {4, 1, 3, 2};\n    for (int i = 0; i < 4; i++)\n    {\n        if (a[i] > a[i + 1])\n        {\n            int tmp = a[i];\n            a[i] = a[i + 1];\n            a[i + 1] = tmp;\n        }\n    }\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w03-q-031",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-base-case"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#recursion",
+      "prompt_fa": "حالت پایه در تابع بازگشتی چه نقشی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "بدون آن، بازگشت بی‌پایان.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "بازگشت را متوقف می‌کند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "تابع را دوباره صدا می‌زند",
+          "feedback_fa": "این حالت بازگشتی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "حافظه آزاد می‌کند",
+          "feedback_fa": "نقش آن توقف است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-032",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-call-stack"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-call-stacks",
+      "prompt_fa": "طبق ویدئوی کوتاه Call Stacks، کدام قاب در هر لحظه فعال است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "آخرین فراخوانی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "قاب بالای پشته",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "قاب main",
+          "feedback_fa": "main پایین پشته است."
+        },
+        {
+          "id": "c",
+          "text_fa": "قدیمی‌ترین قاب",
+          "feedback_fa": "قدیمی‌ترین در پایین است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-033",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-recursion"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#recursion",
+      "prompt_fa": "درست یا نادرست: جست‌وجوی دودویی را می‌توان بازگشتی بیان کرد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "«Search left half» همان فراخوانی بازگشتی است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-034",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-iteration-vs-recursion"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "#\n##\n###"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "#\n##\n###"
+        ]
+      },
+      "explanation_fa": "اول هرم کوچک‌تر، بعد ردیف پهن‌تر.",
+      "code": "#include <stdio.h>\n\nvoid draw(int n);\n\nint main(void)\n{\n    draw(3);\n}\n\nvoid draw(int n)\n{\n    if (n <= 0)\n    {\n        return;\n    }\n    draw(n - 1);\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"#\");\n    }\n    printf(\"\\n\");\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "#\n##\n###",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-035",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-factorial-fib"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "10"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "10"
+        ]
+      },
+      "explanation_fa": "4 + 3 + 2 + 1 + 0.",
+      "code": "#include <stdio.h>\n\nint sum(int n);\n\nint main(void)\n{\n    printf(\"%i\\n\", sum(4));\n}\n\nint sum(int n)\n{\n    if (n == 0)\n    {\n        return 0;\n    }\n    return n + sum(n - 1);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "10",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-036",
+      "origin": "authored",
+      "week": 3,
+      "type": "find_the_bug",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-base-case"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این تابع بازگشتی هرگز متوقف نمی‌شود. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 7,
+        "key_points_fa": [
+          "فراخوانی با همان n",
+          "باید count(n - 1) باشد"
+        ]
+      },
+      "explanation_fa": "حالت بازگشتی باید به حالت پایه نزدیک شود.",
+      "code": "int count(int n)\n{\n    if (n == 0)\n    {\n        return 0;\n    }\n    return 1 + count(n);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w03-q-037",
+      "origin": "authored",
+      "week": 3,
+      "type": "parsons",
+      "lesson_id": "w03-l06",
+      "concept_ids": [
+        "w03-c-recursive-case"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) خط‌ها را بچین تا تابع بازگشتی `countdown` از n تا 1 چاپ کند.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7",
+          "p8",
+          "p9"
+        ]
+      },
+      "explanation_fa": "اول حالت پایه، بعد چاپ، بعد فراخوانی با n - 1.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "void countdown(int n)",
+          "text": "void countdown(int n)"
+        },
+        {
+          "id": "p2",
+          "code": "{",
+          "text": "{"
+        },
+        {
+          "id": "p3",
+          "code": "    if (n == 0)",
+          "text": "    if (n == 0)"
+        },
+        {
+          "id": "p4",
+          "code": "    {",
+          "text": "    {"
+        },
+        {
+          "id": "p5",
+          "code": "        return;",
+          "text": "        return;"
+        },
+        {
+          "id": "p6",
+          "code": "    }",
+          "text": "    }"
+        },
+        {
+          "id": "p7",
+          "code": "    printf(\"%i\\n\", n);",
+          "text": "    printf(\"%i\\n\", n);"
+        },
+        {
+          "id": "p8",
+          "code": "    countdown(n - 1);",
+          "text": "    countdown(n - 1);"
+        },
+        {
+          "id": "p9",
+          "code": "}",
+          "text": "}"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "    countdown(n);",
+          "text": "    countdown(n);",
+          "why_wrong_fa": "با همان n بازگشت تمام نمی‌شود."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w03-q-038",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l07",
+      "concept_ids": [
+        "w03-c-merge-sort"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-3#merge-sort",
+      "prompt_fa": "کدام گام در شبه‌کد مرتب‌سازی ادغامی **نیست**؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "Sort left, sort right, merge.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "پیدا کردن کوچک‌ترین عدد و جابه‌جا کردن با اولی",
+          "feedback_fa": "درست؛ این انتخابی است."
+        },
+        {
+          "id": "b",
+          "text_fa": "مرتب کردن نیمهٔ چپ",
+          "feedback_fa": "این در شبه‌کد هست."
+        },
+        {
+          "id": "c",
+          "text_fa": "ادغام دو نیمهٔ مرتب",
+          "feedback_fa": "این در شبه‌کد هست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-039",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l07",
+      "concept_ids": [
+        "w03-c-n-log-n"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#merge-sort",
+      "prompt_fa": "زمان اجرای ادغامی در بهترین حالت؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "بنابراین Θ(n log n).",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "Ω(n log n)",
+          "feedback_fa": "درست؛ باید به هر خانه سر بزند."
+        },
+        {
+          "id": "b",
+          "text_fa": "Ω(n)",
+          "feedback_fa": "ادغامی زودتر متوقف نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "Ω(1)",
+          "feedback_fa": "حتی آرایهٔ مرتب هم نصف و ادغام می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-040",
+      "origin": "authored",
+      "week": 3,
+      "type": "true_false",
+      "lesson_id": "w03-l07",
+      "concept_ids": [
+        "w03-c-memory-tradeoff"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-merge-sort",
+      "prompt_fa": "درست یا نادرست: طبق ویدئوی کوتاه Merge Sort، ادغامی احتمالاً حافظهٔ بیشتری نسبت به انتخابی و حبابی لازم دارد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "بهای سرعت.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w03-q-041",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l07",
+      "concept_ids": [
+        "w03-c-merging"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-3#merge-sort",
+      "prompt_fa": "نتیجهٔ ادغام `2 5` و `1 9` چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر بار کوچک‌ترِ دو سر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "1 2 5 9",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "2 5 1 9",
+          "feedback_fa": "این فقط کنار هم گذاشتن است."
+        },
+        {
+          "id": "c",
+          "text_fa": "1 9 2 5",
+          "feedback_fa": "ادغام مقایسه می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w03-q-042",
+      "origin": "authored",
+      "week": 3,
+      "type": "predict_output",
+      "lesson_id": "w03-l07",
+      "concept_ids": [
+        "w03-c-merging"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-3",
+      "prompt_fa": "(کد تألیفی) این برنامه دو نیمهٔ مرتب را ادغام می‌کند. چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "1 3 4"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1 3 4"
+        ]
+      },
+      "explanation_fa": "وقتی right تمام شد، حلقه می‌ایستد و 6 چاپ نمی‌شود؛ همین اشکال رایجِ «باقی‌ماندهٔ یک نیمه» است.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int left[] = {3, 6};\n    int right[] = {1, 4};\n    int i = 0;\n    int j = 0;\n    while (i < 2 && j < 2)\n    {\n        if (left[i] < right[j])\n        {\n            printf(\"%i \", left[i]);\n            i++;\n        }\n        else\n        {\n            printf(\"%i \", right[j]);\n            j++;\n        }\n    }\n    printf(\"\\n\");\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "1 3 4",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T10:00:00+03:30"
+      }
+    },
+    {
+      "id": "w03-q-043",
+      "origin": "authored",
+      "week": 3,
+      "type": "mcq",
+      "lesson_id": "w03-l07",
+      "concept_ids": [
+        "w03-c-n-log-n"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-3#merge-sort",
+      "prompt_fa": "برای n = 1024، ادغامی حدوداً چند سطح نصف کردن دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "log2(1024) = 10.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "10",
+          "feedback_fa": "درست: 2 به توان 10 برابر 1024 است."
+        },
+        {
+          "id": "b",
+          "text_fa": "1024",
+          "feedback_fa": "این تعداد عضوهاست."
+        },
+        {
+          "id": "c",
+          "text_fa": "512",
+          "feedback_fa": "این فقط یک بار نصف کردن است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w03-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w03-q-001",
+        "w03-q-002",
+        "w03-q-003",
+        "w03-q-004",
+        "w03-q-005",
+        "w03-q-006"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w03-q-007",
+        "w03-q-008",
+        "w03-q-009",
+        "w03-q-010",
+        "w03-q-011",
+        "w03-q-012"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w03-q-013",
+        "w03-q-014",
+        "w03-q-015",
+        "w03-q-016",
+        "w03-q-017",
+        "w03-q-018"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w03-q-019",
+        "w03-q-020",
+        "w03-q-021",
+        "w03-q-022",
+        "w03-q-023"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w03-q-024",
+        "w03-q-025",
+        "w03-q-026",
+        "w03-q-027",
+        "w03-q-028",
+        "w03-q-029",
+        "w03-q-030"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w03-q-031",
+        "w03-q-032",
+        "w03-q-033",
+        "w03-q-034",
+        "w03-q-035",
+        "w03-q-036",
+        "w03-q-037"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w03-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w03-q-038",
+        "w03-q-039",
+        "w03-q-040",
+        "w03-q-041",
+        "w03-q-042",
+        "w03-q-043"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w03-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۳",
+      "item_ids": [
+        "w03-q-002",
+        "w03-q-005",
+        "w03-q-012",
+        "w03-q-008",
+        "w03-q-015",
+        "w03-q-016",
+        "w03-q-019",
+        "w03-q-022",
+        "w03-q-026",
+        "w03-q-029",
+        "w03-q-032",
+        "w03-q-034",
+        "w03-q-042",
+        "w03-q-043"
+      ],
+      "item_pool_ids": [
+        "w03-q-001",
+        "w03-q-002",
+        "w03-q-003",
+        "w03-q-004",
+        "w03-q-005",
+        "w03-q-006",
+        "w03-q-007",
+        "w03-q-008",
+        "w03-q-009",
+        "w03-q-010",
+        "w03-q-011",
+        "w03-q-012",
+        "w03-q-013",
+        "w03-q-014",
+        "w03-q-015",
+        "w03-q-016",
+        "w03-q-018",
+        "w03-q-019",
+        "w03-q-020",
+        "w03-q-021",
+        "w03-q-022",
+        "w03-q-023",
+        "w03-q-024",
+        "w03-q-025",
+        "w03-q-026",
+        "w03-q-027",
+        "w03-q-028",
+        "w03-q-029",
+        "w03-q-031",
+        "w03-q-032",
+        "w03-q-033",
+        "w03-q-034",
+        "w03-q-035",
+        "w03-q-037",
+        "w03-q-038",
+        "w03-q-039",
+        "w03-q-040",
+        "w03-q-041",
+        "w03-q-042",
+        "w03-q-043"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

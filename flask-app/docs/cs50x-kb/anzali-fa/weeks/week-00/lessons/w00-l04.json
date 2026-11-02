@@ -1,0 +1,291 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l04",
+  "type": "lesson",
+  "week": 0,
+  "order": 4,
+  "stage_id": "w00-s2",
+  "title_fa": "الگوریتم و زمان اجرا",
+  "title_en": "Algorithms and running time",
+  "note_ids": [
+    "w00-n07"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l02"
+  ],
+  "concept_ids": [
+    "w00-c-algorithm",
+    "w00-c-running-time",
+    "w00-c-big-o",
+    "w00-c-correctness-vs-design"
+  ],
+  "objective_ids": [
+    "w00-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l04-u01",
+      "order": 1,
+      "title_fa": "الگوریتم: سه راه برای پیدا کردن یک نام",
+      "concept_ids": [
+        "w00-c-algorithm"
+      ],
+      "objective_ids": [
+        "w00-o03"
+      ],
+      "note_id": "w00-n07",
+      "source_refs": [
+        "src-notes-0#algorithms",
+        "src-anzali-authored",
+        "src-transcript-0"
+      ],
+      "reading": {
+        "text_fa": "الگوریتم مجموعه‌ای گام‌به‌گام از دستورها برای حل یک مسئله است. برای پیدا کردن یک نام در دفترچهٔ تلفن سه راه دیدیم: صفحه‌به‌صفحه، دوصفحه‌دوصفحه، و باز کردن وسط و نصف کردن مسئله در هر گام.",
+        "note_id": "w00-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n07"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "۱) صفحهٔ ۱، ۲، ۳، ... تا پیدا شود\n۲) صفحهٔ ۲، ۴، ۶، ... (دوتادوتا)\n۳) وسط را باز کن؛ نیمهٔ نامربوط را کنار بگذار؛ تکرار کن",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "خلاصهٔ تألیفی سه روش درس‌نامه."
+      },
+      "check": {
+        "id": "w00-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در روش «دوتادوتا»، اگر از نام رد شویم چه باید کرد تا الگوریتم درست بماند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یک صفحه به عقب برگردیم و آن را هم بررسی کنیم",
+            "correct": true,
+            "feedback_fa": "درست. این همان اصلاحی است که در سخنرانی برای درستی روش دوم گفته شد (منبع: رونوشت سخنرانی)."
+          },
+          {
+            "id": "b",
+            "text_fa": "ادامه بدهیم؛ مهم نیست",
+            "correct": false,
+            "feedback_fa": "در این صورت ممکن است نام را جا بیندازیم و الگوریتم نادرست شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "از اول شروع کنیم",
+            "correct": false,
+            "feedback_fa": "این کار درست است اما بی‌دلیل کند است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l04-u01-ex",
+        "type": "ordering",
+        "origin": "authored",
+        "prompt_fa": "گام‌های روش سوم را مرتب کن: (الف) نیمهٔ نامربوط را کنار بگذار؛ (ب) وسط دفترچه را باز کن؛ (ج) تکرار کن تا نام پیدا شود یا صفحه‌ای نماند؛ (د) ببین نام در این صفحه است، قبل یا بعد.",
+        "expected": {
+          "order": [
+            "ب",
+            "د",
+            "الف",
+            "ج"
+          ]
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "از باز کردن وسط شروع کن، سپس مقایسه، حذف نیمه و تکرار."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l04-u02",
+      "order": 2,
+      "title_fa": "رشد زمان اجرا: n، n/2 و log₂ n",
+      "concept_ids": [
+        "w00-c-running-time",
+        "w00-c-big-o"
+      ],
+      "objective_ids": [
+        "w00-o03"
+      ],
+      "note_id": "w00-n07",
+      "source_refs": [
+        "src-notes-0#algorithms",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "با ۱۰۰ نام، روش اول ممکن است تا ۱۰۰ تلاش لازم داشته باشد (`n`). روش دوم دو برابر سریع‌تر است (`n/2`). در روش سوم دو برابر شدن مسئله فقط **یک گام** اضافه می‌کند (`log₂ n`). درس‌نامه این را با نماد O بزرگ نمایش می‌دهد.",
+        "note_id": "w00-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n07"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "n = 1024 صفحه\n• روش ۱: حداکثر حدود 1024 گام\n• روش ۲: حدود 512 گام\n• روش ۳: حدود 10 گام (چون 2^10 = 1024)",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "محاسبهٔ تألیفی؛ اعداد تقریبی و برای مقایسهٔ رشد هستند."
+      },
+      "check": {
+        "id": "w00-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر صفحه‌های دفترچه دو برابر شود، روش نصف‌کردن چند گام بیشتر لازم دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "حدود یک گام",
+            "correct": true,
+            "feedback_fa": "درست؛ ویژگی log₂ n همین است."
+          },
+          {
+            "id": "b",
+            "text_fa": "دو برابر گام",
+            "correct": false,
+            "feedback_fa": "این رفتار روش خطی (n) است."
+          },
+          {
+            "id": "c",
+            "text_fa": "هیچ گام",
+            "correct": false,
+            "feedback_fa": "یک نصف‌کردن بیشتر لازم است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l04-u02-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "برای n = 64 تعداد تقریبی گام‌های روش سوم را بنویس.",
+        "expected": {
+          "answer": "6"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: 2^6 = 64.",
+          "incorrect_fa": "چند بار باید ۶۴ را نصف کنی تا به ۱ برسی؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l04-u03",
+      "order": 3,
+      "title_fa": "درستی در برابر طراحی خوب",
+      "concept_ids": [
+        "w00-c-correctness-vs-design"
+      ],
+      "objective_ids": [
+        "w00-o03"
+      ],
+      "note_id": "w00-n07",
+      "source_refs": [
+        "src-notes-0#algorithms",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "یک الگوریتم اول باید درست باشد، یعنی همیشه پاسخ درست بدهد. بعد می‌خواهیم خوب طراحی شده باشد، مثلاً سریع‌تر یا ساده‌تر. صفحهٔ پرابلم‌ست هم کدی می‌خواهد که «نه‌تنها درست، بلکه ترجیحاً خوب طراحی‌شده» باشد.",
+        "note_id": "w00-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n07"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "روش ۱: درست، ولی کند\nروش ۲ بدون برگشت: سریع‌تر، ولی گاهی نادرست\nروش ۲ با برگشت: درست و سریع‌تر\nروش ۳: درست و بسیار سریع‌تر",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "جمع‌بندی تألیفی."
+      },
+      "check": {
+        "id": "w00-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام ترکیب بهترین است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "درست و خوب طراحی‌شده",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "سریع ولی گاهی نادرست",
+            "correct": false,
+            "feedback_fa": "سرعت بدون درستی بی‌ارزش است."
+          },
+          {
+            "id": "c",
+            "text_fa": "درست ولی پر از تکرار",
+            "correct": false,
+            "feedback_fa": "درست است، اما طراحی را می‌شود بهتر کرد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l04-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «الگوریتمی که سریع است ولی گاهی پاسخ غلط می‌دهد، از الگوریتم کند و همیشه درست بهتر است.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: نادرست است.",
+          "incorrect_fa": "درستی مقدم است؛ بعد طراحی و سرعت."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+
+{% block title %}{{ doc.title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto space-y-6">
+<nav class="mb-2 text-sm flex flex-wrap gap-2 items-center" aria-label="مسیر راهنما">
+  <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer">پایگاه دانش</a>
+  {% if doc.site_number is not none %}
+  <span class="text-[var(--border)]">/</span>
+  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline cursor-pointer">هفتهٔ {{ doc.site_number }}</a>
+  {% endif %}
+  <span class="text-[var(--border)]">/</span>
+  <span class="text-[var(--slate)] truncate max-w-xs">{{ doc.title }}</span>
+</nav>
+
+{% if doc.site_number is not none %}
+{# نوار هدایت هوشمند جایگاه در مسیر یادگیری #}
+<div class="flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-[#1A1A22] p-3 sm:p-4 rounded-2xl border border-[var(--border)] text-xs shadow-xs">
+  <div class="flex items-center gap-2.5">
+    <span class="inline-flex px-2.5 py-0.5 rounded-full bg-crimson-tint text-crimson font-bold text-xs num">هفته {{ doc.site_number }}</span>
+    <span class="text-[var(--ink)] font-bold">گام ۲: درسنامه‌های درس</span>
+    {% if doc.siblings_nav %}
+    <span class="text-[var(--slate)] font-mono text-[11px]">({{ doc.siblings_nav.current_index }} از {{ doc.siblings_nav.total_count }})</span>
+    {% endif %}
+  </div>
+  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline font-bold inline-flex items-center gap-1.5 transition">
+    <span>نقشه کامل مراحل هفته</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+</div>
+{% endif %}
+
+{# نوار پیشرفت مطالعه یادداشت‌های هفته #}
+{% if doc.siblings_nav %}
+<div class="card-harvard p-3 sm:p-4 mb-6 bg-white border border-[var(--border)] shadow-sm">
+  <div class="flex items-center justify-between text-xs text-[var(--slate)] font-semibold mb-1.5">
+    <span class="flex items-center gap-1.5 text-[var(--ink)]">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      یادداشت <strong class="num text-crimson font-bold">{{ doc.siblings_nav.current_index }}</strong> از <strong class="num">{{ doc.siblings_nav.total_count }}</strong>
+    </span>
+    <span class="num text-xs font-bold text-crimson">{{ doc.siblings_nav.progress_pct }}٪ از درس‌نامهٔ هفته</span>
+  </div>
+  <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+    <div class="bg-crimson h-full rounded-full transition-all duration-300" style="width: {{ doc.siblings_nav.progress_pct }}%;"></div>
+  </div>
+</div>
+{% endif %}
+
+<!-- اگر سند انگلیسی است ولی نسخهٔ فارسی آن موجود است، بنر هدایت به فارسی نمایش داده می‌شود -->
+{% if not doc.is_fa and doc.counterpart and doc.counterpart.is_fa %}
+<aside class="card-harvard p-4 sm:p-5 mb-6 bg-crimson-tint/40 border border-crimson/25 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-lg bg-crimson text-white flex items-center justify-center shrink-0">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+    </div>
+    <div>
+      <h3 class="font-bold text-sm sm:text-base text-crimson-dark">نسخهٔ بومی‌شده و روان این مبحث به زبان فارسی در دسترس است</h3>
+      <p class="text-xs text-[var(--slate)] mt-0.5">آموزش فارسی با مثال‌های تفصیلی منطبق با دورهٔ انزلی</p>
+    </div>
+  </div>
+  <a href="{{ url_for('kb.doc_page', doc_id=doc.counterpart.id) }}"
+     class="btn-crimson shrink-0 text-xs sm:text-sm py-2 px-4 shadow-sm inline-flex items-center gap-2 cursor-pointer">
+    <span>مشاهدهٔ نسخهٔ فارسی</span>
+    <svg class="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </a>
+</aside>
+{% endif %}
+
+<header class="mb-6">
+  <div class="flex flex-wrap items-center gap-2 mb-2">
+    {% if doc.is_fa %}
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson-tint text-crimson border border-crimson/20">
+      <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+      نسخهٔ فارسی CS50x Anzali
+    </span>
+    {% endif %}
+
+    {% if doc.type %}
+    <span class="kb-chip">{{ doc.type }}</span>
+    {% endif %}
+
+    {% if doc.source_type == 'official' or doc.rendered.has_official %}
+    <span class="inline-flex px-2.5 py-0.5 rounded text-xs font-bold bg-crimson text-white">OFFICIAL</span>
+    {% endif %}
+
+    {% if doc.rendered.has_generated %}
+    <span class="inline-flex px-2.5 py-0.5 rounded text-xs font-bold bg-[var(--crimson-dark)] text-white">GENERATED</span>
+    {% elif doc.source_type and doc.source_type != 'official' %}
+    <span class="inline-flex px-2.5 py-0.5 rounded text-xs font-semibold bg-crimson-tint text-crimson">{{ doc.source_type }}</span>
+    {% endif %}
+  </div>
+
+  <h1 class="text-2xl sm:text-3xl font-extrabold leading-tight text-[var(--ink)]">{{ doc.title }}</h1>
+
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    {% if doc.source_url %}
+    <a href="{{ doc.source_url }}" target="_blank" rel="noopener noreferrer"
+       class="inline-flex items-center gap-1 text-sm font-bold text-crimson hover:underline cursor-pointer">
+      <span>صفحهٔ رسمی منبع</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+    {% endif %}
+  </div>
+</header>
+
+{% if pset_downloads %}
+<div class="card-harvard p-3 sm:p-4 mb-6 bg-gray-50/80 border border-[var(--border)] rounded-xl flex flex-wrap items-center justify-between gap-3">
+  <div class="flex items-center gap-2.5">
+    <div class="w-8 h-8 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </div>
+    <div>
+      <span class="text-xs font-bold text-[var(--ink)] block">دریافت نسخهٔ آفلاین و چاپی راهنما</span>
+      <span class="text-[11px] text-[var(--slate)]">فایل‌های استاندارد برای مطالعه آفلاین یا چاپ</span>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-2">
+    {% if pset_downloads.formats.html %}
+    <a href="{{ url_for('kb.download_item', week_slug=pset_downloads.slug, item_and_fmt=pset_downloads.item.id + '.html') }}"
+       target="_blank"
+       class="btn-soft-crimson text-xs py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <span>مشاهده آفلاین HTML</span>
+    </a>
+    {% endif %}
+
+    {% if pset_downloads.formats.get('pdf') %}
+    {% set pset_pdf = pset_downloads.formats.get('pdf') %}
+    {% set pset_pages = pset_pdf.get('pages') or pset_pdf.get('page_count') %}
+    <a href="{{ url_for('kb.download_item', week_slug=pset_downloads.slug, item_and_fmt=pset_downloads.item.id + '.pdf') }}"
+       class="btn-outline-crimson text-xs py-1.5 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer transition">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      <span>دانلود PDF</span>
+      {% if pset_pages %}
+      <span class="text-[10px] opacity-75 num">({{ pset_pages }} صفحه)</span>
+      {% endif %}
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+<!-- اگر سند فارسی است و همتای انگلیسی دارد: دکمه/آکاردئون «متن اصلی (English)» -->
+{% if doc.is_fa and doc.counterpart and not doc.counterpart.is_fa %}
+<section class="mb-6">
+  <details class="card-harvard p-4 sm:p-5 border border-[var(--border)] group">
+    <summary class="flex items-center justify-between cursor-pointer font-bold text-sm text-[var(--ink)] hover:text-crimson select-none">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-crimson shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span>متن اصلی (English)</span>
+        <span class="text-xs font-normal text-[var(--slate)]">({{ doc.counterpart.title }})</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-[var(--slate)] font-normal group-open:hidden">مشاهده مرجع انگلیسی هاروارد</span>
+        <span class="text-xs text-crimson font-bold group-open:rotate-180 transition-transform">▼</span>
+      </div>
+    </summary>
+    <div class="mt-4 pt-4 border-t border-[var(--border)] text-left" dir="ltr">
+      <div class="flex items-center justify-between mb-3 text-xs text-[var(--slate)]">
+        <span class="font-semibold text-crimson">CS50 Official Course Material</span>
+        {% if doc.counterpart.source_url %}
+        <a href="{{ doc.counterpart.source_url }}" target="_blank" rel="noopener noreferrer" class="text-crimson hover:underline font-bold">cs50.harvard.edu ↗</a>
+        {% endif %}
+      </div>
+      <article class="kb-prose kb-official">
+        {% if doc.counterpart.rendered %}
+          {{ doc.counterpart.rendered.official_html|safe if doc.counterpart.rendered.has_official else doc.counterpart.rendered.full_html|safe }}
+        {% else %}
+          <p class="text-sm text-[var(--slate)]">متن اصلی انگلیسی در صفحهٔ رسمی قابل مشاهده است.</p>
+        {% endif %}
+      </article>
+    </div>
+  </details>
+</section>
+{% endif %}
+
+{% if doc.children %}
+<section class="mb-6">
+  <h2 class="kb-section-title">زیرصفحه‌ها</h2>
+  <ul class="card-harvard divide-y divide-[var(--border)]">
+    {% for c in doc.children %}
+    <li>
+      <a href="{{ url_for('kb.doc_page', doc_id=c.id) }}"
+         class="flex justify-between px-4 py-3 text-sm hover:bg-crimson-tint/30 cursor-pointer transition-colors">
+        <span class="font-semibold">{{ c.title }}</span>
+        <span class="text-xs text-crimson">{{ c.type }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+{% if doc.rendered.toc and doc.rendered.toc|length > 1 %}
+<nav class="kb-toc card-harvard p-4 sm:p-5 mb-8" aria-label="فهرست مطالب">
+  <h2 class="kb-section-title mb-3">فهرست مطالب</h2>
+  <ol class="space-y-1.5 text-sm">
+    {% for item in doc.rendered.toc %}
+    <li class="{% if item.level == 3 %}pr-4{% endif %}">
+      <a href="#{{ item.id }}" class="text-crimson hover:underline cursor-pointer">{{ item.text }}</a>
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}
+
+{% if doc.rendered.has_official %}
+<section class="mb-8">
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">محتوای رسمی (OFFICIAL)</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-crimson text-white">OFFICIAL</span>
+  </div>
+  <article class="kb-prose kb-official card-harvard p-5 sm:p-8">
+    {{ doc.rendered.official_html|safe }}
+  </article>
+</section>
+{% endif %}
+
+{% if doc.rendered.has_generated %}
+<section class="mb-8">
+  <div class="flex items-center gap-2 mb-3">
+    <h2 class="kb-section-title mb-0">نکات تکمیلی و کاربرد در کلاس (GENERATED)</h2>
+    <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-bold bg-[var(--crimson-dark)] text-white">GENERATED</span>
+  </div>
+  <p class="text-xs text-[var(--slate)] mb-2">این بخش توسط تیم آموزشی تدوین شده و مکمل متن درسی است.</p>
+  <article class="kb-prose kb-generated card-harvard p-5 sm:p-8">
+    {{ doc.rendered.generated_html|safe }}
+  </article>
+</section>
+{% endif %}
+
+{% if not doc.rendered.has_official and not doc.rendered.has_generated %}
+<article class="kb-prose card-harvard p-5 sm:p-8 mb-8">
+  {{ doc.rendered.full_html|safe }}
+</article>
+{% endif %}
+
+{# ناوبری هوشمند یادداشت قبلی و بعدی #}
+{% if doc.siblings_nav %}
+<section class="mt-8 mb-8 pt-6 border-t border-[var(--border)]">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
+    {# کارت یادداشت قبلی #}
+    {% if doc.siblings_nav.prev %}
+    <a href="{{ url_for('kb.doc_page', doc_id=doc.siblings_nav.prev.id) }}"
+       class="card-harvard p-4 flex items-center gap-3 border border-[var(--border)] hover:border-crimson hover:bg-crimson-tint/20 transition-all cursor-pointer group">
+      <span class="w-9 h-9 rounded-xl bg-gray-100 group-hover:bg-crimson group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </span>
+      <div class="min-w-0">
+        <span class="text-[11px] text-[var(--slate)] block font-medium">یادداشت قبلی</span>
+        <h4 class="font-bold text-xs sm:text-sm text-[var(--ink)] truncate group-hover:text-crimson transition-colors">{{ doc.siblings_nav.prev.title }}</h4>
+      </div>
+    </a>
+    {% else %}
+    <div class="card-harvard p-4 opacity-50 border border-dashed border-gray-200 flex items-center gap-3 select-none">
+      <span class="text-xs text-gray-400">ابتدای درس‌نامه‌های هفته</span>
+    </div>
+    {% endif %}
+
+    {# کارت یادداشت بعدی / CTA اصلی #}
+    {% if doc.siblings_nav.next %}
+    <a href="{{ url_for('kb.doc_page', doc_id=doc.siblings_nav.next.id) }}"
+       class="card-harvard p-4 flex items-center justify-between gap-3 border-2 border-crimson/30 bg-crimson-tint/40 hover:bg-crimson-tint/70 transition-all cursor-pointer group text-left">
+      <div class="min-w-0">
+        <span class="text-[11px] text-crimson font-bold block">یادداشت بعدی (ادامه مطالعه)</span>
+        <h4 class="font-bold text-xs sm:text-sm text-crimson-dark truncate">{{ doc.siblings_nav.next.title }}</h4>
+      </div>
+      <span class="w-9 h-9 rounded-xl bg-crimson text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </span>
+    </a>
+    {% else %}
+    <a href="{{ url_for('kb.week_page', week=doc.site_number) + '#tab-quiz' }}"
+       class="card-harvard p-4 flex items-center justify-between gap-3 border-2 border-emerald-500 bg-emerald-50 hover:bg-emerald-100 transition-all cursor-pointer group text-left">
+      <div class="min-w-0">
+        <span class="text-[11px] text-emerald-800 font-bold block">پایان درس‌نامه! گام بعدی:</span>
+        <h4 class="font-bold text-xs sm:text-sm text-emerald-950">ورود به آزمون تسلط هفته (کوییز)</h4>
+      </div>
+      <span class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </span>
+    </a>
+    {% endif %}
+  </div>
+
+  {# پیوندهای کمکی سریع #}
+  <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--slate)] bg-white p-3.5 rounded-xl border border-[var(--border)]">
+    <div class="flex items-center gap-3">
+      {% if doc.site_number is not none %}
+      <a href="{{ url_for('kb.week_page', week=doc.site_number) + '#tab-flashcards' }}" class="text-crimson hover:underline font-semibold inline-flex items-center gap-1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        مرور فلش‌کارت‌های این هفته
+      </a>
+      <span class="text-gray-300">|</span>
+      <a href="{{ url_for('kb.week_page', week=doc.site_number) + '#tab-glossary' }}" class="text-crimson hover:underline font-semibold inline-flex items-center gap-1">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        واژه‌نامه تخصصی
+      </a>
+      {% endif %}
+    </div>
+    {% if doc.site_number is not none %}
+    <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="btn-soft-crimson text-xs py-1 px-3">
+      بازگشت به هفتهٔ {{ doc.site_number }}
+    </a>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<footer class="text-xs text-[var(--slate)] border-t border-[var(--border)] pt-4 space-y-1">
+  <p>{{ doc.attribution }}</p>
+  <p>
+    مجوز
+    <a href="{{ doc.license_url }}" class="text-crimson hover:underline" target="_blank" rel="noopener">{{ doc.license }}</a>
+    —
+    CS50x / Harvard University / David J. Malan.
+    استخراج غیرتجاری آموزشی برای CS50x Anzali؛ ترجمه‌ها و اقتباس‌ها با همان مجوز ShareAlike.
+  </p>
+</footer>
+</div>
+{% endblock %}

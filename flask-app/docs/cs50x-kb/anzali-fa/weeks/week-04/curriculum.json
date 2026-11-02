@@ -1,0 +1,473 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w04-curriculum",
+  "week": 4,
+  "title_fa": "هفتهٔ ۴ — حافظه",
+  "title_en": "Week 4 — Memory",
+  "panel_week_number": 4,
+  "kb_parent_node": "week-4",
+  "hub_doc_id": "w04-fa",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-4",
+    "src-notes-4",
+    "src-transcript-4",
+    "src-section-4",
+    "src-pset-4"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w04-o01",
+    "w04-o02",
+    "w04-o03",
+    "w04-o04",
+    "w04-o05",
+    "w04-o06",
+    "w04-o07",
+    "w04-o08",
+    "w04-o09",
+    "w04-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: هگزادسیمال و نشانی‌ها، اشاره‌گرها، رشته‌ها و حساب اشاره‌گر و مقایسه، کپی و malloc، Valgrind و زباله، جابه‌جایی و چیدمان حافظه و scanf، و در آخر فایل‌ها. درس فایل‌ها به malloc و اشاره‌گرها وابسته است و پرابلم‌ست‌ها پس از آن باز می‌شوند. License فقط به Valgrind و malloc نیاز دارد و پس از درس ۵ باز می‌شود.",
+  "stages": [
+    {
+      "id": "w04-s1",
+      "lesson_ids": [
+        "w04-l01",
+        "w04-l02"
+      ]
+    },
+    {
+      "id": "w04-s2",
+      "lesson_ids": [
+        "w04-l03",
+        "w04-l04"
+      ]
+    },
+    {
+      "id": "w04-s3",
+      "lesson_ids": [
+        "w04-l05",
+        "w04-l06"
+      ]
+    },
+    {
+      "id": "w04-s4",
+      "lesson_ids": [
+        "w04-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w04-l01",
+      "order": 1,
+      "file": "lessons/w04-l01.json",
+      "title_fa": "پیکسل‌ها، هگزادسیمال و نشانی‌ها",
+      "stage_id": "w04-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w04-l01-u01",
+        "w04-l01-u02",
+        "w04-l01-u03"
+      ],
+      "note_ids": [
+        "w04-n01",
+        "w04-n02",
+        "w04-n03"
+      ],
+      "related_doc_ids": [
+        "w04-sh-hexadecimal"
+      ]
+    },
+    {
+      "id": "w04-l02",
+      "order": 2,
+      "file": "lessons/w04-l02.json",
+      "title_fa": "اشاره‌گرها",
+      "stage_id": "w04-s1",
+      "prerequisite_lesson_ids": [
+        "w04-l01"
+      ],
+      "unit_ids": [
+        "w04-l02-u01",
+        "w04-l02-u02",
+        "w04-l02-u03"
+      ],
+      "note_ids": [
+        "w04-n04"
+      ],
+      "related_doc_ids": [
+        "w04-sh-pointers"
+      ]
+    },
+    {
+      "id": "w04-l03",
+      "order": 3,
+      "file": "lessons/w04-l03.json",
+      "title_fa": "رشته‌ها، حساب اشاره‌گر و مقایسه",
+      "stage_id": "w04-s2",
+      "prerequisite_lesson_ids": [
+        "w04-l02"
+      ],
+      "unit_ids": [
+        "w04-l03-u01",
+        "w04-l03-u02",
+        "w04-l03-u03"
+      ],
+      "note_ids": [
+        "w04-n05",
+        "w04-n06",
+        "w04-n07"
+      ],
+      "related_doc_ids": [
+        "w04-sh-defining-custom-types"
+      ]
+    },
+    {
+      "id": "w04-l04",
+      "order": 4,
+      "file": "lessons/w04-l04.json",
+      "title_fa": "کپی رشته و malloc",
+      "stage_id": "w04-s2",
+      "prerequisite_lesson_ids": [
+        "w04-l03"
+      ],
+      "unit_ids": [
+        "w04-l04-u01",
+        "w04-l04-u02",
+        "w04-l04-u03"
+      ],
+      "note_ids": [
+        "w04-n08",
+        "w04-n09"
+      ],
+      "related_doc_ids": [
+        "w04-sh-dynamic-memory-allocation"
+      ]
+    },
+    {
+      "id": "w04-l05",
+      "order": 5,
+      "file": "lessons/w04-l05.json",
+      "title_fa": "Valgrind و مقدارهای زباله",
+      "stage_id": "w04-s3",
+      "prerequisite_lesson_ids": [
+        "w04-l04"
+      ],
+      "unit_ids": [
+        "w04-l05-u01",
+        "w04-l05-u02"
+      ],
+      "note_ids": [
+        "w04-n10",
+        "w04-n11"
+      ],
+      "related_doc_ids": [
+        "w04-sec"
+      ]
+    },
+    {
+      "id": "w04-l06",
+      "order": 6,
+      "file": "lessons/w04-l06.json",
+      "title_fa": "جابه‌جایی، چیدمان حافظه و scanf",
+      "stage_id": "w04-s3",
+      "prerequisite_lesson_ids": [
+        "w04-l02",
+        "w04-l05"
+      ],
+      "unit_ids": [
+        "w04-l06-u01",
+        "w04-l06-u02",
+        "w04-l06-u03"
+      ],
+      "note_ids": [
+        "w04-n12",
+        "w04-n13",
+        "w04-n14"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w04-l07",
+      "order": 7,
+      "file": "lessons/w04-l07.json",
+      "title_fa": "فایل‌ها و قالب‌های دودویی",
+      "stage_id": "w04-s4",
+      "prerequisite_lesson_ids": [
+        "w04-l04"
+      ],
+      "unit_ids": [
+        "w04-l07-u01",
+        "w04-l07-u02",
+        "w04-l07-u03"
+      ],
+      "note_ids": [
+        "w04-n15"
+      ],
+      "related_doc_ids": [
+        "w04-sh-file-pointers"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "w04-n01",
+      "file": "notes/01-pixel-art.fa.md",
+      "official_anchor": "pixel-art"
+    },
+    {
+      "id": "w04-n02",
+      "file": "notes/02-hexadecimal.fa.md",
+      "official_anchor": "hexadecimal"
+    },
+    {
+      "id": "w04-n03",
+      "file": "notes/03-memory.fa.md",
+      "official_anchor": "memory"
+    },
+    {
+      "id": "w04-n04",
+      "file": "notes/04-pointers.fa.md",
+      "official_anchor": "pointers"
+    },
+    {
+      "id": "w04-n05",
+      "file": "notes/05-strings.fa.md",
+      "official_anchor": "strings"
+    },
+    {
+      "id": "w04-n06",
+      "file": "notes/06-pointer-arithmetic.fa.md",
+      "official_anchor": "pointer-arithmetic"
+    },
+    {
+      "id": "w04-n07",
+      "file": "notes/07-string-comparison.fa.md",
+      "official_anchor": "string-comparison"
+    },
+    {
+      "id": "w04-n08",
+      "file": "notes/08-copying.fa.md",
+      "official_anchor": "copying-and-malloc"
+    },
+    {
+      "id": "w04-n09",
+      "file": "notes/09-malloc-free.fa.md",
+      "official_anchor": "copying-and-malloc"
+    },
+    {
+      "id": "w04-n10",
+      "file": "notes/10-valgrind.fa.md",
+      "official_anchor": "valgrind"
+    },
+    {
+      "id": "w04-n11",
+      "file": "notes/11-garbage-values.fa.md",
+      "official_anchor": "garbage-values"
+    },
+    {
+      "id": "w04-n12",
+      "file": "notes/12-swapping.fa.md",
+      "official_anchor": "swapping"
+    },
+    {
+      "id": "w04-n13",
+      "file": "notes/13-overflow.fa.md",
+      "official_anchor": "overflow"
+    },
+    {
+      "id": "w04-n14",
+      "file": "notes/14-scanf.fa.md",
+      "official_anchor": "scanf"
+    },
+    {
+      "id": "w04-n15",
+      "file": "notes/15-file-io.fa.md",
+      "official_anchor": "file-io"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-4.fa.md",
+    "shorts": [
+      {
+        "id": "w04-sh-hexadecimal",
+        "file": "shorts/hexadecimal.fa.md"
+      },
+      {
+        "id": "w04-sh-pointers",
+        "file": "shorts/pointers.fa.md"
+      },
+      {
+        "id": "w04-sh-defining-custom-types",
+        "file": "shorts/defining-custom-types.fa.md"
+      },
+      {
+        "id": "w04-sh-dynamic-memory-allocation",
+        "file": "shorts/dynamic-memory-allocation.fa.md"
+      },
+      {
+        "id": "w04-sh-file-pointers",
+        "file": "shorts/file-pointers.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w04-ps-volume",
+        "file": "problem-sets/volume.fa.md"
+      },
+      {
+        "id": "w04-ps-filter-less",
+        "file": "problem-sets/filter-less.fa.md"
+      },
+      {
+        "id": "w04-ps-filter-more",
+        "file": "problem-sets/filter-more.fa.md"
+      },
+      {
+        "id": "w04-ps-recover",
+        "file": "problem-sets/recover.fa.md"
+      },
+      {
+        "id": "w04-pr-bottomup",
+        "file": "problem-sets/bottomup.fa.md"
+      },
+      {
+        "id": "w04-pr-license",
+        "file": "problem-sets/license.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w04-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w04-ps-volume",
+      "kind": "pset",
+      "file": "problem-sets/volume.json",
+      "guide": "problem-sets/volume.fa.md",
+      "unlock_after_lesson": "w04-l07"
+    },
+    {
+      "id": "w04-ps-filter-less",
+      "kind": "pset",
+      "file": "problem-sets/filter-less.json",
+      "guide": "problem-sets/filter-less.fa.md",
+      "unlock_after_lesson": "w04-l07"
+    },
+    {
+      "id": "w04-ps-filter-more",
+      "kind": "pset",
+      "file": "problem-sets/filter-more.json",
+      "guide": "problem-sets/filter-more.fa.md",
+      "unlock_after_lesson": "w04-l07"
+    },
+    {
+      "id": "w04-ps-recover",
+      "kind": "pset",
+      "file": "problem-sets/recover.json",
+      "guide": "problem-sets/recover.fa.md",
+      "unlock_after_lesson": "w04-l07"
+    },
+    {
+      "id": "w04-pr-bottomup",
+      "kind": "practice",
+      "file": "problem-sets/bottomup.json",
+      "guide": "problem-sets/bottomup.fa.md",
+      "unlock_after_lesson": "w04-l07"
+    },
+    {
+      "id": "w04-pr-license",
+      "kind": "practice",
+      "file": "problem-sets/license.json",
+      "guide": "problem-sets/license.fa.md",
+      "unlock_after_lesson": "w04-l05"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۴: Volume و Recover تحویل شوند و یکی از دو نسخهٔ Filter؛ نسخهٔ less «اگر کمتر احساس راحتی می‌کنی» و نسخهٔ more «اگر بیشتر احساس راحتی می‌کنی». برخلاف هفتهٔ ۳، صفحهٔ رسمی هفتهٔ ۴ نمی‌گوید اگر هر دو نسخه تحویل شود کدام نمره ثبت می‌شود؛ پیشنهاد موقت CS50x Anzali «نمرهٔ بالاتر» است (D27) و باید تأیید شود. تمرین‌های Bottom Up و License اختیاری‌اند و تحویل ندارند.",
+    "groups": [
+      {
+        "required": [
+          "w04-ps-volume"
+        ],
+        "submit": true
+      },
+      {
+        "one_of": [
+          "w04-ps-filter-less",
+          "w04-ps-filter-more"
+        ],
+        "submit": true,
+        "choice_group": "filter-less-more",
+        "if_both": "higher_score_counts",
+        "if_both_origin": "inference",
+        "if_both_status": "provisional-unresolved",
+        "if_both_decision": "D27",
+        "if_both_source_ref": "src-anzali-inference-4"
+      },
+      {
+        "required": [
+          "w04-ps-recover"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w04-pr-bottomup",
+      "w04-pr-license"
+    ],
+    "source_ref": "src-pset-4#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids_any_of_groups": true,
+        "note": "checklists of Volume, the chosen Filter and Recover"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w04-ps-volume",
+          "w04-ps-recover"
+        ],
+        "plus_one_of": [
+          [
+            "w04-ps-filter-less",
+            "w04-ps-filter-more"
+          ]
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-pr-jar",
+  "kind": "practice",
+  "week": 6,
+  "title_en": "Cookie Jar",
+  "title_fa": "ظرف کلوچه (Cookie Jar)",
+  "guide_doc_id": "w06-pr-jar",
+  "guide_file": "jar.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/jar/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "choice_group": null,
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w06-pr-jar-r1",
+        "text_fa": "در فایل `jar.py` یک `class` به نام `Jar` با این متدها پیاده کن.",
+        "text_en": "implement a `class` called `Jar` with these methods",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r2",
+        "text_fa": "`__init__` ظرف را با ظرفیت `capacity` (بیشترین تعداد کلوچه) می‌سازد.",
+        "text_en": "`__init__` should initialize a cookie jar with the given `capacity`, which represents the maximum number of cookies that can fit in the cookie jar",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r3",
+        "text_fa": "اگر `capacity` عدد صحیح نامنفی نبود، `__init__` باید `ValueError` برانگیزد.",
+        "text_en": "If `capacity` is not a non-negative `int`, though, `__init__` should instead raise a `ValueError` (via `raise ValueError`)",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r4",
+        "text_fa": "`__str__` رشته‌ای با n نویسهٔ کلوچه برمی‌گرداند (n تعداد کلوچه‌های ظرف). صفحهٔ رسمی نویسهٔ کلوچه (U+1F36A) را به کار می‌برد.",
+        "text_en": "`__str__` should return a `str` with",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r5",
+        "text_fa": "`deposit` به تعداد `n` کلوچه به ظرف می‌افزاید.",
+        "text_en": "`deposit` should add `n` cookies to the cookie jar",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r6",
+        "text_fa": "اگر این کار از ظرفیت بیشتر شود، `deposit` باید `ValueError` برانگیزد.",
+        "text_en": "If adding that many would exceed the cookie jar's capacity, though, `deposit` should instead raise a `ValueError`",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r7",
+        "text_fa": "`withdraw` به تعداد `n` کلوچه از ظرف برمی‌دارد.",
+        "text_en": "`withdraw` should remove `n` cookies from the cookie jar",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r8",
+        "text_fa": "اگر به این تعداد کلوچه در ظرف نبود، `withdraw` باید `ValueError` برانگیزد.",
+        "text_en": "If there aren't that many cookies in the cookie jar, though, `withdraw` should instead raise a `ValueError`",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r9",
+        "text_fa": "`capacity` ظرفیت ظرف را برمی‌گرداند.",
+        "text_en": "`capacity` should return the cookie jar's capacity",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r10",
+        "text_fa": "`size` تعداد واقعی کلوچه‌های درون ظرف را برمی‌گرداند.",
+        "text_en": "`size` should return the number of cookies actually in the cookie jar",
+        "source_ref": "src-practice-jar#cookie-jar"
+      },
+      {
+        "id": "w06-pr-jar-r11",
+        "text_fa": "پارامترهای این متدها را تغییر نده، ولی می‌توانی متدهای خودت را بیفزایی.",
+        "text_en": "You may not alter these methods' parameters, but you may add your own methods",
+        "source_ref": "src-practice-jar#cookie-jar"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/6/jar.zip\nunzip jar.zip\nrm jar.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "official_snippets": [
+      {
+        "caption_fa": "ساختار رسمی کلاس (نباید پارامترها را تغییر بدهی)",
+        "code": "class Jar:\n    def __init__(self, capacity=12):\n        ...\n\n    def __str__(self):\n        ...\n\n    def deposit(self, n):\n        ...\n\n    def withdraw(self, n):\n        ...\n\n    @property\n    def capacity(self):\n        ...\n\n    @property\n    def size(self):\n        ...",
+        "origin": "official"
+      }
+    ],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d107",
+      "d109"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-class-init",
+      "w06-c-object-method",
+      "w06-c-exception",
+      "w06-c-try-except"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l03",
+      "w06-l04",
+      "w06-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-class-init",
+        "note_id": "w06-sh-python",
+        "lesson_id": "w06-l04",
+        "unit_id": "w06-l04-u04"
+      },
+      {
+        "concept_id": "w06-c-object-method",
+        "note_id": "w06-n08",
+        "lesson_id": "w06-l03",
+        "unit_id": "w06-l03-u03"
+      },
+      {
+        "concept_id": "w06-c-exception",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u03"
+      },
+      {
+        "concept_id": "w06-c-try-except",
+        "note_id": "w06-n10",
+        "lesson_id": "w06-l05",
+        "unit_id": "w06-l05-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول ویدئوی کوتاه پایتون را دربارهٔ `class` و `__init__` و `self` ببین. هر متد پارامتر اول `self` دارد."
+      },
+      {
+        "n": 2,
+        "hint_fa": "تصمیم بگیر شیء چه داده‌هایی را باید به خاطر بسپارد. دو عدد کافی است."
+      },
+      {
+        "n": 3,
+        "hint_fa": "`@property` اجازه می‌دهد `jar.capacity` را بدون پرانتز بخوانی. اگر نام ویژگی داخلی با نام property یکی باشد چه مشکلی پیش می‌آید؟ مستندات `property` را ببین."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای برانگیختن استثنا، صفحهٔ رسمی خودش `raise ValueError` را نام می‌برد. برای آزمودن آن در `main` می‌توانی از `try` و `except` استفاده کنی."
+      },
+      {
+        "n": 5,
+        "hint_fa": "در `main` حالت‌های مرزی را امتحان کن: ظرفیت ۰، گذاشتن دقیقاً تا ظرفیت، برداشتن همهٔ کلوچه‌ها."
+      }
+    ],
+    "common_mistakes_fa": [
+      "فراموش کردن `self` در تعریف متد یا هنگام دسترسی به ویژگی",
+      "هم‌نام کردن ویژگی داخلی با property و گرفتن بازگشت بی‌پایان",
+      "برانگیختن استثنا پس از تغییر تعداد کلوچه‌ها به جای پیش از آن",
+      "پذیرفتن ظرفیت منفی"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-pr-jar-c01",
+        "text_fa": "`Jar()` بدون آرگومان ظرفیت پیش‌فرض ۱۲ دارد.",
+        "maps_to": "w06-pr-jar-r2"
+      },
+      {
+        "id": "w06-pr-jar-c02",
+        "text_fa": "ظرفیت منفی یا غیرصحیح `ValueError` برمی‌انگیزد.",
+        "maps_to": "w06-pr-jar-r3"
+      },
+      {
+        "id": "w06-pr-jar-c03",
+        "text_fa": "`str(jar)` به تعداد کلوچه‌ها نویسهٔ کلوچه برمی‌گرداند.",
+        "maps_to": "w06-pr-jar-r4"
+      },
+      {
+        "id": "w06-pr-jar-c04",
+        "text_fa": "گذاشتن بیش از ظرفیت و برداشتن بیش از موجودی هر دو `ValueError` برمی‌انگیزند.",
+        "maps_to": "w06-pr-jar-r6"
+      },
+      {
+        "id": "w06-pr-jar-c05",
+        "text_fa": "`capacity` و `size` بدون پرانتز (به شکل property) کار می‌کنند.",
+        "maps_to": "w06-pr-jar-r9"
+      },
+      {
+        "id": "w06-pr-jar-c06",
+        "text_fa": "پارامترهای متدها را تغییر نداده‌ام.",
+        "maps_to": "w06-pr-jar-r11"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

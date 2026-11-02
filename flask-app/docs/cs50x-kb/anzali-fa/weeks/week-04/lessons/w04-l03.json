@@ -1,0 +1,370 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l03",
+  "type": "lesson",
+  "week": 4,
+  "order": 3,
+  "stage_id": "w04-s2",
+  "title_fa": "رشته‌ها، حساب اشاره‌گر و مقایسه",
+  "title_en": "Strings, pointer arithmetic and comparison",
+  "note_ids": [
+    "w04-n05",
+    "w04-n06",
+    "w04-n07"
+  ],
+  "related_doc_ids": [
+    "w04-sh-defining-custom-types"
+  ],
+  "prerequisite_lesson_ids": [
+    "w04-l02"
+  ],
+  "concept_ids": [
+    "w04-c-string-char-star",
+    "w04-c-typedef",
+    "w04-c-typedef-struct",
+    "w04-c-pointer-arithmetic",
+    "w04-c-bracket-as-pointer",
+    "w04-c-compare-addresses",
+    "w04-c-strcmp-content"
+  ],
+  "objective_ids": [
+    "w04-o03",
+    "w04-o04",
+    "w04-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w04-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l03-u01",
+      "order": 1,
+      "title_fa": "string همان char * است",
+      "concept_ids": [
+        "w04-c-string-char-star",
+        "w04-c-typedef",
+        "w04-c-typedef-struct"
+      ],
+      "objective_ids": [
+        "w04-o03"
+      ],
+      "note_id": "w04-n05",
+      "source_refs": [
+        "src-notes-4#strings",
+        "src-short-defining-custom-types",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "رشته آرایه‌ای از کاراکترهاست و متغیر رشته فقط نشانی اولین کاراکتر را دارد. کاراکترها در حافظه پشت سر هم‌اند و با `\\0` تمام می‌شوند. کتابخانهٔ CS50 با `typedef char *string` برای `char *` اسم مستعار `string` گذاشته است. در ویدئوی کوتاه Defining Custom Types همین `typedef` برای نام‌گذاری یک `struct` هم استفاده می‌شود.",
+        "note_id": "w04-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "addresses7",
+        "lang": "c",
+        "content": "// Declares a string without CS50 Library\n\n#include <stdio.h>\n\nint main(void)\n{\n    char *s = \"HI!\";\n    printf(\"%s\\n\", s);\n}",
+        "source_ref": "src-notes-4#strings",
+        "explain_fa": "کد رسمی بدون cs50.h."
+      },
+      "check": {
+        "id": "w04-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`typedef char *string;` چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "برای نوع char * اسم دیگری به نام string می‌گذارد",
+            "correct": true,
+            "feedback_fa": "درست. typedef نوع تازه‌ای نمی‌سازد، فقط اسم می‌گذارد."
+          },
+          {
+            "id": "b",
+            "text_fa": "یک رشتهٔ خالی می‌سازد",
+            "correct": false,
+            "feedback_fa": "هیچ متغیری ساخته نمی‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "char را به string تبدیل می‌کند",
+            "correct": false,
+            "feedback_fa": "یک char تک کاراکتر است؛ string اشاره‌گر به char است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l03-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در `char *s = \"HI!\";` متغیر `s` نشانی کاراکتر `H` را نگه می‌دارد.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "s به اولین بایت رشته اشاره می‌کند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l03-u02",
+      "order": 2,
+      "title_fa": "حساب اشاره‌گر",
+      "concept_ids": [
+        "w04-c-pointer-arithmetic",
+        "w04-c-bracket-as-pointer"
+      ],
+      "objective_ids": [
+        "w04-o04"
+      ],
+      "note_id": "w04-n06",
+      "source_refs": [
+        "src-notes-4#pointer-arithmetic",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "حساب اشاره‌گر یعنی محاسبه روی نشانی‌ها. `*(s + 1)` کاراکتر دوم است و دقیقاً همان `s[1]`؛ براکت‌ها «نحو شیرین» برای همین حساب‌اند. برای آرایهٔ `int`، `numbers + 1` به `int` بعدی می‌رود، یعنی چهار بایت جلوتر، چون کامپایلر نوع را می‌داند.",
+        "note_id": "w04-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "addresses9",
+        "lang": "c",
+        "content": "// Prints a string's chars via pointer arithmetic\n\n#include <stdio.h>\n\nint main(void)\n{\n    char *s = \"HI!\";\n    printf(\"%c\\n\", *s);\n    printf(\"%c\\n\", *(s + 1));\n    printf(\"%c\\n\", *(s + 2));\n}",
+        "source_ref": "src-notes-4#pointer-arithmetic",
+        "explain_fa": "کد رسمی با حساب اشاره‌گر."
+      },
+      "check": {
+        "id": "w04-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام عبارت با `s[2]` هم‌معناست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "*(s + 2)",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "*s + 2",
+            "correct": false,
+            "feedback_fa": "این کاراکتر اول به‌علاوهٔ ۲ است، نه کاراکتر سوم."
+          },
+          {
+            "id": "c",
+            "text_fa": "&s + 2",
+            "correct": false,
+            "feedback_fa": "&s نشانی خود متغیر s است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l03-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟",
+        "expected": {
+          "output": "2"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: numbers + 3 یعنی خانهٔ [3].",
+          "incorrect_fa": "شمارش از صفر است و +3 به اندازهٔ سه int جلو می‌رود."
+        },
+        "hints_fa": [],
+        "lang": "c",
+        "code": "#include <stdio.h>\n\nint main(void)\n{\n    int numbers[] = {4, 6, 8, 2, 7};\n    printf(\"%i\\n\", *(numbers + 3));\n}",
+        "code_origin": "authored",
+        "stdin": "",
+        "compile_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l03-u03",
+      "order": 3,
+      "title_fa": "== در برابر strcmp",
+      "concept_ids": [
+        "w04-c-compare-addresses",
+        "w04-c-strcmp-content"
+      ],
+      "objective_ids": [
+        "w04-o05"
+      ],
+      "note_id": "w04-n07",
+      "source_refs": [
+        "src-notes-4#string-comparison",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "دو `char *` را با `==` مقایسه کنی، نشانی‌ها مقایسه می‌شوند، نه کاراکترها. اگر کاربر دو بار `HI!` تایپ کند، دو رشته در دو جای حافظه‌اند و `s == t` نادرست است. برای مقایسهٔ محتوا `strcmp(s, t) == 0` لازم است. با `%p` می‌شود دید که نشانی‌ها فرق دارند.",
+        "note_id": "w04-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "compare2",
+        "lang": "c",
+        "content": "// Compares two strings using strcmp\n\n#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    // Get two strings\n    char *s = get_string(\"s: \");\n    char *t = get_string(\"t: \");\n\n    // Compare strings\n    if (strcmp(s, t) == 0)\n    {\n        printf(\"Same\\n\");\n    }\n    else\n    {\n        printf(\"Different\\n\");\n    }\n}",
+        "source_ref": "src-notes-4#string-comparison",
+        "explain_fa": "کد رسمی با strcmp."
+      },
+      "check": {
+        "id": "w04-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `compare1.c`، اگر برای هر دو رشته `HI!` وارد شود، خروجی چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "Different",
+            "correct": true,
+            "feedback_fa": "درست. دو نشانی متفاوت مقایسه می‌شوند."
+          },
+          {
+            "id": "b",
+            "text_fa": "Same",
+            "correct": false,
+            "feedback_fa": "محتوا یکی است ولی == محتوا را مقایسه نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای کامپایل",
+            "correct": false,
+            "feedback_fa": "کد کامپایل می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l03-u03-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا این قطعهٔ تألیفی محتوای دو رشته را درست مقایسه کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "if (strcmp(s, t) == 0)",
+            "text": "if (strcmp(s, t) == 0)"
+          },
+          {
+            "id": "p2",
+            "code": "{",
+            "text": "{"
+          },
+          {
+            "id": "p3",
+            "code": "    printf(\"Same\\n\");",
+            "text": "    printf(\"Same\\n\");"
+          },
+          {
+            "id": "p4",
+            "code": "}",
+            "text": "}"
+          },
+          {
+            "id": "p5",
+            "code": "else",
+            "text": "else"
+          },
+          {
+            "id": "p6",
+            "code": "{",
+            "text": "{"
+          },
+          {
+            "id": "p7",
+            "code": "    printf(\"Different\\n\");",
+            "text": "    printf(\"Different\\n\");"
+          },
+          {
+            "id": "p8",
+            "code": "}",
+            "text": "}"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "if (s == t)",
+            "why_wrong_fa": "این نشانی‌ها را مقایسه می‌کند، نه محتوا را."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6",
+            "p7",
+            "p8"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "مقایسهٔ محتوا با strcmp و صفر است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 99,
+  "week_slug": "final-project",
+  "title": "چالش‌های پروژهٔ نهایی (خودآزمایی الزامات)",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند و سؤال رسمی CS50 نیستند. هر برنامه یک ابزار کوچک خودآزمایی دربارهٔ یکی از الزامات رسمی تحویل است (طول ویدئو، وضعیت ویدئو، نام README.md، بخش آغازین، ترتیب گام‌ها)؛ هیچ‌کدام کد پروژه یا بخشی از پروژهٔ کسی نیست (D88).",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 2,
+    "parsons": 2,
+    "spot_bug": 2
+  },
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w99-ch01-video-minutes",
+      "type": "token_tap",
+      "concept_tag": "ویدئو",
+      "title": "حداکثر ۳ دقیقه",
+      "instruction": "توکن درست را بزن تا برای ۳ و ۲٫۵ دقیقه `ok` و برای ۳٫۵ دقیقه `too long` چاپ شود.",
+      "prompt": "minutes = float(input())\nif minutes ___ 3:\n    print(\"ok\")\nelse:\n    print(\"too long\")",
+      "token_bank": [
+        "<=",
+        "<",
+        ">=",
+        "=="
+      ],
+      "expected_answer": [
+        "<="
+      ],
+      "blank_marker": "___",
+      "explanation": "«no more than 3 minutes» یعنی خود ۳ دقیقه هم مجاز است، پس `<=`.",
+      "hint": "به ویدئوی دقیقاً ۳ دقیقه‌ای فکر کن.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w99-c-fp-video-length"
+      ],
+      "source_ref": "src-project-99#step-1-of-3",
+      "lang": "python"
+    },
+    {
+      "id": "w99-ch02-readme-name",
+      "type": "token_tap",
+      "concept_tag": "README.md",
+      "title": "نام دقیق فایل",
+      "instruction": "توکن درست را بزن تا فقط برای `README.md` عبارت `ok` چاپ شود و برای `readme.md` و `README` عبارت `rename`.",
+      "prompt": "name = input()\nif name ___ \"README.md\":\n    print(\"ok\")\nelse:\n    print(\"rename\")",
+      "token_bank": [
+        "==",
+        "in",
+        "!=",
+        "<"
+      ],
+      "expected_answer": [
+        "=="
+      ],
+      "blank_marker": "___",
+      "explanation": "«named exactly that!»؛ فقط برابری کامل درست است. `in` نام ناقص `README` را هم می‌پذیرد.",
+      "hint": "`\"README\" in \"README.md\"` چه می‌دهد؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w99-c-fp-readme-name"
+      ],
+      "source_ref": "src-project-99#step-2-of-3",
+      "lang": "python"
+    },
+    {
+      "id": "w99-ch03-submission-order",
+      "type": "parsons",
+      "concept_tag": "تحویل",
+      "title": "ترتیب گام‌ها",
+      "instruction": "سطرها را به ترتیب درست بچین تا گام‌ها شماره‌دار و به ترتیب رسمی چاپ شوند و در آخر `done` بیاید.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "print(\"done\")"
+        },
+        {
+          "id": "L2",
+          "text": "for i, step in enumerate(steps, 1):"
+        },
+        {
+          "id": "L3",
+          "text": "    print(i, step)"
+        },
+        {
+          "id": "L1",
+          "text": "steps = [\"video and form\", \"README.md and submit50\", \"gradebook\"]"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول فهرست گام‌ها به ترتیب صفحهٔ رسمی، بعد حلقه، و `done` بیرون از حلقه.",
+      "hint": "`print(\"done\")` تورفتگی ندارد، پس بعد از حلقه می‌آید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w99-c-fp-gradebook",
+        "w99-c-fp-submit50"
+      ],
+      "source_ref": "src-project-99#how-to-submit",
+      "lang": "python"
+    },
+    {
+      "id": "w99-ch04-opening-missing",
+      "type": "parsons",
+      "concept_tag": "ویدئو",
+      "title": "بخش آغازین ناقص",
+      "instruction": "سطرها را به ترتیب درست بچین تا تعداد موارد جاافتادهٔ بخش آغازین ویدئو، یعنی `2 missing`، چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "missing = [item for item in required if item not in shown]"
+        },
+        {
+          "id": "L1",
+          "text": "required = [\"title\", \"name\", \"usernames\", \"city and country\", \"date\"]"
+        },
+        {
+          "id": "L4",
+          "text": "print(len(missing), \"missing\")"
+        },
+        {
+          "id": "L2",
+          "text": "shown = required[:2] + [\"date\"]"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "`shown` از `required` ساخته می‌شود، `missing` از هر دو، و چاپ در آخر.",
+      "hint": "هر سطر فقط از نام‌هایی استفاده می‌کند که پیش‌تر تعریف شده‌اند.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w99-c-fp-video-opening"
+      ],
+      "source_ref": "src-project-99#step-1-of-3",
+      "lang": "python"
+    },
+    {
+      "id": "w99-ch05-max-minutes",
+      "type": "spot_bug",
+      "concept_tag": "ویدئو",
+      "title": "عدد اشتباه",
+      "instruction": "سطر خطادار را پیدا کن (ویدئوی ۴ دقیقه‌ای باید `too long` بگیرد و ۲ دقیقه‌ای `ok`).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "MAX_MINUTES = 5"
+        },
+        {
+          "index": 1,
+          "text": "minutes = float(input())"
+        },
+        {
+          "index": 2,
+          "text": "if minutes <= MAX_MINUTES:"
+        },
+        {
+          "index": 3,
+          "text": "    print(\"ok\")"
+        },
+        {
+          "index": 4,
+          "text": "else:"
+        },
+        {
+          "index": 5,
+          "text": "    print(\"too long\")"
+        }
+      ],
+      "bug_line_index": 0,
+      "fix": {
+        "action": "replace_line",
+        "text": "MAX_MINUTES = 3"
+      },
+      "explanation": "حد رسمی ۳ دقیقه است، نه ۵.",
+      "hint": "«no more than 3 minutes».",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w99-c-fp-video-length"
+      ],
+      "source_ref": "src-project-99#step-1-of-3",
+      "lang": "python"
+    },
+    {
+      "id": "w99-ch06-visibility",
+      "type": "spot_bug",
+      "concept_tag": "ویدئو",
+      "title": "unlisted یا private",
+      "instruction": "سطر خطادار را پیدا کن (`unlisted` و `public` باید `ok` بگیرند و `private` باید `not allowed`).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "visibility = input()"
+        },
+        {
+          "index": 1,
+          "text": "if visibility == \"unlisted\":"
+        },
+        {
+          "index": 2,
+          "text": "    print(\"not allowed\")"
+        },
+        {
+          "index": 3,
+          "text": "else:"
+        },
+        {
+          "index": 4,
+          "text": "    print(\"ok\")"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "if visibility == \"private\":"
+      },
+      "explanation": "«it’s fine to flag it as “unlisted,” but don’t flag it as “private.”»",
+      "hint": "کدام وضعیت ممنوع است؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w99-c-fp-video-upload"
+      ],
+      "source_ref": "src-project-99#step-1-of-3",
+      "lang": "python"
+    }
+  ]
+}

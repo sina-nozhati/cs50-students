@@ -1,0 +1,373 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 71,
+  "week_slug": "week-ai",
+  "title": "چالش‌های جلسهٔ هوش مصنوعی",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. کدها ترجمهٔ پایتونی تألیفی شبه‌کدهای رسمی درس‌نامه‌اند، فقط از پایتون هفتهٔ ۶ استفاده می‌کنند، هیچ سرویس هوش مصنوعی‌ای را صدا نمی‌زنند و هیچ بخشی از Speller را پیاده نمی‌کنند (D83، D84).",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 3,
+    "parsons": 3,
+    "spot_bug": 2
+  },
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w71-ch01-epsilon-less-than",
+      "type": "token_tap",
+      "concept_tag": "epsilon",
+      "title": "کاوش یا بهره‌برداری",
+      "instruction": "توکن درست را بزن تا، مثل شبه‌کد رسمی، با `r = 0.05` عبارت `random move` چاپ شود.",
+      "prompt": "epsilon = 0.10\nr = 0.05\nif r ___ epsilon:\n    print(\"random move\")\nelse:\n    print(\"best move\")",
+      "token_bank": [
+        "<",
+        ">",
+        "==",
+        "="
+      ],
+      "expected_answer": [
+        "<"
+      ],
+      "blank_marker": "___",
+      "explanation": "در شبه‌کد رسمی، حرکت تصادفی فقط وقتی است که عدد تصادفی کمتر از `epsilon` باشد.",
+      "hint": "«If random() < epsilon».",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "source_ref": "src-notes-71#machine-learning",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch02-minimax-max-min",
+      "type": "token_tap",
+      "concept_tag": "مینی‌ماکس",
+      "title": "بیشینه برای X، کمینه برای O",
+      "instruction": "توکن‌ها را به ترتیب بزن تا برای ورودی `X` عدد `1` و برای ورودی `O` عدد `-1` چاپ شود.",
+      "prompt": "scores = [1, 0, -1]\nplayer = input()\nif player == \"X\":\n    print(___(scores))\nelse:\n    print(___(scores))",
+      "token_bank": [
+        "max",
+        "min",
+        "sum",
+        "len"
+      ],
+      "expected_answer": [
+        "max",
+        "min"
+      ],
+      "blank_marker": "___",
+      "explanation": "X بیشترین امتیاز و O کمترین امتیاز را برمی‌گزیند.",
+      "hint": "«Choose move with highest score» و «lowest score».",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-minimax"
+      ],
+      "source_ref": "src-notes-71#minimax",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch03-neuron-greater",
+      "type": "token_tap",
+      "concept_tag": "نورون",
+      "title": "قاعدهٔ آبی و قرمز",
+      "instruction": "توکن درست را بزن تا قاعدهٔ سخنرانی (بزرگ‌تر از صفر یعنی آبی) پیاده شود و `blue red red` چاپ شود.",
+      "prompt": "a, b, c = 1, -1, 0\n\n\ndef color(x, y):\n    if a * x + b * y + c ___ 0:\n        return \"blue\"\n    return \"red\"\n\n\nprint(color(5, 2), color(3, 3), color(1, 4))",
+      "token_bank": [
+        ">",
+        "<",
+        ">=",
+        "=="
+      ],
+      "expected_answer": [
+        ">"
+      ],
+      "blank_marker": "___",
+      "explanation": "نقطهٔ (۳، ۳) مقدار صفر دارد و چون صفر بزرگ‌تر از صفر نیست، قرمز است.",
+      "hint": "به نقطهٔ (۳، ۳) فکر کن: مقدارش صفر است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-parameters",
+        "w71-c-neural-network"
+      ],
+      "source_ref": "src-transcript-71",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch04-epsilon-loop",
+      "type": "parsons",
+      "concept_tag": "epsilon",
+      "title": "حلقهٔ کاوش",
+      "instruction": "سطرها را به ترتیب درست بچین تا `best move` و سپس `random move` چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "    else:"
+        },
+        {
+          "id": "L3",
+          "text": "    if r < epsilon:"
+        },
+        {
+          "id": "L1",
+          "text": "epsilon = 0.10"
+        },
+        {
+          "id": "L6",
+          "text": "        print(\"best move\")"
+        },
+        {
+          "id": "L2",
+          "text": "for r in [0.50, 0.01]:"
+        },
+        {
+          "id": "L4",
+          "text": "        print(\"random move\")"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول `epsilon`، بعد حلقه روی عددها و در بدنه همان `If`/`Else` شبه‌کد رسمی.",
+      "hint": "۰٫۵۰ از ۰٫۱۰ بزرگ‌تر است، پس اول بهره‌برداری.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-explore-exploit"
+      ],
+      "source_ref": "src-notes-71#machine-learning",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch05-color-function",
+      "type": "parsons",
+      "concept_tag": "نورون",
+      "title": "تابع رنگ",
+      "instruction": "سطرها را به ترتیب درست بچین تا `blue` و سپس `red` چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "    return \"red\""
+        },
+        {
+          "id": "L6",
+          "text": "print(color(1, 2))"
+        },
+        {
+          "id": "L2",
+          "text": "    if x - y > 0:"
+        },
+        {
+          "id": "L1",
+          "text": "def color(x, y):"
+        },
+        {
+          "id": "L5",
+          "text": "print(color(2, 1))"
+        },
+        {
+          "id": "L3",
+          "text": "        return \"blue\""
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "تعریف تابع با شرط و دو `return`، سپس دو فراخوانی به ترتیب.",
+      "hint": "`return \"red\"` باید بعد از بدنهٔ `if` بیاید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-neural-network"
+      ],
+      "source_ref": "src-anzali-authored-71",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch06-best-score",
+      "type": "parsons",
+      "concept_tag": "مینی‌ماکس",
+      "title": "انتخاب امتیاز",
+      "instruction": "سطرها را به ترتیب درست بچین تا `1 -1` چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "        return max(scores)"
+        },
+        {
+          "id": "L6",
+          "text": "print(best([1, 0, -1], \"X\"), best([1, 0, -1], \"O\"))"
+        },
+        {
+          "id": "L1",
+          "text": "def best(scores, player):"
+        },
+        {
+          "id": "L5",
+          "text": "        return min(scores)"
+        },
+        {
+          "id": "L2",
+          "text": "    if player == \"X\":"
+        },
+        {
+          "id": "L4",
+          "text": "    else:"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "X بیشینه و هر بازیکن دیگر کمینه.",
+      "hint": "`max` زیر شرط X می‌آید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-minimax"
+      ],
+      "source_ref": "src-notes-71#minimax",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch07-paddle-right",
+      "type": "spot_bug",
+      "concept_tag": "درخت تصمیم",
+      "title": "پاروی Breakout",
+      "instruction": "سطر خطادار را پیدا کن (توپ سمت راست است و باید `right` چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "ball = 8"
+        },
+        {
+          "index": 1,
+          "text": "paddle = 3"
+        },
+        {
+          "index": 2,
+          "text": "if ball < paddle:"
+        },
+        {
+          "index": 3,
+          "text": "    print(\"left\")"
+        },
+        {
+          "index": 4,
+          "text": "elif ball < paddle:"
+        },
+        {
+          "index": 5,
+          "text": "    print(\"right\")"
+        },
+        {
+          "index": 6,
+          "text": "else:"
+        },
+        {
+          "index": 7,
+          "text": "    print(\"stay\")"
+        }
+      ],
+      "bug_line_index": 4,
+      "fix": {
+        "action": "replace_line",
+        "text": "elif ball > paddle:"
+      },
+      "explanation": "شرط دوم همان شرط اول را تکرار می‌کند؛ باید «سمت راست» را بپرسد.",
+      "hint": "«Else if ball is right of paddle».",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-breakout-pseudocode",
+        "w71-c-decision-tree"
+      ],
+      "source_ref": "src-notes-71#decision-trees",
+      "lang": "python"
+    },
+    {
+      "id": "w71-ch08-o-minimizes",
+      "type": "spot_bug",
+      "concept_tag": "مینی‌ماکس",
+      "title": "انتخاب O",
+      "instruction": "سطر خطادار را پیدا کن (نوبت O است و باید `-1` چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "scores = [1, 0, -1]"
+        },
+        {
+          "index": 1,
+          "text": "player = \"O\""
+        },
+        {
+          "index": 2,
+          "text": "if player == \"X\":"
+        },
+        {
+          "index": 3,
+          "text": "    print(max(scores))"
+        },
+        {
+          "index": 4,
+          "text": "else:"
+        },
+        {
+          "index": 5,
+          "text": "    print(max(scores))"
+        }
+      ],
+      "bug_line_index": 5,
+      "fix": {
+        "action": "replace_line",
+        "text": "    print(min(scores))"
+      },
+      "explanation": "O امتیاز را کمینه می‌کند؛ شاخهٔ `else` باید `min` باشد.",
+      "hint": "«Choose move with lowest score».",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w71-c-minimax"
+      ],
+      "source_ref": "src-notes-71#minimax",
+      "lang": "python"
+    }
+  ]
+}

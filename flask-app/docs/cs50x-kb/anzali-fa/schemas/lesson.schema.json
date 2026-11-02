@@ -1,0 +1,404 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/lesson.schema.json",
+  "title": "Micro-lesson",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "week",
+    "order",
+    "stage_id",
+    "title_fa",
+    "title_en",
+    "note_ids",
+    "prerequisite_lesson_ids",
+    "concept_ids",
+    "objective_ids",
+    "origin",
+    "unlock",
+    "mastery",
+    "units",
+    "license",
+    "attribution"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^w00-l\\d{2}$"
+    },
+    "type": {
+      "const": "lesson"
+    },
+    "week": {
+      "const": 0
+    },
+    "stage_id": {
+      "type": "string",
+      "pattern": "^w00-s\\d$"
+    },
+    "note_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w00-n\\d{2}$"
+      },
+      "minItems": 1
+    },
+    "prerequisite_lesson_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w00-l\\d{2}$"
+      },
+      "minItems": 0
+    },
+    "concept_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w00-c-[a-z0-9-]+$"
+      },
+      "minItems": 1
+    },
+    "objective_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w00-o\\d{2}$"
+      },
+      "minItems": 1
+    },
+    "origin": {
+      "const": "authored"
+    },
+    "estimated_minutes": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unit"
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "unit": {
+      "type": "object",
+      "required": [
+        "id",
+        "order",
+        "title_fa",
+        "concept_ids",
+        "objective_ids",
+        "note_id",
+        "source_refs",
+        "reading",
+        "example",
+        "check",
+        "exercise",
+        "mastery",
+        "xp_event",
+        "xp_reason_template"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^w00-l\\d{2}-u\\d{2}$"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title_fa": {
+          "type": "string",
+          "minLength": 1
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^w00-c-[a-z0-9-]+$"
+          },
+          "minItems": 1
+        },
+        "objective_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^w00-o\\d{2}$"
+          },
+          "minItems": 1
+        },
+        "note_id": {
+          "type": "string",
+          "pattern": "^w00-n\\d{2}$"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "reading": {
+          "type": "object",
+          "required": [
+            "text_fa",
+            "note_id",
+            "origin",
+            "link"
+          ],
+          "properties": {
+            "text_fa": {
+              "type": "string",
+              "minLength": 1
+            },
+            "link": {
+              "type": "string",
+              "pattern": "^/kb/d/w00-n\\d{2}$"
+            }
+          },
+          "additionalProperties": true
+        },
+        "example": {
+          "$ref": "#/$defs/example"
+        },
+        "check": {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "origin",
+            "prompt_fa",
+            "options"
+          ],
+          "properties": {
+            "type": {
+              "const": "mcq"
+            },
+            "origin": {
+              "const": "authored"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/choice"
+              },
+              "minItems": 2,
+              "contains": {
+                "properties": {
+                  "correct": {
+                    "const": true
+                  }
+                }
+              },
+              "minContains": 1
+            }
+          },
+          "additionalProperties": true
+        },
+        "exercise": {
+          "type": "object",
+          "required": [
+            "id",
+            "type",
+            "origin",
+            "prompt_fa",
+            "expected",
+            "evaluation",
+            "feedback"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "short_answer",
+                "predict_output",
+                "true_false",
+                "ordering",
+                "classify",
+                "find_the_bug",
+                "practical",
+                "write_pseudocode"
+              ]
+            },
+            "origin": {
+              "const": "authored"
+            },
+            "evaluation": {
+              "enum": [
+                "auto",
+                "self_assessed",
+                "rubric_self_or_peer"
+              ]
+            },
+            "feedback": {
+              "type": "object",
+              "required": [
+                "correct_fa",
+                "incorrect_fa"
+              ],
+              "properties": {
+                "correct_fa": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "incorrect_fa": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": true
+            },
+            "hints_fa": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            }
+          },
+          "additionalProperties": true
+        },
+        "mastery": {
+          "type": "object",
+          "required": [
+            "rule"
+          ],
+          "properties": {
+            "rule": {
+              "enum": [
+                "check_correct_and_exercise_pass",
+                "check_correct_first_try",
+                "exercise_self_assessed"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "xp_event": {
+          "const": "unit_mastered"
+        },
+        "xp_reason_template": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    "choice": {
+      "type": "object",
+      "required": [
+        "id",
+        "text_fa",
+        "correct",
+        "feedback_fa"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z]$"
+        },
+        "text_fa": {
+          "type": "string",
+          "minLength": 1
+        },
+        "correct": {
+          "type": "boolean"
+        },
+        "feedback_fa": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "example": {
+      "type": "object",
+      "required": [
+        "kind",
+        "origin",
+        "lang",
+        "content",
+        "source_ref"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "official",
+            "authored"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "official",
+            "translated-rewritten",
+            "authored",
+            "inference",
+            "external",
+            "internal",
+            "mixed"
+          ]
+        },
+        "lang": {
+          "enum": [
+            "scratch",
+            "text",
+            "c",
+            "python",
+            "pseudocode"
+          ]
+        },
+        "content": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": "string",
+          "pattern": "^src-[a-z0-9-]+(#[a-z0-9-]+)?$"
+        },
+        "example_key": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "official"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "example_key"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "authored"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "label_fa"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

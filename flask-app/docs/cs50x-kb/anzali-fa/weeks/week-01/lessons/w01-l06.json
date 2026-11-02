@@ -1,0 +1,127 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l06",
+  "type": "lesson",
+  "week": 1,
+  "order": 6,
+  "stage_id": "w01-s2",
+  "title_fa": "متغیر، انتساب و افزایش",
+  "title_en": "Variables, assignment and increment",
+  "note_ids": [
+    "w01-n12"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w01-l05"
+  ],
+  "concept_ids": [
+    "w01-c-increment",
+    "w01-c-assignment-operator"
+  ],
+  "objective_ids": [
+    "w01-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l06-u01",
+      "order": 1,
+      "title_fa": "انتساب و افزایش",
+      "concept_ids": [
+        "w01-c-increment",
+        "w01-c-assignment-operator"
+      ],
+      "objective_ids": [
+        "w01-o05"
+      ],
+      "note_id": "w01-n12",
+      "source_refs": [
+        "src-notes-1#variables",
+        "src-short-operators",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه سه شکل هم‌ارز برای افزودن یک واحد نشان می‌دهد: `counter = counter + 1;`، `counter += 1;` و `counter++;`. برای کاهش هم `counter--;` هست. `=` یعنی «مقدار سمت راست را در سمت چپ بگذار».",
+        "note_id": "w01-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "counter-inc",
+        "lang": "c",
+        "content": "counter++;",
+        "source_ref": "src-notes-1#variables",
+        "explain_fa": "شکل کوتاه رسمی افزایش."
+      },
+      "check": {
+        "id": "w01-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بعد از `int counter = 0; counter++; counter += 1;` مقدار counter چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "2",
+            "correct": true,
+            "feedback_fa": "درست: یک بار ++ و یک بار += 1."
+          },
+          {
+            "id": "b",
+            "text_fa": "1",
+            "correct": false,
+            "feedback_fa": "هر دو دستور یک واحد می‌افزایند."
+          },
+          {
+            "id": "c",
+            "text_fa": "0",
+            "correct": false,
+            "feedback_fa": "دو بار افزایش داریم."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l06-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nint x = 10;\nx -= 3;\nx--;\nprintf(\"%i\\n\", x);",
+        "expected": {
+          "output": "6\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: ۱۰ منهای ۳ منهای ۱.",
+          "incorrect_fa": "x -= 3 سه واحد کم می‌کند و x-- یک واحد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

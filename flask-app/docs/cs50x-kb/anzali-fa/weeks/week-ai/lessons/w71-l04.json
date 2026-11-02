@@ -1,0 +1,325 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w71-l04",
+  "type": "lesson",
+  "week": 71,
+  "week_slug": "week-ai",
+  "order": 4,
+  "stage_id": "w71-s4",
+  "title_fa": "یادگیری عمیق و مدل‌های زبانی",
+  "title_en": "Deep learning and language models",
+  "note_ids": [
+    "w71-n07",
+    "w71-n08"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w71-l03"
+  ],
+  "concept_ids": [
+    "w71-c-supervised-learning",
+    "w71-c-unsupervised-learning",
+    "w71-c-neural-network",
+    "w71-c-parameters",
+    "w71-c-llm",
+    "w71-c-attention-transformer",
+    "w71-c-embeddings",
+    "w71-c-hallucination"
+  ],
+  "objective_ids": [
+    "w71-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official AI notes and the lecture transcript (marked «از سخنرانی»); examples are the official notes blocks, verbatim English quotations from the notes, or authored Python labelled تألیفی (D83); every predict_output program is run with python3.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w71-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-31T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w71-l04-u01",
+      "order": 1,
+      "title_fa": "یادگیری با نظارت و بدون نظارت",
+      "concept_ids": [
+        "w71-c-supervised-learning",
+        "w71-c-unsupervised-learning"
+      ],
+      "objective_ids": [
+        "w71-o06"
+      ],
+      "note_id": "w71-n07",
+      "source_refs": [
+        "src-notes-71#deep-learning",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "**یادگیری با نظارت** (`supervised learning`) یعنی انسان با هوش مصنوعی همکاری می‌کند؛ مثل وقتی دکمهٔ «spam» را می‌زنی. اما این روش برای مسئله‌های بزرگ مقیاس‌پذیر نیست، پس **یادگیری بدون نظارت** (`unsupervised learning`) با کمترین دخالت انسان یاد می‌گیرد. از سخنرانی: برچسب زدن میلیون‌ها یا میلیاردها داده برای انسان واقع‌بینانه نیست.",
+        "note_id": "w71-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "supervised",
+        "lang": "text",
+        "content": "supervised learning does not scale well to larger problems",
+        "source_ref": "src-notes-71#deep-learning",
+        "explain_fa": "محدودیت یادگیری با نظارت در درس‌نامه."
+      },
+      "check": {
+        "id": "w71-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "وقتی در ایمیلت دکمهٔ «spam» را می‌زنی، طبق درس‌نامه در چه نوع یادگیری‌ای سهیم هستی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یادگیری با نظارت (`supervised learning`).",
+            "correct": true,
+            "feedback_fa": "درست؛ این همان مثال درس‌نامه است."
+          },
+          {
+            "id": "b",
+            "text_fa": "یادگیری بدون نظارت (`unsupervised learning`).",
+            "correct": false,
+            "feedback_fa": "در یادگیری بدون نظارت، دخالت انسان کمینه است؛ اینجا خود تو برچسب می‌زنی."
+          },
+          {
+            "id": "c",
+            "text_fa": "مینی‌ماکس.",
+            "correct": false,
+            "feedback_fa": "مینی‌ماکس الگوریتم بازی است، نه شیوهٔ یادگیری از برچسب."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l04-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «طبق درس‌نامه، یادگیری با نظارت برای مسئله‌های بزرگ‌تر به‌خوبی مقیاس‌پذیر است.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است.",
+          "incorrect_fa": "جملهٔ رسمی: «supervised learning does not scale well to larger problems»."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l04-u02",
+      "order": 2,
+      "title_fa": "شبکهٔ عصبی و پارامترها",
+      "concept_ids": [
+        "w71-c-neural-network",
+        "w71-c-parameters"
+      ],
+      "objective_ids": [
+        "w71-o06"
+      ],
+      "note_id": "w71-n07",
+      "source_refs": [
+        "src-notes-71#deep-learning",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "**یادگیری عمیق** (`deep learning`) از **شبکهٔ عصبی** (`neural network`) استفاده می‌کند: گره‌هایی که ورودی‌ها را به خروجی‌ها مرتبط می‌کنند. درس‌نامه مثال پیش‌بینی نقطهٔ آبی یا قرمز را می‌آورد. از سخنرانی: نورون‌ها به دایره و یال، یعنی گراف، تبدیل می‌شوند؛ اگر `ax + by + c > 0` باشد آبی، وگرنه قرمز؛ و `a`، `b` و `c` **پارامترهایی** هستند که از داده به دست می‌آیند. شبکه‌های واقعی میلیاردها پارامتر دارند.",
+        "note_id": "w71-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "nodes",
+        "lang": "text",
+        "content": "Deep learning creates nodes (pictured below) that associate inputs and outputs.",
+        "source_ref": "src-notes-71#deep-learning",
+        "explain_fa": "گره‌ها در درس‌نامه."
+      },
+      "check": {
+        "id": "w71-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "از سخنرانی: در مثال نقطه‌های آبی و قرمز، `a`، `b` و `c` چه هستند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پارامترهای شبکه که از داده به دست می‌آیند.",
+            "correct": true,
+            "feedback_fa": "درست. هیچ انسانی آن‌ها را تک‌تک نمی‌نویسد."
+          },
+          {
+            "id": "b",
+            "text_fa": "مختصات نقطه‌ای که می‌خواهیم رنگش را بدانیم.",
+            "correct": false,
+            "feedback_fa": "مختصات `x` و `y` هستند؛ `a`، `b` و `c` شکل خط را تعیین می‌کنند."
+          },
+          {
+            "id": "c",
+            "text_fa": "رنگ‌های ممکن خروجی.",
+            "correct": false,
+            "feedback_fa": "خروجی آبی یا قرمز است؛ `a`، `b` و `c` عدد هستند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l04-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا این «نورون» تألیفی، مثل قاعدهٔ سخنرانی، فقط وقتی «blue» بگوید که مقدار **بزرگ‌تر از** صفر باشد.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "a, b, c = 1, -1, 0\n\n\ndef color(x, y):\n    if a * x + b * y + c [[b1]] 0:\n        return \"blue\"\n    return \"red\"\n\n\nprint(color(5, 2))\nprint(color(3, 3))\n",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              ">"
+            ],
+            "hint_fa": "قاعدهٔ سخنرانی: بزرگ‌تر از صفر یعنی آبی.",
+            "wrong_feedback": {
+              ">=": "با `>=` نقطهٔ روی خط (مقدار صفر) هم آبی می‌شود؛ قاعده «بزرگ‌تر از» است.",
+              "<": "با `<` رنگ‌ها جابه‌جا می‌شوند."
+            },
+            "default_wrong_fa": "قاعدهٔ «greater than 0» را به عملگر تبدیل کن."
+          }
+        ],
+        "expected": {
+          "b1": [
+            ">"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. خروجی: blue و سپس red (برای (۳، ۳) مقدار صفر است).",
+          "incorrect_fa": "`color(3, 3)` مقدار ۰ می‌دهد؛ ببین با عملگرت چه رنگی می‌شود."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "expected_stdout_exact": "blue\nred\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w71-l04-u03",
+      "order": 3,
+      "title_fa": "مدل زبانی بزرگ، توجه و توهم",
+      "concept_ids": [
+        "w71-c-llm",
+        "w71-c-attention-transformer",
+        "w71-c-embeddings",
+        "w71-c-hallucination"
+      ],
+      "objective_ids": [
+        "w71-o06"
+      ],
+      "note_id": "w71-n08",
+      "source_refs": [
+        "src-notes-71#large-language-models",
+        "src-transcript-71",
+        "src-anzali-authored-71"
+      ],
+      "reading": {
+        "text_fa": "**مدل‌های زبانی بزرگ** (`large language models`) بر اساس حجم زیادی آموزش پیش‌بینی می‌کنند. Google در ۲۰۱۷ مقاله‌ای دربارهٔ **توجه** (`attention`) به رابطهٔ واژه‌ها منتشر کرد؛ GPT روی رابطهٔ واژه‌ها آموزش می‌بیند و واژه‌ها را به **بردار تعبیه** (`embeddings`) تبدیل می‌کند. گاهی این مدل‌ها **توهم** (`hallucinate`) می‌زنند و اطلاعات نادرست می‌دهند. از سخنرانی: در یک مدل، هر واژه با ۱٬۵۳۶ عدد اعشاری نمایش داده می‌شود، و حتی اردک CS50 هم خطاپذیر است.",
+        "note_id": "w71-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w71-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hallucinate",
+        "lang": "text",
+        "content": "Sometimes, LLMs can hallucinate and provide incorrect information.",
+        "source_ref": "src-notes-71#large-language-models",
+        "explain_fa": "توهم در درس‌نامه."
+      },
+      "check": {
+        "id": "w71-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "GPT مخفف چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "Generative Pre-trained Transformer",
+            "correct": true,
+            "feedback_fa": "درست؛ همان نام درس‌نامه."
+          },
+          {
+            "id": "b",
+            "text_fa": "General Purpose Translator",
+            "correct": false,
+            "feedback_fa": "درس‌نامه آن را Generative Pre-trained Transformer می‌نامد."
+          },
+          {
+            "id": "c",
+            "text_fa": "Graph Processing Tool",
+            "correct": false,
+            "feedback_fa": "GPT دربارهٔ رابطهٔ واژه‌هاست، نه ابزار گراف."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w71-l04-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «چون اردک CS50 کد زیادی برای کاهش خطا دارد، پاسخ‌هایش هرگز نادرست نیست.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. مالان گفت حتی اردک CS50 هم خطاپذیر است.",
+          "incorrect_fa": "بخش توهم را در یادداشت ۸ ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

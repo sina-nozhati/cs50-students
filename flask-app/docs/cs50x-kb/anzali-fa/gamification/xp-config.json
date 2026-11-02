@@ -1,0 +1,184 @@
+{
+  "$schema": "../schemas/xp-config.schema.json",
+  "version": "0.1.0-week0-pilot",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "status": "proposal",
+  "disclaimer": "Suggested by CS50x Anzali; configurable; NOT a CS50 rule and has no effect on official CS50 grades or certificate.",
+  "aligned_with": {
+    "doc": "flask-app/docs/GAMIFICATION_RULES.md v1.0",
+    "code": "app/services/xp.py award(user_id, amount, reason) — idempotent per (user_id, reason); XPLog.reason String(100); every award calls streak.update_streak"
+  },
+  "principles_fa": [
+    "یادگیری مقدم بر امتیاز (PRD مادر ۲.۴): XP فقط برای تسلط اثبات‌شده داده می‌شود.",
+    "برای کلیک، بازدید صفحه یا زمان صرف‌شده XP داده نمی‌شود.",
+    "هر رویداد یک reason ایدمپوتنت دارد؛ رویدادهای تکرارشونده تاریخ یا شناسهٔ دوره را در reason دارند."
+  ],
+  "existing_events": [
+    {
+      "key": "kb_week_read",
+      "amount": 5,
+      "reason_template": "kb:read:week:{n}",
+      "source": "GAMIFICATION_RULES.md",
+      "unchanged": true,
+      "note": "Fires from kb.mark_read on a published week. For Week 0 the existing button stays as-is."
+    },
+    {
+      "key": "assignment_submitted_on_time",
+      "amount": "assignment.xp_reward",
+      "default_amount": 20,
+      "reason_template": "submit:assignment:{id}",
+      "source": "GAMIFICATION_RULES.md",
+      "unchanged": true
+    },
+    {
+      "key": "admin_adjust",
+      "amount": "form",
+      "reason_template": "admin:adjust:{sign}:{timestamp}",
+      "source": "GAMIFICATION_RULES.md",
+      "unchanged": true
+    }
+  ],
+  "proposed_events": [
+    {
+      "key": "unit_mastered",
+      "amount": 2,
+      "reason_template": "kb:unit:{unit_id}:mastered",
+      "example": "kb:unit:w00-l03-u02:mastered",
+      "evidence": "check correct + exercise accepted",
+      "hint_penalty": {
+        "max_hints_for_full_xp": 1,
+        "amount_if_more_hints": 1
+      }
+    },
+    {
+      "key": "lesson_mastered",
+      "amount": 5,
+      "reason_template": "kb:lesson:{lesson_id}:mastered",
+      "example": "kb:lesson:w00-l03:mastered",
+      "evidence": "all units mastered"
+    },
+    {
+      "key": "practice_quiz_completed",
+      "amount": 2,
+      "reason_template": "quiz:practice:{quiz_id}:pass",
+      "example": "quiz:practice:w00-qz-l03:pass",
+      "evidence": "score >= 0.6 on auto-gradable items"
+    },
+    {
+      "key": "mastery_test_passed",
+      "amount": 25,
+      "reason_template": "quiz:mastery:w{week:02d}:pass",
+      "example": "quiz:mastery:w00:pass",
+      "evidence": "score >= mastery_threshold"
+    },
+    {
+      "key": "flashcard_daily_review",
+      "amount": 3,
+      "reason_template": "review:fc:w{week:02d}:{date_utc}",
+      "example": "review:fc:w00:2026-10-18",
+      "evidence": ">= 10 due cards reviewed that day, >= 60% graded >= 3 (SM-2 scale)",
+      "repeatable": "daily"
+    },
+    {
+      "key": "spaced_recall_milestone",
+      "amount": 10,
+      "reason_template": "review:recall:w{week:02d}:{milestone}",
+      "example": "review:recall:w00:80pct",
+      "evidence": "rolling recall rate >= 0.8 over the last 20 reviews of this week's cards"
+    },
+    {
+      "key": "daily_mission",
+      "amount": 3,
+      "reason_template": "mission:d:{mission_id}:{date_utc}",
+      "example": "mission:d:w00-md-02:2026-10-18",
+      "repeatable": "daily"
+    },
+    {
+      "key": "weekly_mission",
+      "amount": 10,
+      "reason_template": "mission:w:{mission_id}:{iso_week}",
+      "example": "mission:w:w00-mw-01:2026-W42",
+      "repeatable": "weekly"
+    },
+    {
+      "key": "pset_checklist_complete",
+      "amount": 5,
+      "reason_template": "pset:checklist:{problem_set_id}",
+      "example": "pset:checklist:w00-ps-scratch",
+      "evidence": "all self-check items ticked; panel cannot verify the official check50 result"
+    },
+    {
+      "key": "challenge_completed",
+      "amount": 5,
+      "reason_template": "challenge:{activity_id}",
+      "example": "challenge:w00-a-ch-01",
+      "evidence": "mentor or rubric approval"
+    },
+    {
+      "key": "revisit_weak_concept",
+      "amount": 2,
+      "reason_template": "revisit:{concept_id}:{date_utc}",
+      "example": "revisit:w00-c-movement-collision:2026-10-18",
+      "evidence": "re-answer of a previously missed item correctly",
+      "repeatable": "daily_per_concept"
+    }
+  ],
+  "caps": {
+    "daily_xp_cap_proposed_events": 40,
+    "note": "Caps only proposed events; existing events are unaffected."
+  },
+  "thresholds": {
+    "mastery_threshold": 0.8,
+    "practice_pass": 0.6,
+    "existing_quiz_completed_threshold": 0.6,
+    "delta_note": "progress.mark_quiz_completed uses 60%; this package uses 80% for the mastery test only (delta D2)."
+  },
+  "srs": {
+    "algorithms": [
+      "leitner",
+      "sm2"
+    ],
+    "leitner": {
+      "boxes": 5,
+      "interval_days": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "on_fail": "box_1"
+    },
+    "sm2": {
+      "initial_ease_factor": 2.5,
+      "min_ease_factor": 1.3,
+      "first_intervals_days": [
+        1,
+        6
+      ],
+      "grade_scale": "0-5",
+      "pass_grade": 3,
+      "note": "2.5/1.3 are the conventional SM-2 defaults, used here as configurable suggestions; not from CS50."
+    },
+    "daily_new_cards": 10,
+    "daily_review_limit": 50
+  },
+  "streak": {
+    "source": "existing streak service",
+    "timezone": "UTC",
+    "day_counts_if": "at least one XPLog row that UTC day",
+    "login_counts": false,
+    "proposal": "Display Tehran local day in UI (delta D4); calculation unchanged."
+  },
+  "week0_xp_budget": {
+    "unit_mastered": 66,
+    "lesson_mastered": 50,
+    "practice_quiz_completed": 20,
+    "mastery_test_passed": 25,
+    "kb_week_read": 5,
+    "pset_checklist_complete": 5,
+    "assignment_submitted_on_time": 20,
+    "one_time_total": 191,
+    "mastery_evidence_share": "166/191 (~87%) of one-time XP requires demonstrated mastery or submission; only kb_week_read (5) and the practice-pass threshold are lighter."
+  }
+}

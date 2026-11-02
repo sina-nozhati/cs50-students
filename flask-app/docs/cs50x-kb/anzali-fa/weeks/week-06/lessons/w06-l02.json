@@ -1,0 +1,467 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w06-l02",
+  "type": "lesson",
+  "week": 6,
+  "order": 2,
+  "stage_id": "w06-s2",
+  "title_fa": "رشته، print و نوع‌ها",
+  "title_en": "Strings, print and types",
+  "note_ids": [
+    "w06-n04",
+    "w06-n05",
+    "w06-n06"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w06-l01"
+  ],
+  "concept_ids": [
+    "w06-c-string-concat",
+    "w06-c-print-multiple",
+    "w06-c-f-string",
+    "w06-c-named-parameters",
+    "w06-c-no-declaration",
+    "w06-c-augmented-assignment",
+    "w06-c-python-types",
+    "w06-c-no-long-double",
+    "w06-c-collection-types",
+    "w06-c-input-returns-str",
+    "w06-c-int-conversion"
+  ],
+  "objective_ids": [
+    "w06-o03",
+    "w06-o04"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/6 or the section code.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w06-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "units": [
+    {
+      "id": "w06-l02-u01",
+      "order": 1,
+      "title_fa": "سه راه ساختن متن",
+      "concept_ids": [
+        "w06-c-string-concat",
+        "w06-c-print-multiple",
+        "w06-c-f-string"
+      ],
+      "objective_ids": [
+        "w06-o03"
+      ],
+      "note_id": "w06-n04",
+      "source_refs": [
+        "src-notes-6#strings",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه سه راه برای چاپ سلام نشان می‌دهد: الحاق با `+` در `print(\"hello, \" + answer)`، دادن دو آرگومان در `print(\"hello,\", answer)` که `print` خودش میانشان فاصله می‌گذارد، و f-string در `print(f\"hello, {answer}\")` که مقدار `answer` را درون آکولادها جاگذاری می‌کند. بدون حرف `f`، خودِ متن `{answer}` چاپ می‌شود.",
+        "note_id": "w06-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello2",
+        "lang": "python",
+        "content": "# get_string and print, with format strings\n\nfrom cs50 import get_string\n\nanswer  = get_string(\"What's your name? \")\nprint(f\"hello, {answer}\")",
+        "source_ref": "src-notes-6#strings",
+        "explain_fa": "hello2.py رسمی با f-string."
+      },
+      "check": {
+        "id": "w06-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی `print(\"hello,\", \"Sina\")` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`hello, Sina` (با یک فاصله)",
+            "correct": true,
+            "feedback_fa": "درست. `print` میان دو آرگومان یک فاصله می‌گذارد."
+          },
+          {
+            "id": "b",
+            "text_fa": "`hello,Sina` (بدون فاصله)",
+            "correct": false,
+            "feedback_fa": "جداکنندهٔ پیش‌فرض `print` یک فاصله است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`hello,  Sina` (با دو فاصله)",
+            "correct": false,
+            "feedback_fa": "در رشتهٔ اول فاصله‌ای نیست؛ فقط فاصلهٔ جداکننده چاپ می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l02-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی دقیقاً چیست؟ به فاصله‌ها دقت کن.",
+        "expected": {
+          "output": "hello, Sina\nhello, Sina\nhello,  Sina\nhello, Sina\nhello, {name}"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: سطر سوم دو فاصله دارد و سطر آخر بدون `f` آکولادها را چاپ می‌کند.",
+          "incorrect_fa": "فاصلهٔ درون رشته و فاصلهٔ جداکنندهٔ `print` را جدا بشمار."
+        },
+        "hints_fa": [
+          "سطر سوم هم فاصلهٔ درون رشته را دارد و هم فاصلهٔ جداکننده را."
+        ],
+        "lang": "python",
+        "code": "name = \"Sina\"\nprint(\"hello, \" + name)\nprint(\"hello,\", name)\nprint(\"hello, \", name)\nprint(f\"hello, {name}\")\nprint(\"hello, {name}\")",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l02-u02",
+      "order": 2,
+      "title_fa": "پارامترهای نام‌دار sep و end",
+      "concept_ids": [
+        "w06-c-named-parameters"
+      ],
+      "objective_ids": [
+        "w06-o03"
+      ],
+      "note_id": "w06-n04",
+      "source_refs": [
+        "src-notes-6#strings",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "تابع‌های C آرگومان موقعیتی می‌گیرند. پایتون پارامترهای نام‌دار هم دارد که می‌شود بدون توجه به جایگاه داد. امضای `print` در مستندات `print(*objects, sep=' ', end='\\n', file=None, flush=False)` است: جداکنندهٔ پیش‌فرض یک فاصله و پایان پیش‌فرض یک سطر تازه است. `sep` و `end` را باید با نام بدهی؛ وگرنه شیء دیگری برای چاپ حساب می‌شوند.",
+        "note_id": "w06-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "print-signature",
+        "lang": "text",
+        "content": "print(*objects, sep=' ', end='\\n', file=None, flush=False)",
+        "source_ref": "src-notes-6#strings",
+        "explain_fa": "امضای print از درس‌نامه."
+      },
+      "check": {
+        "id": "w06-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی `print(\"a\", \"b\", sep=\"-\")` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`a-b`",
+            "correct": true,
+            "feedback_fa": "درست. `sep` جداکنندهٔ میان آرگومان‌ها را عوض می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`a - b`",
+            "correct": false,
+            "feedback_fa": "با `sep=\"-\"` فاصلهٔ پیش‌فرض دیگر چاپ نمی‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "`a b -`",
+            "correct": false,
+            "feedback_fa": "`sep` با نام داده شده، پس شیء سوم برای چاپ نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l02-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا خروجی دقیقاً دو سطر `xyz` و `!` باشد.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "print(\"x\", \"y\", \"z\", [[b1]]=\"\")\nprint(\"!\")",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "sep"
+            ],
+            "hint_fa": "کدام پارامتر نام‌دار فاصلهٔ میان آرگومان‌ها را تعیین می‌کند؟",
+            "wrong_feedback": {
+              "end": "با `end=\"\"` فاصله‌ها می‌مانند و `!` به همان سطر می‌چسبد: `x y z!`.",
+              "flush": "`flush` فقط زمان نوشتن را تعیین می‌کند؛ فاصله‌ها می‌مانند.",
+              "file": "`file` مقصد چاپ است؛ رشتهٔ خالی متد `write` ندارد و `AttributeError` می‌گیری."
+            },
+            "default_wrong_fa": "پارامتری را بنویس که جای فاصلهٔ میان `x`، `y` و `z` را می‌گیرد."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "sep"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `sep=\"\"` فاصله‌ها را حذف می‌کند.",
+          "incorrect_fa": "فرق `sep` (میان آرگومان‌ها) و `end` (پایان سطر) را در نظر بگیر."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "expected_stdout_exact": "xyz\n!\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l02-u03",
+      "order": 3,
+      "title_fa": "متغیر و نوع بدون اعلان",
+      "concept_ids": [
+        "w06-c-no-declaration",
+        "w06-c-augmented-assignment",
+        "w06-c-python-types",
+        "w06-c-no-long-double",
+        "w06-c-collection-types"
+      ],
+      "objective_ids": [
+        "w06-o04"
+      ],
+      "note_id": "w06-n05",
+      "source_refs": [
+        "src-notes-6#types",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در پایتون نوع متغیر را اعلام نمی‌کنی: `counter = 0`. برای افزایش، `counter += 1` به کار می‌رود؛ `counter++` در پایتون نیست. نوع‌های پرکاربرد `bool`، `float`، `int` و `str` هستند و `long` و `double` در فهرست نیستند، چون پایتون خودش برای عددهای بزرگ و کوچک تصمیم می‌گیرد. نوع‌های دیگر `range`، `list`، `tuple`، `dict` و `set` هستند. `int` پایتون مثل C سرریز نمی‌کند.",
+        "note_id": "w06-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "types-other",
+        "lang": "text",
+        "content": "range   sequence of numbers\nlist    sequence of mutable values\ntuple   sequence of immutable values\ndict    collection of key-value pairs\nset     collection of unique values",
+        "source_ref": "src-notes-6#types",
+        "explain_fa": "فهرست رسمی نوع‌های دیگر پایتون."
+      },
+      "check": {
+        "id": "w06-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام نوع در فهرست نوع‌های پرکاربرد پایتون در درس‌نامه نیامده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`double`",
+            "correct": true,
+            "feedback_fa": "درست. پایتون `long` و `double` جدا ندارد."
+          },
+          {
+            "id": "b",
+            "text_fa": "`str`",
+            "correct": false,
+            "feedback_fa": "`str` یکی از نوع‌های پرکاربرد است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`bool`",
+            "correct": false,
+            "feedback_fa": "`bool` یکی از نوع‌های پرکاربرد است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l02-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟ (در C با `int` چهاربایتی این کار سرریز می‌کرد.)",
+        "expected": {
+          "output": "2147483648"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `int` پایتون اندازهٔ ثابت ندارد و سرریز نمی‌کند.",
+          "incorrect_fa": "در پایتون ۳ عدد صحیح تا جایی که حافظه اجازه دهد بزرگ می‌شود."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "n = 2147483647\nn += 1\nprint(n)",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w06-l02-u04",
+      "order": 4,
+      "title_fa": "input همیشه رشته برمی‌گرداند",
+      "concept_ids": [
+        "w06-c-input-returns-str",
+        "w06-c-int-conversion"
+      ],
+      "objective_ids": [
+        "w06-o04"
+      ],
+      "note_id": "w06-n06",
+      "source_refs": [
+        "src-notes-6#calculator",
+        "src-anzali-authored-6"
+      ],
+      "reading": {
+        "text_fa": "در ماشین‌حساب درس‌نامه، اگر `x` و `y` را با `input` بگیری و `x + y` را چاپ کنی، برای `1` و `2` خروجی `12` است؛ چون `input` رشته برمی‌گرداند و `+` دو رشته را الحاق می‌کند. با `int(input(\"x: \"))` ورودی به عدد صحیح تبدیل می‌شود. اما برخلاف `get_int`، اگر کاربر چیزی مثل `cat` بنویسد، `int` خطای `ValueError` می‌دهد و دوباره نمی‌پرسد.",
+        "note_id": "w06-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w06-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "calculator-input",
+        "lang": "python",
+        "content": "# Addition with int [using input]\n\n# Prompt user for x\nx = input(\"x: \")\n\n# Prompt user for y\ny = input(\"y: \")\n\n# Perform addition\nprint(x + y)",
+        "source_ref": "src-notes-6#calculator",
+        "explain_fa": "calculator با input (درس‌نامه)."
+      },
+      "check": {
+        "id": "w06-l02-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر به این برنامه ورودی‌های `1` و `2` بدهی، پس از اعلان‌ها چه عددی چاپ می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`12`",
+            "correct": true,
+            "feedback_fa": "درست. دو رشته الحاق می‌شوند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`3`",
+            "correct": false,
+            "feedback_fa": "برای `3` باید ورودی‌ها را با `int` تبدیل کنی."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای `TypeError`",
+            "correct": false,
+            "feedback_fa": "جمع دو رشته مجاز است؛ خطا برای جمع رشته با عدد است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w06-l02-u04-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "دو جای خالی را پر کن تا برنامه با ورودی‌های `3` و `4` عدد `7` را چاپ کند.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "x = [[b1]](input(\"x: \"))\ny = [[b2]](input(\"y: \"))\nprint(x + y)",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "int"
+            ],
+            "hint_fa": "کدام تابع رشته را به عدد صحیح تبدیل می‌کند؟",
+            "wrong_feedback": {
+              "float": "`float` عدد اعشاری می‌دهد و خروجی `7.0` می‌شود.",
+              "str": "با `str`، `x` رشته می‌ماند و جمع رشته با عدد صحیح `TypeError` می‌دهد.",
+              "len": "`len` طول رشته را می‌دهد، نه مقدار عددی آن."
+            },
+            "default_wrong_fa": "از تابع تبدیل به عدد صحیح استفاده کن."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "int"
+            ],
+            "hint_fa": "همان تبدیل برای `y`.",
+            "wrong_feedback": {
+              "float": "`float` نتیجه را اعشاری می‌کند: `7.0`.",
+              "str": "رشته با عدد صحیح جمع نمی‌شود و `TypeError` می‌گیری.",
+              "len": "`len` طول رشته را می‌دهد، نه مقدار عددی آن."
+            },
+            "default_wrong_fa": "از تابع تبدیل به عدد صحیح استفاده کن."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "int"
+          ],
+          "b2": [
+            "int"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `int` رشته را به عدد صحیح تبدیل می‌کند.",
+          "incorrect_fa": "هر دو ورودی باید عدد صحیح شوند."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "3\n4\n",
+          "args": [],
+          "expected_stdout_exact": "x: y: 7\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

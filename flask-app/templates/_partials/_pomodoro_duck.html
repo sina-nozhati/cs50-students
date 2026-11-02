@@ -1,0 +1,421 @@
+{# تایمر پومودورو با اردک پلاستیکی CS50 (Rubber Duck Pomodoro)
+   طراحی اختصاصی برای CS50x Anzali — بدون وابستگی خارجی، ضد تب خواب‌آلود، با ذخیره‌سازی در localStorage
+#}
+<div id="pomodoro-duck-root" class="fixed bottom-20 sm:bottom-6 left-4 sm:left-6 z-40 select-none font-sans" dir="rtl">
+    
+    {# Floating Pill Button (دکمه شناور اردک) #}
+    <button type="button"
+            id="pomo-pill-btn"
+            onclick="togglePomodoroDrawer()"
+            class="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-white dark:bg-[#1E1E24] border-2 border-[var(--border)] dark:border-[#2E2E38] shadow-lg hover:shadow-xl hover:border-amber-400 dark:hover:border-amber-400/80 transition-all duration-200 cursor-pointer active:scale-95"
+            aria-label="باز کردن تایمر تمرکز اردک پومودورو"
+            title="تایمر تمرکز پومودورو (اردک CS50)">
+        
+        {# اردک وکتور کوچک #}
+        <div class="w-7 h-7 relative shrink-0">
+            <svg viewBox="0 0 64 64" fill="none" class="w-full h-full drop-shadow-xs group-hover:scale-110 transition-transform duration-200" id="pomo-pill-duck">
+                {# بدنه زرد اردک #}
+                <path d="M48 38c0 8.837-7.163 16-16 16s-18-5.163-18-14c0-7 6-12 12-12h12c5.523 0 10 4.477 10 10z" fill="#FACC15"/>
+                <path d="M48 38c0 8.837-7.163 16-16 16s-18-5.163-18-14c0-7 6-12 12-12h12c5.523 0 10 4.477 10 10z" stroke="#CA8A04" stroke-width="2.5" stroke-linejoin="round"/>
+                {# دم اردک #}
+                <path d="M14 36c-4-4-5-9-3-12 3 0 7 4 8 8" fill="#FACC15" stroke="#CA8A04" stroke-width="2.5" stroke-linejoin="round"/>
+                {# سر اردک #}
+                <circle cx="43" cy="23" r="12" fill="#FACC15" stroke="#CA8A04" stroke-width="2.5"/>
+                {# چشم اردک #}
+                <circle cx="46" cy="20" r="2.2" fill="#1E1E1E"/>
+                <circle cx="47" cy="19" r="0.8" fill="#FFFFFF"/>
+                {# نوک نارنجی اردک #}
+                <path d="M54 22c4 1 7 3 7 5s-3 3-8 3c-1.5 0-3-.5-4-1.5l5-6.5z" fill="#F97316" stroke="#EA580C" stroke-width="2"/>
+                {# بال #}
+                <path d="M30 38c-3 0-6 2-6 5s3 5 7 5 7-2 7-5-5-5-8-5z" fill="#EAB308"/>
+            </svg>
+            {# نشانگر وضعیت پالس دار #}
+            <span id="pomo-pill-dot" class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-white dark:border-[#1E1E24]"></span>
+        </div>
+
+        {# تایمر متنی در قرص شناور #}
+        <div class="flex items-center gap-1.5 text-xs font-mono font-bold text-[var(--ink)]">
+            <span id="pomo-pill-time">۲۵:۰۰</span>
+            <span id="pomo-pill-mode-label" class="text-[10px] font-sans font-semibold text-[var(--slate)] hidden sm:inline">تمرکز</span>
+        </div>
+    </button>
+
+    {# Pomodoro Console Drawer (کنسول تعاملی کامل) #}
+    <div id="pomo-modal"
+         class="hidden absolute bottom-14 left-0 w-80 sm:w-88 rounded-3xl bg-white dark:bg-[#1A1A22] border-2 border-[var(--border)] dark:border-[#2D2D38] shadow-2xl p-5 mb-2 transition-all duration-200 animate-fade-in">
+        
+        {# هدر مودال #}
+        <div class="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+                <h3 class="font-bold text-sm text-[var(--ink)]">اردک پلاستیکی CS50 · پومودورو</h3>
+            </div>
+            
+            <div class="flex items-center gap-1">
+                {# دکمه صدا #}
+                <button type="button" id="pomo-sound-btn" onclick="togglePomodoroSound()" class="p-1.5 rounded-lg text-[var(--slate)] hover:bg-gray-100 dark:hover:bg-white/10 transition" title="روشن/خاموش کردن صدای زنگ">
+                    <svg id="pomo-sound-on-icon" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                    <svg id="pomo-sound-off-icon" class="w-4 h-4 hidden text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"/><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M23 9l-6 6"/><path d="M17 9l6 6"/></svg>
+                </button>
+
+                {# دکمه بستن پنل #}
+                <button type="button" onclick="togglePomodoroDrawer()" class="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 transition" aria-label="بستن">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+
+        {# تصویرسازی اردک بزرگ با دیالوگ #}
+        <div class="text-center py-2 relative">
+            {# اردک تعاملی SVG #}
+            <div id="pomo-duck-avatar" class="w-24 h-24 mx-auto mb-2 relative transition-transform duration-300">
+                <svg viewBox="0 0 100 100" fill="none" class="w-full h-full drop-shadow-md">
+                    {# کلاه فارغ‌التحصیلی CS50 #}
+                    <path d="M35 15L65 15L75 22L45 22Z" fill="#1E1E1E"/>
+                    <path d="M45 22L75 22L55 27L25 27Z" fill="#2E2E38"/>
+                    <path d="M35 15L55 10L75 22L55 27Z" fill="#1E1E1E"/>
+                    <line x1="55" y1="20" x2="62" y2="30" stroke="#C9A227" stroke-width="2"/>
+                    <circle cx="62" cy="30" r="2" fill="#C9A227"/>
+
+                    {# بدنه اردک #}
+                    <path d="M75 62c0 14-11.5 25-26 25s-29-8-29-22c0-11 9.5-19 19-19h19c8.8 0 17 7.1 17 16z" fill="#FACC15"/>
+                    <path d="M75 62c0 14-11.5 25-26 25s-29-8-29-22c0-11 9.5-19 19-19h19c8.8 0 17 7.1 17 16z" stroke="#CA8A04" stroke-width="3" stroke-linejoin="round"/>
+                    
+                    {# دم #}
+                    <path d="M20 58c-6-6-8-14-5-18 4 0 11 6 12 12" fill="#FACC15" stroke="#CA8A04" stroke-width="3" stroke-linejoin="round"/>
+                    
+                    {# سر #}
+                    <circle cx="68" cy="38" r="18" fill="#FACC15" stroke="#CA8A04" stroke-width="3"/>
+                    
+                    {# چشم خندان #}
+                    <circle cx="72" cy="34" r="3.5" fill="#1E1E1E"/>
+                    <circle cx="73.5" cy="32.5" r="1.3" fill="#FFFFFF"/>
+                    
+                    {# نوک خندان #}
+                    <path d="M84 36c6 1.5 11 4.5 11 8s-4.5 4.5-12 4.5c-2.3 0-4.5-.8-6-2.3l7-10.2z" fill="#F97316" stroke="#EA580C" stroke-width="2.5"/>
+                    
+                    {# بال با سایه‌زنی #}
+                    <path d="M47 62c-5 0-9.5 3-9.5 8s4.5 8 11 8 11-3 11-8-7.5-8-12.5-8z" fill="#EAB308"/>
+                </svg>
+            </div>
+
+            {# پیام وضعیت اردک #}
+            <div id="pomo-bubble" class="bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl py-1.5 px-3 max-w-[240px] mx-auto text-xs text-[var(--slate)] font-medium leading-relaxed">
+                «من اینجام تا کمکت کنم با تمرکز بالا کد بزنی!»
+            </div>
+        </div>
+
+        {# تب‌های انتخاب حالت (Mode Selector) #}
+        <div class="grid grid-cols-3 gap-1 bg-gray-100 dark:bg-white/5 p-1 rounded-2xl my-4 text-xs font-semibold">
+            <button type="button" onclick="setPomodoroMode('focus')" id="pomo-mode-focus" class="py-2 rounded-xl transition bg-white dark:bg-[#252530] text-[var(--crimson)] shadow-xs">
+                تمرکز (۲۵د)
+            </button>
+            <button type="button" onclick="setPomodoroMode('shortBreak')" id="pomo-mode-shortBreak" class="py-2 rounded-xl transition text-[var(--slate)] hover:text-[var(--ink)]">
+                استراحت (۵د)
+            </button>
+            <button type="button" onclick="setPomodoroMode('longBreak')" id="pomo-mode-longBreak" class="py-2 rounded-xl transition text-[var(--slate)] hover:text-[var(--ink)]">
+                بلند (۱۵د)
+            </button>
+        </div>
+
+        {# نمایش بزرگ زمان دیجیتال #}
+        <div class="text-center my-3">
+            <span id="pomo-timer-display" class="font-mono text-4xl sm:text-5xl font-black text-[var(--ink)] tracking-wider">
+                ۲۵:۰۰
+            </span>
+        </div>
+
+        {# دکمه‌های کنترل (Start / Pause / Reset) #}
+        <div class="flex items-center justify-center gap-3 pt-2">
+            <button type="button"
+                    id="pomo-start-btn"
+                    onclick="togglePomodoroTimer()"
+                    class="flex-1 py-3 px-4 rounded-2xl bg-[var(--crimson)] hover:bg-[var(--crimson-dark)] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
+                <svg id="pomo-play-icon" class="w-5 h-5 fill-current" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <svg id="pomo-pause-icon" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                <span id="pomo-start-text">شروع تمرکز</span>
+            </button>
+
+            <button type="button"
+                    onclick="resetPomodoroTimer()"
+                    class="p-3 rounded-2xl bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/15 text-[var(--slate)] transition active:scale-95 cursor-pointer"
+                    title="بازنشانی زمان">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+{# اسکریپت منطق پومودورو دقیق، ضدتب-خواب، صوتی و محلی #}
+<script>
+(function() {
+    // پیکربندی مدت زمان‌ها (بر حسب ثانیه)
+    const MODES = {
+        focus: { duration: 25 * 60, title: "تمرکز", bubble: "«وقت کاره! تمام توجهت رو بذار روی درسنامه و تمرین.»", color: "bg-emerald-500" },
+        shortBreak: { duration: 5 * 60, title: "استراحت کوتاه", bubble: "«عالی بود! یه لیوان آب بنوش و چشمهات رو استراحت بده.»", color: "bg-blue-500" },
+        longBreak: { duration: 15 * 60, title: "استراحت طولانی", bubble: "«یه بازه طولانی تمرکز رو تموم کردی. قدم بزن و نفس عمیق بکش.»", color: "bg-purple-500" }
+    };
+
+    let currentMode = "focus";
+    let isRunning = false;
+    let remainingSeconds = MODES.focus.duration;
+    let endTime = null;
+    let timerInterval = null;
+    let soundEnabled = true;
+
+    // بارگذاری وضعیت ذخیره‌شده از LocalStorage
+    try {
+        const saved = JSON.parse(localStorage.getItem("cs50_pomodoro_state") || "{}");
+        if (saved && saved.mode && MODES[saved.mode]) {
+            currentMode = saved.mode;
+            soundEnabled = saved.soundEnabled !== false;
+            
+            if (saved.isRunning && saved.endTime) {
+                const diff = Math.round((saved.endTime - Date.now()) / 1000);
+                if (diff > 0) {
+                    remainingSeconds = diff;
+                    endTime = saved.endTime;
+                    isRunning = true;
+                } else {
+                    remainingSeconds = 0;
+                    isRunning = false;
+                }
+            } else if (typeof saved.remaining === "number") {
+                remainingSeconds = saved.remaining;
+                isRunning = false;
+            }
+        }
+    } catch(e) {}
+
+    // ذخیره وضعیت
+    function saveState() {
+        try {
+            localStorage.setItem("cs50_pomodoro_state", JSON.stringify({
+                mode: currentMode,
+                remaining: remainingSeconds,
+                endTime: endTime,
+                isRunning: isRunning,
+                soundEnabled: soundEnabled
+            }));
+        } catch(e) {}
+    }
+
+    // تولید صدای زنگ با Web Audio API (بدون فایل خارجی و بدون مشکل CSP)
+    function playChime() {
+        if (!soundEnabled) return;
+        try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            const now = ctx.currentTime;
+            
+            // تن اول (587 Hz - D5)
+            const osc1 = ctx.createOscillator();
+            const gain1 = ctx.createGain();
+            osc1.type = "sine";
+            osc1.frequency.setValueAtTime(587.33, now);
+            gain1.gain.setValueAtTime(0.3, now);
+            gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+            osc1.connect(gain1);
+            gain1.connect(ctx.destination);
+            osc1.start(now);
+            osc1.stop(now + 0.8);
+
+            // تن دوم بعد از ۲۰۰ میلی‌ثانیه (880 Hz - A5)
+            const osc2 = ctx.createOscillator();
+            const gain2 = ctx.createGain();
+            osc2.type = "sine";
+            osc2.frequency.setValueAtTime(880, now + 0.2);
+            gain2.gain.setValueAtTime(0.4, now + 0.2);
+            gain2.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+            osc2.connect(gain2);
+            gain2.connect(ctx.destination);
+            osc2.start(now + 0.2);
+            osc2.stop(now + 1.2);
+        } catch(e) {}
+    }
+
+    // قالب‌بندی زمان به صورت دو رقمی
+    function formatTime(sec) {
+        const m = Math.floor(sec / 60);
+        const s = sec % 60;
+        return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    // به‌روزرسانی رابط کاربری
+    function updateUI() {
+        const timeStr = formatTime(remainingSeconds);
+        const display = document.getElementById("pomo-timer-display");
+        const pillTime = document.getElementById("pomo-pill-time");
+        const pillMode = document.getElementById("pomo-pill-mode-label");
+        const pillDot = document.getElementById("pomo-pill-dot");
+        const playIcon = document.getElementById("pomo-play-icon");
+        const pauseIcon = document.getElementById("pomo-pause-icon");
+        const startText = document.getElementById("pomo-start-text");
+
+        if (display) display.textContent = timeStr;
+        if (pillTime) pillTime.textContent = timeStr;
+        if (pillMode) pillMode.textContent = MODES[currentMode].title;
+
+        if (pillDot) {
+            if (isRunning) {
+                pillDot.className = "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white dark:border-[#1E1E24] animate-pulse";
+            } else {
+                pillDot.className = "absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-white dark:border-[#1E1E24]";
+            }
+        }
+
+        if (playIcon && pauseIcon && startText) {
+            if (isRunning) {
+                playIcon.classList.add("hidden");
+                pauseIcon.classList.remove("hidden");
+                startText.textContent = "توقف موقت";
+            } else {
+                playIcon.classList.remove("hidden");
+                pauseIcon.classList.add("hidden");
+                startText.textContent = remainingSeconds < MODES[currentMode].duration ? "ادامه" : "شروع " + MODES[currentMode].title;
+            }
+        }
+
+        // استایل تب فعال
+        ["focus", "shortBreak", "longBreak"].forEach(m => {
+            const btn = document.getElementById(`pomo-mode-${m}`);
+            if (btn) {
+                if (m === currentMode) {
+                    btn.className = "py-2 rounded-xl transition bg-white dark:bg-[#252530] text-[var(--crimson)] font-bold shadow-xs";
+                } else {
+                    btn.className = "py-2 rounded-xl transition text-[var(--slate)] hover:text-[var(--ink)]";
+                }
+            }
+        });
+
+        // آیکون صدا
+        const soundOn = document.getElementById("pomo-sound-on-icon");
+        const soundOff = document.getElementById("pomo-sound-off-icon");
+        if (soundOn && soundOff) {
+            if (soundEnabled) {
+                soundOn.classList.remove("hidden");
+                soundOff.classList.add("hidden");
+            } else {
+                soundOn.classList.add("hidden");
+                soundOff.classList.remove("hidden");
+            }
+        }
+    }
+
+    // تیک زدن ساعت
+    function tick() {
+        if (!isRunning || !endTime) return;
+        const now = Date.now();
+        const diff = Math.max(0, Math.round((endTime - now) / 1000));
+        remainingSeconds = diff;
+        updateUI();
+
+        if (remainingSeconds <= 0) {
+            clearInterval(timerInterval);
+            isRunning = false;
+            endTime = null;
+            saveState();
+            updateUI();
+            onTimerComplete();
+        }
+    }
+
+    // رویداد اتمام زمان
+    function onTimerComplete() {
+        playChime();
+        const bubble = document.getElementById("pomo-bubble");
+        const duck = document.getElementById("pomo-duck-avatar");
+
+        if (duck) {
+            duck.classList.add("scale-125");
+            setTimeout(() => duck.classList.remove("scale-125"), 600);
+        }
+
+        if (currentMode === "focus") {
+            if (bubble) bubble.innerHTML = "🎉 <strong>خسته نباشی!</strong> زمان تمرکز تموم شد. وقت یه استراحت ۵ دقیقه‌ایه!";
+            // پیشنهاد تغییر خودکار به استراحت
+            setTimeout(() => {
+                if (!isRunning && remainingSeconds === 0) {
+                    setPomodoroMode("shortBreak");
+                }
+            }, 3000);
+        } else {
+            if (bubble) bubble.innerHTML = "⚡ <strong>استراحت تموم شد!</strong> با انرژی بالا آماده بازه تمرکز بعدی هستی؟";
+            setTimeout(() => {
+                if (!isRunning && remainingSeconds === 0) {
+                    setPomodoroMode("focus");
+                }
+            }, 3000);
+        }
+    }
+
+    // شروع / توقف تایمر
+    window.togglePomodoroTimer = function() {
+        if (isRunning) {
+            // توقف موقت
+            isRunning = false;
+            endTime = null;
+            clearInterval(timerInterval);
+        } else {
+            // شروع یا ادامه
+            if (remainingSeconds <= 0) {
+                remainingSeconds = MODES[currentMode].duration;
+            }
+            endTime = Date.now() + (remainingSeconds * 1000);
+            isRunning = true;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(tick, 500);
+        }
+        saveState();
+        updateUI();
+    };
+
+    // بازنشانی تایمر
+    window.resetPomodoroTimer = function() {
+        isRunning = false;
+        endTime = null;
+        clearInterval(timerInterval);
+        remainingSeconds = MODES[currentMode].duration;
+        const bubble = document.getElementById("pomo-bubble");
+        if (bubble) bubble.textContent = MODES[currentMode].bubble;
+        saveState();
+        updateUI();
+    };
+
+    // تغییر حالت (تمرکز / استراحت)
+    window.setPomodoroMode = function(mode) {
+        if (!MODES[mode]) return;
+        currentMode = mode;
+        isRunning = false;
+        endTime = null;
+        clearInterval(timerInterval);
+        remainingSeconds = MODES[mode].duration;
+        const bubble = document.getElementById("pomo-bubble");
+        if (bubble) bubble.textContent = MODES[mode].bubble;
+        saveState();
+        updateUI();
+    };
+
+    // خاموش / روشن کردن صدا
+    window.togglePomodoroSound = function() {
+        soundEnabled = !soundEnabled;
+        saveState();
+        updateUI();
+    };
+
+    // باز و بسته کردن پنل
+    window.togglePomodoroDrawer = function() {
+        const modal = document.getElementById("pomo-modal");
+        if (modal) {
+            modal.classList.toggle("hidden");
+        }
+    };
+
+    // راه‌اندازی اولیه در صورت فعال بودن تایمر از قبل
+    if (isRunning && endTime) {
+        timerInterval = setInterval(tick, 500);
+    }
+    updateUI();
+})();
+</script>

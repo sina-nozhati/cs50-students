@@ -1,0 +1,343 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l05",
+  "type": "lesson",
+  "week": 8,
+  "order": 5,
+  "stage_id": "w08-s5",
+  "title_fa": "CSS و Bootstrap",
+  "title_en": "CSS and Bootstrap",
+  "note_ids": [
+    "w08-n11",
+    "w08-n12"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w08-l04"
+  ],
+  "concept_ids": [
+    "w08-c-css",
+    "w08-c-css-property",
+    "w08-c-style-attr",
+    "w08-c-div",
+    "w08-c-semantic-tags",
+    "w08-c-selectors",
+    "w08-c-cascade",
+    "w08-c-style-tag",
+    "w08-c-html-entity",
+    "w08-c-external-css",
+    "w08-c-framework",
+    "w08-c-bootstrap",
+    "w08-c-thead-tbody-th"
+  ],
+  "objective_ids": [
+    "w08-o07",
+    "w08-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w08-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l05-u01",
+      "order": 1,
+      "title_fa": "ویژگی‌های CSS و ویژگی style",
+      "concept_ids": [
+        "w08-c-css",
+        "w08-c-css-property",
+        "w08-c-style-attr",
+        "w08-c-div",
+        "w08-c-semantic-tags"
+      ],
+      "objective_ids": [
+        "w08-o07"
+      ],
+      "note_id": "w08-n11",
+      "source_refs": [
+        "src-notes-8#css",
+        "src-transcript-8",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "**CSS** (`cascading style sheets`) ظاهر صفحه را تعیین می‌کند. هر قاعده از جفت‌های «ویژگی: مقدار» ساخته می‌شود، مثل `font-size: large` یا `text-align: center` . ساده‌ترین راه، ویژگی `style` روی خود تگ است. سخنرانی اول همه‌چیز را در `<div>` ها گذاشت و بعد آن‌ها را با تگ‌های معنایی مثل `<header>` ، `<main>` و `<footer>` عوض کرد که برای خواننده و صفحه‌خوان معنای روشن‌تری دارند.",
+        "note_id": "w08-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "home0",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates inline CSS with P tags -->\n\n<html lang=\"en\">\n    <head>\n        <title>css</title>\n    </head>\n    <body>\n        <p style=\"font-size: large; text-align: center;\">\n            John Harvard\n        </p>\n        <p style=\"font-size: medium; text-align: center;\">\n            Welcome to my home page!\n        </p>\n        <p style=\"font-size: small; text-align: center;\">\n            Copyright &#169; John Harvard\n        </p>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#css",
+        "explain_fa": "CSS درون‌خطی با ویژگی style روی p (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `<p style=\"font-size: large; text-align: center;\">` ، `text-align` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یک ویژگی CSS که مقدارش `center` است",
+            "correct": true,
+            "feedback_fa": "درست. CSS از جفت‌های «ویژگی: مقدار» ساخته می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "یک ویژگی HTML مثل `lang`",
+            "correct": false,
+            "feedback_fa": "ویژگی HTML اینجا `style` است؛ `text-align` درون مقدار آن، یک ویژگی CSS است."
+          },
+          {
+            "id": "c",
+            "text_fa": "یک تگ HTML",
+            "correct": false,
+            "feedback_fa": "تگ اینجا `p` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l05-u01-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا متن بند وسط‌چین شود.",
+        "lang": "html",
+        "code_origin": "authored",
+        "template": "<p style=\"[[b1]]: center;\">John Harvard</p>",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "text-align"
+            ],
+            "hint_fa": "ویژگی CSS برای چیدمان افقی متن.",
+            "wrong_feedback": {
+              "align": "`align` ویژگی CSS نیست و مرورگر آن را نادیده می‌گیرد.",
+              "font-size": "`font-size` اندازهٔ قلم است و مقدار `center` را نمی‌پذیرد."
+            },
+            "default_wrong_fa": "ویژگی چیدمان متن را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "text-align"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `text-align: center` متن را وسط‌چین می‌کند.",
+          "incorrect_fa": "ویژگی CSS دیگری لازم است."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "dom.json": "{\"actions\": [{\"do\": \"probe\", \"expr\": \"document.querySelector('p').style.textAlign\"}], \"wait\": 0}"
+          },
+          "expected_stdout_exact": "center\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l05-u02",
+      "order": 2,
+      "title_fa": "انتخابگر و آبشار",
+      "concept_ids": [
+        "w08-c-selectors",
+        "w08-c-cascade",
+        "w08-c-style-tag",
+        "w08-c-html-entity"
+      ],
+      "objective_ids": [
+        "w08-o07"
+      ],
+      "note_id": "w08-n11",
+      "source_refs": [
+        "src-notes-8#css",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "به جای تکرار `style` روی هر تگ، قاعده‌ها را در `<style>` داخل `<head>` می‌نویسیم و با **انتخابگر** (`selector`) می‌گوییم به چه چیزی اعمال شوند: انتخابگر نوع مثل `p` همهٔ بندها را می‌گیرد، انتخابگر کلاس مثل `.centered` هر تگی با `class=\"centered\"` را، و انتخابگر شناسه مثل `#footer` تنها تگی با `id=\"footer\"` را. سبکی که روی پدر گذاشته شود به فرزندانش هم می‌رسد؛ این همان «آبشار» در نام CSS است. نماد `&#169;` در HTML نویسهٔ کپی‌رایت را نشان می‌دهد.",
+        "note_id": "w08-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "home4",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates class selectors -->\n\n<html lang=\"en\">\n    <head>\n        <style>\n\n            .centered\n            {\n                text-align: center;\n            }\n\n            .large\n            {\n                font-size: large;\n            }\n\n            .medium\n            {\n                font-size: medium;\n            }\n\n            .small\n            {\n                font-size: small;\n            }\n\n        </style>\n        <title>css</title>\n    </head>\n    <body class=\"centered\">\n        <header class=\"large\">\n            John Harvard\n        </header>\n        <main class=\"medium\">\n            Welcome to my home page!\n        </main>\n        <footer class=\"small\">\n            Copyright &#169; John Harvard\n        </footer>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#css",
+        "explain_fa": "انتخابگرهای کلاس در style (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "قاعدهٔ `.large { font-size: large; }` به کدام تگ اعمال می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هر تگی که `class=\"large\"` دارد",
+            "correct": true,
+            "feedback_fa": "درست. نقطه یعنی انتخابگر کلاس."
+          },
+          {
+            "id": "b",
+            "text_fa": "فقط تگی که `id=\"large\"` دارد",
+            "correct": false,
+            "feedback_fa": "انتخابگر شناسه با `#` شروع می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "همهٔ تگ‌های `<large>`",
+            "correct": false,
+            "feedback_fa": "انتخابگر نوع بدون نقطه نوشته می‌شود و `<large>` تگ HTML نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l05-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "نوع هر انتخابگر را بنویس: «نوع» یا «کلاس» یا «شناسه». (۱) `p` (۲) `.centered` (۳) `#footer` (۴) `header`",
+        "expected": {
+          "answers": {
+            "1": "نوع",
+            "2": "کلاس",
+            "3": "شناسه",
+            "4": "نوع"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "به نویسهٔ اول نگاه کن: نقطه، `#` یا هیچ."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l05-u03",
+      "order": 3,
+      "title_fa": "CSS بیرونی و Bootstrap",
+      "concept_ids": [
+        "w08-c-external-css",
+        "w08-c-framework",
+        "w08-c-bootstrap",
+        "w08-c-thead-tbody-th"
+      ],
+      "objective_ids": [
+        "w08-o07",
+        "w08-o08"
+      ],
+      "note_id": "w08-n12",
+      "source_refs": [
+        "src-notes-8#frameworks",
+        "src-transcript-8",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "قاعده‌ها را می‌توان در فایل جدایی مثل `styles.css` گذاشت و با `<link href=\"styles.css\" rel=\"stylesheet\">` به چند صفحه وصل کرد؛ صفحه‌های Homepage هم همین را می‌خواهند. **چارچوب‌ها** (`framework`) کتابخانه‌های آماده‌اند. **Bootstrap** با یک `<link>` به CDN کلاس‌هایی مثل `table` و `table-striped` می‌دهد که بدون نوشتن CSS خودت ظاهر حرفه‌ای می‌سازند؛ سخنرانی جدول phonebook را با همین کلاس‌ها زیبا کرد.",
+        "note_id": "w08-n12",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n12"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook1",
+        "lang": "html",
+        "content": "<!DOCTYPE html>\n\n<!-- Demonstrates table with Bootstrap -->\n\n<html lang=\"en\">\n    <head>\n        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB\" crossorigin=\"anonymous\">\n        <title>phonebook</title>\n    </head>\n    <body>\n        <table class=\"table\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Name</th>\n                    <th scope=\"col\">Number</th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>Kelly</td>\n                    <td>+1-617-495-1000</td>\n                </tr>\n                <tr>\n                    <td>David</td>\n                    <td>+1-949-468-2750</td>\n                </tr>\n            </tbody>\n        </table>\n    </body>\n</html>",
+        "source_ref": "src-notes-8#frameworks",
+        "explain_fa": "جدول phonebook با کلاس table از Bootstrap (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l05-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای اینکه چهار صفحهٔ سایت یک ظاهر داشته باشند، بهترین راه کدام است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یک فایل `styles.css` و یک `<link>` به آن در هر صفحه",
+            "correct": true,
+            "feedback_fa": "درست. یک بار می‌نویسی و هر تغییر به همهٔ صفحه‌ها می‌رسد."
+          },
+          {
+            "id": "b",
+            "text_fa": "کپی کردن یک `<style>` بزرگ در هر صفحه",
+            "correct": false,
+            "feedback_fa": "کار می‌کند، اما هر تغییر را باید چهار بار تکرار کنی."
+          },
+          {
+            "id": "c",
+            "text_fa": "ویژگی `style` روی تک‌تک تگ‌ها",
+            "correct": false,
+            "feedback_fa": "بیشترین تکرار را دارد و نگهداری‌اش سخت است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l05-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: برای استفاده از کلاس‌های Bootstrap مثل `table-striped` باید CSS آن کلاس‌ها را خودت بنویسی.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `<link>` به Bootstrap آن CSS را آماده می‌آورد و تو فقط کلاس را روی تگ می‌گذاری.",
+          "incorrect_fa": "Bootstrap چه چیزی را آماده می‌دهد؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

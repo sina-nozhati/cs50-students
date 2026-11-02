@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="submit50" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://cs50.readthedocs.io/submit50/" />
+  
+<meta property="og:description" content="submit50 is a command-line tool with which you can submit work (e.g., problem sets) to a course (e.g., CS50). It’s based on git, a “distributed version control system” that allows you to save diffe..." />
+  
+<meta property="og:image" content="https://cs50.readthedocs.io/_images/2ep2od.jpg" />
+  
+<meta property="og:image:alt" content="ALL THE DOCS" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>submit50 &mdash; CS50 Docs</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="/_static/custom.css?1790806731" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="/_static/custom.js?1790806731"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="cs50/check" href="../cs50/check/" />
+    <link rel="prev" title="style50" href="../style50/" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cs50" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/submit50/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../" class="icon icon-home"> CS50 Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/dining/">Dining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/map/">Map</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Command-Line Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli50/"><code class="docutils literal notranslate"><span class="pre">cli50</span></code></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help50/"><code class="docutils literal notranslate"><span class="pre">help50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render50/"><code class="docutils literal notranslate"><span class="pre">render50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style50/"><code class="docutils literal notranslate"><span class="pre">style50</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">submit50</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-pip">Using <code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-pipx">Using <code class="docutils literal notranslate"><span class="pre">pipx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrading">Upgrading</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submitting-with-submit50">Submitting with <code class="docutils literal notranslate"><span class="pre">submit50</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#via-ssh">Via SSH</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submitting-without-submit50">Submitting without <code class="docutils literal notranslate"><span class="pre">submit50</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-details">Implementation Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faqs">FAQs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#do-i-need-to-provide-submit50-with-my-github-username-and-password">Do I need to provide <code class="docutils literal notranslate"><span class="pre">submit50</span></code> with my GitHub username and password?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-i-use-git-locally-will-submit50-affect-my-local-repository">If I use <code class="docutils literal notranslate"><span class="pre">git</span></code> locally, will <code class="docutils literal notranslate"><span class="pre">submit50</span></code> affect my local repository?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-does-submit50-remember-my-github-password">How does <code class="docutils literal notranslate"><span class="pre">submit50</span></code> remember my GitHub password?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">Source Code</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docker Images</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/check/"><code class="docutils literal notranslate"><span class="pre">cs50/check</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/cli/"><code class="docutils literal notranslate"><span class="pre">cs50/cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/server/"><code class="docutils literal notranslate"><span class="pre">cs50/server</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/cs50/">cs50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/lib50/">lib50</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Style Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../style/c/">C</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://peps.python.org/pep-0008/">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../themes/jekyll/">Jekyll</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Third-Party Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../heroku/">Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/"><code class="docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminal/">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoom/">Zoom</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Web Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.ai/">CS50.ai</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../certificates.cs50.io/">CS50 Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forms.cs50.io/">CS50 Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id.cs50.io/">CS50 ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.cs50.io/">CS50 Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render.cs50.io/">CS50 Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time.cs50.io/">CS50 Time Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vault.cs50.io/">CS50 Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.cs50.io/">CS50 Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.codes/">CS50’s QR Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.dev/">Visual Studio Code for CS50</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CS50 Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="docutils literal notranslate"><span class="pre">submit50</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/submit50.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="submit50">
+<h1><code class="docutils literal notranslate"><span class="pre">submit50</span></code><a class="headerlink" href="#submit50" title="Permalink to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">submit50</span></code> is a command-line tool with which you can submit work (e.g., problem sets) to a course (e.g., CS50). It’s based on <code class="docutils literal notranslate"><span class="pre">git</span></code>, a “distributed version control system” that allows you to save different versions of files without having to give each version a unique filename (as you might be wont to do on your own Mac or PC!). Via <code class="docutils literal notranslate"><span class="pre">submit50</span></code> and, in turn, <code class="docutils literal notranslate"><span class="pre">git</span></code> can you thus submit work multiple times (i.e., multiple versions thereof).</p>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">submit50</span></code>, your files are “pushed” (i.e., uploaded) to CS50’s “organization” (also named “submit50”) on <a class="reference external" href="https://github.com/">GitHub</a>, a popular service via which developers (like you!) can share code. Your files are stored in a “repository” (a folder, essentially) to which only you and some of CS50’s staff have access (and anyone else to whom you grant access). Your work can thus be reviewed and scored in one central place, whether you wrote it in <a class="reference external" href="https://cs50.dev/">CS50 Codespace</a> or elsewhere!</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>Install <a class="reference internal" href="../python/"><span class="doc std std-doc">Python 3.6</span></a> or later, if you haven’t already.</p>
+<section id="using-pip">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#using-pip" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Install <a class="reference internal" href="../pip/"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">pip</span></code></span></a>, if you haven’t already.</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">submit50</span></code> itself:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip3 install submit50
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="using-pipx">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">pipx</span></code><a class="headerlink" href="#using-pipx" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Install <a class="reference internal" href="../pipx/"><span class="doc std std-doc"><code class="docutils literal notranslate"><span class="pre">pipx</span></code></span></a>, if you haven’t already.</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">submit50</span></code> itself:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pipx install submit50
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Note: If on Windows, please first install <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux (WSL)</a>. We recommend choosing the <code class="docutils literal notranslate"><span class="pre">Ubuntu</span></code> distribution. Then within WSL, follow the above steps to install <a class="reference internal" href="../python/"><span class="doc std std-doc">Python</span></a> and <code class="docutils literal notranslate"><span class="pre">submit50</span></code>.</p>
+</section>
+<section id="upgrading">
+<h3>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this heading"></a></h3>
+<p>If using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, you can upgrade <code class="docutils literal notranslate"><span class="pre">submit50</span></code> with</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip3 install --upgrade submit50
+</pre></div>
+</div>
+<p>If using <code class="docutils literal notranslate"><span class="pre">pipx</span></code>, you can upgrade <code class="docutils literal notranslate"><span class="pre">submit50</span></code> with</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pipx upgrade submit50
+</pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: submit50 [-h] [--logout] [--log-level {debug,info,warning,error}] [-V] slug
+
+positional arguments:
+  slug                  prescribed identifier of work to submit
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+  --logout              logout of submit50
+
+  --log-level {debug,info,warning,error}
+                        warning: displays usage warnings.
+                        info: adds all commands run.
+                        debug: adds the output of all commands run.
+
+  -V, --version         show program's version number and exit
+</pre></div>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<section id="submitting-with-submit50">
+<h3>Submitting with <code class="docutils literal notranslate"><span class="pre">submit50</span></code><a class="headerlink" href="#submitting-with-submit50" title="Permalink to this heading"></a></h3>
+<p>To submit work with <code class="docutils literal notranslate"><span class="pre">submit50</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the work’s directory and execute</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>submit50 slug
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">slug</span></code> is the unique identifier for the work you’re submitting, as prescribed by the course (as in a problem’s specification). Although the <code class="docutils literal notranslate"><span class="pre">slug</span></code> might resemble the path to a directory, it’s simply a unique identifier, independent of your own work’s location. If you’ve not recently run <code class="docutils literal notranslate"><span class="pre">submit50</span></code> (within the past week), you might be prompted to log in with your GitHub username and password. (Per the <a class="reference external" href="https://github.com/cs50/submit50">source code</a> for <code class="docutils literal notranslate"><span class="pre">submit50</span></code>, your username and password are sent only to GitHub, not to CS50’s own servers.) You will then be prompted to confirm whether you indeed want to submit one or more files from your current directory, unless you’re missing one or more required files, in which case <code class="docutils literal notranslate"><span class="pre">submit50</span></code> will instead exit without submitting anything.</p>
+<section id="via-ssh">
+<h4>Via SSH<a class="headerlink" href="#via-ssh" title="Permalink to this heading"></a></h4>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">submit50</span></code> pushes your work to GitHub via HTTPS, which requires your GitHub username and password, which is why <code class="docutils literal notranslate"><span class="pre">submit50</span></code> prompts you for both at least once per week. If you’d prefer not to provide <code class="docutils literal notranslate"><span class="pre">submit50</span></code> with your GitHub username and password at all, you can instead push your work to GitHub via SSH. Configure your workspace on <a class="reference external" href="https://cs50.dev/">CS50 Codespace</a> (or your own computer) as follows.</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Generate an SSH key and add it to <code class="docutils literal notranslate"><span class="pre">ssh-agent</span></code></a>.</p></li>
+<li><p><a class="reference external" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Add the SSH key to your GitHub account</a>.</p></li>
+<li><p>Execute</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ssh -T -p443 git@ssh.github.com
+</pre></div>
+</div>
+<p>to add <code class="docutils literal notranslate"><span class="pre">ssh.github.com</span></code> to the list of known hosts for <code class="docutils literal notranslate"><span class="pre">ssh</span></code>, answering “yes” if prompted whether you’re sure you want to continue connecting. If all goes well, you should see the message</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hi &lt;USERNAME&gt;! You've successfully authenticated, but GitHub does not provide shell access.
+Connection to github.com closed.
+</pre></div>
+</div>
+</li>
+</ol>
+<p>(where <code class="docutils literal notranslate"><span class="pre">&lt;USERNAME&gt;</span></code> is your GitHub username).</p>
+<p>Thereafter, you should be able to run <code class="docutils literal notranslate"><span class="pre">submit50</span></code> without ever being prompted for your GitHub username or password.</p>
+</section>
+</section>
+<section id="submitting-without-submit50">
+<h3>Submitting without <code class="docutils literal notranslate"><span class="pre">submit50</span></code><a class="headerlink" href="#submitting-without-submit50" title="Permalink to this heading"></a></h3>
+<p>If comfortable with <code class="docutils literal notranslate"><span class="pre">git</span></code>, you can submit work without <code class="docutils literal notranslate"><span class="pre">submit50</span></code>. Simply push your work to the expected branch (i.e., the work’s prescribed slug which is found in the “How to Submit” section of each project.) of <code class="docutils literal notranslate"><span class="pre">https://github.com/me50/jharvard</span></code> (or <code class="docutils literal notranslate"><span class="pre">git&#64;github.com:me50/jharvard.git</span></code>), where <code class="docutils literal notranslate"><span class="pre">jharvard</span></code> is your own GitHub username. To get started, either clone that repository or add it to an existing repository as a remote.</p>
+<p>On each such branch, take care to create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file based on <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/slug/.cs50.yml</span></code>, where <code class="docutils literal notranslate"><span class="pre">slug</span></code> is as before, so that you don’t submit files that <code class="docutils literal notranslate"><span class="pre">submit50</span></code> would otherwise ignore.</p>
+<p>Note again that the branch should not be <code class="docutils literal notranslate"><span class="pre">main</span></code>, <code class="docutils literal notranslate"><span class="pre">master</span></code> or the like, and instead be the work’s prescribed slug as listed in the project specification.</p>
+</section>
+</section>
+<section id="implementation-details">
+<h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this heading"></a></h2>
+<p>To see how <code class="docutils literal notranslate"><span class="pre">submit50</span></code> uses <code class="docutils literal notranslate"><span class="pre">git</span></code> underneath the hood, execute</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>submit50 --log-level info slug
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>submit50 --log-level debug slug
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">slug</span></code> is the unique identifier for the work you’re submitting.</p>
+</section>
+<section id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this heading"></a></h2>
+<section id="do-i-need-to-provide-submit50-with-my-github-username-and-password">
+<h3>Do I need to provide <code class="docutils literal notranslate"><span class="pre">submit50</span></code> with my GitHub username and password?<a class="headerlink" href="#do-i-need-to-provide-submit50-with-my-github-username-and-password" title="Permalink to this heading"></a></h3>
+<p>Nope, you can instead authenticate <a class="reference internal" href="#via-ssh"><span class="std std-doc">via SSH</span></a>.</p>
+</section>
+<section id="if-i-use-git-locally-will-submit50-affect-my-local-repository">
+<h3>If I use <code class="docutils literal notranslate"><span class="pre">git</span></code> locally, will <code class="docutils literal notranslate"><span class="pre">submit50</span></code> affect my local repository?<a class="headerlink" href="#if-i-use-git-locally-will-submit50-affect-my-local-repository" title="Permalink to this heading"></a></h3>
+<p>Nope, <code class="docutils literal notranslate"><span class="pre">submit50</span></code> uses its own <code class="docutils literal notranslate"><span class="pre">GIT_DIR</span></code> (in <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>). It will ignore any <code class="docutils literal notranslate"><span class="pre">.git</span></code> directory that you might have locally.</p>
+</section>
+<section id="how-does-submit50-remember-my-github-password">
+<h3>How does <code class="docutils literal notranslate"><span class="pre">submit50</span></code> remember my GitHub password?<a class="headerlink" href="#how-does-submit50-remember-my-github-password" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">submit50</span></code> remembers your username and password in RAM using <a class="reference external" href="https://git-scm.com/docs/git-credential-cache/"><code class="docutils literal notranslate"><span class="pre">git-credential-cache</span></code></a>. Your password is never stored on disk or transmitted elsewhere.</p>
+</section>
+</section>
+<section id="source-code">
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://github.com/cs50/submit50">https://github.com/cs50/submit50</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

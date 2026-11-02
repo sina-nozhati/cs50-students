@@ -1,0 +1,358 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l04",
+  "type": "lesson",
+  "week": 7,
+  "order": 4,
+  "stage_id": "w07-s4",
+  "title_fa": "طراحی چندجدولی",
+  "title_en": "Designing multi-table schemas",
+  "note_ids": [
+    "w07-n07"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w07-l03"
+  ],
+  "concept_ids": [
+    "w07-c-redundancy",
+    "w07-c-one-to-one",
+    "w07-c-primary-key",
+    "w07-c-foreign-key",
+    "w07-c-sqlite-types",
+    "w07-c-constraints",
+    "w07-c-autoincrement",
+    "w07-c-nested-query"
+  ],
+  "objective_ids": [
+    "w07-o05",
+    "w07-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w07-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l04-u01",
+      "order": 1,
+      "title_fa": "تکرار، کلید اصلی و کلید خارجی",
+      "concept_ids": [
+        "w07-c-redundancy",
+        "w07-c-one-to-one",
+        "w07-c-primary-key",
+        "w07-c-foreign-key"
+      ],
+      "objective_ids": [
+        "w07-o05"
+      ],
+      "note_id": "w07-n07",
+      "source_refs": [
+        "src-notes-7#imdb",
+        "src-anzali-authored-7",
+        "src-transcript-7"
+      ],
+      "reading": {
+        "text_fa": "داده‌های IMDb در سخنرانی در چند جدول جدا نگه داشته می‌شوند تا اطلاعات تکرار نشود: `shows` هر سریال را با یک `id` یکتا دارد و `ratings` امتیاز هر سریال را با ستون `show_id`. ستونی که هر سطر جدول خودش را یکتا مشخص می‌کند کلید اصلی (`PRIMARY KEY`) است و ستونی که به کلید اصلی جدول دیگر اشاره می‌کند کلید خارجی (`FOREIGN KEY ... REFERENCES`). چون هر سریال حداکثر یک ردیف امتیاز دارد، رابطهٔ `shows` و `ratings` یک‌به‌یک است.",
+        "note_id": "w07-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n07"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "CREATE TABLE ratings (\n    show_id INTEGER NOT NULL,\n    rating REAL NOT NULL,\n    votes INTEGER NOT NULL,\n    FOREIGN KEY(show_id) REFERENCES shows(id)\n);",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "طرح‌وارهٔ ratings در پایگاه دادهٔ تمرینی shows؛ شکل آن از طرح‌وارهٔ سخنرانی پیروی می‌کند."
+      },
+      "check": {
+        "id": "w07-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در جدول `ratings` ستون `show_id` چه نقشی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "کلید خارجی است و به `shows.id` اشاره می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. `REFERENCES shows(id)` همین را می‌گوید."
+          },
+          {
+            "id": "b",
+            "text_fa": "کلید اصلی جدول `shows` است.",
+            "correct": false,
+            "feedback_fa": "کلید اصلی `shows` ستون `id` در خود `shows` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "شمارهٔ ردیف امتیاز است که SQLite خودکار می‌سازد.",
+            "correct": false,
+            "feedback_fa": "`show_id` را خودمان می‌نویسیم تا امتیاز را به سریالش وصل کنیم."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l04-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "نوع رابطه را بنویس («یک‌به‌یک»، «یک‌به‌چند» یا «چندبه‌چند»): (۱) `shows` و `ratings` (هر سریال حداکثر یک امتیاز) (۲) `shows` و `genres` (هر سریال چند ژانر) (۳) `shows` و `people` از راه `stars` (۴) `books` و `loans` در پایگاه دادهٔ تمرینی `library` (هر کتاب چند امانت، هر امانت یک کتاب)",
+        "expected": {
+          "answers": {
+            "1": "یک‌به‌یک",
+            "2": "یک‌به‌چند",
+            "3": "چندبه‌چند",
+            "4": "یک‌به‌چند"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: هر سطر این طرف به چند سطر آن طرف وصل می‌شود، و برعکس؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l04-u02",
+      "order": 2,
+      "title_fa": "نوع‌ها و قیدها",
+      "concept_ids": [
+        "w07-c-sqlite-types",
+        "w07-c-constraints",
+        "w07-c-autoincrement"
+      ],
+      "objective_ids": [
+        "w07-o05"
+      ],
+      "note_id": "w07-n07",
+      "source_refs": [
+        "src-notes-7#imdb",
+        "src-short-sql",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "SQLite پنج نوع دارد: `BLOB` برای داده‌های دودویی، `INTEGER`، `NUMERIC` برای عددهایی مثل سال و تاریخ، `REAL` برای اعشاری و `TEXT` برای رشته. قید `NOT NULL` نمی‌گذارد ستون خالی بماند و `UNIQUE` نمی‌گذارد دو سطر مقدار یکسان داشته باشند. ستون `INTEGER` که `PRIMARY KEY` باشد، اگر هنگام درج مقدار نگیرد، خودکار شمارهٔ تازه می‌گیرد.",
+        "note_id": "w07-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "types-list",
+        "lang": "text",
+        "content": "BLOB       -- binary large objects that are groups of ones and zeros\nINTEGER    -- an integer\nNUMERIC    -- for numbers that are formatted specially like dates\nREAL       -- like a float\nTEXT       -- for strings and the like",
+        "source_ref": "src-notes-7#imdb",
+        "explain_fa": "پنج نوع SQLite (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای ستون `title` سریال‌ها کدام نوع مناسب است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`TEXT`",
+            "correct": true,
+            "feedback_fa": "درست. عنوان رشته است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`REAL`",
+            "correct": false,
+            "feedback_fa": "`REAL` برای عدد اعشاری است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`BLOB`",
+            "correct": false,
+            "feedback_fa": "`BLOB` برای دادهٔ دودویی خام است، مثل تصویر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l04-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا `id` کلید اصلی باشد و هنگام درج خودکار شماره بگیرد. باید `1|Sara` چاپ شود.",
+        "lang": "sql",
+        "code_origin": "authored",
+        "template": "CREATE TABLE members (\n    id INTEGER,\n    name TEXT NOT NULL,\n    [[b1]] KEY(id)\n);\nINSERT INTO members (name) VALUES ('Sara');\nSELECT id, name FROM members;",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "PRIMARY",
+              "primary"
+            ],
+            "hint_fa": "کدام کلید هر سطر جدول خودش را یکتا مشخص می‌کند؟",
+            "wrong_feedback": {
+              "FOREIGN": "`FOREIGN KEY` به جدول دیگری اشاره می‌کند و بدون `REFERENCES` خطای نحوی دارد.",
+              "UNIQUE": "در SQLite عبارت `UNIQUE KEY` وجود ندارد و خطای نحوی می‌دهد.",
+              "NOT NULL": "`NOT NULL` قید ستون است و پیش از `KEY` معنی ندارد؛ خطای نحوی می‌دهد."
+            },
+            "default_wrong_fa": "کلید اصلی را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "PRIMARY",
+            "primary"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: ستون `INTEGER PRIMARY KEY` خودکار `1` گرفت.",
+          "incorrect_fa": "به کلیدی فکر کن که هر سطر را یکتا می‌کند."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "1|Sara\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l04-u03",
+      "order": 3,
+      "title_fa": "پرس‌وجوی تودرتو با IN",
+      "concept_ids": [
+        "w07-c-nested-query"
+      ],
+      "objective_ids": [
+        "w07-o06"
+      ],
+      "note_id": "w07-n07",
+      "source_refs": [
+        "src-notes-7#imdb",
+        "src-notes-7#joins",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "پرس‌وجوی تودرتو یعنی نتیجهٔ یک `SELECT` را درون `SELECT` دیگری به کار ببری. درس‌نامه عنوان کمدی‌ها را این‌طور پیدا می‌کند: پرس‌وجوی درونی `show_id` سریال‌های ژانر `Comedy` را از `genres` برمی‌گرداند و پرس‌وجوی بیرونی با `WHERE id IN (...)` عنوان همان سریال‌ها را از `shows` می‌خواند. `IN` برای فهرستی از مقدارها است؛ `=` فقط با یک مقدار معنی دارد.",
+        "note_id": "w07-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "nested-comedy",
+        "lang": "sql",
+        "content": "SELECT title FROM shows\nWHERE id IN (\n  SELECT show_id FROM genres\n  WHERE genre = 'Comedy'\n  LIMIT 10\n);",
+        "source_ref": "src-notes-7#joins",
+        "explain_fa": "عنوان کمدی‌ها با پرس‌وجوی تودرتو (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در پرس‌وجوی تودرتوی درس‌نامه، چرا `WHERE id IN (...)` به جای `WHERE id = (...)` آمده است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون پرس‌وجوی درونی چند `show_id` برمی‌گرداند و `IN` فهرست را می‌پذیرد.",
+            "correct": true,
+            "feedback_fa": "درست. با `=` فقط اولین مقدار به کار می‌رفت."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `=` در SQL وجود ندارد.",
+            "correct": false,
+            "feedback_fa": "`=` عملگر مقایسهٔ SQL است؛ فقط برای یک مقدار است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون `IN` سریع‌تر از `=` است.",
+            "correct": false,
+            "feedback_fa": "دلیل، تعداد مقدارهای برگشتی است، نه سرعت."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l04-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "پایگاه دادهٔ تمرینی `shows` شش سریال دارد. خروجی این پرس‌وجو دقیقاً چیست؟",
+        "expected": {
+          "output": "Catweazle|1970\nThe Office|2001\nThe Office|2005\nParks and Recreation|2009"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: چهار کمدیِ پیش از ۲۰۱۰ به ترتیب سال.",
+          "incorrect_fa": "اول سریال‌های کمدی را پیدا کن، بعد شرط سال و ترتیب را اعمال کن."
+        },
+        "hints_fa": [
+          "در `fixtures/shows.sql` دو سریال با عنوان `The Office` هست."
+        ],
+        "lang": "sql",
+        "code": "SELECT title, year FROM shows\nWHERE id IN (SELECT show_id FROM genres WHERE genre = 'Comedy')\nAND year < 2010\nORDER BY year;",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:shows"
+          },
+          "expected_stdout_exact": "Catweazle|1970\nThe Office|2001\nThe Office|2005\nParks and Recreation|2009\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "shows",
+          "order_matters": true
+        },
+        "fixture": "shows"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}دوره‌های آموزشی من{% endblock %}
+
+{% block content %}
+<div class="space-y-8 max-w-5xl mx-auto">
+    {# Header Section #}
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-[var(--border)]">
+        <div>
+            <div class="flex items-center gap-2.5">
+                <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-[var(--crimson-tint)] text-[var(--crimson)]">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </span>
+                <h1 class="text-2xl font-bold text-[var(--ink)]">دوره‌های آموزشی من</h1>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">مدیریت نوبت‌های برگزاری، جابجایی بین دوره‌ها و مشاهده پیشرفت در هر ترم</p>
+        </div>
+
+        <a href="{{ url_for('main.dashboard') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-[var(--border)] text-sm font-medium text-gray-700 hover:bg-gray-50 transition shadow-2xs self-start sm:self-auto">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>بازگشت به داشبورد</span>
+        </a>
+    </div>
+
+    {# Active Cohort Spotlight #}
+    {% if active_cohort %}
+    <div class="bg-gradient-to-r from-crimson to-crimson-dark text-white rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden">
+        <div class="absolute -left-10 -bottom-10 w-48 h-48 rounded-full bg-white/5 pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-medium backdrop-blur-xs">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>نوبت برگزاری فعال در داشبورد شما</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">{{ active_cohort.name }}</h2>
+                <p class="text-sm text-white/80 flex items-center gap-2 flex-wrap">
+                    <span>برنامه درسی: {{ active_cohort.course.title if active_cohort.course else 'CS50x' }}</span>
+                    <span>•</span>
+                    <span>سال {{ active_cohort.year }} - نوبت {{ active_cohort.season }}</span>
+                    <span>•</span>
+                    <span class="font-mono text-xs bg-black/20 px-2 py-0.5 rounded">{{ active_cohort.code }}</span>
+                </p>
+            </div>
+
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="{{ url_for('main.dashboard') }}" class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white text-[var(--crimson)] font-bold text-sm hover:bg-gray-100 transition shadow-sm">
+                    <span>ورود به داشبورد این دوره</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {# Enrollments List #}
+    <div class="space-y-4">
+        <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-[var(--ink)]">تمام نوبت‌های ثبت‌نامی شما ({{ user_enrollments|length }})</h2>
+        </div>
+
+        {% if user_enrollments %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {% for item in user_enrollments %}
+            {% set is_current = (active_cohort and active_cohort.id == item.cohort_id) %}
+            <div class="bg-white rounded-3xl border-2 {{ 'border-[var(--crimson)] shadow-md ring-2 ring-[var(--crimson-tint)]' if is_current else 'border-[var(--border)] shadow-xs hover:border-gray-300' }} p-6 transition duration-200 flex flex-col justify-between">
+                <div>
+                    {# Card Top Badges #}
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="text-xs font-mono font-medium px-2.5 py-1 rounded-lg bg-gray-100 text-gray-700">
+                            {{ item.cohort_code }}
+                        </span>
+
+                        <div class="flex items-center gap-2">
+                            {% if is_current %}
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                                    دوره فعال فعلی
+                                </span>
+                            {% elif item.status == 'completed' %}
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-200">
+                                    تکمیل‌شده
+                                </span>
+                            {% elif item.status == 'dropped' %}
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                    انصرافی
+                                </span>
+                            {% else %}
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                                    عضو فعال
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {# Title & Course #}
+                    <h3 class="text-xl font-bold text-[var(--ink)] leading-snug">{{ item.cohort_name }}</h3>
+                    <p class="text-xs text-gray-500 mt-1 flex items-center gap-2">
+                        <span class="font-medium text-gray-700">{{ item.course_title }}</span>
+                        <span>•</span>
+                        <span>سال {{ item.year }} - فصل {{ item.season }}</span>
+                    </p>
+
+                    {# Progress Bar #}
+                    <div class="mt-5 space-y-1.5">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-gray-500 font-medium">پیشرفت در پایگاه دانش:</span>
+                            <span class="font-bold text-gray-800 font-mono">{{ item.completed_weeks }} از {{ item.total_weeks }} هفته</span>
+                        </div>
+                        <div class="w-full h-2.5 rounded-full bg-gray-100 overflow-hidden">
+                            <div class="h-full rounded-full transition-all duration-500 {{ 'bg-emerald-500' if item.progress_percent == 100 else 'bg-[var(--crimson)]' }}" style="width: {{ item.progress_percent }}%"></div>
+                        </div>
+                    </div>
+
+                    {# Meta Info #}
+                    <div class="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                        <span>نقش: <strong class="text-gray-700">{{ 'دانش‌آموز' if item.role == 'student' else item.role }}</strong></span>
+                        <span dir="ltr" class="font-mono text-[11px] text-gray-400">عضویت: {{ item.enrolled_at.strftime('%Y-%m-%d') if item.enrolled_at else '-' }}</span>
+                    </div>
+                </div>
+
+                {# Actions #}
+                <div class="mt-6 pt-4 border-t border-gray-100">
+                    {% if is_current %}
+                        <a href="{{ url_for('main.dashboard') }}" class="w-full py-2.5 px-4 rounded-xl bg-gray-100 hover:bg-gray-200 text-[var(--ink)] text-sm font-bold transition flex items-center justify-center gap-2">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            <span>مشاهده داشبورد این دوره</span>
+                        </a>
+                    {% else %}
+                        <form method="POST" action="{{ url_for('main.switch_cohort', cohort_id=item.cohort_id) }}" class="w-full">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="next" value="{{ url_for('main.dashboard') }}">
+                            <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-[var(--crimson)] hover:bg-[var(--crimson-dark)] text-white text-sm font-semibold transition flex items-center justify-center gap-2 shadow-2xs hover:shadow-xs">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                                <span>فعال‌سازی و تغییر به این دوره</span>
+                            </button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        {# Empty State #}
+        <div class="bg-white rounded-3xl border border-[var(--border)] p-12 text-center max-w-lg mx-auto shadow-xs">
+            <div class="w-16 h-16 rounded-full bg-[var(--crimson-tint)] text-[var(--crimson)] flex items-center justify-center mx-auto mb-4">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800">شما هنوز در هیچ نوبت آموزشی عضو نیستید</h3>
+            <p class="text-xs text-gray-500 mt-2 leading-relaxed">
+                برای ثبت‌نام در نوبت‌های جاری یا هماهنگی کلاس‌ها، لطفاً با پشتیبانی یا منتور دوره CS50x انزلی در ارتباط باشید.
+            </p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

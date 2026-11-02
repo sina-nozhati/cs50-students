@@ -1,0 +1,200 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-pr-bank",
+  "kind": "practice",
+  "week": 6,
+  "title_en": "Home Federal Savings Bank",
+  "title_fa": "بانک (Bank)",
+  "guide_doc_id": "w06-pr-bank",
+  "guide_file": "bank.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/bank/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "choice_group": null,
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w06-pr-bank-r1",
+        "text_fa": "در فایل `bank.py` برنامه‌ای بنویس که از کاربر خوشامدی بخواهد.",
+        "text_en": "In a file called `bank.py`, implement a program that prompts the user for a greeting",
+        "source_ref": "src-practice-bank#home-federal-savings-bank"
+      },
+      {
+        "id": "w06-pr-bank-r2",
+        "text_fa": "اگر خوشامد با «hello» شروع شد، `$0` چاپ کن.",
+        "text_en": "If the greeting starts with \"hello\", output `$0`",
+        "source_ref": "src-practice-bank#home-federal-savings-bank"
+      },
+      {
+        "id": "w06-pr-bank-r3",
+        "text_fa": "اگر با «h» شروع شد (ولی نه «hello»)، `$20` چاپ کن.",
+        "text_en": "If the greeting starts with an \"h\" (but not \"hello\"), output `$20`",
+        "source_ref": "src-practice-bank#home-federal-savings-bank"
+      },
+      {
+        "id": "w06-pr-bank-r4",
+        "text_fa": "در غیر این صورت `$100` چاپ کن.",
+        "text_en": "Otherwise, output `$100`",
+        "source_ref": "src-practice-bank#home-federal-savings-bank"
+      },
+      {
+        "id": "w06-pr-bank-r5",
+        "text_fa": "فاصله‌های ابتدای خوشامد را نادیده بگیر و به بزرگی و کوچکی حروف حساس نباش.",
+        "text_en": "Ignore any leading whitespace in the user's greeting, and treat the user's greeting case-insensitively",
+        "source_ref": "src-practice-bank#home-federal-savings-bank"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2022/python/bank",
+      "style50": null,
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/6/bank.zip\nunzip bank.zip\nrm bank.zip"
+    },
+    "sample_io": [],
+    "test_texts": [
+      {
+        "text": "Hello",
+        "expected": "$0",
+        "origin": "official"
+      },
+      {
+        "text": "Hello, Newman",
+        "expected": "$0",
+        "origin": "official"
+      },
+      {
+        "text": "How you doing?",
+        "expected": "$20",
+        "origin": "official"
+      },
+      {
+        "text": "What's happening?",
+        "expected": "$100",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2022/python/bank",
+      "style50": null,
+      "has_check50": true,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "IN6cJ_wGmsk",
+        "caption_fa": "صحنهٔ سریال Seinfeld (از صفحهٔ رسمی)"
+      }
+    ],
+    "asciinema": "Pes7djS4b1GmwpwqNu2vj6LgY",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d107"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-input-returns-str",
+      "w06-c-string-methods",
+      "w06-c-method-returns-new",
+      "w06-c-elif"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l02",
+      "w06-l03"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-input-returns-str",
+        "note_id": "w06-n06",
+        "lesson_id": "w06-l02",
+        "unit_id": "w06-l02-u04"
+      },
+      {
+        "concept_id": "w06-c-string-methods",
+        "note_id": "w06-n08",
+        "lesson_id": "w06-l03",
+        "unit_id": "w06-l03-u03"
+      },
+      {
+        "concept_id": "w06-c-method-returns-new",
+        "note_id": "w06-n08",
+        "lesson_id": "w06-l03",
+        "unit_id": "w06-l03-u03"
+      },
+      {
+        "concept_id": "w06-c-elif",
+        "note_id": "w06-n07",
+        "lesson_id": "w06-l03",
+        "unit_id": "w06-l03-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "سه حالت داری؛ ترتیب بررسی آن‌ها مهم است. کدام حالت باید اول بررسی شود تا «hello» به اشتباه `$20` نگیرد؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای نادیده گرفتن فاصلهٔ ابتدا و بزرگی حروف، در مستندات متدهای رشته دنبال متدهایی بگرد که رشتهٔ تازه برمی‌گردانند."
+      },
+      {
+        "n": 3,
+        "hint_fa": "متدی هم هست که می‌سنجد آیا رشته با پیشوند معینی شروع می‌شود؛ مستندات را ببین."
+      },
+      {
+        "n": 4,
+        "hint_fa": "یادت باشد متد رشته، رشتهٔ اصلی را تغییر نمی‌دهد؛ نتیجه را باید نگه داری."
+      }
+    ],
+    "common_mistakes_fa": [
+      "بررسی «h» پیش از «hello»",
+      "فراموش کردن این‌که `\"Hello\"` و `\"hello\"` برابر نیستند",
+      "صدا زدن متد بدون نگه داشتن نتیجه‌اش"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-pr-bank-c01",
+        "text_fa": "ورودی `Hello` و `Hello, Newman` هر دو `$0` می‌دهند.",
+        "maps_to": "w06-pr-bank-r2"
+      },
+      {
+        "id": "w06-pr-bank-c02",
+        "text_fa": "`How you doing?` خروجی `$20` می‌دهد.",
+        "maps_to": "w06-pr-bank-r3"
+      },
+      {
+        "id": "w06-pr-bank-c03",
+        "text_fa": "`What's happening?` خروجی `$100` می‌دهد.",
+        "maps_to": "w06-pr-bank-r4"
+      },
+      {
+        "id": "w06-pr-bank-c04",
+        "text_fa": "ورودی با فاصله در ابتدا یا با حروف بزرگ هم درست کار می‌کند.",
+        "maps_to": "w06-pr-bank-r5"
+      },
+      {
+        "id": "w06-pr-bank-c05",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w05-l01",
+  "type": "lesson",
+  "week": 5,
+  "order": 1,
+  "stage_id": "w05-s1",
+  "title_fa": "ساختمان داده، صف و پشته",
+  "title_en": "Data structures, queues and stacks",
+  "note_ids": [
+    "w05-n01",
+    "w05-n02",
+    "w05-n03",
+    "w05-n04"
+  ],
+  "related_doc_ids": [
+    "w05-sh-queues",
+    "w05-sh-stacks"
+  ],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w05-c-organizing-memory",
+    "w05-c-data-structure",
+    "w05-c-abstract-data-type",
+    "w05-c-dictionary-adt",
+    "w05-c-queue",
+    "w05-c-fifo",
+    "w05-c-enqueue-dequeue",
+    "w05-c-capacity-vs-size",
+    "w05-c-queue-wraparound",
+    "w05-c-stack",
+    "w05-c-lifo",
+    "w05-c-push-pop",
+    "w05-c-fixed-capacity-limit"
+  ],
+  "objective_ids": [
+    "w05-o01",
+    "w05-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/5.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w04-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۴ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "units": [
+    {
+      "id": "w05-l01-u01",
+      "order": 1,
+      "title_fa": "نوع انتزاعی در برابر ساختمان داده",
+      "concept_ids": [
+        "w05-c-organizing-memory",
+        "w05-c-data-structure",
+        "w05-c-abstract-data-type",
+        "w05-c-dictionary-adt"
+      ],
+      "objective_ids": [
+        "w05-o01"
+      ],
+      "note_id": "w05-n02",
+      "source_refs": [
+        "src-notes-5#data-structures",
+        "src-anzali-authored-5",
+        "src-transcript-5"
+      ],
+      "reading": {
+        "text_fa": "درس‌نامه می‌گوید ساختمان‌های داده در اصل شکل‌هایی از سازمان‌دهی در حافظه‌اند. نوع‌های دادهٔ انتزاعی آن‌هایی‌اند که می‌توانیم به‌صورت مفهومی تصورشان کنیم: مهم این است که ساختار چه کاری می‌کند، نه اینکه در حافظه چطور چیده شده است. در سخنرانی، دیکشنری هم به‌عنوان نوعی انتزاعی معرفی شد: جدولی از کلید و مقدار، مثل واژه و معنی یا نام و شمارهٔ تلفن، که می‌شود آن را به چند شکل، سریع یا کند، پیاده کرد.",
+        "note_id": "w05-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n02"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "ADT (چه کاری؟)        ساختمان داده (چطور؟)\n-------------------    --------------------\nصف                     آرایه با size، یا فهرست پیوندی\nپشته                    آرایه با size، یا فهرست پیوندی\nدیکشنری                آرایه، جدول درهم‌سازی، ترای",
+        "source_ref": "src-anzali-authored-5",
+        "explain_fa": "جدول تألیفی: یک نوع انتزاعی را می‌شود با چند ساختمان داده پیاده کرد."
+      },
+      "check": {
+        "id": "w05-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام جمله تفاوت نوع دادهٔ انتزاعی و ساختمان داده را درست می‌گوید؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "نوع انتزاعی رفتار را تعریف می‌کند؛ ساختمان داده چیدمان در حافظه را.",
+            "correct": true,
+            "feedback_fa": "درست. مثلاً صف رفتار FIFO است و آرایه یکی از راه‌های پیاده‌سازی آن."
+          },
+          {
+            "id": "b",
+            "text_fa": "نوع انتزاعی همیشه سریع‌تر از ساختمان داده است.",
+            "correct": false,
+            "feedback_fa": "نوع انتزاعی سرعت ندارد؛ سرعت به پیاده‌سازی بستگی دارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "هر نوع انتزاعی فقط یک پیاده‌سازی دارد.",
+            "correct": false,
+            "feedback_fa": "در سخنرانی گفته شد دیکشنری را می‌شود به چند شکل پیاده کرد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l01-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «نوع انتزاعی» یا «ساختمان داده» بنویس: (۱) صف (۲) آرایه‌ای پیوسته با فیلد size (۳) دیکشنری (۴) فهرست پیوندی",
+        "expected": {
+          "answers": {
+            "1": "نوع انتزاعی",
+            "2": "ساختمان داده",
+            "3": "نوع انتزاعی",
+            "4": "ساختمان داده"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: این مورد رفتار را می‌گوید یا چیدمان در حافظه را؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l01-u02",
+      "order": 2,
+      "title_fa": "صف: اول وارد، اول خارج",
+      "concept_ids": [
+        "w05-c-queue",
+        "w05-c-fifo",
+        "w05-c-enqueue-dequeue",
+        "w05-c-capacity-vs-size",
+        "w05-c-queue-wraparound"
+      ],
+      "objective_ids": [
+        "w05-o02"
+      ],
+      "note_id": "w05-n03",
+      "source_refs": [
+        "src-notes-5#queues",
+        "src-short-queues",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "صف یکی از شکل‌های نوع انتزاعی است و ویژگی FIFO دارد: اول وارد، اول خارج؛ مثل صف وسیله‌های بازی شهربازی. صف دو کار اصلی دارد: enqueue که چیزی را به ته صف اضافه می‌کند و dequeue که چیزی را از سر صف برمی‌دارد. در کد درس‌نامه، صف با آرایه‌ای به ظرفیت `CAPACITY` و فیلد `size` تعریف شده است. ظرفیت یعنی بیشترین تعداد ممکن و `size` یعنی تعداد فعلی. ویدئوی کوتاه صف‌ها یک فیلد `front` هم اضافه می‌کند تا بدانیم سر صف کجای آرایه است.",
+        "note_id": "w05-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "queue",
+        "lang": "c",
+        "content": "const int CAPACITY = 50;\n\ntypedef struct\n{\n    person people[CAPACITY];\n    int size;\n}\nqueue;",
+        "source_ref": "src-notes-5#queues",
+        "explain_fa": "تعریف رسمی صف با ظرفیت ۵۰ از درس‌نامه."
+      },
+      "check": {
+        "id": "w05-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در یک صف، به ترتیب A، B و C را enqueue می‌کنیم. اولین dequeue چه چیزی برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "A",
+            "correct": true,
+            "feedback_fa": "درست. FIFO: اولین واردشده اولین خارج‌شونده است."
+          },
+          {
+            "id": "b",
+            "text_fa": "C",
+            "correct": false,
+            "feedback_fa": "این رفتار پشته (LIFO) است، نه صف."
+          },
+          {
+            "id": "c",
+            "text_fa": "B",
+            "correct": false,
+            "feedback_fa": "B نه اول آمده و نه آخر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l01-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در تعریف رسمی صف، `size` همیشه برابر `CAPACITY` است.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `CAPACITY` بیشترین تعداد است و `size` تعداد فعلی آدم‌های صف.",
+          "incorrect_fa": "فرق ظرفیت و اندازهٔ فعلی را در نظر بگیر."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l01-u03",
+      "order": 3,
+      "title_fa": "پشته: آخر وارد، اول خارج",
+      "concept_ids": [
+        "w05-c-stack",
+        "w05-c-lifo",
+        "w05-c-push-pop",
+        "w05-c-fixed-capacity-limit"
+      ],
+      "objective_ids": [
+        "w05-o02"
+      ],
+      "note_id": "w05-n04",
+      "source_refs": [
+        "src-notes-5#stacks",
+        "src-short-stacks",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "پشته ویژگی LIFO دارد: آخر وارد، اول خارج؛ مثل سینی‌های روی هم در سلف یا پیراهن‌های تاشده. push چیزی را روی پشته می‌گذارد و pop بالاترین را برمی‌دارد. تعریف رسمی پشته درست شبیه صف است، اما رفتارش فرق می‌کند. درس‌نامه محدودیت آرایهٔ ثابت را هم یادآوری می‌کند: یا جا کم می‌آید یا حافظه هدر می‌رود.",
+        "note_id": "w05-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "stack",
+        "lang": "c",
+        "content": "const int CAPACITY = 50;\n\ntypedef struct\n{\n    person people[CAPACITY];\n    int size;\n}\nstack;",
+        "source_ref": "src-notes-5#stacks",
+        "explain_fa": "تعریف رسمی پشته از درس‌نامه؛ فقط نام نوع با صف فرق دارد."
+      },
+      "check": {
+        "id": "w05-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا تعریف رسمی `stack` و `queue` در درس‌نامه تقریباً یکسان است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون هر دو با آرایه و size پیاده شده‌اند؛ فرقشان در رفتار push/pop و enqueue/dequeue است.",
+            "correct": true,
+            "feedback_fa": "درست. چیدمان یکی است، رفتار نه."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون پشته و صف یک نوع انتزاعی‌اند.",
+            "correct": false,
+            "feedback_fa": "صف FIFO است و پشته LIFO."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون C فقط یک نوع struct را اجازه می‌دهد.",
+            "correct": false,
+            "feedback_fa": "در C هر تعداد struct می‌شود تعریف کرد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l01-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟ (هر عدد در یک خط)",
+        "expected": {
+          "output": "3\n4\n2"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: 3 آخرین واردشده بود؛ بعد 4 روی 2 نشست.",
+          "incorrect_fa": "بعد از هر push و pop بالای پشته را دنبال کن."
+        },
+        "hints_fa": [
+          "بعد از سه push، بالای پشته 3 است."
+        ],
+        "lang": "c",
+        "code": "// تألیفی\n#include <stdio.h>\n\n#define CAPACITY 5\n\nint stack[CAPACITY];\nint size = 0;\n\nvoid push(int n)\n{\n    if (size < CAPACITY)\n    {\n        stack[size] = n;\n        size++;\n    }\n}\n\nint pop(void)\n{\n    size--;\n    return stack[size];\n}\n\nint main(void)\n{\n    push(1);\n    push(2);\n    push(3);\n    printf(\"%i\\n\", pop());\n    push(4);\n    printf(\"%i\\n\", pop());\n    printf(\"%i\\n\", pop());\n    return 0;\n}",
+        "code_origin": "authored",
+        "stdin": "",
+        "compile_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

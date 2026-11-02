@@ -1,0 +1,1599 @@
+{
+  "$schema": "../../schemas/activity.schema.json",
+  "week": 1,
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "origin": "authored",
+  "disclaimer": "Suggested by CS50x Anzali; configurable; NOT a CS50 rule and has no effect on official CS50 grades or certificate.",
+  "activities": [
+    {
+      "id": "w01-a-kb-read",
+      "type": "kb_read",
+      "title_fa": "خواندن نمای کلی هفتهٔ ۱",
+      "objective_fa": "آشنایی با هدف‌ها و نقشهٔ هفته",
+      "completion_condition": {
+        "type": "button_clicked",
+        "button": "من خواندم"
+      },
+      "assessment_criterion": {
+        "type": "none",
+        "note": "Existing panel behaviour; low XP by design."
+      },
+      "xp_event": "kb_week_read",
+      "tracking": {
+        "model": "WeekProgress",
+        "field": "kb_read"
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": false,
+      "origin": "authored"
+    },
+    {
+      "id": "w01-a-l01",
+      "type": "lesson",
+      "title_fa": "درس ۱: از Scratch به C: ابزار و نخستین برنامه",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l01"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l01"
+    },
+    {
+      "id": "w01-a-l02",
+      "type": "lesson",
+      "title_fa": "درس ۲: printf، نحو و دنبالهٔ گریز",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l02"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l02"
+    },
+    {
+      "id": "w01-a-l03",
+      "type": "lesson",
+      "title_fa": "درس ۳: سرآیند، کتابخانه و ورودی کاربر",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l03"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l03"
+    },
+    {
+      "id": "w01-a-l04",
+      "type": "lesson",
+      "title_fa": "درس ۴: لینوکس و خط فرمان",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l04"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l04"
+    },
+    {
+      "id": "w01-a-l05",
+      "type": "lesson",
+      "title_fa": "درس ۵: انواع داده و کدهای قالب",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l05"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l03"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l05"
+    },
+    {
+      "id": "w01-a-l06",
+      "type": "lesson",
+      "title_fa": "درس ۶: متغیر، انتساب و افزایش",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l06"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l05"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l06"
+    },
+    {
+      "id": "w01-a-l07",
+      "type": "lesson",
+      "title_fa": "درس ۷: شرط‌ها و مقایسه",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l07"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l05"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l07"
+    },
+    {
+      "id": "w01-a-l08",
+      "type": "lesson",
+      "title_fa": "درس ۸: نویسه‌ها و عملگرهای منطقی",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l08"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l07"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l08"
+    },
+    {
+      "id": "w01-a-l09",
+      "type": "lesson",
+      "title_fa": "درس ۹: حلقه‌ها",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l09"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l06",
+          "w01-l07"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l09"
+    },
+    {
+      "id": "w01-a-l10",
+      "type": "lesson",
+      "title_fa": "درس ۱۰: توابع",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l10"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l09"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l10"
+    },
+    {
+      "id": "w01-a-l11",
+      "type": "lesson",
+      "title_fa": "درس ۱۱: درستی، طراحی، سبک و Mario",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l11"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l10"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l11"
+    },
+    {
+      "id": "w01-a-l12",
+      "type": "lesson",
+      "title_fa": "درس ۱۲: عملگرها و محدودیت‌های عددی",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w01-l12"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w01-l06"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w01-l12"
+    },
+    {
+      "id": "w01-a-qz01",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۱",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l01"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l01"
+    },
+    {
+      "id": "w01-a-qz02",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۲",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l02"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l02"
+    },
+    {
+      "id": "w01-a-qz03",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۳",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l03"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l03"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l03"
+    },
+    {
+      "id": "w01-a-qz04",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۴",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l04"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l04"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l04"
+    },
+    {
+      "id": "w01-a-qz05",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۵",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l05"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l05"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l05"
+    },
+    {
+      "id": "w01-a-qz06",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۶",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l06"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l06"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l06"
+    },
+    {
+      "id": "w01-a-qz07",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۷",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l07"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l07"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l07"
+    },
+    {
+      "id": "w01-a-qz08",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۸",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l08"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l08"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l08"
+    },
+    {
+      "id": "w01-a-qz09",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۹",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l09"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l09"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l09"
+    },
+    {
+      "id": "w01-a-qz10",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۱۰",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l10"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l10"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l10"
+    },
+    {
+      "id": "w01-a-qz11",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۱۱",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l11"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l11"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l11"
+    },
+    {
+      "id": "w01-a-qz12",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۱۲",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-qz-l12"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w01-l12"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-qz-l12"
+    },
+    {
+      "id": "w01-a-fc-daily",
+      "type": "spaced_review",
+      "title_fa": "مرور روزانهٔ فلش‌کارت هفتهٔ ۱",
+      "objective_fa": "نگه‌داشتن مفاهیم در حافظهٔ بلندمدت",
+      "completion_condition": {
+        "type": "cards_reviewed_gte",
+        "value": 10,
+        "scope": "due_today"
+      },
+      "assessment_criterion": {
+        "type": "recall_rate_gte",
+        "value": 0.6,
+        "grade_pass": 3
+      },
+      "xp_event": "flashcard_daily_review",
+      "tracking": {
+        "model": "WeekProgress",
+        "field": "flashcards_reviewed",
+        "proposed_model": "FlashcardState"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "repeatable": "daily"
+    },
+    {
+      "id": "w01-a-fc-recall",
+      "type": "spaced_review",
+      "title_fa": "نرخ یادآوری ۸۰٪ هفتهٔ ۱",
+      "objective_fa": "اثبات یادسپاری پایدار",
+      "completion_condition": {
+        "type": "rolling_recall_rate_gte",
+        "value": 0.8,
+        "window": 20
+      },
+      "assessment_criterion": {
+        "type": "recall_rate_gte",
+        "value": 0.8
+      },
+      "xp_event": "spaced_recall_milestone",
+      "tracking": {
+        "proposed_model": "FlashcardReview"
+      },
+      "unlock": {
+        "rule": "min_reviews",
+        "value": 20
+      },
+      "optional": false,
+      "origin": "authored"
+    },
+    {
+      "id": "w01-a-revisit",
+      "type": "revisit",
+      "title_fa": "بازگشت به مفهوم ضعیف",
+      "objective_fa": "رفع خطاهای تکرارشونده",
+      "completion_condition": {
+        "type": "previously_missed_item_answered_correctly"
+      },
+      "assessment_criterion": {
+        "type": "correct_on_equivalent_item"
+      },
+      "xp_event": "revisit_weak_concept",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "derived": "concepts with >= 2 misses"
+      },
+      "unlock": {
+        "rule": "has_weak_concept"
+      },
+      "optional": false,
+      "origin": "authored",
+      "repeatable": "daily_per_concept"
+    },
+    {
+      "id": "w01-a-mastery",
+      "type": "mastery_test",
+      "title_fa": "آزمون تسلط هفتهٔ ۱",
+      "objective_fa": "اثبات تسلط بر هدف‌های هفته",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w01-mt-final"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "tracking": {
+        "model": "WeekProgress",
+        "fields": [
+          "quiz_score",
+          "quiz_total",
+          "quiz_completed"
+        ]
+      },
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w01-mt-final"
+    },
+    {
+      "id": "w01-a-ps-world-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی سلام، دنیا",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-ps-world"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/world.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-world"
+    },
+    {
+      "id": "w01-a-ps-me-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی سلام، منم",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-ps-me"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/me.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l03"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-me"
+    },
+    {
+      "id": "w01-a-ps-me-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل سلام، منم",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w01-a-ps-me-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-me",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 1,
+        "title": "Hello, It's Me",
+        "choice_group": null,
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": null
+      }
+    },
+    {
+      "id": "w01-a-ps-mario-less-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی ماریو (نسخهٔ آسان‌تر)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-ps-mario-less"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/mario-less.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l11"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-mario-less"
+    },
+    {
+      "id": "w01-a-ps-mario-less-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل ماریو (نسخهٔ آسان‌تر)",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w01-a-ps-mario-less-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-mario-less",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 1,
+        "title": "Mario",
+        "choice_group": "mario",
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": "One Assignment per slot; both variants map to the same Assignment and XP is idempotent per assignment (submit:assignment:{id})."
+      }
+    },
+    {
+      "id": "w01-a-ps-mario-more-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی ماریو (نسخهٔ چالشی‌تر)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-ps-mario-more"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/mario-more.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l11"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-mario-more"
+    },
+    {
+      "id": "w01-a-ps-mario-more-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل ماریو (نسخهٔ چالشی‌تر)",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w01-a-ps-mario-more-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-mario-more",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 1,
+        "title": "Mario",
+        "choice_group": "mario",
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": "One Assignment per slot; both variants map to the same Assignment and XP is idempotent per assignment (submit:assignment:{id})."
+      }
+    },
+    {
+      "id": "w01-a-ps-cash-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی پول خرد (Cash)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-ps-cash"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/cash.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l12"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-cash"
+    },
+    {
+      "id": "w01-a-ps-cash-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل پول خرد (Cash)",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w01-a-ps-cash-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-cash",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 1,
+        "title": "Cash or Credit",
+        "choice_group": "cash-credit",
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": "One Assignment per slot; both variants map to the same Assignment and XP is idempotent per assignment (submit:assignment:{id})."
+      }
+    },
+    {
+      "id": "w01-a-ps-credit-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی کارت اعتباری (Credit)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-ps-credit"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/credit.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l12"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-credit"
+    },
+    {
+      "id": "w01-a-ps-credit-submit",
+      "type": "pset_submit",
+      "title_fa": "تحویل کارت اعتباری (Credit)",
+      "objective_fa": "تحویل رسمی با submit50 و ثبت در پنل",
+      "completion_condition": {
+        "type": "submission_created",
+        "model": "Submission"
+      },
+      "assessment_criterion": {
+        "type": "official_external",
+        "note": "Official result = check50 / cs50.me gradebook; panel grade is mentor-set (Submission.grade)."
+      },
+      "xp_event": "assignment_submitted_on_time",
+      "tracking": {
+        "model": "Submission",
+        "fields": [
+          "github_url",
+          "submitted_at",
+          "grade",
+          "graded_at"
+        ],
+        "note": "github_url is NOT NULL; store the submit.cs50.io submission URL (decision D10)."
+      },
+      "unlock": {
+        "rule": "activity_completed",
+        "activity_ids": [
+          "w01-a-ps-credit-check"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "problem_set_id": "w01-ps-credit",
+      "assignment_mapping": {
+        "model": "Assignment",
+        "week": 1,
+        "title": "Cash or Credit",
+        "choice_group": "cash-credit",
+        "due_date_utc": "2027-06-30T23:59:00Z",
+        "note": "One Assignment per slot; both variants map to the same Assignment and XP is idempotent per assignment (submit:assignment:{id})."
+      }
+    },
+    {
+      "id": "w01-a-pr-debug-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی اشکال‌زدایی (Debug)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-pr-debug"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/debug.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l03"
+        ]
+      },
+      "optional": true,
+      "origin": "authored",
+      "problem_set_id": "w01-pr-debug"
+    },
+    {
+      "id": "w01-a-pr-half-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی نصف صورت‌حساب (Half)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-pr-half"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/half.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l12"
+        ]
+      },
+      "optional": true,
+      "origin": "authored",
+      "problem_set_id": "w01-pr-half"
+    },
+    {
+      "id": "w01-a-pr-prime-check",
+      "type": "pset_step",
+      "title_fa": "چک‌لیست خودآزمایی عددهای اول (Prime)",
+      "objective_fa": "بررسی همهٔ الزامات رسمی پیش از تحویل",
+      "completion_condition": {
+        "type": "checklist_complete",
+        "problem_set_id": "w01-pr-prime"
+      },
+      "assessment_criterion": {
+        "type": "checklist",
+        "source": "problem-sets/prime.json#pedagogical_guide.self_checklist",
+        "note": "panel cannot verify check50; official result stays external"
+      },
+      "xp_event": "pset_checklist_complete",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "note": "stored as activity state"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l10"
+        ]
+      },
+      "optional": true,
+      "origin": "authored",
+      "problem_set_id": "w01-pr-prime"
+    },
+    {
+      "id": "w01-a-ch-01",
+      "type": "optional_challenge",
+      "title_fa": "چالش: جدول ضرب",
+      "objective_fa": "با دو حلقهٔ تودرتو جدول ضرب ۵ در ۵ چاپ کن و ستون‌ها را با `%3i` مرتب کن.",
+      "completion_condition": {
+        "type": "artifact_submitted",
+        "artifact": "text_or_code_link"
+      },
+      "assessment_criterion": {
+        "type": "rubric",
+        "reviewer": "mentor_or_self",
+        "items": [
+          "correct",
+          "explained reasoning",
+          "not a pset solution"
+        ]
+      },
+      "xp_event": "challenge_completed",
+      "tracking": {
+        "proposed_model": "UnitProgress"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l11"
+        ]
+      },
+      "optional": true,
+      "origin": "authored"
+    },
+    {
+      "id": "w01-a-ch-02",
+      "type": "optional_challenge",
+      "title_fa": "چالش: کجا سرریز می‌شود؟",
+      "objective_fa": "برنامهٔ دوبرابر کردن دلار درس‌نامه را اجرا کن و بنویس int بعد از چند بار سرریز کرد و چرا long دیرتر.",
+      "completion_condition": {
+        "type": "artifact_submitted",
+        "artifact": "text_or_code_link"
+      },
+      "assessment_criterion": {
+        "type": "rubric",
+        "reviewer": "mentor_or_self",
+        "items": [
+          "correct",
+          "explained reasoning",
+          "not a pset solution"
+        ]
+      },
+      "xp_event": "challenge_completed",
+      "tracking": {
+        "proposed_model": "UnitProgress"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l12"
+        ]
+      },
+      "optional": true,
+      "origin": "authored"
+    },
+    {
+      "id": "w01-a-ch-03",
+      "type": "optional_challenge",
+      "title_fa": "چالش: منوی switch",
+      "objective_fa": "برنامه‌ای بنویس که با switch روی یک نویسه (a/b/c) سه پیام متفاوت چاپ کند و حالت پیش‌فرض داشته باشد.",
+      "completion_condition": {
+        "type": "artifact_submitted",
+        "artifact": "text_or_code_link"
+      },
+      "assessment_criterion": {
+        "type": "rubric",
+        "reviewer": "mentor_or_self",
+        "items": [
+          "correct",
+          "explained reasoning",
+          "not a pset solution"
+        ]
+      },
+      "xp_event": "challenge_completed",
+      "tracking": {
+        "proposed_model": "UnitProgress"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l07"
+        ]
+      },
+      "optional": true,
+      "origin": "authored"
+    },
+    {
+      "id": "w01-a-ch-04",
+      "type": "optional_challenge",
+      "title_fa": "چالش: بازطراحی meow",
+      "objective_fa": "نسخه‌های meow درس‌نامه را از بدترین تا بهترین طراحی مرتب کن و برای هر گام یک جمله دلیل بنویس.",
+      "completion_condition": {
+        "type": "artifact_submitted",
+        "artifact": "text_or_code_link"
+      },
+      "assessment_criterion": {
+        "type": "rubric",
+        "reviewer": "mentor_or_self",
+        "items": [
+          "correct",
+          "explained reasoning",
+          "not a pset solution"
+        ]
+      },
+      "xp_event": "challenge_completed",
+      "tracking": {
+        "proposed_model": "UnitProgress"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w01-l10"
+        ]
+      },
+      "optional": true,
+      "origin": "authored"
+    }
+  ]
+}

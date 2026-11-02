@@ -31,6 +31,14 @@ def get_or_404(resource_id: int) -> Resource:
     return res
 
 
+def get_published_or_404(resource_id: int) -> Resource:
+    """منبع منتشرشده را برمی‌گرداند؛ پیش‌نویس یا ناموجود → 404."""
+    res = get_or_404(resource_id)
+    if not res.is_published:
+        abort(404)
+    return res
+
+
 def create_resource(
     week: int, filename: str, display_name: str, category: str, uploaded_by: int
 ) -> Resource:

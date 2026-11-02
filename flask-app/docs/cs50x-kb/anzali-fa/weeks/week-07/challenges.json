@@ -1,0 +1,607 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 7,
+  "title": "چالش‌های هفتهٔ ۷ — SQL",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. همهٔ پرس‌وجوها روی پایگاه‌های دادهٔ تمرینی ساختگی (fixtures) اجرا می‌شوند و هیچ‌کدام از جدول‌ها، پرس‌وجوها یا پاسخ‌های Songs، Movies یا Fiftyville استفاده نمی‌کند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w07-ch01-equals-filter",
+      "type": "token_tap",
+      "concept_tag": "WHERE",
+      "title": "شمردن سطرهای C",
+      "instruction": "توکن درست را بزن تا تعداد پاسخ‌های C (یعنی 4) چاپ شود. (پایگاه دادهٔ تمرینی favorites)",
+      "prompt": "SELECT COUNT(*) FROM favorites WHERE language ___ 'C';",
+      "token_bank": [
+        "=",
+        "<>",
+        "IS NOT",
+        "+"
+      ],
+      "expected_answer": [
+        "="
+      ],
+      "blank_marker": "___",
+      "explanation": "`=` سطرهایی را نگه می‌دارد که language دقیقاً C است.",
+      "hint": "کدام عملگر برابری را می‌سنجد؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-where"
+      ],
+      "source_ref": "src-notes-7#select",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch02-order-desc",
+      "type": "token_tap",
+      "concept_tag": "ORDER BY",
+      "title": "از بیشترین به کمترین",
+      "instruction": "توکن درست را بزن تا زبان‌ها از پرطرفدارترین چاپ شوند: Python|6، C|4، Scratch|2.",
+      "prompt": "SELECT language, COUNT(*) AS n FROM favorites GROUP BY language ORDER BY n ___;",
+      "token_bank": [
+        "DESC",
+        "ASC",
+        "UP",
+        "LIMIT"
+      ],
+      "expected_answer": [
+        "DESC"
+      ],
+      "blank_marker": "___",
+      "explanation": "`DESC` ترتیب نزولی است؛ پیش‌فرض ORDER BY صعودی است.",
+      "hint": "پیش‌فرض ORDER BY از کم به زیاد است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-order-by",
+        "w07-c-group-by"
+      ],
+      "source_ref": "src-notes-7#select",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch03-like-prefix",
+      "type": "token_tap",
+      "concept_tag": "LIKE",
+      "title": "مسئله‌های Hello",
+      "instruction": "توکن درست را بزن تا تعداد مسئله‌هایی که با Hello شروع می‌شوند (4) چاپ شود.",
+      "prompt": "SELECT COUNT(*) FROM favorites WHERE problem LIKE ___;",
+      "token_bank": [
+        "'Hello%'",
+        "'Hello'",
+        "'%Hello'",
+        "Hello%"
+      ],
+      "expected_answer": [
+        "'Hello%'"
+      ],
+      "blank_marker": "___",
+      "explanation": "`%` یعنی هر تعداد نویسه؛ `'Hello%'` هر رشته‌ای را که با Hello شروع شود می‌گیرد.",
+      "hint": "نویسهٔ عام کجای الگو باشد؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-like-wildcard"
+      ],
+      "source_ref": "src-notes-7#select",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch04-is-null",
+      "type": "token_tap",
+      "concept_tag": "IS NULL",
+      "title": "سطر بی‌زمان",
+      "instruction": "توکن درست را بزن تا تعداد سطرهای بدون Timestamp (یعنی 1) چاپ شود.",
+      "prompt": "SELECT COUNT(*) FROM favorites WHERE \"Timestamp\" ___ NULL;",
+      "token_bank": [
+        "IS",
+        "=",
+        "==",
+        "!="
+      ],
+      "expected_answer": [
+        "IS"
+      ],
+      "blank_marker": "___",
+      "explanation": "مقایسهٔ NULL با `=` هیچ‌وقت درست نیست؛ `IS NULL` لازم است.",
+      "hint": "NULL مقدار نیست، نبود مقدار است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-is-null"
+      ],
+      "source_ref": "src-notes-7#delete",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch05-join-on",
+      "type": "token_tap",
+      "concept_tag": "JOIN",
+      "title": "سریال با امتیاز کم",
+      "instruction": "توکن درست را بزن تا عنوان تنها سریال با امتیاز کمتر از 8 چاپ شود: Catweazle.",
+      "prompt": "SELECT title FROM shows JOIN ratings ___ shows.id = ratings.show_id WHERE rating < 8;",
+      "token_bank": [
+        "ON",
+        "WHERE",
+        "AND",
+        "AS"
+      ],
+      "expected_answer": [
+        "ON"
+      ],
+      "blank_marker": "___",
+      "explanation": "`JOIN ... ON` شرط جفت شدن سطرهای دو جدول را می‌گوید.",
+      "hint": "کلیدواژه‌ای که پس از JOIN شرط اتصال را می‌آورد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-join"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch06-qmark",
+      "type": "token_tap",
+      "concept_tag": "جای‌نگهدار",
+      "title": "پرس‌وجوی امن",
+      "instruction": "توکن درست را بزن تا با ورودی `kelly` عدد 1 چاپ شود و ورودی کاربر هرگز بخشی از متن SQL نشود. (پایگاه دادهٔ تمرینی users)",
+      "prompt": "from cs50 import SQL\ndb = SQL(\"sqlite:///users.db\")\nusername = input(\"Username: \")\nrows = db.execute(\"SELECT COUNT(*) AS n FROM users WHERE username = ___\", username)\nprint(rows[0][\"n\"])",
+      "token_bank": [
+        "?",
+        "username",
+        "'?'",
+        "{username}"
+      ],
+      "expected_answer": [
+        "?"
+      ],
+      "blank_marker": "___",
+      "explanation": "`?` جای مقدار را نگه می‌دارد و کتابخانهٔ CS50 آرگومان username را امن جای‌گذاری می‌کند.",
+      "hint": "`'?'` یک رشتهٔ معمولی است، نه جای‌نگهدار.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-placeholder-qmark"
+      ],
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "lang": "python"
+    },
+    {
+      "id": "w07-ch07-update-like",
+      "type": "parsons",
+      "concept_tag": "UPDATE",
+      "title": "یک پسند تازه",
+      "instruction": "سطرها را به ترتیب درست بچین تا پسندهای پست ۲ یکی زیاد شود و بعد 1 چاپ شود. (پایگاه دادهٔ تمرینی posts)",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "SELECT likes FROM posts WHERE id = 2;"
+        },
+        {
+          "id": "L2",
+          "text": "SET likes = likes + 1"
+        },
+        {
+          "id": "L1",
+          "text": "UPDATE posts"
+        },
+        {
+          "id": "L3",
+          "text": "WHERE id = 2;"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "UPDATE، سپس SET و WHERE؛ خواندن پس از تغییر مقدار تازه را نشان می‌دهد.",
+      "hint": "WHERE پس از SET می‌آید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-update"
+      ],
+      "source_ref": "src-notes-7#update",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch08-top-problems",
+      "type": "parsons",
+      "concept_tag": "GROUP BY",
+      "title": "دو مسئلهٔ پرتکرار",
+      "instruction": "سطرها را به ترتیب درست بچین تا دو مسئلهٔ پرتکرار چاپ شوند: Hello, World|3 و Mario|2.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "GROUP BY problem"
+        },
+        {
+          "id": "L5",
+          "text": "LIMIT 2;"
+        },
+        {
+          "id": "L1",
+          "text": "SELECT problem, COUNT(*) AS n"
+        },
+        {
+          "id": "L4",
+          "text": "ORDER BY n DESC, problem"
+        },
+        {
+          "id": "L2",
+          "text": "FROM favorites"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "ترتیب بخش‌ها: SELECT، FROM، GROUP BY، ORDER BY، LIMIT. شمارش‌های برابر (Mario و Scratch با 2) با problem مرتب می‌شوند.",
+      "hint": "LIMIT همیشه آخر می‌آید.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-group-by",
+        "w07-c-order-by",
+        "w07-c-limit"
+      ],
+      "source_ref": "src-notes-7#select",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch09-nested-star",
+      "type": "parsons",
+      "concept_tag": "پرس‌وجوی تودرتو",
+      "title": "بازیگر یک سریال",
+      "instruction": "سطرها را به ترتیب درست بچین تا نام بازیگر Parks and Recreation چاپ شود: Amy Poehler.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": ");"
+        },
+        {
+          "id": "L3",
+          "text": "SELECT id FROM shows WHERE title = 'Parks and Recreation'"
+        },
+        {
+          "id": "L1",
+          "text": "SELECT name FROM people WHERE id IN ("
+        },
+        {
+          "id": "L4",
+          "text": ")"
+        },
+        {
+          "id": "L2",
+          "text": "SELECT person_id FROM stars WHERE show_id = ("
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "از درونی‌ترین پرس‌وجو شروع کن: id سریال، سپس person_id بازیگرانش، سپس نامشان.",
+      "hint": "هر پرانتز باز باید به ترتیب بسته شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-nested-query"
+      ],
+      "source_ref": "src-notes-7#imdb",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch10-rollback",
+      "type": "parsons",
+      "concept_tag": "تراکنش",
+      "title": "پس گرفتن تغییر",
+      "instruction": "سطرها را به ترتیب درست بچین تا اول 11 (درون تراکنش) و بعد 1|10 (شناسه و پسندها پس از ROLLBACK) چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "ROLLBACK;"
+        },
+        {
+          "id": "L5",
+          "text": "SELECT id, likes FROM posts WHERE id = 1;"
+        },
+        {
+          "id": "L2",
+          "text": "UPDATE posts SET likes = likes + 1 WHERE id = 1;"
+        },
+        {
+          "id": "L1",
+          "text": "BEGIN TRANSACTION;"
+        },
+        {
+          "id": "L3",
+          "text": "SELECT likes FROM posts WHERE id = 1;"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "ROLLBACK هر تغییری را که پس از BEGIN TRANSACTION انجام شده برمی‌گرداند.",
+      "hint": "تغییری که پیش از BEGIN باشد با ROLLBACK برنمی‌گردد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-transaction"
+      ],
+      "source_ref": "src-notes-7#race-conditions",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch11-python-rows",
+      "type": "parsons",
+      "concept_tag": "db.execute",
+      "title": "کتاب‌های قطور",
+      "instruction": "سطرها را به ترتیب درست بچین تا عنوان کتاب‌های بیش از 300 صفحه به ترتیب صفحه چاپ شود: Binary Trees و C in Practice. (پایگاه دادهٔ تمرینی library)",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "for row in rows:"
+        },
+        {
+          "id": "L2",
+          "text": "db = SQL(\"sqlite:///library.db\")"
+        },
+        {
+          "id": "L5",
+          "text": "    print(row[\"title\"])"
+        },
+        {
+          "id": "L1",
+          "text": "from cs50 import SQL"
+        },
+        {
+          "id": "L3",
+          "text": "rows = db.execute(\"SELECT title FROM books WHERE pages > ? ORDER BY pages\", 300)"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": true,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "import، اتصال به پایگاه داده، اجرای پرس‌وجو و سپس حلقه روی فهرست dictها.",
+      "hint": "پیش از db باید SQL وارد شده باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-cs50-sql",
+        "w07-c-execute-returns-rows"
+      ],
+      "source_ref": "src-notes-7#using-sql-in-python",
+      "lang": "python"
+    },
+    {
+      "id": "w07-ch12-equals-null",
+      "type": "spot_bug",
+      "concept_tag": "IS NULL",
+      "title": "شمردن NULL",
+      "instruction": "سطر خطادار را پیدا کن (باید 1 چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "SELECT COUNT(*)"
+        },
+        {
+          "index": 1,
+          "text": "FROM favorites"
+        },
+        {
+          "index": 2,
+          "text": "WHERE \"Timestamp\" = NULL;"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "WHERE \"Timestamp\" IS NULL;"
+      },
+      "explanation": "`= NULL` هیچ سطری را نمی‌گیرد؛ IS NULL لازم است.",
+      "hint": "NULL را با چه عملگری می‌سنجیم؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-is-null"
+      ],
+      "source_ref": "src-notes-7#delete",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch13-unquoted-string",
+      "type": "spot_bug",
+      "concept_tag": "نقل‌قول",
+      "title": "رشتهٔ بی‌نقل‌قول",
+      "instruction": "سطر خطادار را پیدا کن (باید 6 چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "SELECT COUNT(*) FROM favorites"
+        },
+        {
+          "index": 1,
+          "text": "WHERE language = Python;"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "WHERE language = 'Python';"
+      },
+      "explanation": "بی‌نقل‌قول، Python نام ستون فرض می‌شود و خطای no such column می‌دهد.",
+      "hint": "رشته در SQL داخل چه نقل‌قولی می‌آید؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-string-literal-quotes"
+      ],
+      "source_ref": "src-notes-7#select",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch14-wrong-join-key",
+      "type": "spot_bug",
+      "concept_tag": "JOIN",
+      "title": "کلید نادرست",
+      "instruction": "سطر خطادار را پیدا کن (باید Amy Poehler چاپ شود).",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "SELECT name FROM people"
+        },
+        {
+          "index": 1,
+          "text": "JOIN stars ON people.id = stars.show_id"
+        },
+        {
+          "index": 2,
+          "text": "JOIN shows ON stars.show_id = shows.id"
+        },
+        {
+          "index": 3,
+          "text": "WHERE title = 'Parks and Recreation';"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "JOIN stars ON people.id = stars.person_id"
+      },
+      "explanation": "شناسهٔ شخص باید با person_id مقایسه شود، نه با show_id.",
+      "hint": "هر ستون stars به کدام جدول اشاره می‌کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-multi-join",
+        "w07-c-foreign-key"
+      ],
+      "source_ref": "src-notes-7#joins",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch15-update-no-where",
+      "type": "spot_bug",
+      "concept_tag": "UPDATE بدون WHERE",
+      "title": "فقط یک کتاب",
+      "instruction": "سطر خطادار را پیدا کن: فقط سال کتاب شمارهٔ 4 باید 2024 شود، پس باید 1 چاپ شود.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "UPDATE books SET year = 2024;"
+        },
+        {
+          "index": 1,
+          "text": "SELECT COUNT(*) FROM books WHERE year = 2024;"
+        }
+      ],
+      "bug_line_index": 0,
+      "fix": {
+        "action": "replace_line",
+        "text": "UPDATE books SET year = 2024 WHERE id = 4;"
+      },
+      "explanation": "بدون WHERE سال همهٔ پنج کتاب عوض می‌شود.",
+      "hint": "کدام سطرها باید تغییر کنند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-missing-where-danger"
+      ],
+      "source_ref": "src-notes-7#update",
+      "lang": "sql"
+    },
+    {
+      "id": "w07-ch16-fstring-sql",
+      "type": "spot_bug",
+      "concept_tag": "تزریق SQL",
+      "title": "پرس‌وجوی ناامن",
+      "instruction": "سطر خطادار را پیدا کن: با ورودی `x' OR '1'='1` باید 0 و با ورودی `sina` باید 1 چاپ شود. (پایگاه دادهٔ تمرینی users)",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "from cs50 import SQL"
+        },
+        {
+          "index": 1,
+          "text": "db = SQL(\"sqlite:///users.db\")"
+        },
+        {
+          "index": 2,
+          "text": "username = input(\"Username: \")"
+        },
+        {
+          "index": 3,
+          "text": "rows = db.execute(f\"SELECT * FROM users WHERE username = '{username}'\")"
+        },
+        {
+          "index": 4,
+          "text": "print(len(rows))"
+        }
+      ],
+      "bug_line_index": 3,
+      "fix": {
+        "action": "replace_line",
+        "text": "rows = db.execute(\"SELECT * FROM users WHERE username = ?\", username)"
+      },
+      "explanation": "f-string ورودی را بخشی از متن SQL می‌کند؛ با `?` ورودی فقط یک مقدار است.",
+      "hint": "ورودی کاربر نباید درون متن پرس‌وجو چسبانده شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w07-c-sql-injection",
+        "w07-c-fstring-sql-danger"
+      ],
+      "source_ref": "src-notes-7#sql-injection-attacks",
+      "lang": "python"
+    }
+  ]
+}

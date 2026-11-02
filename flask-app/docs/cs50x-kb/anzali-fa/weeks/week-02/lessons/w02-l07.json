@@ -1,0 +1,399 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l07",
+  "type": "lesson",
+  "week": 2,
+  "order": 7,
+  "stage_id": "w02-s3",
+  "title_fa": "طول رشته و تبدیل حروف",
+  "title_en": "String length and case",
+  "note_ids": [
+    "w02-n14",
+    "w02-n15"
+  ],
+  "related_doc_ids": [
+    "w02-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w02-l05",
+    "w02-l06"
+  ],
+  "concept_ids": [
+    "w02-c-string-length",
+    "w02-c-strlen",
+    "w02-c-design-efficiency",
+    "w02-c-ascii-case",
+    "w02-c-ctype"
+  ],
+  "objective_ids": [
+    "w02-o08",
+    "w02-o12",
+    "w02-o09"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l05",
+      "w02-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l07-u01",
+      "order": 1,
+      "title_fa": "شمردن تا NUL",
+      "concept_ids": [
+        "w02-c-string-length"
+      ],
+      "objective_ids": [
+        "w02-o08"
+      ],
+      "note_id": "w02-n14",
+      "source_refs": [
+        "src-notes-2#string-length",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "برای پیدا کردن طول یک رشته کافی است از اندیس `0` جلو بروی تا به `'\\0'` برسی. شمارندهٔ `n` در پایان طول رشته است. اگر کاربر چیزی ننویسد، اولین بایت NUL است و طول صفر می‌شود.",
+        "note_id": "w02-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "length-while",
+        "lang": "c",
+        "content": "// Determines the length of a string\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt for user's name\n    string name = get_string(\"Name: \");\n\n    // Count number of characters up until '\\0' (aka NUL)\n    int n = 0;\n    while (name[n] != '\\0')\n    {\n        n++;\n    }\n    printf(\"%i\\n\", n);\n}",
+        "source_ref": "src-notes-2#string-length",
+        "explain_fa": "شمارش رسمی تا NUL."
+      },
+      "check": {
+        "id": "w02-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر کاربر نام `Ali` را وارد کند، برنامهٔ بالا چه چاپ می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "3",
+            "correct": true,
+            "feedback_fa": "درست. NUL شمرده نمی‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "4",
+            "correct": false,
+            "feedback_fa": "حلقه با رسیدن به NUL متوقف می‌شود و آن را نمی‌شمارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "0",
+            "correct": false,
+            "feedback_fa": "۰ فقط برای رشتهٔ خالی است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l07-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در برنامهٔ بالا اگر کاربر فقط Enter بزند، خروجی 0 است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: name[0] همان NUL است.",
+          "incorrect_fa": "اولین بایت رشتهٔ خالی چیست؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l07-u02",
+      "order": 2,
+      "title_fa": "strlen و طراحی کارآمد",
+      "concept_ids": [
+        "w02-c-strlen",
+        "w02-c-design-efficiency"
+      ],
+      "objective_ids": [
+        "w02-o08",
+        "w02-o12"
+      ],
+      "note_id": "w02-n14",
+      "source_refs": [
+        "src-notes-2#string-length",
+        "src-section-2",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "کتابخانهٔ `string.h` تابع `strlen` را دارد که همین کار را انجام می‌دهد. در جلسهٔ حل تمرین (Section) هفتهٔ ۲ گفته شد اگر `strlen(s)` را در شرط حلقه بنویسی، در هر دور دوباره صدا زده می‌شود؛ بهتر است یک بار حساب شود، مثل `for (int i = 0, n = strlen(s); i < n; i++)` در uppercase.",
+        "note_id": "w02-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "length-strlen",
+        "lang": "c",
+        "content": "// Determines the length of a string using a function\n\n#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    // Prompt for user's name\n    string name = get_string(\"Name: \");\n    int length = strlen(name);\n    printf(\"%i\\n\", length);\n}",
+        "source_ref": "src-notes-2#string-length",
+        "explain_fa": "نسخهٔ رسمی با strlen."
+      },
+      "check": {
+        "id": "w02-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا `for (int i = 0, n = strlen(s); i < n; i++)` بهتر از `i < strlen(s)` است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون strlen فقط یک بار صدا زده می‌شود",
+            "correct": true,
+            "feedback_fa": "درست. این طراحی کارآمدتر است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون خروجی متفاوتی دارد",
+            "correct": false,
+            "feedback_fa": "خروجی یکی است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون بدون string.h کار می‌کند",
+            "correct": false,
+            "feedback_fa": "هر دو به string.h نیاز دارند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l07-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "سرآیند لازم برای strlen را بنویس.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "#include <[[b1]]>",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "string.h"
+            ],
+            "hint_fa": "کتابخانهٔ رشته‌ها.",
+            "wrong_feedback": {
+              "cs50.h": "cs50.h نوع string را می‌دهد، نه strlen را.",
+              "stdio.h": "stdio.h برای printf است."
+            },
+            "default_wrong_fa": "نام سرآیند را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "string.h"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "نام کتابخانه با string شروع می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l07-u03",
+      "order": 3,
+      "title_fa": "حرف بزرگ با ASCII",
+      "concept_ids": [
+        "w02-c-ascii-case"
+      ],
+      "objective_ids": [
+        "w02-o09"
+      ],
+      "note_id": "w02-n15",
+      "source_refs": [
+        "src-notes-2#string-length",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "در جدول ASCII هر حرف کوچک دقیقاً ۳۲ واحد بعد از حرف بزرگ متناظرش است: `'a'` ۹۷ و `'A'` ۶۵. برنامهٔ رسمی uppercase اگر نویسه بین `'a'` و `'z'` باشد، ۳۲ از آن کم می‌کند.",
+        "note_id": "w02-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "uppercase0",
+        "lang": "c",
+        "content": "// Uppercases a string\n\n#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    string s = get_string(\"Before: \");\n    printf(\"After:  \");\n    for (int i = 0, n = strlen(s); i < n; i++)\n    {\n        if (s[i] >= 'a' && s[i] <= 'z')\n        {\n            printf(\"%c\", s[i] - 32);\n        }\n        else\n        {\n            printf(\"%c\", s[i]);\n        }\n    }\n    printf(\"\\n\");\n}",
+        "source_ref": "src-notes-2#string-length",
+        "explain_fa": "نسخهٔ رسمی با ASCII."
+      },
+      "check": {
+        "id": "w02-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر کاربر `hi!` وارد کند، خروجی After چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "HI!",
+            "correct": true,
+            "feedback_fa": "درست: ! تغییری نمی‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "HI",
+            "correct": false,
+            "feedback_fa": "! هم چاپ می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "hi!",
+            "correct": false,
+            "feedback_fa": "حروف کوچک بزرگ می‌شوند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l07-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این قطعهٔ تألیفی چیست؟\n\nchar c = 'b';\nprintf(\"%c\\n\", c - 32);",
+        "expected": {
+          "output": "B\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "۹۸ منهای ۳۲ برابر ۶۶ است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l07-u04",
+      "order": 4,
+      "title_fa": "کتابخانهٔ ctype.h",
+      "concept_ids": [
+        "w02-c-ctype"
+      ],
+      "objective_ids": [
+        "w02-o09"
+      ],
+      "note_id": "w02-n15",
+      "source_refs": [
+        "src-notes-2#string-length",
+        "src-manual",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "کتابخانهٔ `ctype.h` توابعی مثل `islower` و `toupper` دارد. درس‌نامه نشان می‌دهد شرط `islower` در uppercase1 لازم نیست، چون `toupper` روی نویسه‌ای که حرف کوچک نیست تغییری نمی‌دهد. صفحه‌های manual.cs50.io جزئیات را می‌گویند.",
+        "note_id": "w02-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "uppercase2",
+        "lang": "c",
+        "content": "// Uppercases string using ctype library\n\n#include <cs50.h>\n#include <ctype.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    string s = get_string(\"Before: \");\n    printf(\"After:  \");\n    for (int i = 0, n = strlen(s); i < n; i++)\n    {\n        printf(\"%c\", toupper(s[i]));\n    }\n    printf(\"\\n\");\n}",
+        "source_ref": "src-notes-2#string-length",
+        "explain_fa": "نسخهٔ رسمی بدون شرط اضافه."
+      },
+      "check": {
+        "id": "w02-l07-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`toupper('7')` چه برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "'7'",
+            "correct": true,
+            "feedback_fa": "درست: نویسه‌ای که حرف کوچک نیست تغییر نمی‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "خطا",
+            "correct": false,
+            "feedback_fa": "toupper خطا نمی‌دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "'A'",
+            "correct": false,
+            "feedback_fa": "دلیلی برای این تبدیل نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l07-u04-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "نام تابعی از ctype.h را بنویس که حرف را کوچک می‌کند.",
+        "expected": {
+          "accept": [
+            "tolower",
+            "tolower()"
+          ]
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "قرینهٔ toupper است. manual.cs50.io را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

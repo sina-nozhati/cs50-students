@@ -1,43 +1,276 @@
-{# صفحه‌ی ورود — بازطراحی‌شده با تم هاروارد (Crimson).
-   UX: focus ring طلایی (مطابق design tokens)، دسترس‌پذیر.
-#}
 {% extends "base.html" %}
-{% block title %}ورود{% endblock %}
+{% block title %}ورود به حساب کاربری{% endblock %}
 
 {% block content %}
-<div class="max-w-md mx-auto mt-4 sm:mt-8">
-    <div class="text-center mb-6">
-        <img src="{{ url_for('static', filename='img/harvard-shield.svg') }}" alt="" class="w-16 h-16 mx-auto mb-3 drop-shadow" aria-hidden="true">
-        <h1 class="text-2xl font-bold">ورود به پلتفرم</h1>
-        <p class="text-sm text-[var(--slate)] mt-1">Anzali · CS50x</p>
+<div class="relative min-h-[calc(100vh-14rem)] flex items-center justify-center px-4 py-8 sm:py-14 overflow-hidden">
+  
+  {# ─── هاله‌های نورانی محیطی پس‌زمینه (Ambient Aura) ─── #}
+  <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-crimson/15 via-rose-500/10 to-transparent blur-3xl opacity-70 dark:opacity-40" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-gradient-to-tr from-amber-500/10 via-amber-400/5 to-transparent blur-3xl opacity-70 dark:opacity-40" aria-hidden="true"></div>
+
+  {# ─── کانتینر کارت شیشه‌ای اپل (Glassmorphism Auth Card) ─── #}
+  <div class="w-full max-w-[440px] relative z-10">
+    <div class="relative rounded-[32px] p-7 sm:p-9 backdrop-blur-2xl bg-white/90 dark:bg-[#161722]/90 border border-black/[0.08] dark:border-white/[0.12] shadow-[0_20px_50px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.04)] dark:shadow-[0_24px_60px_rgba(0,0,0,0.6)] overflow-hidden">
+      
+      {# خط شاین نوری لبه بالای کارت #}
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/80 dark:via-white/25 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+      {# ─── هدر فرم: لوگوی دوگانه + تیتر ─── #}
+      <div class="text-center mb-7">
+        {# اسکویرکل برند با لوگوی باکیفیت مشکی/سفید #}
+        <div class="inline-flex items-center justify-center p-3 sm:p-3.5 rounded-2xl bg-white/80 dark:bg-white/5 border border-black/[0.06] dark:border-white/10 shadow-sm backdrop-blur-md mb-4 ring-1 ring-black/5 dark:ring-white/10">
+          <img src="{{ url_for('static', filename='img/logo-pure-black.png') }}"
+               alt="CS50x Anzali"
+               class="dark:hidden h-10 sm:h-11 w-auto object-contain drop-shadow-xs"
+               loading="eager" />
+          <img src="{{ url_for('static', filename='img/logo-pure-white.png') }}"
+               alt="CS50x Anzali"
+               class="hidden dark:block h-10 sm:h-11 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)]"
+               loading="eager" />
+        </div>
+
+        {# نشان کپسولی وضعیت #}
+        <div class="flex justify-center mb-2.5">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson-tint dark:bg-rose-950/60 text-crimson dark:text-rose-300 border border-crimson/20 dark:border-rose-700/50 text-[11px] font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson dark:bg-rose-400 animate-pulse"></span>
+            <span>سامانه متمرکز یادگیری دانشجویان</span>
+          </span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl font-black text-[var(--ink)] tracking-tight">ورود به حساب</h1>
+        <p class="text-xs sm:text-sm text-[var(--slate)] mt-1.5 font-medium leading-relaxed">
+          برای دسترسی به سرفصل‌ها، تمرین‌ها و حل مسئله وارد شوید
+        </p>
+      </div>
+
+      {# ─── فرم ورود اصلی ─── #}
+      <form method="POST" action="{{ url_for('auth.login') }}" id="login-form" class="space-y-5" novalidate>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+
+        {# فیلد ۱: نام کاربری #}
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <label for="username" class="text-xs sm:text-sm font-bold text-[var(--ink)] flex items-center gap-1">
+              <span>نام کاربری</span>
+              <span class="text-crimson text-xs">*</span>
+            </label>
+            <span class="text-[11px] font-mono text-[var(--slate)] font-semibold" dir="ltr">Username</span>
+          </div>
+
+          <div class="relative group">
+            {# آیکون کاربر سمت راست (RTL) #}
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--slate)] group-focus-within:text-crimson transition-colors pointer-events-none" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+
+            <input type="text"
+                   id="username"
+                   name="username"
+                   required
+                   autocomplete="username"
+                   autofocus
+                   autocapitalize="none"
+                   autocorrect="off"
+                   spellcheck="false"
+                   dir="ltr"
+                   placeholder="e.g. username"
+                   class="w-full h-12 sm:h-13 pr-11 pl-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.1] dark:border-white/[0.12] text-[var(--ink)] placeholder:text-[var(--slate-muted)] placeholder:text-xs text-sm font-medium focus:outline-none focus:border-crimson focus:ring-4 focus:ring-crimson/15 transition-all" />
+          </div>
+        </div>
+
+        {# فیلد ۲: رمز عبور #}
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <label for="password" class="text-xs sm:text-sm font-bold text-[var(--ink)] flex items-center gap-1">
+              <span>رمز عبور</span>
+              <span class="text-crimson text-xs">*</span>
+            </label>
+            <span class="text-[11px] font-mono text-[var(--slate)] font-semibold" dir="ltr">Password</span>
+          </div>
+
+          <div class="relative group">
+            {# آیکون قفل سمت راست (RTL) #}
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--slate)] group-focus-within:text-crimson transition-colors pointer-events-none" aria-hidden="true">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+
+            <input type="password"
+                   id="password"
+                   name="password"
+                   required
+                   autocomplete="current-password"
+                   dir="ltr"
+                   placeholder="••••••••"
+                   class="w-full h-12 sm:h-13 pr-11 pl-12 rounded-2xl bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.1] dark:border-white/[0.12] text-[var(--ink)] placeholder:text-[var(--slate-muted)] placeholder:text-base text-sm font-mono tracking-wider focus:outline-none focus:border-crimson focus:ring-4 focus:ring-crimson/15 transition-all" />
+
+            {# کلید نمایش/مخفی‌سازی رمز عبور (Password Visibility Toggle) #}
+            <button type="button"
+                    id="toggle-password-btn"
+                    class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl flex items-center justify-center text-[var(--slate)] hover:text-crimson hover:bg-black/5 dark:hover:bg-white/10 transition cursor-pointer"
+                    aria-label="نمایش رمز عبور"
+                    title="نمایش یا پنهان‌سازی رمز">
+              {# آیکون چشم باز (نمایش) #}
+              <svg id="eye-icon-open" class="w-4 h-4 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              {# آیکون چشم خط‌خورده (مخفی) #}
+              <svg id="eye-icon-closed" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m2 2 20 20M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {# نوار گزینه‌ها: مرا به خاطر بسپار + راهنمای فراموشی رمز #}
+        <div class="flex items-center justify-between text-xs pt-1">
+          <label class="flex items-center gap-2 cursor-pointer select-none text-[var(--slate)] hover:text-[var(--ink)] transition-colors">
+            <input type="checkbox"
+                   name="remember_me"
+                   checked
+                   class="w-4 h-4 rounded-md border-black/20 dark:border-white/20 text-crimson focus:ring-crimson/20 focus:ring-offset-0 transition accent-crimson cursor-pointer" />
+            <span class="font-medium">مرا به خاطر بسپار</span>
+          </label>
+
+          {# پاپ‌اور یا راهنمای فراموشی رمز #}
+          <div class="relative group">
+            <button type="button"
+                    id="forgot-pwd-btn"
+                    class="text-xs font-semibold text-crimson hover:underline transition-all cursor-pointer">
+              فراموشی رمز؟
+            </button>
+            <div id="forgot-pwd-tooltip"
+                 class="hidden absolute left-0 bottom-full mb-2 w-64 p-3 rounded-2xl bg-white dark:bg-[#1E1E28] text-[var(--ink)] border border-black/10 dark:border-white/10 shadow-xl text-[11px] leading-relaxed z-30">
+              <div class="font-bold mb-1 flex items-center gap-1.5 text-crimson">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span>بازیابی رمز عبور</span>
+              </div>
+              رمز عبور توسط منتور اختصاص یافته است. برای بازیابی به گروه پشتیبانی تلگرام یا ادمین دوره پیام دهید.
+            </div>
+          </div>
+        </div>
+
+        {# کلید اصلی ارسال فرم (Submit Feedback & Loading State) #}
+        <button type="submit"
+                id="submit-login-btn"
+                class="spring-scale w-full h-12 sm:h-13 rounded-2xl bg-gradient-to-r from-crimson via-rose-700 to-crimson-dark hover:brightness-110 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-crimson/25 hover:shadow-xl hover:shadow-crimson/35 flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.985] mt-2">
+          <span id="btn-text" class="flex items-center gap-2">
+            <span>ورود به حساب کاربری</span>
+            <svg class="w-4 h-4 rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </span>
+          <span id="btn-loading" class="hidden items-center gap-2">
+            <svg class="animate-spin w-4 h-4 text-white" viewBox="0 0 24 24" fill="none">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+            <span>در حال بررسی مشخصات...</span>
+          </span>
+        </button>
+      </form>
+
+      {# ─── فوتر کارت: امنیت SSL + پشتیبانی ─── #}
+      <div class="mt-7 pt-5 border-t border-black/[0.06] dark:border-white/[0.08] flex items-center justify-between text-xs text-[var(--slate)] font-medium">
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <span class="text-[11px]">اتصال امن و محافظت‌شده</span>
+        </div>
+        <span class="text-[11px] text-[var(--slate)] font-mono">CS50x Anzali Hub</span>
+      </div>
+
     </div>
 
-    <form method="POST" action="{{ url_for('auth.login') }}"
-          class="card-harvard card-accent p-6 sm:p-8 space-y-4">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    {# لینک بازگشت به صفحه اصلی در زیر کارت #}
+    <div class="text-center mt-5">
+      <a href="{{ url_for('main.index') }}"
+         class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[var(--slate)] hover:text-crimson transition-colors group">
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span>بازگشت به صفحه اصلی دوره</span>
+      </a>
+    </div>
 
-        {# حفظ مسیر قبلی کاربر — برای redirect بعد از ورود #}
-        {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
-        <div>
-            <label for="username" class="block text-sm font-semibold mb-1.5">نام کاربری</label>
-            <input type="text" id="username" name="username" required autocomplete="username" autofocus
-                   class="w-full px-3 py-2.5 border border-[var(--border)] rounded-lg text-sm
-                          focus:ring-2 focus:ring-crimson focus:outline-none focus:border-crimson transition">
-        </div>
-        <div>
-            <label for="password" class="block text-sm font-semibold mb-1.5">رمز عبور</label>
-            <input type="password" id="password" name="password" required autocomplete="current-password"
-                   class="w-full px-3 py-2.5 border border-[var(--border)] rounded-lg text-sm
-                          focus:ring-2 focus:ring-crimson focus:outline-none focus:border-crimson transition">
-        </div>
-        <button type="submit" class="btn-crimson w-full py-3 text-sm"
-                onsubmit="this.disabled=true">
-            ورود
-        </button>
-    </form>
-
-    <p class="text-xs text-[var(--slate)] text-center mt-4">
-        رمز عبور اختصاصی خود را وارد کنید. (در صورت فراموشی به ادمین مراجعه کنید)
-    </p>
+  </div>
 </div>
+
+{# ─── اسکریپت تعاملی مدرن: کنترل نمایش رمز و لودینگ سابمیت ─── #}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // ۱. کنترل ضامن نمایش یا پنهان‌سازی رمز عبور
+    const toggleBtn = document.getElementById('toggle-password-btn');
+    const pwdInput = document.getElementById('password');
+    const eyeOpen = document.getElementById('eye-icon-open');
+    const eyeClosed = document.getElementById('eye-icon-closed');
+
+    if (toggleBtn && pwdInput) {
+      toggleBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isPassword = pwdInput.type === 'password';
+        pwdInput.type = isPassword ? 'text' : 'password';
+
+        if (isPassword) {
+          eyeOpen.classList.add('hidden');
+          eyeClosed.classList.remove('hidden');
+          toggleBtn.setAttribute('aria-label', 'مخفی کردن رمز عبور');
+        } else {
+          eyeOpen.classList.remove('hidden');
+          eyeClosed.classList.add('hidden');
+          toggleBtn.setAttribute('aria-label', 'نمایش رمز عبور');
+        }
+        pwdInput.focus();
+      });
+    }
+
+    // ۲. کنترل نمایش راهنمای فراموشی رمز
+    const forgotBtn = document.getElementById('forgot-pwd-btn');
+    const forgotTooltip = document.getElementById('forgot-pwd-tooltip');
+    if (forgotBtn && forgotTooltip) {
+      forgotBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        forgotTooltip.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function (e) {
+        if (!forgotTooltip.contains(e.target) && e.target !== forgotBtn) {
+          forgotTooltip.classList.add('hidden');
+        }
+      });
+    }
+
+    // ۳. انیمیشن لودینگ دکمه ورود هنگام ارسال فرم
+    const loginForm = document.getElementById('login-form');
+    const submitBtn = document.getElementById('submit-login-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnLoading = document.getElementById('btn-loading');
+
+    if (loginForm && submitBtn) {
+      loginForm.addEventListener('submit', function (e) {
+        const usernameVal = document.getElementById('username')?.value.trim();
+        const passwordVal = document.getElementById('password')?.value;
+
+        if (!usernameVal || !passwordVal) {
+          return;
+        }
+
+        btnText.classList.add('hidden');
+        btnLoading.classList.remove('hidden');
+        btnLoading.classList.add('flex');
+        submitBtn.setAttribute('aria-busy', 'true');
+        setTimeout(function() {
+          submitBtn.disabled = true;
+        }, 10);
+      });
+    }
+  });
+</script>
 {% endblock %}

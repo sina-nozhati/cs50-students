@@ -1,0 +1,237 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l02",
+  "type": "lesson",
+  "week": 8,
+  "order": 2,
+  "stage_id": "w08-s2",
+  "title_fa": "HTTP و HTTPS: نشانی، درخواست و کد وضعیت",
+  "title_en": "HTTP and HTTPS: URLs, requests and status codes",
+  "note_ids": [
+    "w08-n06"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w08-l01"
+  ],
+  "concept_ids": [
+    "w08-c-http",
+    "w08-c-https",
+    "w08-c-url",
+    "w08-c-get-post",
+    "w08-c-headers",
+    "w08-c-status-codes",
+    "w08-c-curl",
+    "w08-c-devtools-network"
+  ],
+  "objective_ids": [
+    "w08-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w08-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l02-u01",
+      "order": 1,
+      "title_fa": "نشانی وب و درخواست GET",
+      "concept_ids": [
+        "w08-c-http",
+        "w08-c-https",
+        "w08-c-url",
+        "w08-c-get-post",
+        "w08-c-headers"
+      ],
+      "objective_ids": [
+        "w08-o03"
+      ],
+      "note_id": "w08-n06",
+      "source_refs": [
+        "src-notes-8#https",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "**HTTP** پروتکلی است که مرورگر با آن از سرور صفحه می‌خواهد و **HTTPS** همان است با رمزنگاری. یک نشانی مثل `https://www.example.com/search?q=cats` چند بخش دارد: پروتکل، نام دامنه، مسیر و پس از `?` پارامترها. مرورگر یک **درخواست** (`request`) می‌فرستد که معمولاً `GET` است و در سرآیندهایش (`headers`) مثلاً `Host` را می‌گوید؛ سرور با پاسخی برمی‌گردد که خودش سرآیند دارد، مثل `Content-Type: text/html`. `GET` داده را در نشانی می‌گذارد و `POST` آن را در بدنهٔ درخواست می‌فرستد.",
+        "note_id": "w08-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "get-request",
+        "lang": "text",
+        "content": "GET / HTTP/2\nHost: www.harvard.edu",
+        "source_ref": "src-notes-8#https",
+        "explain_fa": "یک درخواست GET با سرآیند Host (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در درخواست `GET / HTTP/2` با سرآیند `Host: www.harvard.edu` ، `/` چه معنایی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "مسیر صفحهٔ خواسته‌شده، اینجا صفحهٔ اصلی سایت",
+            "correct": true,
+            "feedback_fa": "درست. `/` یعنی ریشهٔ سایت."
+          },
+          {
+            "id": "b",
+            "text_fa": "نام دامنهٔ سایت",
+            "correct": false,
+            "feedback_fa": "نام دامنه در سرآیند `Host` آمده است."
+          },
+          {
+            "id": "c",
+            "text_fa": "نسخهٔ HTTP",
+            "correct": false,
+            "feedback_fa": "نسخه بخش `HTTP/2` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l02-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی جاوااسکریپت (اجرا با node) دقیقاً چیست؟",
+        "expected": {
+          "output": "www.example.com\n/search\ncats"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: نام دامنه، مسیر و مقدار پارامتر `q` جدا شدند.",
+          "incorrect_fa": "نشانی را به بخش‌هایش بشکن: دامنه، مسیر، و پارامترهای پس از `?` ."
+        },
+        "hints_fa": [
+          "`pathname` بخش پس از دامنه و پیش از `?` است."
+        ],
+        "lang": "javascript",
+        "code": "const url = new URL(\"https://www.example.com/search?q=cats&lang=en\");\nconsole.log(url.hostname);\nconsole.log(url.pathname);\nconsole.log(url.searchParams.get(\"q\"));",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {},
+          "expected_stdout_exact": "www.example.com\n/search\ncats\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l02-u02",
+      "order": 2,
+      "title_fa": "کد وضعیت و curl",
+      "concept_ids": [
+        "w08-c-status-codes",
+        "w08-c-curl",
+        "w08-c-devtools-network"
+      ],
+      "objective_ids": [
+        "w08-o03"
+      ],
+      "note_id": "w08-n06",
+      "source_refs": [
+        "src-notes-8#https",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "سرور در خط اول پاسخ یک **کد وضعیت** (`status code`) می‌گذارد. `200` یعنی همه‌چیز درست است، `301` یعنی صفحه برای همیشه به نشانی دیگری رفته و سرآیند `Location` نشانی تازه را می‌گوید، `404` یعنی پیدا نشد و `500` یعنی خطای سرور. با `curl -I` می‌توانی فقط سرآیندهای پاسخ را در ترمینال ببینی، و در مرورگر همین را در بخش `Network` ابزار توسعه‌دهنده. `301` خطا نیست؛ مرورگر خودش به نشانی تازه می‌رود.",
+        "note_id": "w08-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "status-codes",
+        "lang": "text",
+        "content": "200 OK\n301 Moved Permanently\n302 Found\n304 Not Modified\n307 Temporary Redirect\n401 Unauthorized\n403 Forbidden\n404 Not Found\n418 I'm a Teapot\n500 Internal Server Error\n503 Service Unavailable",
+        "source_ref": "src-notes-8#https",
+        "explain_fa": "فهرست کدهای وضعیت در درس‌نامه."
+      },
+      "check": {
+        "id": "w08-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`curl -I https://harvard.edu` پاسخ `301` با سرآیند `location: https://www.harvard.edu/` می‌دهد. یعنی چه؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "سایت برای همیشه به نشانی www رفته و مرورگر باید آنجا برود.",
+            "correct": true,
+            "feedback_fa": "درست. `301` یعنی جابه‌جایی همیشگی و `location` مقصد را می‌گوید."
+          },
+          {
+            "id": "b",
+            "text_fa": "سرور خراب است.",
+            "correct": false,
+            "feedback_fa": "خطای سرور در خانوادهٔ `500` است، نه `301`."
+          },
+          {
+            "id": "c",
+            "text_fa": "صفحه پیدا نشد.",
+            "correct": false,
+            "feedback_fa": "پیدا نشدن `404` است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l02-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر کد را به معنایش وصل کن و فقط معنا را بنویس: «درست» یا «جابه‌جایی همیشگی» یا «پیدا نشد» یا «خطای سرور». (۱) `200` (۲) `301` (۳) `404` (۴) `500`",
+        "expected": {
+          "answers": {
+            "1": "درست",
+            "2": "جابه‌جایی همیشگی",
+            "3": "پیدا نشد",
+            "4": "خطای سرور"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "خانواده‌ها را به یاد بیاور: ۲ موفق، ۳ تغییر مسیر، ۴ خطای درخواست، ۵ خطای سرور."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

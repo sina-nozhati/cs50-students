@@ -1,0 +1,70 @@
+{
+  "week": 2,
+  "title": "آرایه‌ها، رشته‌ها و رمزنگاری سزار",
+  "xp_reward_session": 20,
+  "challenges": [
+    {
+      "id": "w02-ch01-token-array",
+      "type": "token_tap",
+      "concept_tag": "آرایه‌ها و اندیس‌گذاری در C (Arrays & Indexing)",
+      "title": "مقداردهی خانه دوم آرایه نمرات",
+      "instruction": "در زبانی مانند C با شمارش صفر-مبنا، توکن‌ها را برای مقداردهی دومین نمره در آرایه ۳ عضوی انتخاب کنید:",
+      "prompt": "int scores[3]; scores[___] = ___;",
+      "token_bank": ["0", "1", "2", "3", "95", "scores"],
+      "expected_answer": ["1", "95"],
+      "explanation": "در C اندیس‌ها از ۰ شروع می‌شوند؛ بنابراین اولین خانه scores[0]، دومین خانه scores[1] و سومین خانه scores[2] است.",
+      "hint": "خانه اول اندیس ۰ است. پس دومین نمره چه اندیسی دارد؟",
+      "xp_reward": 5
+    },
+    {
+      "id": "w02-ch02-parsons-string-len",
+      "type": "parsons",
+      "concept_tag": "پیمایش رشته با NUL Terminator (Strings & strlen)",
+      "title": "شمارش دستی طول رشته تا رسیدن به کاراکتر پایانی NUL",
+      "instruction": "خطوط محاسبه طول رشته را به ترتیب منطقی اجرای برنامه مرتب کنید:",
+      "scrambled_lines": [
+        {"id": "p1", "text": "int length = 0;"},
+        {"id": "p2", "text": "while (s[length] != '\\0')"},
+        {"id": "p3", "text": "{"},
+        {"id": "p4", "text": "    length++;"},
+        {"id": "p5", "text": "}"}
+      ],
+      "correct_order": ["p1", "p2", "p3", "p4", "p5"],
+      "explanation": "ابتدا متغیر length با ۰ مقداردهی شده، سپس در حلقه تا رسیدن به '\\0' شمارنده افزایش می‌یابد.",
+      "hint": "حلقه باید مقدار کاراکتر در اندیس جاری را با NUL مقایسه کند.",
+      "xp_reward": 5
+    },
+    {
+      "id": "w02-ch03-bug-array-oob",
+      "type": "spot_bug",
+      "concept_tag": "خطای دسترسی خارج از محدوده آرایه (Buffer Overflow / Off-by-one)",
+      "title": "شکار باگ: دسترسی فراتر از طول آرایه (Off-by-one error)",
+      "instruction": "روی خطی کلیک کنید که باعث پیمایش فراتر از طول رشته می‌شود:",
+      "code_lines": [
+        {"index": 0, "text": "string text = \"HI!\";"},
+        {"index": 1, "text": "int len = strlen(text); // len is 3"},
+        {"index": 2, "text": "for (int i = 0; i <= len; i++)"},
+        {"index": 3, "text": "{"},
+        {"index": 4, "text": "    printf(\"%c\\n\", text[i]);"},
+        {"index": 5, "text": "}"}
+      ],
+      "bug_line_index": 2,
+      "explanation": "شرط i <= len باعث می‌شود در تکرار آخر i == 3 شده و کاراکتر ترمیناتور '\\0' چاپ شود. شرط درست i < len است.",
+      "hint": "وقتی طول ۳ است، اندیس‌های مجاز ۰، ۱ و ۲ هستند؛ علامت مساوی چه مشکلی ایجاد می‌کند؟",
+      "xp_reward": 5
+    },
+    {
+      "id": "w02-ch04-token-caesar-shift",
+      "type": "token_tap",
+      "concept_tag": "ریاضی رمزنگاری سزار (Caesar Cipher Math)",
+      "title": "فرمول شیفت چرخشی حروف بزرگ در رمز سزار",
+      "instruction": "برای شیفت یک حرف بزرگ با کلید k و حفظ محدوده ۲۶ حرف، توکن‌ها را بچینید:",
+      "prompt": "char encrypted = ((c - 'A') + k) ___ ___ + 'A';",
+      "token_bank": ["%", "/", "*", "26", "25", "10"],
+      "expected_answer": ["%", "26"],
+      "explanation": "عملگر % 26 باقیمانده تقسیم بر ۲۶ را محاسبه می‌کند تا شیفت چرخشی میان ۲۶ حرف الفبای انگلیسی انجام شود.",
+      "hint": "عملگر باقیمانده و تعداد حروف الفبای انگلیسی را انتخاب کنید.",
+      "xp_reward": 5
+    }
+  ]
+}

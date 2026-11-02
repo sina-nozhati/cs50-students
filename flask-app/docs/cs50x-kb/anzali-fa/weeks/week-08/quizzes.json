@@ -1,0 +1,2711 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 8,
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w08-q-001",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-router"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#routers",
+      "prompt_fa": "مسیریاب (router) در اینترنت چه نقشی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مسیریاب‌ها بسته‌ها را گام‌به‌گام به مقصد می‌رسانند و ممکن است بسته‌های یک پیام از مسیرهای متفاوت بروند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "بسته‌ها را می‌گیرد و به سمت مقصدشان به گام بعدی می‌فرستد",
+          "feedback_fa": "آفرین؛ سخنرانی مسیریاب‌ها را رایانه‌هایی می‌داند که داده را از جایی به جای دیگر می‌رسانند."
+        },
+        {
+          "id": "b",
+          "text_fa": "نام دامنه را به نشانی IP تبدیل می‌کند",
+          "feedback_fa": "این کار سرور DNS است، نه مسیریاب."
+        },
+        {
+          "id": "c",
+          "text_fa": "به رایانهٔ تازه‌وارد نشانی IP می‌دهد",
+          "feedback_fa": "این کار DHCP است."
+        },
+        {
+          "id": "d",
+          "text_fa": "محتوای صفحه را رمزنگاری می‌کند",
+          "feedback_fa": "رمزنگاری کار HTTPS است، نه مسیریاب."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-002",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-ip-address"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#routers",
+      "prompt_fa": "کدام یک نشانی IPv4 معتبر است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر بخش IPv4 هشت بیت است، پس از ۰ تا ۲۵۵؛ روی هم ۳۲ بیت.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`192.168.1.20`",
+          "feedback_fa": "آفرین؛ چهار عدد بین ۰ و ۲۵۵ که با نقطه جدا شده‌اند."
+        },
+        {
+          "id": "b",
+          "text_fa": "`192.168.1.256`",
+          "feedback_fa": "هر بخش یک بایت است و بیشینه‌اش ۲۵۵ است؛ ۲۵۶ جا نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "`192.168.1`",
+          "feedback_fa": "IPv4 چهار بخش دارد، نه سه."
+        },
+        {
+          "id": "d",
+          "text_fa": "`harvard.edu`",
+          "feedback_fa": "این نام دامنه است، نه نشانی IP؛ DNS آن را به IP تبدیل می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-003",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-ipv4-ipv6"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#routers",
+      "prompt_fa": "IPv4 با ۳۲ بیت حدوداً چند نشانی متمایز می‌سازد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "۲ به توان ۳۲ برابر ۴٬۲۹۴٬۹۶۷٬۲۹۶ است؛ IPv6 با ۱۲۸ بیت این کمبود را حل می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "حدود ۴ میلیارد",
+          "feedback_fa": "آفرین؛ ۲ به توان ۳۲ حدود ۴٫۳ میلیارد است و برای همهٔ دستگاه‌های امروز کم است."
+        },
+        {
+          "id": "b",
+          "text_fa": "حدود ۴ میلیون",
+          "feedback_fa": "این ۲ به توان ۲۲ است؛ ۳۲ بیت خیلی بیشتر می‌دهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "حدود ۲۵۶",
+          "feedback_fa": "۲۵۶ تعداد مقدارهای یک بخش (یک بایت) است، نه کل نشانی."
+        },
+        {
+          "id": "d",
+          "text_fa": "بی‌نهایت",
+          "feedback_fa": "تعداد بیت‌ها ثابت است، پس تعداد نشانی‌ها محدود است؛ برای همین IPv6 آمد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-004",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-port"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#routers",
+      "prompt_fa": "TCP با کدام اطلاعات مشخص می‌کند بسته به کدام برنامه یا سرویس روی یک رایانه برسد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "IP رایانه را پیدا می‌کند و درگاه TCP سرویس درون آن را.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "شمارهٔ درگاه (port)، مثل 80 برای HTTP و 443 برای HTTPS",
+          "feedback_fa": "آفرین؛ یک نشانی IP می‌تواند چند سرویس داشته باشد و درگاه آن‌ها را جدا می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "نشانی IP مقصد",
+          "feedback_fa": "IP فقط رایانه را مشخص می‌کند، نه سرویس درون آن را."
+        },
+        {
+          "id": "c",
+          "text_fa": "نام دامنه",
+          "feedback_fa": "نام دامنه پیش از ارسال به IP تبدیل می‌شود و در بستهٔ TCP نیست."
+        },
+        {
+          "id": "d",
+          "text_fa": "کد وضعیت HTTP",
+          "feedback_fa": "کد وضعیت بخشی از پاسخ HTTP است، نه نشانی‌دهی TCP."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-005",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-retransmission"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#routers",
+      "prompt_fa": "یکی از کارهای TCP این است که اگر بسته‌ای در راه گم شود، فرستادن دوبارهٔ آن ممکن شود.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ سخنرانی TCP را پروتکلی می‌داند که تحویل داده را تضمین می‌کند و بستهٔ گم‌شده دوباره فرستاده می‌شود.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-006",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-dns"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#dns",
+      "prompt_fa": "وقتی در مرورگر `harvard.edu` را تایپ می‌کنی، کدام سامانه نشانی IP آن را پیدا می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "DNS مثل دفترچهٔ تلفن اینترنت است: نام را به عدد تبدیل می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "DNS",
+          "feedback_fa": "آفرین؛ سرور DNS نام دامنه را به نشانی IP ترجمه می‌کند."
+        },
+        {
+          "id": "b",
+          "text_fa": "DHCP",
+          "feedback_fa": "DHCP به رایانهٔ تو نشانی IP می‌دهد، ولی نام‌ها را ترجمه نمی‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "HTTP",
+          "feedback_fa": "HTTP پس از پیدا شدن IP برای درخواست صفحه به کار می‌رود."
+        },
+        {
+          "id": "d",
+          "text_fa": "TCP",
+          "feedback_fa": "TCP بسته‌ها را به درگاه درست می‌رساند، نه اینکه نام را ترجمه کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-007",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l01",
+      "concept_ids": [
+        "w08-c-dhcp"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#dns",
+      "prompt_fa": "DHCP به رایانه‌ای که تازه به شبکه وصل می‌شود فقط نشانی IP خودش را می‌دهد و نشانی سرور DNS را نمی‌دهد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "نادرست است؛ سخنرانی می‌گوید DHCP نشانی IP، نشانی مسیریاب پیش‌فرض و نشانی سرور DNS را می‌دهد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-008",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l02",
+      "concept_ids": [
+        "w08-c-url"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#https",
+      "prompt_fa": "در `https://www.example.com/` کدام بخش پروتکل است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "ساختار: پروتکل، `://`، نام میزبان و دامنه، سپس مسیر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`https`",
+          "feedback_fa": "آفرین؛ پیش از `://` پروتکلی است که مرورگر برای این درخواست به کار می‌برد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`www`",
+          "feedback_fa": "`www` نام میزبان (host) درون دامنه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`example.com`",
+          "feedback_fa": "این نام دامنه است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`/`",
+          "feedback_fa": "این مسیر منبع روی سرور است؛ اینجا یعنی صفحهٔ پیش‌فرض."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-009",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l02",
+      "concept_ids": [
+        "w08-c-status-codes"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#https",
+      "prompt_fa": "سرور در پاسخ به درخواست صفحه‌ای که وجود ندارد معمولاً کدام کد وضعیت را برمی‌گرداند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "کدهای 2xx موفقیت، 3xx تغییر مسیر، 4xx خطای درخواست‌کننده و 5xx خطای سرور هستند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "404",
+          "feedback_fa": "آفرین؛ 404 Not Found یعنی منبع پیدا نشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "200",
+          "feedback_fa": "200 OK یعنی درخواست موفق بود."
+        },
+        {
+          "id": "c",
+          "text_fa": "301",
+          "feedback_fa": "301 یعنی منبع برای همیشه جابه‌جا شده است."
+        },
+        {
+          "id": "d",
+          "text_fa": "500",
+          "feedback_fa": "500 خطای داخلی سرور است، نه نبودن صفحه."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-010",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l02",
+      "concept_ids": [
+        "w08-c-status-codes"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#https",
+      "prompt_fa": "سرآیند `Location` بیشتر همراه کدام کد وضعیت می‌آید؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در سخنرانی، `curl -I http://harvard.edu/` پاسخ 301 با `Location: https://www.harvard.edu/` داد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "301 Moved Permanently",
+          "feedback_fa": "آفرین؛ `Location` به مرورگر می‌گوید منبع کجا رفته است و مرورگر خودش به آنجا می‌رود."
+        },
+        {
+          "id": "b",
+          "text_fa": "200 OK",
+          "feedback_fa": "در پاسخ موفق، محتوای خود صفحه می‌آید و تغییر مسیری نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "404 Not Found",
+          "feedback_fa": "وقتی منبعی نیست، نشانی تازه‌ای هم برای فرستادن مرورگر وجود ندارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "403 Forbidden",
+          "feedback_fa": "403 یعنی دسترسی مجاز نیست؛ ربطی به نشانی تازه ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-011",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l02",
+      "concept_ids": [
+        "w08-c-get-post"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#https",
+      "prompt_fa": "با روش GET، داده‌های فرم در رشتهٔ پرس‌وجوی نشانی دیده می‌شود.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ GET داده را به شکل `?key=value` در URL می‌گذارد و POST در بدنهٔ درخواست.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-012",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l02",
+      "concept_ids": [
+        "w08-c-curl"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#https",
+      "prompt_fa": "فرمان `curl -I https://www.harvard.edu/` چه چیزی را چاپ می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`curl -I` راه سریعی برای دیدن کد وضعیت و سرآیندهاست، همان چیزی که زبانهٔ Network هم نشان می‌دهد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فقط سرآیندهای پاسخ HTTP",
+          "feedback_fa": "آفرین؛ گزینهٔ `-I` فقط سرآیندها را می‌خواهد."
+        },
+        {
+          "id": "b",
+          "text_fa": "کل HTML صفحه",
+          "feedback_fa": "بدون `-I` بدنه هم می‌آمد؛ `-I` بدنه را نمی‌آورد."
+        },
+        {
+          "id": "c",
+          "text_fa": "نشانی IP سرور",
+          "feedback_fa": "این را `nslookup` یا `dig` نشان می‌دهد."
+        },
+        {
+          "id": "d",
+          "text_fa": "فهرست پیوندهای صفحه",
+          "feedback_fa": "curl محتوا را تحلیل نمی‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-013",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l02",
+      "concept_ids": [
+        "w08-c-https"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#https",
+      "prompt_fa": "در HTTPS، محتوای درخواست و پاسخ میان مرورگر و سرور رمزنگاری می‌شود.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ HTTPS نسخهٔ امن HTTP است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-014",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-doctype-structure"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "کدام خط باید نخستین خط یک سند HTML5 باشد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "ساختار پایه: DOCTYPE، سپس `<html>` با `<head>` و `<body>`.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`<!DOCTYPE html>`",
+          "feedback_fa": "آفرین؛ به مرورگر می‌گوید سند HTML5 است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`<html>`",
+          "feedback_fa": "تگ `<html>` پس از اعلان DOCTYPE می‌آید."
+        },
+        {
+          "id": "c",
+          "text_fa": "`<head>`",
+          "feedback_fa": "`<head>` درون `<html>` است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`<title>`",
+          "feedback_fa": "`<title>` درون `<head>` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-015",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-attribute"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "در `<html lang=\"en\">`، بخش `lang=\"en\"` چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "ویژگی‌ها اطلاعات بیشتری دربارهٔ عنصر می‌دهند، مثل زبان صفحه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "یک ویژگی (attribute)",
+          "feedback_fa": "آفرین؛ ویژگی جفت نام و مقدار درون تگ آغاز است."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک تگ جدا",
+          "feedback_fa": "تگ با `<` آغاز می‌شود؛ این بخشی از همان تگ `<html>` است."
+        },
+        {
+          "id": "c",
+          "text_fa": "یک توضیح (comment)",
+          "feedback_fa": "توضیح HTML با `<!--` آغاز می‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "محتوای عنصر",
+          "feedback_fa": "محتوا میان تگ آغاز و پایان است، نه درون تگ آغاز."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-016",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-whitespace-ignored"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "در HTML، اگر میان دو جمله ده فاصله و سه سطر خالی بگذاری و هیچ تگی نزنی، مرورگر چه نشان می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در سخنرانی، متن سه بند پشت هم آمد تا `<p>` اضافه شد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "دو جمله با یک فاصله پشت هم",
+          "feedback_fa": "آفرین؛ مرورگر فاصله‌های پشت‌سرهم را یکی می‌کند؛ برای بند جدا `<p>` لازم است."
+        },
+        {
+          "id": "b",
+          "text_fa": "دو بند جدا با سه سطر خالی میانشان",
+          "feedback_fa": "فاصلهٔ سفید در HTML خودش ساختار نمی‌سازد."
+        },
+        {
+          "id": "c",
+          "text_fa": "خطای نمایش",
+          "feedback_fa": "این HTML معتبر است؛ فقط فاصله‌ها یکی می‌شوند."
+        },
+        {
+          "id": "d",
+          "text_fa": "ده فاصله میان دو جمله",
+          "feedback_fa": "فاصله‌های پشت‌سرهم یکی می‌شوند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-017",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-img-alt"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "چرا ویژگی `alt` را برای `<img>` می‌نویسیم؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`alt` بخشی از دسترس‌پذیری صفحه است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "متن جایگزین برای کسانی که تصویر را نمی‌بینند یا وقتی تصویر بار نمی‌شود",
+          "feedback_fa": "آفرین؛ صفحه‌خوان‌ها این متن را می‌خوانند."
+        },
+        {
+          "id": "b",
+          "text_fa": "برای تعیین اندازهٔ تصویر",
+          "feedback_fa": "اندازه با `width` و `height` یا CSS تعیین می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "برای پیوند دادن تصویر",
+          "feedback_fa": "پیوند با `<a href>` ساخته می‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "برای نشانی فایل تصویر",
+          "feedback_fa": "نشانی در `src` است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-018",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-dom-tree"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "(کد تألیفی) این سند در مرورگر بارگذاری می‌شود. چه چیزی در کنسول چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "3\n2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "3\n2"
+        ]
+      },
+      "explanation_fa": "`querySelectorAll(\"li\")` همهٔ سه قلم در هر دو فهرست را می‌شمارد؛ `querySelector(\"ul\").children` فقط دو فرزند همان فهرست نامرتب را.",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                console.log(document.querySelectorAll(\"li\").length);\n                console.log(document.querySelector(\"ul\").children.length);\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <ul>\n            <li>one</li>\n            <li>two</li>\n        </ul>\n        <ol>\n            <li>three</li>\n        </ol>\n    </body>\n</html>",
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "3\n2\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "html5lib + jsdom 24.1.3 on node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "3\n2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-019",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-anchor-link"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "کدام کد پیوندی به `https://www.harvard.edu/` با متن Harvard می‌سازد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سخنرانی هشدار داد متن پیوند می‌تواند با مقصد واقعی‌اش فرق کند؛ این راه فیشینگ است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`<a href=\"https://www.harvard.edu/\">Harvard</a>`",
+          "feedback_fa": "آفرین؛ تگ `a` با ویژگی `href`."
+        },
+        {
+          "id": "b",
+          "text_fa": "`<link href=\"https://www.harvard.edu/\">Harvard</link>`",
+          "feedback_fa": "`<link>` برای وصل کردن منبع‌هایی مثل CSS در `<head>` است، نه پیوند قابل کلیک."
+        },
+        {
+          "id": "c",
+          "text_fa": "`<a src=\"https://www.harvard.edu/\">Harvard</a>`",
+          "feedback_fa": "`src` برای تصویر و اسکریپت است؛ پیوند با `href` است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`<url>https://www.harvard.edu/</url>`",
+          "feedback_fa": "چنین تگی در HTML نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-020",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-void-elements"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "تگ `<img>` تگ پایان `</img>` لازم دارد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "نادرست است؛ `<img>` عنصر تهی (void) است و محتوایی ندارد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-021",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l03",
+      "concept_ids": [
+        "w08-c-table"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "در یک جدول HTML، هر سطر با کدام تگ ساخته می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "ساختار: `<table>`، سپس `<tr>` برای هر سطر و `<td>` برای هر خانه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`<tr>`",
+          "feedback_fa": "آفرین؛ table row، و خانه‌ها درونش با `<td>`."
+        },
+        {
+          "id": "b",
+          "text_fa": "`<td>`",
+          "feedback_fa": "`<td>` یک خانه (ستون) درون سطر است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`<th>`",
+          "feedback_fa": "`<th>` خانهٔ سرستون است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`<row>`",
+          "feedback_fa": "چنین تگی در HTML نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-022",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l04",
+      "concept_ids": [
+        "w08-c-query-string"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "فرمی با `action=\"https://www.google.com/search\"` و `method=\"get\"` یک `<input name=\"q\">` دارد. کاربر cats را تایپ و فرم را ارسال می‌کند. مرورگر به کجا می‌رود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "همین فرم در سخنرانی موتور جست‌وجوی سادهٔ دیوید را ساخت.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`https://www.google.com/search?q=cats`",
+          "feedback_fa": "آفرین؛ با GET، نام و مقدار ورودی به رشتهٔ پرس‌وجو اضافه می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "`https://www.google.com/search/cats`",
+          "feedback_fa": "مقدار به مسیر اضافه نمی‌شود؛ پس از `?` می‌آید."
+        },
+        {
+          "id": "c",
+          "text_fa": "`https://www.google.com/search?cats`",
+          "feedback_fa": "کلید `q` (همان `name`) هم فرستاده می‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "`https://www.google.com/q=cats`",
+          "feedback_fa": "`action` مسیر `/search` را تعیین کرده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-023",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l04",
+      "concept_ids": [
+        "w08-c-input-attrs"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#html",
+      "prompt_fa": "کدام ویژگی متن کم‌رنگی را درون جعبهٔ خالی نشان می‌دهد تا کاربر بداند چه بنویسد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در سخنرانی `autocomplete=\"off\" autofocus placeholder=\"Query\"` با هم آمدند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`placeholder`",
+          "feedback_fa": "آفرین؛ با تایپ اولین حرف ناپدید می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "`autofocus`",
+          "feedback_fa": "`autofocus` مکان‌نما را درون جعبه می‌گذارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "`autocomplete`",
+          "feedback_fa": "`autocomplete` پیشنهادهای مرورگر را روشن یا خاموش می‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "`name`",
+          "feedback_fa": "`name` کلید پارامتر ارسالی است و نمایش داده نمی‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-024",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l04",
+      "concept_ids": [
+        "w08-c-regex"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "true\nfalse\nfalse"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "true\nfalse\nfalse"
+        ]
+      },
+      "explanation_fa": "`.+` یعنی دست‌کم یک نویسه، پس پیش از `@` باید چیزی باشد؛ `\\.edu$` یعنی رشته دقیقاً با `.edu` تمام شود.",
+      "code": "let pattern = /^.+@.+\\.edu$/;\nconsole.log(pattern.test(\"malan@harvard.edu\"));\nconsole.log(pattern.test(\"malan@harvard.com\"));\nconsole.log(pattern.test(\"@harvard.edu\"));",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "true\nfalse\nfalse\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "true\nfalse\nfalse",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-025",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l04",
+      "concept_ids": [
+        "w08-c-regex"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#regular-expressions",
+      "prompt_fa": "در عبارت باقاعده، `\\d{3}` با کدام رشته کامل جور است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "`\\d` رقم، `{n}` تکرار دقیق، `.` هر نویسه و `*` صفر یا بیشتر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`617`",
+          "feedback_fa": "آفرین؛ `\\d` یک رقم و `{3}` یعنی دقیقاً سه بار."
+        },
+        {
+          "id": "b",
+          "text_fa": "`61`",
+          "feedback_fa": "دو رقم کمتر از سه بار است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`abc`",
+          "feedback_fa": "`\\d` فقط رقم را می‌پذیرد."
+        },
+        {
+          "id": "d",
+          "text_fa": "`d{3}`",
+          "feedback_fa": "`\\d` نماد رقم است، نه حرف d."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-026",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l04",
+      "concept_ids": [
+        "w08-c-client-validation-limits"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#regular-expressions",
+      "prompt_fa": "اگر فرم `type=\"email\"` و `pattern` داشته باشد، سرور دیگر نیازی به بررسی نشانی ایمیل ندارد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "نادرست است؛ سخنرانی نشان داد کاربر می‌تواند HTML را در ابزار توسعه‌دهنده تغییر دهد، پس سرور همیشه باید خودش بررسی کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-027",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l05",
+      "concept_ids": [
+        "w08-c-selectors"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#css",
+      "prompt_fa": "کدام انتخابگر CSS عنصری با `id=\"title\"` را انتخاب می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "نوع: `p`، کلاس: `.name`، شناسه: `#name`.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`#title`",
+          "feedback_fa": "آفرین؛ `#` برای شناسه است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`.title`",
+          "feedback_fa": "`.` برای کلاس است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`title`",
+          "feedback_fa": "این انتخابگر نوع است و تگ `<title>` را انتخاب می‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "`*title`",
+          "feedback_fa": "چنین انتخابگری نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-028",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l05",
+      "concept_ids": [
+        "w08-c-cascade"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#css",
+      "prompt_fa": "`<body style=\"text-align: center\">` و درونش `<p>` بدون سبک است. متن بند چطور تراز می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "در سخنرانی سبک از تک‌تک بندها به `body` منتقل شد تا تکرار نشود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "وسط‌چین، چون ویژگی از والد به فرزند به ارث می‌رسد",
+          "feedback_fa": "آفرین؛ این همان «آبشاری» در CSS است."
+        },
+        {
+          "id": "b",
+          "text_fa": "چپ‌چین، چون بند سبک ندارد",
+          "feedback_fa": "`text-align` ارثی است و از `body` به `p` می‌رسد."
+        },
+        {
+          "id": "c",
+          "text_fa": "خطا می‌دهد",
+          "feedback_fa": "این CSS معتبر است."
+        },
+        {
+          "id": "d",
+          "text_fa": "فقط سطر اول وسط‌چین می‌شود",
+          "feedback_fa": "همهٔ متن بند تراز یکسانی می‌گیرد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-029",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l05",
+      "concept_ids": [
+        "w08-c-external-css"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#css",
+      "prompt_fa": "کدام خط در `<head>` فایل `styles.css` را به صفحه وصل می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "جدا کردن CSS در فایل بیرونی بازاستفاده در چند صفحه را آسان می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`<link href=\"styles.css\" rel=\"stylesheet\">`",
+          "feedback_fa": "آفرین؛ همان شکلی که در سخنرانی آمد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`<script src=\"styles.css\"></script>`",
+          "feedback_fa": "`<script>` برای جاوااسکریپت است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`<style src=\"styles.css\">`",
+          "feedback_fa": "`<style>` CSS درون‌خطی می‌گیرد و ویژگی `src` ندارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "`<a href=\"styles.css\">`",
+          "feedback_fa": "این پیوند قابل کلیک می‌سازد، نه سبک."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-030",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l05",
+      "concept_ids": [
+        "w08-c-semantic-tags"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#css",
+      "prompt_fa": "چرا به جای `<div>` از `<header>`، `<main>` و `<footer>` استفاده می‌کنیم؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تگ‌های معنایی (semantic) به خوانایی و دسترس‌پذیری کمک می‌کنند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون به مرورگر، موتور جست‌وجو و صفحه‌خوان می‌گویند هر بخش چه نقشی دارد",
+          "feedback_fa": "آفرین؛ ظاهر یکسان است ولی معنا بیشتر است."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون `<div>` در HTML5 حذف شده است",
+          "feedback_fa": "`<div>` هنوز معتبر و پرکاربرد است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون این تگ‌ها خودشان رنگ دارند",
+          "feedback_fa": "تگ معنایی سبک پیش‌فرض خاصی ندارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "چون جاوااسکریپت فقط این تگ‌ها را پیدا می‌کند",
+          "feedback_fa": "`querySelector` هر تگی را پیدا می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-031",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l05",
+      "concept_ids": [
+        "w08-c-bootstrap"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#frameworks",
+      "prompt_fa": "Bootstrap در سخنرانی به چه کار آمد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "برای افزودن Bootstrap کافی است پیوند CSS و اسکریپت آن را در `<head>` بگذاری.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "با چند کلاس آماده، مثل `table`، ظاهر جدول را بدون نوشتن CSS زیبا کرد",
+          "feedback_fa": "آفرین؛ چارچوب (framework) کد آمادهٔ دیگران است."
+        },
+        {
+          "id": "b",
+          "text_fa": "سرور وب را اجرا کرد",
+          "feedback_fa": "سرور را `http-server` اجرا می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "HTML را اعتبارسنجی کرد",
+          "feedback_fa": "این کار اعتبارسنج W3C است."
+        },
+        {
+          "id": "d",
+          "text_fa": "جاوااسکریپت را به HTML ترجمه کرد",
+          "feedback_fa": "Bootstrap کتابخانهٔ CSS و JS است، نه مترجم."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-032",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l05",
+      "concept_ids": [
+        "w08-c-style-attr"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#css",
+      "prompt_fa": "(کد تألیفی) این سند بارگذاری می‌شود. چه چیزی در کنسول چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "large\ntrue"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "large\ntrue"
+        ]
+      },
+      "explanation_fa": "ویژگی `style` همان CSS درون‌خطی است؛ `fontSize` مقدار large دارد و `textAlign` تعیین نشده، پس رشتهٔ خالی است.",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                let p = document.querySelector(\"p\");\n                console.log(p.style.fontSize);\n                console.log(p.style.textAlign === \"\");\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <p style=\"font-size: large\">Hello</p>\n    </body>\n</html>",
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "large\ntrue\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "html5lib + jsdom 24.1.3 on node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "large\ntrue",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-033",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-equality-operators"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-web-box-8",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "true\nfalse\ntrue"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "true\nfalse\ntrue"
+        ]
+      },
+      "explanation_fa": "`==` پیش از مقایسه نوع‌ها را تبدیل می‌کند (رشتهٔ خالی به 0)؛ `===` نوع را هم مقایسه می‌کند. برای همین در CS50 از `===` استفاده می‌شود.",
+      "code": "console.log(1 == \"1\");\nconsole.log(1 === \"1\");\nconsole.log(0 == \"\");",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "true\nfalse\ntrue\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "true\nfalse\ntrue",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-034",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-js-variables"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "3"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "3"
+        ]
+      },
+      "explanation_fa": "سه شکل افزودن یک واحد: `counter = counter + 1`، `counter += 1` و `counter++`.",
+      "code": "let counter = 0;\ncounter = counter + 1;\ncounter += 1;\ncounter++;\nconsole.log(counter);",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "3\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "3",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-035",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-js-loops"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "meow 0\nmeow 1\nmeow 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "meow 0\nmeow 1\nmeow 2"
+        ]
+      },
+      "explanation_fa": "حلقهٔ `for` در جاوااسکریپت شبیه C است؛ `+` رشته و عدد را به هم می‌چسباند.",
+      "code": "for (let i = 0; i < 3; i++)\n{\n    console.log(\"meow \" + i);\n}",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "meow 0\nmeow 1\nmeow 2\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "meow 0\nmeow 1\nmeow 2",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-036",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-js-conditionals"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "medium"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "medium"
+        ]
+      },
+      "explanation_fa": "۷ از ۵ کمتر نیست ولی از ۱۰ کمتر است، پس شاخهٔ `else if` اجرا می‌شود.",
+      "code": "let x = 7;\nif (x < 5)\n{\n    console.log(\"small\");\n}\nelse if (x < 10)\n{\n    console.log(\"medium\");\n}\nelse\n{\n    console.log(\"large\");\n}",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "medium\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "medium",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-037",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-script-tag"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "کد جاوااسکریپت را درون صفحه کجا می‌نویسیم؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مرورگر هر `<script>` را هنگام رسیدن به آن اجرا می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "درون تگ `<script>`، یا در فایل جدا که با `<script src=\"...\">` وصل شود",
+          "feedback_fa": "آفرین؛ هر دو راه در سخنرانی آمد."
+        },
+        {
+          "id": "b",
+          "text_fa": "درون تگ `<style>`",
+          "feedback_fa": "`<style>` برای CSS است."
+        },
+        {
+          "id": "c",
+          "text_fa": "درون ویژگی `href`",
+          "feedback_fa": "`href` نشانی پیوند است."
+        },
+        {
+          "id": "d",
+          "text_fa": "فقط در فایلی با پسوند `.html`",
+          "feedback_fa": "کد می‌تواند در فایل `.js` جدا هم باشد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-038",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-prevent-default"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) کاربر Sina را در جعبهٔ متن می‌نویسد و فرم را ارسال می‌کند. چه چیزی در خروجی ثبت می‌شود؟ (هر `alert` را به شکل `ALERT: پیام` بنویس و پیام `SUBMIT_DEFAULT_PREVENTED: true` یعنی ارسال واقعی فرم جلوگیری شد.)",
+      "answer": {
+        "accept": [
+          "ALERT: hello, Sina\nSUBMIT_DEFAULT_PREVENTED: true"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "ALERT: hello, Sina\nSUBMIT_DEFAULT_PREVENTED: true"
+        ]
+      },
+      "explanation_fa": "گوش‌دهندهٔ `submit` پیام را نشان می‌دهد و `preventDefault` جلوی ارسال فرم را می‌گیرد؛ این همان برنامهٔ hello در سخنرانی است.",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                document.querySelector(\"form\").addEventListener(\"submit\", function(event) {\n                    alert(\"hello, \" + document.querySelector(\"#name\").value);\n                    event.preventDefault();\n                });\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <form>\n            <input id=\"name\" type=\"text\">\n            <input type=\"submit\">\n        </form>\n    </body>\n</html>",
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "dom.json": "{\"actions\": [{\"do\": \"set\", \"sel\": \"#name\", \"value\": \"Sina\"}, {\"do\": \"submit\", \"sel\": \"form\"}], \"wait\": 0}"
+        },
+        "expected_stdout_exact": "ALERT: hello, Sina\nSUBMIT_DEFAULT_PREVENTED: true\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "html5lib + jsdom 24.1.3 on node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "ALERT: hello, Sina\nSUBMIT_DEFAULT_PREVENTED: true",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-039",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-domcontentloaded"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "اسکریپتی در `<head>` بی‌درنگ `document.querySelector(\"form\")` را صدا می‌زند، ولی `<form>` پایین‌تر در `<body>` است. حاصل چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مرورگر سند را از بالا به پایین می‌خواند و اجرا می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`null`، چون مرورگر هنوز به فرم نرسیده است",
+          "feedback_fa": "آفرین؛ راه‌حل گذاشتن کد درون گوش‌دهندهٔ `DOMContentLoaded` است."
+        },
+        {
+          "id": "b",
+          "text_fa": "خود عنصر فرم",
+          "feedback_fa": "اسکریپت پیش از ساخته شدن فرم اجرا می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "خطای نحوی",
+          "feedback_fa": "کد درست است؛ فقط چیزی پیدا نمی‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "آرایه‌ای خالی",
+          "feedback_fa": "`querySelector` آرایه برنمی‌گرداند؛ `null` برمی‌گرداند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-040",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-domcontentloaded"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-inference-8",
+      "prompt_fa": "(کد تألیفی) این سند بارگذاری می‌شود. چه چیزی در کنسول چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "true\nready"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "true\nready"
+        ]
+      },
+      "explanation_fa": "(استنتاجی، اجراشده روی جعبهٔ ساخت) خط اول پیش از ساخته شدن `<p>` اجرا می‌شود، پس `querySelector` مقدار `null` می‌دهد و مقایسه true است؛ گوش‌دهنده پس از ساخته شدن کل سند اجرا می‌شود.",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            console.log(document.querySelector(\"p\") === null);\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                console.log(document.querySelector(\"p\").innerHTML);\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <p>ready</p>\n    </body>\n</html>",
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "true\nready\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "html5lib + jsdom 24.1.3 on node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "true\nready",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-041",
+      "origin": "authored",
+      "week": 8,
+      "type": "fill_blank_code",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-event-listener"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا با کلیک روی دکمه پیام clicked در کنسول چاپ شود.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "\"click\"",
+            "'click'"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "\"click\"",
+          "'click'"
+        ]
+      },
+      "explanation_fa": "`addEventListener` نام رویداد را بدون `on` و به صورت رشته می‌گیرد.",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                document.querySelector(\"button\").addEventListener([[b1]], function() {\n                    console.log(\"clicked\");\n                });\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <button>Go</button>\n    </body>\n</html>",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "\"click\"",
+            "'click'"
+          ],
+          "hint_fa": "نام رویداد کلیک موش، به صورت رشته",
+          "wrong_feedback": {
+            "\"submit\"": "دکمهٔ تنها بیرون از فرم رویداد submit ندارد.",
+            "\"onclick\"": "در `addEventListener` نام رویداد بدون پیشوند `on` نوشته می‌شود.",
+            "click": "نام رویداد باید رشته باشد؛ بدون نقل‌قول، click متغیری تعریف‌نشده است و ReferenceError رخ می‌دهد."
+          },
+          "default_wrong_fa": "نام رویداد کلیک را به صورت رشته بنویس."
+        }
+      ],
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "dom.json": "{\"actions\": [{\"do\": \"click\", \"sel\": \"button\"}], \"wait\": 0}"
+        },
+        "expected_stdout_exact": "clicked\n",
+        "order_matters": true,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w08-q-042",
+      "origin": "authored",
+      "week": 8,
+      "type": "parsons",
+      "lesson_id": "w08-l06",
+      "concept_ids": [
+        "w08-c-js-function"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خط‌ها را مرتب کن تا برنامه 10 چاپ کند.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "تابع بی‌نام در متغیر `double` نگه داشته می‌شود، پس باید پیش از صدا زدن تعریف شده باشد؛ `return` حاصل را برمی‌گرداند.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "let double = function(n) {",
+          "text": "let double = function(n) {"
+        },
+        {
+          "id": "p2",
+          "code": "    return n * 2;",
+          "text": "    return n * 2;"
+        },
+        {
+          "id": "p3",
+          "code": "};",
+          "text": "};"
+        },
+        {
+          "id": "p4",
+          "code": "console.log(double(5));",
+          "text": "console.log(double(5));"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "console.log(double);",
+          "text": "console.log(double);",
+          "why_wrong_fa": "این خود تابع را چاپ می‌کند، نه حاصل صدا زدنش را."
+        },
+        {
+          "id": "d2",
+          "code": "    return n + 2;",
+          "text": "    return n + 2;",
+          "why_wrong_fa": "5 به‌علاوهٔ 2 می‌شود 7، نه 10."
+        }
+      ],
+      "lang": "javascript",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "10\n",
+        "order_matters": true,
+        "check_suffix": ""
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w08-q-043",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-template-literal"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "hello, Sina\nhello, ${name}"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hello, Sina\nhello, ${name}"
+        ]
+      },
+      "explanation_fa": "فقط درون بک‌تیک `${...}` جای‌گذاری می‌شود؛ درون نقل‌قول معمولی همان متن چاپ می‌شود.",
+      "code": "let name = \"Sina\";\nconsole.log(`hello, ${name}`);\nconsole.log(\"hello, ${name}\");",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "hello, Sina\nhello, ${name}\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hello, Sina\nhello, ${name}",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-044",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-truthy-string"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-web-box-8",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "no\nyes\nyes"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "no\nyes\nyes"
+        ]
+      },
+      "explanation_fa": "رشتهٔ خالی falsy است؛ هر رشتهٔ ناتهی، حتی `\"0\"`، truthy است.",
+      "code": "for (let value of [\"\", \"Sina\", \"0\"])\n{\n    if (value)\n    {\n        console.log(\"yes\");\n    }\n    else\n    {\n        console.log(\"no\");\n    }\n}",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "no\nyes\nyes\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "no\nyes\nyes",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-045",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-keyup"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) کاربر در جعبهٔ متن Sina را تایپ می‌کند و سپس همه را پاک می‌کند. پس از هر بار، محتوای بند `p` بررسی می‌شود. دو مقدار به ترتیب چیست؟",
+      "answer": {
+        "accept": [
+          "hello, Sina\nhello, whoever you are"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "hello, Sina\nhello, whoever you are"
+        ]
+      },
+      "explanation_fa": "هر رها کردن کلید `keyup` را می‌فرستد؛ رشتهٔ خالی falsy است، پس شاخهٔ `else` اجرا می‌شود.",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                let input = document.querySelector(\"input\");\n                input.addEventListener(\"keyup\", function(event) {\n                    let name = document.querySelector(\"p\");\n                    if (input.value) {\n                        name.innerHTML = `hello, ${input.value}`;\n                    } else {\n                        name.innerHTML = \"hello, whoever you are\";\n                    }\n                });\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <input type=\"text\">\n        <p></p>\n    </body>\n</html>",
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "dom.json": "{\"actions\": [{\"do\": \"type\", \"sel\": \"input\", \"value\": \"Sina\"}, {\"do\": \"probe\", \"expr\": \"document.querySelector('p').innerHTML\"}, {\"do\": \"type\", \"sel\": \"input\", \"value\": \"\"}, {\"do\": \"probe\", \"expr\": \"document.querySelector('p').innerHTML\"}], \"wait\": 0}"
+        },
+        "expected_stdout_exact": "hello, Sina\nhello, whoever you are\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "html5lib + jsdom 24.1.3 on node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "hello, Sina\nhello, whoever you are",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-046",
+      "origin": "authored",
+      "week": 8,
+      "type": "fill_blank_code",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-style-property"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا کلیک روی دکمه اندازهٔ قلم بند را 20px کند. (پس از کلیک، مقدار `document.querySelector('p').style.fontSize` بررسی می‌شود.)",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "fontSize"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "fontSize"
+        ]
+      },
+      "explanation_fa": "`font-size` در CSS برابر `fontSize` در جاوااسکریپت است.",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                document.querySelector(\"#big\").addEventListener(\"click\", function() {\n                    document.querySelector(\"p\").style.[[b1]] = \"20px\";\n                });\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <button id=\"big\">A</button>\n        <p>text</p>\n    </body>\n</html>",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "fontSize"
+          ],
+          "hint_fa": "نام ویژگی CSS به شکل camelCase",
+          "wrong_feedback": {
+            "font-size": "در جاوااسکریپت خط تیره منها خوانده می‌شود و این سطر SyntaxError می‌دهد؛ نام camelCase می‌شود.",
+            "fontsize": "بزرگی و کوچکی حرف‌ها مهم است: S باید بزرگ باشد؛ این نام فقط یک ویژگی بی‌اثر می‌سازد و اندازه تغییر نمی‌کند.",
+            "size": "ویژگی سبکی به نام size وجود ندارد؛ اندازهٔ قلم تغییر نمی‌کند."
+          },
+          "default_wrong_fa": "نام ویژگی را camelCase بنویس."
+        }
+      ],
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "dom.json": "{\"actions\": [{\"do\": \"click\", \"sel\": \"#big\"}, {\"do\": \"probe\", \"expr\": \"document.querySelector('p').style.fontSize\"}], \"wait\": 0}"
+        },
+        "expected_stdout_exact": "20px\n",
+        "order_matters": true,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w08-q-047",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-setinterval"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "`setInterval(blink, 500)` چه می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تابع بدون پرانتز داده می‌شود چون خود تابع را می‌دهیم، نه حاصلش را.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تابع `blink` را هر ۵۰۰ میلی‌ثانیه یک بار صدا می‌زند",
+          "feedback_fa": "آفرین؛ در سخنرانی همین کار متن را چشمک‌زن کرد."
+        },
+        {
+          "id": "b",
+          "text_fa": "`blink` را فقط یک بار پس از ۵۰۰ میلی‌ثانیه صدا می‌زند",
+          "feedback_fa": "این کار `setTimeout` است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`blink` را ۵۰۰ بار پشت‌سرهم صدا می‌زند",
+          "feedback_fa": "عدد بازهٔ زمانی بر حسب میلی‌ثانیه است، نه تعداد."
+        },
+        {
+          "id": "d",
+          "text_fa": "هر ۵۰۰ ثانیه",
+          "feedback_fa": "واحد میلی‌ثانیه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-048",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-js-array"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "2 4"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "2 4"
+        ]
+      },
+      "explanation_fa": "`startsWith` دو کلمه را می‌پذیرد؛ `console.log` چند آرگومان را با فاصله چاپ می‌کند.",
+      "code": "let words = [\"apple\", \"banana\", \"apricot\", \"cherry\"];\nlet n = 0;\nfor (let word of words)\n{\n    if (word.startsWith(\"ap\"))\n    {\n        n++;\n    }\n}\nconsole.log(n, words.length);",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "2 4\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "2 4",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-049",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-build-html-string"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "<li>fig</li><li>kiwi</li>"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "<li>fig</li><li>kiwi</li>"
+        ]
+      },
+      "explanation_fa": "هر بار یک رشتهٔ `<li>` به انتهای `html` افزوده می‌شود؛ فاصله یا سطر تازه‌ای میانشان نیست.",
+      "code": "let html = \"\";\nfor (let fruit of [\"fig\", \"kiwi\"])\n{\n    html += `<li>${fruit}</li>`;\n}\nconsole.log(html);",
+      "lang": "javascript",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "<li>fig</li><li>kiwi</li>\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "<li>fig</li><li>kiwi</li>",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-050",
+      "origin": "authored",
+      "week": 8,
+      "type": "predict_output",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-queryselectorall"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) کاربر روی دکمهٔ دوم کلیک می‌کند. چه چیزی در کنسول چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "1 B"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1 B"
+        ]
+      },
+      "explanation_fa": "`querySelectorAll` هر سه دکمه را برمی‌گرداند و حلقه به هر کدام گوش‌دهنده می‌بندد؛ `let` در حلقه برای هر دور مقدار جدای `i` نگه می‌دارد.",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                let buttons = document.querySelectorAll(\"button\");\n                for (let i = 0; i < buttons.length; i++) {\n                    buttons[i].addEventListener(\"click\", function() {\n                        console.log(i, buttons[i].innerHTML);\n                    });\n                }\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <button>A</button>\n        <button id=\"b\">B</button>\n        <button>C</button>\n    </body>\n</html>",
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "dom.json": "{\"actions\": [{\"do\": \"click\", \"sel\": \"#b\"}], \"wait\": 0}"
+        },
+        "expected_stdout_exact": "1 B\n",
+        "order_matters": true
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "html5lib + jsdom 24.1.3 on node v24.22.1",
+        "compiled": true,
+        "ran": true,
+        "exit_code": 0,
+        "stdout": "1 B",
+        "matches_accept": true,
+        "exact_stdout_match": true,
+        "checked_at": "2026-10-29T08:00:00+03:30"
+      }
+    },
+    {
+      "id": "w08-q-051",
+      "origin": "authored",
+      "week": 8,
+      "type": "mcq",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-innerhtml-injection"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "چرا گذاشتن مستقیم متن تایپ‌شدهٔ کاربر در `innerHTML` خطرناک است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هرگز به ورودی کاربر کورکورانه اعتماد نکن، در SQL و در HTML.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون اگر متن تگ HTML یا اسکریپت باشد، بخشی از صفحه می‌شود",
+          "feedback_fa": "آفرین؛ برای متن ساده `textContent` امن‌تر است."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون `innerHTML` فقط عدد می‌پذیرد",
+          "feedback_fa": "`innerHTML` هر رشته‌ای را می‌پذیرد؛ مشکل همین است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون صفحه را دوباره بارگذاری می‌کند",
+          "feedback_fa": "تغییر `innerHTML` صفحه را بارگذاری نمی‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "چون فقط در `<head>` کار می‌کند",
+          "feedback_fa": "`innerHTML` روی هر عنصری کار می‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w08-q-052",
+      "origin": "authored",
+      "week": 8,
+      "type": "parsons",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-js-objects"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خط‌ها را مرتب کن تا برنامه `Sina 20` چاپ کند.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      "explanation_fa": "اول شیء ساخته می‌شود، بعد ویژگی `age` تغییر می‌کند و در پایان چاپ می‌شود.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "let person = {name: \"Sina\", age: 19};",
+          "text": "let person = {name: \"Sina\", age: 19};"
+        },
+        {
+          "id": "p2",
+          "code": "person.age = person.age + 1;",
+          "text": "person.age = person.age + 1;"
+        },
+        {
+          "id": "p3",
+          "code": "console.log(person.name, person.age);",
+          "text": "console.log(person.name, person.age);"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "person.age = 20 + 1;",
+          "text": "person.age = 20 + 1;",
+          "why_wrong_fa": "این سن را 21 می‌کند."
+        },
+        {
+          "id": "d2",
+          "code": "console.log(person);",
+          "text": "console.log(person);",
+          "why_wrong_fa": "کل شیء را چاپ می‌کند، نه دو مقدار جدا."
+        }
+      ],
+      "lang": "javascript",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "Sina 20\n",
+        "order_matters": true,
+        "check_suffix": ""
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w08-q-053",
+      "origin": "authored",
+      "week": 8,
+      "type": "true_false",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-visibility"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "در مثال چشمک‌زن سخنرانی، `style.visibility` میان `hidden` و `visible` جابه‌جا می‌شد.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "درست است؛ تابع `blink` با هر بار اجرا این مقدار را برعکس می‌کرد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w08-q-054",
+      "origin": "authored",
+      "week": 8,
+      "type": "parsons",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-dom-navigation"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-mdn-js",
+      "prompt_fa": "(کد تألیفی) خط‌ها را مرتب کن تا با کلیک روی دکمه، متن بند به done تغییر کند و در کنسول چاپ شود. (پیش از کلیک، ابزار بررسی متن بند را با پیشوند `before: ` چاپ می‌کند، سپس کاربر روی دکمه کلیک می‌کند؛ خروجی درست `before: waiting` و سپس `done` است.)",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4"
+        ]
+      },
+      "explanation_fa": "اول گوش‌دهنده ثبت می‌شود؛ درونش اول محتوا تغییر می‌کند، بعد چاپ می‌شود. اگر تغییر بیرون از گوش‌دهنده باشد، متن پیش از کلیک done می‌شود.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "                document.querySelector(\"button\").addEventListener(\"click\", function() {",
+          "text": "                document.querySelector(\"button\").addEventListener(\"click\", function() {"
+        },
+        {
+          "id": "p2",
+          "code": "                    document.querySelector(\"p\").innerHTML = \"done\";",
+          "text": "                    document.querySelector(\"p\").innerHTML = \"done\";"
+        },
+        {
+          "id": "p3",
+          "code": "                    console.log(document.querySelector(\"p\").innerHTML);",
+          "text": "                    console.log(document.querySelector(\"p\").innerHTML);"
+        },
+        {
+          "id": "p4",
+          "code": "                });",
+          "text": "                });"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "                    console.log(\"done\".length);",
+          "text": "                    console.log(\"done\".length);",
+          "why_wrong_fa": "این طول رشته (4) را چاپ می‌کند."
+        }
+      ],
+      "lang": "html",
+      "code_origin": "authored",
+      "indentation_matters": false,
+      "shuffle": true,
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {
+          "dom.json": "{\"actions\": [{\"do\": \"probe\", \"expr\": \"'before: ' + document.querySelector('p').innerHTML\"}, {\"do\": \"click\", \"sel\": \"button\"}], \"wait\": 0}"
+        },
+        "expected_stdout_exact": "before: waiting\ndone\n",
+        "order_matters": true,
+        "check_suffix": "            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <button>Go</button>\n        <p>waiting</p>\n    </body>\n</html>",
+        "check_prefix": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n"
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w08-q-055",
+      "origin": "authored",
+      "week": 8,
+      "type": "fill_blank_code",
+      "lesson_id": "w08-l07",
+      "concept_ids": [
+        "w08-c-queryselector"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-8#javascript",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا برنامه متن نخستین بند با کلاس `note` را چاپ کند.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "\".note\"",
+            "'.note'",
+            "\"p.note\"",
+            "'p.note'"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "\".note\"",
+          "'.note'",
+          "\"p.note\"",
+          "'p.note'"
+        ]
+      },
+      "explanation_fa": "`querySelector` با انتخابگر CSS کار می‌کند و نخستین عنصر جور را برمی‌گرداند.",
+      "template": "<!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <script>\n            document.addEventListener(\"DOMContentLoaded\", function() {\n                console.log(document.querySelector([[b1]]).innerHTML);\n            });\n        </script>\n        <title>demo</title>\n    </head>\n    <body>\n        <p>plain</p>\n        <p class=\"note\">first note</p>\n        <p class=\"note\">second note</p>\n    </body>\n</html>",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "\".note\"",
+            "'.note'",
+            "\"p.note\"",
+            "'p.note'"
+          ],
+          "hint_fa": "انتخابگر کلاس با نقطه",
+          "wrong_feedback": {
+            "\"#note\"": "`#` برای شناسه است و هیچ عنصری `id=\"note\"` ندارد؛ querySelector مقدار null برمی‌گرداند و خواندن innerHTML از آن TypeError می‌دهد.",
+            "\"note\"": "بدون نقطه، تگی به نام note جست‌وجو می‌شود که وجود ندارد؛ querySelector مقدار null برمی‌گرداند و خواندن innerHTML از آن TypeError می‌دهد.",
+            "\"p\"": "این نخستین بند صفحه، یعنی plain، را برمی‌گرداند."
+          },
+          "default_wrong_fa": "انتخابگر کلاس را بنویس."
+        }
+      ],
+      "lang": "html",
+      "code_origin": "authored",
+      "qa": {
+        "stdin": "",
+        "args": [],
+        "files": {},
+        "expected_stdout_exact": "first note\n",
+        "order_matters": true,
+        "extra_alternatives": []
+      },
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w08-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w08-q-001",
+        "w08-q-002",
+        "w08-q-003",
+        "w08-q-004",
+        "w08-q-005",
+        "w08-q-006",
+        "w08-q-007"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w08-q-008",
+        "w08-q-009",
+        "w08-q-010",
+        "w08-q-011",
+        "w08-q-012",
+        "w08-q-013"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w08-q-014",
+        "w08-q-015",
+        "w08-q-016",
+        "w08-q-017",
+        "w08-q-018",
+        "w08-q-019",
+        "w08-q-020",
+        "w08-q-021"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w08-q-022",
+        "w08-q-023",
+        "w08-q-024",
+        "w08-q-025",
+        "w08-q-026"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w08-q-027",
+        "w08-q-028",
+        "w08-q-029",
+        "w08-q-030",
+        "w08-q-031",
+        "w08-q-032"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w08-q-033",
+        "w08-q-034",
+        "w08-q-035",
+        "w08-q-036",
+        "w08-q-037",
+        "w08-q-038",
+        "w08-q-039",
+        "w08-q-040",
+        "w08-q-041",
+        "w08-q-042"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w08-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w08-q-043",
+        "w08-q-044",
+        "w08-q-045",
+        "w08-q-046",
+        "w08-q-047",
+        "w08-q-048",
+        "w08-q-049",
+        "w08-q-050",
+        "w08-q-051",
+        "w08-q-052",
+        "w08-q-053",
+        "w08-q-054",
+        "w08-q-055"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w08-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۸",
+      "item_ids": [
+        "w08-q-003",
+        "w08-q-005",
+        "w08-q-010",
+        "w08-q-011",
+        "w08-q-016",
+        "w08-q-018",
+        "w08-q-022",
+        "w08-q-024",
+        "w08-q-028",
+        "w08-q-030",
+        "w08-q-038",
+        "w08-q-040",
+        "w08-q-049",
+        "w08-q-051"
+      ],
+      "item_pool_ids": [
+        "w08-q-001",
+        "w08-q-002",
+        "w08-q-003",
+        "w08-q-004",
+        "w08-q-005",
+        "w08-q-006",
+        "w08-q-007",
+        "w08-q-008",
+        "w08-q-009",
+        "w08-q-010",
+        "w08-q-011",
+        "w08-q-012",
+        "w08-q-013",
+        "w08-q-014",
+        "w08-q-015",
+        "w08-q-016",
+        "w08-q-017",
+        "w08-q-018",
+        "w08-q-019",
+        "w08-q-020",
+        "w08-q-021",
+        "w08-q-022",
+        "w08-q-023",
+        "w08-q-024",
+        "w08-q-025",
+        "w08-q-026",
+        "w08-q-027",
+        "w08-q-028",
+        "w08-q-029",
+        "w08-q-030",
+        "w08-q-031",
+        "w08-q-032",
+        "w08-q-033",
+        "w08-q-034",
+        "w08-q-035",
+        "w08-q-036",
+        "w08-q-037",
+        "w08-q-038",
+        "w08-q-039",
+        "w08-q-040",
+        "w08-q-041",
+        "w08-q-042",
+        "w08-q-043",
+        "w08-q-044",
+        "w08-q-045",
+        "w08-q-046",
+        "w08-q-047",
+        "w08-q-048",
+        "w08-q-049",
+        "w08-q-050",
+        "w08-q-051",
+        "w08-q-052",
+        "w08-q-053",
+        "w08-q-054",
+        "w08-q-055"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

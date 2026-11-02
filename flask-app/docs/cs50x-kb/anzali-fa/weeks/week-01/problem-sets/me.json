@@ -1,0 +1,179 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-ps-me",
+  "kind": "pset",
+  "week": 1,
+  "title_en": "Hello, It's Me",
+  "title_fa": "سلام، منم",
+  "guide_doc_id": "w01-ps-me",
+  "guide_file": "me.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/psets/1/me/",
+    "index_url": "https://cs50.harvard.edu/x/psets/1/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w01-ps-me-r1",
+        "text_fa": "فایل `hello.c` در پوشهٔ `me`",
+        "text_en": "In a file called `hello.c`, in a folder called `me`",
+        "source_ref": "src-pset-1-me#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-me-r2",
+        "text_fa": "نام کاربر را بپرسد.",
+        "text_en": "prompts the user for their name",
+        "source_ref": "src-pset-1-me#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-me-r3",
+        "text_fa": "به همان کاربر سلام کند، مثلاً `hello, Adele\\n`.",
+        "text_en": "then says hello to that user. For instance, if the user's name is Adele, your program should print `hello, Adele\\n`!",
+        "source_ref": "src-pset-1-me#problem-to-solve"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/me",
+      "style50": "style50 hello.c",
+      "submit50": "submit50 cs50/problems/2026/x/me",
+      "wget": null
+    },
+    "sample_io": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/me",
+      "style50": "style50 hello.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "YQHsXMglC9A",
+        "caption_fa": "ویدئوی معرفی"
+      },
+      {
+        "youtube_id": "wSk1KSDUEYA",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "Jn4egWrG0Rvuzo9d2Rs0qpkcL",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-cs50-library",
+      "w01-c-get-string",
+      "w01-c-variable-declaration",
+      "w01-c-placeholder",
+      "w01-c-printf",
+      "w01-c-header-file"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l03"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-cs50-library",
+        "note_id": "w01-n06",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u02"
+      },
+      {
+        "concept_id": "w01-c-get-string",
+        "note_id": "w01-n07",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u02"
+      },
+      {
+        "concept_id": "w01-c-variable-declaration",
+        "note_id": "w01-n07",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u03"
+      },
+      {
+        "concept_id": "w01-c-placeholder",
+        "note_id": "w01-n07",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u03"
+      },
+      {
+        "concept_id": "w01-c-printf",
+        "note_id": "w01-n05",
+        "lesson_id": "w01-l02",
+        "unit_id": "w01-l02-u01"
+      },
+      {
+        "concept_id": "w01-c-header-file",
+        "note_id": "w01-n06",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "صفحهٔ رسمی سه یادآوری دارد: get_string در cs50.h، printf در stdio.h، و %s برای قالب‌بندی رشته."
+      },
+      {
+        "n": 2,
+        "hint_fa": "اگر به‌جای نام، کلمهٔ نام متغیر چاپ شد، یادداشت «سلام به تو» را دوباره ببین."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نوشتن نام متغیر داخل نقل‌قول",
+      "جاانداختن `#include <cs50.h>`",
+      "`Hello` با H بزرگ به‌جای `hello`",
+      "فاصله یا کامای اضافه یا جاافتاده"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-ps-me-c01",
+        "text_fa": "هر دو فایل سرآیند لازم را include کرده‌ام.",
+        "maps_to": "w01-ps-me-r2"
+      },
+      {
+        "id": "w01-ps-me-c02",
+        "text_fa": "نام را در متغیری با نوع درست ذخیره کرده‌ام.",
+        "maps_to": "w01-ps-me-r2"
+      },
+      {
+        "id": "w01-ps-me-c03",
+        "text_fa": "خروجی با حرف کوچک `hello, ` شروع می‌شود و با `\\n` تمام می‌شود.",
+        "maps_to": "w01-ps-me-r3"
+      },
+      {
+        "id": "w01-ps-me-c04",
+        "text_fa": "با چند نام مختلف (مثلاً یک کلمه‌ای و دوکلمه‌ای) امتحان کرده‌ام.",
+        "maps_to": "w01-ps-me-r3"
+      },
+      {
+        "id": "w01-ps-me-c05",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w01-ps-me-c06",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w01-ps-me-c07",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

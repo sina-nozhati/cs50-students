@@ -1,0 +1,208 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-ps-sort",
+  "kind": "pset",
+  "week": 3,
+  "title_en": "Sort",
+  "title_fa": "تشخیص الگوریتم مرتب‌سازی (Sort)",
+  "guide_doc_id": "w03-ps-sort",
+  "guide_file": "sort.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/3/sort/",
+    "index_url": "https://cs50.harvard.edu/x/psets/3/",
+    "submission": "required",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w03-ps-sort-r1",
+        "text_fa": "پاسخ‌ها در فایل `answers.txt` در پوشهٔ `sort` نوشته شوند.",
+        "text_en": "In a file called `answers.txt` in a folder called `sort`, record your answers",
+        "source_ref": "src-pset-3-sort#problem-to-solve"
+      },
+      {
+        "id": "w03-ps-sort-r2",
+        "text_fa": "برای هر برنامه، الگوریتمش را همراه با یک توضیح به‌جای `TODO` بنویس.",
+        "text_en": "record your answers, along with an explanation for each program, by filling in the blanks marked `TODO`.",
+        "source_ref": "src-pset-3-sort#problem-to-solve"
+      },
+      {
+        "id": "w03-ps-sort-r3",
+        "text_fa": "هر یک از `sort1`، `sort2` و `sort3` یکی از انتخابی، حبابی یا ادغامی است، نه لزوماً به همین ترتیب.",
+        "text_en": "Each of `sort1`, `sort2`, and `sort3` implements a different sorting algorithm: selection sort, bubble sort, or merge sort (though not necessarily in that order!).",
+        "source_ref": "src-pset-3-sort#distribution-code"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/sort",
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/sort",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/3/sort.zip\nunzip sort.zip\nrm sort.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/sort",
+      "style50": null,
+      "has_check50": true,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "-Bhxxw6JKKY",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d35",
+      "d41"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-selection-sort",
+      "w03-c-bubble-sort",
+      "w03-c-merge-sort",
+      "w03-c-big-o",
+      "w03-c-omega",
+      "w03-c-early-exit-no-swaps",
+      "w03-c-time-command"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l05",
+      "w03-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-selection-sort",
+        "note_id": "w03-n10",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u01"
+      },
+      {
+        "concept_id": "w03-c-bubble-sort",
+        "note_id": "w03-n11",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u02"
+      },
+      {
+        "concept_id": "w03-c-merge-sort",
+        "note_id": "w03-n14",
+        "lesson_id": "w03-l07",
+        "unit_id": "w03-l07-u01"
+      },
+      {
+        "concept_id": "w03-c-big-o",
+        "note_id": "w03-n04",
+        "lesson_id": "w03-l02",
+        "unit_id": "w03-l02-u01"
+      },
+      {
+        "concept_id": "w03-c-omega",
+        "note_id": "w03-n05",
+        "lesson_id": "w03-l02",
+        "unit_id": "w03-l02-u02"
+      },
+      {
+        "concept_id": "w03-c-early-exit-no-swaps",
+        "note_id": "w03-n11",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u02"
+      },
+      {
+        "concept_id": "w03-c-time-command",
+        "note_id": "w03-n04",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از اجرا، برای هر الگوریتم پیش‌بینی کن: روی ورودی از قبل مرتب چه می‌کند؟ روی ورودی برعکس؟ جدول O و Ω یادداشت‌های ۱۰، ۱۱ و ۱۴ را کنار دستت بگذار."
+      },
+      {
+        "n": 2,
+        "hint_fa": "صفحهٔ رسمی پیشنهاد می‌کند هر برنامه را با `time` اجرا کنی. یک ورودی بزرگ انتخاب کن تا اختلاف‌ها به چشم بیاید."
+      },
+      {
+        "n": 3,
+        "hint_fa": "کدام الگوریتم «بهترین حالت» متفاوتی با «بدترین حالت» دارد؟ چه ورودی‌ای آن تفاوت را نشان می‌دهد؟"
+      },
+      {
+        "n": 4,
+        "hint_fa": "اگر دو برنامه روی یک نوع ورودی شبیه هم‌اند، نوع دیگری از ورودی را امتحان کن تا از هم جدا شوند."
+      },
+      {
+        "n": 5,
+        "hint_fa": "توضیحت را بر اساس شاهد بنویس: «روی فلان فایل، زمان فلان بود، که با O یا Ω فلان الگوریتم جور است.»"
+      }
+    ],
+    "common_mistakes_fa": [
+      "قضاوت از روی یک اجرای تنها؛ زمان‌ها کمی نوسان دارند",
+      "استفاده از ورودی‌های خیلی کوچک که اختلاف را نشان نمی‌دهند",
+      "فراموش کردن `cd` به پوشهٔ `sort` پیش از اجرای `./sort1`",
+      "نوشتن فقط نام الگوریتم بدون توضیح"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-ps-sort-c01",
+        "text_fa": "هر سه برنامه را روی فایل‌های مرتب، برعکس و تصادفی اجرا کرده‌ام.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w03-ps-sort-c02",
+        "text_fa": "برای سنجش از `time` استفاده کرده‌ام و به زمان `real` نگاه کرده‌ام.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w03-ps-sort-c03",
+        "text_fa": "سه الگوریتم متفاوت به سه برنامه نسبت داده‌ام.",
+        "maps_to": "w03-ps-sort-r3"
+      },
+      {
+        "id": "w03-ps-sort-c04",
+        "text_fa": "برای هر برنامه یک توضیح نوشته‌ام، نه فقط نام الگوریتم.",
+        "maps_to": "w03-ps-sort-r2"
+      },
+      {
+        "id": "w03-ps-sort-c05",
+        "text_fa": "فایل `answers.txt` در پوشهٔ `sort` است.",
+        "maps_to": "w03-ps-sort-r1"
+      },
+      {
+        "id": "w03-ps-sort-c06",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w03-ps-sort-c07",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://video.cs50.io/-Bhxxw6JKKY",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

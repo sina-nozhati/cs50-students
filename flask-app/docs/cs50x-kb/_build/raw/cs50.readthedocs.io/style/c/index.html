@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="Style Guide for C" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://cs50.readthedocs.io/style/c/" />
+  
+<meta property="og:description" content="There’s no one, right way to stylize code. But there are definitely a lot of wrong (or, at least, bad ways). Even so, CS50 does ask that you adhere to the conventions below so that we can reliably ..." />
+  
+<meta property="og:image" content="https://cs50.readthedocs.io/_images/2ep2od.jpg" />
+  
+<meta property="og:image:alt" content="ALL THE DOCS" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Style Guide for C &mdash; CS50 Docs</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="/_static/custom.css?1790806731" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="/_static/custom.js?1790806731"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Jekyll" href="../../themes/jekyll/" />
+    <link rel="prev" title="CS50 Library for Python" href="../../libraries/cs50/python/" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cs50" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/style/c/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../" class="icon icon-home"> CS50 Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/dining/">Dining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/map/">Map</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Command-Line Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cli50/"><code class="docutils literal notranslate"><span class="pre">cli50</span></code></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help50/"><code class="docutils literal notranslate"><span class="pre">help50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render50/"><code class="docutils literal notranslate"><span class="pre">render50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style50/"><code class="docutils literal notranslate"><span class="pre">style50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../submit50/"><code class="docutils literal notranslate"><span class="pre">submit50</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docker Images</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50/check/"><code class="docutils literal notranslate"><span class="pre">cs50/check</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50/cli/"><code class="docutils literal notranslate"><span class="pre">cs50/cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50/server/"><code class="docutils literal notranslate"><span class="pre">cs50/server</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../libraries/cs50/">cs50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/lib50/">lib50</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Style Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#line-length">Line Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comments">Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-headers">Library Headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conditions">Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#switches">Switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#indentation">Indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loops">Loops</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#for">for</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#while">while</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-while">do … while</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pointers">Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structures">Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://peps.python.org/pep-0008/">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../themes/jekyll/">Jekyll</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Third-Party Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../github/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../heroku/">Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/"><code class="docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../terminal/">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../zoom/">Zoom</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Web Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50.ai/">CS50.ai</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../certificates.cs50.io/">CS50 Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../forms.cs50.io/">CS50 Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../id.cs50.io/">CS50 ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual.cs50.io/">CS50 Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render.cs50.io/">CS50 Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../time.cs50.io/">CS50 Time Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vault.cs50.io/">CS50 Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../video.cs50.io/">CS50 Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50.codes/">CS50’s QR Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cs50.dev/">Visual Studio Code for CS50</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CS50 Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+      <li>Style Guide for C</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/style/c.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="style-guide-for-c">
+<h1>Style Guide for C<a class="headerlink" href="#style-guide-for-c" title="Permalink to this heading"></a></h1>
+<p>There’s no one, right way to stylize code. But there are definitely a lot of wrong (or, at least, bad ways). Even so, CS50 does ask that you adhere to the conventions below so that we can reliably analyze your code’s style. Similarly do companies typically adopt their own, company-wide conventions for style.</p>
+<section id="line-length">
+<h2>Line Length<a class="headerlink" href="#line-length" title="Permalink to this heading"></a></h2>
+<p>By convention the maximum length of a line of code is 80 characters long in C, with that being historically grounded in standard-sized monitors on older computer terminals, which could display 24 lines vertically and 80 characters horizontally. Though modern technology has obsoleted the need to keep lines capped at 80 characters, it is still a guideline that should be considered a “soft stop.” With tools like <code class="docutils literal notranslate"><span class="pre">style50</span></code>, a hard limit of 100 characters is enforced, beyond which the code may not pass style checks. A line of 100 characters should really be the longest you write in C, else readers will generally need to scroll. If you need more than 100 characters, it may be time to rethink either your variable names or your overall design!</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// These next lines of code first prompt the user to give two integer values and then multiplies those two integer values together so they can be used later in the program</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">first_collected_integer_value_from_user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_int</span><span class="p">(</span><span class="s">"Integer please: "</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">second_collected_integer_value_from_user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_int</span><span class="p">(</span><span class="s">"Another integer please: "</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">product_of_the_two_integer_values_from_user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first_collected_integer_value_from_user</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">second_collected_integer_value_from_user</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In other languages, particularly JavaScript, it is significantly more difficult to constrain lines to a maximum length; there, your goal should instead be to break up lines (as via <code class="docutils literal notranslate"><span class="pre">\n</span></code>) in locations that maximize readability and clarity.</p>
+</section>
+<section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this heading"></a></h2>
+<p>Comments make code more readable, not only for others (e.g., your TF) but also for you, especially when hours, days, weeks, months, or years pass between writing and reading your own code. Commenting too little is bad. Commenting too much is bad. Where’s the sweet spot? Commenting every few lines of code (i.e., interesting blocks) is a decent guideline. Try to write comments that address one or both of these questions:</p>
+<ol class="arabic simple">
+<li><p>What does this block do?</p></li>
+<li><p>Why did I implement this block in this way?</p></li>
+</ol>
+<p>Within functions, use “inline comments” and keep them short (e.g., one line), else it becomes difficult to distinguish comments from code, even with <a class="reference external" href="http://en.wikipedia.org/wiki/Syntax_highlighting">syntax highlighting</a>. Place the comment above the line(s) to which it applies. No need to write in full sentences, but do capitalize the comment’s first word (unless it’s the name of a function, variable, or the like), and do leave one space between the <code class="docutils literal notranslate"><span class="pre">//</span></code> and your comment’s first character, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Convert Fahrenheit to Celsius</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">9.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">32.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In other words, don’t do this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//Convert Fahrenheit to Celsius</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">9.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">32.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Or this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// convert Fahrenheit to Celsius</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">9.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">32.0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Or this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">9.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">32.0</span><span class="p">);</span><span class="w"> </span><span class="c1">// Convert Fahrenheit to Celsius</span>
+</pre></div>
+</div>
+<p>Atop your .c and .h files should be a comment that summarize what your program (or that particular file) does, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Says hello to the world</span>
+</pre></div>
+</div>
+<p>Atop each of your functions (except, perhaps, <code class="docutils literal notranslate"><span class="pre">main</span></code>), meanwhile, should be a comment that summarizes what your function is doing, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Returns the square of n</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="library-headers">
+<h2>Library Headers<a class="headerlink" href="#library-headers" title="Permalink to this heading"></a></h2>
+<p>Any library headers that you include should be listed in alphabetical order, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cs50.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+</pre></div>
+</div>
+<p>This makes it easier to see at a glance, particularly in a long list, whether you have included a header.</p>
+</section>
+<section id="conditions">
+<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this heading"></a></h2>
+<p>Conditions should be styled as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is positive</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is zero</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice how:</p>
+<ul class="simple">
+<li><p>the curly braces line up nicely, each on its own line, making perfectly clear what’s inside the branch;</p></li>
+<li><p>there’s a single space after each <code class="docutils literal notranslate"><span class="pre">if</span></code>;</p></li>
+<li><p>each call to <code class="docutils literal notranslate"><span class="pre">printf</span></code> is indented with 4 spaces;</p></li>
+<li><p>there are single spaces around the <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> and around the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>; and</p></li>
+<li><p>there isn’t any space immediately after each <code class="docutils literal notranslate"><span class="pre">(</span></code> or immediately before each <code class="docutils literal notranslate"><span class="pre">)</span></code>.</p></li>
+</ul>
+<p>To save space, some programmers like to keep the first curly brace on the same line as the condition itself, but we don’t recommend, as it’s harder to read, so don’t do this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And definitely don’t do this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is negative</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="switches">
+<h2>Switches<a class="headerlink" href="#switches" title="Permalink to this heading"></a></h2>
+<p>Declare a <code class="docutils literal notranslate"><span class="pre">switch</span></code> as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">-1</span><span class="p">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"n is -1</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"n is 1</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"n is neither -1 nor 1</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice how:</p>
+<ul class="simple">
+<li><p>each curly brace is on its own line;</p></li>
+<li><p>there’s a single space after <code class="docutils literal notranslate"><span class="pre">switch</span></code>;</p></li>
+<li><p>there isn’t any space immediately after each <code class="docutils literal notranslate"><span class="pre">(</span></code> or immediately before each <code class="docutils literal notranslate"><span class="pre">)</span></code>;</p></li>
+<li><p>the switch’s cases are indented with 4 spaces;</p></li>
+<li><p>the cases’ bodies are indented further with 4 spaces; and</p></li>
+<li><p>each <code class="docutils literal notranslate"><span class="pre">case</span></code> (including <code class="docutils literal notranslate"><span class="pre">default</span></code>) ends with a <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p></li>
+</ul>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
+<p>In accordance with <a class="reference external" href="https://en.wikipedia.org/wiki/C11_(C_standard_revision)">C11</a>, be sure to declare <code class="docutils literal notranslate"><span class="pre">main</span></code> with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or, if using the CS50 Library, with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cs50.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or even with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Do not declare <code class="docutils literal notranslate"><span class="pre">main</span></code> with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>or with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As for your own functions, be sure to define them similarly, with each curly brace on its own line and with the return type on the same line as the function’s name, just as we’ve done with <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
+</section>
+<section id="indentation">
+<h2>Indentation<a class="headerlink" href="#indentation" title="Permalink to this heading"></a></h2>
+<p>Indent your code four spaces at a time to make clear which blocks of code are inside of others. If you use your keyboard’s Tab key to do so, be sure that your text editor’s configured to convert tabs (<code class="docutils literal notranslate"><span class="pre">\t</span></code>) to four spaces, else your code may not print or display properly on someone else’s computer, since <code class="docutils literal notranslate"><span class="pre">\t</span></code> renders differently in different editors. (If using <a class="reference external" href="https://cs50.dev/">cs50.dev</a>, it’s fine to use Tab for indentation, rather than hitting your keyboard’s space bar repeatedly, since we’ve preconfigured it to convert <code class="docutils literal notranslate"><span class="pre">\t</span></code> to four spaces.)</p>
+<p>Here’s some nicely indented code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Print command-line arguments one per line</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">argc</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="loops">
+<h2>Loops<a class="headerlink" href="#loops" title="Permalink to this heading"></a></h2>
+<section id="for">
+<h3>for<a class="headerlink" href="#for" title="Permalink to this heading"></a></h3>
+<p>Whenever you need temporary variables for iteration, use <code class="docutils literal notranslate"><span class="pre">i</span></code>, then <code class="docutils literal notranslate"><span class="pre">j</span></code>, then <code class="docutils literal notranslate"><span class="pre">k</span></code>, unless more specific names would make your code more readable:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LIMIT</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LIMIT</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LIMIT</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Do something</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you need more than three variables for iteration, it might be time to rethink your design!</p>
+</section>
+<section id="while">
+<h3>while<a class="headerlink" href="#while" title="Permalink to this heading"></a></h3>
+<p>Declare <code class="docutils literal notranslate"><span class="pre">while</span></code> loops as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Notice how:</p>
+<ul class="simple">
+<li><p>each curly brace is on its own line;</p></li>
+<li><p>there’s a single space after <code class="docutils literal notranslate"><span class="pre">while</span></code>;</p></li>
+<li><p>there isn’t any space immediately after the <code class="docutils literal notranslate"><span class="pre">(</span></code> or immediately before the <code class="docutils literal notranslate"><span class="pre">)</span></code>; and</p></li>
+<li><p>the loop’s body (a comment in this case) is indented with 4 spaces.</p></li>
+</ul>
+</section>
+<section id="do-while">
+<h3>do … while<a class="headerlink" href="#do-while" title="Permalink to this heading"></a></h3>
+<p>Declare <code class="docutils literal notranslate"><span class="pre">do</span> <span class="pre">...</span> <span class="pre">while</span></code> loops as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Do something</span>
+<span class="p">}</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Notice how:</p>
+<ul class="simple">
+<li><p>each curly brace is on its own line;</p></li>
+<li><p>there’s a single space after <code class="docutils literal notranslate"><span class="pre">while</span></code>;</p></li>
+<li><p>there isn’t any space immediately after the <code class="docutils literal notranslate"><span class="pre">(</span></code> or immediately before the <code class="docutils literal notranslate"><span class="pre">)</span></code>; and</p></li>
+<li><p>the loop’s body (a comment in this case) is indented with 4 spaces.</p></li>
+</ul>
+</section>
+</section>
+<section id="pointers">
+<h2>Pointers<a class="headerlink" href="#pointers" title="Permalink to this heading"></a></h2>
+<p>When declaring a pointer, write the <code class="docutils literal notranslate"><span class="pre">*</span></code> next to the variable, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Don’t write it next to the type, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading"></a></h2>
+<p>Because CS50 uses <a class="reference external" href="https://en.wikipedia.org/wiki/C11_(C_standard_revision)">C11</a>, do not define all of your variables at the very top of your functions but, rather, when and where you actually need them. Moreover, scope your variables as tightly as possible. For instance, if <code class="docutils literal notranslate"><span class="pre">i</span></code> is only needed for the sake of a loop, declare <code class="docutils literal notranslate"><span class="pre">i</span></code> within the loop itself:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">LIMIT</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%i</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Though it’s fine to use variables like <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">j</span></code>, and <code class="docutils literal notranslate"><span class="pre">k</span></code> for iteration, most of your variables should be more specifically named. If you’re summing some values, for instance, call your variable <code class="docutils literal notranslate"><span class="pre">sum</span></code>. If your variable’s name warrants two words (e.g., <code class="docutils literal notranslate"><span class="pre">is_ready</span></code>), put an underscore between them, a convention popular in C though less so in other languages.</p>
+<p>If declaring multiple variables of the same type at once, it’s fine to declare them together, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">quarters</span><span class="p">,</span><span class="w"> </span><span class="n">dimes</span><span class="p">,</span><span class="w"> </span><span class="n">nickels</span><span class="p">,</span><span class="w"> </span><span class="n">pennies</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Just don’t initialize some but not others, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">quarters</span><span class="p">,</span><span class="w"> </span><span class="n">dimes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">nickels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">pennies</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Also take care to declare pointers separately from non-pointers, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Don’t declare pointers on the same line as non-pointers, as in:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="structures">
+<h2>Structures<a class="headerlink" href="#structures" title="Permalink to this heading"></a></h2>
+<p>Declare a <code class="docutils literal notranslate"><span class="pre">struct</span></code> as a type as follows, with each curly brace on its own line and members indented therein, with the type’s name also on its own line:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">dorm</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">student</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If the <code class="docutils literal notranslate"><span class="pre">struct</span></code> contains as a member a pointer to another such <code class="docutils literal notranslate"><span class="pre">struct</span></code>, declare the <code class="docutils literal notranslate"><span class="pre">struct</span></code> as having a name identical to the type, without using underscores:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

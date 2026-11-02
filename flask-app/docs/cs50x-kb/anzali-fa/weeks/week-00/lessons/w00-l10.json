@@ -1,0 +1,466 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w00-l10",
+  "type": "lesson",
+  "week": 0,
+  "order": 10,
+  "stage_id": "w00-s4",
+  "title_fa": "ساختن بازی و برنامه‌ریزی پروژه",
+  "title_en": "Building games and planning your project",
+  "note_ids": [
+    "w00-n15",
+    "w00-n16"
+  ],
+  "prerequisite_lesson_ids": [
+    "w00-l09"
+  ],
+  "concept_ids": [
+    "w00-c-thread",
+    "w00-c-sprite",
+    "w00-c-custom-block",
+    "w00-c-abstraction",
+    "w00-c-movement-collision",
+    "w00-c-coordinates",
+    "w00-c-boolean-operators",
+    "w00-c-incremental-development"
+  ],
+  "objective_ids": [
+    "w00-o10",
+    "w00-o08",
+    "w00-o09",
+    "w00-o11"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes; examples marked official are verbatim from notes/0.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w00-l09"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w00-l10-u01",
+      "order": 1,
+      "title_fa": "چند اسکریپت هم‌زمان",
+      "concept_ids": [
+        "w00-c-thread",
+        "w00-c-sprite"
+      ],
+      "objective_ids": [
+        "w00-o10"
+      ],
+      "note_id": "w00-n15",
+      "source_refs": [
+        "src-notes-0#oscartime",
+        "src-transcript-0",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "زبالهٔ Oscartime دو اسکریپت دارد که هر دو با پرچم سبز و هم‌زمان اجرا می‌شوند: یکی آن را می‌اندازد و دیگری بررسی می‌کند آیا به Oscar رسیده است.",
+        "note_id": "w00-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-trash-touch",
+        "lang": "scratch",
+        "content": "when green flag clicked\nforever\n  if <touching [Oscar v] ?> then\n    go to x: (pick random (0) to (240)) y: (180)\n  end\nend",
+        "source_ref": "src-notes-0#oscartime",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l10-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "دو اسکریپت پرچم سبز یک اسپرایت چطور اجرا می‌شوند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هم‌زمان (موازی)",
+            "correct": true,
+            "feedback_fa": "درست؛ در سخنرانی «in parallel» گفته شد."
+          },
+          {
+            "id": "b",
+            "text_fa": "اولی تمام می‌شود، بعد دومی",
+            "correct": false,
+            "feedback_fa": "هر دو forever دارند؛ اگر پشت هم بودند، دومی هرگز اجرا نمی‌شد."
+          },
+          {
+            "id": "c",
+            "text_fa": "فقط یکی تصادفی",
+            "correct": false,
+            "feedback_fa": "هر دو اجرا می‌شوند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l10-u01-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "چرا منطق «افتادن» و «بررسی برخورد» در دو اسکریپت جدا آمده است؟",
+        "expected": {
+          "rubric_fa": [
+            "هر اسکریپت یک کار مشخص",
+            "هر دو forever دارند و باید هم‌زمان اجرا شوند"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "اگر هر دو forever در یک اسکریپت پشت هم بودند، دومی هرگز اجرا نمی‌شد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l10-u02",
+      "order": 2,
+      "title_fa": "انتزاع در بازی: go to top",
+      "concept_ids": [
+        "w00-c-custom-block",
+        "w00-c-abstraction"
+      ],
+      "objective_ids": [
+        "w00-o08",
+        "w00-o10"
+      ],
+      "note_id": "w00-n15",
+      "source_refs": [
+        "src-notes-0#oscartime",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "در هر دو اسکریپت زباله، همان بلوک «go to x: (pick random 0 to 240) y: 180» تکرار شده بود. با تعریف بلوک `go to top` این تکرار حذف شد.",
+        "note_id": "w00-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-define-go-to-top",
+        "lang": "scratch",
+        "content": "define go to top\n  go to x: (pick random (0) to (240)) y: (180)",
+        "source_ref": "src-notes-0#oscartime",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l10-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر بخواهی زباله از کل عرض صحنه بیفتد، کجا را تغییر می‌دهی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فقط تعریف go to top",
+            "correct": true,
+            "feedback_fa": "درست؛ مزیت انتزاع: یک جا تغییر، همه‌جا اثر."
+          },
+          {
+            "id": "b",
+            "text_fa": "هر دو اسکریپت",
+            "correct": false,
+            "feedback_fa": "دیگر لازم نیست؛ هر دو از go to top استفاده می‌کنند."
+          },
+          {
+            "id": "c",
+            "text_fa": "رویداد پرچم سبز",
+            "correct": false,
+            "feedback_fa": "ربطی به محل افتادن ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l10-u02-ex",
+        "type": "short_answer",
+        "origin": "authored",
+        "prompt_fa": "در تعریف go to top چه مقداری را عوض می‌کنی تا زباله از کل عرض صحنه بیفتد؟",
+        "expected": {
+          "answer": "pick random (-240) to (240)"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "لبهٔ چپ صحنه x = -240 است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l10-u03",
+      "order": 3,
+      "title_fa": "حرکت با کلیدها و دیوارها",
+      "concept_ids": [
+        "w00-c-movement-collision",
+        "w00-c-coordinates"
+      ],
+      "objective_ids": [
+        "w00-o10"
+      ],
+      "note_id": "w00-n16",
+      "source_refs": [
+        "src-notes-0#ivys-hardest-game",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "در Ivy’s Hardest Game، اسپرایت به `(0,0)` می‌رود و برای همیشه «به صفحه‌کلید گوش می‌دهد» و «دیوارها را حس می‌کند». هر دو بلوک سفارشی‌اند.",
+        "note_id": "w00-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-feel-walls",
+        "lang": "scratch",
+        "content": "define feel for walls\nif <touching (left wall v) ?> then\nchange x by (1)\nend\nif <touching (right wall v) ?> then\nchange x by (-1)\nend",
+        "source_ref": "src-notes-0#ivys-hardest-game",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l10-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "feel for walls وقتی اسپرایت به دیوار چپ بخورد چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "یک واحد به راست برش می‌گرداند",
+            "correct": true,
+            "feedback_fa": "درست: change x by (1)."
+          },
+          {
+            "id": "b",
+            "text_fa": "بازی را تمام می‌کند",
+            "correct": false,
+            "feedback_fa": "در این نسخه فقط برمی‌گرداند."
+          },
+          {
+            "id": "c",
+            "text_fa": "به (0,0) می‌رود",
+            "correct": false,
+            "feedback_fa": "آن کار فقط در شروع انجام می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l10-u03-ex",
+        "type": "practical",
+        "origin": "authored",
+        "prompt_fa": "listen for keyboard را بساز و آزمایش کن که هر چهار کلید جهت کار می‌کنند.",
+        "expected": {
+          "self_check_fa": [
+            "چهار کلید کار می‌کنند",
+            "اسپرایت از صحنه بیرون نمی‌رود"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی.",
+          "incorrect_fa": "برای هر کلید یک if جدا لازم است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l10-u04",
+      "order": 4,
+      "title_fa": "«یا» و چرخیدن در برخورد",
+      "concept_ids": [
+        "w00-c-boolean-operators"
+      ],
+      "objective_ids": [
+        "w00-o09",
+        "w00-o10"
+      ],
+      "note_id": "w00-n16",
+      "source_refs": [
+        "src-notes-0#ivys-hardest-game",
+        "src-anzali-authored"
+      ],
+      "reading": {
+        "text_fa": "اسپرایت Yale جلو و عقب می‌رود: اگر به دیوار چپ **یا** راست بخورد، ۱۸۰ درجه می‌چرخد. عملگر `or` دو عبارت بولی را ترکیب می‌کند.",
+        "note_id": "w00-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "scratch-bounce",
+        "lang": "scratch",
+        "content": "when green flag clicked\ngo to x: (0) y: (0)\npoint in direction (90)\nforever\nif <<touching (left wall v)?> or <touching (right wall v)?>> then\nturn right (180) degrees\nend\nmove (1) steps\nend",
+        "source_ref": "src-notes-0#ivys-hardest-game",
+        "explain_fa": ""
+      },
+      "check": {
+        "id": "w00-l10-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`<A> or <B>` کی درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "وقتی دست‌کم یکی درست باشد",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "فقط وقتی هر دو درست باشند",
+            "correct": false,
+            "feedback_fa": "این and است."
+          },
+          {
+            "id": "c",
+            "text_fa": "هیچ‌وقت",
+            "correct": false,
+            "feedback_fa": "دست‌کم یکی کافی است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l10-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "اسپرایت رو به راست (90) است و به دیوار راست می‌رسد. بعد از اجرای بلوک‌ها جهتش چه می‌شود؟",
+        "expected": {
+          "answer": "270 (-90)، یعنی رو به چپ"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "turn right 180 درجه جهت را برعکس می‌کند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w00-l10-u05",
+      "order": 5,
+      "title_fa": "از نمونه تا پروژهٔ خودت",
+      "concept_ids": [
+        "w00-c-incremental-development"
+      ],
+      "objective_ids": [
+        "w00-o11"
+      ],
+      "note_id": "w00-n15",
+      "source_refs": [
+        "src-notes-0#oscartime",
+        "src-anzali-authored",
+        "src-pset-0-scratch#starting-from-scratch"
+      ],
+      "reading": {
+        "text_fa": "صفحهٔ پرابلم‌ست می‌گوید پروژه را یک‌جا نساز: «گام‌های کوچک» بردار، کمی بساز، آزمایش کن و دوباره. هر چند دقیقه هم ذخیره کن.",
+        "note_id": "w00-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w00-n15"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "ایده: «گربه‌ای که سیب جمع می‌کند»\n□ دو اسپرایت (گربه + سیب)\n□ سه اسکریپت\n□ شرط / حلقه / متغیر امتیاز\n□ بلوک سفارشی با ورودی: «امتیاز بده n»",
+        "source_ref": "src-anzali-authored",
+        "explain_fa": "نمونهٔ تألیفی «نقشهٔ الزامات»، نه راه‌حل؛ ایدهٔ خودت را جایگزین کن."
+      },
+      "check": {
+        "id": "w00-l10-u05-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بهترین روش ساختن پروژه طبق صفحهٔ رسمی چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "گام‌های کوچک: کمی کد، آزمایش، تکرار",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "کل پروژه را بساز و آخر آزمایش کن",
+            "correct": false,
+            "feedback_fa": "صفحهٔ رسمی صریحاً این را توصیه نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "از پروژهٔ دیگران کپی کن",
+            "correct": false,
+            "feedback_fa": "خلاف صداقت علمی است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w00-l10-u05-ex",
+        "type": "practical",
+        "origin": "authored",
+        "prompt_fa": "نقشهٔ الزامات پروژهٔ خودت را بنویس: کنار هر الزام رسمی بنویس کجای پروژه آن را برآورده می‌کند.",
+        "expected": {
+          "self_check_fa": [
+            "هر پنج الزام نقشه دارند",
+            "ایده از خودم است"
+          ]
+        },
+        "evaluation": "self_assessed",
+        "feedback": {
+          "correct_fa": "عالی؛ حالا سراغ راهنمای پرابلم‌ست برو.",
+          "incorrect_fa": "چک‌لیست راهنمای پرابلم‌ست را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

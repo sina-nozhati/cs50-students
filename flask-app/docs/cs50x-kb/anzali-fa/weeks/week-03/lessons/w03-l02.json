@@ -1,0 +1,219 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w03-l02",
+  "type": "lesson",
+  "week": 3,
+  "order": 2,
+  "stage_id": "w03-s1",
+  "title_fa": "زمان اجرا: O، Ω و Θ",
+  "title_en": "Running time: O, Omega, Theta",
+  "note_ids": [
+    "w03-n04",
+    "w03-n05"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w03-l01"
+  ],
+  "concept_ids": [
+    "w03-c-big-o",
+    "w03-c-common-running-times",
+    "w03-c-drop-constants",
+    "w03-c-omega",
+    "w03-c-theta",
+    "w03-c-asymptotic-notation"
+  ],
+  "objective_ids": [
+    "w03-o04"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w03-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "units": [
+    {
+      "id": "w03-l02-u01",
+      "order": 1,
+      "title_fa": "نماد O بزرگ",
+      "concept_ids": [
+        "w03-c-big-o",
+        "w03-c-common-running-times",
+        "w03-c-drop-constants"
+      ],
+      "objective_ids": [
+        "w03-o04"
+      ],
+      "note_id": "w03-n04",
+      "source_refs": [
+        "src-notes-3#running-time",
+        "src-anzali-authored-3",
+        "src-transcript-3"
+      ],
+      "reading": {
+        "text_fa": "زمان اجرا یعنی یک الگوریتم چقدر وقت می‌برد. نماد O بزرگ کران بالا یا بدترین حالت را می‌گوید. ضریب‌ها را کنار می‌گذاریم: n/2 هم O(n) است، چون برای nهای بزرگ شکل منحنی مهم است. درس‌نامه این زمان‌های رایج را از کند به سریع فهرست می‌کند: O(n²)، O(n log n)، O(n)، O(log n) و O(1). جست‌وجوی خطی O(n) است و دودویی O(log n).",
+        "note_id": "w03-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n04"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "O(n²)\nO(n log n)\nO(n)\nO(log n)\nO(1)",
+        "source_ref": "src-anzali-authored-3",
+        "explain_fa": "فهرست رسمی، از کند به سریع."
+      },
+      "check": {
+        "id": "w03-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "الگوریتمی که در بدترین حالت n/2 گام برمی‌دارد، با نماد O بزرگ چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "O(n)",
+            "correct": true,
+            "feedback_fa": "درست. ضریب 1/2 کنار گذاشته می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "O(n/2)",
+            "correct": false,
+            "feedback_fa": "در O بزرگ ضریب‌ها را نمی‌نویسیم."
+          },
+          {
+            "id": "c",
+            "text_fa": "O(log n)",
+            "correct": false,
+            "feedback_fa": "log n برای نصف کردن پیاپی است، نه نصف یک‌باره."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l02-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "زمان اجرای بدترین حالت را بنویس: (۱) جست‌وجوی خطی (۲) جست‌وجوی دودویی",
+        "expected": {
+          "answers": {
+            "1": "O(n)",
+            "2": "O(log n)"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بخش Running Time درس‌نامه را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l02-u02",
+      "order": 2,
+      "title_fa": "Ω و Θ",
+      "concept_ids": [
+        "w03-c-omega",
+        "w03-c-theta",
+        "w03-c-asymptotic-notation"
+      ],
+      "objective_ids": [
+        "w03-o04"
+      ],
+      "note_id": "w03-n05",
+      "source_refs": [
+        "src-notes-3#running-time",
+        "src-anzali-authored-3",
+        "src-section-3",
+        "src-short-linear-search"
+      ],
+      "reading": {
+        "text_fa": "Ω کران پایین یا بهترین حالت را می‌گوید. اگر عدد مورد نظر در اولین خانه باشد، هم جست‌وجوی خطی و هم دودویی با یک گام تمام می‌شوند؛ پس هر دو Ω(1) هستند. وقتی کران بالا و پایین یکی باشند، از Θ استفاده می‌کنیم. به این نمادها روی هم «نمادگذاری مجانبی» می‌گویند.",
+        "note_id": "w03-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n05"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "linear search:  O(n),     Ω(1)\nbinary search:  O(log n), Ω(1)",
+        "source_ref": "src-anzali-authored-3",
+        "explain_fa": "جدول تألیفی با عددهای رسمی."
+      },
+      "check": {
+        "id": "w03-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام جمله دربارهٔ Θ درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "وقتی O و Ω یک الگوریتم برابرند، می‌گوییم Θ همان است",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "Θ همیشه بدترین حالت است",
+            "correct": false,
+            "feedback_fa": "بدترین حالت O است."
+          },
+          {
+            "id": "c",
+            "text_fa": "Θ همیشه بهترین حالت است",
+            "correct": false,
+            "feedback_fa": "بهترین حالت Ω است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l02-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: جست‌وجوی خطی Θ(n) است.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: O(n) ولی Ω(1)؛ چون یکی نیستند، Θ ندارد.",
+          "incorrect_fa": "بهترین حالت جست‌وجوی خطی چیست؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l02",
+  "type": "lesson",
+  "week": 4,
+  "order": 2,
+  "stage_id": "w04-s1",
+  "title_fa": "اشاره‌گرها",
+  "title_en": "Pointers",
+  "note_ids": [
+    "w04-n04"
+  ],
+  "related_doc_ids": [
+    "w04-sh-pointers"
+  ],
+  "prerequisite_lesson_ids": [
+    "w04-l01"
+  ],
+  "concept_ids": [
+    "w04-c-address-of",
+    "w04-c-percent-p",
+    "w04-c-pointer",
+    "w04-c-dereference",
+    "w04-c-pointer-size",
+    "w04-c-null-pointer"
+  ],
+  "objective_ids": [
+    "w04-o02",
+    "w04-o06"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w04-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l02-u01",
+      "order": 1,
+      "title_fa": "& و %p",
+      "concept_ids": [
+        "w04-c-address-of",
+        "w04-c-percent-p"
+      ],
+      "objective_ids": [
+        "w04-o02"
+      ],
+      "note_id": "w04-n04",
+      "source_refs": [
+        "src-notes-4#pointers",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "دو عملگر تازه داریم: `&` نشانی چیزی را که در حافظه است می‌دهد و `*` به کامپایلر می‌گوید به آن نشانی برود. با `printf(\"%p\\n\", &n);` نشانی `n` چاپ می‌شود؛ عددی هگزادسیمال که با `0x` شروع می‌شود. خود عدد نشانی ممکن است در هر اجرا فرق کند و معمولاً برایمان مهم نیست.",
+        "note_id": "w04-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "addresses0",
+        "lang": "c",
+        "content": "// Prints an integer's address\n\n#include <stdio.h>\n\nint main(void)\n{\n    int n = 50;\n    printf(\"%p\\n\", &n);\n}",
+        "source_ref": "src-notes-4#pointers",
+        "explain_fa": "کد رسمی که نشانی n را چاپ می‌کند."
+      },
+      "check": {
+        "id": "w04-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام مشخص‌کنندهٔ قالب برای چاپ یک نشانی در `printf` به کار می‌رود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "%p",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "%i",
+            "correct": false,
+            "feedback_fa": "%i برای int است."
+          },
+          {
+            "id": "c",
+            "text_fa": "%s",
+            "correct": false,
+            "feedback_fa": "%s برای رشته است و به دنبال کاراکترها می‌رود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l02-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: اجرای دوبارهٔ برنامه‌ای که `&n` را چاپ می‌کند حتماً همان نشانی قبلی را نشان می‌دهد.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: نشانی‌ها می‌توانند در هر اجرا فرق کنند.",
+          "incorrect_fa": "فقط مقدار n ثابت است."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l02-u02",
+      "order": 2,
+      "title_fa": "اشاره‌گر و dereference",
+      "concept_ids": [
+        "w04-c-pointer",
+        "w04-c-dereference",
+        "w04-c-pointer-size"
+      ],
+      "objective_ids": [
+        "w04-o02"
+      ],
+      "note_id": "w04-n04",
+      "source_refs": [
+        "src-notes-4#pointers",
+        "src-short-pointers",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "اشاره‌گر متغیری است که نشانی نگه می‌دارد. `int *p = &n;` یعنی `p` اشاره‌گری به یک `int` است و نشانی `n` را دارد. در تعریف، ستاره بخشی از نوع است؛ در عبارت `*p`، ستاره یعنی «به نشانی برو» و مقدار 50 را می‌دهد. اشاره‌گر معمولاً ۸ بایت است و بهتر است آن را مثل پیکانی تصور کنی که به جای دیگری اشاره می‌کند.",
+        "note_id": "w04-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "addresses2",
+        "lang": "c",
+        "content": "// Stores and prints an integer's address\n\n#include <stdio.h>\n\nint main(void)\n{\n    int n = 50;\n    int *p = &n;\n    printf(\"%p\\n\", p);\n}",
+        "source_ref": "src-notes-4#pointers",
+        "explain_fa": "کد رسمی که اشاره‌گر p را چاپ می‌کند."
+      },
+      "check": {
+        "id": "w04-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر `int n = 50; int *p = &n;` باشد، `*p` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "50",
+            "correct": true,
+            "feedback_fa": "درست. *p به نشانی p می‌رود، یعنی به n."
+          },
+          {
+            "id": "b",
+            "text_fa": "نشانی n",
+            "correct": false,
+            "feedback_fa": "نشانی n خود p است، نه *p."
+          },
+          {
+            "id": "c",
+            "text_fa": "نشانی p",
+            "correct": false,
+            "feedback_fa": "نشانی p با &p به دست می‌آید."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l02-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این برنامهٔ تألیفی چیست؟",
+        "expected": {
+          "output": "13"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: *p = 13 در همان جایی می‌نویسد که n است.",
+          "incorrect_fa": "p به n اشاره می‌کند؛ نوشتن در *p یعنی نوشتن در n."
+        },
+        "hints_fa": [],
+        "lang": "c",
+        "code": "#include <stdio.h>\n\nint main(void)\n{\n    int n = 50;\n    int *p = &n;\n    *p = 13;\n    printf(\"%i\\n\", n);\n}",
+        "code_origin": "authored",
+        "stdin": "",
+        "compile_checked": true,
+        "match": "exact_after_trim"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l02-u03",
+      "order": 3,
+      "title_fa": "اشاره‌گر NULL",
+      "concept_ids": [
+        "w04-c-null-pointer"
+      ],
+      "objective_ids": [
+        "w04-o02",
+        "w04-o06"
+      ],
+      "note_id": "w04-sh-pointers",
+      "source_refs": [
+        "src-short-pointers",
+        "src-anzali-authored-4",
+        "src-notes-4#copying-and-malloc"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Pointers توصیه می‌کند اگر اشاره‌گری را هنوز به جای معتبری نفرستاده‌ای، آن را `NULL` بگذاری. `NULL` یعنی «به هیچ جا اشاره نمی‌کند». dereference کردن اشاره‌گر `NULL` برنامه را با segmentation fault متوقف می‌کند، که از نوشتن بی‌صدا در جای نامعلوم بهتر است. تابع‌هایی مثل `malloc`، `get_string` و `fopen` در صورت شکست `NULL` برمی‌گردانند.",
+        "note_id": "w04-sh-pointers",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-sh-pointers"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "c",
+        "content": "int *p = NULL;\n// ... later\nif (p != NULL)\n{\n    printf(\"%i\\n\", *p);\n}",
+        "source_ref": "src-anzali-authored-4",
+        "explain_fa": "قطعهٔ تألیفی: بررسی NULL پیش از dereference."
+      },
+      "check": {
+        "id": "w04-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا بررسی `p != NULL` پیش از `*p` مفید است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون dereference کردن NULL برنامه را متوقف می‌کند",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون NULL همیشه برابر 0x1 است",
+            "correct": false,
+            "feedback_fa": "NULL یعنی «هیچ نشانی معتبری»."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون بدون آن کامپایل نمی‌شود",
+            "correct": false,
+            "feedback_fa": "کامپایل می‌شود؛ مشکل هنگام اجراست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l02-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: `malloc` اگر نتواند حافظه بدهد `NULL` برمی‌گرداند.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بخش Copying and malloc درس‌نامه را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 5,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-5",
+      "append_child": "w05-fa"
+    }
+  ],
+  "note": "Week-5-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Week 5 notes use the same callout-plus-bold-label convention as Weeks 3-4 (D25)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 5,
+      "node_id": "week-5",
+      "path": "anzali-fa/weeks/week-05/summary.fa.md",
+      "doc_id": "w05-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w05-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۵ — ساختمان‌های داده (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-05/overview.fa.md",
+      "parent": "week-5",
+      "children": [
+        "w05-n01",
+        "w05-n02",
+        "w05-n03",
+        "w05-n04",
+        "w05-n05",
+        "w05-n06",
+        "w05-n07",
+        "w05-n08",
+        "w05-n09",
+        "w05-n10",
+        "w05-n11",
+        "w05-n12",
+        "w05-summary",
+        "w05-sec",
+        "w05-sh-structures",
+        "w05-sh-singly-linked-lists",
+        "w05-sh-doubly-linked-lists",
+        "w05-sh-stacks",
+        "w05-sh-queues",
+        "w05-sh-hash-tables",
+        "w05-sh-tries",
+        "w05-sh-data-structures",
+        "w05-ps-inheritance",
+        "w05-ps-speller",
+        "w05-pr-trie"
+      ],
+      "week": 5,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/5/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/5/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n01",
+      "type": "anzali-note",
+      "title": "خوش آمدید: Jack Learns the Facts (Welcome! and Jack Learns the Facts)",
+      "path": "anzali-fa/weeks/week-05/notes/01-welcome.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#welcome",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#welcome"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n02",
+      "type": "anzali-note",
+      "title": "ساختمان داده و نوع دادهٔ انتزاعی (Data Structures)",
+      "path": "anzali-fa/weeks/week-05/notes/02-data-structures.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#data-structures",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#data-structures"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n03",
+      "type": "anzali-note",
+      "title": "صف: اول وارد، اول خارج (FIFO) (Queues)",
+      "path": "anzali-fa/weeks/week-05/notes/03-queues.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#queues",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#queues"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n04",
+      "type": "anzali-note",
+      "title": "پشته: آخر وارد، اول خارج (LIFO) (Stacks)",
+      "path": "anzali-fa/weeks/week-05/notes/04-stacks.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#stacks",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#stacks"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n05",
+      "type": "anzali-note",
+      "title": "بزرگ کردن آرایه با malloc و کپی (Arrays: growing with malloc and copying)",
+      "path": "anzali-fa/weeks/week-05/notes/05-arrays.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#arrays",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#arrays"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n06",
+      "type": "anzali-note",
+      "title": "realloc و هزینهٔ کپی (Arrays: realloc)",
+      "path": "anzali-fa/weeks/week-05/notes/06-realloc.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#arrays",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#arrays"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n07",
+      "type": "anzali-note",
+      "title": "گره و عملگر پیکان (->) (Linked Lists: nodes and the arrow operator)",
+      "path": "anzali-fa/weeks/week-05/notes/07-nodes.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#linked-lists",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#linked-lists"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n08",
+      "type": "anzali-note",
+      "title": "ساختن فهرست پیوندی با افزودن به ابتدا (Linked Lists: prepending)",
+      "path": "anzali-fa/weeks/week-05/notes/08-prepending.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#linked-lists",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#linked-lists"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n09",
+      "type": "anzali-note",
+      "title": "افزودن به انتها، درج مرتب و آزادسازی (Linked Lists: appending, sorted insertion and freeing)",
+      "path": "anzali-fa/weeks/week-05/notes/09-append-sorted-free.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#linked-lists",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#linked-lists"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n10",
+      "type": "anzali-note",
+      "title": "درخت‌ها و درخت جست‌وجوی دودویی (Trees)",
+      "path": "anzali-fa/weeks/week-05/notes/10-trees.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#trees",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#trees"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n11",
+      "type": "anzali-note",
+      "title": "درهم‌سازی و جدول درهم‌سازی (Hashing and Hash Tables)",
+      "path": "anzali-fa/weeks/week-05/notes/11-hash-tables.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#hashing-and-hash-tables",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#hashing-and-hash-tables"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-n12",
+      "type": "anzali-note",
+      "title": "ترای (Trie) (Tries)",
+      "path": "anzali-fa/weeks/week-05/notes/12-tries.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/5/#tries",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/5/#tries"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۵ (Summing Up)",
+      "path": "anzali-fa/weeks/week-05/summary.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/notes/5/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/5/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۵ (Section 5)",
+      "path": "anzali-fa/weeks/week-05/section/section-5.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/sections/5/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/5/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-structures",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: ساختارها (struct) (Structures)",
+      "path": "anzali-fa/weeks/week-05/shorts/structures.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/shorts/structures/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/structures/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-singly-linked-lists",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: فهرست پیوندی یک‌طرفه (Singly-Linked Lists)",
+      "path": "anzali-fa/weeks/week-05/shorts/singly-linked-lists.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/shorts/singly_linked_lists/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/singly_linked_lists/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-doubly-linked-lists",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: فهرست پیوندی دوطرفه (Doubly-Linked Lists)",
+      "path": "anzali-fa/weeks/week-05/shorts/doubly-linked-lists.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/shorts/doubly_linked_lists/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/doubly_linked_lists/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-stacks",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: پشته‌ها (Stacks)",
+      "path": "anzali-fa/weeks/week-05/shorts/stacks.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/shorts/stacks/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/stacks/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-queues",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: صف‌ها (Queues)",
+      "path": "anzali-fa/weeks/week-05/shorts/queues.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/shorts/queues/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/queues/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-hash-tables",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: جدول‌های درهم‌سازی (Hash Tables)",
+      "path": "anzali-fa/weeks/week-05/shorts/hash-tables.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/shorts/hash_tables/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/hash_tables/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-tries",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: ترای‌ها (Tries)",
+      "path": "anzali-fa/weeks/week-05/shorts/tries.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/shorts/tries/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/tries/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-sh-data-structures",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: مقایسهٔ ساختمان‌های داده (Data Structures)",
+      "path": "anzali-fa/weeks/week-05/shorts/data-structures.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/shorts/data_structures/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/data_structures/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-ps-inheritance",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای وراثت گروه خونی (Inheritance)",
+      "path": "anzali-fa/weeks/week-05/problem-sets/inheritance.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/5/inheritance/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/5/inheritance/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-ps-speller",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای غلط‌یاب املایی (Speller)",
+      "path": "anzali-fa/weeks/week-05/problem-sets/speller.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 24,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/5/speller/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/5/speller/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    },
+    {
+      "id": "w05-pr-trie",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای نام سگ‌ها در ترای (Trie)",
+      "path": "anzali-fa/weeks/week-05/problem-sets/trie.fa.md",
+      "parent": "w05-fa",
+      "children": [],
+      "week": 5,
+      "order": 25,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/trie/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/trie/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-5"
+      ]
+    }
+  ]
+}

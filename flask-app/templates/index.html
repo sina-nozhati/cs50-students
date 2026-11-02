@@ -1,110 +1,1013 @@
-{# صفحه‌ی لندینگ عمومی — معرفی کلاس CS50x انزلی.
-   این صفحه برای همه (حتی لاگین‌نشده) قابل‌مشاهده است.
-   محتوای شخصی (داشبورد، پیشرفت) در /dashboard است.
+{# صفحه‌ی لندینگ رسمی CS50x بندر انزلی — دوره علوم کامپیوتر هاروارد.
+   طراحی‌شده با استانداردهای Apple Design, UI/UX Pro Max و Emil Kowalski Design Engineering.
+   کارت‌های سرفصل هفته‌ها: متریال شیشه‌ای ترنسلوسنت، گوشه‌های نرم Squircle، آیکون‌های اختصاصی ترک‌ها، پداستال برجسته و داک اکشن لمسی اپل.
 #}
 {% extends "base.html" %}
-{% block title %}خانه{% endblock %}
+{% block title %}CS50x انزلی · دوره علوم کامپیوتر هاروارد{% endblock %}
 
 {% block head_extra %}
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  /* انیمیشن شناوری فیزیکی اردک هاروارد */
+  @keyframes duck-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(2.5deg);
+    }
+  }
+  .duck-mascot-float {
+    animation: duck-float 4.5s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .duck-mascot-float {
+      animation: none !important;
+    }
+  }
+
+  /* افکت لرزش بامزه اردک هنگام کلیک */
+  @keyframes duck-quack-shake {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.08) rotate(-6deg); }
+    75% { transform: scale(1.08) rotate(6deg); }
+  }
+  .duck-quacking {
+    animation: duck-quack-shake 0.35s ease-in-out;
+  }
+
+  /* انیمیشن مش گرادیانت سیال و زنده شفق قطبی (Living Aurora Mesh) */
+  @keyframes aurora-mesh-float-1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate3d(35px, -30px, 0) scale(1.12) rotate(6deg);
+    }
+    66% {
+      transform: translate3d(-25px, 25px, 0) scale(0.92) rotate(-4deg);
+    }
+  }
+
+  @keyframes aurora-mesh-float-2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate3d(-35px, 30px, 0) scale(1.08) rotate(-6deg);
+    }
+    66% {
+      transform: translate3d(30px, -20px, 0) scale(0.95) rotate(5deg);
+    }
+  }
+
+  @keyframes aurora-mesh-float-3 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(25px, 35px, 0) scale(1.15);
+    }
+  }
+
+  .aurora-mesh-1 {
+    animation: aurora-mesh-float-1 14s ease-in-out infinite;
+  }
+  .aurora-mesh-2 {
+    animation: aurora-mesh-float-2 18s ease-in-out infinite;
+  }
+  .aurora-mesh-3 {
+    animation: aurora-mesh-float-3 12s ease-in-out infinite;
+  }
+
+  /* مکان‌نمای تایپ کرسر چشمک‌زن */
+  @keyframes blink-caret {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .typing-caret {
+    animation: blink-caret 0.8s step-end infinite;
+  }
+
+  /* انیمیشن شناور ماوس اسکرول اپل */
+  @keyframes scroll-wheel-slide {
+    0% { transform: translateY(0); opacity: 1; }
+    60% { transform: translateY(6px); opacity: 0; }
+    61% { transform: translateY(-4px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  .scroll-wheel-anim {
+    animation: scroll-wheel-slide 2s ease-in-out infinite;
+  }
+
+  /* ترنزیشن نرم برای فیلتر کارت‌های اپل */
+  .curriculum-card {
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  }
+  .curriculum-card.is-hidden {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aurora-mesh-1, .aurora-mesh-2, .aurora-mesh-3, .scroll-wheel-anim {
+      animation: none !important;
+    }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-{# ─── بنر اصلی (Hero) ─── #}
-<section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-crimson via-crimson to-crimson-dark text-white shadow-xl">
-    <div class="absolute inset-0 opacity-10" aria-hidden="true">
-        {# نقش زمینه‌ی تزئینی — خطوط مورب #}
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="diagonal" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="40" stroke="white" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#diagonal)"/></svg>
+<div class="space-y-12 sm:space-y-20 py-2 sm:py-6 w-full">
+
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {# ۱. بخش اصلی قهرمان (APPLE SPATIAL TRANSLUCENT HERO)             #}
+  {# ══════════════════════════════════════════════════════════════════ #}
+  <div class="relative w-full" id="hero-outer-container">
+    {# هاله‌های نوری پرانرژی و چندرنگ شفق قطبی (به‌ویژه در لایت مود با رنگ‌های سیر زرشکی، مرجانی و کهربایی) #}
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10 rounded-[28px] sm:rounded-[36px] lg:rounded-[44px]" aria-hidden="true">
+      {# لایه تابش مخملی آمبینت بالا به پایین برای ایجاد روح و گرما در لایت مود #}
+      <div class="absolute inset-0 bg-gradient-to-b from-rose-100/70 via-amber-50/40 to-transparent dark:from-rose-950/20 dark:via-transparent dark:to-transparent"></div>
+      
+      {# ۳ هاله گرادیانت شفق قطبی با رنگ‌های غنی و زنده #}
+      <div class="aurora-mesh-1 absolute -top-28 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[420px] bg-gradient-to-r from-rose-500/40 via-crimson/35 to-amber-400/45 dark:from-crimson/25 dark:via-rose-500/15 dark:to-amber-500/20 blur-3xl rounded-full"></div>
+      <div class="aurora-mesh-2 absolute top-1/4 right-0 w-88 h-88 bg-gradient-to-br from-crimson/35 via-rose-500/30 to-purple-600/25 dark:from-crimson/15 dark:to-rose-500/10 blur-[90px] rounded-full"></div>
+      <div class="aurora-mesh-3 absolute bottom-1/4 left-0 w-88 h-88 bg-gradient-to-tr from-amber-400/45 via-rose-400/30 to-amber-300/25 dark:from-amber-500/15 dark:to-amber-500/10 blur-[90px] rounded-full"></div>
+      
+      {# الگوی نقطه‌ای های‌تک اپل — در لایت مود با رنگ زرشکی مینیاتوری و در دارک مود سفید #}
+      <div class="absolute inset-0 bg-[radial-gradient(rgba(165,28,48,0.08)_1px,transparent_1px)] dark:bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-75"></div>
     </div>
-    <div class="relative px-6 py-12 sm:px-12 sm:py-16 text-center">
-        <img src="{{ url_for('static', filename='img/Logo.png') }}"
-             alt="لوگوی دوره CS50x انزلی" class="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto mb-6 drop-shadow-2xl transition-transform duration-300 hover:scale-105">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-3" style="font-family: 'Crimson Pro', Georgia, serif;">
-            بندر انزلی <span class="text-gold">·</span> CS50x
+
+    {# بستر اصلی هیرو: متریال شیشه‌ای ترنسلوسنت اپل با تنالیته گرم زرشکی/هلویی در لایت مود و تیره در دارک مود #}
+    <section id="hero-stage" class="relative overflow-hidden rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] backdrop-blur-3xl bg-gradient-to-b from-[#FFF0F2] via-[#FFF6EE] to-[#FDF2F4] dark:bg-gradient-to-b dark:from-[#11121d] dark:via-[#0c0d15] dark:to-[#090a10] border border-rose-200/80 dark:border-white/10 shadow-[0_24px_70px_-15px_rgba(165,28,48,0.18),0_10px_25px_-5px_rgba(0,0,0,0.05)] dark:shadow-[0_28px_80px_-15px_rgba(0,0,0,0.7)] px-4 py-10 sm:px-10 sm:py-14 lg:py-16 text-center min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-between items-center">
+      
+      {# هاله نوری درونی کارت هیرو جهت حذف حس سفیدی و ایجاد عمق بصری گرم #}
+      <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-full max-w-2xl h-80 bg-gradient-to-r from-rose-500/25 via-crimson/20 to-amber-500/25 blur-3xl pointer-events-none rounded-full" aria-hidden="true"></div>
+
+      {# خط نوری بازتابنده Specular Highlight در بالای لبه کارت اپل #}
+      <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-crimson/60 dark:via-white/30 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+      <div class="relative max-w-4xl mx-auto flex flex-col items-center w-full">
+
+        {# نشان رسمی لوگوی دوره با گرافیک فلت وکتور خالص دو رنگ (سفید و مشکی) #}
+        <div class="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white/85 dark:bg-white/[0.05] border border-rose-200/60 dark:border-white/10 shadow-sm shadow-rose-950/5 backdrop-blur-xl mb-6 spring-scale hover:scale-[1.02] transition-transform select-none">
+          <img src="{{ url_for('static', filename='img/logo-pure-black.png') }}"
+               alt="CS50x Anzali"
+               class="block dark:hidden h-10 sm:h-12 md:h-14 w-auto object-contain">
+          <img src="{{ url_for('static', filename='img/logo-pure-white.png') }}"
+               alt="CS50x Anzali"
+               class="hidden dark:block h-10 sm:h-12 md:h-14 w-auto object-contain filter drop-shadow-[0_2px_14px_rgba(255,255,255,0.25)]">
+        </div>
+
+        {# کپسول وضعیت رسمی دوره — کنتراست شفاف و بدون باگ سفیدی در دارک مود و لایت مود #}
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100/90 dark:bg-rose-950/60 border border-rose-300/80 dark:border-rose-700/60 text-crimson dark:text-rose-200 text-xs sm:text-sm font-bold mb-5 shadow-xs backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-crimson dark:bg-rose-400 animate-pulse shrink-0"></span>
+          <span>دوره رسمی CS50x در بندر انزلی · آموزش پروژه‌محور علوم کامپیوتر</span>
+        </div>
+
+        {# عنوان اصلی هیرو — تایپوگرافی سینمایی اپل و زبان متناسب با مخاطب ایرانی #}
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-[var(--ink)] tracking-tight leading-[1.3] sm:leading-[1.22] mb-5">
+          کدنویسی را عمیق یاد بگیرید،
+          <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#991B1B] via-[#E11D48] to-[#D97706] dark:from-rose-400 dark:via-rose-300 dark:to-amber-300 drop-shadow-[0_1px_1px_rgba(225,29,72,0.12)]">
+            نه صرفا حفظ کردن کد
+          </span>
         </h1>
-        <p class="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            سفر برنامه‌نویسی‌ات را از صفر آغاز کن —
-            <span class="font-bold text-gold">از Scratch تا ساختن وب‌اپ با پایتون</span> —
-            و در نهایت مدرک رسمی CS50 را بگیر.
+
+        {# زیرعنوان خوانا و انگیزشی #}
+        <p class="text-sm sm:text-base lg:text-lg text-slate-700 dark:text-[var(--slate)] max-w-2xl mx-auto leading-relaxed font-normal mb-8 text-balance">
+          تنها دوره‌ای که در آن مانند یک مهندس کامپیوتر هاروارد تفکر الگوریتمی و حل مسئله را تمرین می‌کنید؛ همراه با پایگاه دانش فارسی، تمرین‌های تعاملی خط‌به‌خط، منتورشیپ مستمر و دریافت مدرک رسمی CS50
         </p>
-        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            {% if current_user.is_authenticated %}
-                <a href="{{ url_for('main.dashboard') }}"
-                   class="btn-crimson !bg-white !text-crimson hover:!bg-crimson-tint px-6 py-3 text-base">
-                    ورود به پنل
-                </a>
-            {% else %}
-                <a href="{{ url_for('auth.login') }}"
-                   class="btn-crimson !bg-white !text-crimson hover:!bg-crimson-tint px-6 py-3 text-base">
-                    شروع کنید
-                </a>
-            {% endif %}
-            <a href="#about" class="px-6 py-3 text-base text-white/90 hover:text-white border border-white/30 rounded-lg transition hover:bg-white/10">
-                بیشتر بدانید
+
+        {# دکمه‌های اقدام دوگانه با فیزیک لمسی اپل (Mobile Touch Target 48px) #}
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-14">
+          {% if current_user.is_authenticated %}
+            <a href="{{ url_for('main.dashboard') }}"
+               class="spring-scale btn-crimson w-full sm:w-auto px-8 py-3.5 rounded-2xl shadow-xl shadow-crimson/30 hover:shadow-crimson/40 font-black text-sm sm:text-base flex items-center justify-center gap-2.5 min-h-[48px]">
+              <span>ورود به داشبورد دانش‌آموز</span>
+              <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
+          {% else %}
+            <a href="{{ url_for('auth.login') }}"
+               class="spring-scale btn-crimson w-full sm:w-auto px-8 py-3.5 rounded-2xl shadow-xl shadow-crimson/30 hover:shadow-crimson/40 font-black text-sm sm:text-base flex items-center justify-center gap-2.5 min-h-[48px]">
+              <span>شروع یادگیری با هفته صفر</span>
+              <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+          {% endif %}
+          
+          <a href="#curriculum"
+             class="spring-scale w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-white/90 hover:bg-white dark:bg-white/[0.06] dark:hover:bg-white/[0.1] border border-rose-200/80 dark:border-white/10 text-[var(--ink)] font-bold text-sm sm:text-base shadow-sm hover:shadow-md backdrop-blur-md transition-all flex items-center justify-center gap-2 min-h-[48px]">
+            <span>مشاهده سرفصل ۱۰ هفته</span>
+            <svg class="w-4 h-4 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
         </div>
-    </div>
-</section>
 
-{# ─── چرا CS50x انزلی؟ (About) ─── #}
-<section id="about" class="mt-12">
-    <h2 class="text-2xl font-bold text-center mb-2">چرا این کلاس؟</h2>
-    <p class="text-center text-[var(--slate)] text-sm mb-8">یک مسیر ۱۰ هفته‌ای از مبانی تا پروژه‌ی واقعی</p>
+        {# ویترین استودیو کد تعاملی macOS / VisionOS با قابلیت تایپ زنده #}
+        <div class="w-full max-w-2xl lg:max-w-3xl mx-auto relative text-right">
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div class="card-harvard card-accent p-6 text-center">
-            <div class="w-12 h-12 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center mx-auto mb-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-            </div>
-            <h3 class="font-bold mb-1.5">آموزش پروژه‌محور</h3>
-            <p class="text-sm text-[var(--slate)] leading-relaxed">هر هفته یک تمرین واقعی — از بازی Scratch تا وب‌اپ با Flask.</p>
-        </div>
-        <div class="card-harvard card-accent p-6 text-center">
-            <div class="w-12 h-12 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center mx-auto mb-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
-            </div>
-            <h3 class="font-bold mb-1.5">انگیزه و پیشرفت</h3>
-            <p class="text-sm text-[var(--slate)] leading-relaxed">سیستم XP، استریک روزانه، و لیدربورد کلاسی برای نگه‌داشتن انگیزه.</p>
-        </div>
-        <div class="card-harvard card-accent p-6 text-center">
-            <div class="w-12 h-12 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center mx-auto mb-3">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <h3 class="font-bold mb-1.5">مدرک رسمی</h3>
-            <p class="text-sm text-[var(--slate)] leading-relaxed">با تکمیل مسیر، مدرک CS50 هاروارد را دریافت می‌کنی.</p>
-        </div>
-    </div>
-</section>
+          {# پنجره کد با استایل پنجره سیستم‌عامل مک #}
+          <div class="rounded-3xl border border-black/15 dark:border-white/15 bg-[#0D0E15] text-left shadow-2xl shadow-black/35 overflow-hidden backdrop-blur-2xl">
+            
+            {# هدر پنجره با دکمه‌های ترافیک اپل و کلید برجسته و لمسی Run Code #}
+            <div class="px-3.5 py-2.5 sm:px-5 sm:py-3 bg-white/[0.06] border-b border-white/10 flex items-center justify-between gap-2 select-none" dir="ltr">
+              <div class="flex items-center gap-2 shrink-0">
+                <span class="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/60 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/60 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/60 inline-block"></span>
+                <span class="ml-2 font-mono text-xs text-slate-300 font-semibold hidden sm:inline">hello.c</span>
+              </div>
 
-{# ─── مسیر یادگیری (Roadmap خلاصه) ─── #}
-<section class="mt-12">
-    <div class="card-harvard p-6 sm:p-8">
-        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A51C30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-            مسیر ۱۰ هفته‌ای شما
+              {# دکمه اجرای تعاملی کد با فیزیک لمسی Emil Kowalski و نشانگر ارزیابی check50 #}
+              <div class="flex items-center gap-2 sm:gap-3">
+                <button type="button"
+                        id="run-code-btn"
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-crimson to-rose-600 hover:from-crimson-dark hover:to-rose-700 text-white font-mono text-xs font-bold shadow-md shadow-crimson/30 hover:shadow-lg hover:shadow-crimson/40 transition-all duration-150 active:scale-95 cursor-pointer min-h-[36px] sm:min-h-[40px]"
+                        title="اجرای زنده کد و شبیه‌سازی کامپایل">
+                  <svg class="w-3.5 h-3.5 fill-current text-white shrink-0" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  <span class="tracking-wide">Run Code</span>
+                </button>
+
+                <span id="check50-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 text-[11px] font-mono font-bold transition-all shrink-0">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="hidden xs:inline">check50: </span><span>100%</span>
+                </span>
+              </div>
+            </div>
+
+            {# ادیتور کد با سینتکس هایلایت و پشتیبانی از تایپ زنده #}
+            <div class="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto text-slate-300 no-scrollbar" dir="ltr">
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">1</span>
+                <span><span class="text-[#FF7B72] font-bold">#include</span> <span class="text-[#7EE787]">&lt;stdio.h&gt;</span></span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">2</span>
+                <span><span class="text-[#FF7B72] font-bold">#include</span> <span class="text-[#7EE787]">&lt;cs50.h&gt;</span></span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">3</span>
+                <span></span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">4</span>
+                <span><span class="text-[#79C0FF] font-bold">int</span> <span class="text-[#D2A8FF] font-bold">main</span>(<span class="text-[#79C0FF]">void</span>)</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">5</span>
+                <span class="text-[#F0F6FC]">{</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">6</span>
+                <span class="pl-4 inline-flex items-center" id="code-line-6-wrap">
+                  <span id="code-line-6"><span class="text-[#79C0FF] font-bold">string</span> <span class="text-[#FFA657] font-semibold underline decoration-[#FFA657]/40 underline-offset-4">name</span> <span class="text-[#FF7B72] font-bold">=</span> <span class="text-[#D2A8FF] font-bold">get_string</span>(<span class="text-[#A5D6FF]">"What is your name? "</span>);</span>
+                  <span id="typing-cursor" class="typing-caret inline-block w-2 h-4 bg-[#FF7B72] ml-1 align-middle hidden"></span>
+                </span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">7</span>
+                <span class="pl-4 inline-flex items-center" id="code-line-7-wrap">
+                  <span id="code-line-7"><span class="text-[#D2A8FF] font-bold">printf</span>(<span class="text-[#A5D6FF]">"سلام %s! به CS50x انزلی خوش آمدید.\n"</span>, <span class="text-[#FFA657] font-semibold underline decoration-[#FFA657]/40 underline-offset-4">name</span>);</span>
+                </span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs mb-1.5">
+                <span class="w-4 text-right text-slate-600 select-none">8</span>
+                <span class="pl-4"><span class="text-[#FF7B72] font-bold">return</span> <span class="text-[#79C0FF] font-bold">0</span>;</span>
+              </div>
+              <div class="flex items-center gap-3 text-slate-500 text-xs">
+                <span class="w-4 text-right text-slate-600 select-none">9</span>
+                <span class="text-[#F0F6FC]">}</span>
+              </div>
+            </div>
+
+            {# ترمینال کامپایل و اجرای برنامه در زیر ادیتور #}
+            <div class="px-4 py-3 sm:px-6 sm:py-3.5 bg-black/75 border-t border-white/10 font-mono text-xs text-slate-300 flex flex-col sm:flex-row sm:items-center justify-between gap-2" dir="ltr">
+              <div class="flex items-center gap-2 overflow-x-auto no-scrollbar" id="terminal-live-line">
+                <span class="text-[#7EE787] font-black">$</span>
+                <span class="text-[#F0F6FC] font-semibold" id="terminal-cmd">./hello</span>
+                <span class="text-slate-500" id="terminal-arrow">→</span>
+                <span class="text-[#7EE787] font-sans font-bold" id="terminal-output" dir="rtl">سلام دانشجو! به CS50x انزلی خوش آمدید.</span>
+              </div>
+              <span class="text-[11px] text-slate-400 shrink-0 flex items-center gap-1.5 font-sans">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#7EE787]"></span>
+                <span>Terminal Output</span>
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        {# نوار آمار بنتو با اعداد اصیل فارسی فونت وزیر متن (بدون فونت مونو لاتین) #}
+        <div class="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-rose-200/50 dark:border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full">
+          <div class="text-center p-3.5 sm:p-4 rounded-2xl bg-white/80 dark:bg-white/[0.04] border border-rose-100 dark:border-white/10 shadow-xs hover:border-crimson/40 hover:shadow-md transition-all hover:-translate-y-0.5">
+            <div class="font-['Vazirmatn'] font-black text-2xl sm:text-3xl text-crimson tracking-tight">۱۰+۲</div>
+            <div class="text-xs text-[var(--slate)] mt-1 font-semibold">هفته آموزشی و فاز پروژه</div>
+          </div>
+          <div class="text-center p-3.5 sm:p-4 rounded-2xl bg-white/80 dark:bg-white/[0.04] border border-rose-100 dark:border-white/10 shadow-xs hover:border-crimson/40 hover:shadow-md transition-all hover:-translate-y-0.5">
+            <div class="font-['Vazirmatn'] font-black text-2xl sm:text-3xl text-[var(--ink)] tracking-tight">۱۱۵+</div>
+            <div class="text-xs text-[var(--slate)] mt-1 font-semibold">مبحث و درسنامه تخصصی</div>
+          </div>
+          <div class="text-center p-3.5 sm:p-4 rounded-2xl bg-white/80 dark:bg-white/[0.04] border border-rose-100 dark:border-white/10 shadow-xs hover:border-emerald-500/40 hover:shadow-md transition-all hover:-translate-y-0.5">
+            <div class="font-['Vazirmatn'] font-black text-2xl sm:text-3xl text-emerald-600 dark:text-emerald-400 tracking-tight">۱۰۰٪</div>
+            <div class="text-xs text-[var(--slate)] mt-1 font-semibold">ارزیابی خودکار check50</div>
+          </div>
+          <div class="text-center p-3.5 sm:p-4 rounded-2xl bg-white/80 dark:bg-white/[0.04] border border-rose-100 dark:border-white/10 shadow-xs hover:border-crimson/40 hover:shadow-md transition-all hover:-translate-y-0.5">
+            <div class="font-['Vazirmatn'] font-black text-2xl sm:text-3xl text-crimson tracking-tight">CS50</div>
+            <div class="text-xs text-[var(--slate)] mt-1 font-semibold">مدرک رسمی پایان دوره</div>
+          </div>
+        </div>
+
+        {# نشانگر هوشمند اسکرول اپل جهت هدایت به بخش سرفصل‌ها #}
+        <div class="mt-10 pt-2 flex flex-col items-center select-none" id="hero-scroll-indicator">
+          <a href="#curriculum"
+             class="group flex flex-col items-center gap-2 text-xs font-semibold text-slate-600 dark:text-[var(--slate)] hover:text-crimson transition-colors"
+             aria-label="اسکرول به بخش سرفصل‌ها">
+            <span class="tracking-wide">برای ورود به مسیر یادگیری اسکرول کنید</span>
+            <div class="w-6 h-10 rounded-full border-2 border-rose-300/70 dark:border-white/20 bg-white/80 dark:bg-black/30 flex items-start justify-center p-1.5 backdrop-blur-sm group-hover:border-crimson/50 transition-colors">
+              <div class="w-1.5 h-2.5 rounded-full bg-crimson scroll-wheel-anim"></div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {# ۲. کانون اردک عیب‌یاب تعاملی CS50 (RUBBER DUCK SPOTLIGHT BENTO)   #}
+  {# ══════════════════════════════════════════════════════════════════ #}
+  <section class="card-harvard p-6 sm:p-10 rounded-[32px] border border-amber-500/25 relative overflow-hidden backdrop-blur-md bg-gradient-to-br from-amber-500/10 via-[var(--surface)] to-amber-500/5 shadow-sm" aria-label="دستیار اردک هاروارد">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      {# ستون چپ: اردک پلاستیکی هاروارد با تعامل کلیک و انیمیشن شناور #}
+      <div class="lg:col-span-5 flex flex-col items-center text-center">
+        <div class="relative inline-block cursor-pointer select-none group" id="duck-interactive-trigger" title="برای شنیدن صدای اردک کلیک کن!">
+          {# هاله نورانی طلایی زیر اردک #}
+          <div class="w-36 h-10 bg-amber-500/25 rounded-full blur-xl mx-auto -mb-4"></div>
+          
+          {# ماسکوت اردک هاروارد #}
+          <img src="{{ url_for('static', filename='img/duck-logo.png') }}"
+               alt="اردک عیب‌یاب هاروارد CS50"
+               id="duck-mascot-img"
+               class="w-40 h-40 sm:w-48 sm:h-48 object-contain mx-auto duck-mascot-float drop-shadow-2xl transition-transform group-hover:scale-105">
+          
+          {# حباب گفتگوی تعاملی و پویا #}
+          <div id="duck-speech-bubble"
+               class="absolute -top-4 -right-3 sm:-right-8 bg-[var(--surface-raised)] border border-amber-500/35 text-[var(--ink)] shadow-xl rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-2 max-w-[240px] sm:max-w-[270px] transition-all">
+            <svg class="w-4 h-4 text-amber-500 shrink-0 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+              <path d="M9 18h6"/>
+              <path d="M10 22h4"/>
+            </svg>
+            <span id="duck-speech-text">«کدت کار نمی‌کنه؟ برام خط‌به‌خط توضیحش بده!»</span>
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-center gap-2 text-xs text-[var(--slate)] font-semibold">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>Rubber Duck Debugger · نماد رسمی حل مسئله هاروارد (کلیک کنید!)</span>
+        </div>
+      </div>
+
+      {# ستون راست: توضیحات فلسفه عیب‌یابی و پومودورو در قالب بنتو #}
+      <div class="lg:col-span-7 space-y-4 text-right">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 text-xs font-bold border border-amber-500/25">
+          <span>دستیار هوشمند تمرکز و بازبینی خط‌به‌خط کد</span>
+        </div>
+        
+        <h2 class="text-2xl sm:text-3xl font-black text-[var(--ink)] leading-snug">
+          تکنیک اردک عیب‌یاب؛ وقتی به بن‌بست خوردی، برای این اردک حرف بزن!
         </h2>
-        <ol class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 text-sm">
-            {% set week_titles = ['Scratch', 'C پایه', 'آرایه‌ها', 'الگوریتم‌ها', 'حافظه', 'ساختمان داده', 'پایتون', 'SQL', 'وب', 'Flask'] %}
-            {% for t in week_titles %}
-            <li class="flex items-center gap-2 bg-canvas px-3 py-2 rounded-lg border border-[var(--border)]">
-                <span class="w-6 h-6 rounded-full bg-crimson text-white flex items-center justify-center text-xs font-bold num shrink-0">{{ loop.index0 }}</span>
-                <span class="font-medium">{{ t }}</span>
-            </li>
-            {% endfor %}
-        </ol>
-    </div>
-</section>
+        
+        <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed">
+          در سنت معتبر علوم کامپیوتر هاروارد، به هر دانشجو یک اردک زرد داده می‌شود. هرگاه برنامه‌ات باگی دارد یا در یک حلقه بی‌نهایت گیر افتادی، کافی است فرضیاتت را با صدای بلند برای این اردک بازگو کنی. در بیشتر مواقع، با همین کار ساده متوجه خطای فرضیات ذهنی‌ات می‌شوی!
+        </p>
 
-{# ─── دعوت نهایی به اقدام (CTA) ─── #}
-{% if not current_user.is_authenticated %}
-<section class="mt-12 text-center">
-    <div class="card-harvard card-accent p-8">
-        <h2 class="text-xl font-bold mb-2">آماده‌ای شروع کنی؟</h2>
-        <p class="text-[var(--slate)] text-sm mb-5">برای دسترسی به تکالیف، منابع، کوییزها و داشبورد پیشرفت، وارد شو.</p>
-        <a href="{{ url_for('auth.login') }}" class="btn-crimson px-8 py-3 text-base inline-block">
-            ورود به پلتفرم
-        </a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+          <div class="p-4 rounded-2xl bg-[var(--surface-sunken)] border border-[var(--border)] hover:border-amber-500/40 transition-colors">
+            <div class="text-xs font-bold text-[var(--ink)] flex items-center gap-2 mb-1.5">
+              <svg class="w-4 h-4 text-crimson shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="8"/>
+                <path d="M12 9v4l2 2"/>
+                <path d="M5 3 2 6"/>
+                <path d="m22 6-3-3"/>
+                <path d="M12 2v3"/>
+              </svg>
+              <span>تایمر پومودورو ۲۵ دقیقه‌ای</span>
+            </div>
+            <p class="text-xs text-[var(--slate)] leading-relaxed">
+              داک شناور اردک در صفحات پایگاه دانش، با چرخه ۲۵ دقیقه تمرکز عمیق و چایم صوتی اختصاصی همراه شماست.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-[var(--surface-sunken)] border border-[var(--border)] hover:border-emerald-500/40 transition-colors">
+            <div class="text-xs font-bold text-[var(--ink)] flex items-center gap-2 mb-1.5">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 20h10"/>
+                <path d="M10 20c5.5-2.5.8-6.4 3-13"/>
+                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4.2.9-4.9 2z"/>
+              </svg>
+              <span>فلسفه پیشرفت فردی</span>
+            </div>
+            <p class="text-xs text-[var(--slate)] leading-relaxed">
+              «آنچه در CS50 اهمیت دارد مقایسه خود با دیگران نیست؛ مقایسه وضعیت امروزتان با روز اول خودتان است.»
+            </p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-</section>
-{% endif %}
+  </section>
+
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {# ۳. نقشه راه سرفصل‌ها با دیزاین Apple Design & Squircle Cards        #}
+  {# ══════════════════════════════════════════════════════════════════ #}
+  <section id="curriculum" class="space-y-8">
+    
+    {# سرتیتر بخش با جزئیات و کنترل‌های دسته‌بندی اپل #}
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-crimson-tint text-crimson text-xs font-black border border-crimson/25 shadow-2xs">
+        <span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+        <span>سرفصل جامع ۱۰ هفته آموزشی + ۲ فاز تکمیلی</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-[var(--ink)] tracking-tight">
+        مسیر یادگیری گام‌به‌گام هفته‌ها
+      </h2>
+      <p class="text-sm sm:text-base text-[var(--slate)] leading-relaxed">
+        از تفکر محاسباتی و زبان بنیادین C تا مهندسی وب فول‌استک، پایگاه‌های داده و هوش مصنوعی مدرن.
+      </p>
+
+      {# کنترل تب‌های طبقه‌بندی ترک‌های آموزشی با سبک Segmented Control اپل #}
+      <div class="flex items-center justify-center gap-1.5 p-1.5 rounded-2xl bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10 backdrop-blur-xl overflow-x-auto max-w-2xl mx-auto mt-6 text-xs font-bold select-none no-scrollbar">
+        <button type="button" data-filter="all" class="track-tab-btn active px-3.5 py-2 rounded-xl transition-all duration-200 bg-white dark:bg-[#1E1E28] text-[var(--ink)] shadow-xs">
+          همه سرفصل‌ها (۱۲)
+        </button>
+        <button type="button" data-filter="track-c" class="track-tab-btn px-3.5 py-2 rounded-xl transition-all duration-200 text-[var(--slate)] hover:text-[var(--ink)]">
+          زبان C و سیستم
+        </button>
+        <button type="button" data-filter="track-python" class="track-tab-btn px-3.5 py-2 rounded-xl transition-all duration-200 text-[var(--slate)] hover:text-[var(--ink)]">
+          پایتون و دیتابیس
+        </button>
+        <button type="button" data-filter="track-web" class="track-tab-btn px-3.5 py-2 rounded-xl transition-all duration-200 text-[var(--slate)] hover:text-[var(--ink)]">
+          توسعه وب فول‌استک
+        </button>
+        <button type="button" data-filter="track-ai-capstone" class="track-tab-btn px-3.5 py-2 rounded-xl transition-all duration-200 text-[var(--slate)] hover:text-[var(--ink)]">
+          هوش مصنوعی و پروژه
+        </button>
+      </div>
+    </div>
+
+    {# شبکه کارت‌های هفته‌ها با استایل متریال شیشه‌ای اپل (Apple Squircle Glass Cards) #}
+    <div class="relative w-full" id="curriculum-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7" id="curriculum-grid">
+      {% set weeks_list = curriculum_weeks if curriculum_weeks else [] %}
+      {% if not weeks_list %}
+        {% set weeks_list = [
+          {'number': 0, 'title_fa': 'مقدمه و تفکر محاسباتی با Scratch', 'title_en': 'Computational Thinking & Scratch', 'topics': ['الگوریتم‌ها', 'شبه‌کد', 'متغیرها', 'شرط‌ها', 'اسکرچ']},
+          {'number': 1, 'title_fa': 'مبانی زبان برنامه‌نویسی C', 'title_en': 'C Programming Fundamentals', 'topics': ['کامپایلر clang', 'تایپ‌های داده', 'حلقه‌های for/while', 'توابع']},
+          {'number': 2, 'title_fa': 'آرایه‌ها و خطایابی', 'title_en': 'Arrays & Debugging', 'topics': ['آرایه‌ها', 'رشته‌ها', 'رمزنگاری Caesar', 'دیباگ با debug50']},
+          {'number': 3, 'title_fa': 'الگوریتم‌های مرتب‌سازی و جستجو', 'title_en': 'Algorithms & Complexity', 'topics': ['جستجوی خطی و باینری', 'مرتب‌سازی حبابی و ادغامی', 'پیچیدگیزمانی Big O']},
+          {'number': 4, 'title_fa': 'حافظه، اشاره‌گرها و فایل‌ها', 'title_en': 'Memory & Pointers', 'topics': ['آدرس‌های حافظه', 'اشاره‌گرها', 'تخصیص پویا malloc/free', 'فرمت تصاویر BMP']},
+          {'number': 5, 'title_fa': 'ساختمان داده‌های پیشرفته', 'title_en': 'Data Structures', 'topics': ['لیست پیوندی', 'درخت باینری', 'جداول هش (Hash Table)', 'ساختار Trie']},
+          {'number': 6, 'title_fa': 'مهاجرت به زبان پایتون', 'title_en': 'Python Programming', 'topics': ['سینتکس پایتون', 'دیکشنری و لیست‌ها', 'ماژول‌های استاندارد', 'تشخیص چهره']},
+          {'number': 7, 'title_fa': 'پایگاه‌های داده و SQL', 'title_en': 'Databases & SQL', 'topics': ['پایگاه داده رابطه‌ای', 'کوئری‌های SELECT/JOIN', 'تزریق SQL', 'نرمال‌سازی']},
+          {'number': 8, 'title_fa': 'توسعه فرانت‌اند: HTML, CSS, JS', 'title_en': 'HTML, CSS, JavaScript', 'topics': ['ساختار سند وب DOM', 'طراحی استایل با CSS', 'رویدادها و اسکریپت‌نویسی']},
+          {'number': 9, 'title_fa': 'توسعه بک‌اند وب با Flask', 'title_en': 'Web Applications with Flask', 'topics': ['فریم‌ورک Flask', 'متدهای GET/POST', 'قالب‌های Jinja', 'احراز هویت']},
+          {'number': 10, 'title_fa': 'امنیت سایبری و اخلاق محاسباتی', 'title_en': 'Cybersecurity', 'topics': ['امنیت رمز عبور', 'رمزنگاری کلید عمومی', 'حملات مهندسی اجتماعی']},
+          {'number': 71, 'title_fa': 'هفته ۷.۵ — مبانی هوش مصنوعی (AI)', 'title_en': 'Artificial Intelligence', 'topics': ['یادگیری ماشین', 'شبکه‌های عصبی', 'مدل‌های زبانی LLM']},
+          {'number': 99, 'title_fa': 'هفته ۹.۵ — پروژه نهایی پایان دوره', 'title_en': 'Final Project', 'topics': ['طراحی معماری مستقل', 'پیاده‌سازی فول‌استک', 'ارائه و ثبت در هاروارد']}
+        ] %}
+      {% endif %}
+
+      {% for w in weeks_list %}
+        {# تعیین شناسه ترک برای فیلتر و تم رنگی اپل #}
+        {% set track_cat = 'track-c' %}
+        {% set track_name = 'زبان C و مبانی سیستم' %}
+        {% set badge_color = 'bg-crimson/10 text-crimson dark:text-rose-300 border-crimson/25' %}
+        {% set icon_gradient = 'from-crimson via-rose-600 to-red-600 shadow-crimson/30' %}
+        {% set aura_color = 'rgba(165,28,48,0.25)' %}
+
+        {% if w.number == 0 %}
+          {% set track_cat = 'track-c' %}
+          {% set track_name = 'تفکر محاسباتی · اسکرچ' %}
+          {% set badge_color = 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/25' %}
+          {% set icon_gradient = 'from-amber-400 via-amber-500 to-orange-500 shadow-amber-500/30' %}
+          {% set aura_color = 'rgba(245,158,11,0.25)' %}
+        {% elif w.number in [1, 2] %}
+          {% set track_cat = 'track-c' %}
+          {% set track_name = 'زبان C و مدیریت حافظه' %}
+          {% set badge_color = 'bg-crimson/10 text-crimson dark:text-rose-300 border-crimson/25' %}
+          {% set icon_gradient = 'from-crimson via-rose-600 to-red-600 shadow-crimson/30' %}
+          {% set aura_color = 'rgba(165,28,48,0.25)' %}
+        {% elif w.number in [3, 4, 5] %}
+          {% set track_cat = 'track-c' %}
+          {% set track_name = 'الگوریتم و ساختار داده' %}
+          {% set badge_color = 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/25' %}
+          {% set icon_gradient = 'from-blue-600 via-indigo-600 to-cyan-500 shadow-blue-500/30' %}
+          {% set aura_color = 'rgba(37,99,235,0.25)' %}
+        {% elif w.number in [6, 7] %}
+          {% set track_cat = 'track-python' %}
+          {% set track_name = 'پایتون و پایگاه داده' %}
+          {% set badge_color = 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/25' %}
+          {% set icon_gradient = 'from-emerald-500 via-teal-600 to-green-600 shadow-emerald-500/30' %}
+          {% set aura_color = 'rgba(16,185,129,0.25)' %}
+        {% elif w.number in [8, 9] %}
+          {% set track_cat = 'track-web' %}
+          {% set track_name = 'توسعه وب فول‌استک' %}
+          {% set badge_color = 'bg-sky-500/10 text-sky-700 dark:text-sky-300 border-sky-500/25' %}
+          {% set icon_gradient = 'from-sky-500 via-blue-600 to-indigo-600 shadow-sky-500/30' %}
+          {% set aura_color = 'rgba(14,165,233,0.25)' %}
+        {% elif w.number == 10 %}
+          {% set track_cat = 'track-c' %}
+          {% set track_name = 'امنیت سایبری و اخلاق' %}
+          {% set badge_color = 'bg-zinc-500/10 text-zinc-700 dark:text-zinc-300 border-zinc-500/25' %}
+          {% set icon_gradient = 'from-zinc-700 via-slate-800 to-zinc-900 shadow-zinc-500/30' %}
+          {% set aura_color = 'rgba(113,113,122,0.25)' %}
+        {% elif w.number == 71 %}
+          {% set track_cat = 'track-ai-capstone' %}
+          {% set track_name = 'ویژه هوش مصنوعی' %}
+          {% set badge_color = 'bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-500/30' %}
+          {% set icon_gradient = 'from-purple-600 via-fuchsia-600 to-pink-500 shadow-purple-500/40' %}
+          {% set aura_color = 'rgba(168,85,247,0.3)' %}
+        {% elif w.number == 99 %}
+          {% set track_cat = 'track-ai-capstone' %}
+          {% set track_name = 'پروژه نهایی Capstone' %}
+          {% set badge_color = 'bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30' %}
+          {% set icon_gradient = 'from-amber-400 via-yellow-500 to-amber-600 shadow-amber-500/40' %}
+          {% set aura_color = 'rgba(245,158,11,0.35)' %}
+        {% endif %}
+
+      <div class="curriculum-card group relative flex flex-col justify-between rounded-[28px] p-6 sm:p-7 backdrop-blur-2xl bg-white/90 dark:bg-[#161722]/90 border border-black/[0.08] dark:border-white/[0.12] shadow-[0_8px_30px_rgb(0,0,0,0.06),0_1px_3px_rgb(0,0,0,0.04)] dark:shadow-[0_12px_40px_rgb(0,0,0,0.45)] hover:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.12),0_8px_24px_-4px_rgba(165,28,48,0.18)] dark:hover:shadow-[0_24px_50px_-12px_rgba(0,0,0,0.8),0_8px_24px_-4px_rgba(244,63,94,0.2)] hover:border-crimson/50 dark:hover:border-rose-400/50 hover:-translate-y-2 active:scale-[0.985] overflow-hidden {% if loop.index0 >= 3 %}curriculum-card-extra hidden{% endif %}"
+           data-track="{{ track_cat }}">
+        
+        {# خط شاین نوری لبه بالای کارت به سبک شیشه‌ای اپل #}
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/80 dark:via-white/20 to-transparent pointer-events-none" aria-hidden="true"></div>
+
+        {# هاله نورانی اختصاصی تیره متناسب با رنگ ترک #}
+        <div class="absolute -top-16 -right-16 w-44 h-44 rounded-full blur-3xl opacity-20 dark:opacity-30 pointer-events-none transition-transform duration-500 group-hover:scale-125"
+             style="background: {{ aura_color }};"
+             aria-hidden="true"></div>
+
+        <div>
+          {# هدر کارت: آیکون اسکویرکل اپل + بج کپسولی ترک آموزشی #}
+          <div class="flex items-center justify-between mb-5">
+            {# آیکون اپل برجسته با گرادیانت #}
+            <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br {{ icon_gradient }} text-white flex items-center justify-center shadow-lg ring-1 ring-black/5 dark:ring-white/10 group-hover:scale-105 transition-transform duration-300 select-none">
+              {% if w.number == 0 %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.439 7.85c0-1.57-1.28-2.85-2.85-2.85h-1.7c-.55 0-1-.45-1-1 0-1.57-1.28-2.85-2.85-2.85s-2.85 1.28-2.85 2.85c0 .55-.45 1-1 1h-1.7C3.699 5 2.419 6.28 2.419 7.85v1.7c0 .55-.45 1-1 1-1.57 0-2.85 1.28-2.85 2.85s1.28 2.85 2.85 2.85c.55 0 1 .45 1 1v1.7c0 1.57 1.28 2.85 2.85 2.85h1.7c.55 0 1 .45 1 1 0 1.57 1.28 2.85 2.85 2.85s2.85-1.28 2.85-2.85c0-.55.45-1 1-1h1.7c1.57 0 2.85-1.28 2.85-2.85v-1.7c0-.55.45-1 1-1 1.57 0 2.85-1.28 2.85-2.85s-1.28-2.85-2.85-2.85c-.55 0-1-.45-1-1v-1.7z"/></svg>
+              {% elif w.number in [1, 2] %}
+                <span class="font-mono font-black text-xl tracking-tight">C</span>
+              {% elif w.number in [3, 4, 5] %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+              {% elif w.number == 6 %}
+                <span class="font-mono font-black text-lg">Py</span>
+              {% elif w.number == 7 %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              {% elif w.number in [8, 9] %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              {% elif w.number == 10 %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+              {% elif w.number == 71 %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+              {% elif w.number == 99 %}
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+              {% else %}
+                <span class="font-mono font-black text-lg num">{{ w.number }}</span>
+              {% endif %}
+            </div>
+
+            {# برچسب شیشه‌ای نام ترک #}
+            <div class="flex flex-col items-end gap-1">
+              <span class="text-xs px-3 py-1 rounded-full {{ badge_color }} font-bold border backdrop-blur-md shadow-2xs">
+                {{ track_name }}
+              </span>
+              <span class="text-[11px] font-mono text-[var(--slate)] font-semibold">
+                {% if w.number == 71 %}هفته ۷.۵ (هوش مصنوعی){% elif w.number == 99 %}هفته ۹.۵ (پروژه نهایی){% else %}هفته {{ w.number }}{% endif %}
+              </span>
+            </div>
+          </div>
+
+          {# عنوان فارسی برجسته با تایپوگرافی تمیز #}
+          <h3 class="font-black text-lg sm:text-xl text-[var(--ink)] group-hover:text-crimson transition-colors leading-snug tracking-tight">
+            {{ w.title_fa if w.title_fa else w.title }}
+          </h3>
+
+          {# زیرعنوان انگلیسی سرفصل #}
+          <p class="font-mono text-xs text-[var(--slate)] mt-1.5 opacity-85 font-semibold flex items-center gap-1.5" dir="ltr">
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson/50"></span>
+            <span>{{ w.title_en if w.title_en else 'CS50 Week ' ~ w.number }}</span>
+          </p>
+
+          {# نوار نشانگر قابلیت‌های محتوایی هفته (نشان‌های اپل — آیکون‌های وکتور بدون ایموجی) #}
+          <div class="flex flex-wrap items-center gap-2 mt-4 pt-1">
+            {% if w.problems and w.problems|length > 0 %}
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-crimson/10 dark:bg-rose-500/15 text-crimson dark:text-rose-300 text-xs font-bold border border-crimson/15 shadow-2xs">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m5 13 4 4L19 7"/></svg>
+                <span class="num">{{ w.problems|length }}</span>
+                <span>پرابلم‌ست</span>
+              </span>
+            {% endif %}
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-bold border border-emerald-500/15 shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-emerald-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span>چالش ۵ دقیقه‌ای</span>
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-violet-500/10 text-violet-700 dark:text-violet-300 text-xs font-bold border border-violet-500/15 shadow-2xs">
+              <svg class="w-3.5 h-3.5 text-violet-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="13" rx="2"/><path d="M6 3h12a2 2 0 0 1 2 2v12"/></svg>
+              <span>فلش‌کارت</span>
+            </span>
+          </div>
+
+          {# تگ‌های موضوعی کپسولی به سبک اپل #}
+          {% if w.topics %}
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            {% for top in w.topics[:4] %}
+            <span class="text-xs px-2.5 py-1 rounded-xl bg-black/[0.04] dark:bg-white/[0.06] hover:bg-black/[0.07] dark:hover:bg-white/[0.1] text-[var(--ink)] border border-black/[0.04] dark:border-white/10 font-medium transition-colors">
+              {{ top }}
+            </span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        {# داک اکشن لمسی اپل در فوتر کارت #}
+        <div class="mt-7 pt-4 border-t border-black/[0.06] dark:border-white/[0.08]">
+          <a href="{{ url_for('kb.week_page', week=w.number) }}"
+             class="w-full py-3 px-4 rounded-2xl bg-[var(--surface-sunken)] group-hover:bg-crimson text-[var(--ink)] group-hover:text-white border border-[var(--border)] group-hover:border-crimson text-xs sm:text-sm font-extrabold flex items-center justify-between transition-all duration-300 shadow-2xs group-hover:shadow-lg group-hover:shadow-crimson/25">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 group-hover:bg-white animate-pulse"></span>
+              <span>ورود به درسنامه‌ها و تمرین</span>
+            </span>
+            <span class="w-6 h-6 rounded-full bg-black/5 dark:bg-white/10 group-hover:bg-white/25 flex items-center justify-center transition-transform group-hover:-translate-x-1 duration-200">
+              <svg class="w-3.5 h-3.5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </span>
+          </a>
+        </div>
+
+      </div>
+      {% endfor %}
+      </div>
+
+      {# گرادیانت محوشونده ملایم برای حالت پیش‌نمایش در موبایل و دسکتاپ #}
+      <div id="curriculum-fade-overlay" class="pointer-events-none absolute bottom-0 inset-x-0 h-44 bg-gradient-to-t from-[var(--canvas)] via-[var(--canvas)]/85 to-transparent transition-opacity duration-500 z-10" aria-hidden="true"></div>
+    </div>
+
+    {# کلید تعاملی مشاهده بیشتر سرفصل‌های دوره (Progressive Disclosure) #}
+    <div class="relative z-20 flex justify-center pt-2" id="curriculum-toggle-wrap">
+      <button type="button"
+              id="curriculum-toggle-btn"
+              class="spring-scale inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl bg-white dark:bg-[#1C1D29] hover:bg-rose-50 dark:hover:bg-white/10 text-[var(--ink)] hover:text-crimson border border-rose-200 dark:border-white/10 shadow-md hover:shadow-lg transition-all text-sm font-bold cursor-pointer">
+        <span id="curriculum-toggle-text">مشاهده سرفصل تمام هفته‌ها (۱۲ بخش)</span>
+        <svg id="curriculum-toggle-icon" class="w-4 h-4 text-crimson transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {# ۴. ارکان ۴گانه آموزشی پلتفرم (THE 4 LEARNING PILLARS BENTO)        #}
+  {# ══════════════════════════════════════════════════════════════════ #}
+  <section class="space-y-8">
+    <div class="text-center max-w-2xl mx-auto space-y-2.5">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson-tint text-crimson text-xs font-black border border-crimson/20">
+        <span>چرا این پلتفرم متفاوت است؟</span>
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-black text-[var(--ink)]">ابزارهای اختصاصی یادگیری عمیق</h2>
+      <p class="text-sm text-[var(--slate)] leading-relaxed">
+        طراحی‌شده برای حذف موانع ذهنی و تبدیل دانش تئوری به مهارت حل مسئله در کدنویسی واقعی.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      
+      {# رکن ۱: پایگاه دانش فارسی #}
+      <div class="spring-scale card-harvard p-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-right space-y-3.5 hover:border-crimson/40 transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-crimson-tint text-crimson flex items-center justify-center font-bold border border-crimson/20 shadow-2xs">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <h3 class="font-extrabold text-base text-[var(--ink)]">پایگاه دانش جامع فارسی</h3>
+        <p class="text-xs text-[var(--slate)] leading-relaxed">
+          درسنامه‌های بازنویسی‌شده فارسی همراه با اصطلاح‌نامه دوزبانه، ایزولاسیون کامل کدهای انگلیسی و ارگونومی خواندن.
+        </p>
+      </div>
+
+      {# رکن ۲: چالش‌های تعاملی ۵ دقیقه‌ای #}
+      <div class="spring-scale card-harvard p-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-right space-y-3.5 hover:border-emerald-500/40 transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold border border-emerald-500/20 shadow-2xs">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="font-extrabold text-base text-[var(--ink)]">چالش تعاملی ۵ دقیقه‌ای</h3>
+        <p class="text-xs text-[var(--slate)] leading-relaxed">
+          تمرین‌های سریع چیدن توکن، مرتب‌سازی منطق خطوط کد (Parsons) و شکار باگ برای آمادگی قبل از شروع تکالیف سنگین.
+        </p>
+      </div>
+
+      {# رکن ۳: جعبه لایتنر هوشمند #}
+      <div class="spring-scale card-harvard p-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-right space-y-3.5 hover:border-violet-500/40 transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-violet-500/15 text-violet-600 dark:text-violet-400 flex items-center justify-center font-bold border border-violet-500/20 shadow-2xs">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3 class="font-extrabold text-base text-[var(--ink)]">جعبه لایتنر هوشمند</h3>
+        <p class="text-xs text-[var(--slate)] leading-relaxed">
+          مرور فاصله‌دار (Spaced Repetition) مفاهیم کلیدی برای انتقال اصطلاحات زبان C و ساختارهای داده به حافظه ماندگار.
+        </p>
+      </div>
+
+      {# رکن ۴: کلینیک تشخیصی و پرونده خطاها #}
+      <div class="spring-scale card-harvard p-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-right space-y-3.5 hover:border-red-500/40 transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-red-500/15 text-red-600 dark:text-red-400 flex items-center justify-center font-bold border border-red-500/20 shadow-2xs">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 class="font-extrabold text-base text-[var(--ink)]">کلینیک تشخیصی و خطاها</h3>
+        <p class="text-xs text-[var(--slate)] leading-relaxed">
+          شناسنامه خودکار اشتباهات در کوییزها، مقایسه پاسخ با راه‌حل علمی و امکان تمرین مجدد نقاط ضعف تا تسلط کامل.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {# ۵. استاندارد گواهی‌نامه رسمی دوره (CERTIFICATE STANDARDS TRUST)   #}
+  {# ══════════════════════════════════════════════════════════════════ #}
+  <section class="card-harvard p-6 sm:p-10 rounded-[32px] border border-[var(--border)] bg-[var(--surface)] shadow-sm">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      
+      <div class="space-y-3.5 text-right max-w-2xl">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson-tint text-crimson text-xs font-bold border border-crimson/20">
+          <span>استاندارد بین‌المللی ارزیابی پروژه</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-[var(--ink)]">
+          دریافت مدرک معتبر و رسمی پایان دوره CS50
+        </h2>
+        <p class="text-xs sm:text-sm text-[var(--slate)] leading-relaxed">
+          تمامی تمرین‌ها و پرابلم‌ست‌های دوره توسط ابزارهای خودکار (<code class="font-mono text-xs text-crimson bg-crimson-tint px-1.5 py-0.5 rounded" dir="ltr">check50</code> و <code class="font-mono text-xs text-crimson bg-crimson-tint px-1.5 py-0.5 rounded" dir="ltr">submit50</code>) بررسی و ارزیابی می‌شوند. دانشجویانی که در تمام تکالیف و پروژه پایانی حداقل نمره ۷۰٪ را کسب کنند، مدرک معتبر دیجیتال CS50 را بدون هیچ هزینه آزمونی دریافت خواهند کرد.
+        </p>
+      </div>
+
+      <div class="shrink-0 text-center p-6 rounded-3xl bg-[var(--surface-sunken)] border border-[var(--border)] min-w-[220px]">
+        <div class="w-16 h-16 rounded-2xl bg-crimson-tint text-crimson flex items-center justify-center mx-auto mb-3 border border-crimson/20 shadow-sm">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+        </div>
+        <div class="font-mono font-bold text-xs text-crimson">CS50 CERTIFICATE</div>
+        <div class="text-xs text-[var(--slate)] mt-1 font-medium">بدون هزینه آزمون</div>
+      </div>
+
+    </div>
+  </section>
+
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {# ۶. دعوت نهایی به اقدام (FINAL CONVERSION CALL TO ACTION)           #}
+  {# ══════════════════════════════════════════════════════════════════ #}
+  {% if not current_user.is_authenticated %}
+  <section class="text-center rounded-[32px] bg-gradient-to-br from-[#5b0e1b] via-[#8c1729] to-[#0A0B10] text-white p-8 sm:p-14 shadow-2xl relative overflow-hidden border border-white/10">
+    <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none opacity-40" aria-hidden="true"></div>
+    <div class="relative max-w-2xl mx-auto space-y-4">
+      <h2 class="text-2xl sm:text-4xl font-black leading-tight">
+        آماده‌ای سفر برنامه‌نویسی‌ات را آغاز کنی؟
+      </h2>
+      <p class="text-sm sm:text-base text-white/90 leading-relaxed">
+        همین امروز وارد پلتفرم شو، درسنامه‌های هفته صفر را مرور کن و اولین برنامه زندگی‌ات را بساز.
+      </p>
+      <div class="pt-3">
+        <a href="{{ url_for('auth.login') }}"
+           class="spring-scale inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl bg-white text-crimson hover:bg-slate-100 font-black text-base shadow-xl shadow-black/30 transition-all">
+          <span>ورود به دوره CS50x انزلی</span>
+          <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+</div>
+
+{# اسکریپت تعاملی اردک دیباگر و فیلتر کارت‌های اپل #}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // ۱. تعامل اردک دیباگر
+    var trigger = document.getElementById('duck-interactive-trigger');
+    var mascot = document.getElementById('duck-mascot-img');
+    var bubbleText = document.getElementById('duck-speech-text');
+
+    if (trigger && mascot && bubbleText) {
+      var duckQuotes = [
+        '«کدت کار نمی‌کنه؟ برام خط‌به‌خط توضیحش بده!»',
+        '«کوئک! سمی‌کالن (;) رو یادت نرفته بذاری؟»',
+        '«شاید حافظه malloc کردی ولی free نکردی؟»',
+        '«شرط حلقه for تا n هست یا n-1؟ دوباره چکش کن!»',
+        '«کوئک! ۲۵ دقیقه تمرکزت تموم شد؟ ۵ دقیقه استراحت کن!»',
+        '«یک باگ فقط یک راز کوچیکه که منتظره کشفش کنی!»'
+      ];
+      var quoteIdx = 0;
+
+      trigger.addEventListener('click', function () {
+        mascot.classList.remove('duck-quacking');
+        void mascot.offsetWidth; // trigger reflow
+        mascot.classList.add('duck-quacking');
+
+        quoteIdx = (quoteIdx + 1) % duckQuotes.length;
+        bubbleText.style.opacity = '0';
+        setTimeout(function () {
+          bubbleText.textContent = duckQuotes[quoteIdx];
+          bubbleText.style.opacity = '1';
+        }, 150);
+      });
+    }
+
+    // ۲. کنترل تب‌های فیلتر و دکمه مشاهده بیشتر کارت‌های اپل (Progressive Disclosure)
+    var tabBtns = document.querySelectorAll('.track-tab-btn');
+    var cards = document.querySelectorAll('.curriculum-card');
+    var toggleBtn = document.getElementById('curriculum-toggle-btn');
+    var toggleText = document.getElementById('curriculum-toggle-text');
+    var toggleIcon = document.getElementById('curriculum-toggle-icon');
+    var fadeOverlay = document.getElementById('curriculum-fade-overlay');
+    var isCurriculumExpanded = false;
+
+    function setCurriculumExpanded(expanded) {
+      isCurriculumExpanded = expanded;
+      var extraCards = document.querySelectorAll('.curriculum-card-extra');
+      extraCards.forEach(function (card) {
+        if (expanded) {
+          card.classList.remove('hidden');
+          setTimeout(function () {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 20);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px) scale(0.96)';
+          setTimeout(function () {
+            card.classList.add('hidden');
+          }, 200);
+        }
+      });
+
+      if (fadeOverlay) {
+        fadeOverlay.style.opacity = expanded ? '0' : '1';
+        fadeOverlay.style.pointerEvents = 'none';
+      }
+
+      if (toggleText) {
+        toggleText.textContent = expanded ? 'نمایش خلاصه سرفصل‌ها' : 'مشاهده سرفصل تمام هفته‌ها (۱۲ بخش)';
+      }
+      if (toggleIcon) {
+        toggleIcon.style.transform = expanded ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    }
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        setCurriculumExpanded(!isCurriculumExpanded);
+        if (!isCurriculumExpanded) {
+          var section = document.getElementById('curriculum');
+          if (section) section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = this.getAttribute('data-filter');
+
+        // به‌روزرسانی وضعیت تب فعال
+        tabBtns.forEach(function (b) {
+          b.classList.remove('active', 'bg-white', 'dark:bg-[#1E1E28]', 'text-[var(--ink)]', 'shadow-xs');
+          b.classList.add('text-[var(--slate)]');
+        });
+        this.classList.add('active', 'bg-white', 'dark:bg-[#1E1E28]', 'text-[var(--ink)]', 'shadow-xs');
+        this.classList.remove('text-[var(--slate)]');
+
+        // در صورت انتخاب دسته‌بندی خاص، همه کارت‌های متناظر باز شوند
+        if (filter !== 'all') {
+          setCurriculumExpanded(true);
+        }
+
+        // فیلتر کارت‌ها با انیمیشن نرم اپل
+        cards.forEach(function (card) {
+          var cardTrack = card.getAttribute('data-track');
+          if (filter === 'all' || cardTrack === filter) {
+            if (!card.classList.contains('curriculum-card-extra') || isCurriculumExpanded || filter !== 'all') {
+              card.classList.remove('is-hidden', 'hidden');
+              setTimeout(function () {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0) scale(1)';
+              }, 20);
+            }
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(12px) scale(0.96)';
+            setTimeout(function () {
+              card.classList.add('is-hidden', 'hidden');
+            }, 200);
+          }
+        });
+      });
+    });
+
+    // ۳. استودیو تعاملی تایپ زنده کدنویسی (Live Typing Studio & Execution Simulation)
+    var runBtn = document.getElementById('run-code-btn');
+    var line6Wrap = document.getElementById('code-line-6-wrap');
+    var line7Wrap = document.getElementById('code-line-7-wrap');
+    var line6 = document.getElementById('code-line-6');
+    var line7 = document.getElementById('code-line-7');
+    var cursor = document.getElementById('typing-cursor');
+    var terminalCmd = document.getElementById('terminal-cmd');
+    var terminalArrow = document.getElementById('terminal-arrow');
+    var terminalOutput = document.getElementById('terminal-output');
+    var badge = document.getElementById('check50-badge');
+
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (line6 && line7 && !prefersReduced) {
+      var rawLine6 = '<span class="text-[#79C0FF] font-bold">string</span> <span class="text-[#FFA657] font-semibold underline decoration-[#FFA657]/40 underline-offset-4">name</span> <span class="text-[#FF7B72] font-bold">=</span> <span class="text-[#D2A8FF] font-bold">get_string</span>(<span class="text-[#A5D6FF]">"What is your name? "</span>);';
+      var rawLine7 = '<span class="text-[#D2A8FF] font-bold">printf</span>(<span class="text-[#A5D6FF]">"سلام %s! به CS50x انزلی خوش آمدید.\\n"</span>, <span class="text-[#FFA657] font-semibold underline decoration-[#FFA657]/40 underline-offset-4">name</span>);';
+      var text6 = 'string name = get_string("What is your name? ");';
+      var text7 = 'printf("سلام %s! به CS50x انزلی خوش آمدید.\\n", name);';
+
+      var isAnimating = false;
+
+      function runAnimation() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        // تنظیم حالت بارگذاری کامپایلر
+        if (badge) {
+          badge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/25 text-[11px] font-mono font-bold transition-all shrink-0';
+          badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span><span>compiling...</span>';
+        }
+        if (terminalCmd) terminalCmd.textContent = 'make hello && ./hello';
+        if (terminalArrow) terminalArrow.style.opacity = '0';
+        if (terminalOutput) terminalOutput.style.opacity = '0';
+
+        line6.textContent = '';
+        line7.textContent = '';
+        line6.className = 'text-[#F0F6FC] font-mono font-medium';
+        line7.className = 'text-[#F0F6FC] font-mono font-medium';
+        if (cursor) {
+          cursor.classList.remove('hidden');
+          line6Wrap.appendChild(cursor);
+        }
+
+        var i = 0;
+        function typeChar6() {
+          if (i < text6.length) {
+            line6.textContent += text6.charAt(i);
+            i++;
+            setTimeout(typeChar6, 28);
+          } else {
+            line6.className = 'inline';
+            line6.innerHTML = rawLine6;
+            if (cursor) line7Wrap.appendChild(cursor);
+
+            var j = 0;
+            function typeChar7() {
+              if (j < text7.length) {
+                line7.textContent += text7.charAt(j);
+                j++;
+                setTimeout(typeChar7, 24);
+              } else {
+                line7.className = 'inline';
+                line7.innerHTML = rawLine7;
+                if (cursor) cursor.classList.add('hidden');
+
+                // اجرای خروجی ترمینال
+                setTimeout(function () {
+                  if (terminalCmd) terminalCmd.textContent = './hello';
+                  if (terminalArrow) {
+                    terminalArrow.style.transition = 'opacity 0.2s ease';
+                    terminalArrow.style.opacity = '1';
+                  }
+                  if (terminalOutput) {
+                    terminalOutput.style.transition = 'opacity 0.25s ease';
+                    terminalOutput.style.opacity = '1';
+                    terminalOutput.textContent = 'سلام دانشجو! به CS50x انزلی خوش آمدید.';
+                  }
+                  if (badge) {
+                    badge.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 text-[11px] font-mono font-bold transition-all shrink-0';
+                    badge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span><span class="hidden xs:inline">check50: </span><span>100%</span>';
+                  }
+                  isAnimating = false;
+                }, 350);
+              }
+            }
+            setTimeout(typeChar7, 100);
+          }
+        }
+
+        setTimeout(typeChar6, 200);
+      }
+
+      if (runBtn) {
+        runBtn.addEventListener('click', runAnimation);
+      }
+
+      // اجرای نخستین انیمیشن تایپ پس از لود صفحه
+      setTimeout(runAnimation, 700);
+    }
+  });
+</script>
 {% endblock %}

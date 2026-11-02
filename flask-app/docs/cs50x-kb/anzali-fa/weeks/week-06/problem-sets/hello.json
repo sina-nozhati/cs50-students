@@ -1,0 +1,195 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w06-ps-hello",
+  "kind": "pset",
+  "week": 6,
+  "title_en": "Hello, Again",
+  "title_fa": "سلام دوباره (Sentimental Hello)",
+  "guide_doc_id": "w06-ps-hello",
+  "guide_file": "hello.fa.md",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/6/hello/",
+    "index_url": "https://cs50.harvard.edu/x/psets/6/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w06-ps-hello-r1",
+        "text_fa": "در فایل `hello.py` در پوشهٔ `sentimental-hello` برنامه‌ای بنویس که نام کاربر را بپرسد و `hello, so-and-so` را چاپ کند، که `so-and-so` همان نامی است که کاربر داده است.",
+        "text_en": "In a file called `hello.py` in a folder called `sentimental-hello`, implement a program that prompts a user for their name, and then prints `hello, so-and-so`, where `so-and-so` is their provided name",
+        "source_ref": "src-pset-6-hello#problem-to-solve"
+      },
+      {
+        "id": "w06-ps-hello-r2",
+        "text_fa": "این بار برنامه باید به پایتون نوشته شود.",
+        "text_en": "Except that your program this time should be written in Python!",
+        "source_ref": "src-pset-6-hello#problem-to-solve"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/sentimental/hello",
+      "style50": "style50 hello.py",
+      "submit50": "submit50 cs50/problems/2026/x/sentimental/hello",
+      "wget": null
+    },
+    "sample_io": [],
+    "test_texts": [
+      {
+        "text": "David",
+        "expected": "hello, David",
+        "origin": "official"
+      },
+      {
+        "text": "Inno",
+        "expected": "hello, Inno",
+        "origin": "official"
+      },
+      {
+        "text": "Kamryn",
+        "expected": "hello, Kamryn",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/sentimental/hello",
+      "style50": "style50 hello.py",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "gqi2voQFzbKlna6WkQR0G2W93",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w06-c-port-c-to-python",
+      "w06-c-run-python",
+      "w06-c-cs50-library-py",
+      "w06-c-import",
+      "w06-c-input-returns-str",
+      "w06-c-f-string"
+    ],
+    "prerequisite_lesson_ids": [
+      "w06-l01",
+      "w06-l02"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w06-c-port-c-to-python",
+        "note_id": "w06-ps-hello",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w06-c-run-python",
+        "note_id": "w06-n01",
+        "lesson_id": "w06-l01",
+        "unit_id": "w06-l01-u01"
+      },
+      {
+        "concept_id": "w06-c-cs50-library-py",
+        "note_id": "w06-n03",
+        "lesson_id": "w06-l01",
+        "unit_id": "w06-l01-u03"
+      },
+      {
+        "concept_id": "w06-c-import",
+        "note_id": "w06-n03",
+        "lesson_id": "w06-l01",
+        "unit_id": "w06-l01-u03"
+      },
+      {
+        "concept_id": "w06-c-input-returns-str",
+        "note_id": "w06-n06",
+        "lesson_id": "w06-l02",
+        "unit_id": "w06-l02-u04"
+      },
+      {
+        "concept_id": "w06-c-f-string",
+        "note_id": "w06-n04",
+        "lesson_id": "w06-l02",
+        "unit_id": "w06-l02-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "برنامهٔ C خودت از پرابلم‌ست ۱ را باز کن و خط‌به‌خط از خودت بپرس معادل پایتونی هر بخش چیست. کدام خط‌ها اصلاً لازم نیستند؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای استفاده از `get_string` باید آن را از کتابخانهٔ `cs50` وارد کنی. دو شیوهٔ `import` را در یادداشت تابع‌ها و کتابخانه‌ها مقایسه کن."
+      },
+      {
+        "n": 3,
+        "hint_fa": "برای چاپ، به جای `%s` از f-string استفاده کن. یادت باشد `print` خودش سطر تازه می‌گذارد."
+      },
+      {
+        "n": 4,
+        "hint_fa": "خروجی را دقیقاً با نمونه‌های رسمی مقایسه کن: ویرگول، فاصله و حروف کوچک `hello` مهم‌اند."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نوشتن `printf` یا گذاشتن نقطه‌ویرگول و آکولاد به عادت C",
+      "فراموش کردن `f` پیش از رشته و چاپ شدن خود `{name}`",
+      "چاپ `Hello` با حرف بزرگ یا جا انداختن فاصلهٔ پس از ویرگول",
+      "اجرای برنامه با `make hello` یا `./hello` به جای `python hello.py`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w06-ps-hello-c01",
+        "text_fa": "فایل `hello.py` در پوشهٔ `sentimental-hello` است.",
+        "maps_to": "w06-ps-hello-r1"
+      },
+      {
+        "id": "w06-ps-hello-c02",
+        "text_fa": "برنامه نام را می‌پرسد و دقیقاً `hello, ` و بعد نام را چاپ می‌کند.",
+        "maps_to": "w06-ps-hello-r1"
+      },
+      {
+        "id": "w06-ps-hello-c03",
+        "text_fa": "برنامه به پایتون است و با `python hello.py` اجرا می‌شود.",
+        "maps_to": "w06-ps-hello-r2"
+      },
+      {
+        "id": "w06-ps-hello-c04",
+        "text_fa": "سه آزمون رسمی (David، Inno، Kamryn) را خودم اجرا کرده‌ام.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w06-ps-hello-c05",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w06-ps-hello-c06",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w06-ps-hello-c07",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50، style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

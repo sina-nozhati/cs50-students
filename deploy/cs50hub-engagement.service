@@ -1,0 +1,10 @@
+[Unit]
+Description=CS50x Anzali Periodic Engagement Tick
+After=network.target
+
+[Service]
+Type=oneshot
+User=www-data
+WorkingDirectory=/var/www/cs50hub/flask-app
+EnvironmentFile=/var/www/cs50hub/flask-app/.env
+ExecStart=/var/www/cs50hub/venv/bin/flask engagement-tick

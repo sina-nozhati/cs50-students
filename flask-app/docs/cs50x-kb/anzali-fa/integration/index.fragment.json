@@ -1,0 +1,463 @@
+{
+  "$schema": "../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-0",
+      "append_child": "w00-fa"
+    },
+    {
+      "parent_id": "course",
+      "append_child": "anzali-course-overview"
+    }
+  ],
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file>. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)"
+  ],
+  "nodes": [
+    {
+      "id": "w00-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۰ — Scratch (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-00/overview.fa.md",
+      "parent": "week-0",
+      "children": [
+        "w00-n01",
+        "w00-n02",
+        "w00-n03",
+        "w00-n04",
+        "w00-n05",
+        "w00-n06",
+        "w00-n07",
+        "w00-n08",
+        "w00-n09",
+        "w00-n10",
+        "w00-n11",
+        "w00-n12",
+        "w00-n13",
+        "w00-n14",
+        "w00-n15",
+        "w00-n16",
+        "w00-summary",
+        "w00-ps-scratch"
+      ],
+      "week": 0,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/0/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/0/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n01",
+      "type": "anzali-note",
+      "title": "خوش آمدید: هوش مصنوعی و اهمیت اصول پایه (Welcome!)",
+      "path": "anzali-fa/weeks/week-00/notes/01-welcome.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#welcome",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#welcome"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n02",
+      "type": "anzali-note",
+      "title": "VS Code و برنامهٔ chat.py (Visual Studio Code and chat.py)",
+      "path": "anzali-fa/weeks/week-00/notes/02-vscode-chat-py.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#visual-studio-code-and-chatpy",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#visual-studio-code-and-chatpy"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n03",
+      "type": "anzali-note",
+      "title": "علوم کامپیوتر، حل مسئله و دودویی (Computer Science and Problem Solving)",
+      "path": "anzali-fa/weeks/week-00/notes/03-problem-solving-binary.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#computer-science-and-problem-solving",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#computer-science-and-problem-solving"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n04",
+      "type": "anzali-note",
+      "title": "اَسکی: نمایش حروف با عدد (ASCII)",
+      "path": "anzali-fa/weeks/week-00/notes/04-ascii.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#ascii",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#ascii"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n05",
+      "type": "anzali-note",
+      "title": "یونیکد و ایموجی (Unicode)",
+      "path": "anzali-fa/weeks/week-00/notes/05-unicode.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#unicode",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#unicode"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n06",
+      "type": "anzali-note",
+      "title": "RGB، پیکسل، ویدئو و موسیقی (RGB)",
+      "path": "anzali-fa/weeks/week-00/notes/06-rgb-media.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#rgb",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#rgb"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n07",
+      "type": "anzali-note",
+      "title": "الگوریتم و زمان اجرا (Algorithms)",
+      "path": "anzali-fa/weeks/week-00/notes/07-algorithms.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#algorithms",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#algorithms"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n08",
+      "type": "anzali-note",
+      "title": "شبه‌کد و بلوک‌های سازندهٔ برنامه‌نویسی (Pseudocode)",
+      "path": "anzali-fa/weeks/week-00/notes/08-pseudocode.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#pseudocode",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#pseudocode"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n09",
+      "type": "anzali-note",
+      "title": "در ادامهٔ دوره: از Scratch تا C و انتزاع (What’s Ahead)",
+      "path": "anzali-fa/weeks/week-00/notes/09-whats-ahead.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#whats-ahead",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#whats-ahead"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n10",
+      "type": "anzali-note",
+      "title": "آشنایی با Scratch: محیط و دستگاه مختصات (Scratch)",
+      "path": "anzali-fa/weeks/week-00/notes/10-scratch-interface.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#scratch",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#scratch"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n11",
+      "type": "anzali-note",
+      "title": "سلام دنیا: رویداد، تابع، آرگومان و اثر جانبی (Hello World)",
+      "path": "anzali-fa/weeks/week-00/notes/11-hello-world.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#hello-world",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#hello-world"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n12",
+      "type": "anzali-note",
+      "title": "سلام به تو: ورودی، متغیر و مقدار بازگشتی (Hello, You)",
+      "path": "anzali-fa/weeks/week-00/notes/12-hello-you.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#hello-you",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#hello-you"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n13",
+      "type": "anzali-note",
+      "title": "میو: حلقه، بلوک سفارشی و انتزاع (Meow, Loops, and Abstraction)",
+      "path": "anzali-fa/weeks/week-00/notes/13-meow-loops-abstraction.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#meow-loops-and-abstraction",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#meow-loops-and-abstraction"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n14",
+      "type": "anzali-note",
+      "title": "شرط‌ها و حلقهٔ همیشگی (Conditionals)",
+      "path": "anzali-fa/weeks/week-00/notes/14-conditionals.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#conditionals",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#conditionals"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n15",
+      "type": "anzali-note",
+      "title": "Oscartime: چند اسپرایت، چند اسکریپت و امتیاز (Oscartime)",
+      "path": "anzali-fa/weeks/week-00/notes/15-oscartime.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#oscartime",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#oscartime"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-n16",
+      "type": "anzali-note",
+      "title": "Ivy’s Hardest Game: حرکت، دیوار و دشمن (Ivy’s Hardest Game)",
+      "path": "anzali-fa/weeks/week-00/notes/16-ivys-hardest-game.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#ivys-hardest-game",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#ivys-hardest-game"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-summary",
+      "type": "anzali-summary",
+      "title": "جمع‌بندی هفتهٔ ۰ (Summing Up)",
+      "path": "anzali-fa/weeks/week-00/summary.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/notes/0/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/0/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "w00-ps-scratch",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای پرابلم‌ست ۰: Starting from Scratch",
+      "path": "anzali-fa/weeks/week-00/problem-sets/starting-from-scratch.fa.md",
+      "parent": "w00-fa",
+      "children": [],
+      "week": 0,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/psets/0/scratch/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/psets/0/scratch/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-0"
+      ]
+    },
+    {
+      "id": "anzali-course-overview",
+      "type": "anzali-course-overview",
+      "title": "نمای کلی دورهٔ CS50x 2026 (CS50x Anzali)",
+      "path": "anzali-fa/curriculum/course-overview.fa.md",
+      "parent": "course",
+      "children": [],
+      "week": null,
+      "order": 119,
+      "source_url": "https://cs50.harvard.edu/x/syllabus/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/syllabus/"
+      ],
+      "source_type": "authored",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa"
+      ]
+    }
+  ]
+}

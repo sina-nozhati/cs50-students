@@ -1,0 +1,1964 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 5,
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "طراحی‌شده اختصاصی برای ارزیابی تسلط هفتگی CS50x انزلی.",
+  "disclaimer_detail_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w05-q-001",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l01",
+      "concept_ids": [
+        "w05-c-abstract-data-type"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#data-structures",
+      "prompt_fa": "کدام مورد یک نوع دادهٔ انتزاعی است، نه یک ساختمان داده؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "نوع انتزاعی می‌گوید چه کاری، ساختمان داده می‌گوید چطور.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "صف",
+          "feedback_fa": "درست: صف رفتار FIFO را تعریف می‌کند، نه چیدمان در حافظه را."
+        },
+        {
+          "id": "b",
+          "text_fa": "آرایه‌ای پیوسته از ۵۰ خانه",
+          "feedback_fa": "این یک چیدمان مشخص در حافظه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "فهرستی از گره‌های پیوندی",
+          "feedback_fa": "این هم یک پیاده‌سازی است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-002",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l01",
+      "concept_ids": [
+        "w05-c-dictionary-adt"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-5",
+      "prompt_fa": "در سخنرانی، دیکشنری چگونه توصیف شد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "دیکشنری نگاشت کلید به مقدار است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "مجموعه‌ای از جفت‌های کلید و مقدار",
+          "feedback_fa": "درست: مثل واژه و معنی یا نام و شماره."
+        },
+        {
+          "id": "b",
+          "text_fa": "آرایه‌ای مرتب از عددها",
+          "feedback_fa": "دیکشنری نوع انتزاعی است و به آرایهٔ عدد محدود نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط یک فهرست پیوندی",
+          "feedback_fa": "دیکشنری را می‌شود به چند شکل پیاده کرد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-003",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l01",
+      "concept_ids": [
+        "w05-c-fifo"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#queues",
+      "prompt_fa": "کدام مثال رفتار صف (FIFO) دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اول وارد، اول خارج.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "صف خرید بلیت",
+          "feedback_fa": "درست: اولین نفر اولین کسی است که خدمت می‌گیرد."
+        },
+        {
+          "id": "b",
+          "text_fa": "سینی‌های روی هم در سلف",
+          "feedback_fa": "این پشته است (LIFO)."
+        },
+        {
+          "id": "c",
+          "text_fa": "دکمهٔ «برگشت» مرورگر",
+          "feedback_fa": "آخرین صفحه اول برمی‌گردد؛ پشته است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-004",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l01",
+      "concept_ids": [
+        "w05-c-capacity-vs-size"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#queues",
+      "prompt_fa": "درست یا نادرست: در تعریف رسمی صف، `CAPACITY` تعداد فعلی آدم‌های صف را نگه می‌دارد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "CAPACITY بیشترین ظرفیت است؛ size تعداد فعلی را نگه می‌دارد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-005",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l01",
+      "concept_ids": [
+        "w05-c-lifo"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "8 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "8 2"
+        ]
+      },
+      "explanation_fa": "پس از یک pop، 8 بالای پشته است و size برابر 2.",
+      "code": "#include <stdio.h>\n\nint main(void)\n{\n    int stack[3];\n    int size = 0;\n    stack[size++] = 7;\n    stack[size++] = 8;\n    stack[size++] = 9;\n    size--;\n    printf(\"%i %i\\n\", stack[size - 1], size);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "8 2",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30"
+      }
+    },
+    {
+      "id": "w05-q-006",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l01",
+      "concept_ids": [
+        "w05-c-queue-wraparound"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-short-queues",
+      "prompt_fa": "در صف آرایه‌ای ویدئوی کوتاه، فیلد `front` چه کمکی می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "front جای سر صف را در آرایه نگه می‌دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "dequeue لازم نیست همهٔ عنصرها را یک خانه جابه‌جا کند",
+          "feedback_fa": "درست: فقط front جلو می‌رود و می‌تواند با باقی‌ماندهٔ تقسیم به ابتدای آرایه برگردد."
+        },
+        {
+          "id": "b",
+          "text_fa": "ظرفیت صف را بی‌نهایت می‌کند",
+          "feedback_fa": "ظرفیت هنوز ثابت است."
+        },
+        {
+          "id": "c",
+          "text_fa": "صف را به پشته تبدیل می‌کند",
+          "feedback_fa": "رفتار FIFO عوض نمی‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-007",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l02",
+      "concept_ids": [
+        "w05-c-array-contiguous"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#arrays",
+      "prompt_fa": "چرا نمی‌شود همیشه یک خانه به انتهای آرایهٔ موجود اضافه کرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "آرایه بلوکی پیوسته است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون شاید خانهٔ بعدی حافظه مال چیز دیگری باشد",
+          "feedback_fa": "درست: آرایه باید پیوسته باشد."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون C آرایهٔ بزرگ‌تر از ۳ را اجازه نمی‌دهد",
+          "feedback_fa": "چنین محدودیتی نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون اندیس آرایه از ۱ شروع می‌شود",
+          "feedback_fa": "اندیس از 0 شروع می‌شود و ربطی ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-008",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l02",
+      "concept_ids": [
+        "w05-c-array-resize-copy"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#arrays",
+      "prompt_fa": "بزرگ کردن آرایه با malloc تازه و کپی، با n عنصر، چه هزینه‌ای دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر عنصر یک بار کپی می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "O(n)",
+          "feedback_fa": "درست: همهٔ n عنصر کپی می‌شوند."
+        },
+        {
+          "id": "b",
+          "text_fa": "O(1)",
+          "feedback_fa": "کپی n عنصر زمان ثابت نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "O(log n)",
+          "feedback_fa": "هیچ نیمه‌کردنی در کار نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-009",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l02",
+      "concept_ids": [
+        "w05-c-realloc-null"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#arrays",
+      "prompt_fa": "درست یا نادرست: اگر `realloc` شکست بخورد، بلوک قدیمی را خودش آزاد می‌کند.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "بلوک قدیمی دست‌نخورده می‌ماند؛ برای همین list2.c پیش از خروج free(list) می‌کند.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-010",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l02",
+      "concept_ids": [
+        "w05-c-realloc"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "11"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "11"
+        ]
+      },
+      "explanation_fa": "realloc مقدارهای قدیمی را نگه می‌دارد؛ 5 + 6 = 11.",
+      "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void)\n{\n    int *list = malloc(2 * sizeof(int));\n    if (list == NULL)\n    {\n        return 1;\n    }\n    list[0] = 5;\n    list[1] = 6;\n    int *tmp = realloc(list, 3 * sizeof(int));\n    if (tmp == NULL)\n    {\n        free(list);\n        return 1;\n    }\n    list = tmp;\n    list[2] = list[0] + list[1];\n    printf(\"%i\\n\", list[2]);\n    free(list);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "11",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30",
+        "valgrind": {
+          "tool": "valgrind-3.24.0",
+          "error_count": 0,
+          "definitely_lost_bytes": 0,
+          "all_freed": true
+        }
+      }
+    },
+    {
+      "id": "w05-q-011",
+      "origin": "authored",
+      "week": 5,
+      "type": "find_the_bug",
+      "lesson_id": "w05-l02",
+      "concept_ids": [
+        "w05-c-tmp-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این قطعه اگر realloc شکست بخورد حافظه را نشت می‌دهد. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 6,
+        "key_points_fa": [
+          "نتیجهٔ realloc باید اول در اشاره‌گر موقت ذخیره شود",
+          "در صورت شکست، نشانی بلوک قدیمی گم می‌شود"
+        ]
+      },
+      "explanation_fa": "الگوی tmp در list2.c را ببین.",
+      "code": "int *list = malloc(3 * sizeof(int));\nif (list == NULL)\n{\n    return 1;\n}\nlist = realloc(list, 4 * sizeof(int));\nif (list == NULL)\n{\n    return 1;\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w05-q-012",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l02",
+      "concept_ids": [
+        "w05-c-overallocation"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-transcript-5",
+      "prompt_fa": "در سخنرانی، گرفتن مثلاً ۳۰ خانه به‌جای ۴ خانه چه بده‌بستانی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "زمان در برابر فضا.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کپی کمتر در برابر هدر رفتن حافظه",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "سرعت کمتر در برابر حافظهٔ کمتر",
+          "feedback_fa": "جای بیشتر کپی‌ها را کم می‌کند، پس کندتر نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "هیچ بده‌بستانی ندارد",
+          "feedback_fa": "خانه‌های استفاده‌نشده هدر می‌روند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-013",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l03",
+      "concept_ids": [
+        "w05-c-node"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "هر گره در فهرست پیوندی درس‌نامه چه دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "گره = داده + اشاره‌گر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "یک عدد و یک اشاره‌گر به گرهٔ بعدی",
+          "feedback_fa": "درست: number و next."
+        },
+        {
+          "id": "b",
+          "text_fa": "فقط یک عدد",
+          "feedback_fa": "بدون next فهرست به هم وصل نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "دو عدد و یک اندیس",
+          "feedback_fa": "گره اندیس ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-014",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l03",
+      "concept_ids": [
+        "w05-c-self-referential-struct"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "در `typedef struct node { ... } node;` کلمهٔ اول `node` (پس از struct) برای چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "struct خودارجاع.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا داخل struct بشود با `struct node *` به همین نوع اشاره کرد",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "برای اینکه struct دو بار تعریف شود",
+          "feedback_fa": "فقط یک تعریف است."
+        },
+        {
+          "id": "c",
+          "text_fa": "لازم نیست و هیچ اثری ندارد",
+          "feedback_fa": "بدون آن نمی‌شود next را تعریف کرد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-015",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l03",
+      "concept_ids": [
+        "w05-c-arrow-operator"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "درست یا نادرست: `n->number` همان `(*n).number` است.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "پیکان یعنی به نشانی برو و فیلد را ببین.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-016",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l03",
+      "concept_ids": [
+        "w05-c-list-null-end"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "پایان فهرست پیوندی چطور مشخص می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "NULL یعنی گرهٔ بعدی‌ای نیست.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "next آخرین گره برابر NULL است",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "آخرین گره عدد 0 دارد",
+          "feedback_fa": "عدد گره هر مقداری می‌تواند باشد."
+        },
+        {
+          "id": "c",
+          "text_fa": "طول فهرست در گرهٔ اول ذخیره است",
+          "feedback_fa": "در فهرست درس‌نامه چنین فیلدی نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-017",
+      "origin": "authored",
+      "week": 5,
+      "type": "fill_blank_code",
+      "lesson_id": "w05-l03",
+      "concept_ids": [
+        "w05-c-arrow-operator"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) جای خالی را پر کن تا مقدار گرهٔ دوم فهرست چاپ شود (فرض کن list دست‌کم دو گره دارد).",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "->"
+          ]
+        },
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "->"
+        ]
+      },
+      "explanation_fa": "list->next->number مقدار گرهٔ دوم است.",
+      "template": "printf(\"%i\\n\", list->next[[b1]]number);",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "->"
+          ],
+          "hint_fa": "list->next خودش اشاره‌گر به گره است.",
+          "wrong_feedback": {
+            ".": "list->next اشاره‌گر است؛ نقطه برای خود struct است."
+          },
+          "default_wrong_fa": "از عملگر پیکان استفاده کن."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "fill_blank"
+    },
+    {
+      "id": "w05-q-018",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l03",
+      "concept_ids": [
+        "w05-c-head-pointer"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "1 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1 2"
+        ]
+      },
+      "explanation_fa": "list به a اشاره می‌کند و a->next به b.",
+      "code": "#include <stdio.h>\n\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n}\nnode;\n\nint main(void)\n{\n    node *a = malloc(sizeof(node));\n    if (a == NULL)\n    {\n        return 1;\n    }\n    node *b = malloc(sizeof(node));\n    if (b == NULL)\n    {\n        free(a);\n        return 1;\n    }\n    a->number = 1;\n    a->next = b;\n    b->number = 2;\n    b->next = NULL;\n    node *list = a;\n    printf(\"%i %i\\n\", list->number, list->next->number);\n    while (list != NULL)\n    {\n        node *tmp = list->next;\n        free(list);\n        list = tmp;\n    }\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "1 2",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30",
+        "valgrind": {
+          "tool": "valgrind-3.24.0",
+          "error_count": 0,
+          "definitely_lost_bytes": 0,
+          "all_freed": true
+        }
+      }
+    },
+    {
+      "id": "w05-q-019",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-link-before-move"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "در افزودن به ابتدا، اگر اول `list = n;` و بعد `n->next = list;` بنویسیم چه می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "اول وصل کن، بعد سر فهرست را جابه‌جا کن.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "n->next به خود n اشاره می‌کند و بقیهٔ فهرست گم می‌شود",
+          "feedback_fa": "درست: گره‌های قبلی یتیم می‌شوند."
+        },
+        {
+          "id": "b",
+          "text_fa": "هیچ فرقی نمی‌کند",
+          "feedback_fa": "ترتیب این دو خط حیاتی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "گره به انتها اضافه می‌شود",
+          "feedback_fa": "هیچ‌کدام از این دو خط گره را به انتها نمی‌برد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-020",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-prepend-reverses"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "اگر 4، 5، 6 به ترتیب به ابتدای فهرست خالی اضافه شوند، پیمایش چه چاپ می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "افزودن به ابتدا ترتیب را برعکس می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "6 5 4",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "4 5 6",
+          "feedback_fa": "این ترتیب افزودن به انتهاست."
+        },
+        {
+          "id": "c",
+          "text_fa": "4 6 5",
+          "feedback_fa": "ترتیب برعکس ورود است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-021",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-list-complexity"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "هزینهٔ افزودن یک گره به ابتدای فهرست پیوندی چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "تعداد گام‌ها به طول فهرست بستگی ندارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "O(1)",
+          "feedback_fa": "درست: فقط دو اشاره‌گر عوض می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "O(n)",
+          "feedback_fa": "نیازی به پیمایش نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "O(log n)",
+          "feedback_fa": "هیچ جست‌وجویی لازم نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-022",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-list-tradeoffs"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "کدام هزینهٔ فهرست پیوندی نسبت به آرایه است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "پویایی بهایی دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "حافظهٔ اضافه برای next و نبودِ دسترسی مستقیم با اندیس",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "ناتوانی در بزرگ شدن",
+          "feedback_fa": "فهرست پیوندی به‌راحتی بزرگ می‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "نیاز به کپی همهٔ عنصرها هنگام افزودن",
+          "feedback_fa": "این مشکل آرایه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-023",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-list-traversal"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "6 5 4 15"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "6 5 4 15"
+        ]
+      },
+      "explanation_fa": "افزودن به ابتدا ترتیب را برعکس می‌کند و جمع 15 است.",
+      "code": "#include <stdio.h>\n\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n}\nnode;\n\nint main(void)\n{\n    node *list = NULL;\n    int values[] = {4, 5, 6};\n    for (int i = 0; i < 3; i++)\n    {\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = values[i];\n        n->next = list;\n        list = n;\n    }\n    int sum = 0;\n    for (node *ptr = list; ptr != NULL; ptr = ptr->next)\n    {\n        sum = sum + ptr->number;\n        printf(\"%i \", ptr->number);\n    }\n    printf(\"%i\\n\", sum);\n    while (list != NULL)\n    {\n        node *tmp = list->next;\n        free(list);\n        list = tmp;\n    }\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "6 5 4 15",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30",
+        "valgrind": {
+          "tool": "valgrind-3.24.0",
+          "error_count": 0,
+          "definitely_lost_bytes": 0,
+          "all_freed": true
+        }
+      }
+    },
+    {
+      "id": "w05-q-024",
+      "origin": "authored",
+      "week": 5,
+      "type": "parsons",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-list-traversal"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "خط‌های حلقهٔ چاپ `list4.c` را به ترتیب بچین.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6"
+        ]
+      },
+      "explanation_fa": "اشاره‌گر موقت از سر فهرست تا NULL می‌رود.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "node *ptr = list;",
+          "text": "node *ptr = list;"
+        },
+        {
+          "id": "p2",
+          "code": "while (ptr != NULL)",
+          "text": "while (ptr != NULL)"
+        },
+        {
+          "id": "p3",
+          "code": "{",
+          "text": "{"
+        },
+        {
+          "id": "p4",
+          "code": "    printf(\"%i\\n\", ptr->number);",
+          "text": "    printf(\"%i\\n\", ptr->number);"
+        },
+        {
+          "id": "p5",
+          "code": "    ptr = ptr->next;",
+          "text": "    ptr = ptr->next;"
+        },
+        {
+          "id": "p6",
+          "code": "}",
+          "text": "}"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "    list = list->next;",
+          "text": "    list = list->next;",
+          "why_wrong_fa": "این سر فهرست را گم می‌کند؛ باید ptr جلو برود."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "parsons"
+    },
+    {
+      "id": "w05-q-025",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l04",
+      "concept_ids": [
+        "w05-c-list-complexity"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "درست یا نادرست: روی فهرست پیوندی مرتب هم می‌شود جست‌وجوی دودویی O(log n) کرد.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "بدون دسترسی مستقیم به وسط، جست‌وجو O(n) است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-026",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-append"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "در `list7.c` اگر فهرست خالی باشد، گرهٔ تازه کجا می‌رود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "حالت خالی جدا بررسی می‌شود.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "خودش سر فهرست می‌شود",
+          "feedback_fa": "درست: list = n."
+        },
+        {
+          "id": "b",
+          "text_fa": "به انتهای NULL وصل می‌شود",
+          "feedback_fa": "NULL گره نیست که به آن وصل شویم."
+        },
+        {
+          "id": "c",
+          "text_fa": "برنامه آن را نادیده می‌گیرد",
+          "feedback_fa": "هیچ عددی نادیده گرفته نمی‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-027",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-append"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "درست یا نادرست: افزودن به انتها ترتیب ورود را حفظ می‌کند.",
+      "answer": {
+        "value": true,
+        "accepted_values": [
+          "true"
+        ]
+      },
+      "explanation_fa": "هر گره پس از گره‌های قبلی قرار می‌گیرد.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-028",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-sorted-insert"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "در درج مرتب `list8.c`، برای عدد تازه‌ای که از همهٔ عددهای فهرست بزرگ‌تر است چه می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "جای درست در فهرست مرتب.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "به انتهای فهرست اضافه می‌شود",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "به ابتدای فهرست می‌رود",
+          "feedback_fa": "فقط عدد کوچک‌تر از سر فهرست به ابتدا می‌رود."
+        },
+        {
+          "id": "c",
+          "text_fa": "جای گرهٔ آخر را می‌گیرد",
+          "feedback_fa": "هیچ گره‌ای حذف نمی‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-029",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-sorted-insert"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "چرا `list8.c` حالت «عدد کوچک‌تر از سر فهرست» را جدا بررسی می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "درج در ابتدا اشاره‌گر سر را عوض می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون در این حالت خود `list` باید عوض شود",
+          "feedback_fa": "درست: سر فهرست جابه‌جا می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون حلقه برای عدد کوچک کار نمی‌کند",
+          "feedback_fa": "مسئله تغییر سر فهرست است."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون این حالت هرگز رخ نمی‌دهد",
+          "feedback_fa": "اگر 1 پس از 2 وارد شود، رخ می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-030",
+      "origin": "authored",
+      "week": 5,
+      "type": "find_the_bug",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-free-list"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این قطعه برای آزاد کردن فهرست حافظهٔ آزادشده را می‌خواند. خط مشکل‌دار را پیدا کن.",
+      "answer": {
+        "bug_line": 5,
+        "key_points_fa": [
+          "پس از free(ptr) نباید ptr->next را خواند",
+          "باید next را پیش از free در متغیری موقت نگه داشت"
+        ]
+      },
+      "explanation_fa": "الگوی list9.c را ببین.",
+      "code": "node *ptr = list;\nwhile (ptr != NULL)\n{\n    free(ptr);\n    ptr = ptr->next;\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false,
+      "guide_type": null
+    },
+    {
+      "id": "w05-q-031",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-free-list"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این برنامه چند خط «freed» چاپ می‌کند؟ خروجی را بنویس.",
+      "answer": {
+        "accept": [
+          "freed 3"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "freed 3"
+        ]
+      },
+      "explanation_fa": "هر سه گره آزاد می‌شوند و یک خط با شمار 3 چاپ می‌شود.",
+      "code": "#include <stdio.h>\n\n#include <stdlib.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *next;\n}\nnode;\n\nint main(void)\n{\n    node *list = NULL;\n    for (int i = 0; i < 3; i++)\n    {\n        node *n = malloc(sizeof(node));\n        if (n == NULL)\n        {\n            return 1;\n        }\n        n->number = i;\n        n->next = list;\n        list = n;\n    }\n    int count = 0;\n    while (list != NULL)\n    {\n        node *tmp = list->next;\n        free(list);\n        count++;\n        list = tmp;\n    }\n    printf(\"freed %i\\n\", count);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "freed 3",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30",
+        "valgrind": {
+          "tool": "valgrind-3.24.0",
+          "error_count": 0,
+          "definitely_lost_bytes": 0,
+          "all_freed": true
+        }
+      }
+    },
+    {
+      "id": "w05-q-032",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-unload-on-error"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#linked-lists",
+      "prompt_fa": "چرا `list9.c` در مسیر خطای malloc هم گره‌های قبلی را آزاد می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر malloc یک free می‌خواهد، در هر مسیری.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "تا برنامه حتی هنگام شکست هم نشت حافظه نداشته باشد",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون malloc گره‌های قبلی را خراب می‌کند",
+          "feedback_fa": "malloc گره‌های قبلی را تغییر نمی‌دهد."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون valgrind بدون آن اجرا نمی‌شود",
+          "feedback_fa": "valgrind در هر حال اجرا می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-033",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l05",
+      "concept_ids": [
+        "w05-c-doubly-linked-list"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-doubly-linked-lists",
+      "prompt_fa": "گره فهرست پیوندی دوطرفه چه چیزی بیشتر از گره یک‌طرفه دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "prev و next.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "اشاره‌گر prev به گرهٔ قبلی",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک عدد دوم",
+          "feedback_fa": "داده همان است؛ فرق در اشاره‌گر است."
+        },
+        {
+          "id": "c",
+          "text_fa": "اندیس گره",
+          "feedback_fa": "گره اندیس ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-034",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l06",
+      "concept_ids": [
+        "w05-c-bst"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#trees",
+      "prompt_fa": "در درخت جست‌وجوی دودویی، عددهای زیردرخت چپ یک گره چه نسبتی با آن دارند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "چپ کوچک‌تر، راست بزرگ‌تر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کوچک‌ترند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "بزرگ‌ترند",
+          "feedback_fa": "بزرگ‌ترها در راست‌اند."
+        },
+        {
+          "id": "c",
+          "text_fa": "هیچ قاعده‌ای ندارند",
+          "feedback_fa": "قاعدهٔ چپ کوچک‌تر، راست بزرگ‌تر همین درخت را می‌سازد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-035",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l06",
+      "concept_ids": [
+        "w05-c-tree"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#trees",
+      "prompt_fa": "گره درخت جست‌وجوی دودویی درس‌نامه چند اشاره‌گر دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "دو فرزند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "دو: left و right",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "یکی: next",
+          "feedback_fa": "این گره فهرست پیوندی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "۲۶",
+          "feedback_fa": "این گره ترای است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-036",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l06",
+      "concept_ids": [
+        "w05-c-balanced-tree"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#trees",
+      "prompt_fa": "درست یا نادرست: اگر عددهای 1 تا 7 به ترتیب صعودی و بدون توازن در درخت درج شوند، جست‌وجو همچنان O(log n) است.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "درخت به یک خط کج تبدیل می‌شود و جست‌وجو O(n) است.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-037",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l06",
+      "concept_ids": [
+        "w05-c-bst-search"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#trees",
+      "prompt_fa": "تابع `search` درس‌نامه وقتی به `tree == NULL` می‌رسد چه برمی‌گرداند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "حالت پایهٔ بازگشت.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "false",
+          "feedback_fa": "درست: عدد در این شاخه نیست."
+        },
+        {
+          "id": "b",
+          "text_fa": "true",
+          "feedback_fa": "NULL یعنی گره‌ای نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "NULL",
+          "feedback_fa": "تابع bool برمی‌گرداند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-038",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l06",
+      "concept_ids": [
+        "w05-c-bst-search"
+      ],
+      "difficulty": 3,
+      "source_ref": "src-anzali-authored-5",
+      "prompt_fa": "(کد تألیفی) این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "1 2"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "1 2"
+        ]
+      },
+      "explanation_fa": "ریشه 2، بعد راست به 3: پیدا شد در دو فراخوانی.",
+      "code": "#include <stdio.h>\n\n#include <stdbool.h>\n#include <stddef.h>\n\ntypedef struct node\n{\n    int number;\n    struct node *left;\n    struct node *right;\n}\nnode;\n\nint steps = 0;\n\nbool search(node *tree, int number)\n{\n    steps++;\n    if (tree == NULL)\n    {\n        return false;\n    }\n    else if (number < tree->number)\n    {\n        return search(tree->left, number);\n    }\n    else if (number > tree->number)\n    {\n        return search(tree->right, number);\n    }\n    else\n    {\n        return true;\n    }\n}\n\nint main(void)\n{\n    node one = {1, NULL, NULL};\n    node three = {3, NULL, NULL};\n    node two = {2, &one, &three};\n    bool found = search(&two, 3);\n    printf(\"%i %i\\n\", found, steps);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "1 2",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30"
+      }
+    },
+    {
+      "id": "w05-q-039",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-hash-function"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "prompt_fa": "تابع درهم‌ساز در جدول درهم‌سازی چه کاری می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "ورودی ← اندیس سطل.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "ورودی را به اندیسی در آرایه تبدیل می‌کند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "داده را رمزگذاری می‌کند تا کسی نخواند",
+          "feedback_fa": "این‌جا هدف رمزنگاری نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "فهرست را مرتب می‌کند",
+          "feedback_fa": "درهم‌سازی ترتیب نمی‌سازد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-040",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-collision"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "prompt_fa": "برخورد (collision) در جدول درهم‌سازی یعنی چه؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "مثلاً Luigi و Link با تابع حرف اول.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "دو ورودی متفاوت به یک سطل می‌روند",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "یک ورودی دو بار درج شود",
+          "feedback_fa": "این تکرار است، نه برخورد."
+        },
+        {
+          "id": "c",
+          "text_fa": "آرایه پر شود",
+          "feedback_fa": "در زنجیره‌سازی آرایه پر نمی‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-041",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-chaining"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "prompt_fa": "در زنجیره‌سازی، هر خانهٔ آرایهٔ جدول چه نگه می‌دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "آرایه‌ای از فهرست‌ها.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "اشاره‌گر به سر یک فهرست پیوندی",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "فقط یک واژه",
+          "feedback_fa": "آن‌وقت برخورد را نمی‌شد مدیریت کرد."
+        },
+        {
+          "id": "c",
+          "text_fa": "یک ترای",
+          "feedback_fa": "این ترکیب در درس‌نامه نیامده است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-042",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-time-space-tradeoff"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "prompt_fa": "اگر به‌جای ۲۶ سطل (حرف اول) از سطل‌هایی بر اساس سه حرف اول استفاده کنیم چه می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "سطل بیشتر = حافظهٔ بیشتر، زنجیر کوتاه‌تر.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "فهرست‌ها کوتاه‌تر می‌شوند اما حافظهٔ بیشتری مصرف می‌شود",
+          "feedback_fa": "درست: بده‌بستان زمان و حافظه."
+        },
+        {
+          "id": "b",
+          "text_fa": "هیچ فرقی نمی‌کند",
+          "feedback_fa": "تعداد سطل‌ها روی طول فهرست‌ها اثر دارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "برخورد غیرممکن می‌شود",
+          "feedback_fa": "برخورد کمتر می‌شود، نه ناممکن."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-043",
+      "origin": "authored",
+      "week": 5,
+      "type": "true_false",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-good-hash-properties"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-section-5-transcript",
+      "prompt_fa": "درست یا نادرست: تابع درهم‌سازی که برای یک واژه در دو اجرا دو اندیس متفاوت بدهد، برای جدول درهم‌سازی مناسب است.",
+      "answer": {
+        "value": false,
+        "accepted_values": [
+          "false"
+        ]
+      },
+      "explanation_fa": "تابع باید قطعی باشد؛ وگرنه واژه در سطلی جست‌وجو می‌شود که در آن نیست.",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "true_false"
+    },
+    {
+      "id": "w05-q-044",
+      "origin": "authored",
+      "week": 5,
+      "type": "predict_output",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-bucket"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "prompt_fa": "(کد تألیفی) این برنامه که تابع درهم‌سازی رسمی درس‌نامه را به کار می‌برد چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "11 11 25"
+        ],
+        "match": "exact_after_trim",
+        "accepted_values": [
+          "11 11 25"
+        ]
+      },
+      "explanation_fa": "L و l هر دو به 11 می‌روند (برخورد) و Z به 25.",
+      "code": "#include <stdio.h>\n\n#include <ctype.h>\n\nunsigned int hash(const char *word)\n{\n    return toupper(word[0]) - 'A';\n}\n\nint main(void)\n{\n    printf(\"%u %u %u\\n\", hash(\"Luigi\"), hash(\"link\"), hash(\"Zelda\"));\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "predict_output",
+      "compile_check": {
+        "tool": "gcc 14.2 -std=gnu11 -Wall -Werror -fsanitize=address,undefined (cs50.h stub)",
+        "compiled": true,
+        "exit_code": 0,
+        "stdout": "11 11 25",
+        "matches_accept": true,
+        "checked_at": "2026-10-28T19:30:00+03:30"
+      }
+    },
+    {
+      "id": "w05-q-045",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-trie-lookup"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#tries",
+      "prompt_fa": "زمان جست‌وجو در ترای به چه بستگی دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "هر حرف یک گام.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "طول واژه",
+          "feedback_fa": "درست؛ مستقل از تعداد واژه‌های ذخیره‌شده."
+        },
+        {
+          "id": "b",
+          "text_fa": "تعداد کل واژه‌ها",
+          "feedback_fa": "این ویژگی فهرست پیوندی است."
+        },
+        {
+          "id": "c",
+          "text_fa": "تعداد سطل‌ها",
+          "feedback_fa": "ترای سطل ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    },
+    {
+      "id": "w05-q-046",
+      "origin": "authored",
+      "week": 5,
+      "type": "mcq",
+      "lesson_id": "w05-l07",
+      "concept_ids": [
+        "w05-c-trie-memory"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-5#tries",
+      "prompt_fa": "بزرگ‌ترین عیب ترای طبق درس‌نامه چیست؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ],
+        "accepted_values": []
+      },
+      "explanation_fa": "بده‌بستان زمان و حافظه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "حافظهٔ زیاد",
+          "feedback_fa": "درست: هر گره آرایه‌ای ۲۶تایی از اشاره‌گر دارد که بیشترش NULL است."
+        },
+        {
+          "id": "b",
+          "text_fa": "جست‌وجوی کند",
+          "feedback_fa": "جست‌وجو سریع است."
+        },
+        {
+          "id": "c",
+          "text_fa": "نیاز به مرتب بودن ورودی",
+          "feedback_fa": "چنین شرطی نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true,
+      "guide_type": "mcq"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w05-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w05-q-001",
+        "w05-q-002",
+        "w05-q-003",
+        "w05-q-004",
+        "w05-q-005",
+        "w05-q-006"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w05-q-007",
+        "w05-q-008",
+        "w05-q-009",
+        "w05-q-010",
+        "w05-q-011",
+        "w05-q-012"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w05-q-013",
+        "w05-q-014",
+        "w05-q-015",
+        "w05-q-016",
+        "w05-q-017",
+        "w05-q-018"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w05-q-019",
+        "w05-q-020",
+        "w05-q-021",
+        "w05-q-022",
+        "w05-q-023",
+        "w05-q-024",
+        "w05-q-025"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w05-q-026",
+        "w05-q-027",
+        "w05-q-028",
+        "w05-q-029",
+        "w05-q-030",
+        "w05-q-031",
+        "w05-q-032",
+        "w05-q-033"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w05-q-034",
+        "w05-q-035",
+        "w05-q-036",
+        "w05-q-037",
+        "w05-q-038"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w05-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w05-q-039",
+        "w05-q-040",
+        "w05-q-041",
+        "w05-q-042",
+        "w05-q-043",
+        "w05-q-044",
+        "w05-q-045",
+        "w05-q-046"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w05-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۵",
+      "item_ids": [
+        "w05-q-006",
+        "w05-q-005",
+        "w05-q-008",
+        "w05-q-009",
+        "w05-q-014",
+        "w05-q-017",
+        "w05-q-019",
+        "w05-q-021",
+        "w05-q-029",
+        "w05-q-026",
+        "w05-q-038",
+        "w05-q-036",
+        "w05-q-041",
+        "w05-q-042"
+      ],
+      "item_pool_ids": [
+        "w05-q-001",
+        "w05-q-002",
+        "w05-q-003",
+        "w05-q-004",
+        "w05-q-005",
+        "w05-q-006",
+        "w05-q-007",
+        "w05-q-008",
+        "w05-q-009",
+        "w05-q-010",
+        "w05-q-012",
+        "w05-q-013",
+        "w05-q-014",
+        "w05-q-015",
+        "w05-q-016",
+        "w05-q-017",
+        "w05-q-018",
+        "w05-q-019",
+        "w05-q-020",
+        "w05-q-021",
+        "w05-q-022",
+        "w05-q-023",
+        "w05-q-024",
+        "w05-q-025",
+        "w05-q-026",
+        "w05-q-027",
+        "w05-q-028",
+        "w05-q-029",
+        "w05-q-031",
+        "w05-q-032",
+        "w05-q-033",
+        "w05-q-034",
+        "w05-q-035",
+        "w05-q-036",
+        "w05-q-037",
+        "w05-q-038",
+        "w05-q-039",
+        "w05-q-040",
+        "w05-q-041",
+        "w05-q-042",
+        "w05-q-043",
+        "w05-q-044",
+        "w05-q-045",
+        "w05-q-046"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 14,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

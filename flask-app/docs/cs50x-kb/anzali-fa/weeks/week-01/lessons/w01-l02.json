@@ -1,0 +1,258 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l02",
+  "type": "lesson",
+  "week": 1,
+  "order": 2,
+  "stage_id": "w01-s1",
+  "title_fa": "printf، نحو و دنبالهٔ گریز",
+  "title_en": "printf, syntax and escape sequences",
+  "note_ids": [
+    "w01-n05"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w01-l01"
+  ],
+  "concept_ids": [
+    "w01-c-printf",
+    "w01-c-syntax",
+    "w01-c-escape-sequence",
+    "w01-c-recompile"
+  ],
+  "objective_ids": [
+    "w01-o03",
+    "w01-o01"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l02-u01",
+      "order": 1,
+      "title_fa": "printf و نحو C",
+      "concept_ids": [
+        "w01-c-printf",
+        "w01-c-syntax"
+      ],
+      "objective_ids": [
+        "w01-o03"
+      ],
+      "note_id": "w01-n05",
+      "source_refs": [
+        "src-notes-1#from-scratch-to-c",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "`printf` متن را در ترمینال چاپ می‌کند. متن داخل نقل‌قول دوتایی می‌آید، آرگومان داخل پرانتز است و دستور با نقطه‌ویرگول (`;`) تمام می‌شود. جاافتادن هر کدام خطای کامپایل می‌دهد.",
+        "note_id": "w01-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "printf-line",
+        "lang": "c",
+        "content": "printf(\"hello, world\\n\");",
+        "source_ref": "src-notes-1#from-scratch-to-c",
+        "explain_fa": "خط رسمی printf از درس‌نامه."
+      },
+      "check": {
+        "id": "w01-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام خط از نظر نحو C درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "printf(\"hi\\n\");",
+            "correct": true,
+            "feedback_fa": "درست: نقل‌قول، پرانتز و نقطه‌ویرگول سر جایشان هستند."
+          },
+          {
+            "id": "b",
+            "text_fa": "printf(\"hi\\n\")",
+            "correct": false,
+            "feedback_fa": "نقطه‌ویرگول پایان دستور جا افتاده است."
+          },
+          {
+            "id": "c",
+            "text_fa": "printf(hi\\n);",
+            "correct": false,
+            "feedback_fa": "متن باید داخل نقل‌قول دوتایی باشد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l02-u01-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی‌ها را پر کن تا این خط تألیفی درست کامپایل شود و «bye» را در یک خط چاپ کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "printf([[b1]]bye\\n[[b2]])[[b3]]",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "\""
+            ],
+            "hint_fa": "متن با نقل‌قول دوتایی شروع می‌شود.",
+            "wrong_feedback": {
+              "'": "نقل‌قول تکی در C برای یک نویسه (char) است، نه رشته."
+            },
+            "default_wrong_fa": "اینجا نشانهٔ شروع رشته لازم است."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "\""
+            ],
+            "hint_fa": "متن با همان نشانه‌ای که شروع شد تمام می‌شود.",
+            "wrong_feedback": {
+              "'": "رشته با نقل‌قول دوتایی تمام می‌شود."
+            },
+            "default_wrong_fa": "پایان رشته را ببند."
+          },
+          {
+            "id": "b3",
+            "accepted": [
+              ";"
+            ],
+            "hint_fa": "هر دستور در C با چه نشانه‌ای تمام می‌شود؟",
+            "wrong_feedback": {
+              ":": "دونقطه نه؛ نقطه‌ویرگول.",
+              ".": "نقطه نه؛ نقطه‌ویرگول."
+            },
+            "default_wrong_fa": "دستور را با نقطه‌ویرگول تمام کن."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "\""
+          ],
+          "b2": [
+            "\""
+          ],
+          "b3": [
+            ";"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست. نحو C دقیق است و کامپایلر به همین جزئیات حساس است.",
+          "incorrect_fa": "دوباره به خط رسمی printf نگاه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l02-u02",
+      "order": 2,
+      "title_fa": "\\n و کامپایل دوباره",
+      "concept_ids": [
+        "w01-c-escape-sequence",
+        "w01-c-recompile"
+      ],
+      "objective_ids": [
+        "w01-o03",
+        "w01-o01"
+      ],
+      "note_id": "w01-n05",
+      "source_refs": [
+        "src-notes-1#from-scratch-to-c",
+        "src-anzali-authored-1"
+      ],
+      "reading": {
+        "text_fa": "بدون `\\n` اعلان ترمینال روی همان خط خروجی می‌ماند. `\\n` یک «دنبالهٔ گریز» (escape sequence) است؛ دنباله‌های دیگری هم مثل `\\\"` و `\\\\` وجود دارند. نکتهٔ مهم: بعد از هر تغییر در کد باید **دوباره** `make` کنی، وگرنه نسخهٔ قدیمی اجرا می‌شود.",
+        "note_id": "w01-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-no-newline",
+        "lang": "c",
+        "content": "// \\n is missing\n\n#include <stdio.h>\n\nint main(void)\n{\n    printf(\"hello, world\");\n}",
+        "source_ref": "src-notes-1#from-scratch-to-c",
+        "explain_fa": "نسخهٔ رسمی بدون \\n."
+      },
+      "check": {
+        "id": "w01-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "hello.c را ویرایش کردی و \\n را اضافه کردی، ولی بلافاصله ./hello را زدی. چه می‌بینی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "همان خروجی قدیمی، چون برنامه دوباره کامپایل نشده است",
+            "correct": true,
+            "feedback_fa": "درست. اول make hello، بعد ./hello."
+          },
+          {
+            "id": "b",
+            "text_fa": "خروجی تازه با خط جدید",
+            "correct": false,
+            "feedback_fa": "تا make نکنی، فایل اجرایی قدیمی اجرا می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "خطای کامپایل",
+            "correct": false,
+            "feedback_fa": "./hello چیزی را کامپایل نمی‌کند؛ فقط برنامهٔ موجود را اجرا می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l02-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این خط تألیفی چیست؟ (خط‌ها را جدا بنویس)\n\nprintf(\"a\\nb\\n\");",
+        "expected": {
+          "output": "a\nb\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: هر \\n یک خط تازه می‌سازد.",
+          "incorrect_fa": "\\n یعنی «برو خط بعد». دو \\n داری."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l04",
+  "type": "lesson",
+  "week": 4,
+  "order": 4,
+  "stage_id": "w04-s2",
+  "title_fa": "کپی رشته و malloc",
+  "title_en": "Copying strings and malloc",
+  "note_ids": [
+    "w04-n08",
+    "w04-n09"
+  ],
+  "related_doc_ids": [
+    "w04-sh-dynamic-memory-allocation"
+  ],
+  "prerequisite_lesson_ids": [
+    "w04-l03"
+  ],
+  "concept_ids": [
+    "w04-c-pointer-copy",
+    "w04-c-malloc",
+    "w04-c-free",
+    "w04-c-malloc-null-check",
+    "w04-c-nul-byte-room",
+    "w04-c-strcpy",
+    "w04-c-heap-vs-stack-alloc",
+    "w04-c-free-rules"
+  ],
+  "objective_ids": [
+    "w04-o06",
+    "w04-o08"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w04-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l04-u01",
+      "order": 1,
+      "title_fa": "چرا t = s کپی نیست",
+      "concept_ids": [
+        "w04-c-pointer-copy"
+      ],
+      "objective_ids": [
+        "w04-o06"
+      ],
+      "note_id": "w04-n08",
+      "source_refs": [
+        "src-notes-4#copying-and-malloc",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`string t = s` فقط نشانی را کپی می‌کند. حالا `s` و `t` به همان کاراکترها اشاره می‌کنند و بزرگ کردن `t[0]`، رشتهٔ `s` را هم عوض می‌کند. در سخنرانی، با تایپ `hi` هر دو خط خروجی بزرگ شدند. پیش از دست زدن به `t[0]` هم باید با `strlen` مطمئن شد رشته خالی نیست.",
+        "note_id": "w04-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "copy1",
+        "lang": "c",
+        "content": "// Capitalizes a string, checking length first\n\n#include <cs50.h>\n#include <ctype.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    // Get a string\n    string s = get_string(\"s: \");\n\n    // Copy string's address\n    string t = s;\n\n    // Capitalize first letter in string\n    if (strlen(t) > 0)\n    {\n        t[0] = toupper(t[0]);\n    }\n\n    // Print string twice\n    printf(\"s: %s\\n\", s);\n    printf(\"t: %s\\n\", t);\n}",
+        "source_ref": "src-notes-4#copying-and-malloc",
+        "explain_fa": "کد رسمی copy با بررسی strlen."
+      },
+      "check": {
+        "id": "w04-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "پس از `string t = s;` و `t[0] = toupper(t[0]);` چه اتفاقی برای `s` می‌افتد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "حرف اول s هم بزرگ می‌شود",
+            "correct": true,
+            "feedback_fa": "درست. s و t یک رشته‌اند."
+          },
+          {
+            "id": "b",
+            "text_fa": "s تغییر نمی‌کند",
+            "correct": false,
+            "feedback_fa": "فقط نشانی کپی شده است، نه کاراکترها."
+          },
+          {
+            "id": "c",
+            "text_fa": "برنامه کامپایل نمی‌شود",
+            "correct": false,
+            "feedback_fa": "کد معتبر است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l04-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: پس از `t = s` دو رشتهٔ جدا در حافظه داریم.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: یک رشته و دو اشاره‌گر داریم.",
+          "incorrect_fa": "به تصویر درس‌نامه از دو پیکان فکر کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l04-u02",
+      "order": 2,
+      "title_fa": "malloc، free و NULL",
+      "concept_ids": [
+        "w04-c-malloc",
+        "w04-c-free",
+        "w04-c-malloc-null-check",
+        "w04-c-nul-byte-room"
+      ],
+      "objective_ids": [
+        "w04-o06"
+      ],
+      "note_id": "w04-n09",
+      "source_refs": [
+        "src-notes-4#copying-and-malloc",
+        "src-transcript-4",
+        "src-short-dynamic-memory-allocation",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`malloc(n)` بلوکی از `n` بایت می‌گیرد و نشانی اولش را برمی‌گرداند، یا اگر نتواند `NULL`. برای کپی رشته `strlen(s) + 1` بایت لازم است: یکی اضافه برای `\\0`. وقتی کارت تمام شد، `free` بلوک را آزاد می‌کند؛ اگر نکنی، نشت حافظه داری. رشته‌های `get_string` را خودت آزاد نکن؛ کتابخانه این کار را می‌کند.",
+        "note_id": "w04-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "copy5",
+        "lang": "c",
+        "content": "// Capitalizes a copy of a string without memory errors\n\n#include <cs50.h>\n#include <ctype.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void)\n{\n    // Get a string\n    char *s = get_string(\"s: \");\n    if (s == NULL)\n    {\n        return 1;\n    }\n\n    // Allocate memory for another string\n    char *t = malloc(strlen(s) + 1);\n    if (t == NULL)\n    {\n        return 1;\n    }\n\n    // Copy string into memory\n    strcpy(t, s);\n\n    // Capitalize copy\n    if (strlen(t) > 0)\n    {\n        t[0] = toupper(t[0]);\n    }\n\n    // Print strings\n    printf(\"s: %s\\n\", s);\n    printf(\"t: %s\\n\", t);\n\n    // Free memory\n    free(t);\n    return 0;\n}",
+        "source_ref": "src-notes-4#copying-and-malloc",
+        "explain_fa": "کد رسمی copy5 با بررسی NULL و free."
+      },
+      "check": {
+        "id": "w04-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای کپی رشتهٔ `\"cat\"` با `malloc` حداقل چند بایت لازم است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "4",
+            "correct": true,
+            "feedback_fa": "درست: سه حرف و یک \\0."
+          },
+          {
+            "id": "b",
+            "text_fa": "3",
+            "correct": false,
+            "feedback_fa": "جای \\0 را فراموش کردی."
+          },
+          {
+            "id": "c",
+            "text_fa": "8",
+            "correct": false,
+            "feedback_fa": "8 اندازهٔ یک اشاره‌گر است، نه رشته."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l04-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را پر کن تا این قطعهٔ تألیفی برای کپی `s` حافظه بگیرد و شکست را بررسی کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "char *t = malloc(strlen(s) [[b1]]);\nif (t == [[b2]])\n{\n    return 1;\n}",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "+ 1",
+              "+1"
+            ],
+            "hint_fa": "یک بایت برای \\0.",
+            "wrong_feedback": {
+              "- 1": "کمتر از طول رشته جا می‌گیری.",
+              "": "بدون + 1 جای \\0 نمی‌ماند."
+            },
+            "default_wrong_fa": "به \\0 فکر کن."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "NULL"
+            ],
+            "hint_fa": "malloc در شکست چه برمی‌گرداند؟",
+            "wrong_feedback": {
+              "0x0": "به‌جای 0x0 از نام NULL استفاده کن.",
+              "s": "t را با NULL مقایسه کن، نه با s."
+            },
+            "default_wrong_fa": "مقدار ویژهٔ شکست را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "+ 1",
+            "+1"
+          ],
+          "b2": [
+            "NULL"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "جای \\0 و مقدار بازگشتی شکست malloc را در نظر بگیر."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l04-u03",
+      "order": 3,
+      "title_fa": "strcpy، heap و قانون‌های free",
+      "concept_ids": [
+        "w04-c-strcpy",
+        "w04-c-heap-vs-stack-alloc",
+        "w04-c-free-rules"
+      ],
+      "objective_ids": [
+        "w04-o06",
+        "w04-o08"
+      ],
+      "note_id": "w04-sh-dynamic-memory-allocation",
+      "source_refs": [
+        "src-short-dynamic-memory-allocation",
+        "src-notes-4#copying-and-malloc",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`strcpy(t, s)` کاراکترهای `s` را، با `\\0`، در حافظه‌ای که `t` به آن اشاره می‌کند کپی می‌کند؛ پس `t` باید از قبل جای کافی داشته باشد. ویدئوی کوتاه Dynamic Memory Allocation توضیح می‌دهد که متغیرهای معمولی روی stack ساخته می‌شوند و حافظهٔ `malloc` از heap می‌آید. قانون‌ها: هر چه با `malloc` گرفتی باید `free` شود، فقط همان‌ها، و هر بلوک فقط یک بار.",
+        "note_id": "w04-sh-dynamic-memory-allocation",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-sh-dynamic-memory-allocation"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "copy4",
+        "lang": "c",
+        "content": "// Capitalizes a copy of a string using strcpy\n\n#include <cs50.h>\n#include <ctype.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main(void)\n{\n    // Get a string\n    char *s = get_string(\"s: \");\n\n    // Allocate memory for another string\n    char *t = malloc(strlen(s) + 1);\n\n    // Copy string into memory\n    strcpy(t, s);\n\n    // Capitalize copy\n    t[0] = toupper(t[0]);\n\n    // Print strings\n    printf(\"s: %s\\n\", s);\n    printf(\"t: %s\\n\", t);\n}",
+        "source_ref": "src-notes-4#copying-and-malloc",
+        "explain_fa": "کد رسمی با strcpy."
+      },
+      "check": {
+        "id": "w04-l04-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام کار طبق قانون‌های free درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هر بلوک malloc را دقیقاً یک بار free کنی",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "یک متغیر محلی معمولی را free کنی",
+            "correct": false,
+            "feedback_fa": "فقط حافظهٔ پویا (malloc) آزاد می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "یک بلوک را دو بار free کنی",
+            "correct": false,
+            "feedback_fa": "free دوباره رفتار تعریف‌نشده دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l04-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر کدام کجا ساخته می‌شود؟ heap یا stack: (۱) `int x = 5;` داخل main (۲) بلوکی که `malloc(10)` برمی‌گرداند",
+        "expected": {
+          "answers": {
+            "1": "stack",
+            "2": "heap"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "malloc حافظهٔ پویا می‌دهد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

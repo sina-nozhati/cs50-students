@@ -1,0 +1,170 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-pr-debug",
+  "kind": "practice",
+  "week": 1,
+  "title_en": "Debug",
+  "title_fa": "اشکال‌زدایی (Debug)",
+  "guide_doc_id": "w01-pr-debug",
+  "guide_file": "debug.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/practice/debug/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w01-pr-debug-r1",
+        "text_fa": "خطاهای نحوی debug.c را رفع کن تا کامپایل شود.",
+        "text_en": "debug the program",
+        "source_ref": "src-practice-debug#background"
+      },
+      {
+        "id": "w01-pr-debug-r2",
+        "text_fa": "برنامه طبق نمونه‌ها نام و شهر را بپرسد و سلام کند.",
+        "text_en": "Your program should behave per the examples below.",
+        "source_ref": "src-practice-debug#how-to-test-your-code"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/debug",
+      "style50": "style50 debug.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/1/debug.c"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی ۱",
+        "text": "debug/ $ ./debug\nWhat is your name? Carter\nWhere do you live? Cambridge\nHello, Carter, from Cambridge!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی ۲",
+        "text": "debug/ $ ./debug\nWhat is your name? Margaret\nWhere do you live? New York\nHello, Margaret, from New York!",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/debug",
+      "style50": "style50 debug.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [
+      "w01-m-first-bug",
+      "w01-m-debug-demo"
+    ],
+    "discrepancy_ids": [
+      "d15"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-debugging-errors",
+      "w01-c-syntax",
+      "w01-c-header-file",
+      "w01-c-variable-declaration",
+      "w01-c-get-string",
+      "w01-c-placeholder"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l01",
+      "w01-l02",
+      "w01-l03"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-debugging-errors",
+        "note_id": "w01-n04",
+        "lesson_id": "w01-l01",
+        "unit_id": "w01-l01-u04"
+      },
+      {
+        "concept_id": "w01-c-syntax",
+        "note_id": "w01-n05",
+        "lesson_id": "w01-l02",
+        "unit_id": "w01-l02-u01"
+      },
+      {
+        "concept_id": "w01-c-header-file",
+        "note_id": "w01-n06",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u01"
+      },
+      {
+        "concept_id": "w01-c-variable-declaration",
+        "note_id": "w01-n07",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u03"
+      },
+      {
+        "concept_id": "w01-c-get-string",
+        "note_id": "w01-n07",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u02"
+      },
+      {
+        "concept_id": "w01-c-placeholder",
+        "note_id": "w01-n07",
+        "lesson_id": "w01-l03",
+        "unit_id": "w01-l03-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "صفحهٔ رسمی پیشنهاد می‌کند دنبال نمادهای جاافتاده، کتابخانه‌های جاافتاده و اعلان‌های جاافتادهٔ متغیر بگردی."
+      },
+      {
+        "n": 2,
+        "hint_fa": "اگر گیر کردی، زیر پیام خطا را ببین: help50 راهنمایی زرد می‌دهد، یا دکمهٔ help50 را بزن تا از اردک بپرسی."
+      }
+    ],
+    "common_mistakes_fa": [
+      "رفع چند خطا با هم بدون کامپایل دوباره",
+      "نادیده گرفتن شمارهٔ خط در پیام خطا"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-pr-debug-c01",
+        "text_fa": "پیام خطا را خوانده‌ام و شمارهٔ خط و ستون را پیدا کرده‌ام.",
+        "maps_to": "w01-pr-debug-r1"
+      },
+      {
+        "id": "w01-pr-debug-c02",
+        "text_fa": "بعد از هر اصلاح دوباره make کرده‌ام.",
+        "maps_to": "w01-pr-debug-r1"
+      },
+      {
+        "id": "w01-pr-debug-c03",
+        "text_fa": "برنامه بدون خطا کامپایل می‌شود.",
+        "maps_to": "w01-pr-debug-r1"
+      },
+      {
+        "id": "w01-pr-debug-c04",
+        "text_fa": "خروجی با دو نمونهٔ رسمی یکی است.",
+        "maps_to": "w01-pr-debug-r2"
+      },
+      {
+        "id": "w01-pr-debug-c05",
+        "text_fa": "check50 و style50 را اجرا کرده‌ام.",
+        "maps_to": "check50"
+      }
+    ],
+    "thought_question_fa": "چرا فکر می‌کنی C (و زبان‌های دیگر) قواعد نحوی این‌قدر دقیقی دارند؟",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w10-l02",
+  "type": "lesson",
+  "week": 10,
+  "order": 2,
+  "stage_id": "w10-s2",
+  "title_fa": "پروژهٔ نهایی و نگاه به آینده",
+  "title_en": "Final project and looking ahead",
+  "note_ids": [
+    "w10-n02",
+    "w10-n03"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w10-l01"
+  ],
+  "concept_ids": [
+    "w10-c-final-project",
+    "w10-c-final-project-ai",
+    "w10-c-good-better-best",
+    "w10-c-hackathon-fair",
+    "w10-c-editors",
+    "w10-c-command-line-tools",
+    "w10-c-git",
+    "w10-c-static-hosting",
+    "w10-c-web-app-hosting",
+    "w10-c-ai-tools-ahead",
+    "w10-c-more-cs50"
+  ],
+  "objective_ids": [
+    "w10-o03",
+    "w10-o04"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/10 and the lecture transcript (marked «از سخنرانی»); examples are verbatim English quotations from notes/10 (D79). Week 10 has no code, so no item is run.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w10-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T20:00:00+03:30",
+  "units": [
+    {
+      "id": "w10-l02-u01",
+      "order": 1,
+      "title_fa": "پروژهٔ نهایی، هوش مصنوعی و هکاتون",
+      "concept_ids": [
+        "w10-c-final-project",
+        "w10-c-final-project-ai",
+        "w10-c-good-better-best",
+        "w10-c-hackathon-fair"
+      ],
+      "objective_ids": [
+        "w10-o03"
+      ],
+      "note_id": "w10-n02",
+      "source_refs": [
+        "src-notes-10#final-project",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "پروژهٔ نهایی فرصتی است تا پروژه‌ای بسازی که **مشخصات و طراحی‌اش با خودت** است. در مشخصات آن، استفاده از ابزارهای هوش مصنوعی **بیرون از ابزارهای خود درس** مجاز است؛ چیزی که در هیچ مسئلهٔ دیگری مجاز نبود. از سخنرانی: مشخصات سه هدف می‌خواهد، **خوب**، **بهتر** و **بهترین**. هکاتون CS50 شب کار گروهی روی پروژه‌هاست و نمایشگاه CS50 برای نشان دادن پروژه‌ها در دانشگاه؛ هر دو رویداد حضوری هاروارد هستند.",
+        "note_id": "w10-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "final-project-ai",
+        "lang": "text",
+        "content": "you should notice in the final project specification the opportunity to leverage AI-based tools outside the course’s own (not permitted in any other problem set).",
+        "source_ref": "src-notes-10#final-project",
+        "explain_fa": "قانون هوش مصنوعی پروژهٔ نهایی در درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "ابزارهای هوش مصنوعی بیرون از ابزارهای خود درس (مثل ChatGPT) کجا مجازند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فقط در پروژهٔ نهایی.",
+            "correct": true,
+            "feedback_fa": "درست؛ درس‌نامه می‌گوید در هیچ مسئلهٔ دیگری مجاز نبود."
+          },
+          {
+            "id": "b",
+            "text_fa": "در همهٔ مسئله‌ها، به شرط ذکر منبع.",
+            "correct": false,
+            "feedback_fa": "در مسئله‌های قبلی فقط ابزارهای خود CS50 مثل اردک مجاز بود."
+          },
+          {
+            "id": "c",
+            "text_fa": "هیچ‌جا؛ فقط اردک CS50 مجاز است.",
+            "correct": false,
+            "feedback_fa": "درس‌نامهٔ هفتهٔ ۱۰ صریحاً این فرصت را برای پروژهٔ نهایی می‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l02-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: «پروژهٔ نهایی را مثل مسئله‌های قبلی تیم درس مشخص می‌کند و تو فقط دستورها را دنبال می‌کنی.»",
+        "expected": {
+          "answer": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست گفتی: نادرست است. مشخصات و طراحی با خود توست.",
+          "incorrect_fa": "درس‌نامه: «of your specification and design»."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w10-l02-u02",
+      "order": 2,
+      "title_fa": "ویرایشگر، خط فرمان و Git",
+      "concept_ids": [
+        "w10-c-editors",
+        "w10-c-command-line-tools",
+        "w10-c-git"
+      ],
+      "objective_ids": [
+        "w10-o04"
+      ],
+      "note_id": "w10-n03",
+      "source_refs": [
+        "src-notes-10#looking-ahead",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "برای کار بیرون از CS50، درس‌نامه پیشنهاد می‌کند **VS Code** را بارگیری کنی و بیاموزی؛ **Cursor** و **Windsurf** ویرایشگرهای محبوب دیگرند. برای اجرای فرمان مثل cs50.dev، **ابزارهای خط فرمان** را روی مک یا ویندوز نصب کن و دربارهٔ **Git** بیشتر بیاموز. از سخنرانی: cs50.dev نسخهٔ سازگارشدهٔ GitHub Codespaces است، «تاریخچه» در آن در پشت صحنه با Git کار می‌کرد، و برای کار گروهی Live Share در VS Code پیشنهاد شد.",
+        "note_id": "w10-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "editors",
+        "lang": "text",
+        "content": "Cursor and Windsurf are other popular text editors.",
+        "source_ref": "src-notes-10#looking-ahead",
+        "explain_fa": "ویرایشگرها در درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "از سخنرانی: cs50.dev در اصل چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "نسخهٔ سازگارشدهٔ GitHub Codespaces، یعنی VS Code در فضای ابری.",
+            "correct": true,
+            "feedback_fa": "درست. پس همین حالا با ابزار رایج صنعت کار کرده‌ای."
+          },
+          {
+            "id": "b",
+            "text_fa": "یک ویرایشگر کاملاً اختصاصی که فقط CS50 دارد.",
+            "correct": false,
+            "feedback_fa": "مالان گفت cs50.dev بر پایهٔ GitHub Codespaces و VS Code است."
+          },
+          {
+            "id": "c",
+            "text_fa": "یک نسخهٔ آنلاین Scratch.",
+            "correct": false,
+            "feedback_fa": "Scratch جداست؛ cs50.dev محیط VS Code است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l02-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «ویرایشگر» یا «نسخه‌بندی» علامت بزن: (۱) Windsurf؛ (۲) Git؛ (۳) VS Code.",
+        "expected": {
+          "answers": {
+            "1": "ویرایشگر",
+            "2": "نسخه‌بندی",
+            "3": "ویرایشگر"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "Git برای نگه‌داشتن نسخه‌ها و همکاری است؛ بقیه ویرایشگرند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w10-l02-u03",
+      "order": 3,
+      "title_fa": "میزبانی، پرسیدن و ادامهٔ یادگیری",
+      "concept_ids": [
+        "w10-c-static-hosting",
+        "w10-c-web-app-hosting",
+        "w10-c-ai-tools-ahead",
+        "w10-c-more-cs50"
+      ],
+      "objective_ids": [
+        "w10-o04"
+      ],
+      "note_id": "w10-n03",
+      "source_refs": [
+        "src-notes-10#looking-ahead",
+        "src-transcript-10",
+        "src-anzali-authored-10"
+      ],
+      "reading": {
+        "text_fa": "یک **وب‌سایت** را می‌توانی با GitHub Pages میزبانی کنی و اگر لازم شد یک **برنامهٔ وب** را روی AWS، Azure، Google Cloud، Cloudflare، Heroku یا Vercel. از سخنرانی: سایت ایستا یعنی فقط HTML و CSS و جاوااسکریپت، بدون پایتون و Flask؛ برنامهٔ وب بخش سمت سرور یا پایگاه داده هم دارد. پرسش‌هایت را در جامعه‌های آنلاین یا از ابزارهای هوش مصنوعی مثل ChatGPT، Claude، Gemini، GitHub Copilot، Codex یا v0 بپرس، درس‌های دیگر CS50 را در edX بگذران و به جامعه‌های CS50 بپیوند.",
+        "note_id": "w10-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w10-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hosting",
+        "lang": "text",
+        "content": "Host a website using GitHub.",
+        "source_ref": "src-notes-10#looking-ahead",
+        "explain_fa": "میزبانی سایت در درس‌نامه."
+      },
+      "check": {
+        "id": "w10-l02-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برنامهٔ وب Flask هفتهٔ ۹ (با پایتون و SQLite) را کجا باید میزبانی کنی؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "روی یکی از سرویس‌های میزبانی برنامهٔ وب، مثل AWS، Azure، Google Cloud، Cloudflare، Heroku یا Vercel.",
+            "correct": true,
+            "feedback_fa": "درست؛ برنامه بخش سمت سرور دارد."
+          },
+          {
+            "id": "b",
+            "text_fa": "روی GitHub Pages، چون همهٔ وب‌سایت‌ها را میزبانی می‌کند.",
+            "correct": false,
+            "feedback_fa": "به گفتهٔ سخنرانی، GitHub Pages برای سایت ایستاست: بدون پایتون و Flask."
+          },
+          {
+            "id": "c",
+            "text_fa": "لازم نیست میزبانی شود؛ مرورگر app.py را مستقیم اجرا می‌کند.",
+            "correct": false,
+            "feedback_fa": "مرورگر پایتون اجرا نمی‌کند؛ app.py روی سرور اجرا می‌شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w10-l02-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر پروژه را «GitHub Pages کافی است» یا «میزبان برنامهٔ وب لازم است» علامت بزن: (۱) سایت شخصی فقط با HTML و CSS؛ (۲) برنامهٔ Flask با پایگاه داده.",
+        "expected": {
+          "answers": {
+            "1": "GitHub Pages کافی است",
+            "2": "میزبان برنامهٔ وب لازم است"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "آیا پروژه کدی دارد که روی سرور اجرا شود؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

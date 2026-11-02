@@ -1,0 +1,401 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l07",
+  "type": "lesson",
+  "week": 4,
+  "order": 7,
+  "stage_id": "w04-s4",
+  "title_fa": "فایل‌ها و قالب‌های دودویی",
+  "title_en": "Files and binary formats",
+  "note_ids": [
+    "w04-n15"
+  ],
+  "related_doc_ids": [
+    "w04-sh-file-pointers"
+  ],
+  "prerequisite_lesson_ids": [
+    "w04-l04"
+  ],
+  "concept_ids": [
+    "w04-c-file-pointer",
+    "w04-c-fopen-null-check",
+    "w04-c-fprintf-fclose",
+    "w04-c-fread-fwrite",
+    "w04-c-byte-type",
+    "w04-c-fgetc-eof",
+    "w04-c-stdint-types",
+    "w04-c-file-header",
+    "w04-c-bmp-rgbtriple",
+    "w04-c-file-signature"
+  ],
+  "objective_ids": [
+    "w04-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w04-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l07-u01",
+      "order": 1,
+      "title_fa": "fopen، fprintf و fclose",
+      "concept_ids": [
+        "w04-c-file-pointer",
+        "w04-c-fopen-null-check",
+        "w04-c-fprintf-fclose"
+      ],
+      "objective_ids": [
+        "w04-o10"
+      ],
+      "note_id": "w04-n15",
+      "source_refs": [
+        "src-notes-4#file-io",
+        "src-transcript-4",
+        "src-short-file-pointers",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`FILE *file = fopen(\"phonebook.csv\", \"a\");` فایل را برای افزودن باز می‌کند و یک اشاره‌گر فایل می‌دهد. اگر باز نشود، `fopen` مقدار `NULL` برمی‌گرداند و باید با `return 1` خارج شد. `fprintf` مثل `printf` است ولی در فایل می‌نویسد و `fclose` فایل را می‌بندد. داده‌ای که در فایل نوشته شد پس از پایان برنامه باقی می‌ماند.",
+        "note_id": "w04-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "phonebook1",
+        "lang": "c",
+        "content": "// Saves names and numbers to a CSV file, checking for NULL\n\n#include <cs50.h>\n#include <stdio.h>\n#include <string.h>\n\nint main(void)\n{\n    // Open CSV file\n    FILE *file = fopen(\"phonebook.csv\", \"a\");\n    if (file == NULL)\n    {\n        return 1;\n    }\n\n    // Get name and number\n    char *name = get_string(\"Name: \");\n    char *number = get_string(\"Number: \");\n\n    // Print to file\n    fprintf(file, \"%s,%s\\n\", name, number);\n\n    // Close file\n    fclose(file);\n}",
+        "source_ref": "src-notes-4#file-io",
+        "explain_fa": "کد رسمی phonebook با بررسی NULL."
+      },
+      "check": {
+        "id": "w04-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "حالت `\"w\"` در `fopen` با حالت `\"a\"` چه فرقی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "w از اول بازنویسی می‌کند و a به انتها اضافه می‌کند",
+            "correct": true,
+            "feedback_fa": "درست، طبق توضیح سخنرانی."
+          },
+          {
+            "id": "b",
+            "text_fa": "هیچ فرقی ندارند",
+            "correct": false,
+            "feedback_fa": "w محتوای قبلی را از بین می‌برد."
+          },
+          {
+            "id": "c",
+            "text_fa": "a فقط برای خواندن است",
+            "correct": false,
+            "feedback_fa": "خواندن \"r\" است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l07-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا این قطعهٔ تألیفی فایل را باز کند، شکست را بررسی کند، یک خط بنویسد و ببندد.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "FILE *f = fopen(\"log.txt\", \"a\");",
+            "text": "FILE *f = fopen(\"log.txt\", \"a\");"
+          },
+          {
+            "id": "p2",
+            "code": "if (f == NULL)",
+            "text": "if (f == NULL)"
+          },
+          {
+            "id": "p3",
+            "code": "{",
+            "text": "{"
+          },
+          {
+            "id": "p4",
+            "code": "    return 1;",
+            "text": "    return 1;"
+          },
+          {
+            "id": "p5",
+            "code": "}",
+            "text": "}"
+          },
+          {
+            "id": "p6",
+            "code": "fprintf(f, \"hello\\n\");",
+            "text": "fprintf(f, \"hello\\n\");"
+          },
+          {
+            "id": "p7",
+            "code": "fclose(f);",
+            "text": "fclose(f);"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "fclose(f);\nif (f == NULL)",
+            "why_wrong_fa": "بستن پیش از نوشتن یا پیش از بررسی معنا ندارد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6",
+            "p7"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "اول باز کن، بعد بررسی، بعد بنویس، در آخر ببند."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l07-u02",
+      "order": 2,
+      "title_fa": "fread، fwrite و BYTE",
+      "concept_ids": [
+        "w04-c-fread-fwrite",
+        "w04-c-byte-type",
+        "w04-c-fgetc-eof"
+      ],
+      "objective_ids": [
+        "w04-o10"
+      ],
+      "note_id": "w04-n15",
+      "source_refs": [
+        "src-notes-4#file-io",
+        "src-short-file-pointers",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`cp.c` نوع `BYTE` را `unsigned char` تعریف می‌کند و با `fread(&b, sizeof(b), 1, src)` هر بار یک بایت می‌خواند و با `fwrite` در فایل مقصد می‌نویسد. `fread` تعداد **قطعه‌هایی** را که خوانده برمی‌گرداند و در انتهای فایل `0` می‌دهد. ویدئوی کوتاه File Pointers نشان می‌دهد که `fgetc` کاراکتر به کاراکتر می‌خواند و در انتها `EOF` برمی‌گرداند.",
+        "note_id": "w04-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n15"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "cp",
+        "lang": "c",
+        "content": "// Copies a file\n\n#include <stdio.h>\n\ntypedef unsigned char BYTE;\n\nint main(int argc, char *argv[])\n{\n    FILE *src = fopen(argv[1], \"rb\");\n    FILE *dst = fopen(argv[2], \"wb\");\n\n    BYTE b;\n\n    while (fread(&b, sizeof(b), 1, src) != 0)\n    {\n        fwrite(&b, sizeof(b), 1, dst);\n    }\n\n    fclose(dst);\n    fclose(src);\n}",
+        "source_ref": "src-notes-4#file-io",
+        "explain_fa": "کد رسمی cp.c."
+      },
+      "check": {
+        "id": "w04-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`fread(&b, sizeof(b), 1, src)` وقتی به انتهای فایل برسد چه برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "0",
+            "correct": true,
+            "feedback_fa": "درست: هیچ قطعه‌ای خوانده نشد."
+          },
+          {
+            "id": "b",
+            "text_fa": "EOF",
+            "correct": false,
+            "feedback_fa": "EOF مقدار بازگشتی fgetc است."
+          },
+          {
+            "id": "c",
+            "text_fa": "NULL",
+            "correct": false,
+            "feedback_fa": "fread عدد برمی‌گرداند، نه اشاره‌گر."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l07-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را پر کن تا این قطعهٔ تألیفی یک بایت از فایل `in` بخواند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "BYTE b;\nsize_t n = fread([[b1]], sizeof(BYTE), [[b2]], in);",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "&b"
+            ],
+            "hint_fa": "fread نشانی جای نوشتن را می‌خواهد.",
+            "wrong_feedback": {
+              "b": "fread به نشانی نیاز دارد، نه مقدار."
+            },
+            "default_wrong_fa": "نشانی b را بده."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "1"
+            ],
+            "hint_fa": "تعداد قطعه‌ها.",
+            "wrong_feedback": {
+              "8": "8 تعداد بیت‌هاست؛ ما یک قطعهٔ یک‌بایتی می‌خواهیم."
+            },
+            "default_wrong_fa": "چند قطعه می‌خواهیم؟"
+          }
+        ],
+        "expected": {
+          "b1": [
+            "&b"
+          ],
+          "b2": [
+            "1"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "fread(where, size, count, file)."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l07-u03",
+      "order": 3,
+      "title_fa": "سرآیند فایل، stdint و امضای فایل",
+      "concept_ids": [
+        "w04-c-stdint-types",
+        "w04-c-file-header",
+        "w04-c-bmp-rgbtriple",
+        "w04-c-file-signature"
+      ],
+      "objective_ids": [
+        "w04-o10"
+      ],
+      "note_id": "w04-n15",
+      "source_refs": [
+        "src-notes-4#file-io",
+        "src-anzali-authored-4",
+        "src-pset-4-volume#problem-to-solve",
+        "src-pset-4-volume#hints",
+        "src-pset-4-filter-less#a-bitmap-more-technical",
+        "src-pset-4-recover#background"
+      ],
+      "reading": {
+        "text_fa": "پرابلم‌ست‌های این هفته فایل‌های واقعی را می‌خوانند. صفحهٔ Volume می‌گوید فایل WAV با یک **سرآیند** ۴۴ بایتی شروع می‌شود و بعد نمونه‌های ۱۶ بیتی می‌آیند؛ `uint8_t` یک بایت بی‌علامت و `int16_t` دو بایت علامت‌دار است. صفحهٔ Filter توضیح می‌دهد که هر پیکسل BMP یک `RGBTRIPLE` با سه بایت به ترتیب آبی، سبز و قرمز است. صفحهٔ Recover می‌گوید JPEGها با سه بایت `0xff 0xd8 0xff` شروع می‌شوند؛ چنین الگویی را «امضای» فایل می‌گویند. این واحد فقط مفهوم را می‌گوید؛ پیاده‌سازی بخش پرابلم‌ست‌هاست.",
+        "note_id": "w04-n15",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n15"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "WAV:  [ header: 44 bytes ][ sample ][ sample ] ...   (each sample: int16_t)\nBMP:  [ headers ][ pixel: blue green red ][ pixel ] ...\nJPEG: 0xff 0xd8 0xff ...",
+        "source_ref": "src-anzali-authored-4",
+        "explain_fa": "طرح تألیفی از توضیحات رسمی صفحه‌های Volume، Filter و Recover."
+      },
+      "check": {
+        "id": "w04-l07-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق صفحهٔ Volume، هر نمونهٔ صوتی در فایل‌های WAV این پرابلم‌ست چند بایت است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "2 بایت (int16_t)",
+            "correct": true,
+            "feedback_fa": "درست: ۱۶ بیت یعنی ۲ بایت."
+          },
+          {
+            "id": "b",
+            "text_fa": "1 بایت (uint8_t)",
+            "correct": false,
+            "feedback_fa": "uint8_t برای بایت‌های سرآیند است."
+          },
+          {
+            "id": "c",
+            "text_fa": "44 بایت",
+            "correct": false,
+            "feedback_fa": "۴۴ اندازهٔ سرآیند است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l07-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را به فایلش نسبت بده (WAV، BMP یا JPEG): (۱) سرآیند ۴۴ بایتی (۲) RGBTRIPLE (۳) شروع با 0xff 0xd8 0xff",
+        "expected": {
+          "answers": {
+            "1": "WAV",
+            "2": "BMP",
+            "3": "JPEG"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "صفحه‌های Volume، Filter و Recover را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

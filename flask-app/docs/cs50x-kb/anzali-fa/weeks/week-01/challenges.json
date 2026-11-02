@@ -1,0 +1,70 @@
+{
+  "week": 1,
+  "title": "مقدمات زبان C: متغیرها، شروط و حلقه‌های ماریو",
+  "xp_reward_session": 20,
+  "challenges": [
+    {
+      "id": "w01-ch01-token-for",
+      "type": "token_tap",
+      "concept_tag": "حلقه for و شرط پایان (For Loops)",
+      "title": "حلقه چاپ ۳ پله ماریو (#)",
+      "instruction": "توکن‌ها را به ترتیب انتخاب کنید تا شرط ادامه حلقه برای ۳ بار تکرار کامل شود:",
+      "prompt": "for (int i = 0; i ___ ___; i++)",
+      "token_bank": ["<", "<=", ">", "3", "4", "=="],
+      "expected_answer": ["<", "3"],
+      "explanation": "وقتی شمارنده از 0 شروع می‌شود، با شرط i < 3 حلقه‌ای با ۳ تکرار (مقادیر 0، 1 و 2) خواهیم داشت.",
+      "hint": "شمارش از صفر شروع شده، بنابراین برای ۳ بار تکرار باید تا قبل از رسیدن به ۳ ادامه یابد.",
+      "xp_reward": 5
+    },
+    {
+      "id": "w01-ch02-parsons-hello",
+      "type": "parsons",
+      "concept_tag": "ساختار برنامه C و پیش‌پردازنده (C Structure)",
+      "title": "ساختار کامل برنامه Hello World در C",
+      "instruction": "خطوط برنامه را به ترتیب استاندارد اجرای کامپایلر C مرتب کنید:",
+      "scrambled_lines": [
+        {"id": "p1", "text": "    printf(\"hello, world\\n\");"},
+        {"id": "p2", "text": "int main(void)"},
+        {"id": "p3", "text": "{"},
+        {"id": "p4", "text": "#include <stdio.h>"},
+        {"id": "p5", "text": "}"}
+      ],
+      "correct_order": ["p4", "p2", "p3", "p1", "p5"],
+      "explanation": "اول هدر stdio.h اضافه می‌شود، سپس تعریف تابع main، شروع بلوک با آکولاد باز، دستور printf و در نهایت آکولاد بسته.",
+      "hint": "دستورات پیش‌پردازنده (#include) همیشه در بالاترین خط فایل قرار می‌گیرند.",
+      "xp_reward": 5
+    },
+    {
+      "id": "w01-ch03-bug-semicolon",
+      "type": "spot_bug",
+      "concept_tag": "خطاهای نحوی و سمی‌کالن (Syntax & Semicolons)",
+      "title": "شکار باگ: سمی‌کالن گمشده",
+      "instruction": "روی خطی کلیک کنید که باعث خطای کامپایل (error: expected ';' after expression) می‌شود:",
+      "code_lines": [
+        {"index": 0, "text": "int height = get_int(\"Height: \");"},
+        {"index": 1, "text": "if (height > 0)"},
+        {"index": 2, "text": "{"},
+        {"index": 3, "text": "    printf(\"Valid height: %i\\n\", height)"},
+        {"index": 4, "text": "}"},
+        {"index": 5, "text": "return 0;"}
+      ],
+      "bug_line_index": 3,
+      "explanation": "در خط ۴ انتهای دستور printf علامت سمی‌کالن (;) جا افتاده است! در C تمام بیانیه‌ها باید با ; پایان یابند.",
+      "hint": "به انتهای دستورات درون تابع دقت کنید؛ آیا همه به سمی‌کالن ختم شده‌اند؟",
+      "xp_reward": 5
+    },
+    {
+      "id": "w01-ch04-token-dowhile",
+      "type": "token_tap",
+      "concept_tag": "حلقه do-while و اعتبارسنجی ورودی (Do-While Loops)",
+      "title": "حلقه Do-While برای اعتبارسنجی ورودی",
+      "instruction": "می‌خواهیم تا وقتی عدد کاربر نامعتبر (کمتر از ۱) است، دوباره از او عدد بپرسیم:",
+      "prompt": "do { n = get_int(\"n: \"); } while (n ___ 1);",
+      "token_bank": ["<", ">", ">=", "<=", "=="],
+      "expected_answer": ["<"],
+      "explanation": "حلقه do-while تا زمانی که شرط برقرار باشد تکرار می‌شود؛ پس تا وقتی n < 1 است باید دوباره سوال پرسیده شود.",
+      "hint": "اگر شرط درست باشد، حلقه تکرار می‌شود؛ پس چه زمانی باید دوباره بپرسیم؟",
+      "xp_reward": 5
+    }
+  ]
+}

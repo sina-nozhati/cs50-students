@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+<meta property="og:title" content="Visual Studio Code for CS50" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://cs50.readthedocs.io/cs50.dev/" />
+  
+<meta property="og:description" content="Visual Studio Code for CS50 is a web app at cs50.dev that adapts GitHub Codespaces for students and teachers. It automates the process of creating a repository inside of CS50’s GitHub organization,..." />
+  
+<meta property="og:image" content="https://cs50.readthedocs.io/_images/2ep2od.jpg" />
+  
+<meta property="og:image:alt" content="ALL THE DOCS" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Studio Code for CS50 &mdash; CS50 Docs</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="/_static/custom.css?1790806731" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="/_static/custom.js?1790806731"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="prev" title="CS50’s QR Code Generator" href="../cs50.codes/" /> 
+<script async type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script><meta name="readthedocs-project-slug" content="cs50" /><meta name="readthedocs-version-slug" content="latest" /><meta name="readthedocs-resolver-filename" content="/cs50.dev/" /><meta name="readthedocs-http-status" content="200" /></head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../" class="icon icon-home"> CS50 Docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">APIs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/dining/">Dining</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/map/">Map</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Command-Line Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli50/"><code class="docutils literal notranslate"><span class="pre">cli50</span></code></a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help50/"><code class="docutils literal notranslate"><span class="pre">help50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render50/"><code class="docutils literal notranslate"><span class="pre">render50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style50/"><code class="docutils literal notranslate"><span class="pre">style50</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../submit50/"><code class="docutils literal notranslate"><span class="pre">submit50</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docker Images</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/check/"><code class="docutils literal notranslate"><span class="pre">cs50/check</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/cli/"><code class="docutils literal notranslate"><span class="pre">cs50/cli</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50/server/"><code class="docutils literal notranslate"><span class="pre">cs50/server</span></code></a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Libraries</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/check50/">check50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/compare50/">compare50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/cs50/">cs50</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://cs50.readthedocs.io/projects/lib50/">lib50</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Style Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../style/c/">C</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://peps.python.org/pep-0008/">Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Themes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../themes/jekyll/">Jekyll</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Third-Party Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../github/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../heroku/">Heroku</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pip/"><code class="docutils literal notranslate"><span class="pre">pip</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/"><code class="docutils literal notranslate"><span class="pre">python</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terminal/">Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zoom/">Zoom</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Web Apps</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cs50.ai/">CS50.ai</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../certificates.cs50.io/">CS50 Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forms.cs50.io/">CS50 Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../id.cs50.io/">CS50 ID</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.cs50.io/">CS50 Manual Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render.cs50.io/">CS50 Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../time.cs50.io/">CS50 Time Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vault.cs50.io/">CS50 Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video.cs50.io/">CS50 Video Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cs50.codes/">CS50’s QR Code Generator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Visual Studio Code for CS50</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#themes">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shortcuts">Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vs-code-desktop">VS Code Desktop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#online-without-docker">Online, without Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offline-with-docker">Offline, with Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#git">Git</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gitignore">gitignore</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#github">GitHub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authorization">Authorization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#organization-access">Organization Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#domains">Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#copilot">Copilot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#could-not-register-service-workers">Could not register service workers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-workbench-failed-to-connect-to-the-server">The workbench failed to connect to the server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-m-seeing-oh-no-it-looks-like-you-are-offline-error-message">I’m seeing “Oh no, it looks like you are offline” error message.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#firewall-and-network-configuration">Firewall and Network Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#browser-extensions-and-local-network-configurations">Browser Extensions and Local Network Configurations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-monitor-global-variables-in-debugger">How to monitor global variables in debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-can-t-type-anything-in-the-terminal">I can’t type anything in the terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-command-not-found-error-in-terminal">Getting “command not found” error in terminal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#codespaces-run-into-recovery-mode">Codespaces run into recovery mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-codespace">Creating a new Codespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gitdoc-failed-to-sync-with-backing-repository">GitDoc failed to sync with backing repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#missing-files-in-codespace">Missing files in Codespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-common-questions">Other Common Questions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deleting-a-codespace">Deleting a Codespace</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CS50 Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+      <li>Visual Studio Code for CS50</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cs50.dev.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visual-studio-code-for-cs50">
+<h1>Visual Studio Code for CS50<a class="headerlink" href="#visual-studio-code-for-cs50" title="Permalink to this heading"></a></h1>
+<p>Visual Studio Code for CS50 is a web app at <a class="reference external" href="https://cs50.dev/">cs50.dev</a> that adapts <a class="reference external" href="https://github.com/features/codespaces">GitHub Codespaces</a> for students and teachers. It automates the process of creating a <a class="reference external" href="https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories">repository</a> inside of CS50’s <a class="reference external" href="https://github.com/code50">GitHub organization</a>, pushing to it an initial <a class="reference external" href="https://docs.github.com/en/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project"><code class="docutils literal notranslate"><span class="pre">.devcontainer.json</span></code></a>, and creating a “codespace,” which is a <a class="reference external" href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a> “container” in the cloud (akin to your very own virtual server). Ultimately, it allows students to start programming with just a browser, without needing to install or configure anything locally on their own computer. Within their browser is a full-fledged version of <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a>, aka VS Code, including a tabbed text editor, terminal window (connected to a Docker container running <a class="reference external" href="https://cs50.readthedocs.io/cs50/codespace/"><code class="docutils literal notranslate"><span class="pre">cs50/codespace</span></code></a>), and graphical file explorer.</p>
+<p>You can also <a class="reference internal" href="#vs-code-desktop"><span class="std std-doc">use VS Code locally</span></a>, even offline without internet, particularly if feeling more comfortable.</p>
+<section id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this heading"></a></h2>
+<p>VS Code supports quite a few <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/settings">settings</a> via which you can customize a codespace:</p>
+<ol class="arabic simple">
+<li><p>User settings, which “apply globally to any instance of VS Code you open” and can be applied to codespaces as well via <a class="reference external" href="https://docs.github.com/en/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync">Settings Sync</a>.</p></li>
+<li><p>Remote settings, which are set by CS50 via <code class="docutils literal notranslate"><span class="pre">.devcontainer.json</span></code> file in a codespace. <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/settings#_settings-precedence">Remote settings override User settings</a>.</p></li>
+<li><p>Workspace settings, which can be set by you via VS Code’s GUI (or by editing <code class="docutils literal notranslate"><span class="pre">.vscode/settings.json</span></code> manually). <a class="reference external" href="https://docs.github.com/en/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration">Workspace settings override Remote settings</a>.</p></li>
+</ol>
+<p>In other words, Workspace settings override Remote settings, and Remote settings override User settings.</p>
+<p>If you use VS Code outside of CS50, you might thus want to store most of your settings in User settings (and enable Settings Sync). And if you would like to override any of <a class="reference external" href="https://cs50.dev/settings.json">CS50’s Remote settings</a>, you can do so via Workspace settings.</p>
+<section id="themes">
+<h3>Themes<a class="headerlink" href="#themes" title="Permalink to this heading"></a></h3>
+<p>See <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/themes">code.visualstudio.com/docs/getstarted/themes</a>.</p>
+</section>
+<section id="user-interface">
+<h3>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this heading"></a></h3>
+<p>See <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface">code.visualstudio.com/docs/getstarted/userinterface</a>.</p>
+</section>
+</section>
+<section id="shortcuts">
+<h2>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Visit <a class="reference external" href="https://cs50.dev/codespaces">cs50.dev/codespaces</a> to access your codespaces in CS50’s GitHub organization.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/commits">cs50.dev/commits</a> to access all of the commits that have been pushed to your repository in CS50’s GitHub organization.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/.devcontainer.json">cs50.dev/devcontainer.json</a> for the latest version of CS50’s <code class="docutils literal notranslate"><span class="pre">.devcontainer.json</span></code> template.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/repo">cs50.dev/repo</a> to access your repository in CS50’s GitHub organization.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/restart">cs50.dev/restart</a> to restart your codespace.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/rstudio-prefs.json">cs50.dev/rstudio-prefs.json</a> for the latest version of CS50’s RStudio preferences.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/settings.json">cs50.dev/settings.json</a> for CS50’s default settings for VS Code.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/stop">cs50.dev/stop</a> to stop your codespace.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/update50.sh">cs50.dev/update50.sh</a> for the latest version of <code class="docutils literal notranslate"><span class="pre">update50</span></code>.</p></li>
+</ul>
+</section>
+<section id="vs-code-desktop">
+<h2>VS Code Desktop<a class="headerlink" href="#vs-code-desktop" title="Permalink to this heading"></a></h2>
+<p>If feeling more comfortable, you can also use VS Code locally:</p>
+<ul class="simple">
+<li><p><span class="xref myst">without Docker</span>, but with internet access, so that you can connect to a codespace remotely</p></li>
+<li><p><span class="xref myst">with Docker</span>, via which you’d run a codespace-like container on your own computer, even without internet access</p></li>
+</ul>
+<section id="online-without-docker">
+<h3>Online, without Docker<a class="headerlink" href="#online-without-docker" title="Permalink to this heading"></a></h3>
+<p>To use VS Code locally without Docker, but with internet access, connecting to a codespace remotely:</p>
+<ol class="arabic simple">
+<li><p>Download and install <a class="reference external" href="https://code.visualstudio.com/download">VS Code</a> itself on your computer.</p></li>
+<li><p>Install VS Code’s <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces">GitHub Codespaces</a> extension.</p></li>
+<li><p>Visit <a class="reference external" href="https://cs50.dev/">cs50.dev</a>, check <strong>Open in VS Code desktop</strong>, and log in as usual; you should be prompted to open the codespace in VS Code itself.</p></li>
+</ol>
+<p>Alternatively, if already logged into a codespace, click the codespace’s “hamburger” menu (<strong>☰</strong>) and select <strong>Open in VS Code</strong>.</p>
+<p>Alternatively still, if already logged into a codespace, open the codespace’s <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a>, as via <strong>Ctrl+Shift+P</strong> on Linux, <strong>⇧⌘P</strong> on macOS, and <strong>Ctrl+Shift+P</strong> on Windows, select <strong>&gt;Codespaces: Open in VS Code</strong>.</p>
+</section>
+<section id="offline-with-docker">
+<h3>Offline, with Docker<a class="headerlink" href="#offline-with-docker" title="Permalink to this heading"></a></h3>
+<p>To use VS Code locally with Docker, running a <a class="reference external" href="https://code.visualstudio.com/docs/remote/containers">codespace-like container</a> on your own computer, even without internet access, and opening a folder like <code class="docutils literal notranslate"><span class="pre">foo</span></code> therein:</p>
+<ol class="arabic simple">
+<li><p>Download CS50’s latest <code class="docutils literal notranslate"><span class="pre">.devcontainer.json</span></code> file from <a class="reference external" href="https://cs50.dev/.devcontainer.json">https://cs50.dev/.devcontainer.json</a>, saving it in <code class="docutils literal notranslate"><span class="pre">foo</span></code>. Because the file’s name starts with a dot (i.e., period), it might seem to “disappear” when you download it. But, in a terminal window on Linux or macOS, you should see it with <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>, and at a command prompt in Windows, you should see it with <code class="docutils literal notranslate"><span class="pre">dir</span> <span class="pre">/a</span></code>.</p></li>
+<li><p>Download, install, and start <a class="reference internal" href="../docker/"><span class="doc std std-doc">Docker</span></a> on your computer.</p></li>
+<li><p>Download and install <a class="reference external" href="https://code.visualstudio.com/download">VS Code</a> itself on your computer.</p></li>
+<li><p>Install VS Code’s <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Dev Containers</a> extension.</p></li>
+<li><p>Open VS Code’s <a class="reference external" href="https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette">command palette</a>, as via <strong>Ctrl+Shift+P</strong> on Linux, <strong>⇧⌘P</strong> on macOS, and <strong>Ctrl+Shift+P</strong> on Windows, select <strong>&gt;Dev Containers - Open Folder in Container…</strong>, and open <code class="docutils literal notranslate"><span class="pre">foo</span></code>.</p></li>
+</ol>
+<p>Alternatively, select <strong>&gt;Dev Containers: Install devcontainer CLI</strong>, and then, in VS Code’s terminal window, <code class="docutils literal notranslate"><span class="pre">cd</span></code> to <code class="docutils literal notranslate"><span class="pre">foo</span></code> and execute <code class="docutils literal notranslate"><span class="pre">devcontainer</span> <span class="pre">open</span> <span class="pre">.</span></code>.</p>
+<p>Once the container finishes building and starting, you should find that <code class="docutils literal notranslate"><span class="pre">foo</span></code> is mounted within the container at <code class="docutils literal notranslate"><span class="pre">/workspaces/foo</span></code>.</p>
+</section>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading"></a></h2>
+<p>Because a codespace is already associated with a Git repository in CS50’s <code class="docutils literal notranslate"><span class="pre">code50</span></code> organization at <a class="reference external" href="https://github.com/code50">https://github.com/code50</a>, which is used for automated backups, CS50 effectively disables <code class="docutils literal notranslate"><span class="pre">git</span></code> anytime you’re inside of <code class="docutils literal notranslate"><span class="pre">/workspaces/$RepositoryName</span></code> (which is a codespace’s default directory), wherein <code class="docutils literal notranslate"><span class="pre">$RepositoryName</span></code> is your (numeric) GitHub ID.</p>
+<p>However, you can still use <code class="docutils literal notranslate"><span class="pre">git</span></code> outside of that directory, as by cloning other repositories into <code class="docutils literal notranslate"><span class="pre">/workspaces</span></code> itself. For instance, if you’d like to clone <a class="reference external" href="https://github.com/octocat/Hello-World">https://github.com/octocat/Hello-World</a> into a codespace, you could execute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">workspaces</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">octocat</span><span class="o">/</span><span class="n">Hello</span><span class="o">-</span><span class="n">World</span>
+<span class="n">cd</span> <span class="n">Hello</span><span class="o">-</span><span class="n">World</span>
+</pre></div>
+</div>
+<p>at which point you could use <code class="docutils literal notranslate"><span class="pre">git</span></code> within that <code class="docutils literal notranslate"><span class="pre">/workspaces/Hello-World</span></code> directory as usual. Note that only <code class="docutils literal notranslate"><span class="pre">/workspaces/$RepositoryName</span></code> will be automatically backed up to CS50’s <code class="docutils literal notranslate"><span class="pre">code50</span></code> organization; repositories that you clone into <code class="docutils literal notranslate"><span class="pre">/workspaces</span></code> will not.</p>
+<section id="gitignore">
+<h3>gitignore<a class="headerlink" href="#gitignore" title="Permalink to this heading"></a></h3>
+<p>Currently, only these files will be backed up to your Codespace GitHub repository:</p>
+<ul class="simple">
+<li><p>*.c</p></li>
+<li><p>*.cpp</p></li>
+<li><p>*.css</p></li>
+<li><p>*.db</p></li>
+<li><p>*.h</p></li>
+<li><p>*.html</p></li>
+<li><p>*.java</p></li>
+<li><p>*.js</p></li>
+<li><p>*.md</p></li>
+<li><p>*.py</p></li>
+<li><p>*.sql</p></li>
+<li><p>*.ts</p></li>
+<li><p>*.txt</p></li>
+<li><p>Makefile</p></li>
+</ul>
+</section>
+</section>
+<section id="github">
+<h2>GitHub<a class="headerlink" href="#github" title="Permalink to this heading"></a></h2>
+<section id="authorization">
+<h3>Authorization<a class="headerlink" href="#authorization" title="Permalink to this heading"></a></h3>
+<p>Visual Studio Code for CS50 is implemented as an <a class="reference external" href="https://docs.github.com/en/developers/apps/getting-started-with-apps/about-apps#about-oauth-apps">OAuth App</a> that “lets external applications request authorization to private details in a user’s GitHub account without accessing their password.” When you log into Visual Studio Code for CS50 using your GitHub account, CS50 receives, via a <a class="reference external" href="https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow">web application flow</a>, an “access token” from GitHub (but not your password) via which CS50 can execute certain operations (i.e., API calls) on your behalf.</p>
+<p>But you’ll first be prompted to “authorize” CS50. Only then will that access token have certain permissions, limited by <a class="reference external" href="https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps">scopes</a>. CS50 currently requests these scopes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">codespace</span></code>, via which CS50 can create and manage <a class="reference external" href="https://github.com/features/codespaces">codespaces</a> on your behalf</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read:org</span></code>, so that you can use the <a class="reference external" href="https://cli.github.com/">GitHub CLI</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repo</span></code>, via which CS50 can manage a <a class="reference external" href="https://docs.github.com/en/repositories">repository</a> for you and accept your invitation thereto, and via which <code class="docutils literal notranslate"><span class="pre">git</span></code> can access repositories to which your GitHub account has access</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user:email</span></code>, via which CS50 can access the email address with which you’ve registered for GitHub, but not your actual emails</p></li>
+</ul>
+<p>Note that scopes are not as granular as would be ideal. The <code class="docutils literal notranslate"><span class="pre">codespace</span></code> scope technically allows CS50 to manage any of your codespaces, not just the one(s) you use for CS50. And the <code class="docutils literal notranslate"><span class="pre">repo</span></code> scope technically allows CS50 to access any of your repositories, not just the one(s) you use for CS50. In practice, CS50 only uses those scopes to manage CS50-specific resources. But if you have any concerns, you are welcome to create a (separate) GitHub account that you only use for CS50!</p>
+</section>
+<section id="organization-access">
+<h3>Organization Access<a class="headerlink" href="#organization-access" title="Permalink to this heading"></a></h3>
+<p>When you log into Visual Studio Code for CS50, your codespace is configured with a “token” that has <code class="docutils literal notranslate"><span class="pre">repo</span></code> <a class="reference external" href="https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes">scope</a>, which lets <code class="docutils literal notranslate"><span class="pre">git</span></code> access repositories to which your GitHub account has access.</p>
+<p>If you try to access a repository that’s owned by an <a class="reference external" href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations">organization</a> that has not granted access to Visual Studio Code for CS50, though, <code class="docutils literal notranslate"><span class="pre">git</span></code> might err with “Repository not found.” (And <code class="docutils literal notranslate"><span class="pre">gh</span></code> might err with “Could not resolve to a Repository.”) To grant (or request) access for that organization, visit <a class="reference external" href="https://github.com/settings/connections/applications/d1a90a524497a69391fa">github.com/settings/connections/applications/d1a90a524497a69391fa</a>. Alternatively, you can configure your codespace to use <a class="reference external" href="https://cs50.readthedocs.io/github/#ssh">SSH</a> or a <a class="reference external" href="https://cs50.readthedocs.io/github/#personal-access-token">personal access token</a> instead, both of which would have access to any repositories to which your GitHub account has access, whether or not owned by an organization.</p>
+</section>
+<section id="domains">
+<h3>Domains<a class="headerlink" href="#domains" title="Permalink to this heading"></a></h3>
+<p>Visual Studio Code for CS50 is built atop <a class="reference external" href="https://github.com/features/codespaces">GitHub Codespaces</a>, which requires that you can also access these domains:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*.github.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.api.github.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.azureedge.net</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.github.dev</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.microsoft.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.msecnd.net</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.visualstudio.com</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.vscode-webview.net</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*.windows.net</span></code></p></li>
+</ul>
+<p>If on a corporate or school network that blocks any of the above, you might need to ask your IT department if they can “allowlist” all of the above.</p>
+</section>
+</section>
+<section id="copilot">
+<h2>Copilot<a class="headerlink" href="#copilot" title="Permalink to this heading"></a></h2>
+<p>Per CS50’s policy on academic honesty, it is <em>not</em> reasonable to use AI-based software other than CS50’s own (e.g., ChatGPT, Claude, Copilot, Gemini, et al.) that suggests or completes answers to questions or lines of code, unless explicitly allowed by some assignment, problem set, or project. For example, for CS50x’s final project, it <em>is</em> reasonable to use AI-based software other than CS50’s own, but the essence of the work must still be your own. By that point in the course, you’ve learned enough to use such tools as helpers, but you should treat such tools as amplifying, not supplanting, your productivity.</p>
+<p>To enable one such tool, <a class="reference external" href="https://code.visualstudio.com/docs/copilot/overview">GitHub Copilot in VS Code</a>, in your codespace, click the gear icon in VS Code’s bottom-left corner (at the bottom of your activity bar), select <strong>Command Palette…</strong>, and search for and select <strong>&gt; Preferences: Open Workspace Settings (JSON)</strong>. If the editor that opens is empty, paste the below into the editor:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"extension-uninstaller.skip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"github.copilot"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Or, if the editor already contains one or more key/value pairs, paste just the below between the file’s outermost curly braces, ensuring it’s separated by a comma from any key/value pair before it or after it:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">"extension-uninstaller.skip"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"github.copilot"</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Next, close that editor, click the gear icon in VS Code’s bottom-left corner (at the bottom of your activity bar), select <strong>Extensions</strong>, search for and click on <strong>GitHub Copilot</strong>, click <strong>Install</strong>, and then, when it appears, click <strong>Reload Window</strong>.</p>
+<p>Finally, once your window has reloaded, click the gear icon in VS Code’s bottom-left corner (at the bottom of your activity bar), select <strong>Command Palette…</strong>, and search for and select <strong>&gt; Chat: Open Chat</strong>.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<section id="could-not-register-service-workers">
+<h3>Could not register service workers<a class="headerlink" href="#could-not-register-service-workers" title="Permalink to this heading"></a></h3>
+<p>If using Firefox, <a class="reference external" href="https://support.mozilla.org/en-US/kb/report-breakage-due-blocking">disable Enhanced Tracking Protection</a>, or use a different browser.</p>
+</section>
+<section id="the-workbench-failed-to-connect-to-the-server">
+<h3>The workbench failed to connect to the server<a class="headerlink" href="#the-workbench-failed-to-connect-to-the-server" title="Permalink to this heading"></a></h3>
+<p>If using Firefox, <a class="reference external" href="https://support.mozilla.org/en-US/kb/report-breakage-due-blocking">disable Enhanced Tracking Protection</a>, or use a different browser.</p>
+</section>
+<section id="i-m-seeing-oh-no-it-looks-like-you-are-offline-error-message">
+<h3>I’m seeing “Oh no, it looks like you are offline” error message.<a class="headerlink" href="#i-m-seeing-oh-no-it-looks-like-you-are-offline-error-message" title="Permalink to this heading"></a></h3>
+<p>First of all, make sure all the required <a class="reference external" href="https://cs50.readthedocs.io/cs50.dev/#domains">domains</a> are not blocked by your device or internet environment.</p>
+<p>Check that you have a stable internet connection and that your home, school, or company network is not blocking the connection. If possible, check logging for rejected connections on your device.</p>
+<section id="firewall-and-network-configuration">
+<h4>Firewall and Network Configuration<a class="headerlink" href="#firewall-and-network-configuration" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>Certificate Inspection</strong>: If the school’s network is injecting TLS certificates, it could be flagged as a man-in-the-middle attack. This issue might be resolved by installing the school’s root TLS certificate on students’ local machines or by allowing traffic from trusted domains such as *.github.com, *.windows.net, and *.visualstudio.com.</p></li>
+<li><p><strong>Packet Inspection</strong>: Investigate the packet inspection settings on the firewall to ensure they are not inadvertently blocking or altering secure traffic required for Codespaces connections.</p></li>
+</ul>
+</section>
+<section id="browser-extensions-and-local-network-configurations">
+<h4>Browser Extensions and Local Network Configurations<a class="headerlink" href="#browser-extensions-and-local-network-configurations" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Certain browser extensions or individual network configurations (e.g., VPNs, proxies) may be contributing to the problem.</p></li>
+<li><p>Verifying the browsers, extensions, and network settings on affected student devices could help identify additional issues.</p></li>
+</ul>
+<p>The issues are very likely correlated to the <strong>Connectivity V2</strong> feature rolled out by GitHub. Please check their announcement and related troubleshooting guidelines:
+<a class="reference external" href="https://github.blog/changelog/2024-02-12-enhanced-codespaces-connection">https://github.blog/changelog/2024-02-12-enhanced-codespaces-connection</a></p>
+<p>To inspect network activity in your browser, follow one of these instructions:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.chrome.com/docs/devtools">Chrome</a></p></li>
+<li><p><a class="reference external" href="https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/">Firefox</a></p></li>
+<li><p><a class="reference external" href="https://developer.apple.com/documentation/safari-developer-tools/inspecting-safari-macos">Safari</a></p></li>
+</ul>
+<p>If you see rejected connections, make sure the domains documented by the <code class="docutils literal notranslate"><span class="pre">/meta</span></code> REST API endpoint are not blocked by your firewall. Again, in other words, none of <a class="reference external" href="https://cs50.readthedocs.io/cs50.dev/#domains">these domains</a> should be blocked.</p>
+<p>Optional: For more information, see <a class="reference external" href="https://docs.github.com/en/rest/meta/meta#get-github-meta-information">REST API endpoints for meta data</a>.</p>
+<p>You can run this command in your terminal to get the list of domains required by GitHub Codespaces:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-L<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Accept: application/vnd.github+json"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer &lt;YOUR-TOKEN&gt;"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"X-GitHub-Api-Version: 2022-11-28"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://api.github.com/meta
+</pre></div>
+</div>
+<p>Follow <a class="reference external" href="https://cs50.readthedocs.io/github/#personal-access-token">this instruction</a> to generate a GitHub personal access token.</p>
+<p>Alternatively, to get the list of domains required by GitHub Codespaces, execute the following command using <a class="reference external" href="https://cli.github.com/">GitHub CLI</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gh<span class="w"> </span>api<span class="w"> </span>meta<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>.domains.codespaces
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-monitor-global-variables-in-debugger">
+<h3>How to monitor global variables in debugger<a class="headerlink" href="#how-to-monitor-global-variables-in-debugger" title="Permalink to this heading"></a></h3>
+<p>In debug50’s <strong>RUN AND DEBUG</strong> pane, there’s a section labeled <strong>WATCH</strong>. You can add expressions to this section, and the debugger will show you the values of these expressions as you step through the program. The expressions can include global variables and array names.</p>
+<p>Consider the <code class="docutils literal notranslate"><span class="pre">plurality</span></code> problem, for example. If the arrow to the left of the <strong>WATCH</strong> heading is pointing to the right <strong>&gt;</strong>, click it to expand the section. Then click the plus sign in the section heading to insert a new expression to be watched.</p>
+<p>For example, you could type this: <code class="docutils literal notranslate"><span class="pre">candidates[0]&#64;candidate_count</span></code>. Though this is not a legal expression in C, the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator is specially treated by the debugger. This particular watch expression means <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">candidate_count</span> <span class="pre">elements</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">candidates</span> <span class="pre">array,</span> <span class="pre">starting</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">(i.e.,</span> <span class="pre">the</span> <span class="pre">element</span> <span class="pre">at</span> <span class="pre">index</span> <span class="pre">0)</span></code>.</p>
+<p>When the debugger stops at a breakpoint, it will show you the value of the expressions it’s watching. In this example, the array elements are structs, so you may need to expand them using their individual <strong>&gt;</strong> buttons.</p>
+</section>
+<section id="i-can-t-type-anything-in-the-terminal">
+<h3>I can’t type anything in the terminal<a class="headerlink" href="#i-can-t-type-anything-in-the-terminal" title="Permalink to this heading"></a></h3>
+<p>If you can’t type anything in the terminal, please do the following:</p>
+<ol class="arabic simple">
+<li><p>Click the Settings icon (the gear icon on the bottom-left icon).</p></li>
+<li><p>Search for <strong>terminal.integrated.gpuAcceleration</strong>.</p></li>
+<li><p>Click <strong>Workspace</strong>.</p></li>
+<li><p>Set it to <strong>off</strong>.</p></li>
+</ol>
+</section>
+<section id="getting-command-not-found-error-in-terminal">
+<h3>Getting “command not found” error in terminal<a class="headerlink" href="#getting-command-not-found-error-in-terminal" title="Permalink to this heading"></a></h3>
+<p>First, double-check that you are typing in the command correctly. Not only must the command be typed exactly as instructed, but spaces and capitalization must be exact as well.</p>
+<p>Second, if you are absolutely sure that you are typing the command exactly as it should be and you are still receiving a <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code> notification, please make sure:</p>
+<ul class="simple">
+<li><p>Your input method does not introduce special characters.</p></li>
+<li><p>Your codespace is not currently in recovery mode.</p></li>
+<li><p>You are using a codespace provided by CS50.</p></li>
+</ul>
+</section>
+<section id="codespaces-run-into-recovery-mode">
+<h3>Codespaces run into recovery mode<a class="headerlink" href="#codespaces-run-into-recovery-mode" title="Permalink to this heading"></a></h3>
+<p>Occasionally, your codespace might run into a “recovery mode” due to service outage, a container creation error, or the <code class="docutils literal notranslate"><span class="pre">.devcontainer.json</span></code> had been modified incorrectly. Most CS50 commands, such as <code class="docutils literal notranslate"><span class="pre">check50</span></code> and <code class="docutils literal notranslate"><span class="pre">submit50</span></code>, will not work and you can’t compile your code using CS50 libraries.</p>
+<p>In recovery mode, your terminal prompt would look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>@githubUserName -&gt; /workspaces/githubId (master) $
+</pre></div>
+</div>
+<p>Normally, your terminal prompt should look like a single dollar sign:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$
+</pre></div>
+</div>
+<p>To get out of the recovery mode, please do the following:</p>
+<ol class="arabic">
+<li><p>Confirming there is no ongoing GitHub outage: <a class="reference external" href="https://githubstatus.com">githubstatus.com</a></p></li>
+<li><p>Run this command (copy-paste it to your Codespace terminal):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>curl https://cs50.dev/devcontainer.json &gt; /workspaces/$RepositoryName/.devcontainer.json
+</pre></div>
+</div>
+</li>
+<li><p>Click the “Extensions” icon on the left, search for the “GitHub Codespaces” extension and install it (if not installed)</p></li>
+<li><p>After installing “GitHub Codespaces” extension, press “Command + Shift + P” (if on macOS) or “Ctrl + Shift + P” (if on Windows), search for “Codespaces: Rebuild Container” then press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> on the keyboard,select the <code class="docutils literal notranslate"><span class="pre">Full</span> <span class="pre">Rebuild</span></code> (not <code class="docutils literal notranslate"><span class="pre">Rebuild</span></code>) option to perform a codespace rebuild.</p></li>
+<li><p>Your codespace will be launched once the rebuild process is completed.</p></li>
+</ol>
+</section>
+<section id="creating-a-new-codespace">
+<h3>Creating a new Codespace<a class="headerlink" href="#creating-a-new-codespace" title="Permalink to this heading"></a></h3>
+<p>If your codespace repeatedly runs into recovery mode and the above steps do not resolve the issue, you might want to try creating a new codespace:</p>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://cs50.dev/codespaces">cs50.dev/codespaces</a>.</p></li>
+<li><p>Click <strong>Create codespace on main</strong> (the green button).</p></li>
+<li><p>Wait for your codespace to launch.</p></li>
+</ol>
+<p>Please do NOT delete your old codespace unless you are sure all your files have been synced properly with repository at <a class="reference external" href="https://cs50.dev/repo">cs50.dev/repo</a>.</p>
+</section>
+<section id="gitdoc-failed-to-sync-with-backing-repository">
+<h3>GitDoc failed to sync with backing repository<a class="headerlink" href="#gitdoc-failed-to-sync-with-backing-repository" title="Permalink to this heading"></a></h3>
+<p>If GitDoc is showing a GitHub Authentication error, please do the following:</p>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://cs50.dev/">cs50.dev</a>.</p></li>
+<li><p>Click <strong>Login via GitHub</strong>.</p></li>
+<li><p>Click to <strong>Authorize cs50</strong>.</p></li>
+<li><p>Once your codespace is launched, visit <a class="reference external" href="https://cs50.dev/restart">cs50.dev/restart</a>.</p></li>
+</ol>
+</section>
+<section id="missing-files-in-codespace">
+<h3>Missing files in Codespace<a class="headerlink" href="#missing-files-in-codespace" title="Permalink to this heading"></a></h3>
+<p>If you believe some of your files might be missing on your current Codespace, please first check to see if you have more than one Codespace by visiting: <a class="reference external" href="https://github.com/codespaces">https://github.com/codespaces</a> and you should see a list of Codespaces under “Owned by code50”.</p>
+<p>Some of your files could exist on previous Codespaces, in which it is indicated as “<code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">used</span> <span class="pre">XXX</span> <span class="pre">hours/days</span> <span class="pre">ago</span></code>”. To access these Codespaces and retrieve the files, please do the followings:</p>
+<ol class="arabic simple">
+<li><p>Click on the Codespace name to launch it</p></li>
+<li><p>Once your Codespace is launched, go to File Explorer</p></li>
+<li><p>Right-click a file or folder</p></li>
+<li><p>Click “Download…” to download files to your local computer</p></li>
+</ol>
+<p>If you can’t find your missing files in any of your codespaces, look for them in your repository at <a class="reference external" href="https://cs50.dev/repo">https://cs50.dev/repo</a> instead.</p>
+<p>Alternatively, if you have submitted any assignments via <code class="docutils literal notranslate"><span class="pre">submit50</span></code>, you can access those at <a class="reference external" href="https://github.com/me50">https://github.com/me50</a>. Or, if you have submitted any assignments via Gradescope, you can access those at <a class="reference external" href="https://www.gradescope.com/">https://www.gradescope.com/</a>.</p>
+</section>
+<section id="other-common-questions">
+<h3>Other Common Questions<a class="headerlink" href="#other-common-questions" title="Permalink to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Why is an extension not installable in the browser?</p></li>
+<li><p>How do I allow VS Code to access my clipboard for reading?</p></li>
+<li><p>How do I allow VS Code to always open new tabs and windows?</p></li>
+<li><p>How do I allow VS Code in a browser to access local files and folders?</p></li>
+</ol>
+<p>See <a class="reference external" href="https://code.visualstudio.com/docs/remote/codespaces#_common-questions">https://code.visualstudio.com/docs/remote/codespaces#_common-questions</a>.</p>
+</section>
+<section id="deleting-a-codespace">
+<h3>Deleting a Codespace<a class="headerlink" href="#deleting-a-codespace" title="Permalink to this heading"></a></h3>
+<p><strong>Deleting a codespace will delete all files and folders therein.</strong> If you are sure you want to delete a codespace:</p>
+<ol class="arabic simple">
+<li><p>Visit <a class="reference external" href="https://cs50.dev/codespaces">cs50.dev/codespaces</a>.</p></li>
+<li><p>Under <strong>Your codespaces</strong>, to the right of <code class="docutils literal notranslate"><span class="pre">main</span></code>, click <em><strong>…</strong></em>, select <strong>Delete</strong>, and click <strong>OK</strong>.</p></li>
+</ol>
+<p>You can then create a new codespace by logging back into <a class="reference external" href="https://cs50.dev/">cs50.dev</a>.</p>
+</section>
+</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h2>
+<p>Special thanks to CS50’s friends at <a class="reference external" href="https://github.com/">GitHub</a> and <a class="reference external" href="https://www.microsoft.com/">Microsoft</a> for their support of this app!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

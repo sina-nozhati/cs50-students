@@ -1,0 +1,214 @@
+{% extends "admin/admin_base.html" %}
+
+{% block page_title %}مدیریت دوره‌ها و نوبت‌های برگزاری{% endblock %}
+
+{% block content %}
+<div class="space-y-6 max-w-7xl mx-auto">
+    {# Header & Actions #}
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-[var(--border)]">
+        <div>
+            <div class="flex items-center gap-2">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--crimson-tint)] text-[var(--crimson)]">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </span>
+                <h2 class="text-2xl font-bold text-[var(--ink)]">دوره‌ها و نوبت‌های آموزشی (Cohorts)</h2>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">مدیریت نوبت‌های برگزاری سالانه، فصلی، ظرفیت کلاس‌ها و ثبت‌نام دانش‌آموزان</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <a href="{{ url_for('admin.cohorts_create') }}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--crimson)] text-white hover:bg-[var(--crimson-dark)] transition font-medium shadow-sm hover:shadow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>ایجاد نوبت برگزاری جدید</span>
+            </a>
+        </div>
+    </div>
+
+    {# KPI Overview Cards #}
+    {% set active_count = cohorts | selectattr('status', 'equalto', 'active') | list | length %}
+    {% set enrollment_count = cohorts | selectattr('status', 'equalto', 'enrollment') | list | length %}
+    {% set total_enrolled = cohorts | map(attribute='total_enrolled') | sum %}
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-[var(--border)] shadow-xs flex items-center justify-between">
+            <div>
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">کل نوبت‌های ثبت‌شده</p>
+                <p class="text-2xl font-bold text-[var(--ink)] mt-1 font-mono">{{ cohorts|length }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-[var(--border)] shadow-xs flex items-center justify-between">
+            <div>
+                <p class="text-xs font-semibold text-emerald-700 uppercase tracking-wider">نوبت‌های فعال (در حال اجرا)</p>
+                <p class="text-2xl font-bold text-emerald-600 mt-1 font-mono">{{ active_count }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-[var(--border)] shadow-xs flex items-center justify-between">
+            <div>
+                <p class="text-xs font-semibold text-blue-700 uppercase tracking-wider">در حال ثبت‌نام</p>
+                <p class="text-2xl font-bold text-blue-600 mt-1 font-mono">{{ enrollment_count }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-[var(--border)] shadow-xs flex items-center justify-between">
+            <div>
+                <p class="text-xs font-semibold text-purple-700 uppercase tracking-wider">مجموع دانش‌آموزان ثبت‌نامی</p>
+                <p class="text-2xl font-bold text-purple-600 mt-1 font-mono">{{ total_enrolled }}</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+        </div>
+    </div>
+
+    {# Filter Navigation #}
+    <div class="bg-white rounded-2xl border border-[var(--border)] p-2 shadow-xs flex flex-wrap items-center gap-2">
+        <span class="text-xs font-semibold text-gray-400 px-3 py-1">فیلتر وضعیت:</span>
+        <a href="{{ url_for('admin.cohorts_list', status='all') }}"
+           class="px-3.5 py-1.5 rounded-xl text-sm font-medium transition {{ 'bg-[var(--crimson)] text-white shadow-xs' if current_filter == 'all' else 'text-gray-600 hover:bg-gray-100' }}">
+            همه نوبت‌ها
+        </a>
+        <a href="{{ url_for('admin.cohorts_list', status='active') }}"
+           class="px-3.5 py-1.5 rounded-xl text-sm font-medium transition {{ 'bg-emerald-600 text-white shadow-xs' if current_filter == 'active' else 'text-gray-600 hover:bg-gray-100' }}">
+            فعال (در حال برگزاری)
+        </a>
+        <a href="{{ url_for('admin.cohorts_list', status='enrollment') }}"
+           class="px-3.5 py-1.5 rounded-xl text-sm font-medium transition {{ 'bg-blue-600 text-white shadow-xs' if current_filter == 'enrollment' else 'text-gray-600 hover:bg-gray-100' }}">
+            در حال ثبت‌نام
+        </a>
+        <a href="{{ url_for('admin.cohorts_list', status='completed') }}"
+           class="px-3.5 py-1.5 rounded-xl text-sm font-medium transition {{ 'bg-purple-600 text-white shadow-xs' if current_filter == 'completed' else 'text-gray-600 hover:bg-gray-100' }}">
+            پایان‌یافته
+        </a>
+        <a href="{{ url_for('admin.cohorts_list', status='archived') }}"
+           class="px-3.5 py-1.5 rounded-xl text-sm font-medium transition {{ 'bg-gray-700 text-white shadow-xs' if current_filter == 'archived' else 'text-gray-600 hover:bg-gray-100' }}">
+            بایگانی‌شده
+        </a>
+    </div>
+
+    {# Cohorts Grid / Cards #}
+    {% if cohorts %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for c in cohorts %}
+        <div class="bg-white rounded-2xl border border-[var(--border)] hover:border-gray-300 transition duration-200 shadow-xs hover:shadow-md flex flex-col justify-between overflow-hidden">
+            {# Card Header #}
+            <div class="p-5 pb-4">
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 font-mono">
+                        {{ c.code }}
+                    </span>
+                    
+                    {% if c.status == 'active' %}
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            در حال برگزاری
+                        </span>
+                    {% elif c.status == 'enrollment' %}
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                            ثبت‌نام باز
+                        </span>
+                    {% elif c.status == 'completed' %}
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200">
+                            پایان‌یافته
+                        </span>
+                    {% elif c.status == 'archived' %}
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600 border border-gray-200">
+                            بایگانی
+                        </span>
+                    {% else %}
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                            پیش‌نویس
+                        </span>
+                    {% endif %}
+                </div>
+
+                <h3 class="text-lg font-bold text-[var(--ink)] leading-snug">{{ c.name }}</h3>
+                <p class="text-xs text-gray-500 mt-1 flex items-center gap-2">
+                    <span class="font-medium text-gray-700">{{ c.course_title }}</span>
+                    <span>•</span>
+                    <span>سال {{ c.year }} - فصل {{ c.season }}</span>
+                </p>
+
+                {% if c.description %}
+                <p class="text-xs text-gray-600 mt-3 line-clamp-2 leading-relaxed">{{ c.description }}</p>
+                {% endif %}
+
+                {# Capacity & Enrollment Bar #}
+                <div class="mt-4 pt-3 border-t border-gray-100 space-y-1.5">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-gray-500">دانش‌آموزان ثبت‌نامی:</span>
+                        <span class="font-semibold text-gray-800">
+                            {{ c.total_enrolled }}
+                            {% if c.capacity %}
+                                <span class="text-gray-400 font-normal"> / {{ c.capacity }} نفر</span>
+                            {% else %}
+                                <span class="text-gray-400 font-normal">نفر</span>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    {% if c.capacity and c.capacity > 0 %}
+                        {% set pct = (c.total_enrolled / c.capacity * 100) | round | int %}
+                        <div class="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+                            <div class="h-full rounded-full {{ 'bg-red-500' if pct >= 100 else 'bg-[var(--crimson)]' }}" style="width: {{ pct if pct <= 100 else 100 }}%"></div>
+                        </div>
+                    {% endif %}
+
+                    <div class="flex items-center justify-between text-[11px] text-gray-400 pt-1">
+                        <span>فعال: <strong class="text-emerald-600">{{ c.active_students }}</strong></span>
+                        <span>فارغ‌التحصیل: <strong class="text-purple-600">{{ c.completed_students }}</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            {# Card Footer Actions #}
+            <div class="bg-gray-50/75 px-5 py-3 border-t border-gray-100 flex items-center justify-between gap-2">
+                <a href="{{ url_for('admin.cohorts_detail', cohort_id=c.id) }}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--crimson)] hover:text-[var(--crimson-dark)] transition">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    <span>مدیریت دانش‌آموزان</span>
+                </a>
+                
+                <div class="flex items-center gap-1">
+                    <a href="{{ url_for('admin.cohorts_edit', cohort_id=c.id) }}" class="p-1.5 text-gray-500 hover:text-gray-800 hover:bg-gray-200/60 rounded-lg transition" title="ویرایش مشخصات">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </a>
+
+                    {% if c.status != 'archived' %}
+                    <form method="POST" action="{{ url_for('admin.cohorts_archive', cohort_id=c.id) }}" onsubmit="return confirm('آیا از بایگانی این نوبت برگزاری اطمینان دارید؟ تمامی سوابق حفظ خواهند شد.');" class="inline">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="p-1.5 text-gray-400 hover:text-amber-600 hover:bg-amber-50 rounded-lg transition" title="بایگانی نوبت">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="bg-white rounded-2xl border border-[var(--border)] p-12 text-center max-w-lg mx-auto">
+        <div class="w-16 h-16 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center mx-auto mb-4">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3 class="text-base font-bold text-gray-800">هیچ نوبت برگزاری با این فیلتر یافت نشد</h3>
+        <p class="text-xs text-gray-500 mt-1 leading-relaxed">می‌توانید فیلتر وضعیت را تغییر دهید یا با کلیک روی دکمه زیر، یک نوبت جدید ایجاد کنید.</p>
+        <div class="mt-5">
+            <a href="{{ url_for('admin.cohorts_create') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--crimson)] text-white text-sm font-medium hover:bg-[var(--crimson-dark)] transition">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>ایجاد نوبت جدید</span>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

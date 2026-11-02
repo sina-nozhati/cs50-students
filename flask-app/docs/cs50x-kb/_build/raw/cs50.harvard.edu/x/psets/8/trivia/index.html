@@ -1,0 +1,601 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="Trivia - CS50x 2026">
+
+        <link href="../../../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../../../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../../../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../../../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../../../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../../../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../../../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../../../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../../../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../../../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../../../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>Trivia - CS50x 2026</title>
+
+
+    <meta property="og:description" content="Write a webpage that lets users answer trivia questions. Getting Started Open cs50.dev. Start by clicking inside your terminal window, then execute cd by...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../../../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="../../..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../../../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../../../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../../../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../../../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../../../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../../../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../../../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../../../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../../../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../../../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../../../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../../../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../../../practice/"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../../../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="../../../seminars/">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../../../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="../../../faqs/">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../../../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../../../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../../../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <h1 id="trivia">Trivia</h1>
+
+<p>Write a webpage that lets users answer trivia questions.</p>
+
+<p><img src="questions.png" alt="screenshot of trivia questions"></p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Open <a href="https://cs50.dev">cs50.dev</a>.</p>
+
+<p>Start by clicking inside your terminal window, then execute <code class="language-plaintext highlighter-rouge">cd</code> by itself. You should find that its “prompt” resembles the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$
+</code></pre></div></div>
+
+<p>Click inside of that terminal window and then execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://cdn.cs50.net/2025/fall/psets/8/trivia.zip
+</code></pre></div></div>
+
+<p>followed by Enter in order to download a ZIP called <code class="language-plaintext highlighter-rouge">trivia.zip</code> in your codespace. Take care not to overlook the space between <code class="language-plaintext highlighter-rouge">wget</code> and the following URL, or any other character for that matter!</p>
+
+<p>Now execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip trivia.zip
+</code></pre></div></div>
+
+<p>to create a folder called <code class="language-plaintext highlighter-rouge">trivia</code>. You no longer need the ZIP file, so you can execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm trivia.zip
+</code></pre></div></div>
+
+<p>and respond with “y” followed by Enter at the prompt to remove the ZIP file you downloaded.</p>
+
+<p>Now type</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd trivia
+</code></pre></div></div>
+
+<p>followed by Enter to move yourself into (i.e., open) that directory. Your prompt should now resemble the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>trivia/ $
+</code></pre></div></div>
+
+<p>If all was successful, you should execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls
+</code></pre></div></div>
+
+<p>and you should see an <code class="language-plaintext highlighter-rouge">index.html</code> file and a <code class="language-plaintext highlighter-rouge">styles.css</code> file.</p>
+
+<p>If you run into any trouble, follow these same steps again and see if you can determine where you went wrong!</p>
+
+<h2 id="implementation-details">Implementation Details</h2>
+
+<p>Design a webpage using HTML, CSS, and JavaScript to let users answer trivia questions.</p>
+
+<ul>
+  <li data-marker="*">In <code class="language-plaintext highlighter-rouge">index.html</code>, add beneath “Part 1” a multiple-choice trivia question of your choosing with HTML.
+    <ul>
+      <li data-marker="*">You should use an <code class="language-plaintext highlighter-rouge">h3</code> heading for the text of your question.</li>
+      <li data-marker="*">You should have one <code class="language-plaintext highlighter-rouge">button</code> for each of the possible answer choices. There should be at least three answer choices, of which exactly one should be correct.</li>
+    </ul>
+  </li>
+  <li data-marker="*">Using JavaScript, add logic so that the buttons change colors when a user clicks on them.
+    <ul>
+      <li data-marker="*">If a user clicks on a button with an incorrect answer, the button should turn red and text should appear beneath the question that says “Incorrect”.</li>
+      <li data-marker="*">If a user clicks on a button with the correct answer, the button should turn green and text should appear beneath the question that says “Correct!”.</li>
+    </ul>
+  </li>
+  <li data-marker="*">In <code class="language-plaintext highlighter-rouge">index.html</code>, add beneath “Part 2” a text-based free response question of your choosing with HTML.
+    <ul>
+      <li data-marker="*">You should use an <code class="language-plaintext highlighter-rouge">h3</code> heading for the text of your question.</li>
+      <li data-marker="*">You should use an <code class="language-plaintext highlighter-rouge">input</code> field to let the user type a response.</li>
+      <li data-marker="*">You should use a <code class="language-plaintext highlighter-rouge">button</code> to let the user confirm their answer.</li>
+    </ul>
+  </li>
+  <li data-marker="*">Using JavaScript, add logic so that the text field changes color when a user confirms their answer.
+    <ul>
+      <li data-marker="*">If the user types an incorrect answer and presses the confirmation button, the text field should turn red and text should appear beneath the question that says “Incorrect”.</li>
+      <li data-marker="*">If the user types the correct answer and presses the confirmation button, the input field should turn green and text should appear beneath the question that says “Correct!”.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Optionally, you may also:</p>
+
+<ul>
+  <li data-marker="*">Edit <code class="language-plaintext highlighter-rouge">styles.css</code> to change the CSS of your webpage!</li>
+  <li data-marker="*">Add additional trivia questions to your trivia quiz if you would like!</li>
+</ul>
+
+<h3 id="walkthrough">Walkthrough</h3>
+
+<div class="alert" data-alert="primary" role="alert"><p>This video was recorded when the course was still using CS50 IDE for writing code. Though the interface may look different from your codespace, the behavior of the two environments should be largely similar!</p></div>
+
+<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" src="https://video.cs50.io/WGd0Jx7rxUo"></iframe>
+
+<h3 id="hints">Hints</h3>
+
+<ul>
+  <li data-marker="*">Use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"><code class="language-plaintext highlighter-rouge">document.querySelector</code></a> to query for a single HTML element.</li>
+  <li data-marker="*">Use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"><code class="language-plaintext highlighter-rouge">document.querySelectorAll</code></a> to query for multiple HTML elements that match a query. The function returns an array of all matching elements.</li>
+</ul>
+
+<details><summary>Not sure how to solve?</summary><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" data-src="https://video.cs50.io/FLlI7rSSV_M"></iframe></details>
+
+<h3 id="testing">Testing</h3>
+
+<p>No <code class="language-plaintext highlighter-rouge">check50</code> for this one, as implementations will vary based on your questions! But be sure to test both incorrect and correct responses for each of your questions to ensure that your webpage responds appropriately.</p>
+
+<p>Run <code class="language-plaintext highlighter-rouge">http-server</code> in your terminal while in your <code class="language-plaintext highlighter-rouge">trivia</code> directory to start a web server that serves your webpage.</p>
+
+<h2 id="how-to-submit">How to Submit</h2>
+
+<p>In your terminal, execute the below to submit your work, answering the prompts that come up as well.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>submit50 cs50/problems/2026/x/trivia
+</code></pre></div></div>
+
+<p>Want to see the staff’s solution? You can find two ways of solving the problem here!</p>
+<details><summary>Creating event listeners with JavaScript</summary><div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css2?family=Montserrat:wght@500&amp;display=swap"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"styles.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Trivia!<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+
+            <span class="c1">// Wait for DOM content to load</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">DOMContentLoaded</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+                <span class="c1">// Get all elements with class "correct"</span>
+                <span class="kd">let</span> <span class="nx">corrects</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelectorAll</span><span class="p">(</span><span class="dl">'</span><span class="s1">.correct</span><span class="dl">'</span><span class="p">);</span>
+
+                <span class="c1">// Add event listeners to each correct button</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">corrects</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">corrects</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+                        <span class="c1">// Set background color to green</span>
+                        <span class="nx">corrects</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Green</span><span class="dl">'</span><span class="p">;</span>
+
+                        <span class="c1">// Go to parent element of correct button and find the first element with class "feedback" which has that parent</span>
+                        <span class="nx">corrects</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Correct!</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="p">});</span>
+                <span class="p">}</span>
+
+                <span class="c1">// When any incorrect answer is clicked, change color to red.</span>
+                <span class="kd">let</span> <span class="nx">incorrects</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelectorAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">.incorrect</span><span class="dl">"</span><span class="p">);</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">incorrects</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">incorrects</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+                        <span class="c1">// Set background color to green</span>
+                        <span class="nx">incorrects</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Red</span><span class="dl">'</span><span class="p">;</span>
+
+                        <span class="c1">// Go to parent element of correct button and find the first element with class "feedback" which has that parent</span>
+                        <span class="nx">incorrects</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Incorrect</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="p">});</span>
+                <span class="p">}</span>
+
+                <span class="c1">// Check free response submission</span>
+                <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#check</span><span class="dl">'</span><span class="p">).</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">);</span>
+                    <span class="k">if </span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">Switzerland</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">green</span><span class="dl">'</span><span class="p">;</span>
+                        <span class="nx">input</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Correct!</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">red</span><span class="dl">'</span><span class="p">;</span>
+                        <span class="nx">input</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Incorrect</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">});</span>
+            <span class="p">});</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Trivia!<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>Part 1: Multiple Choice <span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;hr&gt;</span>
+                <span class="nt">&lt;h3&gt;</span>What is the approximate ratio of people to sheep in New Zealand?<span class="nt">&lt;/h3&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"incorrect"</span><span class="nt">&gt;</span>6 people per 1 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"incorrect"</span><span class="nt">&gt;</span>3 people per 1 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"incorrect"</span><span class="nt">&gt;</span>1 person per 1 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"incorrect"</span><span class="nt">&gt;</span>1 person per 3 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"correct"</span><span class="nt">&gt;</span>1 person per 6 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"feedback"</span><span class="nt">&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>Part 2: Free Response<span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;hr&gt;</span>
+                <span class="nt">&lt;h3&gt;</span>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?<span class="nt">&lt;/h3&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/input&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"check"</span><span class="nt">&gt;</span>Check Answer<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"feedback"</span><span class="nt">&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div></details>
+
+<details><summary>Creating event listeners with HTML</summary><div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css2?family=Montserrat:wght@500&amp;display=swap"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"styles.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Trivia!<span class="nt">&lt;/title&gt;</span>
+        <span class="nt">&lt;script&gt;</span>
+            <span class="kd">function</span> <span class="nf">checkMultiChoice</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+
+                <span class="c1">// Get the element which triggered the event</span>
+                <span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+
+                <span class="c1">// Check if the element's inner HTML matches expected answer</span>
+                <span class="k">if </span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">1 person per 6 sheep</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Green</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="nx">button</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Correct!</span><span class="dl">'</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Red</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="nx">button</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Incorrect</span><span class="dl">'</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="kd">function</span> <span class="nf">checkFreeResponse</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+
+                <span class="c1">// Get the element which triggered the event</span>
+                <span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+
+                <span class="c1">// Get the input element corresponding to the button</span>
+                <span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">);</span>
+
+                <span class="c1">// Check for correct answer</span>
+                <span class="k">if </span><span class="p">(</span><span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">Switzerland</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Green</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="nx">input</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Correct!</span><span class="dl">'</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">input</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">backgroundColor</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Red</span><span class="dl">'</span><span class="p">;</span>
+                    <span class="nx">input</span><span class="p">.</span><span class="nx">parentElement</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.feedback</span><span class="dl">'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Incorrect</span><span class="dl">'</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="nt">&lt;/script&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Trivia!<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>Part 1: Multiple Choice <span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;hr&gt;</span>
+                <span class="nt">&lt;h3&gt;</span>What is the approximate ratio of people to sheep in New Zealand?<span class="nt">&lt;/h3&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkMultiChoice(event)"</span><span class="nt">&gt;</span>6 people per 1 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkMultiChoice(event)"</span><span class="nt">&gt;</span>3 people per 1 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkMultiChoice(event)"</span><span class="nt">&gt;</span>1 person per 1 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkMultiChoice(event)"</span><span class="nt">&gt;</span>1 person per 3 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkMultiChoice(event)"</span><span class="nt">&gt;</span>1 person per 6 sheep<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"feedback"</span><span class="nt">&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"section"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;h2&gt;</span>Part 2: Free Response<span class="nt">&lt;/h2&gt;</span>
+                <span class="nt">&lt;hr&gt;</span>
+                <span class="nt">&lt;h3&gt;</span>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?<span class="nt">&lt;/h3&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;&lt;/input&gt;</span>
+                <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"checkFreeResponse(event)"</span><span class="nt">&gt;</span>Check Answer<span class="nt">&lt;/button&gt;</span>
+                <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"feedback"</span><span class="nt">&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div></details>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../../../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

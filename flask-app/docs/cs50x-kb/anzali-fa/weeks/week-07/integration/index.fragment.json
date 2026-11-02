@@ -1,0 +1,505 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 7,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-7",
+      "append_child": "w07-fa"
+    }
+  ],
+  "note": "Week-7-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Week 7 notes use the same callout-plus-bold-label convention as Weeks 3-6 (D25); code blocks are SQL (```sql), Python (```python) or plain listings (```text). fixtures/*.sql are data files for the exercise runner, not documents (no index node)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 7,
+      "node_id": "week-7",
+      "path": "anzali-fa/weeks/week-07/summary.fa.md",
+      "doc_id": "w07-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w07-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۷ — SQL (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-07/overview.fa.md",
+      "parent": "week-7",
+      "children": [
+        "w07-n01",
+        "w07-n02",
+        "w07-n03",
+        "w07-n04",
+        "w07-n05",
+        "w07-n06",
+        "w07-n07",
+        "w07-n08",
+        "w07-n09",
+        "w07-n10",
+        "w07-n11",
+        "w07-n12",
+        "w07-summary",
+        "w07-sec",
+        "w07-sh-sql",
+        "w07-ps-songs",
+        "w07-ps-movies",
+        "w07-ps-fiftyville",
+        "w07-pr-favorites",
+        "w07-pr-prophecy"
+      ],
+      "week": 7,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/7/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/7/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n01",
+      "type": "anzali-note",
+      "title": "پایگاه دادهٔ تخت: CSV و شمارش با پایتون (Welcome! and Flat-File Database)",
+      "path": "anzali-fa/weeks/week-07/notes/01-flat-file-database.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#flat-file-database",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#flat-file-database"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n02",
+      "type": "anzali-note",
+      "title": "پایگاه دادهٔ رابطه‌ای و sqlite3 (Relational Databases)",
+      "path": "anzali-fa/weeks/week-07/notes/02-relational-databases.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#relational-databases",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#relational-databases"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n03",
+      "type": "anzali-note",
+      "title": "خواندن داده با SELECT (SELECT)",
+      "path": "anzali-fa/weeks/week-07/notes/03-select.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#select",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#select"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n04",
+      "type": "anzali-note",
+      "title": "افزودن سطر با INSERT (INSERT)",
+      "path": "anzali-fa/weeks/week-07/notes/04-insert.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#insert",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#insert"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n05",
+      "type": "anzali-note",
+      "title": "حذف سطر با DELETE و NULL (DELETE)",
+      "path": "anzali-fa/weeks/week-07/notes/05-delete.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#delete",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#delete"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n06",
+      "type": "anzali-note",
+      "title": "تغییر داده با UPDATE (UPDATE)",
+      "path": "anzali-fa/weeks/week-07/notes/06-update.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#update",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#update"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n07",
+      "type": "anzali-note",
+      "title": "IMDb: طراحی جدول‌ها، کلیدها، نوع‌ها و پرس‌وجوی تودرتو (IMDb)",
+      "path": "anzali-fa/weeks/week-07/notes/07-imdb.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#imdb",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#imdb"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n08",
+      "type": "anzali-note",
+      "title": "پیوند جدول‌ها با JOIN (JOINs)",
+      "path": "anzali-fa/weeks/week-07/notes/08-joins.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#joins",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#joins"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n09",
+      "type": "anzali-note",
+      "title": "نمایه (index) و B-tree (Indexes)",
+      "path": "anzali-fa/weeks/week-07/notes/09-indexes.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#indexes",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#indexes"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n10",
+      "type": "anzali-note",
+      "title": "SQL در پایتون با کتابخانهٔ CS50 (Using SQL in Python)",
+      "path": "anzali-fa/weeks/week-07/notes/10-sql-in-python.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#using-sql-in-python",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#using-sql-in-python"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n11",
+      "type": "anzali-note",
+      "title": "شرایط مسابقه و تراکنش (Race Conditions)",
+      "path": "anzali-fa/weeks/week-07/notes/11-race-conditions.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#race-conditions",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#race-conditions"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-n12",
+      "type": "anzali-note",
+      "title": "حملهٔ تزریق SQL و جای‌نگهدار ? (SQL Injection Attacks)",
+      "path": "anzali-fa/weeks/week-07/notes/12-sql-injection.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/7/#sql-injection-attacks",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/7/#sql-injection-attacks"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۷ (Summing Up)",
+      "path": "anzali-fa/weeks/week-07/summary.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/7/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/7/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۷ (Section 7)",
+      "path": "anzali-fa/weeks/week-07/section/section-7.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/sections/7/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/7/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-sh-sql",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: SQL (SQL)",
+      "path": "anzali-fa/weeks/week-07/shorts/sql.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/shorts/sql/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/sql/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-ps-songs",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای آهنگ‌ها (Songs)",
+      "path": "anzali-fa/weeks/week-07/problem-sets/songs.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/7/songs/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/7/songs/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-ps-movies",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای فیلم‌ها (Movies)",
+      "path": "anzali-fa/weeks/week-07/problem-sets/movies.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 20,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/7/movies/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/7/movies/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-ps-fiftyville",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای معمای Fiftyville",
+      "path": "anzali-fa/weeks/week-07/problem-sets/fiftyville.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 21,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/7/fiftyville/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/7/fiftyville/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-pr-favorites",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای پاک‌سازی علاقه‌مندی‌ها (Favorites)",
+      "path": "anzali-fa/weeks/week-07/problem-sets/favorites.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 22,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/favorites/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/favorites/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    },
+    {
+      "id": "w07-pr-prophecy",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای تالار پیشگویی (Hall of Prophecy)",
+      "path": "anzali-fa/weeks/week-07/problem-sets/prophecy.fa.md",
+      "parent": "w07-fa",
+      "children": [],
+      "week": 7,
+      "order": 23,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/prophecy/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/prophecy/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-7"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,872 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 5,
+  "title": "چالش‌های هفتهٔ ۵ — ساختمان‌های داده",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. کدها فقط از مفاهیم هفته‌های ۰ تا ۵ استفاده می‌کنند و هیچ‌کدام load، check، hash، size یا unload مسئلهٔ Speller یا create_family و free_family مسئلهٔ Inheritance را پیاده نمی‌کند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w05-ch01-stack-push-pop",
+      "type": "token_tap",
+      "concept_tag": "پشته (stack)",
+      "title": "push، push، pop",
+      "instruction": "توکن‌های درست را به ترتیب جاهای خالی بزن تا عدد بالای پشته پس از pop چاپ شود (4).",
+      "prompt": "s.numbers[s.size] = 4;\ns.size++;\ns.numbers[s.size] = 2;\ns.size++;\ns.size___;\nprintf(\"%i\\n\", s.numbers[s.size ___ 1]);",
+      "token_bank": [
+        "--",
+        "++",
+        "-",
+        "+"
+      ],
+      "expected_answer": [
+        "--",
+        "-"
+      ],
+      "explanation": "pop یعنی size یکی کم شود؛ عنصر بالای پشته در اندیس size - 1 است.",
+      "hint": "آخرین عنصر واردشده اول خارج می‌شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-stack",
+        "w05-c-push-pop",
+        "w05-c-lifo"
+      ],
+      "source_ref": "src-notes-5#stacks",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch02-queue-dequeue-front",
+      "type": "token_tap",
+      "concept_tag": "صف (queue)",
+      "title": "dequeue با front",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا عنصر جلوی صف برداشته شود و front درست جلو برود.",
+      "prompt": "int x = q.numbers[q.___];\nq.front = (q.front + 1) ___ CAPACITY;\nq.size--;\nprintf(\"%i %i\\n\", x, q.front);",
+      "token_bank": [
+        "front",
+        "size",
+        "%",
+        "/"
+      ],
+      "expected_answer": [
+        "front",
+        "%"
+      ],
+      "explanation": "عنصر جلوی صف در اندیس front است؛ با باقی‌ماندهٔ تقسیم بر CAPACITY، front پس از آخرین خانه به 0 برمی‌گردد.",
+      "hint": "صف آرایه‌ای ویدئوی کوتاه Queues را به یاد بیاور.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-queue",
+        "w05-c-queue-wraparound",
+        "w05-c-fifo"
+      ],
+      "source_ref": "src-short-queues",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch03-arrow-and-null",
+      "type": "token_tap",
+      "concept_tag": "عملگر پیکان (->)",
+      "title": "مقداردهی یک گره",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا گره مقدار بگیرد و پایانش مشخص شود.",
+      "prompt": "node *n = malloc(sizeof(node));\nif (n == NULL)\n{\n    return 1;\n}\nn___number = 5;\nn->next = ___;\nprintf(\"%i\\n\", n->number);\nfree(n);",
+      "token_bank": [
+        "->",
+        ".",
+        "NULL",
+        "n"
+      ],
+      "expected_answer": [
+        "->",
+        "NULL"
+      ],
+      "explanation": "n اشاره‌گر است، پس با `->` به فیلد می‌رسیم؛ next گرهٔ تنها NULL است.",
+      "hint": "نقطه برای خود struct است، نه اشاره‌گر به آن.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-arrow-operator",
+        "w05-c-list-null-end",
+        "w05-c-node"
+      ],
+      "source_ref": "src-notes-5#linked-lists",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch04-prepend-two-steps",
+      "type": "token_tap",
+      "concept_tag": "افزودن به ابتدا (prepend)",
+      "title": "دو گام prepend",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا هر گره به ابتدای فهرست اضافه شود و 3 2 1 چاپ شود.",
+      "prompt": "node *list = NULL;\nfor (int i = 1; i <= 3; i++)\n{\n    node *n = malloc(sizeof(node));\n    if (n == NULL)\n    {\n        return 1;\n    }\n    n->number = i;\n    n->next = ___;\n    list = ___;\n}\nfor (node *ptr = list; ptr != NULL; ptr = ptr->next)\n{\n    printf(\"%i \", ptr->number);\n}\nprintf(\"\\n\");",
+      "token_bank": [
+        "list",
+        "n",
+        "NULL"
+      ],
+      "expected_answer": [
+        "list",
+        "n"
+      ],
+      "explanation": "اول گرهٔ تازه به سر فعلی وصل می‌شود، بعد سر فهرست به گرهٔ تازه منتقل می‌شود.",
+      "hint": "اگر ترتیب برعکس شود، بقیهٔ فهرست گم می‌شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-prepend",
+        "w05-c-link-before-move",
+        "w05-c-prepend-reverses"
+      ],
+      "source_ref": "src-notes-5#linked-lists",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch05-bst-direction",
+      "type": "token_tap",
+      "concept_tag": "درخت جست‌وجوی دودویی (BST)",
+      "title": "چپ یا راست؟",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا جست‌وجو به شاخهٔ درست برود.",
+      "prompt": "bool search(node *tree, int number)\n{\n    if (tree == NULL)\n    {\n        return false;\n    }\n    else if (number < tree->number)\n    {\n        return search(tree->___, number);\n    }\n    else if (number > tree->number)\n    {\n        return search(tree->___, number);\n    }\n    else\n    {\n        return true;\n    }\n}\n",
+      "token_bank": [
+        "left",
+        "right",
+        "next"
+      ],
+      "expected_answer": [
+        "left",
+        "right"
+      ],
+      "explanation": "عددهای کوچک‌تر در زیردرخت چپ و بزرگ‌ترها در راست‌اند.",
+      "hint": "گره درخت next ندارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-bst-search",
+        "w05-c-bst"
+      ],
+      "source_ref": "src-notes-5#trees",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch06-trie-children",
+      "type": "token_tap",
+      "concept_tag": "ترای (trie)",
+      "title": "خانهٔ حرف در گره ترای",
+      "instruction": "توکن‌ها را به ترتیب جاهای خالی بزن تا گره برای ۲۶ حرف جا داشته باشد و اندیس حرف c درست حساب شود.",
+      "prompt": "typedef struct node\n{\n    bool is_word;\n    struct node *children[___];\n}\nnode;\n\nint main(void)\n{\n    int index = 'c' - ___;\n    printf(\"%i %zu\\n\", index, sizeof(((node *) 0)->children) / sizeof(node *));\n}",
+      "token_bank": [
+        "26",
+        "25",
+        "'a'",
+        "'A'"
+      ],
+      "expected_answer": [
+        "26",
+        "'a'"
+      ],
+      "explanation": "هر گره ترای یک خانه برای هر حرف انگلیسی دارد؛ c - 'a' برابر 2 است.",
+      "hint": "حرف a باید به خانهٔ 0 برود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-trie",
+        "w05-c-trie-lookup"
+      ],
+      "source_ref": "src-notes-5#tries",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch07-node-typedef",
+      "type": "parsons",
+      "concept_tag": "گره (node)",
+      "title": "تعریف گره",
+      "instruction": "خط‌ها را بچین تا نوع node درست تعریف شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "    struct node *next;"
+        },
+        {
+          "id": "L6",
+          "text": "node;"
+        },
+        {
+          "id": "L1",
+          "text": "typedef struct node"
+        },
+        {
+          "id": "L3",
+          "text": "    int number;"
+        },
+        {
+          "id": "L5",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "{"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "نام struct node پیش از آکولاد می‌آید تا next بتواند به همین نوع اشاره کند و نام کوتاه node در پایان.",
+      "hint": "node; پایان typedef است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-self-referential-struct",
+        "w05-c-node"
+      ],
+      "source_ref": "src-notes-5#linked-lists",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch08-realloc-grow",
+      "type": "parsons",
+      "concept_tag": "realloc",
+      "title": "بزرگ کردن امن آرایه",
+      "instruction": "خط‌ها را بچین تا آرایه از ۳ به ۴ خانه برسد بدون خطر نشت.",
+      "scrambled_lines": [
+        {
+          "id": "L7",
+          "text": "list = tmp;"
+        },
+        {
+          "id": "L1",
+          "text": "int *tmp = realloc(list, 4 * sizeof(int));"
+        },
+        {
+          "id": "L10",
+          "text": "free(list);"
+        },
+        {
+          "id": "L3",
+          "text": "{"
+        },
+        {
+          "id": "L8",
+          "text": "list[3] = 4;"
+        },
+        {
+          "id": "L2",
+          "text": "if (tmp == NULL)"
+        },
+        {
+          "id": "L5",
+          "text": "    return 1;"
+        },
+        {
+          "id": "L9",
+          "text": "printf(\"%i\\n\", list[0] + list[3]);"
+        },
+        {
+          "id": "L4",
+          "text": "    free(list);"
+        },
+        {
+          "id": "L6",
+          "text": "}"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9",
+        "L10"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "نتیجهٔ realloc اول در tmp؛ اگر NULL بود، بلوک قدیمی آزاد و خروج؛ وگرنه list = tmp.",
+      "hint": "list را پیش از بررسی NULL بازنویسی نکن.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-realloc",
+        "w05-c-tmp-pointer",
+        "w05-c-realloc-null"
+      ],
+      "source_ref": "src-notes-5#arrays",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch09-count-nodes",
+      "type": "parsons",
+      "concept_tag": "پیمایش فهرست (traversal)",
+      "title": "شمردن گره‌ها",
+      "instruction": "خط‌ها را بچین تا تعداد گره‌های فهرست چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L6",
+          "text": "printf(\"%i\\n\", count);"
+        },
+        {
+          "id": "L4",
+          "text": "    count++;"
+        },
+        {
+          "id": "L1",
+          "text": "int count = 0;"
+        },
+        {
+          "id": "L5",
+          "text": "}"
+        },
+        {
+          "id": "L2",
+          "text": "for (node *ptr = list; ptr != NULL; ptr = ptr->next)"
+        },
+        {
+          "id": "L3",
+          "text": "{"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "شمارنده صفر می‌شود، ptr از سر تا NULL می‌رود و در پایان چاپ می‌شود.",
+      "hint": "printf باید پس از حلقه باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-list-traversal",
+        "w05-c-list-null-end"
+      ],
+      "source_ref": "src-notes-5#linked-lists",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch10-queue-enqueue",
+      "type": "parsons",
+      "concept_tag": "صف (queue)",
+      "title": "enqueue با بررسی ظرفیت",
+      "instruction": "خط‌ها را بچین تا اگر صف پر نیست، 9 به انتهای آن اضافه شود.",
+      "scrambled_lines": [
+        {
+          "id": "L5",
+          "text": "q.numbers[q.size] = 9;"
+        },
+        {
+          "id": "L7",
+          "text": "printf(\"%i %i\\n\", q.numbers[q.size - 1], q.size);"
+        },
+        {
+          "id": "L2",
+          "text": "{"
+        },
+        {
+          "id": "L6",
+          "text": "q.size++;"
+        },
+        {
+          "id": "L1",
+          "text": "if (q.size == CAPACITY)"
+        },
+        {
+          "id": "L4",
+          "text": "}"
+        },
+        {
+          "id": "L3",
+          "text": "    return 1;"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "اول پر بودن صف بررسی می‌شود؛ عنصر تازه در خانهٔ size می‌نشیند و size یکی زیاد می‌شود.",
+      "hint": "تا size زیاد نشده، خانهٔ size خالی است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-enqueue-dequeue",
+        "w05-c-capacity-vs-size"
+      ],
+      "source_ref": "src-notes-5#queues",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch11-tiny-bst",
+      "type": "parsons",
+      "concept_tag": "درخت جست‌وجوی دودویی (BST)",
+      "title": "ساختن درخت سه‌گره",
+      "instruction": "خط‌ها را بچین تا درخت 1، 2، 3 با ریشهٔ 2 ساخته و به ترتیب چاپ شود.",
+      "scrambled_lines": [
+        {
+          "id": "L4",
+          "text": "printf(\"%i %i %i\\n\", two.left->number, two.number, two.right->number);"
+        },
+        {
+          "id": "L3",
+          "text": "node two = {2, &one, &three};"
+        },
+        {
+          "id": "L1",
+          "text": "node one = {1, NULL, NULL};"
+        },
+        {
+          "id": "L2",
+          "text": "node three = {3, NULL, NULL};"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "grading_note": "Lines with identical text (e.g. braces) are interchangeable; grade by the resulting text sequence.",
+      "explanation": "برگ‌ها باید پیش از ریشه تعریف شوند تا ریشه بتواند به نشانی‌شان اشاره کند.",
+      "hint": "چپ کوچک‌تر، راست بزرگ‌تر.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-bst",
+        "w05-c-tree"
+      ],
+      "source_ref": "src-notes-5#trees",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch12-prepend-forgets-list",
+      "type": "spot_bug",
+      "concept_tag": "افزودن به ابتدا (prepend)",
+      "title": "فهرستی که فقط یک گره دارد",
+      "instruction": "قرار بود 3 2 1 چاپ شود ولی فقط 3 چاپ می‌شود و حافظه نشت می‌کند. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "node *list = NULL;"
+        },
+        {
+          "index": 1,
+          "text": "for (int i = 1; i <= 3; i++)"
+        },
+        {
+          "index": 2,
+          "text": "{"
+        },
+        {
+          "index": 3,
+          "text": "    node *n = malloc(sizeof(node));"
+        },
+        {
+          "index": 4,
+          "text": "    if (n == NULL)"
+        },
+        {
+          "index": 5,
+          "text": "    {"
+        },
+        {
+          "index": 6,
+          "text": "        return 1;"
+        },
+        {
+          "index": 7,
+          "text": "    }"
+        },
+        {
+          "index": 8,
+          "text": "    n->number = i;"
+        },
+        {
+          "index": 9,
+          "text": "    n->next = NULL;"
+        },
+        {
+          "index": 10,
+          "text": "    list = n;"
+        },
+        {
+          "index": 11,
+          "text": "}"
+        },
+        {
+          "index": 12,
+          "text": "for (node *ptr = list; ptr != NULL; ptr = ptr->next)"
+        },
+        {
+          "index": 13,
+          "text": "{"
+        },
+        {
+          "index": 14,
+          "text": "    printf(\"%i \", ptr->number);"
+        },
+        {
+          "index": 15,
+          "text": "}"
+        },
+        {
+          "index": 16,
+          "text": "printf(\"\\n\");"
+        }
+      ],
+      "bug_line_index": 9,
+      "fix": {
+        "action": "replace_line",
+        "text": "    n->next = list;"
+      },
+      "explanation": "گرهٔ تازه باید به سر فعلی فهرست وصل شود؛ با NULL، گره‌های قبلی یتیم و نشت می‌شوند.",
+      "hint": "گرهٔ تازه به چه چیزی باید اشاره کند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-prepend",
+        "w05-c-link-before-move"
+      ],
+      "source_ref": "src-notes-5#linked-lists",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch13-traversal-moves-head",
+      "type": "spot_bug",
+      "concept_tag": "پیمایش فهرست (traversal)",
+      "title": "اشاره‌گری که جلو نمی‌رود",
+      "instruction": "این حلقهٔ چاپ هرگز درست تمام نمی‌شود. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "node *ptr = list;"
+        },
+        {
+          "index": 1,
+          "text": "while (ptr != NULL)"
+        },
+        {
+          "index": 2,
+          "text": "{"
+        },
+        {
+          "index": 3,
+          "text": "    printf(\"%i \", ptr->number);"
+        },
+        {
+          "index": 4,
+          "text": "    list = list->next;"
+        },
+        {
+          "index": 5,
+          "text": "}"
+        },
+        {
+          "index": 6,
+          "text": "printf(\"\\n\");"
+        }
+      ],
+      "bug_line_index": 4,
+      "fix": {
+        "action": "replace_line",
+        "text": "    ptr = ptr->next;"
+      },
+      "explanation": "ptr هرگز جلو نمی‌رود و list (سر فهرست) جابه‌جا می‌شود؛ هم حلقه بی‌پایان است و هم سر فهرست گم می‌شود.",
+      "hint": "کدام متغیر باید در هر دور جلو برود؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-list-traversal",
+        "w05-c-head-pointer"
+      ],
+      "source_ref": "src-notes-5#linked-lists",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch14-bst-wrong-branch",
+      "type": "spot_bug",
+      "concept_tag": "جست‌وجوی بازگشتی در درخت",
+      "title": "شاخهٔ اشتباه",
+      "instruction": "این جست‌وجو عدد 1 را پیدا نمی‌کند. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "bool search(node *tree, int number)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    if (tree == NULL)"
+        },
+        {
+          "index": 3,
+          "text": "    {"
+        },
+        {
+          "index": 4,
+          "text": "        return false;"
+        },
+        {
+          "index": 5,
+          "text": "    }"
+        },
+        {
+          "index": 6,
+          "text": "    else if (number < tree->number)"
+        },
+        {
+          "index": 7,
+          "text": "    {"
+        },
+        {
+          "index": 8,
+          "text": "        return search(tree->right, number);"
+        },
+        {
+          "index": 9,
+          "text": "    }"
+        },
+        {
+          "index": 10,
+          "text": "    else if (number > tree->number)"
+        },
+        {
+          "index": 11,
+          "text": "    {"
+        },
+        {
+          "index": 12,
+          "text": "        return search(tree->right, number);"
+        },
+        {
+          "index": 13,
+          "text": "    }"
+        },
+        {
+          "index": 14,
+          "text": "    else"
+        },
+        {
+          "index": 15,
+          "text": "    {"
+        },
+        {
+          "index": 16,
+          "text": "        return true;"
+        },
+        {
+          "index": 17,
+          "text": "    }"
+        },
+        {
+          "index": 18,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 8,
+      "fix": {
+        "action": "replace_line",
+        "text": "        return search(tree->left, number);"
+      },
+      "explanation": "عدد کوچک‌تر از گره در زیردرخت چپ است؛ رفتن به راست آن را هرگز پیدا نمی‌کند.",
+      "hint": "چپ کوچک‌تر، راست بزرگ‌تر.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-bst-search",
+        "w05-c-bst"
+      ],
+      "source_ref": "src-notes-5#trees",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch15-trie-index-case",
+      "type": "spot_bug",
+      "concept_tag": "ترای (trie)",
+      "title": "اندیس بیرون از آرایه",
+      "instruction": "این برنامه بیرون از آرایهٔ children می‌نویسد. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "typedef struct node"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    bool is_word;"
+        },
+        {
+          "index": 3,
+          "text": "    struct node *children[26];"
+        },
+        {
+          "index": 4,
+          "text": "}"
+        },
+        {
+          "index": 5,
+          "text": "node;"
+        },
+        {
+          "index": 6,
+          "text": ""
+        },
+        {
+          "index": 7,
+          "text": "int main(void)"
+        },
+        {
+          "index": 8,
+          "text": "{"
+        },
+        {
+          "index": 9,
+          "text": "    node root = {false, {NULL}};"
+        },
+        {
+          "index": 10,
+          "text": "    node child = {true, {NULL}};"
+        },
+        {
+          "index": 11,
+          "text": "    int index = 'c' - 'A';"
+        },
+        {
+          "index": 12,
+          "text": "    root.children[index] = &child;"
+        },
+        {
+          "index": 13,
+          "text": "    printf(\"%i %i\\n\", index, root.children[index]->is_word);"
+        },
+        {
+          "index": 14,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 11,
+      "fix": {
+        "action": "replace_line",
+        "text": "    int index = 'c' - 'a';"
+      },
+      "explanation": "'c' - 'A' برابر 34 است و آرایه فقط ۲۶ خانه دارد؛ برای حرف کوچک باید 'a' کم شود تا 2 به دست آید.",
+      "hint": "کد ASCII حرف‌های کوچک از 'a' شروع می‌شود.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-trie",
+        "w05-c-trie-lookup"
+      ],
+      "source_ref": "src-notes-5#tries",
+      "lang": "c"
+    },
+    {
+      "id": "w05-ch16-hash-lowercase-base",
+      "type": "spot_bug",
+      "concept_tag": "تابع درهم‌سازی (hash)",
+      "title": "اندیس منفی",
+      "instruction": "تابع درهم‌سازی رسمی درس‌نامه این‌جا یک تغییر کوچک خورده و برنامه بیرون از آرایه می‌نویسد. خط باگ‌دار را بزن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "unsigned int hash(const char *word)"
+        },
+        {
+          "index": 1,
+          "text": "{"
+        },
+        {
+          "index": 2,
+          "text": "    return toupper(word[0]) - 'a';"
+        },
+        {
+          "index": 3,
+          "text": "}"
+        },
+        {
+          "index": 4,
+          "text": ""
+        },
+        {
+          "index": 5,
+          "text": "int main(void)"
+        },
+        {
+          "index": 6,
+          "text": "{"
+        },
+        {
+          "index": 7,
+          "text": "    int counts[26] = {0};"
+        },
+        {
+          "index": 8,
+          "text": "    counts[hash(\"Mario\")]++;"
+        },
+        {
+          "index": 9,
+          "text": "    printf(\"%i\\n\", counts[12]);"
+        },
+        {
+          "index": 10,
+          "text": "}"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "    return toupper(word[0]) - 'A';"
+      },
+      "explanation": "toupper حرف را بزرگ می‌کند، پس باید 'A' کم شود؛ 'M' - 'a' منفی است و به عدد بی‌علامت بسیار بزرگی تبدیل می‌شود.",
+      "hint": "حرف پس از toupper بزرگ است یا کوچک؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w05-c-hash-function",
+        "w05-c-bucket"
+      ],
+      "source_ref": "src-notes-5#hashing-and-hash-tables",
+      "lang": "c"
+    }
+  ]
+}

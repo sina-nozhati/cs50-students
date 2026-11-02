@@ -1,0 +1,242 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 99,
+  "week_slug": "final-project",
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "final-project",
+      "append_child": "w99-fa"
+    }
+  ],
+  "note": "Final-Project-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both. Mapping final-project = 99 follows kb_repo.site_number_for_node (D86).",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Final Project notes use the same callout-plus-bold-label convention (D25); the only code blocks are the two official blocks (README template, submit50 command). No project code (D88)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 99,
+      "node_id": "final-project",
+      "path": "anzali-fa/weeks/final-project/summary.fa.md",
+      "doc_id": "w99-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w99-fa",
+      "type": "anzali-week-hub",
+      "title": "پروژهٔ نهایی (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/final-project/overview.fa.md",
+      "parent": "final-project",
+      "children": [
+        "w99-n01",
+        "w99-n02",
+        "w99-n03",
+        "w99-n04",
+        "w99-n05",
+        "w99-n06",
+        "w99-n07",
+        "w99-summary"
+      ],
+      "week": 99,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/project/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/project/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n01",
+      "type": "anzali-note",
+      "title": "پروژهٔ نهایی چیست؟ (What the Final Project Is)",
+      "path": "anzali-fa/weeks/final-project/notes/01-what-is-it.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#final-project",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#final-project"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n02",
+      "type": "anzali-note",
+      "title": "انتخاب ایده و ابزار (Choosing an Idea and a Stack)",
+      "path": "anzali-fa/weeks/final-project/notes/02-ideas-and-stack.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#ideas",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#ideas"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n03",
+      "type": "anzali-note",
+      "title": "دامنه، نقطه‌های عطف و نسخه‌بندی (Scope, Milestones and Version Control)",
+      "path": "anzali-fa/weeks/final-project/notes/03-scope-and-milestones.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#getting-started",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#getting-started"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n04",
+      "type": "anzali-note",
+      "title": "صداقت تحصیلی و استفادهٔ مجاز از هوش مصنوعی (Academic Honesty and Acceptable AI Use)",
+      "path": "anzali-fa/weeks/final-project/notes/04-honesty-and-ai.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#getting-started",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#getting-started"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n05",
+      "type": "anzali-note",
+      "title": "گام ۱: ویدئو و فرم (Step 1: Video and Form)",
+      "path": "anzali-fa/weeks/final-project/notes/05-video.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#step-1-of-3",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#step-1-of-3"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n06",
+      "type": "anzali-note",
+      "title": "گام ۲: فایل README.md (Step 2: README.md)",
+      "path": "anzali-fa/weeks/final-project/notes/06-readme.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#step-2-of-3",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#step-2-of-3"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-n07",
+      "type": "anzali-note",
+      "title": "ارسال با submit50، کارنامه و گواهی (submit50, Gradebook and Certificate)",
+      "path": "anzali-fa/weeks/final-project/notes/07-submit-and-certificate.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/project/#step-3-of-3",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/project/#step-3-of-3"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    },
+    {
+      "id": "w99-summary",
+      "type": "anzali-summary",
+      "title": "خلاصه و فهرست وارسی پروژهٔ نهایی",
+      "path": "anzali-fa/weeks/final-project/summary.fa.md",
+      "parent": "w99-fa",
+      "children": [],
+      "week": 99,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/project/#how-to-submit",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/project/#how-to-submit"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-99"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l03",
+  "type": "lesson",
+  "week": 9,
+  "order": 3,
+  "stage_id": "w09-s3",
+  "title_fa": "GET و POST، و if در قالب",
+  "title_en": "GET and POST, and if in templates",
+  "note_ids": [
+    "w09-n06",
+    "w09-n07"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w09-l02"
+  ],
+  "concept_ids": [
+    "w09-c-get-in-url",
+    "w09-c-methods-param",
+    "w09-c-request-form",
+    "w09-c-405",
+    "w09-c-request-method",
+    "w09-c-get-default-missing-key",
+    "w09-c-jinja-if"
+  ],
+  "objective_ids": [
+    "w09-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w09-l02"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l03-u01",
+      "order": 1,
+      "title_fa": "methods، request.form و 405",
+      "concept_ids": [
+        "w09-c-get-in-url",
+        "w09-c-methods-param",
+        "w09-c-request-form",
+        "w09-c-405"
+      ],
+      "objective_ids": [
+        "w09-o05"
+      ],
+      "note_id": "w09-n06",
+      "source_refs": [
+        "src-notes-9#request-methods",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "با `GET` دادهٔ فرم در نشانی و تاریخچهٔ مرورگر دیده می‌شود؛ برای نام کاربری و گذرواژه بد است. با `method=\"post\"` در فرم، داده در بدنهٔ درخواست می‌رود. در سرور باید با `@app.route(\"/greet\", methods=[\"POST\"])` بگویی مسیر POST می‌پذیرد و داده را با `request.form.get` بخوانی، نه `request.args` . اگر روشی بیاید که مسیر نپذیرفته، Flask پاسخ **405 Method Not Allowed** می‌دهد.",
+        "note_id": "w09-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "post-app",
+        "lang": "python",
+        "content": "# Switches to POST\n\nfrom flask import Flask, render_template, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n\n@app.route(\"/greet\", methods=[\"POST\"])\ndef greet():\n    return render_template(\"greet.html\", name=request.form.get(\"name\", \"world\"))",
+        "source_ref": "src-notes-9#request-methods",
+        "explain_fa": "مسیر greet فقط با POST (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "مسیر `/greet` با `methods=[\"POST\"]` تعریف شده است. کاربر نشانی `/greet?name=David` را مستقیم در مرورگر باز می‌کند. چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "405 Method Not Allowed ، چون مرورگر با GET درخواست داده است.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "`hello, David`",
+            "correct": false,
+            "feedback_fa": "مسیر GET را نمی‌پذیرد."
+          },
+          {
+            "id": "c",
+            "text_fa": "404 Not Found",
+            "correct": false,
+            "feedback_fa": "مسیر وجود دارد؛ فقط روش مجاز نیست، پس 405."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l03-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی سه درخواست می‌فرستد: POST با `name=David` ، POST بدون داده و GET. پاسخ‌ها چه هستند؟",
+        "expected": {
+          "output": "hello, David\nhello, world\nSTATUS 405"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: POST بدون کلید پیش‌فرض را می‌گیرد و GET مجاز نیست.",
+          "incorrect_fa": "روش هر درخواست را با `methods` بسنج."
+        },
+        "hints_fa": [
+          "برای 405 بدنهٔ HTML چاپ نشده است چون `body` خاموش است."
+        ],
+        "lang": "flask",
+        "code": "from flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route(\"/greet\", methods=[\"POST\"])\ndef greet():\n    return \"hello, \" + request.form.get(\"name\", \"world\")\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"data\": {\"name\": \"David\"}, \"method\": \"POST\", \"path\": \"/greet\"}, {\"method\": \"POST\", \"path\": \"/greet\"}, {\"body\": false, \"path\": \"/greet\"}]"
+          },
+          "expected_stdout_exact": "hello, David\nhello, world\nSTATUS 405\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l03-u02",
+      "order": 2,
+      "title_fa": "یک مسیر برای هر دو روش، پیش‌فرض get و if",
+      "concept_ids": [
+        "w09-c-request-method",
+        "w09-c-get-default-missing-key",
+        "w09-c-jinja-if"
+      ],
+      "objective_ids": [
+        "w09-o05"
+      ],
+      "note_id": "w09-n07",
+      "source_refs": [
+        "src-notes-9#request-methods",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "می‌توان فرم و پاسخ را در یک مسیر گذاشت: `methods=[\"GET\", \"POST\"]` و درون تابع `if request.method == \"POST\":` . نکتهٔ ظریف: اگر کادر نام خالی فرستاده شود، کلید `name` **هست** و مقدارش `\"\"` است، پس پیش‌فرض `get` به کار نمی‌رود و `hello, ` می‌بینی. راه درس‌نامه این است که در قالب با `{% if name %} ... {% else %} ... {% endif %}` تصمیم بگیری.",
+        "note_id": "w09-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "greet-if",
+        "lang": "jinja",
+        "content": "{% extends \"layout.html\" %}\n\n{% block body %}\n\n    hello,\n    {% if name %}\n        {{ name }}\n    {% else %}\n        world\n    {% endif %}\n\n{% endblock %}",
+        "source_ref": "src-notes-9#request-methods",
+        "explain_fa": "if و else در قالب greet (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فرم POST با کادر `name` خالی فرستاده می‌شود. `request.form.get(\"name\", \"world\")` چه برمی‌گرداند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "رشتهٔ خالی `\"\"` ، چون کلید هست.",
+            "correct": true,
+            "feedback_fa": "درست. پیش‌فرض فقط برای نبود کلید است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`\"world\"`",
+            "correct": false,
+            "feedback_fa": "کلید `name` فرستاده شده، فقط خالی است."
+          },
+          {
+            "id": "c",
+            "text_fa": "`None`",
+            "correct": false,
+            "feedback_fa": "`None` فقط وقتی است که کلید نباشد و پیش‌فرضی هم نداده باشی."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l03-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جاهای خالی را پر کن تا `{% if %}` در قالب برای نام خالی `hello, world` و برای `Sina` متن `hello, Sina` بدهد.",
+        "lang": "jinja",
+        "code_origin": "authored",
+        "template": "{% [[b1]] name %}\nhello, {{ name }}\n{% else %}\nhello, world\n{% [[b2]] %}",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "if"
+            ],
+            "hint_fa": "شرط Jinja.",
+            "wrong_feedback": {
+              "for": "`for` حلقه است، نه شرط."
+            },
+            "default_wrong_fa": "کلیدواژهٔ شرط را بنویس."
+          },
+          {
+            "id": "b2",
+            "accepted": [
+              "endif"
+            ],
+            "hint_fa": "بستن شرط Jinja.",
+            "wrong_feedback": {
+              "end": "Jinja برای بستن `if` واژهٔ `endif` می‌خواهد.",
+              "endfor": "این بستن حلقه است، نه شرط."
+            },
+            "default_wrong_fa": "بستن شرط را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "if"
+          ],
+          "b2": [
+            "endif"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `if` و `endif` .",
+          "incorrect_fa": "شرط Jinja با `if` باز و با `endif` بسته می‌شود."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "context.json": "{\"name\": \"\"}"
+          },
+          "expected_stdout_exact": "hello, world\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

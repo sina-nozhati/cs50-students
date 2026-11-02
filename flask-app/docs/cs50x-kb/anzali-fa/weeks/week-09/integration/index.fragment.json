@@ -1,0 +1,549 @@
+{
+  "$schema": "../../../schemas/index-fragment.schema.json",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "mount_prefix": "anzali-fa/",
+  "week": 9,
+  "target": "flask-app/docs/cs50x-kb/index.json (local loader app/content/kb_repo.py)",
+  "attach_to": [
+    {
+      "parent_id": "week-9",
+      "append_child": "w09-fa"
+    }
+  ],
+  "note": "Week-9-only slice of integration/index.fragment.json (same nodes and override). Either file can be merged; do not merge both.",
+  "copy_instructions": "Copy knowledge-base/ to flask-app/docs/cs50x-kb/anzali-fa/ and run _tools/merge_index_fragment.py --index <path to index.json> --out <new file> [--apply-week-summaries]. Review the diff, then replace manually (decision D1).",
+  "renderer_notes": [
+    "source_type translated-rewritten/authored shows the existing non-official tint chip in kb/doc.html",
+    "front matter is stripped by md_render",
+    "no '## N.' headings, so documents render as full_html",
+    "mermaid in overview renders as a code block (text fallback provided)",
+    "week_summary_overrides are opt-in: without --apply-week-summaries the English official summary stays on /kb/week/<n> (decision D8)",
+    "Week 3 notes use GitHub-style callouts (> [!NOTE] etc.); md_render has no callout extension, so they render as plain blockquotes whose first line shows the literal marker. Each callout is followed by a bold Persian label line so the text still reads correctly (decision D25)",
+    "Week 9 notes use the same callout-plus-bold-label convention as Weeks 3-8 (D25); code blocks are Python/Flask (```python), Jinja/HTML (```html), SQL (```sql) or plain listings (```text). Code is shown as text only; nothing is executed. fixtures/*.sql are data files for the exercise runner, not documents (no index node)."
+  ],
+  "week_summary_overrides": [
+    {
+      "site_number": 9,
+      "node_id": "week-9",
+      "path": "anzali-fa/weeks/week-09/summary.fa.md",
+      "doc_id": "w09-summary",
+      "keeps": [
+        "source_url",
+        "source_urls",
+        "title",
+        "children"
+      ],
+      "effect": "week_payload() renders the Persian summary (no '## N.' sections, so full_html is shown) while the official link chip still comes from source_url",
+      "original_path_field": "original_path",
+      "decision": "D8"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "w09-fa",
+      "type": "anzali-week-hub",
+      "title": "هفتهٔ ۹ — Flask (پایگاه دانش فارسی)",
+      "path": "anzali-fa/weeks/week-09/overview.fa.md",
+      "parent": "week-9",
+      "children": [
+        "w09-n01",
+        "w09-n02",
+        "w09-n03",
+        "w09-n04",
+        "w09-n05",
+        "w09-n06",
+        "w09-n07",
+        "w09-n08",
+        "w09-n09",
+        "w09-n10",
+        "w09-n11",
+        "w09-n12",
+        "w09-n13",
+        "w09-n14",
+        "w09-n15",
+        "w09-summary",
+        "w09-sec",
+        "w09-sh-flask",
+        "w09-sh-ajax",
+        "w09-ps-birthdays",
+        "w09-ps-finance",
+        "w09-pr-helloflask"
+      ],
+      "week": 9,
+      "order": 0,
+      "source_url": "https://cs50.harvard.edu/x/weeks/9/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/weeks/9/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n01",
+      "type": "anzali-note",
+      "title": "صفحهٔ ایستا، صفحهٔ پویا و http-server (Welcome! and http-server)",
+      "path": "anzali-fa/weeks/week-09/notes/01-static-dynamic.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 1,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#http-server",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#http-server"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n02",
+      "type": "anzali-note",
+      "title": "Flask: نخستین برنامه، مسیر و تزئین‌گر (Flask: app.py and Routes)",
+      "path": "anzali-fa/weeks/week-09/notes/02-flask-hello.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 2,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#flask",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#flask"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n03",
+      "type": "anzali-note",
+      "title": "render_template، پوشهٔ templates و request.args (Flask: Templates and request.args)",
+      "path": "anzali-fa/weeks/week-09/notes/03-templates-args.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 3,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#flask",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#flask"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n04",
+      "type": "anzali-note",
+      "title": "فرم‌ها و مسیر دوم /greet (Forms)",
+      "path": "anzali-fa/weeks/week-09/notes/04-forms.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 4,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#forms",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#forms"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n05",
+      "type": "anzali-note",
+      "title": "قالب مادر: layout.html، block و extends (Templates)",
+      "path": "anzali-fa/weeks/week-09/notes/05-layout.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 5,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#templates",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#templates"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n06",
+      "type": "anzali-note",
+      "title": "GET و POST، request.form و request.method (Request Methods)",
+      "path": "anzali-fa/weeks/week-09/notes/06-get-post.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 6,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#request-methods",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#request-methods"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n07",
+      "type": "anzali-note",
+      "title": "مقدار پیش‌فرض در قالب: if/else در Jinja (Request Methods: Defaults in Templates)",
+      "path": "anzali-fa/weeks/week-09/notes/07-jinja-if.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 7,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#request-methods",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#request-methods"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n08",
+      "type": "anzali-note",
+      "title": "Frosh IMs: منوی select، حلقهٔ for و اعتبارسنجی سمت سرور (Frosh IMs: Validation)",
+      "path": "anzali-fa/weeks/week-09/notes/08-froshims-validate.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 8,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#frosh-ims",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#frosh-ims"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n09",
+      "type": "anzali-note",
+      "title": "دیکشنری ثبت‌نام‌ها، redirect و پیام خطا (Frosh IMs: Registrants and Redirect)",
+      "path": "anzali-fa/weeks/week-09/notes/09-froshims-registrants.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 9,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#frosh-ims",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#frosh-ims"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n10",
+      "type": "anzali-note",
+      "title": "Flask و SQL: ذخیرهٔ ماندگار و getlist (Flask and SQL)",
+      "path": "anzali-fa/weeks/week-09/notes/10-flask-sql.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 10,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#flask-and-sql",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#flask-and-sql"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n11",
+      "type": "anzali-note",
+      "title": "MVC، کوکی و جلسه (session) (Cookies and Session: MVC and Cookies)",
+      "path": "anzali-fa/weeks/week-09/notes/11-mvc-cookies.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 11,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#cookies-and-session",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#cookies-and-session"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n12",
+      "type": "anzali-note",
+      "title": "ورود و خروج با session (Cookies and Session: Login)",
+      "path": "anzali-fa/weeks/week-09/notes/12-login.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 12,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#cookies-and-session",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#cookies-and-session"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n13",
+      "type": "anzali-note",
+      "title": "سبد خرید با session و IN (?) (Shopping Cart)",
+      "path": "anzali-fa/weeks/week-09/notes/13-shopping-cart.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 13,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#shopping-cart",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#shopping-cart"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n14",
+      "type": "anzali-note",
+      "title": "جست‌وجوی برنامه‌ها، LIKE و Ajax (Shows and APIs)",
+      "path": "anzali-fa/weeks/week-09/notes/14-shows-ajax.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 14,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#shows",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#shows"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-n15",
+      "type": "anzali-note",
+      "title": "JSON و jsonify: جمع‌بندی (JSON)",
+      "path": "anzali-fa/weeks/week-09/notes/15-json.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 15,
+      "source_url": "https://cs50.harvard.edu/x/2026/notes/9/#json",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/notes/9/#json"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-summary",
+      "type": "anzali-summary",
+      "title": "خلاصهٔ هفتهٔ ۹ (Summing Up)",
+      "path": "anzali-fa/weeks/week-09/summary.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 16,
+      "source_url": "https://cs50.harvard.edu/x/notes/9/#summing-up",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/notes/9/#summing-up"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-sec",
+      "type": "anzali-section",
+      "title": "جلسهٔ حل تمرین هفتهٔ ۹ (Section 9)",
+      "path": "anzali-fa/weeks/week-09/section/section-9.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 17,
+      "source_url": "https://cs50.harvard.edu/x/sections/9/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/sections/9/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-sh-flask",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: Flask (Flask)",
+      "path": "anzali-fa/weeks/week-09/shorts/flask.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 18,
+      "source_url": "https://cs50.harvard.edu/x/shorts/flask/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/flask/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-sh-ajax",
+      "type": "anzali-short",
+      "title": "ویدئوی کوتاه: Ajax (AJAX)",
+      "path": "anzali-fa/weeks/week-09/shorts/ajax.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 19,
+      "source_url": "https://cs50.harvard.edu/x/shorts/ajax/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/shorts/ajax/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-ps-birthdays",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای زادروزها (Birthdays)",
+      "path": "anzali-fa/weeks/week-09/problem-sets/birthdays.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 26,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/9/birthdays/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/9/birthdays/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-ps-finance",
+      "type": "anzali-pset-guide",
+      "title": "راهنمای سی‌دلار۵۰ فایننس (C$50 Finance)",
+      "path": "anzali-fa/weeks/week-09/problem-sets/finance.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 27,
+      "source_url": "https://cs50.harvard.edu/x/2026/psets/9/finance/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/psets/9/finance/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    },
+    {
+      "id": "w09-pr-helloflask",
+      "type": "anzali-practice-guide",
+      "title": "راهنمای سلام، Flask (Hello, Flask)",
+      "path": "anzali-fa/weeks/week-09/problem-sets/helloflask.fa.md",
+      "parent": "w09-fa",
+      "children": [],
+      "week": 9,
+      "order": 28,
+      "source_url": "https://cs50.harvard.edu/x/2026/practice/helloflask/",
+      "source_urls": [
+        "https://cs50.harvard.edu/x/2026/practice/helloflask/"
+      ],
+      "source_type": "translated-rewritten",
+      "lang": "fa",
+      "status": "draft-needs-human-review",
+      "tags": [
+        "anzali-fa",
+        "week-9"
+      ]
+    }
+  ]
+}

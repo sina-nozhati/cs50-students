@@ -1,0 +1,284 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 99,
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_10": [
+    "src-notes-10"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-project-99",
+      "url": "https://cs50.harvard.edu/x/project/",
+      "title": "Final Project (specification)",
+      "source_type": "specification",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:09+03:30",
+      "verified_at": "2026-10-31T16:15:00+03:30",
+      "refetch": {
+        "http": 200,
+        "requested": "https://cs50.harvard.edu/x/2026/project/",
+        "final_url": "https://cs50.harvard.edu/x/project/",
+        "sha256_live_main_text": "20c8e128f11f5dc2d42014774a300f02488c922ef94e0fa291af88e9b1801769"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/project/",
+      "anchors": [
+        "final-project",
+        "ideas",
+        "getting-started",
+        "how-to-submit",
+        "step-1-of-3",
+        "step-2-of-3",
+        "step-3-of-3"
+      ],
+      "local_copy": "/workspace/cs50x-kb/final-project/README.md",
+      "notes": "Read in full. Re-fetched 2026-10-31 over the box network (the 2026 URL redirects here, d201); wording identical to the Task-1 copy apart from whitespace. Two official code blocks (README template, submit50 command)."
+    },
+    {
+      "id": "src-honesty-99",
+      "url": "https://cs50.harvard.edu/x/honesty/",
+      "title": "Academic Honesty",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T16:15:00+03:30",
+      "verified_at": "2026-10-31T16:15:00+03:30",
+      "refetch": {
+        "http": 200,
+        "requested": "https://cs50.harvard.edu/x/2026/honesty/",
+        "final_url": "https://cs50.harvard.edu/x/honesty/",
+        "sha256_live_main_text": "9c02f1ebc154df238467881c728d8f35b08fc178865e358f0ede4faa1291b2cb"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/honesty/",
+      "local_copy": "_tools/refetch/fp/honesty.md",
+      "notes": "Reasonable / Not Reasonable lists, used for citing code origins, CS50's own AI software and the general AI rule (d196-d198)."
+    },
+    {
+      "id": "src-certificate-99",
+      "url": "https://cs50.harvard.edu/x/certificate/",
+      "title": "CS50 Certificate",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T16:15:00+03:30",
+      "verified_at": "2026-10-31T16:15:00+03:30",
+      "refetch": {
+        "http": 200,
+        "requested": "https://cs50.harvard.edu/x/2026/certificate/",
+        "final_url": "https://cs50.harvard.edu/x/certificate/",
+        "sha256_live_main_text": "8d02fdd3f9387312845ac3a1114f59c8e48591c459ee6cdb6ceb6fd9ac4663b3"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/certificate/",
+      "local_copy": "_tools/refetch/fp/certificate.md",
+      "notes": "70% threshold on each problem set and the final project (d200)."
+    },
+    {
+      "id": "src-faqs-99",
+      "url": "https://cs50.harvard.edu/x/faqs/",
+      "title": "FAQs (final project, deadlines)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-partial",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T16:15:00+03:30",
+      "verified_at": "2026-10-31T16:15:00+03:30",
+      "refetch": {
+        "http": 200,
+        "requested": "https://cs50.harvard.edu/x/2026/faqs/",
+        "final_url": "https://cs50.harvard.edu/x/faqs/",
+        "sha256_live_main_text": "807f5e376e65d8af2bddb73cf832edfe8e954c8b26a5ea1b7d4cfaf1aa20fd80"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/faqs/",
+      "local_copy": "_tools/refetch/fp/faqs.md",
+      "notes": "Only 'Why did I not pass my final project?' and the deadline/carryover entries are used (d199, d203)."
+    },
+    {
+      "id": "src-syllabus-99",
+      "url": "https://cs50.harvard.edu/x/syllabus/",
+      "title": "Syllabus (certificate and honesty sections)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-partial",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T16:15:00+03:30",
+      "verified_at": "2026-10-31T16:15:00+03:30",
+      "refetch": {
+        "http": 200,
+        "requested": "https://cs50.harvard.edu/x/2026/syllabus/",
+        "final_url": "https://cs50.harvard.edu/x/syllabus/",
+        "sha256_live_main_text": "0c0a215b0afd1f4f553e416f47d6a25a1f524cbc49105b69b942c9248e16eead"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/syllabus/",
+      "local_copy": "_tools/refetch/fp/syllabus.md",
+      "notes": "Certificate wording (d200); the project page links its #academic-honesty section."
+    },
+    {
+      "id": "src-form-99",
+      "url": "https://forms.cs50.io/65ba090e-aba1-41de-a8f3-13f7701f399b",
+      "title": "Final project form (step 1)",
+      "source_type": "form",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T16:15:00+03:30",
+      "notes": "Linked only; never opened or submitted by the package."
+    },
+    {
+      "id": "src-gradebook-99",
+      "url": "https://cs50.me/cs50x",
+      "title": "CS50x gradebook",
+      "source_type": "web-app",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-31T16:15:00+03:30",
+      "notes": "Linked only (step 3)."
+    },
+    {
+      "id": "src-anzali-authored-99",
+      "url": "urn:cs50x-anzali:authored:final-project",
+      "title": "Material authored by CS50x Anzali for the Final Project (planning tips marked تألیفی, checklist, lessons, flashcards, quizzes, challenges, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-31T21:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-99",
+      "url": "urn:cs50x-anzali:inference:final-project",
+      "title": "Editorial inferences for the Final Project (concept graph, note split of the specification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-31T21:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d196",
+      "topic": "AI tool examples",
+      "a": {
+        "source": "src-project-99#getting-started",
+        "value": "'AI-based software other than CS50’s own (e.g., ChatGPT, GitHub Copilot, Bing Chat, et al.)'"
+      },
+      "b": {
+        "source": "src-honesty-99",
+        "value": "'AI-based software other than CS50’s own (e.g., ChatGPT, Claude, Copilot, Gemini, et al.)'"
+      },
+      "status": "complementary",
+      "note": "Both are 'e.g.' lists; w99-n04 quotes each page's list as it stands and does not merge them."
+    },
+    {
+      "id": "d197",
+      "topic": "Final-project AI exception missing from the honesty page",
+      "a": {
+        "source": "src-project-99#getting-started",
+        "value": "'For your final project (and your final project only!) it is reasonable to use AI-based software other than CS50’s own'"
+      },
+      "b": {
+        "source": "src-honesty-99",
+        "value": "lists such use as 'Not Reasonable' with no final-project exception"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The project page is the more specific rule for the final project; w99-n04 states the exception only for the final project and keeps the honesty page's rule for everything else. Human confirmation suggested."
+    },
+    {
+      "id": "d198",
+      "topic": "Group work vs the honesty page",
+      "a": {
+        "source": "src-project-99#final-project",
+        "value": "groups of one or two classmates are allowed, each contributing equally"
+      },
+      "b": {
+        "source": "src-honesty-99",
+        "value": "'Splitting an assessment’s workload with another individual and combining your work' is Not Reasonable"
+      },
+      "status": "complementary",
+      "note": "The project page explicitly allows groups for the final project only; elsewhere the honesty rule applies."
+    },
+    {
+      "id": "d199",
+      "topic": "README or DESIGN file",
+      "a": {
+        "source": "src-faqs-99",
+        "value": "FAQ 'Why did I not pass my final project?' speaks of the 'README or DESIGN file'"
+      },
+      "b": {
+        "source": "src-project-99#step-2-of-3",
+        "value": "the spec requires only README.md (named exactly that)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "The package follows the spec: README.md only. The FAQ wording is probably from an older edition (inference)."
+    },
+    {
+      "id": "d200",
+      "topic": "Certificate threshold wording",
+      "a": {
+        "source": "src-certificate-99",
+        "value": "'at least 70% on each of this course’s problem sets as well as its final project'"
+      },
+      "b": {
+        "source": "src-syllabus-99",
+        "value": "'at least 70% on each problem you submit … as well as on the course’s final project'"
+      },
+      "status": "complementary",
+      "note": "Neither page gives a per-criterion rubric for the final project; the package does not invent one."
+    },
+    {
+      "id": "d201",
+      "topic": "Project URL",
+      "a": {
+        "source": "src-project-99#final-project",
+        "value": "https://cs50.harvard.edu/x/2026/project/ (requested)"
+      },
+      "b": {
+        "source": "src-project-99#final-project",
+        "value": "redirects to https://cs50.harvard.edu/x/project/ (2026-10-31)"
+      },
+      "status": "complementary",
+      "note": "Both URLs serve the same 2026 page; sources.json records both."
+    },
+    {
+      "id": "d202",
+      "topic": "Version control not taught on the project page",
+      "a": {
+        "source": "src-project-99#step-2-of-3",
+        "value": "mentions only GitHub usernames, the submit50 login and uploading to the cs50/problems/2026/x/project branch of github.com/me50/USERNAME"
+      },
+      "b": {
+        "source": "src-notes-10#looking-ahead",
+        "value": "Week 10 names Git as a tool for version control"
+      },
+      "status": "gap",
+      "note": "w99-n03 links Week 10 for Git and does not teach git commands beyond what the official pages state."
+    },
+    {
+      "id": "d203",
+      "topic": "No grading rubric or word minimum",
+      "a": {
+        "source": "src-project-99#step-2-of-3",
+        "value": "'in the neighborhood of 750 words is likely to be sufficient' and 'several hundred words'"
+      },
+      "b": {
+        "source": "src-faqs-99",
+        "value": "'robust documentation' with many paragraphs"
+      },
+      "status": "gap",
+      "note": "No official hard minimum or rubric exists; the checklist marks the 750-word figure as guidance, not a rule. The checklist's word counter is a self-check only."
+    }
+  ]
+}

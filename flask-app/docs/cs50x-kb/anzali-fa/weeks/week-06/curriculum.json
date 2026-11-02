@@ -1,0 +1,546 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w06-curriculum",
+  "week": 6,
+  "title_fa": "هفتهٔ ۶ — پایتون",
+  "title_en": "Week 6 — Python",
+  "panel_week_number": 6,
+  "kb_parent_node": "week-6",
+  "hub_doc_id": "w06-fa",
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-6",
+    "src-notes-6",
+    "src-transcript-6",
+    "src-section-6",
+    "src-pset-6"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w06-o01",
+    "w06-o02",
+    "w06-o03",
+    "w06-o04",
+    "w06-o05",
+    "w06-o06",
+    "w06-o07",
+    "w06-o08",
+    "w06-o09",
+    "w06-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: از C به پایتون و کتابخانه‌ها، رشته‌ها و print و نوع‌ها، شرط‌ها و متدهای رشته، حلقه‌ها و انتزاع، تقسیم و ممیز شناور و استثناها، Mario و فهرست‌ها، و در آخر جست‌وجو و واژه‌نامه و خط فرمان و CSV. Hello پس از درس رشته‌ها باز می‌شود، Cash پس از درس تقسیم، Mario و Credit و Readability پس از درس فهرست‌ها و برش، و DNA پس از درس واژه‌نامه و CSV.",
+  "stages": [
+    {
+      "id": "w06-s1",
+      "lesson_ids": [
+        "w06-l01"
+      ]
+    },
+    {
+      "id": "w06-s2",
+      "lesson_ids": [
+        "w06-l02"
+      ]
+    },
+    {
+      "id": "w06-s3",
+      "lesson_ids": [
+        "w06-l03",
+        "w06-l04"
+      ]
+    },
+    {
+      "id": "w06-s4",
+      "lesson_ids": [
+        "w06-l05"
+      ]
+    },
+    {
+      "id": "w06-s5",
+      "lesson_ids": [
+        "w06-l06"
+      ]
+    },
+    {
+      "id": "w06-s6",
+      "lesson_ids": [
+        "w06-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w06-l01",
+      "order": 1,
+      "file": "lessons/w06-l01.json",
+      "title_fa": "از C به پایتون",
+      "stage_id": "w06-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w06-l01-u01",
+        "w06-l01-u02",
+        "w06-l01-u03"
+      ],
+      "note_ids": [
+        "w06-n01",
+        "w06-n02",
+        "w06-n03"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w06-l02",
+      "order": 2,
+      "file": "lessons/w06-l02.json",
+      "title_fa": "رشته، print و نوع‌ها",
+      "stage_id": "w06-s2",
+      "prerequisite_lesson_ids": [
+        "w06-l01"
+      ],
+      "unit_ids": [
+        "w06-l02-u01",
+        "w06-l02-u02",
+        "w06-l02-u03",
+        "w06-l02-u04"
+      ],
+      "note_ids": [
+        "w06-n04",
+        "w06-n05",
+        "w06-n06"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w06-l03",
+      "order": 3,
+      "file": "lessons/w06-l03.json",
+      "title_fa": "شرط‌ها و متدهای رشته",
+      "stage_id": "w06-s3",
+      "prerequisite_lesson_ids": [
+        "w06-l02"
+      ],
+      "unit_ids": [
+        "w06-l03-u01",
+        "w06-l03-u02",
+        "w06-l03-u03"
+      ],
+      "note_ids": [
+        "w06-n07",
+        "w06-n08"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w06-l04",
+      "order": 4,
+      "file": "lessons/w06-l04.json",
+      "title_fa": "حلقه‌ها و انتزاع",
+      "stage_id": "w06-s3",
+      "prerequisite_lesson_ids": [
+        "w06-l03"
+      ],
+      "unit_ids": [
+        "w06-l04-u01",
+        "w06-l04-u02",
+        "w06-l04-u03",
+        "w06-l04-u04"
+      ],
+      "note_ids": [
+        "w06-n09"
+      ],
+      "related_doc_ids": [
+        "w06-sh-python"
+      ]
+    },
+    {
+      "id": "w06-l05",
+      "order": 5,
+      "file": "lessons/w06-l05.json",
+      "title_fa": "تقسیم، ممیز شناور و استثناها",
+      "stage_id": "w06-s4",
+      "prerequisite_lesson_ids": [
+        "w06-l04"
+      ],
+      "unit_ids": [
+        "w06-l05-u01",
+        "w06-l05-u02",
+        "w06-l05-u03"
+      ],
+      "note_ids": [
+        "w06-n10"
+      ],
+      "related_doc_ids": [
+        "w06-sh-python"
+      ]
+    },
+    {
+      "id": "w06-l06",
+      "order": 6,
+      "file": "lessons/w06-l06.json",
+      "title_fa": "Mario، فهرست‌ها و برش",
+      "stage_id": "w06-s5",
+      "prerequisite_lesson_ids": [
+        "w06-l05"
+      ],
+      "unit_ids": [
+        "w06-l06-u01",
+        "w06-l06-u02",
+        "w06-l06-u03",
+        "w06-l06-u04"
+      ],
+      "note_ids": [
+        "w06-n11",
+        "w06-n12"
+      ],
+      "related_doc_ids": [
+        "w06-sec"
+      ]
+    },
+    {
+      "id": "w06-l07",
+      "order": 7,
+      "file": "lessons/w06-l07.json",
+      "title_fa": "جست‌وجو، واژه‌نامه، خط فرمان و CSV",
+      "stage_id": "w06-s6",
+      "prerequisite_lesson_ids": [
+        "w06-l06"
+      ],
+      "unit_ids": [
+        "w06-l07-u01",
+        "w06-l07-u02",
+        "w06-l07-u03",
+        "w06-l07-u04"
+      ],
+      "note_ids": [
+        "w06-n13",
+        "w06-n14",
+        "w06-n15"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w06-n01",
+      "file": "notes/01-hello-python.fa.md",
+      "official_anchor": "hello-python"
+    },
+    {
+      "id": "w06-n02",
+      "file": "notes/02-speller-filter.fa.md",
+      "official_anchor": "speller"
+    },
+    {
+      "id": "w06-n03",
+      "file": "notes/03-functions-libraries.fa.md",
+      "official_anchor": "libraries-modules-and-packages"
+    },
+    {
+      "id": "w06-n04",
+      "file": "notes/04-strings-print.fa.md",
+      "official_anchor": "strings"
+    },
+    {
+      "id": "w06-n05",
+      "file": "notes/05-variables-types.fa.md",
+      "official_anchor": "types"
+    },
+    {
+      "id": "w06-n06",
+      "file": "notes/06-calculator.fa.md",
+      "official_anchor": "calculator"
+    },
+    {
+      "id": "w06-n07",
+      "file": "notes/07-conditionals.fa.md",
+      "official_anchor": "conditionals"
+    },
+    {
+      "id": "w06-n08",
+      "file": "notes/08-objects-methods.fa.md",
+      "official_anchor": "object-oriented-programming"
+    },
+    {
+      "id": "w06-n09",
+      "file": "notes/09-loops-abstraction.fa.md",
+      "official_anchor": "loops"
+    },
+    {
+      "id": "w06-n10",
+      "file": "notes/10-division-exceptions.fa.md",
+      "official_anchor": "truncation-and-floating-point-imprecision"
+    },
+    {
+      "id": "w06-n11",
+      "file": "notes/11-mario.fa.md",
+      "official_anchor": "mario"
+    },
+    {
+      "id": "w06-n12",
+      "file": "notes/12-lists.fa.md",
+      "official_anchor": "lists"
+    },
+    {
+      "id": "w06-n13",
+      "file": "notes/13-dictionaries.fa.md",
+      "official_anchor": "searching-and-dictionaries"
+    },
+    {
+      "id": "w06-n14",
+      "file": "notes/14-argv-exit.fa.md",
+      "official_anchor": "command-line-arguments"
+    },
+    {
+      "id": "w06-n15",
+      "file": "notes/15-csv-libraries.fa.md",
+      "official_anchor": "csv-files"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-6.fa.md",
+    "shorts": [
+      {
+        "id": "w06-sh-python",
+        "file": "shorts/python.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w06-ps-hello",
+        "file": "problem-sets/hello.fa.md"
+      },
+      {
+        "id": "w06-ps-mario-less",
+        "file": "problem-sets/mario-less.fa.md"
+      },
+      {
+        "id": "w06-ps-mario-more",
+        "file": "problem-sets/mario-more.fa.md"
+      },
+      {
+        "id": "w06-ps-cash",
+        "file": "problem-sets/cash.fa.md"
+      },
+      {
+        "id": "w06-ps-credit",
+        "file": "problem-sets/credit.fa.md"
+      },
+      {
+        "id": "w06-ps-readability",
+        "file": "problem-sets/readability.fa.md"
+      },
+      {
+        "id": "w06-ps-dna",
+        "file": "problem-sets/dna.fa.md"
+      },
+      {
+        "id": "w06-pr-bank",
+        "file": "problem-sets/bank.fa.md"
+      },
+      {
+        "id": "w06-pr-figlet",
+        "file": "problem-sets/figlet.fa.md"
+      },
+      {
+        "id": "w06-pr-jar",
+        "file": "problem-sets/jar.fa.md"
+      },
+      {
+        "id": "w06-pr-seven-day-average",
+        "file": "problem-sets/seven-day-average.fa.md"
+      },
+      {
+        "id": "w06-pr-taqueria",
+        "file": "problem-sets/taqueria.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w06-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w06-ps-hello",
+      "kind": "pset",
+      "file": "problem-sets/hello.json",
+      "guide": "problem-sets/hello.fa.md",
+      "unlock_after_lesson": "w06-l02"
+    },
+    {
+      "id": "w06-ps-mario-less",
+      "kind": "pset",
+      "file": "problem-sets/mario-less.json",
+      "guide": "problem-sets/mario-less.fa.md",
+      "unlock_after_lesson": "w06-l06"
+    },
+    {
+      "id": "w06-ps-mario-more",
+      "kind": "pset",
+      "file": "problem-sets/mario-more.json",
+      "guide": "problem-sets/mario-more.fa.md",
+      "unlock_after_lesson": "w06-l06"
+    },
+    {
+      "id": "w06-ps-cash",
+      "kind": "pset",
+      "file": "problem-sets/cash.json",
+      "guide": "problem-sets/cash.fa.md",
+      "unlock_after_lesson": "w06-l05"
+    },
+    {
+      "id": "w06-ps-credit",
+      "kind": "pset",
+      "file": "problem-sets/credit.json",
+      "guide": "problem-sets/credit.fa.md",
+      "unlock_after_lesson": "w06-l06"
+    },
+    {
+      "id": "w06-ps-readability",
+      "kind": "pset",
+      "file": "problem-sets/readability.json",
+      "guide": "problem-sets/readability.fa.md",
+      "unlock_after_lesson": "w06-l06"
+    },
+    {
+      "id": "w06-ps-dna",
+      "kind": "pset",
+      "file": "problem-sets/dna.json",
+      "guide": "problem-sets/dna.fa.md",
+      "unlock_after_lesson": "w06-l07"
+    },
+    {
+      "id": "w06-pr-bank",
+      "kind": "practice",
+      "file": "problem-sets/bank.json",
+      "guide": "problem-sets/bank.fa.md",
+      "unlock_after_lesson": "w06-l03"
+    },
+    {
+      "id": "w06-pr-figlet",
+      "kind": "practice",
+      "file": "problem-sets/figlet.json",
+      "guide": "problem-sets/figlet.fa.md",
+      "unlock_after_lesson": "w06-l07"
+    },
+    {
+      "id": "w06-pr-jar",
+      "kind": "practice",
+      "file": "problem-sets/jar.json",
+      "guide": "problem-sets/jar.fa.md",
+      "unlock_after_lesson": "w06-l04"
+    },
+    {
+      "id": "w06-pr-seven-day-average",
+      "kind": "practice",
+      "file": "problem-sets/seven-day-average.json",
+      "guide": "problem-sets/seven-day-average.fa.md",
+      "unlock_after_lesson": "w06-l07"
+    },
+    {
+      "id": "w06-pr-taqueria",
+      "kind": "practice",
+      "file": "problem-sets/taqueria.json",
+      "guide": "problem-sets/taqueria.fa.md",
+      "unlock_after_lesson": "w06-l07"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۶: Sentimental Hello؛ یکی از Mario (less) یا Mario (more)؛ یکی از Cash یا Credit؛ Readability؛ و DNA. تمرین‌های Practice اختیاری‌اند و تحویل ندارند.",
+    "groups": [
+      {
+        "required": [
+          "w06-ps-hello"
+        ],
+        "submit": true
+      },
+      {
+        "choose_one": [
+          "w06-ps-mario-less",
+          "w06-ps-mario-more"
+        ],
+        "submit": true
+      },
+      {
+        "choose_one": [
+          "w06-ps-cash",
+          "w06-ps-credit"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w06-ps-readability"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w06-ps-dna"
+        ],
+        "submit": true
+      }
+    ],
+    "optional_practice": [
+      "w06-pr-bank",
+      "w06-pr-figlet",
+      "w06-pr-jar",
+      "w06-pr-seven-day-average",
+      "w06-pr-taqueria"
+    ],
+    "source_ref": "src-pset-6#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids_any_of_groups": true,
+        "note": "checklists of the chosen Problem Set 6 problems"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w06-ps-hello",
+          "w06-ps-readability",
+          "w06-ps-dna"
+        ],
+        "one_of": [
+          [
+            "w06-ps-mario-less",
+            "w06-ps-mario-more"
+          ],
+          [
+            "w06-ps-cash",
+            "w06-ps-credit"
+          ]
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

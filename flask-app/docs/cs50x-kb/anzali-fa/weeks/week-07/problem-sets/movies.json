@@ -1,0 +1,468 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w07-ps-movies",
+  "kind": "pset",
+  "week": 7,
+  "title_en": "Movies",
+  "title_fa": "فیلم‌ها (Movies)",
+  "guide_doc_id": "w07-ps-movies",
+  "guide_file": "movies.fa.md",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/7/movies/",
+    "index_url": "https://cs50.harvard.edu/x/psets/7/",
+    "submission": "required",
+    "choice_group": null,
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w07-ps-movies-r1",
+        "text_fa": "برای هر مسئله **یک** پرس‌وجوی SQL بنویس (تودرتو مجاز است).",
+        "text_en": "For each of the following problems, you should write a single SQL query that outputs the results specified by each problem",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r2",
+        "text_fa": "دربارهٔ `id` هیچ فیلم یا فردی فرض نکن.",
+        "text_en": "You should not assume anything about the ids of any particular movies or people",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r3",
+        "text_fa": "هر پرس‌وجو فقط دادهٔ لازم را برگرداند.",
+        "text_en": "Each query should return only the data necessary to answer the question",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r4",
+        "text_fa": "`1.sql`: عنوان همهٔ فیلم‌های سال ۲۰۰۸ (یک ستون).",
+        "text_en": "In 1.sql, write a SQL query to list the titles of all movies released in 2008",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r5",
+        "text_fa": "`2.sql`: سال تولد Emma Stone (یک ستون و یک سطر)؛ فرض کن فقط یک نفر با این نام هست.",
+        "text_en": "In 2.sql, write a SQL query to determine the birth year of Emma Stone",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r6",
+        "text_fa": "`3.sql`: عنوان همهٔ فیلم‌های ۲۰۱۸ و پس از آن (شامل آینده)، به ترتیب الفبا (یک ستون).",
+        "text_en": "In 3.sql, write a SQL query to list the titles of all movies with a release date on or after 2018, in alphabetical order",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r7",
+        "text_fa": "`4.sql`: تعداد فیلم‌هایی که امتیاز IMDb آن‌ها 10.0 است (یک ستون و یک سطر).",
+        "text_en": "In 4.sql, write a SQL query to determine the number of movies with an IMDb rating of 10.0",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r8",
+        "text_fa": "`5.sql`: عنوان و سال همهٔ فیلم‌هایی که با «Harry Potter and the » شروع می‌شوند، به ترتیب زمانی (دو ستون).",
+        "text_en": "In 5.sql, write a SQL query to list the titles and release years of all Harry Potter movies, in chronological order",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r9",
+        "text_fa": "`6.sql`: میانگین امتیاز فیلم‌های سال ۲۰۱۲ (یک ستون و یک سطر).",
+        "text_en": "In 6.sql, write a SQL query to determine the average rating of all movies released in 2012",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r10",
+        "text_fa": "`7.sql`: فیلم‌های ۲۰۱۰ و امتیازشان، نزولی بر اساس امتیاز و برای امتیاز برابر الفبایی بر اساس عنوان (دو ستون)؛ فیلم‌های بی‌امتیاز نیایند.",
+        "text_en": "In 7.sql, write a SQL query to list all movies released in 2010 and their ratings, in descending order by rating. For movies with the same rating, order them alphabetically by title",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r11",
+        "text_fa": "`8.sql`: نام همهٔ بازیگران Toy Story (یک ستون)؛ فرض کن فقط یک فیلم با این عنوان هست.",
+        "text_en": "In 8.sql, write a SQL query to list the names of all people who starred in Toy Story",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r12",
+        "text_fa": "`9.sql`: شناسه و نام همهٔ کسانی که در فیلمی از سال ۲۰۰۴ بازی کرده‌اند، به ترتیب سال تولد (دو ستون)؛ هر نفر یک بار؛ ترتیب افراد با سال تولد برابر و نبودن سال تولد مهم نیست.",
+        "text_en": "In 9.sql, write a SQL query to list the ID and names of all people who starred in a movie released in 2004, ordered by birth year",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r13",
+        "text_fa": "`10.sql`: نام همهٔ کسانی که فیلمی با امتیاز دست‌کم 9.0 کارگردانی کرده‌اند (یک ستون)؛ هر نفر یک بار.",
+        "text_en": "In 10.sql, write a SQL query to list the names of all people who have directed a movie that received a rating of at least 9.0",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r14",
+        "text_fa": "`11.sql`: عنوان پنج فیلم با بالاترین امتیاز که Chadwick Boseman در آن‌ها بازی کرده، از بالاترین (یک ستون).",
+        "text_en": "In 11.sql, write a SQL query to list the titles of the five highest rated movies (in order) that Chadwick Boseman starred in, starting with the highest rated",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r15",
+        "text_fa": "`12.sql`: عنوان همهٔ فیلم‌هایی که Bradley Cooper و Jennifer Lawrence هر دو در آن بازی کرده‌اند (یک ستون).",
+        "text_en": "In 12.sql, write a SQL query to list the titles of all movies in which both Bradley Cooper and Jennifer Lawrence starred",
+        "source_ref": "src-pset-7-movies#specification"
+      },
+      {
+        "id": "w07-ps-movies-r16",
+        "text_fa": "`13.sql`: نام همهٔ کسانی که در فیلمی بازی کرده‌اند که Kevin Bacon (متولد ۱۹۵۸) هم در آن بود (یک ستون)؛ خود Kevin Bacon نیاید.",
+        "text_en": "In 13.sql, write a SQL query to list the names of all people who starred in a movie in which Kevin Bacon also starred",
+        "source_ref": "src-pset-7-movies#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/movies",
+      "style50": null,
+      "submit50": "submit50 cs50/problems/2026/x/movies",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/7/movies.zip\nunzip movies.zip\nrm movies.zip"
+    },
+    "sample_io": [],
+    "test_texts": [
+      {
+        "text": "1.sql",
+        "expected": "(۱ ستون و ۱۰٬۶۴۷ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "2.sql",
+        "expected": "(۱ ستون و ۱ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "3.sql",
+        "expected": "(۱ ستون و ۱۵۴٬۶۶۵ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "4.sql",
+        "expected": "(۱ ستون و ۱ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "5.sql",
+        "expected": "(۲ ستون و ۱۸ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "6.sql",
+        "expected": "(۱ ستون و ۱ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "7.sql",
+        "expected": "(۲ ستون و ۷٬۳۸۶ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "8.sql",
+        "expected": "(۱ ستون و ۱۰ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "9.sql",
+        "expected": "(۲ ستون و ۳۶٬۲۱۹ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "10.sql",
+        "expected": "(۱ ستون و ۴٬۶۷۵ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "11.sql",
+        "expected": "(۱ ستون و ۵ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "12.sql",
+        "expected": "(۱ ستون و ۴ سطر)",
+        "origin": "official"
+      },
+      {
+        "text": "13.sql",
+        "expected": "(۱ ستون و ۵۵۰ سطر)",
+        "origin": "official"
+      }
+    ],
+    "official_snippets": [],
+    "debug_commands": [
+      {
+        "caption_fa": "اجرای یک فایل",
+        "command": "$ cat filename.sql | sqlite3 movies.db",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "ذخیرهٔ خروجی در فایل برای شمردن سطرها",
+        "command": "$ cat filename.sql | sqlite3 movies.db > output.txt",
+        "origin": "official"
+      }
+    ],
+    "official_hints_fa": [],
+    "official_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/movies",
+      "style50": null,
+      "has_check50": true,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "v5_A3giDlQs",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "uPWDqSe0NjjqXLF3qxzpsMnfv",
+    "media_ids": [
+      "w07-m-movies-imdb"
+    ],
+    "discrepancy_ids": [
+      "d123",
+      "d131"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w07-c-sqlite3-cli",
+      "w07-c-schema",
+      "w07-c-select",
+      "w07-c-where",
+      "w07-c-order-by",
+      "w07-c-count",
+      "w07-c-distinct",
+      "w07-c-like-wildcard",
+      "w07-c-sql-functions",
+      "w07-c-is-null",
+      "w07-c-nested-query",
+      "w07-c-join",
+      "w07-c-multi-join",
+      "w07-c-many-to-many",
+      "w07-c-one-to-one",
+      "w07-c-no-id-assumption",
+      "w07-c-sql-file-pipe"
+    ],
+    "prerequisite_lesson_ids": [
+      "w07-l01",
+      "w07-l02",
+      "w07-l03",
+      "w07-l04",
+      "w07-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w07-c-sqlite3-cli",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-schema",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-select",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-where",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-order-by",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u03"
+      },
+      {
+        "concept_id": "w07-c-count",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-distinct",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-like-wildcard",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-sql-functions",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-is-null",
+        "note_id": "w07-n05",
+        "lesson_id": "w07-l03",
+        "unit_id": "w07-l03-u02"
+      },
+      {
+        "concept_id": "w07-c-nested-query",
+        "note_id": "w07-n07",
+        "lesson_id": "w07-l04",
+        "unit_id": "w07-l04-u03"
+      },
+      {
+        "concept_id": "w07-c-join",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u01"
+      },
+      {
+        "concept_id": "w07-c-multi-join",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u02"
+      },
+      {
+        "concept_id": "w07-c-many-to-many",
+        "note_id": "w07-n08",
+        "lesson_id": "w07-l05",
+        "unit_id": "w07-l05-u02"
+      },
+      {
+        "concept_id": "w07-c-one-to-one",
+        "note_id": "w07-n07",
+        "lesson_id": "w07-l04",
+        "unit_id": "w07-l04-u01"
+      },
+      {
+        "concept_id": "w07-c-no-id-assumption",
+        "note_id": "w07-ps-songs",
+        "lesson_id": null,
+        "unit_id": null
+      },
+      {
+        "concept_id": "w07-c-sql-file-pipe",
+        "note_id": "w07-ps-movies",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از اولین پرس‌وجو، طرح‌واره را روی کاغذ بکش: هر جدول، کلید اصلی‌اش و ستون‌هایی که به جدول دیگر اشاره می‌کنند. بیشتر پرسش‌ها فقط با دنبال کردن این پیکان‌ها حل می‌شوند."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای پرسش‌های چندجدولی، صفحهٔ رسمی پیشنهاد می‌کند مسئله را به پرس‌وجوهای کوچک بشکنی و بعد آن‌ها را تودرتو کنی. هر لایه را جدا اجرا کن و ببین نتیجه‌اش همان چیزی است که لایهٔ بیرونی لازم دارد."
+      },
+      {
+        "n": 3,
+        "hint_fa": "«هر نفر یک بار» یعنی باید دربارهٔ تکرار فکر کنی. یادداشت SELECT می‌گوید کدام کلیدواژه مقدارهای تکراری را حذف می‌کند؛ ولی به این هم فکر کن که «نام» تکراری با «فرد» تکراری یکی نیست."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای «هر دو بازیگر» به این فکر کن که یک فیلم باید در دو مجموعه باشد. پرس‌وجوی تودرتو با `IN` یا ترکیب شرط‌ها با `AND` کمک می‌کند."
+      },
+      {
+        "n": 5,
+        "hint_fa": "وقتی دو ترتیب لازم است، `ORDER BY` می‌تواند چند ستون بگیرد که به ترتیب اعمال می‌شوند."
+      },
+      {
+        "n": 6,
+        "hint_fa": "پرس‌وجوهای روی جدول‌های بزرگ ممکن است کند باشند. اگر صبرت تمام شد، یادداشت شاخص‌ها را مرور کن و `.timer on` را امتحان کن."
+      },
+      {
+        "n": 7,
+        "hint_fa": "برای سنجیدن تعداد سطرها خروجی را با `> output.txt` در فایل بریز و تعداد سطرها را با فهرست رسمی مقایسه کن."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نوشتن عدد `id` یک فیلم یا بازیگر در پرس‌وجو",
+      "تکرار یک فرد در نتیجه (یا حذف اشتباه دو فرد هم‌نام)",
+      "فراموش کردن کلید دوم مرتب‌سازی در `7.sql`",
+      "آوردن فیلم‌های بی‌امتیاز در `7.sql`",
+      "آوردن خود Kevin Bacon یا Kevin Baconهای دیگر در `13.sql`",
+      "تطبیق «Harry Potter» به جای «Harry Potter and the » در `5.sql` (تغییر ۲۰۲۶)",
+      "برگرداندن فقط نام در `9.sql` به جای شناسه و نام (تغییر ۲۰۲۶)"
+    ],
+    "self_checklist": [
+      {
+        "id": "w07-ps-movies-c01",
+        "text_fa": "هر فایل `.sql` فقط یک پرس‌وجو دارد.",
+        "maps_to": "w07-ps-movies-r1"
+      },
+      {
+        "id": "w07-ps-movies-c02",
+        "text_fa": "هیچ `id` دستی در پرس‌وجوها نیست.",
+        "maps_to": "w07-ps-movies-r2"
+      },
+      {
+        "id": "w07-ps-movies-c03",
+        "text_fa": "هر پرس‌وجو فقط ستون‌های خواسته‌شده را برمی‌گرداند (`5.sql`، `7.sql` و `9.sql` دو ستون).",
+        "maps_to": "w07-ps-movies-r3"
+      },
+      {
+        "id": "w07-ps-movies-c04",
+        "text_fa": "`7.sql` دو کلید مرتب‌سازی دارد و فیلم‌های بی‌امتیاز را نمی‌آورد.",
+        "maps_to": "w07-ps-movies-r10"
+      },
+      {
+        "id": "w07-ps-movies-c05",
+        "text_fa": "در `9.sql` و `10.sql` هیچ فردی دو بار نمی‌آید.",
+        "maps_to": "w07-ps-movies-r12"
+      },
+      {
+        "id": "w07-ps-movies-c06",
+        "text_fa": "در `13.sql` خود Kevin Bacon نیست و فقط Kevin Bacon متولد ۱۹۵۸ مبناست.",
+        "maps_to": "w07-ps-movies-r16"
+      },
+      {
+        "id": "w07-ps-movies-c07",
+        "text_fa": "تعداد سطرهای هر فایل با فهرست رسمی بالا می‌خواند.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w07-ps-movies-c08",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w07-ps-movies-c09",
+        "text_fa": "همهٔ فایل‌ها را با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "چک‌لیست را بگذران، check50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "بخش Hints صفحهٔ رسمی Movies (راهنمای هر پرسش)",
+      "url": "https://cs50.harvard.edu/x/psets/7/movies/#hints",
+      "reason_fa": "راهنمای چند پرسش، از جمله شکستن گام‌به‌گام یک پرسش و ساختن پرس‌وجوی تودرتوی کامل آن، پاسخ را مستقیم نشان می‌دهد (d123، D56)؛ فقط پیوند."
+    },
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/watch?v=v5_A3giDlQs",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

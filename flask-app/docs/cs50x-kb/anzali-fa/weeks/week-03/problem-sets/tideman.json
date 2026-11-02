@@ -1,0 +1,258 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-ps-tideman",
+  "kind": "pset",
+  "week": 3,
+  "title_en": "Tideman",
+  "title_fa": "روش تایدمن (Tideman)",
+  "guide_doc_id": "w03-ps-tideman",
+  "guide_file": "tideman.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/3/tideman/",
+    "index_url": "https://cs50.harvard.edu/x/psets/3/",
+    "submission": "one-of-runoff-tideman",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w03-ps-tideman-r1",
+        "text_fa": "فقط `vote`، `record_preferences`، `add_pairs`، `sort_pairs`، `lock_pairs` و `print_winner` را کامل کن؛ افزودن سرآیند و تابع کمکی مجاز است، تغییر اعلان‌ها نه.",
+        "text_en": "You should not modify anything else in `tideman.c` other than the implementations of the `vote`, `record_preferences`, `add_pairs`, `sort_pairs`, `lock_pairs`, and `print_winner` functions",
+        "source_ref": "src-pset-3-tideman#specification"
+      },
+      {
+        "id": "w03-ps-tideman-r2",
+        "text_fa": "`vote` اگر نام معتبر بود، `ranks` را به‌روز کند و `true` برگرداند؛ وگرنه `false`.",
+        "text_en": "The function should return `true` if the rank was successfully recorded, and `false` otherwise",
+        "source_ref": "src-pset-3-tideman#specification"
+      },
+      {
+        "id": "w03-ps-tideman-r3",
+        "text_fa": "`record_preferences` آرایهٔ سراسری `preferences` را با ترجیح‌های هر رأی‌دهنده به‌روز کند.",
+        "text_en": "The function should update the global `preferences` array to add the current voter’s preferences.",
+        "source_ref": "src-pset-3-tideman#specification"
+      },
+      {
+        "id": "w03-ps-tideman-r4",
+        "text_fa": "`add_pairs` همهٔ جفت‌هایی را که یکی بر دیگری ترجیح دارد اضافه کند (جفت‌های مساوی نه) و `pair_count` را به‌روز کند.",
+        "text_en": "A pair of candidates who are tied (one is not preferred over the other) should not be added to the array.",
+        "source_ref": "src-pset-3-tideman#specification"
+      },
+      {
+        "id": "w03-ps-tideman-r5",
+        "text_fa": "`sort_pairs` جفت‌ها را به ترتیب نزولی قدرت پیروزی مرتب کند.",
+        "text_en": "The function should sort the `pairs` array in decreasing order of strength of victory",
+        "source_ref": "src-pset-3-tideman#specification"
+      },
+      {
+        "id": "w03-ps-tideman-r6",
+        "text_fa": "`lock_pairs` یال‌ها را به ترتیب نزولی قفل کند، به شرطی که دور نسازند.",
+        "text_en": "adding all edges in decreasing order of victory strength so long as the edge would not create a cycle.",
+        "source_ref": "src-pset-3-tideman#specification"
+      },
+      {
+        "id": "w03-ps-tideman-r7",
+        "text_fa": "`print_winner` نام منبع گراف را چاپ کند.",
+        "text_en": "The function should print out the name of the candidate who is the source of the graph.",
+        "source_ref": "src-pset-3-tideman#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/tideman",
+      "style50": "style50 tideman.c",
+      "submit50": "submit50 cs50/problems/2026/x/tideman",
+      "wget": "wget https://cdn.cs50.net/2026/x/psets/3/tideman.zip\nunzip tideman.zip\nrm tideman.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/tideman",
+      "style50": "style50 tideman.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "kb83NwyYI68",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d39",
+      "d40",
+      "d47"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-struct",
+      "w03-c-array-of-structs",
+      "w03-c-sorting",
+      "w03-c-selection-sort",
+      "w03-c-bubble-sort",
+      "w03-c-merge-sort",
+      "w03-c-recursion",
+      "w03-c-base-case"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l04",
+      "w03-l05",
+      "w03-l06",
+      "w03-l07"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-struct",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-array-of-structs",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-sorting",
+        "note_id": "w03-n10",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u01"
+      },
+      {
+        "concept_id": "w03-c-selection-sort",
+        "note_id": "w03-n10",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u01"
+      },
+      {
+        "concept_id": "w03-c-bubble-sort",
+        "note_id": "w03-n11",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u02"
+      },
+      {
+        "concept_id": "w03-c-merge-sort",
+        "note_id": "w03-n14",
+        "lesson_id": "w03-l07",
+        "unit_id": "w03-l07-u01"
+      },
+      {
+        "concept_id": "w03-c-recursion",
+        "note_id": "w03-n12",
+        "lesson_id": "w03-l06",
+        "unit_id": "w03-l06-u01"
+      },
+      {
+        "concept_id": "w03-c-base-case",
+        "note_id": "w03-n12",
+        "lesson_id": "w03-l06",
+        "unit_id": "w03-l06-u01"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "نمونه‌های بخش «Background» را روی کاغذ دوباره بساز: گراف اول منبع دارد، گراف دوم دور دارد. تا این دو را با دست نفهمیده‌ای، سراغ کد نرو."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای `sort_pairs` هر الگوریتم مرتب‌سازی این هفته کار می‌کند؛ فقط کلید مقایسه «قدرت پیروزی» است. قدرت پیروزی را از کدام آرایه می‌خوانی؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "`lock_pairs` سخت‌ترین بخش است. سؤال کلیدی: «اگر این یال را اضافه کنم، آیا از سر دیگرش می‌شود با یال‌های قفل‌شده به همین‌جا برگشت؟» فکر کن چطور همین سؤال را برای مسیرهای چندیالی هم می‌پرسی، و کی می‌توانی با اطمینان بگویی «نه»."
+      },
+      {
+        "n": 4,
+        "hint_fa": "`locked[i][j]` یک ماتریس مجاورت است. منبع گراف یعنی نامزدی که هیچ یالی به سمتش نیست؛ این را چطور در ماتریس می‌خوانی؟"
+      },
+      {
+        "n": 5,
+        "hint_fa": "هر تابع را جدا بنویس و با check50 بسنج؛ check50 توابع را جداگانه آزمایش می‌کند."
+      }
+    ],
+    "common_mistakes_fa": [
+      "اضافه کردن جفت‌های مساوی",
+      "مرتب‌سازی صعودی به‌جای نزولی",
+      "بررسی دور فقط برای یک گام به‌جای کل مسیر",
+      "اشتباه گرفتن `preferences[i][j]` با `preferences[j][i]`",
+      "تغییر دادن اعلان توابع"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-ps-tideman-c01",
+        "text_fa": "فقط شش تابع خواسته‌شده را تغییر داده‌ام و اعلان‌ها دست‌نخورده‌اند.",
+        "maps_to": "w03-ps-tideman-r1"
+      },
+      {
+        "id": "w03-ps-tideman-c02",
+        "text_fa": "`vote` نام نامعتبر را رد می‌کند.",
+        "maps_to": "w03-ps-tideman-r2"
+      },
+      {
+        "id": "w03-ps-tideman-c03",
+        "text_fa": "`preferences[i][j]` تعداد رأی‌دهندگانی است که i را بر j ترجیح می‌دهند.",
+        "maps_to": "w03-ps-tideman-r3"
+      },
+      {
+        "id": "w03-ps-tideman-c04",
+        "text_fa": "جفت‌های مساوی اضافه نمی‌شوند و `pair_count` درست است.",
+        "maps_to": "w03-ps-tideman-r4"
+      },
+      {
+        "id": "w03-ps-tideman-c05",
+        "text_fa": "جفت‌ها نزولی مرتب‌اند.",
+        "maps_to": "w03-ps-tideman-r5"
+      },
+      {
+        "id": "w03-ps-tideman-c06",
+        "text_fa": "نمونهٔ دوری صفحهٔ رسمی (سنگ‌کاغذقیچی) را با دست دنبال کرده‌ام.",
+        "maps_to": "w03-ps-tideman-r6"
+      },
+      {
+        "id": "w03-ps-tideman-c07",
+        "text_fa": "منبع گراف درست چاپ می‌شود.",
+        "maps_to": "w03-ps-tideman-r7"
+      },
+      {
+        "id": "w03-ps-tideman-c08",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w03-ps-tideman-c09",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w03-ps-tideman-c10",
+        "text_fa": "با submit50 تحویل داده‌ام.",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/embed/kb83NwyYI68",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

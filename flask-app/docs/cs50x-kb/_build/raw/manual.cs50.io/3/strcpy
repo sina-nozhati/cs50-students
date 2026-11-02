@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- https://assets.ubuntu.com/v1/49a1a858-favicon-32x32.png -->
+        <link href="/static/49a1a858-favicon-32x32.png" rel="icon" type="image/png">
+
+        <script>
+            window.FontAwesomeConfig = { autoReplaceSvg: false };
+        </script>
+
+        <link href="/static/dist/main.css?1791864566" rel="stylesheet">
+        <script src="/static/dist/main.js?1791864566"></script>
+
+        <!-- Rouge CSS will be loaded dynamically based on theme -->
+
+        <script>
+
+            
+
+    $(function() {
+
+        // Ensure all elements are styled the same
+        $('pre').addClass('p-3');
+        $('table').addClass('table');
+
+        // Shrink H2s
+        $('h2').addClass('h6');
+
+        // Add toggles
+        $('div.section').each(function(index, element) {
+
+            // Prepare switch
+            const $section = $(element);
+            const id = 'switch-' + $section.attr('data-for');
+            const $switch = $(
+                '<div class="form-check form-switch mb-4">' +
+                '<input id="' + id + '" class="form-check-input" type="checkbox">' +
+                '<label class="form-check-label" for="' + id + '">less comfortable</label>' +
+                '</div>'
+            );
+
+            // Find comfort levels
+            const $less = $section.find('[data-less]');
+            const $more = $section.find('[data-more]');
+
+            // If a less-comfortable section exists, check it by default
+            if ($less.length) {
+                $switch.find('input').prop('checked', true);
+            }
+
+            // If only one comfort level exists, disable switch
+            if (!$less.length || !$more.length) {
+                $switch.find('input').prop('disabled', true);
+            }
+
+            // Listen for changes
+            $switch.find('input').on('change', function() {
+                if ($(this).is(':checked')) {
+                    $less.removeClass('d-none');
+                    $more.addClass('d-none');
+                }
+                else {
+                    $less.addClass('d-none');
+                    $more.removeClass('d-none');
+                }
+            }).trigger('change');
+
+            // Add switch to DOM section has less-comfy level
+            if ($section.find('[data-less]').length) {
+                $section.prepend($switch);
+            }
+        });
+
+        // Hide sections
+        $('[data-hide]').each(function(index, element) {
+            const $button = $('<button class="btn btn-outline-primary btn-sm" type="button">Show</button>');
+            const id = $(element).attr('data-for');
+            $(element).before($button);
+            $button.on('click', function() {
+                $(element).show();
+                $(this).remove();
+            });
+            if (id) {
+                $button.attr('data-for', id);
+                $('#' + id).children('a').on('click', function() {
+                    $button.trigger('click');
+                });
+            }
+            $(element).hide();
+        });
+
+        // Show section if in hash
+        $(window).on('hashchange', function() {
+            const id = window.location.hash.slice(1);
+            if (id) {
+                $('button[data-for="' + id + '"]').trigger('click');
+            }
+        });
+        $(window).trigger('hashchange');
+    });
+
+
+
+        </script>
+
+        <script>
+
+            function getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            function setTheme(theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                loadRougeCSS(theme);
+            }
+
+            function loadRougeCSS(theme) {
+                // Remove existing Rouge CSS
+                document.querySelectorAll('link[id^="rouge-css"]').forEach(el => el.remove());
+
+                // Load appropriate Rouge CSS file
+                const rougeCSSFile = theme === 'dark' ? 'rouge-dark.css' : 'rouge-light.css';
+                const link = document.createElement('link');
+                link.id = 'rouge-css-' + theme;
+                link.rel = 'stylesheet';
+                link.href = '/static/dist/' + rougeCSSFile + '?1791864566';
+                document.head.appendChild(link);
+            }
+
+            // Listen for system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                setTheme(getSystemTheme());
+            });
+
+            // Initialize theme based on system preference
+            setTheme(getSystemTheme());
+
+        </script>
+        <script>
+
+            $(function() {
+
+                // Add borders to tables
+                $('.table').addClass('table-bordered');
+
+                // Enable popovers
+                $('[data-bs-toggle="popover"]').each(function(index, element) {
+                    new bootstrap.Popover(element, {
+                        boundary: 'viewport',
+                        html: true,
+                        placement: 'bottom',
+                        trigger: 'focus'
+                    });
+                });
+
+                // Ensure all elements are styled the same
+                $('h1').addClass('border-bottom fw-bold h2 mb-3 pb-2 pt-4');
+                $('h2').addClass('fw-bold h3');
+
+                // Ensure last heading can be anchored atop page
+                $(window).resize(function() {
+                    const top = $('h1').last().offset().top;
+                    const margin = $(window).height() - ($('body').outerHeight() - top);
+                    $('body').css('margin-bottom', Math.max(0, Math.ceil(margin)) + 'px');
+                });
+                $(window).trigger('resize');
+
+                // Reveal body
+                $('body').removeClass('invisible');
+            });
+
+        </script>
+
+        <style>
+
+            /* CSS Custom Properties for Theme */
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #212529;
+                --border-color: #dee2e6;
+                --code-bg: #f8f9fa;
+                --popover-highlight: rgb(252, 237, 193);
+                --table-border: #dee2e6;
+                --nav-bg: #343a40;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #0d6efd;
+                --btn-outline-primary-hover: #0b5ed7;
+                --container-bg: inherit;
+            }
+
+            [data-bs-theme="dark"] {
+                --bg-color: #212529;
+                --text-color: #ffffff;
+                --border-color: #495057;
+                --code-bg: #2d3339;
+                --popover-highlight: rgb(139, 117, 61);
+                --table-border: #495057;
+                --nav-bg: #1a1d20;
+                --nav-text: #ffffff;
+                --btn-outline-primary: #6ea8fe;
+                --btn-outline-primary-hover: #9ec5fe;
+                --container-bg: var(--bg-color);
+            }
+
+            /* Apply theme colors */
+            body {
+                background-color: var(--bg-color);
+                color: var(--text-color);
+            }
+
+            .navbar {
+                background-color: var(--nav-bg) !important;
+            }
+
+            /* Style popovers */
+            .popover {
+                font-family: inherit;
+                max-width: 100%;
+                background-color: var(--container-bg);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-header {
+                background-color: var(--code-bg);
+                border-bottom-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .popover .popover-body {
+                color: var(--text-color);
+            }
+
+            /* Wrap long words (and URLs, whether linked or not), especially on mobile,
+            but not in buttons and not in tables, which should instead scroll horizontally */
+            * {
+                word-break: break-word;
+            }
+            button, table * {
+                word-break: normal;
+            }
+
+            /* Remove underlining */
+            a {
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            nav a:hover {
+                text-decoration: none;
+            }
+
+            /* Match Gmail's yellow */
+            a[data-bs-toggle=popover] {
+                border-bottom: 2px solid var(--popover-highlight);
+                box-shadow: inset 0 -2px 0 var(--popover-highlight);
+                cursor: help;
+            }
+            a[data-bs-toggle=popover]:hover {
+                background-color: var(--popover-highlight);
+            }
+
+            /* Match pre tags */
+            code {
+                color: inherit;
+            }
+
+            /* A la Jekyll theme */
+            code, pre {
+                background-color: var(--code-bg);
+                border: 1px solid var(--border-color);
+                padding: calc(.2rem - 3px) 0.2rem;
+            }
+            pre code {
+                background-color: initial;
+                border: initial;
+                padding: initial;
+            }
+
+            /* Don't shrink these */
+            code, pre {
+                font-size: inherit;
+            }
+
+            /* Don't italicize */
+            dl dt {
+                font-style: normal;
+            }
+
+            /* Don't fill viewport */
+            .table {
+                width: inherit;
+                --bs-table-bg: var(--bg-color);
+                --bs-table-border-color: var(--table-border);
+            }
+
+            /* Form elements theming */
+            .form-control {
+                background-color: var(--bg-color);
+                border-color: var(--border-color);
+                color: var(--text-color);
+            }
+
+            .form-control:focus {
+                background-color: var(--bg-color);
+                border-color: var(--btn-outline-primary);
+                color: var(--text-color);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-control:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            .form-control::placeholder {
+                color: var(--text-color);
+                opacity: 0.6;
+            }
+
+            /* Button theming */
+            .btn-outline-primary {
+                color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .btn-outline-primary:hover,
+            .btn-outline-primary:focus {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            /* Form check elements */
+            .form-check-input:checked {
+                background-color: var(--btn-outline-primary);
+                border-color: var(--btn-outline-primary);
+            }
+
+            .form-check-input:focus {
+                border-color: var(--btn-outline-primary);
+                box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+            }
+
+            [data-bs-theme="dark"] .form-check-input:focus {
+                box-shadow: 0 0 0 0.25rem rgba(110, 168, 254, 0.25);
+            }
+
+            /* Smooth theme transition */
+            *, *::before, *::after {
+                transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+            }
+
+            /* Enhanced code block styling - Rouge handles syntax colors */
+            .highlight pre {
+                background-color: var(--code-bg) !important;
+                border: 1px solid var(--border-color) !important;
+            }
+
+            /* Ensure non-highlighted code blocks work with themes */
+            [data-bs-theme="dark"] pre:not(.highlight) code {
+                color: #f8f8f2;
+            }
+
+            [data-bs-theme="light"] pre:not(.highlight) code {
+                color: #000000;
+            }
+
+        </style>
+
+        <style>
+
+            
+
+    /* Match dl and p */
+    button {
+        margin-bottom: 1rem;
+    }
+
+    /* Ensure syntax-highlighted code scrolls on iOS, https://stackoverflow.com/a/49592093 */
+    pre code {
+        white-space: pre;
+        word-wrap: normal;
+    }
+    pre code span {
+        white-space: nowrap;
+    }
+
+    
+
+        </style>
+
+        <title>strcpy - CS50 Manual Pages</title>
+
+    </head>
+
+    <body class="font-monospace invisible pb-5">
+
+        <nav class="bg-dark navbar navbar-dark navbar-expand-xl px-4">
+            <a class="navbar-brand" href="/"><i class="fas fa-list pe-3"></i>CS50 Manual Pages</a>
+        </nav>
+
+        <div class="container-fluid mt-2 px-4">
+            
+
+    <h1 id='name'><a href='#name'>NAME</a></h1><div class='section' data-for='name'><div data-less>
+
+<p>strcpy - copy a string</p>
+
+</div><div data-more>
+<p>stpcpy, strcpy, strcat - copy or catenate a string</p>
+</div></div><h1 id='library'><a href='#library'>LIBRARY</a></h1><div data-for='library' data-hide><div class='section' data-for='library'><div data-more>
+<p>Standard C library (<code>libc</code>, <code>-lc</code>)</p>
+</div></div></div><h1 id='synopsis'><a href='#synopsis'>SYNOPSIS</a></h1><div class='section' data-for='synopsis'><div data-less>
+
+<h2 id="header-file">Header File</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"><br></span></code></pre></div></div>
+
+<h2 id="prototype">Prototype</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">dest</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">src</span><span class="p">);</span>
+</code></pre></div></div>
+
+</div><div data-more>
+<pre><code><a data-bs-content='Be sure this line is atop your own code.' data-bs-toggle='popover' tabindex='0'>#include &lt;string.h&gt;</a>
+<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>stpcpy(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>restrict dst, <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict src);
+<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>strcpy(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>restrict dst, <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict src);
+<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>strcat(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>restrict dst, <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict src);</code></pre>
+<blockquote>
+<p>Feature Test Macro Requirements for glibc (see
+<a href='/7/feature_test_macros'>feature_test_macros</a>(7)):</p>
+</blockquote>
+<p><a href='stpcpy'>stpcpy</a>():</p>
+<pre><code>    Since glibc 2.10:
+        _POSIX_C_SOURCE &gt;= 200809L
+    Before glibc 2.10:
+        _GNU_SOURCE</code></pre>
+</div></div><h1 id='description'><a href='#description'>DESCRIPTION</a></h1><div class='section' data-for='description'><div data-less>
+
+<p>This function copies the string at <code class="language-plaintext highlighter-rouge">src</code>, including its terminating <code class="language-plaintext highlighter-rouge">'\0'</code>, to the memory at <code class="language-plaintext highlighter-rouge">dest</code>.</p>
+
+</div><div data-more>
+<dl>
+<dt><a href='stpcpy'>stpcpy</a>()<br/>
+<a href='strcpy'>strcpy</a>()</dt>
+<dd>
+<p>These functions copy the string pointed to by <code>src</code>, into a
+string at the buffer pointed to by <code>dst</code>. The programmer is
+responsible for allocating a destination buffer large enough, that is,
+<code>strlen(src) + 1</code>. For the difference between the two functions,
+see RETURN VALUE.</p>
+</dd>
+<dt><a href='strcat'>strcat</a>()</dt>
+<dd>
+<p>This function catenates the string pointed to by <code>src</code>, after
+the string pointed to by <code>dst</code> (overwriting its terminating null
+byte). The programmer is responsible for allocating a destination buffer
+large enough, that is, <code>strlen(dst) + strlen(src) + 1</code>.</p>
+</dd>
+</dl>
+<p>An implementation of these functions might be:</p>
+<pre><code><a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>
+stpcpy(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>restrict dst, <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict src)
+{
+    char  *p;
+    p = mempcpy(dst, src, strlen(src));
+    *p = '\0';
+    return p;
+}
+<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>
+strcpy(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>restrict dst, <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict src)
+{
+    stpcpy(dst, src);
+    return dst;
+}
+<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>
+strcat(<a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>char *</a>restrict dst, <a data-bs-content='Think of this as a &lt;code&gt;string&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>const char *</a>restrict src)
+{
+    stpcpy(dst + strlen(dst), src);
+    return dst;
+}</code></pre>
+</div></div><h1 id='return-value'><a href='#return-value'>RETURN VALUE</a></h1><div class='section' data-for='return-value'><div data-less>
+
+<p>This function returns <code class="language-plaintext highlighter-rouge">dest</code>.</p>
+
+</div><div data-more>
+<dl>
+<dt><a href='stpcpy'>stpcpy</a>()</dt>
+<dd>
+<p>This function returns a pointer to the terminating null byte of the
+copied string.</p>
+</dd>
+<dt><a href='strcpy'>strcpy</a>()<br/>
+<a href='strcat'>strcat</a>()</dt>
+<dd>
+<p>These functions return <code>dst</code>.</p>
+</dd>
+</dl>
+</div></div><h1 id='examples'><a href='#examples'>EXAMPLES</a></h1><div class='section' data-for='examples'><div data-less>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;cs50.h&gt;</span><span class="cp"><br>#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"><br>#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"><br>#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"><br></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">s</span> <span class="o">=</span> <span class="n">get_string</span><span class="p">(</span><span class="s">"s: "</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">strcpy</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"s: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">"t: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div></div><div data-more>
+<pre><code>#include &lt;err.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+int
+main(void)
+{
+    char    *p;
+    char    *buf1;
+    char    *buf2;
+    <a data-bs-content='Think of this as a &lt;code&gt;long&lt;/code&gt;.' data-bs-toggle='popover' tabindex='0'>size_t</a>  len, maxsize;
+    maxsize = strlen("Hello ") + strlen("world") + strlen("!") + 1;
+    buf1 = malloc(sizeof(*buf1) * maxsize);
+    if (buf1 == NULL)
+        err(EXIT_FAILURE, "malloc()");
+    buf2 = malloc(sizeof(*buf2) * maxsize);
+    if (buf2 == NULL)
+        err(EXIT_FAILURE, "malloc()");
+    p = buf1;
+    p = stpcpy(p, "Hello ");
+    p = stpcpy(p, "world");
+    p = stpcpy(p, "!");
+    len = p - buf1;
+    printf("[len = %zu]: ", len);
+    puts(buf1);  // "Hello world!"
+    free(buf1);
+    strcpy(buf2, "Hello ");
+    strcat(buf2, "world");
+    strcat(buf2, "!");
+    len = strlen(buf2);
+    printf("[len = %zu]: ", len);
+    puts(buf2);  // "Hello world!"
+    free(buf2);
+    exit(EXIT_SUCCESS);
+}</code></pre>
+</div></div><h1 id='attributes'><a href='#attributes'>ATTRIBUTES</a></h1><div data-for='attributes' data-hide><div class='section' data-for='attributes'><div data-more>
+<p>For an explanation of the terms used in this section, see
+<a href='/7/attributes'>attributes</a>(7).</p>
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;">Interface</td>
+<td style="text-align: left;">Attribute</td>
+<td style="text-align: left;">Value</td>
+</tr>
+<tr>
+<td style="text-align: left;"><p><a href='stpcpy'>stpcpy</a>(),
+<a href='strcpy'>strcpy</a>(), <a href='strcat'>strcat</a>()</p></td>
+<td style="text-align: left;">Thread safety</td>
+<td style="text-align: left;">MT-Safe</td>
+</tr>
+</tbody>
+</table>
+</div></div></div><h1 id='standards'><a href='#standards'>STANDARDS</a></h1><div data-for='standards' data-hide><div class='section' data-for='standards'><div data-more>
+<dl>
+<dt><a href='stpcpy'>stpcpy</a>()</dt>
+<dd>
+<p>POSIX.1-2008.</p>
+</dd>
+<dt><a href='strcpy'>strcpy</a>()<br/>
+<a href='strcat'>strcat</a>()</dt>
+<dd>
+<p>POSIX.1-2001, C89, SVr4, 4.3BSD.</p>
+</dd>
+</dl>
+</div></div></div><h1 id='caveats'><a href='#caveats'>CAVEATS</a></h1><div data-for='caveats' data-hide><div class='section' data-for='caveats'><div data-more>
+<p>The strings <code>src</code> and <code>dst</code> may not overlap.</p>
+<p>If the destination buffer is not large enough, the behavior is
+undefined. See <strong>_FORTIFY_SOURCE</strong> in
+<a href='/7/feature_test_macros'>feature_test_macros</a>(7).</p>
+<p><a href='strcat'>strcat</a>() can be very inefficient. Read about <a href="<a href="https://www.joelonsoftware.com/2001/12/11/back-to-basics/">https://www.joelonsoftware.com/2001/12/11/back-to-basics/</a>">Shlemiel
+the painter</a>.</p>
+</div></div></div><h1 id='see-also'><a href='#see-also'>SEE ALSO</a></h1><div class='section' data-for='see-also'><div data-more>
+<p><a href='/3/strdup'>strdup</a>(3), <a href='/3/string'>string</a>(3),
+<a href='/3/wcscpy'>wcscpy</a>(3), <a href='/7/string_copying'>string_copying</a>(7)</p></div></div>
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -7,7 +7,7 @@ This script:
     1. Creates all database tables.
     2. Creates a default admin user (prints credentials clearly).
     3. Seeds Resource records for all weekly download files.
-    4. Seeds Week records for all 11 weeks (0-10), all unpublished.
+    4. Seeds Week records for CS50x 2026 (0–10 + AI=71 + Final=99), published.
 
 Safe to run multiple times (idempotent — skips existing records).
 """
@@ -20,19 +20,37 @@ from app import create_app, db
 from app.models import User, Resource, Week
 
 
-WEEK_TITLES = [
-    "Week 0 — Scratch",
-    "Week 1 — C (Basics)",
-    "Week 2 — Arrays",
-    "Week 3 — Algorithms",
-    "Week 4 — Memory",
-    "Week 5 — Data Structures",
-    "Week 6 — Python",
-    "Week 7 — SQL",
-    "Week 8 — HTML/CSS/JS",
-    "Week 9 — Flask",
-    "Week 10 — Final Project",
-]
+def _week_seed_from_kb() -> list[tuple[int, str]]:
+    """عنوان‌ها از docs/cs50x-kb/index.json؛ در صورت نبود KB از لیست پشتیبان."""
+    try:
+        from app.content import kb_repo
+        from app.services.kb_content import _title_fa
+
+        rows = []
+        for node in kb_repo.list_weeks_ordered():
+            rows.append((node["site_number"], _title_fa(node)))
+        if rows:
+            return rows
+    except Exception:
+        pass
+    return [
+        (0, "هفته ۰ — Scratch"),
+        (1, "هفته ۱ — C"),
+        (2, "هفته ۲ — Arrays"),
+        (3, "هفته ۳ — Algorithms"),
+        (4, "هفته ۴ — Memory"),
+        (5, "هفته ۵ — Data Structures"),
+        (6, "هفته ۶ — Python"),
+        (7, "هفته ۷ — SQL"),
+        (71, "هفته هوش مصنوعی"),
+        (8, "هفته ۸ — HTML/CSS/JS"),
+        (9, "هفته ۹ — Flask"),
+        (10, "هفته ۱۰ — Fun & Games"),
+        (99, "پروژه نهایی"),
+    ]
+
+
+WEEK_SEED = _week_seed_from_kb()
 
 
 SEED_RESOURCES = [
@@ -141,14 +159,21 @@ def main() -> None:
         db.session.commit()
         print(f"[OK] Resources: {added} new / {len(SEED_RESOURCES)} total.")
 
-        # 3. Seed weeks (0-10), all unpublished
+        # 3. Seed weeks (شامل AI=71 و Final=99) — منتشر برای کلاس انزلی
         weeks_added = 0
-        for number, title in enumerate(WEEK_TITLES):
-            if not Week.query.filter_by(number=number).first():
-                db.session.add(Week(number=number, title=title))
+        for number, title in WEEK_SEED:
+            existing = Week.query.filter_by(number=number).first()
+            if not existing:
+                db.session.add(Week(number=number, title=title, is_published=True))
                 weeks_added += 1
+            else:
+                # هم‌راستا کردن عنوان‌های قدیمی (مثلاً Week 10 = Final)
+                if existing.title != title:
+                    existing.title = title
+                if number in (71, 99) and not existing.is_published:
+                    existing.is_published = True
         db.session.commit()
-        print(f"[OK] Weeks: {weeks_added} new / {len(WEEK_TITLES)} total.")
+        print(f"[OK] Weeks: {weeks_added} new / {len(WEEK_SEED)} total.")
 
         print("[OK] Database initialization complete.")
 

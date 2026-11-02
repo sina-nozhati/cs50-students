@@ -1,0 +1,115 @@
+{% extends "admin/admin_base.html" %}
+
+{% block page_title %}{{ 'ویرایش نوبت برگزاری' if cohort else 'ایجاد نوبت برگزاری جدید' }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto space-y-6">
+    {# Breadcrumb #}
+    <nav class="flex items-center gap-2 text-sm text-gray-500">
+        <a href="{{ url_for('admin.cohorts_list') }}" class="hover:text-[var(--crimson)] transition">دوره‌ها و نوبت‌ها</a>
+        <span>/</span>
+        <span class="text-gray-900 font-medium">{{ cohort.name if cohort else 'نوبت جدید' }}</span>
+    </nav>
+
+    {# Form Card #}
+    <div class="bg-white rounded-2xl border border-[var(--border)] shadow-xs overflow-hidden">
+        <div class="px-6 py-5 border-b border-[var(--border)] bg-gray-50/50 flex items-center justify-between">
+            <div>
+                <h2 class="text-lg font-bold text-[var(--ink)]">
+                    {{ 'ویرایش مشخصات نوبت برگزاری' if cohort else 'تعریف نوبت برگزاری جدید (Cohort)' }}
+                </h2>
+                <p class="text-xs text-gray-500 mt-1">مشخصات نوبت، برنامه درسی کلان، ظرفیت و وضعیت برگزاری را وارد کنید</p>
+            </div>
+            {% if cohort %}
+            <span class="font-mono text-xs px-2.5 py-1 rounded bg-gray-100 text-gray-700">{{ cohort.code }}</span>
+            {% endif %}
+        </div>
+
+        <form method="POST" class="p-6 space-y-6">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {# Course Selection #}
+                <div class="space-y-1.5 md:col-span-2">
+                    <label for="course_id" class="block text-xs font-semibold text-gray-700">دوره آموزشی کلان (Course)</label>
+                    <select id="course_id" name="course_id" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)] bg-white" {{ 'disabled' if cohort else '' }}>
+                        {% for crs in courses %}
+                        <option value="{{ crs.id }}" {{ 'selected' if (cohort and cohort.course_id == crs.id) else '' }}>
+                            {{ crs.title }} ({{ crs.code }})
+                        </option>
+                        {% endfor %}
+                    </select>
+                    {% if cohort %}
+                    <p class="text-[11px] text-gray-400">برنامه درسی پس از تعریف اولیه دوره قابل تغییر نیست.</p>
+                    {% endif %}
+                </div>
+
+                {# Name #}
+                <div class="space-y-1.5">
+                    <label for="name" class="block text-xs font-semibold text-gray-700">نام نوبت برگزاری <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" name="name" required value="{{ cohort.name if cohort else '' }}" placeholder="مثال: دوره زمستان ۱۴۰۵" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)]">
+                </div>
+
+                {# Code #}
+                <div class="space-y-1.5">
+                    <label for="code" class="block text-xs font-semibold text-gray-700">شناسه یکتای انگلیسی (Slug) <span class="text-red-500">*</span></label>
+                    <input type="text" id="code" name="code" required value="{{ cohort.code if cohort else '' }}" placeholder="مثال: cs50x-winter-1405" dir="ltr" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm font-mono focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)] {{ 'bg-gray-100 text-gray-500 cursor-not-allowed' if cohort else '' }}" {{ 'readonly' if cohort else '' }}>
+                    <p class="text-[11px] text-gray-400">شناسه یکتا در URL و سیستم لاگ‌ها استفاده می‌شود.</p>
+                </div>
+
+                {# Year #}
+                <div class="space-y-1.5">
+                    <label for="year" class="block text-xs font-semibold text-gray-700">سال برگزاری <span class="text-red-500">*</span></label>
+                    <input type="number" id="year" name="year" required value="{{ cohort.year if cohort else 1405 }}" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm font-mono focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)]">
+                </div>
+
+                {# Season #}
+                <div class="space-y-1.5">
+                    <label for="season" class="block text-xs font-semibold text-gray-700">فصل یا نوبت</label>
+                    <select id="season" name="season" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)] bg-white">
+                        <option value="زمستان" {{ 'selected' if (cohort and cohort.season == 'زمستان') else '' }}>زمستان</option>
+                        <option value="بهار" {{ 'selected' if (cohort and cohort.season == 'بهار') else '' }}>بهار</option>
+                        <option value="تابستان" {{ 'selected' if (cohort and cohort.season == 'تابستان') else '' }}>تابستان</option>
+                        <option value="پاییز" {{ 'selected' if (cohort and cohort.season == 'پاییز') else '' }}>پاییز</option>
+                        <option value="سالانه" {{ 'selected' if (cohort and cohort.season == 'سالانه') else '' }}>سالانه / عمومی</option>
+                    </select>
+                </div>
+
+                {# Status #}
+                <div class="space-y-1.5">
+                    <label for="status" class="block text-xs font-semibold text-gray-700">وضعیت برگزاری دوره <span class="text-red-500">*</span></label>
+                    <select id="status" name="status" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)] bg-white">
+                        <option value="active" {{ 'selected' if (cohort and cohort.status == 'active') or not cohort else '' }}>فعال (در حال برگزاری کلاس‌ها)</option>
+                        <option value="enrollment" {{ 'selected' if (cohort and cohort.status == 'enrollment') else '' }}>ثبت‌نام باز (پیش از شروع کلاس‌ها)</option>
+                        <option value="completed" {{ 'selected' if (cohort and cohort.status == 'completed') else '' }}>پایان‌یافته (اتمام ترم)</option>
+                        <option value="archived" {{ 'selected' if (cohort and cohort.status == 'archived') else '' }}>بایگانی‌شده</option>
+                        <option value="draft" {{ 'selected' if (cohort and cohort.status == 'draft') else '' }}>پیش‌نویس</option>
+                    </select>
+                </div>
+
+                {# Capacity #}
+                <div class="space-y-1.5">
+                    <label for="capacity" class="block text-xs font-semibold text-gray-700">حداکثر ظرفیت پذیرش (اختیاری)</label>
+                    <input type="number" id="capacity" name="capacity" value="{{ cohort.capacity if (cohort and cohort.capacity) else '' }}" placeholder="مثال: ۵۰ (خالی یعنی نامحدود)" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm font-mono focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)]">
+                </div>
+
+                {# Description #}
+                <div class="space-y-1.5 md:col-span-2">
+                    <label for="description" class="block text-xs font-semibold text-gray-700">توضیحات و یادداشت دوره</label>
+                    <textarea id="description" name="description" rows="3" placeholder="توضیحات تکمیلی، شرایط ثبت‌نام یا پیام آغازین دوره..." class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 text-sm focus:ring-2 focus:ring-[var(--crimson)] focus:border-[var(--crimson)]">{{ cohort.description if cohort else '' }}</textarea>
+                </div>
+            </div>
+
+            {# Actions #}
+            <div class="pt-4 border-t border-[var(--border)] flex items-center justify-end gap-3">
+                <a href="{{ url_for('admin.cohorts_list') }}" class="px-5 py-2.5 rounded-xl border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+                    انصراف
+                </a>
+                <button type="submit" class="px-6 py-2.5 rounded-xl bg-[var(--crimson)] text-white text-sm font-medium hover:bg-[var(--crimson-dark)] transition shadow-sm hover:shadow">
+                    {{ 'ذخیره تغییرات' if cohort else 'ایجاد نوبت برگزاری' }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

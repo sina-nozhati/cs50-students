@@ -1,0 +1,323 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w08-l01",
+  "type": "lesson",
+  "week": 8,
+  "order": 1,
+  "stage_id": "w08-s1",
+  "title_fa": "اینترنت: بسته، IP، TCP، DNS و DHCP",
+  "title_en": "The Internet: packets, IP, TCP, DNS and DHCP",
+  "note_ids": [
+    "w08-n01",
+    "w08-n02",
+    "w08-n03",
+    "w08-n04",
+    "w08-n05"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w08-c-internet",
+    "w08-c-arpanet",
+    "w08-c-router",
+    "w08-c-packet",
+    "w08-c-protocol",
+    "w08-c-ip-address",
+    "w08-c-ipv4-ipv6",
+    "w08-c-packet-header",
+    "w08-c-tcp",
+    "w08-c-port",
+    "w08-c-fragmentation",
+    "w08-c-retransmission",
+    "w08-c-dns",
+    "w08-c-fqdn",
+    "w08-c-dhcp",
+    "w08-c-gateway-nameserver"
+  ],
+  "objective_ids": [
+    "w08-o01",
+    "w08-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/8; authored JavaScript runs with node and authored HTML documents run in jsdom on the build box; markup checked with html5lib/tinycss2 (D66, D67).",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w07-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۷ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T08:00:00+03:30",
+  "units": [
+    {
+      "id": "w08-l01-u01",
+      "order": 1,
+      "title_fa": "مسیریاب، بسته و نشانی IP",
+      "concept_ids": [
+        "w08-c-internet",
+        "w08-c-arpanet",
+        "w08-c-router",
+        "w08-c-packet",
+        "w08-c-protocol",
+        "w08-c-ip-address",
+        "w08-c-ipv4-ipv6",
+        "w08-c-packet-header"
+      ],
+      "objective_ids": [
+        "w08-o01"
+      ],
+      "note_id": "w08-n02",
+      "source_refs": [
+        "src-notes-8#routers",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "اینترنت از چند نقطه در ARPANET شروع شد و امروز شبکه‌ای از شبکه‌هاست. داده به شکل **بسته** (`packet`) جابه‌جا می‌شود و **مسیریاب‌ها** (`router`) هر بسته را یک گام به مقصد نزدیک‌تر می‌کنند. برای اینکه مسیریاب بداند بسته را به کجا بفرستد، هر رایانه **نشانی IP** دارد. در IPv4 قالب نشانی `#.#.#.#` است: چهار عدد، هر کدام از ۰ تا ۲۵۵، روی هم ۳۲ بیت، یعنی بیش از ۴ میلیارد نشانی. IPv6 با ۱۲۸ بیت جای بسیار بیشتری دارد. نشانی فرستنده و گیرنده در **سرآیند** بسته (`header`) نوشته می‌شود، مثل نشانی روی پاکت نامه.",
+        "note_id": "w08-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "ip-format",
+        "lang": "text",
+        "content": "#.#.#.#",
+        "source_ref": "src-notes-8#routers",
+        "explain_fa": "قالب نشانی IPv4 (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا IPv4 «بیش از ۴ میلیارد» نشانی دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون نشانی ۳۲ بیت است و ۲ به توان ۳۲ کمی بیشتر از ۴ میلیارد است.",
+            "correct": true,
+            "feedback_fa": "درست. چهار عدد ۸ بیتی روی هم ۳۲ بیت می‌شوند."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون هر کدام از چهار عدد تا ۱ میلیارد می‌رود.",
+            "correct": false,
+            "feedback_fa": "هر عدد فقط از ۰ تا ۲۵۵ است، یعنی ۸ بیت."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون IPv4 ۱۲۸ بیت دارد.",
+            "correct": false,
+            "feedback_fa": "۱۲۸ بیت مال IPv6 است؛ IPv4 ۳۲ بیت دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: `256.1.1.1` یک نشانی IPv4 معتبر است.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: هر عدد در نشانی IPv4 در ۸ بیت جا می‌شود و بزرگ‌ترین مقدار آن ۲۵۵ است.",
+          "incorrect_fa": "بزرگ‌ترین عددی که در ۸ بیت جا می‌شود چند است؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l01-u02",
+      "order": 2,
+      "title_fa": "TCP، درگاه و بستهٔ گم‌شده",
+      "concept_ids": [
+        "w08-c-tcp",
+        "w08-c-port",
+        "w08-c-fragmentation",
+        "w08-c-retransmission"
+      ],
+      "objective_ids": [
+        "w08-o01"
+      ],
+      "note_id": "w08-n03",
+      "source_refs": [
+        "src-notes-8#routers",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "IP بسته را به رایانهٔ درست می‌رساند، اما یک رایانه هم‌زمان چند خدمت دارد: وب، ایمیل و غیره. **TCP** (`transmission control protocol`) با **شمارهٔ درگاه** (`port`) مشخص می‌کند بسته مال کدام خدمت است: ۸۰ برای HTTP و ۴۴۳ برای HTTPS. TCP پیام بزرگ را به چند بسته می‌شکند و شماره‌گذاری می‌کند تا گیرنده بتواند آن‌ها را دوباره کنار هم بگذارد؛ اگر بسته‌ای گم شود، گیرنده می‌فهمد و فرستنده آن را **دوباره می‌فرستد**. پس IP دربارهٔ «به کدام رایانه» است و TCP دربارهٔ «به کدام خدمت، و همهٔ تکه‌ها رسید یا نه».",
+        "note_id": "w08-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "ip-header",
+        "lang": "text",
+        "content": "0                   1                   2                   3  \n0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 \n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n|Version|  IHL  |Type of Service|          Total Length         |\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n|         Identification        |Flags|      Fragment Offset    |\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n|  Time to Live |    Protocol   |         Header Checksum       |\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n|                       Source Address                          |\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n|                    Destination Address                        |\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n|                    Options                    |    Padding    |\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+",
+        "source_ref": "src-notes-8#routers",
+        "explain_fa": "سرآیند بستهٔ IP که در سخنرانی نشان داده شد (درس‌نامه)."
+      },
+      "check": {
+        "id": "w08-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "بسته‌ای با درگاه مقصد ۴۴۳ به سرور می‌رسد. سرور آن را به کدام خدمت می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "HTTPS",
+            "correct": true,
+            "feedback_fa": "درست. ۴۴۳ درگاه رایج HTTPS است."
+          },
+          {
+            "id": "b",
+            "text_fa": "HTTP",
+            "correct": false,
+            "feedback_fa": "HTTP معمولاً روی ۸۰ است؛ ۴۴۳ مال HTTPS است."
+          },
+          {
+            "id": "c",
+            "text_fa": "DNS",
+            "correct": false,
+            "feedback_fa": "این درس فقط ۸۰ و ۴۴۳ را معرفی کرد؛ ۴۴۳ برای HTTPS است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l01-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر کار را «IP» یا «TCP» بنویس: (۱) نشانی رایانهٔ مقصد (۲) شمارهٔ درگاه خدمت (۳) فهمیدن اینکه یک بسته گم شده و فرستادن دوبارهٔ آن (۴) رساندن بسته از یک مسیریاب به مسیریاب بعدی",
+        "expected": {
+          "answers": {
+            "1": "IP",
+            "2": "TCP",
+            "3": "TCP",
+            "4": "IP"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: این کار دربارهٔ «کدام رایانه» است یا «کدام خدمت و همهٔ تکه‌ها»؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w08-l01-u03",
+      "order": 3,
+      "title_fa": "DNS و DHCP",
+      "concept_ids": [
+        "w08-c-dns",
+        "w08-c-fqdn",
+        "w08-c-dhcp",
+        "w08-c-gateway-nameserver"
+      ],
+      "objective_ids": [
+        "w08-o02"
+      ],
+      "note_id": "w08-n04",
+      "source_refs": [
+        "src-notes-8#dns",
+        "src-anzali-authored-8"
+      ],
+      "reading": {
+        "text_fa": "آدم‌ها نام دامنه را به خاطر می‌سپارند، نه نشانی IP را. **DNS** (`domain name system`) مثل دفترچهٔ تلفن است: نام کامل دامنه، مثل `www.harvard.edu` ، را به نشانی IP ترجمه می‌کند. اما دستگاه تو از کجا نشانی IP خودش، نشانی نخستین مسیریاب (دروازهٔ پیش‌فرض) و نشانی سرور DNS را می‌داند؟ پاسخ **DHCP** است: وقتی دستگاه به شبکه وصل می‌شود، عملاً می‌پرسد «نشانی IP من چیست؟» و سرور DHCP شبکه این سه را به آن می‌دهد. پس DHCP به دستگاه نشانی می‌دهد و DNS نام‌ها را ترجمه می‌کند.",
+        "note_id": "w08-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w08-n04"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "www.harvard.edu  ->  DNS  ->  IP address\nlaptop joins network  ->  DHCP  ->  own IP address, default gateway, DNS servers",
+        "source_ref": "src-anzali-authored-8",
+        "explain_fa": "جمع‌بندی نقش DNS و DHCP بر پایهٔ درس‌نامه."
+      },
+      "check": {
+        "id": "w08-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "گوشی تازه به وای‌فای خانه وصل شده است. کدام پروتکل به آن نشانی IP و نشانی سرور DNS را می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "DHCP",
+            "correct": true,
+            "feedback_fa": "درست. DHCP نشانی دستگاه، دروازهٔ پیش‌فرض و سرورهای DNS را می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "DNS",
+            "correct": false,
+            "feedback_fa": "DNS نام دامنه را به نشانی ترجمه می‌کند؛ نشانی خود گوشی را نمی‌دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "TCP",
+            "correct": false,
+            "feedback_fa": "TCP دربارهٔ درگاه و رسیدن همهٔ بسته‌هاست، نه دادن نشانی."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w08-l01-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر جمله را «DNS» یا «DHCP» بنویس: (۱) `harvard.edu` را به نشانی IP ترجمه می‌کند (۲) به لپ‌تاپ تازه‌وصل‌شده نشانی IP می‌دهد (۳) نشانی سرورهای DNS را به دستگاه می‌گوید (۴) مثل دفترچهٔ تلفن اینترنت است",
+        "expected": {
+          "answers": {
+            "1": "DNS",
+            "2": "DHCP",
+            "3": "DHCP",
+            "4": "DNS"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: این کار ترجمهٔ نام است یا تنظیم خود دستگاه؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

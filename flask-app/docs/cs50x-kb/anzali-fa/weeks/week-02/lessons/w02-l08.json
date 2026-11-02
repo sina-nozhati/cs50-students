@@ -1,0 +1,421 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l08",
+  "type": "lesson",
+  "week": 2,
+  "order": 8,
+  "stage_id": "w02-s4",
+  "title_fa": "آرگومان خط فرمان و وضعیت خروج",
+  "title_en": "Command-line arguments and exit status",
+  "note_ids": [
+    "w02-n16",
+    "w02-n17"
+  ],
+  "related_doc_ids": [
+    "w02-sh-command-line-arguments",
+    "w02-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w02-l06"
+  ],
+  "concept_ids": [
+    "w02-c-argc-argv",
+    "w02-c-argv0",
+    "w02-c-argv-strings",
+    "w02-c-exit-status",
+    "w02-c-echo-status",
+    "w02-c-early-return"
+  ],
+  "objective_ids": [
+    "w02-o10",
+    "w02-o11",
+    "w02-o12"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l08-u01",
+      "order": 1,
+      "title_fa": "argc و argv",
+      "concept_ids": [
+        "w02-c-argc-argv"
+      ],
+      "objective_ids": [
+        "w02-o10"
+      ],
+      "note_id": "w02-n16",
+      "source_refs": [
+        "src-notes-2#command-line-arguments",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "با `int main(int argc, string argv[])`، برنامه ورودی را هنگام اجرا از خط فرمان می‌گیرد. `argc` تعداد آرگومان‌هاست و `argv` آرایه‌ای از رشته‌هاست. نام برنامه هم شمرده می‌شود، پس `./greet David` یعنی `argc` برابر ۲.",
+        "note_id": "w02-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "greet1",
+        "lang": "c",
+        "content": "// Prints a command-line argument\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(int argc, string argv[])\n{\n    if (argc == 2)\n    {\n        printf(\"hello, %s\\n\", argv[1]);\n    }\n    else\n    {\n        printf(\"hello, world\\n\");\n    }\n}",
+        "source_ref": "src-notes-2#command-line-arguments",
+        "explain_fa": "نسخهٔ رسمی با یک آرگومان."
+      },
+      "check": {
+        "id": "w02-l08-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "با اجرای `./greet David Malan` در برنامهٔ بالا چه چاپ می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "hello, world",
+            "correct": true,
+            "feedback_fa": "درست: argc برابر ۳ است، نه ۲."
+          },
+          {
+            "id": "b",
+            "text_fa": "hello, David",
+            "correct": false,
+            "feedback_fa": "شرط argc == 2 برقرار نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "hello, David Malan",
+            "correct": false,
+            "feedback_fa": "argv[1] فقط David است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l08-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "اگر برنامه با `./prog a b c` اجرا شود، `printf(\"%i\\n\", argc);` چه چاپ می‌کند؟",
+        "expected": {
+          "output": "4\n"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: ./prog و سه آرگومان.",
+          "incorrect_fa": "نام برنامه هم شمرده می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l08-u02",
+      "order": 2,
+      "title_fa": "argv[0] و همه‌چیز رشته است",
+      "concept_ids": [
+        "w02-c-argv0",
+        "w02-c-argv-strings"
+      ],
+      "objective_ids": [
+        "w02-o10"
+      ],
+      "note_id": "w02-n16",
+      "source_refs": [
+        "src-notes-2#command-line-arguments",
+        "src-short-command-line-arguments",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "`argv[0]` نام برنامه است و آخرین آرگومان `argv[argc - 1]` است. ویدئوی کوتاه Command-Line Arguments (۲۰۱۷) تأکید می‌کند همهٔ آرگومان‌ها رشته‌اند: `1024` در `./greedy 1024 CS50` رشتهٔ \"1024\" است، نه عدد int. دسترسی به argv بیرون از مرز ممکن است segmentation fault بدهد.",
+        "note_id": "w02-n16",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n16"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "greet2",
+        "lang": "c",
+        "content": "// Prints command-line arguments\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(int argc, string argv[])\n{\n    for (int i = 0; i < argc; i++)\n    {\n        printf(\"%s\\n\", argv[i]);\n    }\n}",
+        "source_ref": "src-notes-2#command-line-arguments",
+        "explain_fa": "چاپ همهٔ آرگومان‌ها."
+      },
+      "check": {
+        "id": "w02-l08-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "با `./greedy 1024 CS50`، نوع `argv[1]` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "string",
+            "correct": true,
+            "feedback_fa": "درست: \"1024\" یک رشته است."
+          },
+          {
+            "id": "b",
+            "text_fa": "int",
+            "correct": false,
+            "feedback_fa": "argv آرایه‌ای از رشته‌هاست."
+          },
+          {
+            "id": "c",
+            "text_fa": "char",
+            "correct": false,
+            "feedback_fa": "argv[1] یک رشته است؛ argv[1][0] یک char است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l08-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "با `./greedy 1024 CS50`: (۱) argc (۲) argv[0] (۳) argv[2]",
+        "expected": {
+          "answers": {
+            "1": "3",
+            "2": "./greedy",
+            "3": "CS50"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "از ۰ بشمار."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l08-u03",
+      "order": 3,
+      "title_fa": "وضعیت خروج",
+      "concept_ids": [
+        "w02-c-exit-status"
+      ],
+      "objective_ids": [
+        "w02-o11"
+      ],
+      "note_id": "w02-n17",
+      "source_refs": [
+        "src-notes-2#exit-status",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "وقتی برنامه تمام می‌شود، یک **وضعیت خروج** (`exit status`) به سیستم برمی‌گرداند. `0` یعنی موفقیت و عددهای دیگر یعنی خطا. در `status.c`، اگر کاربر آرگومان ندهد، `return 1;` اجرا می‌شود.",
+        "note_id": "w02-n17",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n17"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "status",
+        "lang": "c",
+        "content": "// Returns explicit value from main\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(int argc, string argv[])\n{\n    if (argc != 2)\n    {\n        printf(\"Missing command-line argument\\n\");\n        return 1;\n    }\n    printf(\"hello, %s\\n\", argv[1]);\n    return 0;\n}",
+        "source_ref": "src-notes-2#exit-status",
+        "explain_fa": "نسخهٔ رسمی با return 1."
+      },
+      "check": {
+        "id": "w02-l08-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در برنامهٔ بالا با `./status` (بدون آرگومان) وضعیت خروج چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "1",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "0",
+            "correct": false,
+            "feedback_fa": "0 برای اجرای موفق است."
+          },
+          {
+            "id": "c",
+            "text_fa": "2",
+            "correct": false,
+            "feedback_fa": "در کد return 1 آمده است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l08-u03-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: در status.c با اجرای `./status David` وضعیت خروج 0 است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ درس‌نامه همین را می‌گوید.",
+          "incorrect_fa": "بخش Exit Status درس‌نامه را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l08-u04",
+      "order": 4,
+      "title_fa": "echo $? و خروج زودهنگام",
+      "concept_ids": [
+        "w02-c-echo-status",
+        "w02-c-early-return"
+      ],
+      "objective_ids": [
+        "w02-o11",
+        "w02-o12"
+      ],
+      "note_id": "w02-n17",
+      "source_refs": [
+        "src-notes-2#exit-status",
+        "src-anzali-authored-2",
+        "src-section-2",
+        "src-transcript-2"
+      ],
+      "reading": {
+        "text_fa": "برای دیدن وضعیت خروج آخرین برنامه بنویس `echo $?`. در سخنرانی گفته شد check50 هم وضعیت خروج را بررسی می‌کند. در جلسهٔ حل تمرین (Section) نشان داده شد که با بررسی ورودی نادرست در ابتدای `main`، چاپ پیام Usage و `return 1`، بقیهٔ برنامه ساده‌تر و خواناتر می‌شود.",
+        "note_id": "w02-n17",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n17"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "$ ./status\nMissing command-line argument\n$ echo $?\n1",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "نمایش تألیفی از خروجی status.c."
+      },
+      "check": {
+        "id": "w02-l08-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "فرمان `echo $?` چه نشان می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "وضعیت خروج آخرین برنامه",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "نام آخرین برنامه",
+            "correct": false,
+            "feedback_fa": "نام در argv[0] است."
+          },
+          {
+            "id": "c",
+            "text_fa": "تعداد آرگومان‌ها",
+            "correct": false,
+            "feedback_fa": "این argc است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l08-u04-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌ها را بچین تا این قطعهٔ تألیفی در صورت نبودن دقیقاً یک آرگومان، پیام Usage چاپ کند و با کد ۱ خارج شود.",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "if (argc != 2)"
+          },
+          {
+            "id": "p2",
+            "code": "{"
+          },
+          {
+            "id": "p3",
+            "code": "    printf(\"Usage: ./prog word\\n\");"
+          },
+          {
+            "id": "p4",
+            "code": "    return 1;"
+          },
+          {
+            "id": "p5",
+            "code": "}"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "    return 0;",
+            "why_wrong_fa": "0 یعنی موفقیت؛ برای خطا عددی غیرصفر لازم است."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "اول شرط، بعد پیام، بعد return غیرصفر."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

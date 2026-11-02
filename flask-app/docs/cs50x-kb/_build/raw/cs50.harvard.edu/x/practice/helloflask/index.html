@@ -1,0 +1,495 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="Hello, Flask - CS50x 2026">
+
+        <link href="../../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>Hello, Flask - CS50x 2026</title>
+
+
+    <meta property="og:description" content="Learning Goals Build a simple flask app to gain an understanding of how to use this framework Become familiar with Jinja, a templating language used with...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="../..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="../../seminars/">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="../../faqs/">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <h1 id="hello-flask">Hello, Flask</h1>
+
+<h2 id="learning-goals">Learning Goals</h2>
+<ul>
+  <li data-marker="*">Build a simple flask app to gain an understanding of how to use this framework</li>
+  <li data-marker="*">Become familiar with Jinja, a templating language used with Flask</li>
+</ul>
+
+<p><img src="flask-logo.png" alt="FlaskLogo"></p>
+
+<h2 id="background">Background</h2>
+
+<p><a href="https://flask.palletsprojects.com/">Flask</a>, a <a href="https://en.wikipedia.org/wiki/Microframework">microframework</a> used for web development, can be confusing when starting out. There are multiple files of different types, and they must reside in specific folders. In this problem, we’ll start with the absolute minimum—a single Python file. From there we will move on to create your first full-fledged web app!</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<ol>
+  <li>Log into <a href="https://cs50.dev/">cs50.dev</a> using your GitHub account.</li>
+  <li>Click inside the terminal window and execute <code class="language-plaintext highlighter-rouge">cd</code>.</li>
+  <li>Execute <code class="language-plaintext highlighter-rouge">wget https://cdn.cs50.net/2022/fall/labs/9/helloflask.zip</code> followed by Enter in order to download a zip called <code class="language-plaintext highlighter-rouge">helloflask.zip</code> in your codespace. Take care not to overlook the space between <code class="language-plaintext highlighter-rouge">wget</code> and the following URL, or any other character for that matter!</li>
+  <li>Now execute <code class="language-plaintext highlighter-rouge">unzip helloflask.zip</code> to create a folder called <code class="language-plaintext highlighter-rouge">helloflask</code>.</li>
+  <li>You no longer need the ZIP file, so you can execute <code class="language-plaintext highlighter-rouge">rm helloflask.zip</code> and respond with “y” followed by Enter at the prompt.</li>
+</ol>
+
+<h2 id="implementation-details">Implementation Details</h2>
+
+<p>The most simple Flask app uses just one file, <code class="language-plaintext highlighter-rouge">app.py</code>. This will create an html page and say hello. Add the following into <code class="language-plaintext highlighter-rouge">app.py</code> to get started.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="sh">"</span><span class="s">Hello, World!</span><span class="sh">"</span>
+</code></pre></div></div>
+
+<p>This bit of code starts by importing <code class="language-plaintext highlighter-rouge">Flask</code> from the <code class="language-plaintext highlighter-rouge">flask</code> library. Though we don’t need to get too far into the weeds here, <code class="language-plaintext highlighter-rouge">Flask</code> is what programmers call a “<a href="https://cs50.harvard.edu/python/2022/notes/8/#classes">class</a>”. Suffice to say for now, it’s like a template for the application we’ll be building. The line <code class="language-plaintext highlighter-rouge">app = Flask(__name__)</code> tells Python to create a particular app, henceforth called “app”, from the template. To create the particular application, we give the <code class="language-plaintext highlighter-rouge">Flask</code> class the name of the current Python file (represented by <code class="language-plaintext highlighter-rouge">__name__</code>), which allows our application to find other files we might later add to it. In this case, the name of the file is also “app” for consistency.</p>
+
+<p>The most mysterious line in the application you’ve written is probably the one where you wrote:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This kind of function is called a decorator. Decorators allow you to take a basic function, like <code class="language-plaintext highlighter-rouge">app.route</code>, and extend its functionality with something custom: the function you write after the decorator. You can <a href="https://realpython.com/primer-on-python-decorators/">read more</a> about decorators if you want, or you can just keep using them for now.</p>
+
+<p>This line tells Flask that if an HTTP request comes in for “/”, the <code class="language-plaintext highlighter-rouge">index</code> function should be run. Note that, if we renamed the function to be <code class="language-plaintext highlighter-rouge">homepage</code>, this line would tell Flask that—every time it receives an HTTP request for “/”—it should run the <code class="language-plaintext highlighter-rouge">homepage</code> function.</p>
+
+<p>Notice that the <code class="language-plaintext highlighter-rouge">index</code> function returns a piece of text, “Hello, World!”. This text is what Flask will render to the user when their request to the “/” route is complete. The returned text could be (and often is!) the text of an entire HTML file, which the browser then renders accordingly. But it’s just a piece of text for now, for brevity’s sake.</p>
+
+<p>To run your app, type <code class="language-plaintext highlighter-rouge">flask run</code> into the terminal, and you will get a link to click, similar to when you run <code class="language-plaintext highlighter-rouge">http-server</code>. You’ve written a Flask app!  Try returning different text, like <code class="language-plaintext highlighter-rouge">&lt;h1&gt;Hello, World!&lt;/h1&gt;</code>. How does this change what you see?</p>
+
+<h3 id="templates">Templates</h3>
+
+<p>Instead of putting HTML code right into our Python programs, it’s best to move our HTML into separate files, to keep separate concerns separate. Since our app will likely include a number of similar HTML files, we can create one <code class="language-plaintext highlighter-rouge">layout.html</code> file which all our HTML files “extend”. “Extending” an HTML file means to keep all of the content of that HTML file while also adding some custom content, specific to a particular page.</p>
+
+<p>By convention, Flask puts all HTML files inside of a <code class="language-plaintext highlighter-rouge">templates</code> folder. Inside the <code class="language-plaintext highlighter-rouge">helloflask</code> folder, make a folder called <code class="language-plaintext highlighter-rouge">templates</code> using <code class="language-plaintext highlighter-rouge">mkdir templates</code>. All your HTML files will go in this <code class="language-plaintext highlighter-rouge">templates</code> folder.</p>
+
+<p>Inside <code class="language-plaintext highlighter-rouge">templates</code>, create a <code class="language-plaintext highlighter-rouge">layout.html</code> file that looks like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Hello, Flask<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>Hello, Flask<span class="nt">&lt;/h1&gt;</span>
+        {% block body %}{% endblock %}
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">{% block body %}{% endblock %}</code> syntax comes from <a href="https://palletsprojects.com/p/jinja/">Jinja</a>, which is a “template engine” for Python. The line with <code class="language-plaintext highlighter-rouge">{% block body %}{% endblock %}</code> is what makes this a layout file. If another HTML file extends <code class="language-plaintext highlighter-rouge">layout.html</code> and defines a block called “body”, we’ll insert that block into this section of the <code class="language-plaintext highlighter-rouge">layout.html</code>. A layout file can contain as many blocks as you want. Just give each one a different name.</p>
+
+<p>Now create <code class="language-plaintext highlighter-rouge">index.html</code> so that it extends the template <code class="language-plaintext highlighter-rouge">layout.html</code>, like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% extends "layout.html" %}
+
+{% block body %}
+    <span class="nt">&lt;p&gt;</span>Next we'll put a form here and get some POST action!<span class="nt">&lt;/p&gt;</span>
+{% endblock %}
+</code></pre></div></div>
+
+<p>Finally, we’ll go back to <code class="language-plaintext highlighter-rouge">app.py</code> to see these changes come to life. In the initial import, we’ll need a few more functions from Flask (as shown below). Then, replace the direct return of text with a call to Flask’s <code class="language-plaintext highlighter-rouge">render_template</code> function. The purpose of the <code class="language-plaintext highlighter-rouge">render_template</code> function is to preprocess <code class="language-plaintext highlighter-rouge">index.html</code> such that, when we give it to the browser, it also includes the HTML it “inherits” from <code class="language-plaintext highlighter-rouge">layout.html</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="sh">"</span><span class="s">index.html</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When you run your application now (type <code class="language-plaintext highlighter-rouge">flask run</code>!), you’ll get a little more out of your app. But it isn’t really interactive yet!</p>
+
+<h3 id="forms">Forms</h3>
+
+<p>HTML forms allow the user to enter data into input fields and send the data to the server, often using the POST method of the HTTP protocol. You can learn more about HTML Forms <a href="https://www.w3schools.com/html/html_forms.asp">here</a>.</p>
+
+<p>Add a form to <code class="language-plaintext highlighter-rouge">index.html</code> so that it looks like this:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% extends "layout.html" %}
+
+{% block body %}
+    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+        What is your favorite color?
+        <span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"color"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"red"</span><span class="nt">&gt;</span>Harvard Crimson<span class="nt">&lt;/option&gt;</span>
+            <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"blue"</span><span class="nt">&gt;</span>Yale Blue<span class="nt">&lt;/option&gt;</span>
+        <span class="nt">&lt;/select&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+{% endblock %}
+</code></pre></div></div>
+
+<p>Note that each form element has both a <em>name</em> and a <em>value</em>. The name an element is what we’ll use to refer to that element. Its value is the value submitted by the form. Each get passed into <code class="language-plaintext highlighter-rouge">app.py</code> for our use when the form is submitted.</p>
+
+<p>Run your app, visit the <code class="language-plaintext highlighter-rouge">/</code> route, and submit the form. Oops! You should see the message “Method not allowed”. So we’ll first need to make sure Flask allows the use of the POST method on <code class="language-plaintext highlighter-rouge">/</code>.</p>
+
+<h3 id="post">POST</h3>
+
+<p>In <code class="language-plaintext highlighter-rouge">app.py</code>, we need to adjust our route to handle the POST request. Here is what our new <code class="language-plaintext highlighter-rouge">app.py</code> looks like.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">"</span><span class="s">/</span><span class="sh">"</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">GET</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">POST</span><span class="sh">"</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="o">==</span> <span class="sh">"</span><span class="s">GET</span><span class="sh">"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="sh">"</span><span class="s">index.html</span><span class="sh">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Form submitted!</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">"</span><span class="s">color</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="sh">"</span><span class="s">color.html</span><span class="sh">"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This example has some logic in it: if the user submits a GET request, we’ll show them the basic <code class="language-plaintext highlighter-rouge">index.html</code> with a form to submit. If, though, they submit a POST request, we’ll do a few different things:</p>
+
+<ul>
+  <li data-marker="*">
+<code class="language-plaintext highlighter-rouge">print</code> “Form submitted!” to the terminal, for debugging’s sake. We should later remove this once we’re satisfied our program works as intended.</li>
+  <li data-marker="*">Store the <em>value</em> of the “color” input in a variable also called <code class="language-plaintext highlighter-rouge">color</code>, as via <code class="language-plaintext highlighter-rouge">color = request.form.get("color")</code>.</li>
+  <li data-marker="*">Render a new HTML file, <code class="language-plaintext highlighter-rouge">color.html</code>, and pass the value of the <code class="language-plaintext highlighter-rouge">color</code> variable into the file under the very same name, <code class="language-plaintext highlighter-rouge">color</code>.</li>
+</ul>
+
+<p>Let’s create <code class="language-plaintext highlighter-rouge">color.html</code> for our application to work:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% extends "layout.html" %}
+
+{% block body %}
+    <span class="nt">&lt;p</span> <span class="na">style=</span><span class="s">"color: {{ color }}"</span><span class="nt">&gt;</span>Your favorite color is {{ color }}.<span class="nt">&lt;/p&gt;</span>
+{% endblock %}
+</code></pre></div></div>
+
+<p>Notice how we can insert the value of <code class="language-plaintext highlighter-rouge">color</code> anywhere in our HTML we’d like—whether as text in a sentence, or as a placeholder for the value of some CSS property.</p>
+
+<p>We’ll likely want to add some additional input validation, however, instead of simply trusting our users to send only the values “blue” or “red” via POST. What additional code could you add to ensure the colors we receive are valid colors?</p>
+
+<h2 id="how-to-test-your-code">How to Test Your Code</h2>
+
+<p>Your program should behave as per the examples above.</p>
+
+<p>No <code class="language-plaintext highlighter-rouge">check50</code> for this one!</p>
+
+<h2 id="how-to-submit">How to Submit</h2>
+
+<p>No need to submit. This is a practice problem!</p>
+
+<div class="alert" data-alert="primary" role="alert"><p><em>Adapted from 27 Classrooms, by Mark Sobkowicz, Lincoln Sudbury Regional High School</em></p></div>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

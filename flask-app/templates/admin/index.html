@@ -35,6 +35,24 @@
     </div>
 </div>
 
+{# شاخص‌های FR-10: به‌موقع / دیر / میانه بازخورد #}
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+    <div class="card-harvard p-5 text-center">
+        <div class="text-2xl font-bold text-emerald-700">{{ overview.on_time_count }}</div>
+        <div class="text-xs text-[var(--slate)]">تحویل به‌موقع</div>
+    </div>
+    <div class="card-harvard p-5 text-center">
+        <div class="text-2xl font-bold text-amber-600">{{ overview.late_count }}</div>
+        <div class="text-xs text-[var(--slate)]">تحویل دیر</div>
+    </div>
+    <div class="card-harvard p-5 text-center">
+        <div class="text-2xl font-bold" style="color:var(--crimson)">
+            {% if overview.median_feedback_hours is not none %}{{ overview.median_feedback_hours }} س{% else %}—{% endif %}
+        </div>
+        <div class="text-xs text-[var(--slate)]">میانه زمان بازخورد</div>
+    </div>
+</div>
+
 {# ── ردیف ۲: هشدارها ──────────────────────────────────────────── #}
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
     {# دانش‌آموزان غیرفعال #}
@@ -133,6 +151,143 @@
             </tbody>
         </table>
     </div>
+</div>
+
+{# ── بخش ویژه: هوشمندی تشخیصی، نقاط ضعف کلاسی و چالش‌های پرتکرار ──────────────── #}
+<div class="card-harvard p-5 mb-8 rounded-2xl border-r-4 shadow-xs" style="border-right-color: var(--crimson);">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-5 pb-3 border-b border-[var(--border)]">
+        <div>
+            <h2 class="font-bold text-lg flex items-center gap-2.5">
+                <span class="w-8 h-8 rounded-lg bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </span>
+                هوشمندی تشخیصی و نقاط ضعف مشترک کلاس (Cohort Weakness Analytics)
+            </h2>
+            <p class="text-xs text-[var(--slate)] mt-0.5">شناسایی مباحثی که بیشترین سوءتفاهم یا نرخ خطا را در بین دانشجویان داشته‌اند تا در کلاس‌های حضوری و رفع‌اشکال مرور شوند.</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-red-100 text-red-800 border border-red-200 font-bold num">
+                {{ cohort_diagnostics.total_unresolved }} خطای باز کلاسی
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200 font-bold num">
+                کل خطاهای ثبت‌شده: {{ cohort_diagnostics.total_mistakes }}
+            </span>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {# چالش‌های پرتکرار و سخت #}
+        <div>
+            <h3 class="text-xs font-bold text-[var(--slate)] uppercase tracking-wider mb-3">
+                سخت‌ترین چالش‌ها (بیشترین تعداد دانشجویان درگیر باگ)
+            </h3>
+            {% if cohort_diagnostics.hardest_items %}
+            <div class="space-y-2.5">
+                {% for item in cohort_diagnostics.hardest_items %}
+                <div class="p-3 bg-gray-50 rounded-lg border border-[var(--border)] flex items-center justify-between gap-3 text-xs">
+                    <div class="min-w-0">
+                        <div class="font-bold text-[var(--ink)] truncate">{{ item.title }}</div>
+                        <div class="text-[11px] text-[var(--slate)] flex items-center gap-2 mt-0.5">
+                            <span class="text-crimson font-medium">هفته {{ item.week }}</span>
+                            <span>•</span>
+                            <span>{{ item.concept_tag }}</span>
+                        </div>
+                    </div>
+                    <div class="shrink-0 text-left">
+                        <span class="px-2 py-0.5 rounded bg-red-50 text-red-700 font-bold border border-red-200 num">
+                            {{ item.student_count }} دانش‌آموز ({{ item.total_errors }} خطا)
+                        </span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-xs text-[var(--slate)] italic bg-gray-50 p-3 rounded-lg">هنوز خطایی ثبت نشده است.</p>
+            {% endif %}
+        </div>
+
+        {# هیت‌مپ مفاهیم #}
+        <div>
+            <h3 class="text-xs font-bold text-[var(--slate)] uppercase tracking-wider mb-3">
+                نقاط ضعف مفهومی کلاس (موضوعاتی که نیاز به مرور دارند)
+            </h3>
+            {% if cohort_diagnostics.concept_heatmap %}
+            <div class="space-y-2">
+                {% for c in cohort_diagnostics.concept_heatmap %}
+                <div class="p-2.5 bg-canvas rounded-lg border border-[var(--border)] flex items-center justify-between text-xs">
+                    <span class="font-medium text-[var(--ink)]">{{ c.concept_tag }}</span>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded text-[11px] font-bold {% if c.open_occurrences > 0 %}bg-amber-100 text-amber-800{% else %}bg-green-100 text-green-800{% endif %} num">
+                            {{ c.open_occurrences }} مورد باز
+                        </span>
+                        <span class="text-[11px] text-[var(--slate)] num">از {{ c.total_occurrences }} بار خطا</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-xs text-[var(--slate)] italic bg-gray-50 p-3 rounded-lg">هنوز تحلیلی برای مفاهیم وجود ندارد.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{# ── بخش ویژه: شناسایی دانش‌آموزان نیازمند راهنمایی (ریسک ریزش) ──────────────── #}
+<div class="card-harvard p-5 mb-8 border-r-4 border-amber-500">
+    <div class="flex items-center justify-between mb-4">
+        <div>
+            <h2 class="font-bold text-lg flex items-center gap-2">
+                <span style="color: var(--warning);">⚠️</span>
+                دانش‌آموزان نیازمند توجه و راهنمایی (مراقبت از یادگیری)
+            </h2>
+            <p class="text-xs text-[var(--slate)] mt-0.5">تحلیل اخلاقی بر اساس روزهای عدم فعالیت و استمرار مطالعه؛ بدون ارسال خودکار و صرفاً جهت راهنمایی دستی مدرس.</p>
+        </div>
+        <span class="text-xs bg-amber-50 text-amber-800 font-bold px-2.5 py-1 rounded-full border border-amber-200">
+            {{ students_at_risk|length }} نفر
+        </span>
+    </div>
+
+    {% if students_at_risk %}
+    <div class="space-y-3">
+        {% for s in students_at_risk %}
+        <div class="p-3.5 bg-gray-50 rounded-lg border border-[var(--border)] flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div class="space-y-1">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-sm text-[var(--ink)]">{{ s.username }}</span>
+                    {% if s.risk_level == 'high' %}
+                        <span class="badge-crimson text-[10px]">ریسک بالا</span>
+                    {% else %}
+                        <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full">ریسک متوسط</span>
+                    {% endif %}
+                    <span class="text-xs text-[var(--slate)] num">• آخرین فعالیت: {{ s.days_inactive }} روز پیش</span>
+                </div>
+                <div class="text-xs text-[var(--slate)] flex flex-wrap gap-2">
+                    {% for factor in s.factors %}
+                        <span class="bg-white px-2 py-0.5 rounded border border-gray-200 text-[11px]">{{ factor }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <details class="shrink-0">
+                <summary class="btn-crimson text-xs py-1.5 px-3 cursor-pointer list-none select-none">
+                    ارسال پیام دستی
+                </summary>
+                <div class="mt-2 p-3 bg-white border border-[var(--border)] rounded-lg shadow-sm w-72">
+                    <form method="POST" action="{{ url_for('admin.send_mentor_message') }}" class="space-y-2">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="user_id" value="{{ s.user_id }}">
+                        <input type="text" name="title" value="خداقوت {{ s.username }}! چطور می‌تونیم کمکت کنیم؟" class="form-input text-xs" required>
+                        <textarea name="body" rows="3" placeholder="متن پیام راهنمایی را بنویسید..." class="form-input text-xs" required></textarea>
+                        <button type="submit" class="btn-crimson w-full text-xs py-1.5">ارسال به پنل دانش‌آموز</button>
+                    </form>
+                </div>
+            </details>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-xs text-[var(--slate)] text-center py-4">همهٔ دانش‌آموزان با روال پایدار در حال یادگیری هستند. آفرین به کلاس!</p>
+    {% endif %}
 </div>
 
 {# ── ردیف ۵: برترین‌ها ────────────────────────────────────────── #}

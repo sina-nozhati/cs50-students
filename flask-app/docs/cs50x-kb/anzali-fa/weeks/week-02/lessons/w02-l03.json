@@ -1,0 +1,347 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l03",
+  "type": "lesson",
+  "week": 2,
+  "order": 3,
+  "stage_id": "w02-s1",
+  "title_fa": "کامپایل: clang و چهار مرحله",
+  "title_en": "Compiling: clang and the four steps",
+  "note_ids": [
+    "w02-n06",
+    "w02-n07"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w02-l01"
+  ],
+  "concept_ids": [
+    "w02-c-clang",
+    "w02-c-link-flag",
+    "w02-c-make-vs-clang",
+    "w02-c-preprocessing",
+    "w02-c-compiling-step",
+    "w02-c-assembling",
+    "w02-c-linking"
+  ],
+  "objective_ids": [
+    "w02-o01"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w02-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l03-u01",
+      "order": 1,
+      "title_fa": "clang، -o و -lcs50",
+      "concept_ids": [
+        "w02-c-clang",
+        "w02-c-link-flag",
+        "w02-c-make-vs-clang"
+      ],
+      "objective_ids": [
+        "w02-o01"
+      ],
+      "note_id": "w02-n06",
+      "source_refs": [
+        "src-notes-2#compiling",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "VS Code از کامپایلر `clang` استفاده می‌کند. `clang -o hello hello.c` فایل `hello.c` را به برنامهٔ `hello` تبدیل می‌کند؛ `-o hello hello.c` آرگومان‌های خط فرمان‌اند. اگر از کتابخانهٔ CS50 استفاده کنی، `-lcs50` هم لازم است. `make hello` همین `clang` را با آرگومان‌های لازم اجرا می‌کند و در CS50 استفاده از `make` کاملاً مورد انتظار است.",
+        "note_id": "w02-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "hello-name",
+        "lang": "c",
+        "content": "#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    string name = get_string(\"What's your name? \");\n    printf(\"hello, %s\\n\", name);\n}",
+        "source_ref": "src-notes-2#compiling",
+        "explain_fa": "برنامه‌ای که برای clang به -lcs50 نیاز دارد."
+      },
+      "check": {
+        "id": "w02-l03-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای کامپایل دستی برنامهٔ بالا با clang کدام فرمان درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "clang -o hello hello.c -lcs50",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "clang hello",
+            "correct": false,
+            "feedback_fa": "نام فایل منبع و خروجی مشخص نشده است."
+          },
+          {
+            "id": "c",
+            "text_fa": "make -lcs50 hello.c",
+            "correct": false,
+            "feedback_fa": "make خودش آرگومان‌ها را اضافه می‌کند و این شکل نادرست است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l03-u01-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "فرمان clang را کامل کن تا خروجی `greet` نام بگیرد.",
+        "lang": "text",
+        "code_origin": "authored",
+        "template": "clang [[b1]] greet greet.c -lcs50",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "-o"
+            ],
+            "hint_fa": "پرچم نام خروجی.",
+            "wrong_feedback": {
+              "-l": "-l برای پیوند کتابخانه است.",
+              "-c": "در درس‌نامه از -o استفاده می‌شود."
+            },
+            "default_wrong_fa": "پرچم خروجی را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "-o"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: -o یعنی output.",
+          "incorrect_fa": "پرچمی که نام فایل خروجی را می‌گیرد."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l03-u02",
+      "order": 2,
+      "title_fa": "پیش‌پردازش و کامپایل",
+      "concept_ids": [
+        "w02-c-preprocessing",
+        "w02-c-compiling-step"
+      ],
+      "objective_ids": [
+        "w02-o01"
+      ],
+      "note_id": "w02-n07",
+      "source_refs": [
+        "src-notes-2#compiling",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "کامپایل چهار مرحلهٔ اصلی دارد. اول **پیش‌پردازش**: سرآیندهایی که با `#` آمده‌اند، مثل `#include <cs50.h>`، عملاً در فایل تو کپی می‌شوند؛ پس اعلان `get_string` و `printf` بالای `main` می‌نشیند. دوم **کامپایل**: برنامهٔ C به کد اسمبلی تبدیل می‌شود.",
+        "note_id": "w02-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n07"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "preprocessed",
+        "lang": "c",
+        "content": "string get_string(string prompt);\nint printf(string format, ...);\n\nint main(void)\n{\n    string name = get_string(\"What's your name? \");\n    printf(\"hello, %s\\n\", name);\n}",
+        "source_ref": "src-notes-2#compiling",
+        "explain_fa": "تصویر رسمی پس از پیش‌پردازش."
+      },
+      "check": {
+        "id": "w02-l03-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در مرحلهٔ پیش‌پردازش چه اتفاقی می‌افتد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "محتوای سرآیندهای #include در فایل کپی می‌شود",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "کد به صفر و یک تبدیل می‌شود",
+            "correct": false,
+            "feedback_fa": "این کار اسمبل است."
+          },
+          {
+            "id": "c",
+            "text_fa": "کتابخانه‌ها پیوند می‌خورند",
+            "correct": false,
+            "feedback_fa": "این مرحلهٔ آخر است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l03-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: خروجی مرحلهٔ «کامپایل» (مرحلهٔ دوم) کد اسمبلی است.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "ترتیب: C ← اسمبلی ← کد ماشین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l03-u03",
+      "order": 3,
+      "title_fa": "اسمبل و پیوند",
+      "concept_ids": [
+        "w02-c-assembling",
+        "w02-c-linking"
+      ],
+      "objective_ids": [
+        "w02-o01"
+      ],
+      "note_id": "w02-n07",
+      "source_refs": [
+        "src-notes-2#compiling",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "سوم **اسمبل**: اسمبلر کد اسمبلی را به کد ماشین تبدیل می‌کند. چهارم **پیوند**: کد ماشینی از پیش‌کامپایل‌شدهٔ کتابخانه‌هایی که include کرده‌ای با کد تو ترکیب می‌شود و فایل اجرایی نهایی ساخته می‌شود.",
+        "note_id": "w02-n07",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n07"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "hello.c -> preprocessing -> compiling -> assembling -> linking -> hello",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "خلاصهٔ تألیفی چهار مرحله."
+      },
+      "check": {
+        "id": "w02-l03-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "کدام مرحله کد ماشین کتابخانهٔ CS50 را با کد تو ترکیب می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پیوند (linking)",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "پیش‌پردازش",
+            "correct": false,
+            "feedback_fa": "پیش‌پردازش فقط سرآیندها را کپی می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "اسمبل",
+            "correct": false,
+            "feedback_fa": "اسمبل اسمبلی را به کد ماشین تبدیل می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l03-u03-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "چهار مرحلهٔ کامپایل را به ترتیب درست بچین.",
+        "lang": "text",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "preprocessing"
+          },
+          {
+            "id": "p2",
+            "code": "compiling"
+          },
+          {
+            "id": "p3",
+            "code": "assembling"
+          },
+          {
+            "id": "p4",
+            "code": "linking"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "executing",
+            "why_wrong_fa": "اجرا بخشی از کامپایل نیست؛ پس از ساخته شدن فایل اجرایی است."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "از #include شروع کن و با فایل اجرایی تمام کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

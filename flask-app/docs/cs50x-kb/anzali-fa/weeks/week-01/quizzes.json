@@ -1,0 +1,2532 @@
+{
+  "$schema": "../../schemas/quiz.schema.json",
+  "week": 1,
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "origin": "authored",
+  "disclaimer_fa": "همهٔ سؤال‌ها تألیف CS50x Anzali بر پایهٔ منابع رسمی‌اند. هیچ‌کدام سؤال رسمی هاروارد نیستند، اثری بر نمرهٔ رسمی CS50 ندارند و هیچ‌کدام بخشی از راه‌حل پرابلم‌ست‌ها نیست.",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "items": [
+    {
+      "id": "w01-q-001",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l01",
+      "concept_ids": [
+        "w01-c-compiler"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#source-code",
+      "prompt_fa": "کامپایلر چه چیزی را به چه چیزی تبدیل می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "کامپایلر: source code ← ورودی، machine code ← خروجی.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کد منبع را به کد ماشین",
+          "feedback_fa": "درست. ورودی کد منبع است و خروجی صفر و یک."
+        },
+        {
+          "id": "b",
+          "text_fa": "کد ماشین را به کد منبع",
+          "feedback_fa": "جهت برعکس است؛ ما کد منبع می‌نویسیم."
+        },
+        {
+          "id": "c",
+          "text_fa": "C را به Scratch",
+          "feedback_fa": "کامپایلر به زبان ماشین ترجمه می‌کند، نه به زبان دیگری برای انسان."
+        },
+        {
+          "id": "d",
+          "text_fa": "متن را به تصویر",
+          "feedback_fa": "ربطی به تصویر ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-002",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l01",
+      "concept_ids": [
+        "w01-c-code-make-run"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#hello-world",
+      "prompt_fa": "ترتیب درست ساختن و اجرای `hello` کدام است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "اول نوشتن، بعد کامپایل، بعد اجرا.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`code hello.c` ← `make hello` ← `./hello`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`make hello.c` ← `./hello.c`",
+          "feedback_fa": "به make نام برنامه را بدون `.c` می‌دهیم و فایل `.c` اجرا نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "`./hello` ← `make hello`",
+          "feedback_fa": "پیش از کامپایل، برنامه‌ای برای اجرا نیست."
+        },
+        {
+          "id": "d",
+          "text_fa": "`code hello` ← `run hello`",
+          "feedback_fa": "فرمان `run` در این روند نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-003",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l01",
+      "concept_ids": [
+        "w01-c-main"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-transcript-1",
+      "prompt_fa": "در C، تابع `main` نقشی شبیه بلوک «when green flag clicked» در Scratch دارد.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "از سخنرانی: اجرای برنامه از `main` شروع می‌شود.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-004",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l01",
+      "concept_ids": [
+        "w01-c-gui-cli"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#visual-studio-code-for-cs50",
+      "prompt_fa": "ترمینال در VS Code نمونه‌ای از رابط گرافیکی (GUI) است.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "ترمینال رابط خط فرمان (CLI) است.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-005",
+      "origin": "authored",
+      "week": 1,
+      "type": "parsons",
+      "lesson_id": "w01-l01",
+      "concept_ids": [
+        "w01-c-code-make-run"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#hello-world",
+      "prompt_fa": "فرمان‌ها را به ترتیب درست بچین.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      "explanation_fa": "ترتیب: باز کردن فایل، کامپایل، اجرا.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "code hello.c"
+        },
+        {
+          "id": "p2",
+          "code": "make hello"
+        },
+        {
+          "id": "p3",
+          "code": "./hello"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "make hello.c",
+          "why_wrong_fa": "به make نام برنامه بدون پسوند `.c` داده می‌شود."
+        }
+      ],
+      "lang": "bash",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-006",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l02",
+      "concept_ids": [
+        "w01-c-printf"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "prompt_fa": "این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "hello, world"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`printf` متن داخل نقل‌قول را چاپ می‌کند و `\\n` به خط تازه می‌رود.",
+      "code": "// A program that says hello to the world\n\n#include <stdio.h>\n\nint main(void)\n{\n    printf(\"hello, world\\n\");\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-007",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l02",
+      "concept_ids": [
+        "w01-c-escape-sequence"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "prompt_fa": "بدون `\\n` در انتهای `printf(\"hello, world\");` چه رخ می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "`\\n` فقط خط را عوض می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "اعلان `$` ترمینال در همان خط بعد از خروجی می‌آید",
+          "feedback_fa": "درست. درس‌نامه همین را نشان داد."
+        },
+        {
+          "id": "b",
+          "text_fa": "کامپایل خطا می‌دهد",
+          "feedback_fa": "نبودِ `\\n` خطای کامپایل نیست."
+        },
+        {
+          "id": "c",
+          "text_fa": "هیچ چیزی چاپ نمی‌شود",
+          "feedback_fa": "متن چاپ می‌شود، فقط خط عوض نمی‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "دو بار چاپ می‌شود",
+          "feedback_fa": "دلیلی برای تکرار نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-008",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l02",
+      "concept_ids": [
+        "w01-c-syntax"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "prompt_fa": "(کد تألیفی) جاهای خالی را پر کن تا برنامه «hello, world» و خط تازه چاپ کند.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "\\n"
+          ],
+          "b2": [
+            ";"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`\\n` خط تازه و `;` پایان دستور.",
+      "template": "#include <stdio.h>\n\nint main(void)\n{\n    printf(\"hello, world[[b1]]\")[[b2]]\n}",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "\\n"
+          ],
+          "hint_fa": "دنبالهٔ گریز خط تازه",
+          "wrong_feedback": {
+            "/n": "اسلش رو به جلو است؛ دنبالهٔ گریز با بک‌اسلش `\\` شروع می‌شود.",
+            "n": "بدون بک‌اسلش فقط حرف n چاپ می‌شود."
+          },
+          "default_wrong_fa": "دنبالهٔ گریز خط تازه را بنویس."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            ";"
+          ],
+          "hint_fa": "پایان دستور",
+          "wrong_feedback": {
+            ":": "دونقطه نیست؛ نقطه‌ویرگول لازم است.",
+            ".": "در C دستور با نقطه تمام نمی‌شود."
+          },
+          "default_wrong_fa": "هر دستور در C با چه نشانه‌ای تمام می‌شود؟"
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-009",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l02",
+      "concept_ids": [
+        "w01-c-recompile"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "prompt_fa": "اگر `hello.c` را ویرایش کنی و بدون `make` دوباره `./hello` بزنی، تغییر دیده می‌شود.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "برنامهٔ اجرایی قدیمی است تا دوباره کامپایل کنی.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-010",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l02",
+      "concept_ids": [
+        "w01-c-escape-sequence"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#from-scratch-to-c",
+      "prompt_fa": "برای چاپ یک بک‌اسلش در خروجی کدام را می‌نویسیم؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "فهرست دنباله‌های گریز درس‌نامه.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`\\\\`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`\\n`",
+          "feedback_fa": "این خط تازه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`\\\"`",
+          "feedback_fa": "این نقل‌قول دوتایی است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`/`",
+          "feedback_fa": "این اسلش رو به جلو است، نه بک‌اسلش."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-011",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l03",
+      "concept_ids": [
+        "w01-c-header-file"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "prompt_fa": "اگر `#include <stdio.h>` را حذف کنیم و `printf` به کار ببریم چه می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "سرآیند به کامپایلر معرفی می‌کند که تابع وجود دارد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کامپایلر `printf` را نمی‌شناسد و خطا می‌دهد",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامه عادی کار می‌کند",
+          "feedback_fa": "کامپایلر بدون سرآیند printf را نمی‌شناسد."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط `\\n` کار نمی‌کند",
+          "feedback_fa": "مشکل از کل تابع است."
+        },
+        {
+          "id": "d",
+          "text_fa": "برنامه کندتر می‌شود",
+          "feedback_fa": "مسئله سرعت نیست."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-012",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l03",
+      "concept_ids": [
+        "w01-c-placeholder"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#hello-you",
+      "prompt_fa": "اگر کاربر `David` وارد کند، خط دوم خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "hello, answer"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`answer` داخل نقل‌قول فقط متن است؛ برای مقدار متغیر باید `%s` بنویسیم.",
+      "code": "// get_string and printf with incorrect placeholder\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    string answer = get_string(\"What's your name? \");\n    printf(\"hello, answer\\n\");\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-013",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l03",
+      "concept_ids": [
+        "w01-c-placeholder"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#hello-you",
+      "prompt_fa": "جاهای خالی را پر کن تا نام کاربر چاپ شود.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "string"
+          ],
+          "b2": [
+            "%s"
+          ],
+          "b3": [
+            "answer"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "این همان برنامهٔ درس‌نامه است: `string`، `%s` و `answer`.",
+      "template": "#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    [[b1]] answer = get_string(\"What's your name? \");\n    printf(\"hello, [[b2]]\\n\", [[b3]]);\n}",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "string"
+          ],
+          "hint_fa": "نوع مقدار بازگشتی get_string",
+          "wrong_feedback": {
+            "char": "`char` فقط یک نویسه نگه می‌دارد.",
+            "int": "get_string عدد برنمی‌گرداند."
+          },
+          "default_wrong_fa": "نوعی که متن نگه می‌دارد."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            "%s"
+          ],
+          "hint_fa": "جای‌نگهدار رشته",
+          "wrong_feedback": {
+            "%i": "`%i` برای int است.",
+            "%c": "`%c` برای یک نویسه است.",
+            "answer": "این متن ثابت چاپ می‌شود، نه مقدار متغیر."
+          },
+          "default_wrong_fa": "کد قالب رشته."
+        },
+        {
+          "id": "b3",
+          "accepted": [
+            "answer"
+          ],
+          "hint_fa": "متغیری که جای‌نگهدار را پر می‌کند",
+          "wrong_feedback": {
+            "\"answer\"": "با نقل‌قول، رشتهٔ ثابت می‌شود، نه متغیر."
+          },
+          "default_wrong_fa": "نام متغیر را بدون نقل‌قول بنویس."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-014",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l03",
+      "concept_ids": [
+        "w01-c-cs50-library"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "prompt_fa": "`get_string` بخشی از کتابخانهٔ CS50 است و به `#include <cs50.h>` نیاز دارد.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "توابع get_* در cs50.h هستند.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-015",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l03",
+      "concept_ids": [
+        "w01-c-manual-pages"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#header-files-and-cs50-manual-pages",
+      "prompt_fa": "برای خواندن توضیح ساده‌شدهٔ توابع C، CS50 کدام سایت را معرفی می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "صفحه‌های راهنمای CS50.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "manual.cs50.io",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "cs50.ai",
+          "feedback_fa": "این CS50 Duck است، نه صفحه‌های راهنما."
+        },
+        {
+          "id": "c",
+          "text_fa": "submit.cs50.io",
+          "feedback_fa": "برای دیدن تحویل‌هاست."
+        },
+        {
+          "id": "d",
+          "text_fa": "cs50.dev",
+          "feedback_fa": "این محیط VS Code است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-016",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l04",
+      "concept_ids": [
+        "w01-c-linux-commands"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#linux",
+      "prompt_fa": "کدام فرمان نام `a.c` را به `b.c` تغییر می‌دهد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "mv = move.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`mv a.c b.c`",
+          "feedback_fa": "درست؛ mv برای جابه‌جا کردن و تغییرنام است."
+        },
+        {
+          "id": "b",
+          "text_fa": "`cp a.c b.c`",
+          "feedback_fa": "cp کپی می‌سازد و a.c می‌ماند."
+        },
+        {
+          "id": "c",
+          "text_fa": "`rm a.c b.c`",
+          "feedback_fa": "rm حذف می‌کند!"
+        },
+        {
+          "id": "d",
+          "text_fa": "`cd a.c b.c`",
+          "feedback_fa": "cd برای رفتن به پوشه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-017",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l04",
+      "concept_ids": [
+        "w01-c-linux-commands"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#linux",
+      "prompt_fa": "کدام فرمان پوشهٔ خالی را حذف می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "rmdir = remove directory.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`rmdir`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`mkdir`",
+          "feedback_fa": "mkdir پوشه می‌سازد."
+        },
+        {
+          "id": "c",
+          "text_fa": "`ls`",
+          "feedback_fa": "ls فهرست می‌کند."
+        },
+        {
+          "id": "d",
+          "text_fa": "`cd`",
+          "feedback_fa": "cd وارد پوشه می‌شود."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-018",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l04",
+      "concept_ids": [
+        "w01-c-paths-navigation"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-short-command-line",
+      "prompt_fa": "`cd ..` به پوشهٔ والد می‌رود.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "`..` یعنی پوشهٔ والد.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-019",
+      "origin": "authored",
+      "week": 1,
+      "type": "parsons",
+      "lesson_id": "w01-l04",
+      "concept_ids": [
+        "w01-c-linux-commands"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-pset-1-world#how-to-begin",
+      "prompt_fa": "(ترتیب رسمی صفحهٔ World) فرمان‌ها را بچین: ساختن پوشه، رفتن به آن، باز کردن فایل.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3"
+        ]
+      },
+      "explanation_fa": "اول پوشه ساخته می‌شود، بعد واردش می‌شویم.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "mkdir world"
+        },
+        {
+          "id": "p2",
+          "code": "cd world"
+        },
+        {
+          "id": "p3",
+          "code": "code hello.c"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "rm world",
+          "why_wrong_fa": "rm فایل حذف می‌کند و پوشه نمی‌سازد."
+        }
+      ],
+      "lang": "bash",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-020",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l05",
+      "concept_ids": [
+        "w01-c-format-codes"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#format-codes",
+      "prompt_fa": "برای چاپ یک `long` کدام کد قالب درست است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "long ← %li.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`%li`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`%i`",
+          "feedback_fa": "`%i` برای int است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`%f`",
+          "feedback_fa": "برای اعشاری است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`%s`",
+          "feedback_fa": "برای رشته است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-021",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l05",
+      "concept_ids": [
+        "w01-c-type-sizes"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-data-types",
+      "prompt_fa": "طبق ویدئوی Data Types، یک `int` چند بایت حافظه می‌گیرد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "int = ۴ بایت = ۳۲ بیت.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "۴",
+          "feedback_fa": "درست؛ ۳۲ بیت."
+        },
+        {
+          "id": "b",
+          "text_fa": "۱",
+          "feedback_fa": "این اندازهٔ char است."
+        },
+        {
+          "id": "c",
+          "text_fa": "۸",
+          "feedback_fa": "این اندازهٔ double است."
+        },
+        {
+          "id": "d",
+          "text_fa": "۲",
+          "feedback_fa": "در این ویدئو int چهار بایت است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-022",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l05",
+      "concept_ids": [
+        "w01-c-void"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-short-data-types",
+      "prompt_fa": "`void` در `int main(void)` یعنی main هیچ ورودی نمی‌گیرد.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "void یعنی «هیچ».",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-023",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l05",
+      "concept_ids": [
+        "w01-c-format-codes"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#format-codes",
+      "prompt_fa": "(کد تألیفی) کد قالب درست را برای هر متغیر بنویس.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "%i",
+            "%d"
+          ],
+          "b2": [
+            "%f"
+          ],
+          "b3": [
+            "%c"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "int ← %i، float ← %f، char ← %c. (`%d` هم برای int پذیرفته است، ولی درس‌نامه `%i` را به کار می‌برد.)",
+      "template": "int n = 50;\nfloat f = 0.5;\nchar c = 'y';\nprintf(\"[[b1]] [[b2]] [[b3]]\\n\", n, f, c);",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "%i",
+            "%d"
+          ],
+          "hint_fa": "int",
+          "wrong_feedback": {
+            "%f": "`%f` برای اعشاری است.",
+            "%li": "`%li` برای long است."
+          },
+          "default_wrong_fa": "کد قالب int."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            "%f"
+          ],
+          "hint_fa": "float",
+          "wrong_feedback": {
+            "%i": "`%i` بخش اعشاری را نشان نمی‌دهد و برای int است."
+          },
+          "default_wrong_fa": "کد قالب عدد اعشاری."
+        },
+        {
+          "id": "b3",
+          "accepted": [
+            "%c"
+          ],
+          "hint_fa": "char",
+          "wrong_feedback": {
+            "%s": "`%s` برای رشته است، نه یک نویسه."
+          },
+          "default_wrong_fa": "کد قالب یک نویسه."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-024",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l05",
+      "concept_ids": [
+        "w01-c-data-types"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#types",
+      "prompt_fa": "کدام نوع برای «درست/نادرست» است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "bool = Boolean.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`bool`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`char`",
+          "feedback_fa": "char یک نویسه است."
+        },
+        {
+          "id": "c",
+          "text_fa": "`string`",
+          "feedback_fa": "string متن است."
+        },
+        {
+          "id": "d",
+          "text_fa": "`float`",
+          "feedback_fa": "float عدد اعشاری است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-025",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l06",
+      "concept_ids": [
+        "w01-c-increment"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) این کد چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "3"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "هر سه خط یک واحد اضافه می‌کنند.",
+      "code": "int counter = 0;\ncounter = counter + 1;\ncounter += 1;\ncounter++;\nprintf(\"%i\\n\", counter);",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-026",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l06",
+      "concept_ids": [
+        "w01-c-increment"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#variables",
+      "prompt_fa": "کدام معادل `counter = counter - 1;` است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "`--` یکی کم می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`counter--;`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`counter++;`",
+          "feedback_fa": "این یکی اضافه می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "`counter =- 1;`",
+          "feedback_fa": "این یعنی counter را برابر منفی یک کن!"
+        },
+        {
+          "id": "d",
+          "text_fa": "`counter == 1;`",
+          "feedback_fa": "این فقط مقایسه است."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-027",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l06",
+      "concept_ids": [
+        "w01-c-assignment-operator"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#hello-you",
+      "prompt_fa": "در `int x = 5;` علامت `=` یعنی «x برابر ۵ است» به‌معنای مقایسه.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "`=` انتساب است؛ مقایسه با `==` است.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-028",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l06",
+      "concept_ids": [
+        "w01-c-increment"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#variables",
+      "prompt_fa": "جای خالی را با کوتاه‌ترین شکل افزودن یک واحد پر کن.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "++"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`counter++` کوتاه‌ترین شکل است.",
+      "template": "int counter = 0;\ncounter[[b1]];",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "++"
+          ],
+          "hint_fa": "دو علامت",
+          "wrong_feedback": {
+            "+": "یک + کافی نیست.",
+            "+= 1": "درست است، ولی کوتاه‌ترین شکل خواسته شده.",
+            "--": "این کم می‌کند."
+          },
+          "default_wrong_fa": "عملگر افزایش یکی."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-029",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l07",
+      "concept_ids": [
+        "w01-c-else-if-chain"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#comparec",
+      "prompt_fa": "اگر x برابر ۲ و y برابر ۲ وارد شود، چه چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "x is equal to y"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "نه کمتر است نه بیشتر، پس else اجرا می‌شود.",
+      "code": "// Conditionals\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user for integers\n    int x = get_int(\"What's x? \");\n    int y = get_int(\"What's y? \");\n\n    // Compare integers\n    if (x < y)\n    {\n        printf(\"x is less than y\\n\");\n    }\n    else if (x > y)\n    {\n        printf(\"x is greater than y\\n\");\n    }\n    else\n    {\n        printf(\"x is equal to y\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-030",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l07",
+      "concept_ids": [
+        "w01-c-else-if-chain"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#conditionals",
+      "prompt_fa": "چرا نسخهٔ با `else` آخر از نسخهٔ با `else if (x == y)` طراحی بهتری دارد؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "درس‌نامه: پرسیدن سؤالی که جوابش معلوم است طراحی ضعیف است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون یک مقایسهٔ غیرلازم حذف می‌شود",
+          "feedback_fa": "درست؛ حالت سوم حتماً برابری است."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون سریع‌تر کامپایل می‌شود",
+          "feedback_fa": "بحث سر تعداد پرسش‌ها هنگام اجراست."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون `==` در C وجود ندارد",
+          "feedback_fa": "`==` وجود دارد."
+        },
+        {
+          "id": "d",
+          "text_fa": "فرقی ندارند",
+          "feedback_fa": "خروجی یکی است، ولی یکی پرسش اضافه دارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-031",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l07",
+      "concept_ids": [
+        "w01-c-get-int"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-manual",
+      "prompt_fa": "اگر کاربر به `get_int` کلمه‌ای مثل `cat` بدهد، تابع دوباره می‌پرسد.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "طبق راهنمای CS50، get_int تا گرفتن عدد صحیح دوباره می‌پرسد.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-032",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l07",
+      "concept_ids": [
+        "w01-c-switch"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-conditional-statements",
+      "prompt_fa": "در `switch`، اگر `break` را از پایان یک case حذف کنیم، اجرا به case بعدی هم می‌رود.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "از ویدئوی کوتاه: fall through.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-033",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l07",
+      "concept_ids": [
+        "w01-c-ternary"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) این کد چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "1"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "شرط درست است، پس مقدار پیش از `:` انتخاب می‌شود.",
+      "code": "int n = 7;\nint x = (n > 5) ? 1 : 0;\nprintf(\"%i\\n\", x);",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-034",
+      "origin": "authored",
+      "week": 1,
+      "type": "find_the_bug",
+      "lesson_id": "w01-l07",
+      "concept_ids": [
+        "w01-c-comments"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) چرا این برنامه کامپایل نمی‌شود؟",
+      "answer": {
+        "bug_line": 6,
+        "key_points_fa": [
+          "نقطه‌ویرگول پایان خط ۶ جا افتاده"
+        ]
+      },
+      "explanation_fa": "هر دستور باید با `;` تمام شود.",
+      "code": "#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    int x = get_int(\"x: \")\n    if (x < 0)\n    {\n        printf(\"negative\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w01-q-035",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l08",
+      "concept_ids": [
+        "w01-c-logical-operators"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#agreec",
+      "prompt_fa": "اگر کاربر `Y` وارد کند چه چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "Agreed."
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`||` یعنی یا؛ `'Y'` یکی از دو حالت است.",
+      "code": "// Logical operators\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user to agree\n    char c = get_char(\"Do you agree? \");\n\n    // Check whether agreed\n    if (c == 'Y' || c == 'y')\n    {\n        printf(\"Agreed.\\n\");\n    }\n    else\n    {\n        printf(\"Not agreed.\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-036",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l08",
+      "concept_ids": [
+        "w01-c-char"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#agreec",
+      "prompt_fa": "اگر کاربر `n` وارد کند، خط آخر خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "Not agreed."
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "نه `'y'` است نه `'Y'`، پس else اجرا می‌شود.",
+      "code": "// Comparing against lowercase and uppercase char\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user to agree\n    char c = get_char(\"Do you agree? \");\n\n    // Check whether agreed\n    if (c == 'y')\n    {\n        printf(\"Agreed.\\n\");\n    }\n    else if (c == 'Y')\n    {\n        printf(\"Agreed.\\n\");\n    }\n    else\n    {\n        printf(\"Not agreed.\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-037",
+      "origin": "authored",
+      "week": 1,
+      "type": "find_the_bug",
+      "lesson_id": "w01-l08",
+      "concept_ids": [
+        "w01-c-equality-vs-assignment"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) چرا این برنامه همیشه «Agreed.» چاپ می‌کند (یا کامپایلر هشدار می‌دهد)؟",
+      "answer": {
+        "bug_line": 2,
+        "key_points_fa": [
+          "`=` انتساب است نه مقایسه",
+          "باید `==` باشد"
+        ]
+      },
+      "explanation_fa": "با `=` مقدار `'y'` در c گذاشته می‌شود و شرط همیشه درست است.",
+      "code": "char c = get_char(\"Do you agree? \");\nif (c = 'y')\n{\n    printf(\"Agreed.\\n\");\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w01-q-038",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l08",
+      "concept_ids": [
+        "w01-c-logical-operators"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#agreec",
+      "prompt_fa": "شرط را کامل کن تا هم `y` و هم `Y` پذیرفته شود.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "||"
+          ],
+          "b2": [
+            "'y'"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "همان شرط agree.c درس‌نامه.",
+      "template": "if (c == 'Y' [[b1]] c == [[b2]])",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "||"
+          ],
+          "hint_fa": "«یا» منطقی",
+          "wrong_feedback": {
+            "&&": "`&&` یعنی «و»؛ c نمی‌تواند هم‌زمان هر دو باشد.",
+            "|": "در C «یا»ی منطقی دو خط عمودی است."
+          },
+          "default_wrong_fa": "عملگر یا."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            "'y'"
+          ],
+          "hint_fa": "نویسهٔ کوچک با نقل‌قول تکی",
+          "wrong_feedback": {
+            "\"y\"": "نقل‌قول دوتایی رشته می‌سازد؛ char با نقل‌قول تکی است.",
+            "y": "بدون نقل‌قول، y نام متغیر فرض می‌شود."
+          },
+          "default_wrong_fa": "نویسهٔ y کوچک."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-039",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-for-loop"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "prompt_fa": "این برنامه چند بار `meow` چاپ می‌کند؟ (فقط عدد)",
+      "answer": {
+        "accept": [
+          "3",
+          "۳"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "i از ۰ تا ۲: سه دور.",
+      "code": "// Better design\n\n#include <stdio.h>\n\nint main(void)\n{\n    for (int i = 0; i < 3; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-040",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-zero-indexing"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) این کد چه چاپ می‌کند؟ (عددها را با فاصله بنویس)",
+      "answer": {
+        "accept": [
+          "0 1 2"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "از صفر شروع و پیش از ۳ تمام می‌شود.",
+      "code": "for (int i = 0; i < 3; i++)\n{\n    printf(\"%i \", i);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-041",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-do-while"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "prompt_fa": "کدام حلقه بدنه را دست‌کم یک بار اجرا می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "شرط در پایان do while است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`do while`",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "`while`",
+          "feedback_fa": "اگر شرط از اول نادرست باشد، اجرا نمی‌شود."
+        },
+        {
+          "id": "c",
+          "text_fa": "`for`",
+          "feedback_fa": "شرط پیش از اولین دور بررسی می‌شود."
+        },
+        {
+          "id": "d",
+          "text_fa": "هیچ‌کدام",
+          "feedback_fa": "do while همین ویژگی را دارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-042",
+      "origin": "authored",
+      "week": 1,
+      "type": "find_the_bug",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-infinite-loop"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) چرا این حلقه هیچ‌وقت تمام نمی‌شود؟",
+      "answer": {
+        "bug_line": 4,
+        "key_points_fa": [
+          "i هیچ‌وقت زیاد نمی‌شود",
+          "`i++` داخل حلقه لازم است"
+        ]
+      },
+      "explanation_fa": "بدون به‌روزرسانی، شرط همیشه درست می‌ماند.",
+      "code": "int i = 0;\nwhile (i < 3)\n{\n    printf(\"meow\\n\");\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w01-q-043",
+      "origin": "authored",
+      "week": 1,
+      "type": "parsons",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-input-validation"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "prompt_fa": "برنامهٔ درس‌نامه را بچین تا تا وقتی n منفی است دوباره بپرسد.",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6"
+        ]
+      },
+      "explanation_fa": "ساختار do while درس‌نامه.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "int n;"
+        },
+        {
+          "id": "p2",
+          "code": "do"
+        },
+        {
+          "id": "p3",
+          "code": "{"
+        },
+        {
+          "id": "p4",
+          "code": "    n = get_int(\"What's n? \");"
+        },
+        {
+          "id": "p5",
+          "code": "}"
+        },
+        {
+          "id": "p6",
+          "code": "while (n < 0);"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "while (n > 0);",
+          "why_wrong_fa": "این شرط برعکس است: برای عدد مثبت دوباره می‌پرسد."
+        },
+        {
+          "id": "d2",
+          "code": "if (n < 0)",
+          "why_wrong_fa": "if فقط یک بار می‌پرسد."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-044",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-break-continue"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "prompt_fa": "`continue` حلقه را کاملاً تمام می‌کند.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "`continue` به دور بعد می‌رود؛ `break` حلقه را تمام می‌کند.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-045",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l09",
+      "concept_ids": [
+        "w01-c-for-loop"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#loops-and-meowc",
+      "prompt_fa": "حلقهٔ for را کامل کن تا سه بار meow چاپ کند.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "0"
+          ],
+          "b2": [
+            "<"
+          ],
+          "b3": [
+            "++"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`for (int i = 0; i < 3; i++)` درس‌نامه.",
+      "template": "for (int i = [[b1]]; i [[b2]] 3; i[[b3]])\n{\n    printf(\"meow\\n\");\n}",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "0"
+          ],
+          "hint_fa": "شمارش از صفر",
+          "wrong_feedback": {
+            "1": "با 1 و `<` فقط دو بار اجرا می‌شود."
+          },
+          "default_wrong_fa": "مقدار اولیهٔ مرسوم."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            "<"
+          ],
+          "hint_fa": "مقایسه",
+          "wrong_feedback": {
+            "<=": "با `<=` و شروع از ۰، چهار بار اجرا می‌شود.",
+            ">": "شرط از اول نادرست است."
+          },
+          "default_wrong_fa": "عملگر کمتر از."
+        },
+        {
+          "id": "b3",
+          "accepted": [
+            "++"
+          ],
+          "hint_fa": "افزایش",
+          "wrong_feedback": {
+            "--": "i کم می‌شود و حلقه تمام نمی‌شود."
+          },
+          "default_wrong_fa": "افزایش یکی."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-046",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l10",
+      "concept_ids": [
+        "w01-c-parameter"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#functions",
+      "prompt_fa": "این برنامه چند بار meow چاپ می‌کند؟ (فقط عدد)",
+      "answer": {
+        "accept": [
+          "3",
+          "۳"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`meow(3)` پارامتر n را ۳ می‌کند.",
+      "code": "// Abstraction with parameterization\n\n#include <stdio.h>\n\nvoid meow(int n);\n\nint main(void)\n{\n    meow(3);\n}\n\n// Meow some number of times\nvoid meow(int n)\n{\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"meow\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-047",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l10",
+      "concept_ids": [
+        "w01-c-prototype"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#functions",
+      "prompt_fa": "اگر خط `void meow(void);` بالای main را حذف کنیم ولی تعریف تابع پایین بماند چه می‌شود؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "پیش‌نمونه تابع را پیشاپیش معرفی می‌کند.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "کامپایلر هنگام رسیدن به `meow()` در main آن را نمی‌شناسد و خطا می‌دهد",
+          "feedback_fa": "درست؛ C از بالا به پایین می‌خواند."
+        },
+        {
+          "id": "b",
+          "text_fa": "برنامه درست کار می‌کند",
+          "feedback_fa": "در درس‌نامه دقیقاً همین خطا نشان داده شد."
+        },
+        {
+          "id": "c",
+          "text_fa": "فقط هشدار سبک می‌گیرد",
+          "feedback_fa": "خطای کامپایل است."
+        },
+        {
+          "id": "d",
+          "text_fa": "meow دو بار اجرا می‌شود",
+          "feedback_fa": "ربطی به تعداد ندارد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-048",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l10",
+      "concept_ids": [
+        "w01-c-scope"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#functions",
+      "prompt_fa": "متغیری که داخل `main` تعریف شده، داخل تابع `meow` هم بی‌واسطه در دسترس است.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "حوزهٔ متغیر محدود به آکولادهای خودش است؛ باید آن را به‌عنوان آرگومان بفرستیم.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-049",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l10",
+      "concept_ids": [
+        "w01-c-return-value"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#functions",
+      "prompt_fa": "تابع درس‌نامه را کامل کن تا عدد مثبت را برگرداند.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "int"
+          ],
+          "b2": [
+            "return"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`int` و `return` درس‌نامه.",
+      "template": "[[b1]] get_positive_int(void)\n{\n    int n;\n    do\n    {\n        n = get_int(\"Number: \");\n    }\n    while (n < 1);\n    [[b2]] n;\n}",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "int"
+          ],
+          "hint_fa": "نوع مقدار بازگشتی",
+          "wrong_feedback": {
+            "void": "void یعنی چیزی برنمی‌گرداند، ولی این تابع n را برمی‌گرداند."
+          },
+          "default_wrong_fa": "نوع n."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            "return"
+          ],
+          "hint_fa": "برگرداندن مقدار",
+          "wrong_feedback": {
+            "printf": "چاپ کردن با برگرداندن فرق دارد.",
+            "break": "break فقط از حلقه بیرون می‌آید."
+          },
+          "default_wrong_fa": "کلمهٔ کلیدی برگرداندن."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-050",
+      "origin": "authored",
+      "week": 1,
+      "type": "find_the_bug",
+      "lesson_id": "w01-l10",
+      "concept_ids": [
+        "w01-c-function-definition"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) چرا این کد کامپایل نمی‌شود؟",
+      "answer": {
+        "bug_line": 8,
+        "key_points_fa": [
+          "hi پارامتری نمی‌گیرد (void) اما با ۳ صدا زده شده"
+        ]
+      },
+      "explanation_fa": "یا فراخوانی را `hi()` کن یا تابع را با پارامتر `int n` تعریف کن.",
+      "code": "void hi(void)\n{\n    printf(\"hi\\n\");\n}\n\nint main(void)\n{\n    hi(3);\n}",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": false
+    },
+    {
+      "id": "w01-q-051",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l11",
+      "concept_ids": [
+        "w01-c-nested-loops"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#mario",
+      "prompt_fa": "این برنامه چه چاپ می‌کند؟",
+      "answer": {
+        "accept": [
+          "###\n###\n###"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "سه ردیف، هر کدام سه `#`.",
+      "code": "// Prints a 3-by-3 grid of bricks with nested loops\n\n#include <stdio.h>\n\nint main(void)\n{\n    for (int i = 0; i < 3; i++)\n    {\n        for (int j = 0; j < 3; j++)\n        {\n            printf(\"#\");\n        }\n        printf(\"\\n\");\n    }\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-052",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l11",
+      "concept_ids": [
+        "w01-c-for-loop"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#mario",
+      "prompt_fa": "خروجی این برنامه چیست؟",
+      "answer": {
+        "accept": [
+          "????"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "چهار `?` در یک خط و سپس خط تازه.",
+      "code": "// Prints a row of 4 question marks with a loop\n\n#include <stdio.h>\n\nint main(void)\n{\n    for (int i = 0; i < 4; i++)\n    {\n        printf(\"?\");\n    }\n    printf(\"\\n\");\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-053",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l11",
+      "concept_ids": [
+        "w01-c-correctness-design-style"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#correctness-design-style",
+      "prompt_fa": "کدام ابزار CS50 سبک (فاصله‌گذاری و تورفتگی) کد را بررسی می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "style = سبک.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "style50",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "check50",
+          "feedback_fa": "check50 درستی را می‌سنجد."
+        },
+        {
+          "id": "c",
+          "text_fa": "design50",
+          "feedback_fa": "design50 دربارهٔ طراحی نظر می‌دهد."
+        },
+        {
+          "id": "d",
+          "text_fa": "submit50",
+          "feedback_fa": "submit50 تحویل می‌دهد."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-054",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l11",
+      "concept_ids": [
+        "w01-c-constant"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#mario",
+      "prompt_fa": "اگر `const int n = 3;` باشد و بعداً بنویسیم `n = 4;`، کامپایلر خطا می‌دهد.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "const یعنی غیرقابل تغییر.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-055",
+      "origin": "authored",
+      "week": 1,
+      "type": "parsons",
+      "lesson_id": "w01-l11",
+      "concept_ids": [
+        "w01-c-nested-loops"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#mario",
+      "prompt_fa": "برنامهٔ شبکهٔ ۳ در ۳ درس‌نامه را بچین (فقط بدنهٔ main).",
+      "answer": {
+        "order": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "p5",
+          "p6",
+          "p7",
+          "p8"
+        ]
+      },
+      "explanation_fa": "خط تازه بعد از حلقهٔ درونی می‌آید، نه داخل آن.",
+      "lines": [
+        {
+          "id": "p1",
+          "code": "for (int i = 0; i < 3; i++)"
+        },
+        {
+          "id": "p2",
+          "code": "{"
+        },
+        {
+          "id": "p3",
+          "code": "    for (int j = 0; j < 3; j++)"
+        },
+        {
+          "id": "p4",
+          "code": "    {"
+        },
+        {
+          "id": "p5",
+          "code": "        printf(\"#\");"
+        },
+        {
+          "id": "p6",
+          "code": "    }"
+        },
+        {
+          "id": "p7",
+          "code": "    printf(\"\\n\");"
+        },
+        {
+          "id": "p8",
+          "code": "}"
+        }
+      ],
+      "distractors": [
+        {
+          "id": "d1",
+          "code": "        printf(\"#\\n\");",
+          "why_wrong_fa": "با `\\n` بعد از هر `#`، به‌جای شبکه یک ستون چاپ می‌شود."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "indentation_matters": false,
+      "shuffle": true,
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-056",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l11",
+      "concept_ids": [
+        "w01-c-magic-numbers"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-short-magic-numbers",
+      "prompt_fa": "چرا عدد جادویی (magic number) طراحی ضعیفی است؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "نام معنادار (`const` یا `#define`) بهتر است.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "چون معنایش برای خواننده روشن نیست و تغییر دادنش در همه‌جا سخت است",
+          "feedback_fa": "درست."
+        },
+        {
+          "id": "b",
+          "text_fa": "چون کامپایل را کند می‌کند",
+          "feedback_fa": "اثری بر سرعت ندارد."
+        },
+        {
+          "id": "c",
+          "text_fa": "چون C عدد را نمی‌پذیرد",
+          "feedback_fa": "عدد مجاز است."
+        },
+        {
+          "id": "d",
+          "text_fa": "چون style50 خطای کامپایل می‌دهد",
+          "feedback_fa": "style50 کامپایل نمی‌کند."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-057",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l12",
+      "concept_ids": [
+        "w01-c-truncation"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-notes-1#operators",
+      "prompt_fa": "اگر x برابر ۷ و y برابر ۲ وارد شود چه چاپ می‌شود؟",
+      "answer": {
+        "accept": [
+          "3"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "تقسیم دو int بخش اعشاری را دور می‌اندازد.",
+      "code": "// Division with ints, demonstrating truncation\n\n#include <cs50.h>\n#include <stdio.h>\n\nint main(void)\n{\n    // Prompt user for x\n    int x = get_int(\"What's x? \");\n\n    // Prompt user for y\n    int y = get_int(\"What's y? \");\n\n    // Divide x by y\n    printf(\"%i\\n\", x / y);\n}",
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-058",
+      "origin": "authored",
+      "week": 1,
+      "type": "predict_output",
+      "lesson_id": "w01-l12",
+      "concept_ids": [
+        "w01-c-arithmetic-operators"
+      ],
+      "difficulty": 1,
+      "source_ref": "src-anzali-authored-1",
+      "prompt_fa": "(کد تألیفی) خروجی چیست؟",
+      "answer": {
+        "accept": [
+          "2"
+        ],
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "۱۷ = ۵×۳ + ۲.",
+      "code": "printf(\"%i\\n\", 17 % 5);",
+      "lang": "c",
+      "code_origin": "authored",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-059",
+      "origin": "authored",
+      "week": 1,
+      "type": "mcq",
+      "lesson_id": "w01-l12",
+      "concept_ids": [
+        "w01-c-type-casting"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#operators",
+      "prompt_fa": "کدام خط، تقسیم ۷ بر ۲ (هر دو int) را با بخش اعشاری چاپ می‌کند؟",
+      "answer": {
+        "correct_option_ids": [
+          "a"
+        ]
+      },
+      "explanation_fa": "cast باید پیش از تقسیم باشد.",
+      "options": [
+        {
+          "id": "a",
+          "text_fa": "`printf(\"%f\\n\", (float) x / y);`",
+          "feedback_fa": "درست؛ x پیش از تقسیم float می‌شود."
+        },
+        {
+          "id": "b",
+          "text_fa": "`printf(\"%i\\n\", x / y);`",
+          "feedback_fa": "این ۳ چاپ می‌کند."
+        },
+        {
+          "id": "c",
+          "text_fa": "`printf(\"%f\\n\", x / y);`",
+          "feedback_fa": "نتیجهٔ تقسیم int است و `%f` آن را درست نشان نمی‌دهد."
+        },
+        {
+          "id": "d",
+          "text_fa": "`printf(\"%f\\n\", (float) (x / y));`",
+          "feedback_fa": "تبدیل بعد از تقسیم صحیح است و بخش اعشاری از قبل از دست رفته."
+        }
+      ],
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-060",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l12",
+      "concept_ids": [
+        "w01-c-integer-overflow"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#operators",
+      "prompt_fa": "اگر یک `int` را بارها دو برابر کنیم، ممکن است ناگهان منفی یا صفر شود.",
+      "answer": {
+        "value": true
+      },
+      "explanation_fa": "سرریز: بیت‌های int محدودند.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-061",
+      "origin": "authored",
+      "week": 1,
+      "type": "true_false",
+      "lesson_id": "w01-l12",
+      "concept_ids": [
+        "w01-c-floating-point-imprecision"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#operators",
+      "prompt_fa": "با `float` می‌توان هر عدد اعشاری را دقیق نمایش داد، به شرط استفاده از `%.50f`.",
+      "answer": {
+        "value": false
+      },
+      "explanation_fa": "`%.50f` فقط رقم‌های بیشتری نشان می‌دهد؛ عدم دقت سر جایش است.",
+      "tags": [],
+      "auto_gradable": true
+    },
+    {
+      "id": "w01-q-062",
+      "origin": "authored",
+      "week": 1,
+      "type": "fill_blank_code",
+      "lesson_id": "w01-l12",
+      "concept_ids": [
+        "w01-c-integer-overflow"
+      ],
+      "difficulty": 2,
+      "source_ref": "src-notes-1#operators",
+      "prompt_fa": "برنامهٔ درس‌نامه را با `long` کامل کن.",
+      "answer": {
+        "blanks": {
+          "b1": [
+            "long"
+          ],
+          "b2": [
+            "%li"
+          ]
+        },
+        "match": "exact_after_trim"
+      },
+      "explanation_fa": "`long` و `%li` درس‌نامه.",
+      "template": "[[b1]] dollars = 1;\n...\nprintf(\"Here's $[[b2]].\\n\", dollars);",
+      "blanks": [
+        {
+          "id": "b1",
+          "accepted": [
+            "long"
+          ],
+          "hint_fa": "نوع بزرگ‌تر از int",
+          "wrong_feedback": {
+            "int": "int همان نسخه‌ای است که سرریز کرد.",
+            "float": "float برای اعشار است و دقیق نیست."
+          },
+          "default_wrong_fa": "نوع صحیح بزرگ‌تر."
+        },
+        {
+          "id": "b2",
+          "accepted": [
+            "%li"
+          ],
+          "hint_fa": "کد قالب long",
+          "wrong_feedback": {
+            "%i": "`%i` برای int است.",
+            "%l": "کد کامل `%li` است."
+          },
+          "default_wrong_fa": "کد قالب long."
+        }
+      ],
+      "lang": "c",
+      "code_origin": "official",
+      "tags": [],
+      "auto_gradable": true
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "w01-qz-l01",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l01",
+      "title_fa": "تمرین درس ۱",
+      "item_ids": [
+        "w01-q-001",
+        "w01-q-002",
+        "w01-q-003",
+        "w01-q-004",
+        "w01-q-005"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l02",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l02",
+      "title_fa": "تمرین درس ۲",
+      "item_ids": [
+        "w01-q-006",
+        "w01-q-007",
+        "w01-q-008",
+        "w01-q-009",
+        "w01-q-010"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l03",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l03",
+      "title_fa": "تمرین درس ۳",
+      "item_ids": [
+        "w01-q-011",
+        "w01-q-012",
+        "w01-q-013",
+        "w01-q-014",
+        "w01-q-015"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l04",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l04",
+      "title_fa": "تمرین درس ۴",
+      "item_ids": [
+        "w01-q-016",
+        "w01-q-017",
+        "w01-q-018",
+        "w01-q-019"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l05",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l05",
+      "title_fa": "تمرین درس ۵",
+      "item_ids": [
+        "w01-q-020",
+        "w01-q-021",
+        "w01-q-022",
+        "w01-q-023",
+        "w01-q-024"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l06",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l06",
+      "title_fa": "تمرین درس ۶",
+      "item_ids": [
+        "w01-q-025",
+        "w01-q-026",
+        "w01-q-027",
+        "w01-q-028"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l07",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l07",
+      "title_fa": "تمرین درس ۷",
+      "item_ids": [
+        "w01-q-029",
+        "w01-q-030",
+        "w01-q-031",
+        "w01-q-032",
+        "w01-q-033",
+        "w01-q-034"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l08",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l08",
+      "title_fa": "تمرین درس ۸",
+      "item_ids": [
+        "w01-q-035",
+        "w01-q-036",
+        "w01-q-037",
+        "w01-q-038"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l09",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l09",
+      "title_fa": "تمرین درس ۹",
+      "item_ids": [
+        "w01-q-039",
+        "w01-q-040",
+        "w01-q-041",
+        "w01-q-042",
+        "w01-q-043",
+        "w01-q-044",
+        "w01-q-045"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l10",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l10",
+      "title_fa": "تمرین درس ۱۰",
+      "item_ids": [
+        "w01-q-046",
+        "w01-q-047",
+        "w01-q-048",
+        "w01-q-049",
+        "w01-q-050"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l11",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l11",
+      "title_fa": "تمرین درس ۱۱",
+      "item_ids": [
+        "w01-q-051",
+        "w01-q-052",
+        "w01-q-053",
+        "w01-q-054",
+        "w01-q-055",
+        "w01-q-056"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-qz-l12",
+      "kind": "lesson_practice",
+      "lesson_id": "w01-l12",
+      "title_fa": "تمرین درس ۱۲",
+      "item_ids": [
+        "w01-q-057",
+        "w01-q-058",
+        "w01-q-059",
+        "w01-q-060",
+        "w01-q-061",
+        "w01-q-062"
+      ],
+      "pass_threshold": null,
+      "gates_progress": false,
+      "xp_event": "practice_quiz_completed"
+    },
+    {
+      "id": "w01-mt-final",
+      "kind": "mastery_test",
+      "lesson_id": null,
+      "title_fa": "آزمون تسلط هفتهٔ ۱",
+      "item_ids": [
+        "w01-q-001",
+        "w01-q-002",
+        "w01-q-010",
+        "w01-q-006",
+        "w01-q-013",
+        "w01-q-011",
+        "w01-q-019",
+        "w01-q-016",
+        "w01-q-021",
+        "w01-q-023",
+        "w01-q-025",
+        "w01-q-026",
+        "w01-q-030",
+        "w01-q-031",
+        "w01-q-036",
+        "w01-q-038",
+        "w01-q-040",
+        "w01-q-043",
+        "w01-q-047",
+        "w01-q-048",
+        "w01-q-051",
+        "w01-q-054",
+        "w01-q-059",
+        "w01-q-060"
+      ],
+      "item_pool_ids": [
+        "w01-q-001",
+        "w01-q-002",
+        "w01-q-003",
+        "w01-q-004",
+        "w01-q-005",
+        "w01-q-006",
+        "w01-q-007",
+        "w01-q-008",
+        "w01-q-009",
+        "w01-q-010",
+        "w01-q-011",
+        "w01-q-012",
+        "w01-q-013",
+        "w01-q-014",
+        "w01-q-015",
+        "w01-q-016",
+        "w01-q-017",
+        "w01-q-018",
+        "w01-q-019",
+        "w01-q-020",
+        "w01-q-021",
+        "w01-q-022",
+        "w01-q-023",
+        "w01-q-024",
+        "w01-q-025",
+        "w01-q-026",
+        "w01-q-027",
+        "w01-q-028",
+        "w01-q-029",
+        "w01-q-030",
+        "w01-q-031",
+        "w01-q-032",
+        "w01-q-033",
+        "w01-q-035",
+        "w01-q-036",
+        "w01-q-038",
+        "w01-q-039",
+        "w01-q-040",
+        "w01-q-041",
+        "w01-q-043",
+        "w01-q-044",
+        "w01-q-045",
+        "w01-q-046",
+        "w01-q-047",
+        "w01-q-048",
+        "w01-q-049",
+        "w01-q-051",
+        "w01-q-052",
+        "w01-q-053",
+        "w01-q-054",
+        "w01-q-055",
+        "w01-q-056",
+        "w01-q-057",
+        "w01-q-058",
+        "w01-q-059",
+        "w01-q-060",
+        "w01-q-061",
+        "w01-q-062"
+      ],
+      "draw": {
+        "strategy": "fixed_then_pool",
+        "size": 24,
+        "note_fa": "در تلاش‌های بعدی، سؤال‌ها از استخر هم‌مفهوم جایگزین شوند تا حفظ کردن پاسخ پاداش نگیرد."
+      },
+      "pass_threshold": 0.8,
+      "threshold_configurable": true,
+      "threshold_config_ref": "gamification/xp-config.json#/thresholds/mastery_test_pass",
+      "gates_progress": true,
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "retake": {
+        "cooldown_hours": 12,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "maps_to": {
+        "model": "WeekProgress",
+        "fields": {
+          "quiz_score": "correct_count",
+          "quiz_total": "item_count",
+          "quiz_completed": "score>=pass_threshold"
+        },
+        "delta_note": "Existing progress.mark_quiz_completed uses a 60% threshold and quiz_total default 5; this package proposes 80% (configurable). See docs/proposals."
+      }
+    }
+  ]
+}

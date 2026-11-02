@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "bkt": {
+    "prior": 0.10,
+    "learn": 0.15,
+    "guess": 0.25,
+    "slip": 0.10,
+    "threshold": 0.85
+  },
+  "leitner": {
+    "intervals": [1, 2, 4, 7, 14]
+  },
+  "session": {
+    "target_questions": 8,
+    "max_questions": 10,
+    "time_limit_sec": 300,
+    "weak_ratio": 0.60,
+    "review_ratio": 0.25,
+    "fresh_ratio": 0.15,
+    "max_misconception_followups": 2
+  },
+  "xp": {
+    "events": {
+      "adaptive_concept_mastered": {
+        "xp": 3,
+        "reason_template": "kb:adaptive:concept:{concept_id}:mastered"
+      },
+      "adaptive_week_mastered": {
+        "xp": 15,
+        "reason_template": "kb:adaptive:week:{week}:mastered"
+      }
+    },
+    "per_answer_xp": 0
+  }
+}

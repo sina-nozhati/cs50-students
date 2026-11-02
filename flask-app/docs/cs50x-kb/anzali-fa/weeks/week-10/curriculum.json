@@ -1,0 +1,166 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w10-curriculum",
+  "week": 10,
+  "title_fa": "هفتهٔ ۱۰ — پایان",
+  "title_en": "Week 10 — The End",
+  "panel_week_number": 10,
+  "kb_parent_node": "week-10",
+  "hub_doc_id": "w10-fa",
+  "generated_at": "2026-10-29T20:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-10",
+    "src-notes-10",
+    "src-transcript-10"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w10-o01",
+    "w10-o02",
+    "w10-o03",
+    "w10-o04",
+    "w10-o05"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه پیروی می‌کند: اول مرور (حل مسئله، دقت و انتزاع)، سپس پروژهٔ نهایی و نگاه به آینده، و در آخر جمع‌بندی و مسابقهٔ مرور سخنرانی. هفتهٔ ۱۰ پرابلم‌ست، جلسهٔ حل تمرین یا ویدئوی کوتاه ندارد (D77).",
+  "stages": [
+    {
+      "id": "w10-s1",
+      "lesson_ids": [
+        "w10-l01"
+      ]
+    },
+    {
+      "id": "w10-s2",
+      "lesson_ids": [
+        "w10-l02"
+      ]
+    },
+    {
+      "id": "w10-s3",
+      "lesson_ids": [
+        "w10-l03"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w10-l01",
+      "order": 1,
+      "file": "lessons/w10-l01.json",
+      "title_fa": "مرور: حل مسئله، دقت و انتزاع",
+      "stage_id": "w10-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w10-l01-u01",
+        "w10-l01-u02",
+        "w10-l01-u03"
+      ],
+      "note_ids": [
+        "w10-n01"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w10-l02",
+      "order": 2,
+      "file": "lessons/w10-l02.json",
+      "title_fa": "پروژهٔ نهایی و نگاه به آینده",
+      "stage_id": "w10-s2",
+      "prerequisite_lesson_ids": [
+        "w10-l01"
+      ],
+      "unit_ids": [
+        "w10-l02-u01",
+        "w10-l02-u02",
+        "w10-l02-u03"
+      ],
+      "note_ids": [
+        "w10-n02",
+        "w10-n03"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w10-l03",
+      "order": 3,
+      "file": "lessons/w10-l03.json",
+      "title_fa": "جمع‌بندی و مسابقهٔ مرور",
+      "stage_id": "w10-s3",
+      "prerequisite_lesson_ids": [
+        "w10-l02"
+      ],
+      "unit_ids": [
+        "w10-l03-u01"
+      ],
+      "note_ids": [
+        "w10-n04"
+      ],
+      "related_doc_ids": []
+    }
+  ],
+  "notes": [
+    {
+      "id": "w10-n01",
+      "file": "notes/01-recap.fa.md",
+      "official_anchor": "recap"
+    },
+    {
+      "id": "w10-n02",
+      "file": "notes/02-final-project.fa.md",
+      "official_anchor": "final-project"
+    },
+    {
+      "id": "w10-n03",
+      "file": "notes/03-looking-ahead.fa.md",
+      "official_anchor": "looking-ahead"
+    },
+    {
+      "id": "w10-n04",
+      "file": "notes/04-thank-you.fa.md",
+      "official_anchor": "thank-you"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "shorts": [],
+    "problem_guides": []
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w10-mt-final",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [],
+  "final_project": {
+    "source_ref": "src-project-10",
+    "url": "https://cs50.harvard.edu/x/2026/project/",
+    "status": "deferred",
+    "note_fa": "راهنمای فارسی پروژهٔ نهایی در بستهٔ بعدی می‌آید؛ تا آن زمان فقط صفحهٔ رسمی معتبر است (D77)."
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). هفتهٔ ۱۰ مسئلهٔ تحویلی ندارد؛ پروژهٔ نهایی جداگانه است."
+  }
+}

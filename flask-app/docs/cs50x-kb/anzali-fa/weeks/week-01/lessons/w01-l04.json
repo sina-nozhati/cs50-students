@@ -1,0 +1,213 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w01-l04",
+  "type": "lesson",
+  "week": 1,
+  "order": 4,
+  "stage_id": "w01-s2",
+  "title_fa": "لینوکس و خط فرمان",
+  "title_en": "Linux and the command line",
+  "note_ids": [
+    "w01-n08"
+  ],
+  "related_doc_ids": [
+    "w01-sh-command-line"
+  ],
+  "prerequisite_lesson_ids": [
+    "w01-l01"
+  ],
+  "concept_ids": [
+    "w01-c-linux-commands",
+    "w01-c-paths-navigation"
+  ],
+  "objective_ids": [
+    "w01-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts; examples marked official are verbatim from notes/1.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w01-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w01-l04-u01",
+      "order": 1,
+      "title_fa": "فرمان‌های پایه",
+      "concept_ids": [
+        "w01-c-linux-commands"
+      ],
+      "objective_ids": [
+        "w01-o02"
+      ],
+      "note_id": "w01-n08",
+      "source_refs": [
+        "src-notes-1#linux",
+        "src-anzali-authored-1",
+        "src-short-command-line"
+      ],
+      "reading": {
+        "text_fa": "لینوکس (Linux) سیستم‌عاملی است که cs50.dev روی آن کار می‌کند. فرمان‌های پایه: `ls` (فهرست فایل‌ها)، `cd` (رفتن به پوشه)، `mkdir` (ساخت پوشه)، `cp` (کپی)، `mv` (جابه‌جایی یا تغییر نام)، `rm` (حذف) و `rmdir` (حذف پوشهٔ خالی).",
+        "note_id": "w01-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n08"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "bash",
+        "content": "mkdir pset1\ncd pset1\nls",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "توالی تألیفی؛ فرمان‌ها از درس‌نامه‌اند."
+      },
+      "check": {
+        "id": "w01-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "می‌خواهی hello.c را به greet.c تغییر نام بدهی. کدام فرمان؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "mv hello.c greet.c",
+            "correct": true,
+            "feedback_fa": "درست. mv هم جابه‌جا می‌کند و هم تغییر نام می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "cp hello.c greet.c",
+            "correct": false,
+            "feedback_fa": "cp یک کپی می‌سازد و فایل اصلی باقی می‌ماند."
+          },
+          {
+            "id": "c",
+            "text_fa": "rm hello.c greet.c",
+            "correct": false,
+            "feedback_fa": "rm حذف می‌کند! مراقب باش."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l04-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر کار را به فرمانش وصل کن: (۱) دیدن فایل‌ها (۲) ساخت پوشهٔ mario (۳) رفتن به پوشهٔ mario (۴) حذف فایل",
+        "expected": {
+          "answers": {
+            "1": "ls",
+            "2": "mkdir mario",
+            "3": "cd mario",
+            "4": "rm"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. این‌ها را در پرابلم‌ست زیاد استفاده می‌کنی.",
+          "incorrect_fa": "فهرست فرمان‌های پایه را در یادداشت لینوکس مرور کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w01-l04-u02",
+      "order": 2,
+      "title_fa": "مسیرها: . و .. و ~",
+      "concept_ids": [
+        "w01-c-paths-navigation"
+      ],
+      "objective_ids": [
+        "w01-o02"
+      ],
+      "note_id": "w01-n08",
+      "source_refs": [
+        "src-notes-1#linux",
+        "src-anzali-authored-1",
+        "src-short-command-line"
+      ],
+      "reading": {
+        "text_fa": "ویدئوی کوتاه Command Line توضیح می‌دهد `.` یعنی پوشهٔ جاری، `..` یعنی پوشهٔ والد و `cd` بدون آرگومان تو را به پوشهٔ خانه (`~`) می‌برد. `pwd` مسیر پوشهٔ فعلی را نشان می‌دهد. وقتی `./hello` می‌زنی یعنی «برنامهٔ hello در همین پوشه».",
+        "note_id": "w01-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w01-n08"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "bash",
+        "content": "pwd\ncd ..\ncd",
+        "source_ref": "src-anzali-authored-1",
+        "explain_fa": "توالی تألیفی بر پایهٔ ویدئوی کوتاه Command Line."
+      },
+      "check": {
+        "id": "w01-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `./hello` نقطه به چه اشاره دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پوشهٔ جاری",
+            "correct": true,
+            "feedback_fa": "درست. یعنی hello را از همین پوشه اجرا کن."
+          },
+          {
+            "id": "b",
+            "text_fa": "پوشهٔ والد",
+            "correct": false,
+            "feedback_fa": "پوشهٔ والد با .. نشان داده می‌شود."
+          },
+          {
+            "id": "c",
+            "text_fa": "پوشهٔ خانه",
+            "correct": false,
+            "feedback_fa": "پوشهٔ خانه ~ است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w01-l04-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "اگر در پوشهٔ /workspaces/123/mario باشی و `cd ..` بزنی، بعد `pwd` چه چاپ می‌کند؟",
+        "expected": {
+          "output": "/workspaces/123"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست. .. یک سطح بالا می‌رود.",
+          "incorrect_fa": ".. پوشهٔ والد است: آخرین بخش مسیر حذف می‌شود."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

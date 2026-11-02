@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/xp-config.schema.json",
+  "title": "XP config",
+  "type": "object",
+  "required": [
+    "existing_events",
+    "proposed_events",
+    "srs",
+    "streak",
+    "thresholds",
+    "disclaimer"
+  ],
+  "properties": {
+    "existing_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "amount",
+          "reason_template"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z_]+$"
+          },
+          "reason_template": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    },
+    "proposed_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "amount",
+          "reason_template",
+          "example"
+        ],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z_]+$"
+          },
+          "reason_template": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "amount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "example": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

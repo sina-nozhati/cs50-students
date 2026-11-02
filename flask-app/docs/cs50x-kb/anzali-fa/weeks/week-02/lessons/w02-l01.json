@@ -1,0 +1,316 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w02-l01",
+  "type": "lesson",
+  "week": 2,
+  "order": 1,
+  "stage_id": "w02-s1",
+  "title_fa": "باگ‌ها: خطای کامپایل و printf",
+  "title_en": "Bugs: compile errors and printf",
+  "note_ids": [
+    "w02-n01",
+    "w02-n02",
+    "w02-n03",
+    "w02-n04"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w02-c-bottom-up",
+    "w02-c-reading-level",
+    "w02-c-bug",
+    "w02-c-compile-error",
+    "w02-c-logical-error",
+    "w02-c-printf-debugging"
+  ],
+  "objective_ids": [
+    "w02-o12",
+    "w02-o02",
+    "w02-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w01-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۱ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "units": [
+    {
+      "id": "w02-l01-u01",
+      "order": 1,
+      "title_fa": "زیر کاپوت و سطح خوانایی",
+      "concept_ids": [
+        "w02-c-bottom-up",
+        "w02-c-reading-level"
+      ],
+      "objective_ids": [
+        "w02-o12"
+      ],
+      "note_id": "w02-n02",
+      "source_refs": [
+        "src-notes-2#reading-levels",
+        "src-anzali-authored-2",
+        "src-notes-2#welcome",
+        "src-transcript-2"
+      ],
+      "reading": {
+        "text_fa": "این هفته برنامه‌نویسی را از پایین به بالا می‌بینیم و درس دربارهٔ حل مسئله است. یکی از مسئله‌های واقعی هفته سنجیدن سطح خوانایی متن است: می‌خواهیم «سختی» متن را به عدد تبدیل کنیم. برای این کار باید درون رشته‌ها را حرف‌به‌حرف ببینیم.",
+        "note_id": "w02-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n02"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "Lea    -> Before Grade 1\nMaria  -> Grade 3\nOmar   -> Grade 10",
+        "source_ref": "src-anzali-authored-2",
+        "explain_fa": "خلاصهٔ تألیفی از سه متن داوطلبان سخنرانی."
+      },
+      "check": {
+        "id": "w02-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "طبق درس‌نامه، هدف این هفته دربارهٔ سطح خوانایی چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "کمّی کردن سطح خوانایی، یعنی تبدیل آن به عدد",
+            "correct": true,
+            "feedback_fa": "درست. Readability همین را از تو می‌خواهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "ترجمهٔ متن به زبان دیگر",
+            "correct": false,
+            "feedback_fa": "صحبتی از ترجمه نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "رمز کردن متن",
+            "correct": false,
+            "feedback_fa": "رمزنگاری مسئلهٔ دیگر هفته است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l01-u01-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: طبق درس‌نامه، این درس جدا از اصول برنامه‌نویسی، دربارهٔ حل مسئله هم هست.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بخش Welcome را دوباره ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l01-u02",
+      "order": 2,
+      "title_fa": "سه خطای کامپایل رایج",
+      "concept_ids": [
+        "w02-c-bug",
+        "w02-c-compile-error"
+      ],
+      "objective_ids": [
+        "w02-o02"
+      ],
+      "note_id": "w02-n03",
+      "source_refs": [
+        "src-notes-2#debugging",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "باگ یعنی اشتباه در کد و اشکال‌زدایی یعنی یافتن و برداشتن آن. درس‌نامه سه خطای کامپایل نشان می‌دهد: `#include <stdio.h>` جاافتاده، غلط املایی `studio.h`، و برنامه‌ای که نوع متغیر، `cs50.h` و نقطه‌ویرگول ندارد و از `name` در `printf` استفاده نمی‌کند.",
+        "note_id": "w02-n03",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n03"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "buggy-no-type",
+        "lang": "c",
+        "content": "// Missing cs50.h, variable's type, semicolon, %s, and second printf argument.\n\n#include <stdio.h>\n\nint main(void)\n{\n    name = get_string(\"What's your name? \")\n    printf(\"hello, world\\n\");\n}",
+        "source_ref": "src-notes-2#debugging",
+        "explain_fa": "کد رسمی با چند خطا."
+      },
+      "check": {
+        "id": "w02-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا `#include <studio.h>` کامپایل نمی‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون کامپایلر فایلی به نام studio.h پیدا نمی‌کند؛ نام درست stdio.h است",
+            "correct": true,
+            "feedback_fa": "درست. stdio یعنی standard input/output."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون باید بعد از main بیاید",
+            "correct": false,
+            "feedback_fa": "`#include` بالای فایل می‌آید."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون printf به کتابخانه نیاز ندارد",
+            "correct": false,
+            "feedback_fa": "printf در stdio.h تعریف شده است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l01-u02-ex",
+        "type": "find_the_bug",
+        "origin": "authored",
+        "prompt_fa": "این قطعهٔ تألیفی کامپایل نمی‌شود. خط مشکل‌دار را پیدا کن.\n\n#include <stdio.h>\n\nint main(void)\n{\n    int n = 3\n    printf(\"%i\\n\", n);\n}",
+        "expected": {
+          "bug_line": 5,
+          "fix": "int n = 3;"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: نقطه‌ویرگول پایان خط ۵ جا افتاده است.",
+          "incorrect_fa": "به پایان هر دستور نگاه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w02-l01-u03",
+      "order": 3,
+      "title_fa": "اشکال‌زدایی با printf",
+      "concept_ids": [
+        "w02-c-logical-error",
+        "w02-c-printf-debugging"
+      ],
+      "objective_ids": [
+        "w02-o03"
+      ],
+      "note_id": "w02-n04",
+      "source_refs": [
+        "src-notes-2#debugging",
+        "src-anzali-authored-2"
+      ],
+      "reading": {
+        "text_fa": "خطای منطقی پیام خطا نمی‌دهد؛ فقط رفتار برنامه غلط است. برنامهٔ رسمی `buggy.c` باید سه آجر چاپ کند، اما چهار تا چاپ می‌کند. با چاپ `i is %i` در هر دور می‌بینیم `i` از ۰ تا ۳ می‌رود. اصلاح: `<=` را به `<` تغییر بده.",
+        "note_id": "w02-n04",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w02-n04"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "buggy-i-is",
+        "lang": "c",
+        "content": "// Buggy example for printf\n\n#include <stdio.h>\n\nint main(void)\n{\n    for (int i = 0; i <= 3; i++)\n    {\n        printf(\"i is %i\\n\", i);\n        printf(\"#\\n\");\n    }\n}",
+        "source_ref": "src-notes-2#debugging",
+        "explain_fa": "چاپ مقدار i برای اشکال‌زدایی."
+      },
+      "check": {
+        "id": "w02-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "خروجی `i is` در برنامهٔ بالا چه چیزی را آشکار کرد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "حلقه چهار دور اجرا می‌شود چون i مقدار ۳ را هم می‌گیرد",
+            "correct": true,
+            "feedback_fa": "درست. شرط `<=` یک دور اضافه می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "printf خراب است",
+            "correct": false,
+            "feedback_fa": "printf درست کار می‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "کامپایلر خطا داده است",
+            "correct": false,
+            "feedback_fa": "این خطای منطقی است؛ کامپایلر چیزی نمی‌گوید."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w02-l01-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "شرط حلقه را طوری کامل کن که این قطعهٔ تألیفی دقیقاً ۵ ستاره چاپ کند.",
+        "lang": "c",
+        "code_origin": "authored",
+        "template": "for (int i = 0; i [[b1]] 5; i++)\n{\n    printf(\"*\");\n}\nprintf(\"\\n\");",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "<"
+            ],
+            "hint_fa": "از ۰ شروع می‌کنیم.",
+            "wrong_feedback": {
+              "<=": "با <= شش ستاره چاپ می‌شود: ۰ تا ۵.",
+              "!=": "!= هم درست کار می‌کند، اما الگوی درس‌نامه < است."
+            },
+            "default_wrong_fa": "عملگر مقایسه را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "<"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: i از ۰ تا ۴، یعنی پنج دور.",
+          "incorrect_fa": "وقتی از ۰ می‌شماری، برای n دور از < n استفاده کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

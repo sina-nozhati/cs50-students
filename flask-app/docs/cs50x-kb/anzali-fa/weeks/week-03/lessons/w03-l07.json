@@ -1,0 +1,221 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w03-l07",
+  "type": "lesson",
+  "week": 3,
+  "order": 7,
+  "stage_id": "w03-s4",
+  "title_fa": "مرتب‌سازی ادغامی",
+  "title_en": "Merge sort",
+  "note_ids": [
+    "w03-n14"
+  ],
+  "related_doc_ids": [
+    "w03-sh-merge-sort"
+  ],
+  "prerequisite_lesson_ids": [
+    "w03-l05",
+    "w03-l06"
+  ],
+  "concept_ids": [
+    "w03-c-merge-sort",
+    "w03-c-merging",
+    "w03-c-n-log-n",
+    "w03-c-memory-tradeoff"
+  ],
+  "objective_ids": [
+    "w03-o09",
+    "w03-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/2.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w03-l05",
+      "w03-l06"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "units": [
+    {
+      "id": "w03-l07-u01",
+      "order": 1,
+      "title_fa": "نصف کن، مرتب کن، ادغام کن",
+      "concept_ids": [
+        "w03-c-merge-sort",
+        "w03-c-merging"
+      ],
+      "objective_ids": [
+        "w03-o09"
+      ],
+      "note_id": "w03-n14",
+      "source_refs": [
+        "src-notes-3#merge-sort",
+        "src-short-merge-sort",
+        "src-anzali-authored-3"
+      ],
+      "reading": {
+        "text_fa": "مرتب‌سازی ادغامی می‌پرسد: آیا فقط یک عدد هست؟ اگر بله، تمام. وگرنه نیمهٔ چپ را مرتب می‌کند، نیمهٔ راست را مرتب می‌کند و بعد دو نیمهٔ مرتب را ادغام می‌کند. در ادغام، همیشه اولین عدد دو نیمه را مقایسه می‌کنیم و کوچک‌تر را برمی‌داریم.",
+        "note_id": "w03-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n14"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "merge-pseudo",
+        "lang": "text",
+        "content": "If only one number\n    Quit\nElse\n    Sort left half of numbers\n    Sort right half of numbers\n    Merge sorted halves",
+        "source_ref": "src-notes-3#merge-sort",
+        "explain_fa": "شبه‌کد رسمی."
+      },
+      "check": {
+        "id": "w03-l07-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "حالت پایهٔ مرتب‌سازی ادغامی کدام است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فقط یک عدد مانده باشد",
+            "correct": true,
+            "feedback_fa": "درست. «If only one number / Quit»."
+          },
+          {
+            "id": "b",
+            "text_fa": "آرایه از قبل مرتب باشد",
+            "correct": false,
+            "feedback_fa": "ادغامی این را بررسی نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "دو نیمه برابر باشند",
+            "correct": false,
+            "feedback_fa": "چنین شرطی در شبه‌کد نیست."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l07-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "دو نیمهٔ مرتب `3 6` و `1 4` را ادغام کن. نتیجه چیست؟",
+        "expected": {
+          "output": "1 3 4 6"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست؛ همان نتیجهٔ درس‌نامه.",
+          "incorrect_fa": "هر بار اولین عدد دو نیمه را مقایسه کن."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w03-l07-u02",
+      "order": 2,
+      "title_fa": "چرا n log n",
+      "concept_ids": [
+        "w03-c-n-log-n",
+        "w03-c-memory-tradeoff"
+      ],
+      "objective_ids": [
+        "w03-o09",
+        "w03-o10"
+      ],
+      "note_id": "w03-n14",
+      "source_refs": [
+        "src-notes-3#merge-sort",
+        "src-anzali-authored-3",
+        "src-short-merge-sort",
+        "src-section-3"
+      ],
+      "reading": {
+        "text_fa": "فهرست n عضوی را log n بار نصف می‌کنیم تا به تک‌عضوی‌ها برسیم و در هر سطح حدود n کار ادغام داریم؛ پس O(n log n). چون ادغامی همیشه همهٔ این کار را می‌کند، بهترین حالتش هم Ω(n log n) است و در نتیجه Θ(n log n). ویدئوی کوتاه یادآوری می‌کند که ادغامی احتمالاً حافظهٔ بیشتری لازم دارد.",
+        "note_id": "w03-n14",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w03-n14"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "text",
+        "content": "8 -> 4 4 -> 2 2 2 2 -> 1 1 1 1 1 1 1 1\nسه سطح نصف کردن = log2(8)",
+        "source_ref": "src-anzali-authored-3",
+        "explain_fa": "شمارش تألیفی سطح‌ها برای ۸ عضو."
+      },
+      "check": {
+        "id": "w03-l07-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "برای آرایهٔ ۸ عضوی، چند بار باید نصف کنیم تا به فهرست‌های تک‌عضوی برسیم؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "3",
+            "correct": true,
+            "feedback_fa": "درست: log2(8) = 3."
+          },
+          {
+            "id": "b",
+            "text_fa": "8",
+            "correct": false,
+            "feedback_fa": "این تعداد عضوهاست."
+          },
+          {
+            "id": "c",
+            "text_fa": "4",
+            "correct": false,
+            "feedback_fa": "8 → 4 → 2 → 1 سه گام است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w03-l07-u02-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "Θ هر الگوریتم را بنویس، اگر دارد: (۱) مرتب‌سازی انتخابی (۲) مرتب‌سازی ادغامی (۳) مرتب‌سازی حبابی",
+        "expected": {
+          "answers": {
+            "1": "Θ(n²)",
+            "2": "Θ(n log n)",
+            "3": "ندارد"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: حبابی O(n²) و Ω(n) است، پس Θ ندارد.",
+          "incorrect_fa": "O و Ω هر کدام را کنار هم بگذار."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

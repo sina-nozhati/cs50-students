@@ -1,0 +1,269 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w02-ps-substitution",
+  "kind": "pset",
+  "week": 2,
+  "title_en": "Substitution",
+  "title_fa": "رمز جانشینی (Substitution)",
+  "guide_doc_id": "w02-ps-substitution",
+  "guide_file": "substitution.fa.md",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/psets/2/substitution/",
+    "index_url": "https://cs50.harvard.edu/x/psets/2/",
+    "submission": "one-of-caesar-substitution",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w02-ps-substitution-r1",
+        "text_fa": "فایل `substitution.c` در پوشهٔ `substitution`",
+        "text_en": "Implement your program in a file called `substitution.c` in a directory called `substitution`.",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r2",
+        "text_fa": "دقیقاً یک آرگومان (کلید) بپذیرد؛ کلید به بزرگی و کوچکی حساس نیست.",
+        "text_en": "Your program must accept a single command-line argument, the key to use for the substitution. The key itself should be case-insensitive, so whether any character in the key is uppercase or lowercase should not affect the behavior of your program.",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r3",
+        "text_fa": "بدون آرگومان یا با بیش از یکی، پیام خطا و return 1.",
+        "text_en": "If your program is executed without any command-line arguments or with more than one command-line argument, your program should print an error message of your choice (with `printf`) and return from `main` a value of `1` (which tends to signify an error) immediately.",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r4",
+        "text_fa": "کلید نامعتبر (نه ۲۶ نویسه، نویسهٔ غیرحرفی، یا حرف تکراری) پیام خطا و return 1.",
+        "text_en": "If the key is invalid (as by not containing 26 characters, containing any character that is not an alphabetic character, or not containing each letter exactly once), your program should print an error message of your choice (with `printf`) and return from `main` a value of `1` immediately.",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r5",
+        "text_fa": "`plaintext:` چاپ کند و متن ساده را با get_string بگیرد.",
+        "text_en": "Your program must output `plaintext:` (without a newline) and then prompt the user for a `string` of plaintext (using `get_string`).",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r6",
+        "text_fa": "`ciphertext:` و متن رمز را چاپ کند؛ نویسه‌های غیرحرفی تغییر نکنند.",
+        "text_en": "non-alphabetical characters should be outputted unchanged.",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r7",
+        "text_fa": "بزرگی و کوچکی حرف حفظ شود.",
+        "text_en": "Your program must preserve case: capitalized letters must remain capitalized letters; lowercase letters must remain lowercase letters.",
+        "source_ref": "src-pset-2-substitution#specification"
+      },
+      {
+        "id": "w02-ps-substitution-r8",
+        "text_fa": "در پایان خط تازه و return 0.",
+        "text_en": "After outputting ciphertext, you should print a newline. Your program should then exit by returning `0` from `main`.",
+        "source_ref": "src-pset-2-substitution#specification"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/substitution",
+      "style50": "style50 substitution.c",
+      "submit50": "submit50 cs50/problems/2026/x/substitution",
+      "wget": null
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "debug_commands": [
+      {
+        "caption_fa": "اجرای debug50 با کلید",
+        "command": "debug50 ./substitution KEY",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "اجرای debug50 بدون کلید",
+        "command": "debug50 ./substitution",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/substitution",
+      "style50": "style50 substitution.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "cXAoZAsgxJ4",
+        "caption_fa": "راهنمای گام‌به‌گام (walkthrough)"
+      }
+    ],
+    "asciinema": "HWzT4fngSv4KtdNFgfgpdLxZY",
+    "media_ids": [],
+    "discrepancy_ids": []
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w02-c-argc-argv",
+      "w02-c-exit-status",
+      "w02-c-early-return",
+      "w02-c-cryptography",
+      "w02-c-cipher-key",
+      "w02-c-string-length",
+      "w02-c-array-index",
+      "w02-c-ascii-case",
+      "w02-c-ctype"
+    ],
+    "prerequisite_lesson_ids": [
+      "w02-l08",
+      "w02-l09"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w02-c-argc-argv",
+        "note_id": "w02-n16",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u01"
+      },
+      {
+        "concept_id": "w02-c-exit-status",
+        "note_id": "w02-n17",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u03"
+      },
+      {
+        "concept_id": "w02-c-early-return",
+        "note_id": "w02-sec",
+        "lesson_id": "w02-l08",
+        "unit_id": "w02-l08-u04"
+      },
+      {
+        "concept_id": "w02-c-cryptography",
+        "note_id": "w02-n18",
+        "lesson_id": "w02-l09",
+        "unit_id": "w02-l09-u01"
+      },
+      {
+        "concept_id": "w02-c-cipher-key",
+        "note_id": "w02-n18",
+        "lesson_id": "w02-l09",
+        "unit_id": "w02-l09-u01"
+      },
+      {
+        "concept_id": "w02-c-string-length",
+        "note_id": "w02-n14",
+        "lesson_id": "w02-l07",
+        "unit_id": "w02-l07-u01"
+      },
+      {
+        "concept_id": "w02-c-array-index",
+        "note_id": "w02-n09",
+        "lesson_id": "w02-l04",
+        "unit_id": "w02-l04-u02"
+      },
+      {
+        "concept_id": "w02-c-ascii-case",
+        "note_id": "w02-n15",
+        "lesson_id": "w02-l07",
+        "unit_id": "w02-l07-u03"
+      },
+      {
+        "concept_id": "w02-c-ctype",
+        "note_id": "w02-n15",
+        "lesson_id": "w02-l07",
+        "unit_id": "w02-l07-u04"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "سه شرط کلید نامعتبر را جدا جدا بنویس و هر کدام را جدا امتحان کن."
+      },
+      {
+        "n": 2,
+        "hint_fa": "برای «هر حرف دقیقاً یک بار»، فکر کن چطور می‌توانی دیده‌شدن هر حرف را ثبت کنی."
+      },
+      {
+        "n": 3,
+        "hint_fa": "کلید یک رشتهٔ ۲۶تایی است و رشته آرایه است. جایگاه هر حرف متن ساده در الفبا، کدام خانهٔ کلید را نشان می‌دهد؟"
+      },
+      {
+        "n": 4,
+        "hint_fa": "کلید به بزرگی و کوچکی حساس نیست، اما خروجی باید بزرگی و کوچکی متن ساده را حفظ کند. ctype.h را ببین."
+      }
+    ],
+    "common_mistakes_fa": [
+      "نپذیرفتن کلید با حروف کوچک",
+      "پذیرفتن کلید با حرف تکراری",
+      "از دست رفتن بزرگی و کوچکی حرف",
+      "رمز کردن علامت‌ها"
+    ],
+    "self_checklist": [
+      {
+        "id": "w02-ps-substitution-c01",
+        "text_fa": "فایل در پوشهٔ درست است.",
+        "maps_to": "w02-ps-substitution-r1"
+      },
+      {
+        "id": "w02-ps-substitution-c02",
+        "text_fa": "کلید با حروف کوچک هم همان نتیجه را می‌دهد.",
+        "maps_to": "w02-ps-substitution-r2"
+      },
+      {
+        "id": "w02-ps-substitution-c03",
+        "text_fa": "بدون آرگومان یا با چند آرگومان، return 1.",
+        "maps_to": "w02-ps-substitution-r3"
+      },
+      {
+        "id": "w02-ps-substitution-c04",
+        "text_fa": "کلید کوتاه، کلید با رقم و کلید با حرف تکراری را رد می‌کند.",
+        "maps_to": "w02-ps-substitution-r4"
+      },
+      {
+        "id": "w02-ps-substitution-c05",
+        "text_fa": "علامت‌ها تغییر نمی‌کنند.",
+        "maps_to": "w02-ps-substitution-r6"
+      },
+      {
+        "id": "w02-ps-substitution-c06",
+        "text_fa": "بزرگی و کوچکی حرف حفظ می‌شود.",
+        "maps_to": "w02-ps-substitution-r7"
+      },
+      {
+        "id": "w02-ps-substitution-c07",
+        "text_fa": "مثال HELLO با کلید صفحهٔ رسمی FOLLE می‌دهد.",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w02-ps-substitution-c08",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w02-ps-substitution-c09",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      },
+      {
+        "id": "w02-ps-substitution-c10",
+        "text_fa": "با submit50 تحویل داده‌ام (یا Caesar را).",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "ویدئوی راهنمای گام‌به‌گام",
+      "url": "https://www.youtube.com/watch?v=cXAoZAsgxJ4",
+      "reason_fa": "ویدئوی رسمی؛ فقط پیوند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

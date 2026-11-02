@@ -1,0 +1,222 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w04-l05",
+  "type": "lesson",
+  "week": 4,
+  "order": 5,
+  "stage_id": "w04-s3",
+  "title_fa": "Valgrind و مقدارهای زباله",
+  "title_en": "Valgrind and garbage values",
+  "note_ids": [
+    "w04-n10",
+    "w04-n11"
+  ],
+  "related_doc_ids": [
+    "w04-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w04-l04"
+  ],
+  "concept_ids": [
+    "w04-c-valgrind",
+    "w04-c-sizeof",
+    "w04-c-buffer-overflow-write",
+    "w04-c-memory-leak",
+    "w04-c-garbage-values",
+    "w04-c-uninitialized-pointer"
+  ],
+  "objective_ids": [
+    "w04-o07"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/4.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w04-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w04-l05-u01",
+      "order": 1,
+      "title_fa": "یافتن خطای حافظه با Valgrind",
+      "concept_ids": [
+        "w04-c-valgrind",
+        "w04-c-sizeof",
+        "w04-c-buffer-overflow-write",
+        "w04-c-memory-leak"
+      ],
+      "objective_ids": [
+        "w04-o07"
+      ],
+      "note_id": "w04-n10",
+      "source_refs": [
+        "src-notes-4#valgrind",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "`memory.c` با `malloc(3 * sizeof(int))` جا برای سه `int` می‌گیرد؛ `sizeof(int)` اندازهٔ یک `int` به بایت است. برنامه در `x[3]` می‌نویسد که خارج از محدوده است و `x` را هم آزاد نمی‌کند. اجرای عادی هیچ خطایی نشان نمی‌دهد، اما `valgrind ./memory` هر دو را گزارش می‌دهد: نوشتن نامعتبر و ۱۲ بایت «definitely lost». نسخهٔ درست‌شده با `free(x)` گزارش تمیز دارد.",
+        "note_id": "w04-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "memory-bug",
+        "lang": "c",
+        "content": "// Demonstrates memory errors via valgrind\n\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void)\n{\n    int *x = malloc(3 * sizeof(int));\n    x[1] = 72;\n    x[2] = 73;\n    x[3] = 33;\n}",
+        "source_ref": "src-notes-4#valgrind",
+        "explain_fa": "کد رسمی memory.c با دو خطای حافظه."
+      },
+      "check": {
+        "id": "w04-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا Valgrind برای `memory.c` نشت ۱۲ بایتی گزارش می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "سه int چهار بایتی گرفته شده و هیچ‌وقت free نشده",
+            "correct": true,
+            "feedback_fa": "درست: ۳ × ۴ = ۱۲."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون x[3] دوازده بایت است",
+            "correct": false,
+            "feedback_fa": "x[3] یک int است؛ ۱۲ بایت کل بلوک است."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون printf حافظه گرفته",
+            "correct": false,
+            "feedback_fa": "این برنامه printf ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l05-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر خط `memory.c` را دسته‌بندی کن: «درست» یا «خطای حافظه»: (۱) `x[1] = 72;` (۲) `x[3] = 33;`",
+        "expected": {
+          "answers": {
+            "1": "درست",
+            "2": "خطای حافظه"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: فقط x[0] تا x[2] وجود دارد.",
+          "incorrect_fa": "آرایهٔ سه‌تایی چه اندیس‌هایی دارد؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w04-l05-u02",
+      "order": 2,
+      "title_fa": "زباله و اشاره‌گر مقداردهی‌نشده",
+      "concept_ids": [
+        "w04-c-garbage-values",
+        "w04-c-uninitialized-pointer"
+      ],
+      "objective_ids": [
+        "w04-o07"
+      ],
+      "note_id": "w04-n11",
+      "source_refs": [
+        "src-notes-4#garbage-values",
+        "src-binky",
+        "src-notes-4#pointer-fun-with-binky",
+        "src-transcript-4",
+        "src-anzali-authored-4"
+      ],
+      "reading": {
+        "text_fa": "حافظه‌ای که می‌گیری خالی تضمین نمی‌شود؛ ممکن است مقدارهای قبلی، یعنی «زباله»، در آن باشد. `garbage.c` آرایه‌ای ۱۰۲۴تایی را بی‌مقداردهی چاپ می‌کند و همه صفر نیستند. اشاره‌گر بی‌مقدار هم یک نشانی زباله دارد. در ویدئوی Binky از استنفورد، نوشتن از طریق اشاره‌گری که pointee نداشت کار را خراب کرد.",
+        "note_id": "w04-n11",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w04-n11"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "garbage",
+        "lang": "c",
+        "content": "#include <stdio.h>\n#include <stdlib.h>\n\nint main(void)\n{\n    int scores[1024];\n    for (int i = 0; i < 1024; i++)\n    {\n        printf(\"%i\\n\", scores[i]);\n    }\n}",
+        "source_ref": "src-notes-4#garbage-values",
+        "explain_fa": "کد رسمی garbage.c."
+      },
+      "check": {
+        "id": "w04-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در ویدئوی Binky چرا dereference کردن `y` خراب شد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون برای y هیچ pointee معتبری ساخته نشده بود",
+            "correct": true,
+            "feedback_fa": "درست. ساختن pointee مرحلهٔ جداگانه‌ای است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون y از نوع int بود",
+            "correct": false,
+            "feedback_fa": "y یک اشاره‌گر بود."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون عدد 13 خیلی بزرگ بود",
+            "correct": false,
+            "feedback_fa": "اندازهٔ عدد مشکل نبود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w04-l05-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: `int scores[1024];` همهٔ خانه‌ها را صفر می‌کند.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: مقداردهی نشده‌اند و ممکن است زباله داشته باشند.",
+          "incorrect_fa": "بخش Garbage Values درس‌نامه را ببین."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

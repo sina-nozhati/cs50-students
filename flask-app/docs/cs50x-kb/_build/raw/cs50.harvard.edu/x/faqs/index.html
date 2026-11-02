@@ -1,0 +1,832 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="CS50x 2026">
+
+        <link href="../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>CS50x 2026</title>
+
+
+    <meta property="og:description" content="Here are answers to the most frequently asked questions relating to this course. For answers to other questions, do just ask in any of CS50’s communities!...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../practice/"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="../seminars/">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="./">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <!-- FAQs are managed at x/faqs.md -->
+<!--
+faqs.md
+
+A dynamic FAQ that is adjusted based upon the value of various YML keys.
+
+Such keys include:
+  site.cs50.isThisACheck50Course: true / false
+  site.cs50.isThisAProgrammingCourse: true / false 
+  site.cs50.isThisASubmit50Course: true / false
+  site.cs50.shortTitle: string
+
+For site.cs50.shortTitle, possible values include:
+  "CS50 AI"
+  "CS50 Business"
+  "CS50 for Lawyers"
+  "CS50 Python"
+  "CS50 Scratch"
+  "CS50 SQL"
+  "CS50R"
+  "CS50x"
+  etc.
+
+Usage:
+  
+    Do something.
+  
+
+-->
+
+<h1 class="no_toc" id="faqs">FAQs</h1>
+
+<p>Here are answers to the <span id="questionCount"></span> most frequently asked questions relating to this course. For answers to other questions, do just ask in any of CS50’s <a href="../communities/">communities</a>!</p>
+
+<p>These FAQs are up to date. We last updated them on October 14, 2026 at 22:22 UTC.</p>
+
+<ul class="small" id="markdown-toc">
+  <li>
+<a href="#should-i-take-this-course" id="markdown-toc-should-i-take-this-course">Should I Take This Course?</a>    <ul>
+      <li><a href="#am-i-or-my-child-too-young-to-take-this-course" id="markdown-toc-am-i-or-my-child-too-young-to-take-this-course">Am I or my child too young to take this course?</a></li>
+      <li><a href="#does-this-course-have-prerequisites" id="markdown-toc-does-this-course-have-prerequisites">Does this course have prerequisites?</a></li>
+      <li><a href="#can-this-course-be-used-to-fulfill-official-academic-requirements-for-my-university-college-or-school" id="markdown-toc-can-this-course-be-used-to-fulfill-official-academic-requirements-for-my-university-college-or-school">Can this course be used to fulfill official academic requirements for my university, college, or school?</a></li>
+      <li><a href="#how-can-i-take-advantage-of-american-council-on-education-ace-credit-recommendation" id="markdown-toc-how-can-i-take-advantage-of-american-council-on-education-ace-credit-recommendation">How can I take advantage of American Council on Education (ACE) credit recommendation?</a></li>
+      <li><a href="#can-i-obtain-a-letter-confirming-my-enrollment-and-details-of-the-course" id="markdown-toc-can-i-obtain-a-letter-confirming-my-enrollment-and-details-of-the-course">Can I obtain a letter confirming my enrollment and details of the course?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#signing-up" id="markdown-toc-signing-up">Signing Up</a>    <ul>
+      <li><a href="#how-do-i-sign-up-for-the-course" id="markdown-toc-how-do-i-sign-up-for-the-course">How do I sign up for the course?</a></li>
+      <li><a href="#whats-the-difference-between-a-verified-certificate-and-a-cs50-certificate" id="markdown-toc-whats-the-difference-between-a-verified-certificate-and-a-cs50-certificate">What’s the difference between a verified certificate and a CS50 Certificate?</a></li>
+      <li><a href="#if-i-sign-up-for-a-verified-certificate-can-i-also-get-a-free-certificate" id="markdown-toc-if-i-sign-up-for-a-verified-certificate-can-i-also-get-a-free-certificate">If I sign up for a verified certificate, can I also get a free certificate?</a></li>
+      <li><a href="#is-edx-registration-required" id="markdown-toc-is-edx-registration-required">Is edX registration required?</a></li>
+      <li><a href="#edx-is-requiring-me-to-pay-to-register-for-the-course-how-do-i-get-a-free-certificate" id="markdown-toc-edx-is-requiring-me-to-pay-to-register-for-the-course-how-do-i-get-a-free-certificate">edX is requiring me to pay to register for the course: How do I get a free certificate?</a></li>
+      <li><a href="#if-i-want-an-edx-verified-certificate-in-the-future-do-i-have-to-pay-for-verification-before-starting-the-course" id="markdown-toc-if-i-want-an-edx-verified-certificate-in-the-future-do-i-have-to-pay-for-verification-before-starting-the-course">If I want an edX verified certificate in the future, do I have to pay for verification before starting the course?</a></li>
+      <li><a href="#if-i-paid-for-a-verified-certificate-after-i-completed-the-course-do-i-need-to-tell-you" id="markdown-toc-if-i-paid-for-a-verified-certificate-after-i-completed-the-course-do-i-need-to-tell-you">If I paid for a verified certificate after I completed the course, do I need to tell you?</a></li>
+      <li><a href="#can-i-get-a-verified-certificate-for-a-cs50-course-i-completed-prior-to-this-year" id="markdown-toc-can-i-get-a-verified-certificate-for-a-cs50-course-i-completed-prior-to-this-year">Can I get a verified certificate for a CS50 course I completed prior to this year?</a></li>
+      <li><a href="#if-i-paid-for-a-verified-certificate-before-this-calendar-year-do-i-need-to-pay-again" id="markdown-toc-if-i-paid-for-a-verified-certificate-before-this-calendar-year-do-i-need-to-pay-again">If I paid for a verified certificate before this calendar year, do I need to pay again?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#tracking-your-progress" id="markdown-toc-tracking-your-progress">Tracking Your Progress</a>    <ul>
+      <li><a href="#how-do-i-know-if-i-have-completed-all-requirements-for-a-certificate" id="markdown-toc-how-do-i-know-if-i-have-completed-all-requirements-for-a-certificate">How do I know if I have completed all requirements for a certificate?</a></li>
+      <li><a href="#what--where-is-the-gradebook-for-this-course" id="markdown-toc-what--where-is-the-gradebook-for-this-course">What / where is the Gradebook for this course?</a></li>
+      <li><a href="#why-does-the-gradebook-say-that-i-am-not-enrolled" id="markdown-toc-why-does-the-gradebook-say-that-i-am-not-enrolled">Why does the Gradebook say that I am not enrolled?</a></li>
+      <li><a href="#does-this-course-have-grades" id="markdown-toc-does-this-course-have-grades">Does this course have grades?</a></li>
+      <li><a href="#does-my-gradebook-only-show-if-i-scored-high-enough-to-pass-a-problem--how-can-i-see-my-actual-numeric-grades" id="markdown-toc-does-my-gradebook-only-show-if-i-scored-high-enough-to-pass-a-problem--how-can-i-see-my-actual-numeric-grades">Does my Gradebook only show if I scored high enough to pass a problem?  How can I see my actual numeric grades?</a></li>
+      <li><a href="#i-completed-an-assignment-or-this-course-in-a-prior-year-why-does-my-gradebook-no-longer-show-my-prior-progress" id="markdown-toc-i-completed-an-assignment-or-this-course-in-a-prior-year-why-does-my-gradebook-no-longer-show-my-prior-progress">I completed an assignment or this course in a prior year. Why does my Gradebook no longer show my prior progress?</a></li>
+      <li><a href="#why-does-edx-think-my-grade-is-0" id="markdown-toc-why-does-edx-think-my-grade-is-0">Why does edX think my grade is 0%?</a></li>
+      <li><a href="#i-watched-all-the-videos-in-edx-or-on-youtube-why-dont-i-have-a-certificate" id="markdown-toc-i-watched-all-the-videos-in-edx-or-on-youtube-why-dont-i-have-a-certificate">I watched all the videos in edX or on YouTube: Why don’t I have a certificate?</a></li>
+      <li><a href="#why-does-my-edx-dashboard-say-i-can-resume-the-course-even-though-i-have-completed-it" id="markdown-toc-why-does-my-edx-dashboard-say-i-can-resume-the-course-even-though-i-have-completed-it">Why does my edX dashboard say I can “resume” the course even though I have completed it?</a></li>
+      <li><a href="#github-has-disabled-my-account-what-do-i-do" id="markdown-toc-github-has-disabled-my-account-what-do-i-do">GitHub has disabled my account. What do I do?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#problem-sets-assignments-and-assessments" id="markdown-toc-problem-sets-assignments-and-assessments">Problem Sets, Assignments, and Assessments</a>    <ul>
+      <li><a href="#does-this-course-have-a-test" id="markdown-toc-does-this-course-have-a-test">Does this course have a test?</a></li>
+      <li><a href="#whats-the-difference-between-less-comfortable-and-more-comfortable-problems-do-i-have-to-do-both" id="markdown-toc-whats-the-difference-between-less-comfortable-and-more-comfortable-problems-do-i-have-to-do-both">What’s the difference between “less comfortable” and “more comfortable” problems? Do I have to do both?</a></li>
+      <li><a href="#did-you-get-my-submission" id="markdown-toc-did-you-get-my-submission">Did you get my submission?</a></li>
+      <li><a href="#i-submitted-a-project-but-nothing-is-showing-up-in-my-gradebook-yet-showing-that-ive-submitted-why" id="markdown-toc-i-submitted-a-project-but-nothing-is-showing-up-in-my-gradebook-yet-showing-that-ive-submitted-why">I submitted a project, but nothing is showing up in my Gradebook yet showing that I’ve submitted. Why?</a></li>
+      <li><a href="#if-i-submitted-a-problem-and-did-not-reach-the-70-passing-grade-can-i-resubmit" id="markdown-toc-if-i-submitted-a-problem-and-did-not-reach-the-70-passing-grade-can-i-resubmit">If I submitted a problem and did not reach the 70% passing grade, can I resubmit?</a></li>
+      <li><a href="#if-my-check50-score-is-not-as-expected-why-might-that-be" id="markdown-toc-if-my-check50-score-is-not-as-expected-why-might-that-be">If my check50 score is not as expected, why might that be?</a></li>
+      <li><a href="#if-my-style-score-is-not-as-expected-why-might-that-be" id="markdown-toc-if-my-style-score-is-not-as-expected-why-might-that-be">If my style score is not as expected, why might that be?</a></li>
+      <li><a href="#why-did-i-not-pass-my-final-project" id="markdown-toc-why-did-i-not-pass-my-final-project">Why did I not pass my final project?</a></li>
+      <li><a href="#if-i-did-70-of-the-problems-do-i-get-a-certificate" id="markdown-toc-if-i-did-70-of-the-problems-do-i-get-a-certificate">If I did 70% of the problems, do I get a certificate?</a></li>
+      <li><a href="#am-i-cheating" id="markdown-toc-am-i-cheating">Am I cheating?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#deadlines" id="markdown-toc-deadlines">Deadlines</a>    <ul>
+      <li><a href="#when-are-the-deadlines" id="markdown-toc-when-are-the-deadlines">When are the deadlines?</a></li>
+      <li><a href="#if-i-dont-finish-the-course-before-end-of-day-30-june-2027-what-will-happen" id="markdown-toc-if-i-dont-finish-the-course-before-end-of-day-30-june-2027-what-will-happen">If I don’t finish the course before end-of-day 30 June 2027, what will happen?</a></li>
+      <li><a href="#will-my-work-carry-forward-if-the-course-is-extended" id="markdown-toc-will-my-work-carry-forward-if-the-course-is-extended">Will my work carry forward if the course is extended?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#obtaining-your-certificate" id="markdown-toc-obtaining-your-certificate">Obtaining Your Certificate</a>    <ul>
+      <li><a href="#how-do-i-get-my-free-cs50-certificate" id="markdown-toc-how-do-i-get-my-free-cs50-certificate">How do I get my free CS50 Certificate?</a></li>
+      <li><a href="#how-do-i-get-my-verified-certificate-from-edx" id="markdown-toc-how-do-i-get-my-verified-certificate-from-edx">How do I get my verified certificate from edX?</a></li>
+      <li><a href="#can-you-rush-the-issuance-of-my-verified-certificate-from-edx" id="markdown-toc-can-you-rush-the-issuance-of-my-verified-certificate-from-edx">Can you rush the issuance of my verified certificate from edX?</a></li>
+      <li><a href="#why-did-i-not-get-my-verified-certificate-after-30-days" id="markdown-toc-why-did-i-not-get-my-verified-certificate-after-30-days">Why did I not get my verified certificate after 30 days?</a></li>
+      <li><a href="#what-name-will-appear-on-my-certificate" id="markdown-toc-what-name-will-appear-on-my-certificate">What name will appear on my certificate?</a></li>
+      <li><a href="#can-i-change-the-name-on-my-certificate" id="markdown-toc-can-i-change-the-name-on-my-certificate">Can I change the name on my certificate?</a></li>
+      <li><a href="#do-you-offer-a-printed-certificate" id="markdown-toc-do-you-offer-a-printed-certificate">Do you offer a printed certificate?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#using-your-certificate" id="markdown-toc-using-your-certificate">Using Your Certificate</a>    <ul>
+      <li><a href="#how-should-i-describe-my-verified-certificate-on-my-resume-or-elsewhere" id="markdown-toc-how-should-i-describe-my-verified-certificate-on-my-resume-or-elsewhere">How should I describe my verified certificate on my resume or elsewhere?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#software-and-hardware" id="markdown-toc-software-and-hardware">Software and Hardware</a>    <ul>
+      <li><a href="#my-codespace-is-behaving-strangely-what-should-i-do" id="markdown-toc-my-codespace-is-behaving-strangely-what-should-i-do">My codespace is behaving strangely. What should I do?</a></li>
+      <li><a href="#why-does-it-seem-like-content-or-third-party-services-related-to-this-course-are-blocked" id="markdown-toc-why-does-it-seem-like-content-or-third-party-services-related-to-this-course-are-blocked">Why does it seem like content or third-party services related to this course are blocked?</a></li>
+      <li><a href="#can-you-help-me-circumvent-content-blocking-that-is-preventing-me-from-accessing-your-course-and-its-associated-third-party-services" id="markdown-toc-can-you-help-me-circumvent-content-blocking-that-is-preventing-me-from-accessing-your-course-and-its-associated-third-party-services">Can you help me circumvent content blocking that is preventing me from accessing your course and its associated third-party services?</a></li>
+      <li><a href="#can-i-change-my-github-or-edx-username-while-taking-the-course" id="markdown-toc-can-i-change-my-github-or-edx-username-while-taking-the-course">Can I change my GitHub or edX username while taking the course?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#support" id="markdown-toc-support">Support</a>    <ul>
+      <li><a href="#does-this-course-have-office-hours" id="markdown-toc-does-this-course-have-office-hours">Does this course have office hours?</a></li>
+      <li><a href="#does-this-course-have-sections" id="markdown-toc-does-this-course-have-sections">Does this course have sections?</a></li>
+      <li><a href="#can-you-help-me-with-my-code" id="markdown-toc-can-you-help-me-with-my-code">Can you help me with my code?</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#beyond-this-course" id="markdown-toc-beyond-this-course">Beyond This Course</a>    <ul>
+      <li><a href="#which-course-should-i-take" id="markdown-toc-which-course-should-i-take">Which course should I take?</a></li>
+      <li><a href="#can-i-teach-this-course-to-my-students" id="markdown-toc-can-i-teach-this-course-to-my-students">Can I teach this course to my students?</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="should-i-take-this-course">Should I Take This Course?</h2>
+
+<h3 id="am-i-or-my-child-too-young-to-take-this-course">Am I or my child too young to take this course?</h3>
+
+<p>Our courses are perhaps best suited for learners ages 12 and up. Younger learners might need a hand from a parent. Please note that your local laws and policies may prevent learners under certain ages from utilizing free third-party services associated with this course. Accordingly, younger learners may need your assistance in signing up for these free services.</p>
+
+<h3 id="does-this-course-have-prerequisites">Does this course have prerequisites?</h3>
+
+<p>While you are not required to take or show proof that you have passed a previous course, it is highly recommended that you examine our <a href="#which-course-should-i-take">course map</a> to determine if this class is the right one for you at this point in your development as a learner.</p>
+
+<h3 id="can-this-course-be-used-to-fulfill-official-academic-requirements-for-my-university-college-or-school">Can this course be used to fulfill official academic requirements for my university, college, or school?</h3>
+
+<p>Our free and verified certificates are not accredited academic offerings from Harvard or any of its affiliate institutions. We offer these certificates for self-educational and vocational purposes.</p>
+
+<p>Schools and universities throughout the world have varying rules about what specifically they will accept for academic transfer credit. Accordingly, you should speak to your specific academic advisors about your individual situation. It’s possible (though you will have to verify with your advisors) that our certificate will satisfy their requirements. Indeed, some of our courses (facilitated through edX) are recommended by the <a href="#how-can-i-take-advantage-of-american-council-on-education-ace-credit-recommendation">American Council on Education (ACE)</a> for college or university credit, which your own academic institution may honor.</p>
+
+<p>If you are looking for an accredited academic course or certificate at the undergraduate or graduate level, consider exploring <a href="https://extension.harvard.edu">Harvard Extension</a>.</p>
+
+<p>If you are a high school student looking for academic credit, best to show your teacher or academic counselor <a href="https://cs50.harvard.edu/ap">CS50 AP</a>. You will need to obtain their authorization to gain official academic credit. You are very welcome to take this or any of our courses. However, only your official school representatives can provide you with academic credit for completing any of our courses.</p>
+
+<h3 id="how-can-i-take-advantage-of-american-council-on-education-ace-credit-recommendation">How can I take advantage of American Council on Education (ACE) credit recommendation?</h3>
+
+<p><a href="https://acenet.edu">ACE</a>, in the words of their own website, helps learners seeking “to jump-start [their] college careers with transfer credit, or open up new employment opportunities with badges.” Further, they state “the ACE National Guide [can be used] to find courses and exams that carry college credit or competency recommendations.”</p>
+
+<p>Some of our courses, facilitated through edX’s verified certificate program, are included in the <a href="https://www.acenet.edu/National-Guide/">ACE National Guide</a>. As of the last revision of these FAQs, our courses that appear in the ACE National Guide include:</p>
+
+<ul>
+  <li data-marker="*">
+<a href="https://www.acenet.edu/National-Guide/Pages/Course.aspx?org=EdX&amp;cid=57473b93-f36c-ee11-8df0-00224805f697&amp;oid=bb0ea623-cb38-eb11-a813-000d3a33232a">CS50x: Introduction to Computer Science</a>;</li>
+  <li data-marker="*">
+<a href="https://www.acenet.edu/National-Guide/Pages/Course.aspx?org=EdX&amp;cid=70589b18-6473-ee11-9ae7-00224805f697&amp;oid=bb0ea623-cb38-eb11-a813-000d3a33232a">CS50 AI: Introduction to Artificial Intelligence with Python</a>; and</li>
+  <li data-marker="*">
+<a href="https://www.acenet.edu/National-Guide/Pages/Course.aspx?org=EdX&amp;cid=8598f7dc-136d-ee11-8df0-00224805fa3a&amp;oid=bb0ea623-cb38-eb11-a813-000d3a33232a">CS50 Web: Web Programming with Python and JavaScript</a>.</li>
+</ul>
+
+<p>Your college or university, present or future, may accept our courses that are included in the ACE National Guide and for which you have earned an edX verified certificate. However, it is highly recommended that you check with your school in advance of taking our courses if you wish for them to be accepted for official academic credit. Free CS50 Certificates cannot be used to fulfill ACE’s requirements.</p>
+
+<p>The process for obtaining such credit is as follows:</p>
+
+<ol>
+  <li>Select one of our courses from the ACE National Guide (see above).</li>
+  <li>Verify with your academic institution whether or not they will accept this course, listed in the ACE National Guide, for academic credit.</li>
+  <li>Enroll in the edX verified track for the course and make payment. You can do so utilizing one of the following links:
+    <ul>
+      <li data-marker="*"><a href="https://cs50.edx.org">CS50x</a></li>
+      <li data-marker="*"><a href="https://cs50.edx.org/ai">CS50 AI</a></li>
+      <li data-marker="*"><a href="https://cs50.edx.org/web">CS50 Web</a></li>
+    </ul>
+  </li>
+  <li>Earn and receive your edX verified certificate for the course.</li>
+  <li>Obtain an official ACE credit note or ACE transcript from edX. Sometimes, the edX verified certificate alone may be sufficient for ACE documentation, provided the verified certificate explicitly includes an ACE credit recommendation.</li>
+  <li>Claim your ACE Credit Badge on Credly. edX will typically provide you with a link or invitation to claim your Credly badge when they issue your edX verified certificate.</li>
+  <li>Retain your edX verified certificate, your ACE documentation (such as credit note or transcript), and your Credly badge.</li>
+  <li>When appropriate, present these forms of documentation of completion to your academic institution.</li>
+</ol>
+
+<p>If you previously completed the course during the enrollment period listed on the ACE National Guide website and obtain a verified certificate, you will be able to retroactively obtain the above. However, the course completion must have taken place during the enrollment period, which changes from time to time. If you wish to upgrade to an edX verified certificate after you have completed the course, after you have verified your enrollment period was during the period stated by the ACE National Guide (see above), you can see our <a href="#if-i-paid-for-a-verified-certificate-after-i-completed-the-course-do-i-need-to-tell-you">certificate upgrade instructions</a>.</p>
+
+<p>All inquiries about ACE credit should be directed to edX support.</p>
+
+<h3 id="can-i-obtain-a-letter-confirming-my-enrollment-and-details-of-the-course">Can I obtain a letter confirming my enrollment and details of the course?</h3>
+
+<p>We cannot provide a personalized email detailing your enrollment in this course. However, you are welcome to sign up for an edX <a href="https://www.edx.org/verified-certificate">verified certificate</a> for the purpose of providing proof that you are enrolled in the course. Further, you can obtain details about this course from the <a href="..">course page</a>. Finally, concerning the time requirements for the course, you can add together the time of each week’s course lectures yourself. For time required for the required assignments, best to estimate between 10-20 hours for each week’s problem sets.</p>
+
+<h2 id="signing-up">Signing Up</h2>
+
+<h3 id="how-do-i-sign-up-for-the-course">How do I sign up for the course?</h3>
+
+<p>You can sign up by following the instructions on the <a href="..">course page</a>.</p>
+
+<h3 id="whats-the-difference-between-a-verified-certificate-and-a-cs50-certificate">What’s the difference between a verified certificate and a CS50 Certificate?</h3>
+
+<p>A <a href="https://www.edx.org/verified-certificate">verified certificate</a>, which you can purchase from edX, “can provide proof for an employer, school, or other institution that you have successfully completed an online course.”</p>
+
+<p>A <a href="../certificate/">CS50 Certificate</a> is a free certificate from CS50 itself.</p>
+
+<h3 id="if-i-sign-up-for-a-verified-certificate-can-i-also-get-a-free-certificate">If I sign up for a verified certificate, can I also get a free certificate?</h3>
+
+<p>Yes.</p>
+
+<h3 id="is-edx-registration-required">Is edX registration required?</h3>
+
+<p>Yes. Regardless of which certificate you are pursuing (free or verified), you must register with edX.</p>
+
+<h3 id="edx-is-requiring-me-to-pay-to-register-for-the-course-how-do-i-get-a-free-certificate">edX is requiring me to pay to register for the course: How do I get a free certificate?</h3>
+
+<p>Best to carefully re-read edX’s questions on their website as you register. There is a “free” or “audit” option which requires no payment.</p>
+
+<h3 id="if-i-want-an-edx-verified-certificate-in-the-future-do-i-have-to-pay-for-verification-before-starting-the-course">If I want an edX verified certificate in the future, do I have to pay for verification before starting the course?</h3>
+
+<p>Nope! If you would like a verified certificate from edX, you can pay for verification at any point up until 10 days before the course’s final deadline, even after completing all of the coursework. However, we strongly recommend, to avoid any logistical issues that can delay certificate issuance, that you verify before finishing the course. Otherwise, the 30-day wait we reference <a href="#how-do-i-get-my-verified-certificate-from-edx">below</a> only starts once you have had your identity verified by edX. Thus, waiting to register for a verified certificate after you complete the course will likely delay receiving your verified certificate for 30 days or more.</p>
+
+<h3 id="if-i-paid-for-a-verified-certificate-after-i-completed-the-course-do-i-need-to-tell-you">If I paid for a verified certificate after I completed the course, do I need to tell you?</h3>
+
+<p>If you completed the course during this calendar year: No. As long as your <a href="https://cs50.me/cs50x">Gradebook</a> shows that you have completed the course, you will receive your certificate up to 30 days after you make payment for a verified certificate with edX.</p>
+
+<p>If you completed the course prior to this calendar year: Yes. Send us a copy of your CS50 Certificate, your edX and GitHub usernames that you used to complete the course, and a receipt from your purchase of the edX verified certificate. You must purchase the edX verified certificate using the same edX account you used to complete the course prior.</p>
+
+<h3 id="can-i-get-a-verified-certificate-for-a-cs50-course-i-completed-prior-to-this-year">Can I get a verified certificate for a CS50 course I completed prior to this year?</h3>
+
+<p>Yes, we can provide a verified certificate for any course completion from 2019 to present. We do so provided that you can send us a copy of your CS50 Certificate, your edX and GitHub usernames that you used to complete the course, and a receipt from your purchase of the edX verified certificate. Without this information, we cannot provide such a certificate.</p>
+
+<h3 id="if-i-paid-for-a-verified-certificate-before-this-calendar-year-do-i-need-to-pay-again">If I paid for a verified certificate before this calendar year, do I need to pay again?</h3>
+
+<p>No, your verification should be good for an entire year, but if it has expired, you should be able to re-verify yourself via edX’s <a href="https://courses.edx.org/dashboard">dashboard</a>.</p>
+
+<h2 id="tracking-your-progress">Tracking Your Progress</h2>
+
+<h3 id="how-do-i-know-if-i-have-completed-all-requirements-for-a-certificate">How do I know if I have completed all requirements for a certificate?</h3>
+
+<p>Your <a href="https://cs50.me/cs50x">Gradebook</a> shows the result for each assignment submission for the most current version of the course. The top of your <a href="https://cs50.me/cs50x">Gradebook</a> shows your current status in the course, showing the number of required assignments you have completed. If your <a href="https://cs50.me/cs50x">Gradebook</a> states that you are not enrolled in the course, best to enroll and start completing the required assignments.</p>
+
+<!-- Google Form Courses -->
+
+<p>Your <a href="https://cs50.me/cs50x">Gradebook</a> groups assignments by week. Once you have received a score of 70% or higher on every required assignment in a given week, that week’s number will be shown in green, and your progress indicator will be updated to reflect that.</p>
+
+<p>Once you have scored at least a 70% on all required assignments, you will see a green banner atop that page, confirming your completion and providing you next steps to obtain your certificate(s).</p>
+
+<h3 id="what--where-is-the-gradebook-for-this-course">What / where is the Gradebook for this course?</h3>
+
+<p>CS50x uses our own <a href="https://cs50.me/cs50x">Gradebook</a>. If you’ve never visited that link before, you’ll need to click the link to “enroll,” which really just enables your <a href="https://cs50.me/cs50x">Gradebook</a> access! Registration with edX, whether for a free or verified certificate, is required.</p>
+
+<h3 id="why-does-the-gradebook-say-that-i-am-not-enrolled">Why does the <a href="https://cs50.me/cs50x">Gradebook</a> say that I am not enrolled?</h3>
+
+<p>There are many potential reasons for this. The most common reasons are as follows. First, it’s possible that you never enrolled in the course before. Second, it’s possible that you never linked your edX account to your gradebook. Best to follow the on-screen instructions in your <a href="https://cs50.me/cs50x">Gradebook</a> to resolve this issue and enroll.</p>
+
+<h3 id="does-this-course-have-grades">Does this course have grades?</h3>
+
+<p>No. This course has numeric scores. An assignment that receives a score of 70% or higher is considered passing.</p>
+
+<h3 id="does-my-gradebook-only-show-if-i-scored-high-enough-to-pass-a-problem--how-can-i-see-my-actual-numeric-grades">Does my Gradebook only show if I scored high enough to pass a problem?  How can I see my actual numeric grades?</h3>
+
+<!-- Google Form Courses -->
+
+<p>No. Your <a href="https://cs50.me/cs50x">Gradebook</a> shows a green check next to each problem you passed and a red “x” next to each problem you submitted but did not pass. To see your score, hover over the red “x”, or click the problem’s name to open that submission on submit.cs50.io.</p>
+
+<p>Your overall problem score is weighted 75% for correctness and 25% for style. In order to receive the green tick indicating completion, your overall score must be 70% or higher. As an example, if your check50 score is 7/8 and your style score is 0.95, your overall score will be (7/8 * 0.75) + (0.95 * 0.25) = 89%. The submission page shows your individual check50 and style50 scores.</p>
+
+<!-- Keeps the old link from the CS50x gradebook on cs50.me working -->
+<div id="if-i-started-cs50x-before-this-calendar-year-can-i-resume"></div>
+
+<h3 id="i-completed-an-assignment-or-this-course-in-a-prior-year-why-does-my-gradebook-no-longer-show-my-prior-progress">I completed an assignment or this course in a prior year. Why does my Gradebook no longer show my prior progress?</h3>
+
+<p>At the start of each calendar year, we clean up our <a href="https://cs50.me/cs50x">Gradebook</a> and “reset” it. This reset follows the calendar year, not the course’s terms, so each January it removes work from before the previous calendar year, even if the course has been extended.</p>
+
+<!-- Google Form Courses -->
+
+<ul>
+  <li data-marker="*">If you submitted an assignment in 2025, that work carries over to your <a href="https://cs50.me/cs50x">Gradebook</a> automatically.</li>
+  <li data-marker="*">If you last submitted an assignment before 2025, your progress will not carry over, and you’ll need to start the course again.</li>
+</ul>
+
+<h3 id="why-does-edx-think-my-grade-is-0">Why does edX think my grade is 0%?</h3>
+
+<p>This course does not use edX’s built-in gradebook, so all students’ scores always appear (in edX’s gradebook) as 0%. Not to worry, see your <a href="https://cs50.me/cs50x">Gradebook</a> for your actual results. If you recently completed the course, it can take up to 30 days for edX to acknowledge your completion on your edX dashboard.</p>
+
+<h3 id="i-watched-all-the-videos-in-edx-or-on-youtube-why-dont-i-have-a-certificate">I watched all the videos in edX or on YouTube: Why don’t I have a certificate?</h3>
+
+<p>This course has numerous assignments that must be completed in addition to watching the course lectures. Best to see the course menu, which lists the various assignments for the course.</p>
+
+<h3 id="why-does-my-edx-dashboard-say-i-can-resume-the-course-even-though-i-have-completed-it">Why does my edX dashboard say I can “resume” the course even though I have completed it?</h3>
+
+<p>Your edX dashboard may display either <code class="language-plaintext highlighter-rouge">View Course</code> or <code class="language-plaintext highlighter-rouge">Resume Course</code> as a convenience to you, such that you can return to or view the course. It doesn’t indicate completion or non-completion.</p>
+
+<h3 id="github-has-disabled-my-account-what-do-i-do">GitHub has disabled my account. What do I do?</h3>
+
+<p>Best to consult GitHub’s <a href="https://docs.github.com/en/site-policy/acceptable-use-policies/github-appeal-and-reinstatement">documentation</a> regarding account reinstatement. We cannot transfer your past progress to a new GitHub account. Further, we cannot access your files from a disabled GitHub account. If you cannot regain access to your GitHub account, you will need to restart the course.</p>
+
+<h2 id="problem-sets-assignments-and-assessments">Problem Sets, Assignments, and Assessments</h2>
+
+<h3 id="does-this-course-have-a-test">Does this course have a test?</h3>
+
+<p>This course does not have a summative test or “final exam.” While our courses at Harvard College and Harvard Extension often have final tests, this course does not. You need only complete the assignments listed in each week or module of the course.</p>
+
+<h3 id="whats-the-difference-between-less-comfortable-and-more-comfortable-problems-do-i-have-to-do-both">What’s the difference between “less comfortable” and “more comfortable” problems? Do I have to do both?</h3>
+
+<p>In some earlier problem sets, you’ll have a choice between a “less comfortable” and a “more comfortable” problem.</p>
+
+<p>The “less comfortable” problems are what you might consider the “standard” version of the problem, designed for students who have little or no prior experience. The “more comfortable” problems are the “challenge” version, designed for students who consider themselves more comfortable due to prior study/experience before this class. As such, they may require more concepts than have been covered in the course so far.</p>
+
+<p>If you find yourself really struggling with the “more comfortable” version, you should switch to the “less” version (or if you’ve already completed that, simply move on and perhaps revisit in a later week). It would be better for you to skip the problem than to become so frustrated as to drop out of the course entirely. For reference, in the Fall 2019 Harvard class, only 20-30% of students submitted the “more comfortable” problems.</p>
+
+<p>You don’t get any extra points for doing the “more comfortable” problems. If you submit both, the one with the highest grade will count towards your overall course progress.</p>
+
+<h3 id="did-you-get-my-submission">Did you get my submission?</h3>
+<!-- Courses that are scored by check50 -->
+
+<p>Once you execute the <code class="language-plaintext highlighter-rouge">submit50</code> command with the appropriate <em>slug</em> as instructed by the assignment specification, your <a href="https://cs50.me/cs50x">Gradebook</a> will be immediately updated with your passing status, provided that your submission was passing! Before using <code class="language-plaintext highlighter-rouge">submit50</code>, best to use <code class="language-plaintext highlighter-rouge">check50</code> to make sure you have completed the entire problem before submission.
+<!-- Courses that are NOT scored by check50 but use submit50 --></p>
+
+<!-- Courses that are not scored by check50 -->
+
+<h3 id="i-submitted-a-project-but-nothing-is-showing-up-in-my-gradebook-yet-showing-that-ive-submitted-why">I submitted a project, but nothing is showing up in my Gradebook yet showing that I’ve submitted. Why?</h3>
+
+<p>Provided that you have executed the <code class="language-plaintext highlighter-rouge">submit50</code> command with the appropriate slug as instructed by the assignment specification, your passing status should immediately be posted to your <a href="https://cs50.me/cs50x">Gradebook</a>. First, best to run <code class="language-plaintext highlighter-rouge">check50</code> on your assignment to ensure it fulfills the requirements. Second, if that still does not work, ensure that the GitHub username you are using to log into <a href="https://cs50.dev">CS50.dev</a> is the same GitHub username that appears at the top of your <a href="https://cs50.me/cs50x">Gradebook</a>.</p>
+
+<!-- Google Form Courses -->
+
+<h3 id="if-i-submitted-a-problem-and-did-not-reach-the-70-passing-grade-can-i-resubmit">If I submitted a problem and did not reach the 70% passing grade, can I resubmit?</h3>
+
+<!-- Google Form Courses -->
+
+<p>Yes! You may resubmit; we will only count your most recent submission towards your progress.</p>
+
+<h3 id="if-my-check50-score-is-not-as-expected-why-might-that-be">If my check50 score is not as expected, why might that be?</h3>
+
+<p>Your check50 score is accurate. After running check50, note that a URL will be provided linking you to your results. Note that check50 will look for precise fulfillment of the checks. Hence, if it is expecting a line break after an output and no such line break exists, the check will show as unfulfilled. In some cases, the expected and actual output may look exactly the same in the check50 results. In such an instance, best to consider how spaces and other non-visible characters may be at play. Of course, it’s also possible that you have misunderstood a portion of the assignment and need to re-read the problem set specification.</p>
+
+<h3 id="if-my-style-score-is-not-as-expected-why-might-that-be">If my style score is not as expected, why might that be?</h3>
+
+<p>Your style grade will be based on the style50 results for every source code file in your submission. When you run submit50, be sure that your folder includes only those files that are necessary for the problem set. If you have any extra test files in there, those will be counted towards your grade. Remove the extra files from the folder and resubmit to get an updated style score.</p>
+
+<!-- Final Project Issues -->
+
+<h3 id="why-did-i-not-pass-my-final-project">Why did I not pass my final project?</h3>
+
+<!-- Google Form Courses -->
+
+<p>After submitting your final project, you can view your submission in your <a href="https://cs50.me/cs50x">Gradebook</a> to learn details about your score and why you did not pass.</p>
+
+<p>The most common reason for not receiving a passing score on your final project is that you have not followed the <a href="../project/">Final Project Specification</a>.</p>
+
+<p>The second most common reason for not receiving a passing score on your final project relates to your documentation (your final project’s README or DESIGN file). When your README or DESIGN documentation does not fulfill the stated requirements, you will not pass the final project. The documentation file should be quite robust. Students that don’t complete a robust documentation file, including MANY paragraphs, will not receive a passing grade. You are highly advised to create a robust documentation file, including the precise sections mentioned by the <a href="../project/">Final Project Specification</a>. Further, note that the <a href="../project/">Final Project Specification</a> includes a rough word count for your documentation. Following these specifications will ensure that your documentation file includes all the details required for you to be able to pass.</p>
+
+<h3 id="if-i-did-70-of-the-problems-do-i-get-a-certificate">If I did 70% of the problems, do I get a certificate?</h3>
+
+<p>No. You must do all the required assignments and receive at least a score of 70% on each.</p>
+
+<h3 id="am-i-cheating">Am I cheating?</h3>
+
+<p>Best to refer to our <a href="../honesty/">Academic Honesty</a> policy to see.</p>
+
+<h2 id="deadlines">Deadlines</h2>
+
+<h3 id="when-are-the-deadlines">When are the deadlines?</h3>
+
+<p>This course does not have individual deadlines for assignments. You are welcome to work on and submit at your own pace.</p>
+
+<p>The overall deadline for the course is currently end-of-day <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">UTC</a>, sometimes referred to as Zulu Time, on 30 June 2027 at 11:59PM. For your convenience, we will often render this time in your local timezone (<a data-local="2027-06-30T23:59:00+00:00" href="https://time.cs50.io/20270630T235900Z">2027-06-30T23:59:00+00:00</a>).</p>
+
+<p>If all required work is turned in before the above time and ultimately receives a satisfactory grade (whether before or shortly after that deadline), you will be considered to have completed the course.</p>
+
+<h3 id="if-i-dont-finish-the-course-before-end-of-day-30-june-2027-what-will-happen">If I don’t finish the course before end-of-day 30 June 2027, what will happen?</h3>
+
+<p>At present, the deadline for this course is 30 June 2027. A few months before that final deadline, the team re-evaluates the course’s continued relevance, and may decide to extend the deadline by a further six or twelve months. For now though, best to assume the final deadline is 30 June 2027.</p>
+
+<p>The course’s current term began on 1 January 2026 and ends at that deadline. If the course is extended, a new term begins right after the deadline, and some of your work may carry forward into it, as <a href="#will-my-work-carry-forward-if-the-course-is-extended">explained below</a>.</p>
+
+<p>We cannot make any exceptions to the deadlines for any reason. We therefore encourage you, if possible, to avoid trying to rush to complete the course at the deadline and instead spread your studies out over a reasonable stretch of time.</p>
+
+<h3 id="will-my-work-carry-forward-if-the-course-is-extended">Will my work carry forward if the course is extended?</h3>
+
+<p>Yes, if you submitted at least one assignment during the current term, which began on 1 January 2026. In that case, every assignment you completed<sup>1</sup> during the current term carries forward into the next term. Work submitted before the current term began does not carry forward.</p>
+
+<p>If the course is updated to a new edition, you may then submit only the new edition’s assignments, and you will need to satisfy whatever requirements are in the course at that time. Work from prior editions of the course may not be submitted for credit.</p>
+
+<p><sup>1</sup> By <em>completed</em>, we mean you earned a score of 70% or better on the assignment before the deadline. For course weeks that include multiple problems, you must complete all those problems for that week for the week to be considered complete and for those scores to carry forward.</p>
+
+<h2 id="obtaining-your-certificate">Obtaining Your Certificate</h2>
+
+<h3 id="how-do-i-get-my-free-cs50-certificate">How do I get my free CS50 Certificate?</h3>
+
+<p>Once you have completed the course and met all of the requirements (per the above), you’ll see a link on your <a href="https://cs50.me/cs50x">Gradebook</a> page allowing you to request a free CS50 Certificate, much like the one <a href="../certificate/">shown here</a>. This link will be available within approximately four hours after you receive your score for your last required assignment and your progress bar in your <a href="https://cs50.me/cs50x">Gradebook</a> indicates course completion. Once this link appears, you should then proceed to log in using your <strong>GitHub</strong> credentials. If you have trouble accessing it, try logging out of GitHub and back in, then revisit the link to download your certificate.  Be sure to download your free certificate <strong>before</strong> the deadline.</p>
+
+<h3 id="how-do-i-get-my-verified-certificate-from-edx">How do I get my verified certificate from edX?</h3>
+
+<p>Every three weeks, CS50’s staff provides edX with a list of students who have satisfied the course’s requirements (by receiving scores of at least 70% on each of the required problems). Typically, within a week thereafter, edX then generates students’ verified certificates (for students who have active verification), at which point they should appear automatically on edX’s <a href="https://courses.edx.org/dashboard">dashboard</a>. Thus, after you have satisfied the course’s requirements, it can take up to 30 days for your verified certificate to be generated by edX. Note that edX will <strong>not</strong> notify you, so be sure to check your dashboard periodically.</p>
+
+<p>If it has been <strong>more than 30 days</strong> since you met all requirements and you have still not received your certificate despite holding an active verification that whole time, email certificates@cs50.harvard.edu with your details. Please do not email sooner; we cannot accept requests for expedited processing of verified certificates.</p>
+
+<h3 id="can-you-rush-the-issuance-of-my-verified-certificate-from-edx">Can you rush the issuance of my verified certificate from edX?</h3>
+
+<p>No.</p>
+
+<h3 id="why-did-i-not-get-my-verified-certificate-after-30-days">Why did I not get my verified certificate after 30 days?</h3>
+
+<p>First, recall that your verified edX certificate will be issued by edX up to 30 days after three criteria are met: (a) your <a href="https://cs50.me/cs50x">Gradebook</a> shows that you have completed all of the required assignments with at least a 70% score or higher on each, (b) you have made payment to edX and completed their verification process, resulting in a verified badge on your edX dashboard, and (c) you have linked your <a href="https://cs50.me/cs50x">Gradebook</a> to your edX account. Thus, you should ensure that 30 days have passed since all three of these above criteria have occurred.</p>
+
+<p>Second, we can only inform edX of your passing status if you have linked your <a href="https://cs50.me/cs50x">Gradebook</a> to edX. Visit your <a href="https://cs50.me/cs50x">Gradebook</a> and ensure that no gold bar appears at the top of the page stating that you must link your <a href="https://cs50.me/cs50x">Gradebook</a> to your edX account. If you see such a gold bar, complete the linking process. Then, re-read the above about the timing in which you might expect to receive your certificate.</p>
+
+<p>Finally, if you still have not received your edX certificate, best to ensure that the edX username that appears at the top of your <a href="https://cs50.me/cs50x">Gradebook</a> is the same edX username that appears at the top of your <a href="https://courses.edx.org/dashboard">edX dashboard</a>. If there is a mismatch between these usernames, you will need to inform edX that they need to transfer your verification payment to the correct username, as we have likely already informed them that the edX username that appears on top of your <a href="https://cs50.me/cs50x">Gradebook</a> has passed the course.</p>
+
+<h3 id="what-name-will-appear-on-my-certificate">What name will appear on my certificate?</h3>
+
+<p>Free certificates will include the name you provide when you claim your certificate. You will personally type the name you wish to appear on your certificate during the redemption process. Make sure you type the name you desire to appear on your certificate!</p>
+
+<p>Verified certificates provided through edX will include the name associated with your edX account.</p>
+
+<h3 id="can-i-change-the-name-on-my-certificate">Can I change the name on my certificate?</h3>
+
+<p>No, we cannot make changes to the name on your certificate. Because we rely upon you to type the name correctly and because of the huge number of students with whom we work, it is not feasible for us to provide name changes. You are welcome to upgrade to a verified certificate and communicate with edX about what name will appear on your verified edX certificate by emailing them at <a href="mailto:info@edx.org">info@edX.org</a>.</p>
+
+<h3 id="do-you-offer-a-printed-certificate">Do you offer a printed certificate?</h3>
+
+<p>No. Best to take your digital certificate to a local print shop that will print it for you.</p>
+
+<h2 id="using-your-certificate">Using Your Certificate</h2>
+
+<h3 id="how-should-i-describe-my-verified-certificate-on-my-resume-or-elsewhere">How should I describe my verified certificate on my resume or elsewhere?</h3>
+
+<p>When citing your HarvardX credentials on your resume or LinkedIn profile relating to your verified edX certificate, please utilize this template:</p>
+
+<p>For your resume, use the following language:
+<em>HarvardX</em>
+<em>[Course name]</em></p>
+
+<p>For listing your certificate on your LinkedIn profile, input details under the “Education” section as follows:
+<em>School: HarvardX</em>
+<em>Dates Attended: [The year you participated in the program]</em>
+<em>Degree: Other; Certificate in [Course name]</em>
+<em>Field of Study: Leave blank</em>
+<em>Grade: Complete</em>
+<em>Activities and Societies: Leave blank</em></p>
+
+<p>Additionally, edX provides the following blog posts that may also be helpful:</p>
+<ul>
+  <li data-marker="*">
+<a href="https://www.edx.org/resources/3-reasons-add-online-courses-cv-how-to-do-it">3 Reasons to Add Online Courses to Your CV and How To Do It</a>. Specifically, at the end of the article, it discusses how you should add this information to your resume.</li>
+  <li data-marker="*"><a href="https://help.edx.org/edxlearner/s/article/How-can-I-add-my-certificate-to-my-LinkedIn-profile?language=en_US">How can I add my certificate to my LinkedIn profile?</a></li>
+</ul>
+
+<h2 id="software-and-hardware">Software and Hardware</h2>
+
+<h3 id="my-codespace-is-behaving-strangely-what-should-i-do">My codespace is behaving strangely. What should I do?</h3>
+
+<p>The first step is always to attempt to restart your Codespace container. Issues can appear for a variety of reasons, but a restart, as by visiting <a href="https://cs50.dev/restart">cs50.dev/restart</a>, usually resolves the problem. Do be very patient as it rebuilds and restarts, as this can take several minutes.</p>
+
+<p>If this does not resolve the issue, best to refer to our technical documentation for <a href="https://cs50.readthedocs.io/cs50.dev/#faqs">Visual Studio Code for CS50</a>.</p>
+
+<h3 id="why-does-it-seem-like-content-or-third-party-services-related-to-this-course-are-blocked">Why does it seem like content or third-party services related to this course are blocked?</h3>
+
+<p>Your computer, network, or local government may be blocking your ability to access our content or a third-party tool related to this course. First, attempt to utilize another device connected to an alternative network to see if your device may be blocking your access. Consider virus scanners, firewalls, and other security-related tools and software that may be blocking your access.</p>
+
+<p>Second, consider that the network on which you are attempting to access these resources may be blocking you. You may have to speak to your network administrator or, at the least, attempt to seek out another network connection that allows you access.</p>
+
+<p>Finally, it’s possible that your local government is blocking access due to trade- or content-related laws.</p>
+
+<p>In all of the cases above, best to reach out to one of our many <a href="../communities/">communities</a> for help.</p>
+
+<h3 id="can-you-help-me-circumvent-content-blocking-that-is-preventing-me-from-accessing-your-course-and-its-associated-third-party-services">Can you help me circumvent content blocking that is preventing me from accessing your course and its associated third-party services?</h3>
+
+<p>No.</p>
+
+<h3 id="can-i-change-my-github-or-edx-username-while-taking-the-course">Can I change my GitHub or edX username while taking the course?</h3>
+
+<p>No. Changing your GitHub or edX username will result in you losing your course progress. Once lost, we will not be able to retrieve it for you. If you have already changed one of your usernames, best to change it back.</p>
+
+<h2 id="support">Support</h2>
+
+<h3 id="does-this-course-have-office-hours">Does this course have office hours?</h3>
+
+<p>Not regularly! But you can still ask questions in any of CS50’s <a href="../communities/">communities</a>! Additionally, check to see what upcoming <a href="../zoom/">meetings</a> are being held in the near future.</p>
+
+<h3 id="does-this-course-have-sections">Does this course have sections?</h3>
+
+<p>Yes!  While the course is too large to hold live sections for current students, pre-recorded sections are <a href="https://cs50.harvard.edu/x/sections/">available here</a> for students to supplement the other course materials. Additionally, check to see what upcoming <a href="../zoom/">meetings</a> are being held in the near future.</p>
+
+<h3 id="can-you-help-me-with-my-code">Can you help me with my code?</h3>
+
+<p>For help on problem sets or course concepts, we ask that you reach out to one of our many <a href="../communities/">communities</a>. If you are not already a user of any of those communities listed at the link above, allow us to suggest that you start with <a href="https://cs50.ai">CS50.ai</a> and <a href="https://cs50.edx.org/ed">Ed</a>!</p>
+
+<h2 id="beyond-this-course">Beyond This Course</h2>
+
+<h3 id="which-course-should-i-take">Which course should I take?</h3>
+
+<p>We offer many <a href="../courses/">courses</a>. For each, we offer verified certificates for a fee and a free certificate. Verified certificates involve a verification process through edX and, therefore, may be regarded by others as more authentic. Free certificates are issued using a unique URL. Some of our <a href="../courses/">courses</a> are geared toward those who want to learn more about programming and data science. Some of our <a href="../courses/">courses</a> are geared toward professionals who do not want to jump into programming right away.</p>
+
+<h3 id="can-i-teach-this-course-to-my-students">Can I teach this course to my students?</h3>
+
+<p>If you are a teacher, you are welcome to adopt or adapt these materials for your own course, per the <a href="../license/">license</a>. Also, check out the <a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a>.</p>
+
+<!-- Counts the number of questions above -->
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    var count = document.querySelectorAll('h3').length;
+    document.getElementById('questionCount').textContent = count;
+  });
+</script>
+
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

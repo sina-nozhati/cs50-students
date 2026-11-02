@@ -1,0 +1,173 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-pr-temps",
+  "kind": "practice",
+  "week": 3,
+  "title_en": "Average High Temperatures",
+  "title_fa": "میانگین دمای بیشینه (Temps)",
+  "guide_doc_id": "w03-pr-temps",
+  "guide_file": "temps.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/temps/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w03-pr-temps-r1",
+        "text_fa": "`sort_cities` را با یک الگوریتم مرتب‌سازی O(n²) به انتخاب خودت (مثلاً حبابی، انتخابی یا درجی) کامل کن.",
+        "text_en": "You will use an O(n2) sorting algorithm of your choice (possibly bubble sort, selection sort, or insertion sort) to sort the array by temperature, in descending order.",
+        "source_ref": "src-practice-temps#implementation-details"
+      },
+      {
+        "id": "w03-pr-temps-r2",
+        "text_fa": "مرتب‌سازی بر اساس دما و نزولی باشد.",
+        "text_en": "to sort the array by temperature, in descending order.",
+        "source_ref": "src-practice-temps#implementation-details"
+      },
+      {
+        "id": "w03-pr-temps-r3",
+        "text_fa": "خروجی مثل نمونهٔ رسمی باشد.",
+        "text_en": "Your program should behave per the examples below.",
+        "source_ref": "src-practice-temps#how-to-test-your-code"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": "style50 temps.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/3/temps.zip\nunzip temps.zip\nrm temps.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "خروجی رسمی",
+        "text": "temps/ $ ./temps\n\nAverage July Temperatures by City\n\nPhoenix: 107\nLas Vegas: 105\nAustin: 97\nMiami: 97\nDenver: 90\nChicago: 85\nNew York: 85\nBoston: 82\nLos Angeles: 82\nSan Francisco: 66\ntemps/ $",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": "style50 temps.c",
+      "has_check50": false,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "g0UzJMsFC2x5o2KwRHYxJqTs5",
+    "media_ids": [
+      "w03-m-temps-sun"
+    ],
+    "discrepancy_ids": [
+      "d37",
+      "d40",
+      "d45",
+      "d46"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-struct",
+      "w03-c-array-of-structs",
+      "w03-c-selection-sort",
+      "w03-c-bubble-sort",
+      "w03-c-swap"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l04",
+      "w03-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-struct",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-array-of-structs",
+        "note_id": "w03-n09",
+        "lesson_id": "w03-l04",
+        "unit_id": "w03-l04-u02"
+      },
+      {
+        "concept_id": "w03-c-selection-sort",
+        "note_id": "w03-n10",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u01"
+      },
+      {
+        "concept_id": "w03-c-bubble-sort",
+        "note_id": "w03-n11",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u02"
+      },
+      {
+        "concept_id": "w03-c-swap",
+        "note_id": "w03-n10",
+        "lesson_id": "w03-l05",
+        "unit_id": "w03-l05-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "کدام الگوریتم این هفته را بهتر می‌فهمی؟ همان را انتخاب کن؛ صفحهٔ رسمی هر الگوریتم O(n²) را می‌پذیرد."
+      },
+      {
+        "n": 2,
+        "hint_fa": "مقایسه روی دما انجام می‌شود، ولی جابه‌جایی باید کل struct را جابه‌جا کند تا نام شهر از دمایش جدا نشود."
+      },
+      {
+        "n": 3,
+        "hint_fa": "صفحهٔ رسمی یادآوری می‌کند که یک struct را می‌شود با یک دستور انتساب کامل کپی کرد."
+      },
+      {
+        "n": 4,
+        "hint_fa": "برای نزولی کردن، کدام علامت مقایسه را باید برعکس کنی؟"
+      }
+    ],
+    "common_mistakes_fa": [
+      "جابه‌جا کردن فقط دما و جدا شدن نام شهر از دمایش",
+      "مرتب‌سازی صعودی",
+      "خواندن بیرون از مرز آرایه در حلقهٔ حبابی"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-pr-temps-c01",
+        "text_fa": "فقط `sort_cities` را کامل کرده‌ام.",
+        "maps_to": "w03-pr-temps-r1"
+      },
+      {
+        "id": "w03-pr-temps-c02",
+        "text_fa": "ترتیب نزولی است، نه صعودی.",
+        "maps_to": "w03-pr-temps-r2"
+      },
+      {
+        "id": "w03-pr-temps-c03",
+        "text_fa": "خروجی با نمونهٔ رسمی یکی است.",
+        "maps_to": "w03-pr-temps-r3"
+      },
+      {
+        "id": "w03-pr-temps-c04",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "Which of the sorting algorithms did you choose and why?",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

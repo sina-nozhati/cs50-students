@@ -1,0 +1,245 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w00-ps-scratch",
+  "week": 0,
+  "title_en": "Starting from Scratch",
+  "title_fa": "پرابلم‌ست ۰: Starting from Scratch",
+  "guide_doc_id": "w00-ps-scratch",
+  "guide_file": "starting-from-scratch.fa.md",
+  "generated_at": "2026-10-18T08:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/psets/0/scratch/",
+    "index_url": "https://cs50.harvard.edu/x/psets/0/",
+    "required_for_certificate": true,
+    "certificate_rule_ref": "src-certificate",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w00-ps-r1",
+        "text_fa": "حداقل دو اسپرایت، که دست‌کم یکی گربه نباشد.",
+        "text_en": "Your project must use at least two sprites, at least one of which must not be a cat.",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      },
+      {
+        "id": "w00-ps-r2",
+        "text_fa": "در مجموع حداقل سه اسکریپت (نه لزوماً سه تا برای هر اسپرایت).",
+        "text_en": "Your project must have at least three scripts total (i.e., not necessarily three per sprite).",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      },
+      {
+        "id": "w00-ps-r3",
+        "text_fa": "حداقل یک شرط، یک حلقه و یک متغیر.",
+        "text_en": "Your project must use at least one conditional, at least one loop, and at least one variable.",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      },
+      {
+        "id": "w00-ps-r4",
+        "text_fa": "حداقل یک بلوک سفارشی ساختهٔ خودت (با Make a Block) که حداقل یک ورودی بگیرد.",
+        "text_en": "Your project must use at least one custom block that you have made yourself (via Make a Block), which must take at least one input.",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      },
+      {
+        "id": "w00-ps-r5",
+        "text_fa": "پیچیده‌تر از بیشتر نمونه‌های سخنرانی، ولی می‌تواند ساده‌تر از Oscartime و Ivy’s Hardest Game باشد.",
+        "text_en": "Your project should be more complex than most of those demonstrated in lecture (many of which, though instructive, were quite short) but it can be less complex than Oscartime and Ivy’s Hardest Game.",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      }
+    ],
+    "constraints": [
+      {
+        "text_fa": "فایل تحویلی با پسوند .sb3",
+        "source_ref": "src-pset-0-scratch#how-to-submit"
+      },
+      {
+        "text_fa": "حجم کمتر از ۱۰ مگابایت توصیه می‌شود (check50 ممکن است با فایل بزرگ‌تر مشکل داشته باشد).",
+        "source_ref": "src-pset-0-scratch#how-to-submit"
+      },
+      {
+        "text_fa": "منبع پس‌زمینه، لباس یا صدای واردشده با comment ذکر شود.",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      },
+      {
+        "text_fa": "تحویل دوبارهٔ پروژه‌ای که قبلاً به دورهٔ دیگری از CS50 تحویل شده معقول است، اگر الزامات را داشته باشد.",
+        "source_ref": "src-pset-0-scratch#starting-from-scratch"
+      },
+      {
+        "text_fa": "همکاری مجاز نیست، جز کمک‌گرفتنی که به انجام کار توسط دیگری نینجامد.",
+        "source_ref": "src-pset-0#problem-set-0"
+      }
+    ],
+    "submission_steps": [
+      {
+        "n": 1,
+        "text_fa": "Preliminary Course Setup را کامل کن.",
+        "url": "https://cs50.harvard.edu/x/psets/0/#preliminary-course-setup"
+      },
+      {
+        "n": 2,
+        "text_fa": "به صفحهٔ بارگذاری برو.",
+        "url": "https://submit.cs50.io/upload/cs50/problems/2026/x/scratch"
+      },
+      {
+        "n": 3,
+        "text_fa": "Choose File، انتخاب فایل .sb3، سپس Submit.",
+        "url": null
+      }
+    ],
+    "official_evaluation": {
+      "published_rubric": false,
+      "what_is_published_fa": "check50 نشان می‌دهد پروژه کدام الزامات را برآورده کرده است. مرجع پیشرفت: cs50.me/cs50x.",
+      "source_ref": "src-pset-0-scratch#how-to-submit"
+    },
+    "links": {
+      "submit": "https://submit.cs50.io/upload/cs50/problems/2026/x/scratch",
+      "gradebook": "https://cs50.me/cs50x",
+      "david_examples": "https://scratch.mit.edu/studios/30233348/",
+      "lecture_studio": "https://scratch.mit.edu/studios/50827060/",
+      "scratch": "https://scratch.mit.edu"
+    }
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "objective_ids": [
+      "w00-o08",
+      "w00-o09",
+      "w00-o10",
+      "w00-o11"
+    ],
+    "concept_ids": [
+      "w00-c-sprite",
+      "w00-c-event",
+      "w00-c-thread",
+      "w00-c-conditional",
+      "w00-c-loop",
+      "w00-c-variable",
+      "w00-c-custom-block",
+      "w00-c-parameter-input",
+      "w00-c-incremental-development"
+    ],
+    "prerequisite_lesson_ids": [
+      "w00-l06",
+      "w00-l07",
+      "w00-l08",
+      "w00-l09",
+      "w00-l10"
+    ],
+    "steps_fa": [
+      "ایده در یک جمله",
+      "شبه‌کد رفتار هر اسپرایت",
+      "نقشهٔ الزامات",
+      "اولین اسکریپت قابل اجرا",
+      "افزودن تدریجی و آزمایش",
+      "بازبینی طراحی (حلقه و بلوک سفارشی)",
+      "ذکر منبع رسانه‌ها",
+      "ذخیره، تحویل و بررسی check50"
+    ],
+    "staged_hints": [
+      {
+        "requirement_id": "w00-ps-r4",
+        "hints_fa": [
+          "دنبال کاری بگرد که با عدد یا متن متفاوت تکرار می‌شود.",
+          "آن عدد یا متن را ورودی بلوک کن؛ «meow n times» را دوباره ببین.",
+          "ورودی باید داخل تعریف استفاده شود."
+        ]
+      },
+      {
+        "requirement_id": "w00-ps-r3",
+        "hints_fa": [
+          "پروژه چه چیزی را باید به خاطر بسپارد؟ آن متغیر توست.",
+          "کجا «اگر … آنگاه» داری؟ اگر باید پیوسته بررسی شود، داخل کدام حلقه می‌رود؟"
+        ]
+      },
+      {
+        "requirement_id": "w00-ps-r1",
+        "hints_fa": [
+          "چه چیزی جز گربه در داستان یا بازی‌ات هست؟"
+        ]
+      },
+      {
+        "requirement_id": "w00-ps-r2",
+        "hints_fa": [
+          "اسکریپتی که چند کار نامرتبط می‌کند را به چند اسکریپت با یک کار مشخص بشکن."
+        ]
+      }
+    ],
+    "common_mistakes_fa": [
+      "بلوک سفارشی بدون ورودی یا ورودی استفاده‌نشده",
+      "همهٔ اسپرایت‌ها گربه",
+      "پسوند فایل غیر از .sb3",
+      "if بدون forever برای بررسی پیوسته",
+      "انجام ندادن Preliminary Course Setup",
+      "استفاده از AI غیر از CS50 Duck"
+    ],
+    "self_checklist": [
+      {
+        "id": "w00-ps-c01",
+        "text_fa": "حداقل دو اسپرایت دارم و دست‌کم یکی گربه نیست.",
+        "maps_to": "w00-ps-r1"
+      },
+      {
+        "id": "w00-ps-c02",
+        "text_fa": "در مجموع حداقل سه اسکریپت دارم.",
+        "maps_to": "w00-ps-r2"
+      },
+      {
+        "id": "w00-ps-c03",
+        "text_fa": "حداقل یک شرط دارم.",
+        "maps_to": "w00-ps-r3"
+      },
+      {
+        "id": "w00-ps-c04",
+        "text_fa": "حداقل یک حلقه دارم.",
+        "maps_to": "w00-ps-r3"
+      },
+      {
+        "id": "w00-ps-c05",
+        "text_fa": "حداقل یک متغیر دارم.",
+        "maps_to": "w00-ps-r3"
+      },
+      {
+        "id": "w00-ps-c06",
+        "text_fa": "بلوک سفارشی با Make a Block و حداقل یک ورودی دارم که داخلش استفاده شده.",
+        "maps_to": "w00-ps-r4"
+      },
+      {
+        "id": "w00-ps-c07",
+        "text_fa": "پروژه از بیشتر نمونه‌های سخنرانی پیچیده‌تر است.",
+        "maps_to": "w00-ps-r5"
+      },
+      {
+        "id": "w00-ps-c08",
+        "text_fa": "اسکریپت‌های طولانی را تقسیم کرده‌ام.",
+        "maps_to": "design-advice"
+      },
+      {
+        "id": "w00-ps-c09",
+        "text_fa": "منبع رسانه‌های واردشده را با comment ذکر کرده‌ام.",
+        "maps_to": "constraint"
+      },
+      {
+        "id": "w00-ps-c10",
+        "text_fa": "فایل .sb3 کمتر از ۱۰ مگابایت است.",
+        "maps_to": "constraint"
+      },
+      {
+        "id": "w00-ps-c11",
+        "text_fa": "Preliminary Course Setup را انجام داده‌ام.",
+        "maps_to": "submission"
+      },
+      {
+        "id": "w00-ps-c12",
+        "text_fa": "بعد از تحویل خروجی check50 را دیده‌ام.",
+        "maps_to": "submission"
+      }
+    ],
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران؛ بعد از تحویل، نتیجهٔ check50 در صفحهٔ تحویل ملاک است. چک‌لیست پنل نمرهٔ رسمی نیست."
+  },
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود."
+  }
+}

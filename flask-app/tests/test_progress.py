@@ -64,11 +64,11 @@ class TestGetCertificateProgress:
         cert = progress_service.get_certificate_progress(student_user.id)
         assert cert["percent"] == 0
         assert cert["completed_weeks"] == 0
-        assert cert["total_weeks"] == 10
+        assert cert["total_weeks"] == 13  # 0–10 + AI + Final
         assert cert["current_week"] == 0
 
     def test_partial_progress(self, app, student_user):
-        """۳ هفته تکمیل → ۳۰٪."""
+        """۳ هفته تکمیل → int(3/13*100)=23٪."""
         for w in range(3):
             wp = WeekProgress(
                 user_id=student_user.id,
@@ -80,12 +80,13 @@ class TestGetCertificateProgress:
 
         cert = progress_service.get_certificate_progress(student_user.id)
         assert cert["completed_weeks"] == 3
-        assert cert["percent"] == 30  # int((3/10)*100)
+        assert cert["percent"] == 23
         assert cert["current_week"] == 3  # هفته‌ی بعدی
 
     def test_full_progress(self, app, student_user):
-        """تمام ۱۰ هفته تکمیل → ۱۰۰٪."""
-        for w in range(10):
+        """تمام ۱۳ واحد محتوایی تکمیل → ۱۰۰٪."""
+        from app.content.loader import week_numbers
+        for w in week_numbers():
             wp = WeekProgress(
                 user_id=student_user.id,
                 week=w,
@@ -96,7 +97,7 @@ class TestGetCertificateProgress:
 
         cert = progress_service.get_certificate_progress(student_user.id)
         assert cert["percent"] == 100
-        assert cert["current_week"] == 9  # آخرین هفته (0-based)
+        assert cert["completed_weeks"] == 13
 
 
 class TestGetUpcomingAssignments:

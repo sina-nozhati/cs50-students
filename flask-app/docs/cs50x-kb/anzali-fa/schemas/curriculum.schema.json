@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/curriculum.schema.json",
+  "title": "Week curriculum",
+  "type": "object",
+  "required": [
+    "id",
+    "week",
+    "lessons",
+    "stages",
+    "notes",
+    "objective_ids",
+    "week_mastery",
+    "hub_doc_id",
+    "kb_parent_node"
+  ],
+  "properties": {
+    "week": {
+      "const": 0
+    },
+    "objective_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w00-o\\d{2}$"
+      },
+      "minItems": 1
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "order",
+          "file",
+          "unit_ids",
+          "prerequisite_lesson_ids"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-l\\d{2}$"
+          },
+          "unit_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^w00-l\\d{2}-u\\d{2}$"
+            },
+            "minItems": 1
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^lessons/w00-l\\d{2}\\.json$"
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "file",
+          "official_anchor"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-n\\d{2}$"
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

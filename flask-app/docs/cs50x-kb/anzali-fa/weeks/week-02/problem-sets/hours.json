@@ -1,0 +1,161 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w02-pr-hours",
+  "kind": "practice",
+  "week": 2,
+  "title_en": "Hours",
+  "title_fa": "ساعت‌های مطالعه (Hours)",
+  "guide_doc_id": "w02-pr-hours",
+  "guide_file": "hours.fa.md",
+  "generated_at": "2026-10-28T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/hours/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w02-pr-hours-r1",
+        "text_fa": "ابتدا ساعت‌های ذخیره‌شده در آرایه را در یک متغیر تازه جمع بزن.",
+        "text_en": "first total up the hours saved in the array into a new variable",
+        "source_ref": "src-practice-hours#implementation-details"
+      },
+      {
+        "id": "w02-pr-hours-r2",
+        "text_fa": "بسته به مقدار `output`، این جمع یا میانگین ساعت‌ها را برگردان.",
+        "text_en": "depending on the value of `output`, return either this sum, or the average number of hours",
+        "source_ref": "src-practice-hours#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/hours",
+      "style50": "style50 hours.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/2/hours.c"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی: میانگین",
+        "text": "hours/ $ ./hours\nNumber of weeks taking CS50: 3\nWeek 0 HW Hours: 3\nWeek 1 HW Hours: 7\nWeek 2 HW Hours: 10\nEnter T for total hours, A for average hours per week: A\n6.7 hours",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: کل",
+        "text": "hours/ $ ./hours\nNumber of weeks taking CS50: 2\nWeek 0 HW Hours: 2\nWeek 1 HW Hours: 8\nEnter T for total hours, A for average hours per week: T\n10.0 hours",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/hours",
+      "style50": "style50 hours.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d27"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w02-c-array",
+      "w02-c-array-loop",
+      "w02-c-array-parameter",
+      "w02-c-function-anatomy"
+    ],
+    "prerequisite_lesson_ids": [
+      "w02-l04",
+      "w02-l05"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w02-c-array",
+        "note_id": "w02-n09",
+        "lesson_id": "w02-l04",
+        "unit_id": "w02-l04-u02"
+      },
+      {
+        "concept_id": "w02-c-array-loop",
+        "note_id": "w02-n09",
+        "lesson_id": "w02-l04",
+        "unit_id": "w02-l04-u03"
+      },
+      {
+        "concept_id": "w02-c-array-parameter",
+        "note_id": "w02-n10",
+        "lesson_id": "w02-l05",
+        "unit_id": "w02-l05-u02"
+      },
+      {
+        "concept_id": "w02-c-function-anatomy",
+        "note_id": "w02-sh-functions",
+        "lesson_id": "w02-l05",
+        "unit_id": "w02-l05-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "صفحهٔ رسمی می‌گوید برای جمع زدن، متغیری را با صفر شروع کن و در حلقه هر خانه را به آن اضافه کن."
+      },
+      {
+        "n": 2,
+        "hint_fa": "تقسیم دو int اعشار را دور می‌ریزد؛ یادداشت scores3 را ببین."
+      }
+    ],
+    "common_mistakes_fa": [
+      "مقدار اولیه ندادن به متغیر جمع",
+      "تقسیم int بر int",
+      "برگرداندن جمع در هر دو حالت"
+    ],
+    "self_checklist": [
+      {
+        "id": "w02-pr-hours-c01",
+        "text_fa": "جمع را با مقدار اولیهٔ صفر شروع کرده‌ام.",
+        "maps_to": "w02-pr-hours-r1"
+      },
+      {
+        "id": "w02-pr-hours-c02",
+        "text_fa": "هر دو حالت T و A را امتحان کرده‌ام.",
+        "maps_to": "w02-pr-hours-r2"
+      },
+      {
+        "id": "w02-pr-hours-c03",
+        "text_fa": "میانگین اعشار درست دارد (6.7 در نمونهٔ رسمی).",
+        "maps_to": "samples"
+      },
+      {
+        "id": "w02-pr-hours-c04",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w02-pr-hours-c05",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "استفاده از تابع برای محاسبهٔ ساعت‌ها چه مزیتی دارد؟",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "کد آغازین hours.c",
+      "url": "https://cdn.cs50.net/2022/fall/labs/2/hours.c",
+      "reason_fa": "با wget دانلود کن؛ این بسته کد آغازین را تکرار نمی‌کند."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

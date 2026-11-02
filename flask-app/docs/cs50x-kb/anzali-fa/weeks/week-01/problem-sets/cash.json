@@ -1,0 +1,220 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-ps-cash",
+  "kind": "pset",
+  "week": 1,
+  "title_en": "Cash",
+  "title_fa": "پول خرد (Cash)",
+  "guide_doc_id": "w01-ps-cash",
+  "guide_file": "cash.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/psets/1/cash/",
+    "index_url": "https://cs50.harvard.edu/x/psets/1/",
+    "submission": "one-of-cash-credit",
+    "deadline_utc": "2027-06-30T23:59:00+00:00",
+    "deadline_tehran": "2027-07-01T03:29:00+03:30",
+    "requirements": [
+      {
+        "id": "w01-ps-cash-r1",
+        "text_fa": "فایل `cash.c` در پوشهٔ `cash`",
+        "text_en": "In a file called `cash.c` in a folder called `cash`",
+        "source_ref": "src-pset-1-cash#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-cash-r2",
+        "text_fa": "کمترین تعداد سکه برای باقی پول را چاپ کند.",
+        "text_en": "implement a program in C that prints the minimum coins needed to make the given amount of change, in cents",
+        "source_ref": "src-pset-1-cash#problem-to-solve"
+      },
+      {
+        "id": "w01-ps-cash-r3",
+        "text_fa": "ورودی int به سنت؛ اگر بزرگ‌تر یا مساوی ۰ نبود یا int نبود، دوباره بپرسد.",
+        "text_en": "Re-prompt the user, again and again as needed, if their input is not greater than or equal to 0 (or if their input isn't an `int` at all!).",
+        "source_ref": "src-pset-1-cash#problem-to-solve"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/problems/2026/x/cash",
+      "style50": "style50 cash.c",
+      "submit50": "submit50 cs50/problems/2026/x/cash",
+      "wget": null
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی: ۲۵ سنت",
+        "text": "Change owed: 25\n1",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی: ۷۰ سنت",
+        "text": "Change owed: 70\n4",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/problems/2026/x/cash",
+      "style50": "style50 cash.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "p6PlFqQgSWNWn4ggpIIaBOvIq",
+    "media_ids": [
+      "w01-m-coins"
+    ],
+    "discrepancy_ids": [
+      "d12"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-get-int",
+      "w01-c-do-while",
+      "w01-c-input-validation",
+      "w01-c-while-loop",
+      "w01-c-arithmetic-operators",
+      "w01-c-truncation",
+      "w01-c-function-definition",
+      "w01-c-return-value"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l09",
+      "w01-l10",
+      "w01-l12"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-get-int",
+        "note_id": "w01-n13",
+        "lesson_id": "w01-l07",
+        "unit_id": "w01-l07-u03"
+      },
+      {
+        "concept_id": "w01-c-do-while",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u04"
+      },
+      {
+        "concept_id": "w01-c-input-validation",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u04"
+      },
+      {
+        "concept_id": "w01-c-while-loop",
+        "note_id": "w01-n15",
+        "lesson_id": "w01-l09",
+        "unit_id": "w01-l09-u01"
+      },
+      {
+        "concept_id": "w01-c-arithmetic-operators",
+        "note_id": "w01-n19",
+        "lesson_id": "w01-l12",
+        "unit_id": "w01-l12-u01"
+      },
+      {
+        "concept_id": "w01-c-truncation",
+        "note_id": "w01-n19",
+        "lesson_id": "w01-l12",
+        "unit_id": "w01-l12-u03"
+      },
+      {
+        "concept_id": "w01-c-function-definition",
+        "note_id": "w01-n16",
+        "lesson_id": "w01-l10",
+        "unit_id": "w01-l10-u01"
+      },
+      {
+        "concept_id": "w01-c-return-value",
+        "note_id": "w01-n16",
+        "lesson_id": "w01-l10",
+        "unit_id": "w01-l10-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "با دست حل کن: برای ۴۱ سنت یک صندوق‌دار حریص اول کدام سکه را می‌دهد؟ بعد چه مقدار باقی می‌ماند؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "تقسیم صحیح و باقی‌مانده (`/` و `%`) را از یادداشت عملگرها مرور کن؛ جلسهٔ حل تمرین هم گفت این‌ها در Cash به کار می‌آیند."
+      },
+      {
+        "n": 3,
+        "hint_fa": "کار تکراری برای هر نوع سکه را می‌توان در یک تابع با پارامتر و مقدار بازگشتی گذاشت."
+      }
+    ],
+    "common_mistakes_fa": [
+      "فراموش‌کردن کم‌کردن ارزش سکه‌های داده‌شده از باقی پول",
+      "پذیرفتن ورودی منفی",
+      "چاپ متن اضافه همراه عدد"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-ps-cash-c01",
+        "text_fa": "برای -1 دوباره پرسیده می‌شود.",
+        "maps_to": "w01-ps-cash-r3"
+      },
+      {
+        "id": "w01-ps-cash-c02",
+        "text_fa": "برای حروف و ورودی خالی دوباره پرسیده می‌شود.",
+        "maps_to": "w01-ps-cash-r3"
+      },
+      {
+        "id": "w01-ps-cash-c03",
+        "text_fa": "خروجی برای ۰ برابر 0 است.",
+        "maps_to": "w01-ps-cash-r3"
+      },
+      {
+        "id": "w01-ps-cash-c04",
+        "text_fa": "همهٔ مقادیر فهرست «How to Test» صفحهٔ رسمی را امتحان کرده‌ام.",
+        "maps_to": "w01-ps-cash-r2"
+      },
+      {
+        "id": "w01-ps-cash-c05",
+        "text_fa": "خروجی فقط یک عدد و `\\n` است.",
+        "maps_to": "w01-ps-cash-r2"
+      },
+      {
+        "id": "w01-ps-cash-c06",
+        "text_fa": "کد تکراری را با تابع یا حلقه کم کرده‌ام (طراحی).",
+        "maps_to": "design"
+      },
+      {
+        "id": "w01-ps-cash-c07",
+        "text_fa": "check50 و style50 را اجرا کرده‌ام.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w01-ps-cash-c08",
+        "text_fa": "با submit50 تحویل داده‌ام (یا Credit را).",
+        "maps_to": "submit"
+      }
+    ],
+    "thought_question_fa": null,
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "بخش «Advice» صفحهٔ رسمی (شبه‌کد هفت‌مرحله‌ای و تابع calculate_quarters)",
+      "url": "https://cs50.harvard.edu/x/psets/1/cash/#advice",
+      "reason_fa": "شبه‌کد و کد این بخش تقریباً کل راه‌حل را می‌دهند؛ در این بسته بازتولید نشده است."
+    },
+    {
+      "title_fa": "فهرست مقادیر آزمون «How to Test»",
+      "url": "https://cs50.harvard.edu/x/psets/1/cash/#how-to-test",
+      "reason_fa": "خروجی‌های مورد انتظار برای چند ورودی؛ از صفحهٔ رسمی ببین تا با کد خودت مقایسه کنی."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

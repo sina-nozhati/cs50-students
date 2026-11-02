@@ -1,0 +1,11 @@
+<div class="mt-2 text-center text-xs font-semibold text-[var(--slate)] animate-fade-in">
+  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson-tint text-crimson border border-crimson/20">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    ثبت شد: جعبهٔ <strong class="num">{{ res.box_number }}</strong> لایتنر (مرور بعدی: <span class="num">{{ res.interval_days }}</span> روز دیگر)
+  </span>
+  {% if res.xp_awarded > 0 %}
+  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-300 num ms-1.5">
+    +{{ res.xp_awarded }} XP
+  </span>
+  {% endif %}
+</div>

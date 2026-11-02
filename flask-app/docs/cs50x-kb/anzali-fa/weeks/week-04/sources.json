@@ -1,0 +1,806 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 4,
+  "generated_at": "2026-10-28T18:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-style-guide-c",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities",
+    "src-notes-1"
+  ],
+  "shared_sources_from_week_2": [
+    "src-check50-docs"
+  ],
+  "shared_sources_from_week_3": [
+    "src-short-call-stacks",
+    "src-notes-3",
+    "src-pset-3"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-4",
+      "url": "https://cs50.harvard.edu/x/weeks/4/",
+      "title": "Week 4 Memory (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:09:59+03:30",
+      "verified_at": "2026-10-28T17:26:34+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "9fdb1d0b45864864b4834eef6a1755b5d9d540f2d706c04c36c3069f77691891"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/4/",
+      "anchors": [
+        "week-4-memory"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/week.md",
+      "notes": "Topic line (Pointers ... Images) and media list; lists six shorts including Call Stacks (shared with week 3, d67). Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-notes-4",
+      "url": "https://cs50.harvard.edu/x/notes/4/",
+      "title": "Lecture 4 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "verified_at": "2026-10-28T17:26:17+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "d3b434bf19571755218dd2c2d5efa6542c0b319e6e2ab4473b167acf40050a98"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/4/",
+      "anchors": [
+        "copying-and-malloc",
+        "file-io",
+        "garbage-values",
+        "hexadecimal",
+        "lecture-4",
+        "memory",
+        "overflow",
+        "pixel-art",
+        "pointer-arithmetic",
+        "pointer-fun-with-binky",
+        "pointers",
+        "scanf",
+        "string-comparison",
+        "strings",
+        "summing-up",
+        "swapping",
+        "valgrind",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/lecture.md",
+      "notes": "All sections read in full; code blocks copied verbatim into examples4.py. Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-transcript-4",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/lang/en/lecture4.txt",
+      "title": "Lecture 4 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "verified_at": "2026-10-28T17:26:17+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/transcripts/lecture-en.txt",
+      "notes": "Spoken text with transcription errors. Cited for content absent from the notes (stage demos, Binky discussion, valgrind walk-through) and labelled «از سخنرانی»."
+    },
+    {
+      "id": "src-srt-4",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/lang/en/lecture4.srt",
+      "title": "Lecture 4 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-28T17:26:17+03:30",
+      "verified_at": "2026-10-28T17:26:17+03:30",
+      "local_copy": "_tools/refetch/week4/srt/lecture4.srt",
+      "notes": "Used only to derive chapter start times (chapter titles: inference; timestamps real)."
+    },
+    {
+      "id": "src-video-4",
+      "url": "https://video.cs50.io/db0H0U13YsA",
+      "title": "Lecture 4 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "notes": "Also https://youtu.be/db0H0U13YsA ; Portuguese DweS4KseeDE, Spanish xRW70LgrEho."
+    },
+    {
+      "id": "src-audio-4",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/lecture4.mp3",
+      "title": "Lecture 4 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30"
+    },
+    {
+      "id": "src-slides-4-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/lecture4.pdf",
+      "title": "Lecture 4 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-4-google",
+      "url": "https://docs.google.com/presentation/d/1WyWZ1PoTrCBjD_oh4UxzRD3SVCF5942O2dOfzdZ1rKE/edit?usp=sharing",
+      "title": "Lecture 4 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30"
+    },
+    {
+      "id": "src-src4-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/src4.zip",
+      "title": "Lecture 4 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/source-code/",
+      "notes": "Code in the notes was used (verbatim); the zip itself is linked, not repackaged."
+    },
+    {
+      "id": "src-src4-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/src4/",
+      "title": "Lecture 4 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30"
+    },
+    {
+      "id": "src-src4-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/4/src4.pdf",
+      "title": "Lecture 4 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30"
+    },
+    {
+      "id": "src-binky",
+      "url": "https://www.youtube.com/watch?v=5VnDaHBi8dM",
+      "title": "Pointer Fun with Binky (Stanford University video linked from the notes)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "notes": "Linked from src-notes-4#pointer-fun-with-binky; not CS50 content; link only."
+    },
+    {
+      "id": "src-section-4",
+      "url": "https://cs50.harvard.edu/x/sections/4/",
+      "title": "Section 4",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:29+03:30",
+      "verified_at": "2026-10-28T17:26:26+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "2af2355acdccea6dc1bea3305f35ddcc27744bb6e4d2a623c6af3f7276d9a085"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/4/",
+      "anchors": [
+        "week-4-memory"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/sections.md"
+    },
+    {
+      "id": "src-section-4-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/4/lang/en/section4.txt",
+      "title": "Section 4 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "verified_at": "2026-10-28T17:26:17+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary (presenter: Kelly); chapter times from section4.srt."
+    },
+    {
+      "id": "src-section-4-video",
+      "url": "https://video.cs50.io/Gjf0L3mkVtY",
+      "title": "Section 4 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "notes": "Also https://youtu.be/Gjf0L3mkVtY ; audio https://cdn.cs50.net/2025/fall/sections/4/section4.mp3"
+    },
+    {
+      "id": "src-section-4-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/4/section4.pdf",
+      "title": "Section 4 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30"
+    },
+    {
+      "id": "src-section-4-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/4/src4.zip",
+      "title": "Section 4 source code (concatenate.c, create.c, pdf.c)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/section-code/files/",
+      "notes": "concatenate.c and create.c reproduced verbatim (teaching examples, not pset solutions); pdf.c link-only because its signature check is the core pattern of Recover (D29). Index https://cdn.cs50.net/2025/fall/sections/4/src4/"
+    },
+    {
+      "id": "src-pset-4",
+      "url": "https://cs50.harvard.edu/x/psets/4/",
+      "title": "Problem Set 4",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:30+03:30",
+      "verified_at": "2026-10-28T17:26:20+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "39cd654427cb7a1306bcef28813312bfe1f9007ef3f82e3e581314e1a8a8185d"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/4/",
+      "anchors": [
+        "problem-set-4",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/psets/README.md"
+    },
+    {
+      "id": "src-pset-4-volume",
+      "url": "https://cs50.harvard.edu/x/psets/4/volume/",
+      "title": "Volume",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:28+03:30",
+      "verified_at": "2026-10-28T17:26:25+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "cefe0386d929e80b35520909140f99d1c243538cb6a6c3262c5580fc3df24aac"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/4/volume/",
+      "anchors": [
+        "volume",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "implementation-details",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/psets/volume.md"
+    },
+    {
+      "id": "src-pset-4-filter-less",
+      "url": "https://cs50.harvard.edu/x/psets/4/filter/less/",
+      "title": "Filter (less comfortable)",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:29+03:30",
+      "verified_at": "2026-10-28T17:26:21+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "2ec2d0fc7029b7d81ab583029cc04fe8ae685c8297c5b5710c343fca401c7d00"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/4/filter/less/",
+      "anchors": [
+        "filter",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "background",
+        "a-bitmap-more-technical",
+        "image-filtering",
+        "specification",
+        "hints",
+        "bmph",
+        "filterc",
+        "helpersh",
+        "helpersc",
+        "makefile",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/psets/filter-less.md"
+    },
+    {
+      "id": "src-pset-4-filter-more",
+      "url": "https://cs50.harvard.edu/x/psets/4/filter/more/",
+      "title": "Filter (more comfortable)",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:31+03:30",
+      "verified_at": "2026-10-28T17:26:23+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "99bff3cdd4c68b04719d8f2933e782666863e9b1e2e9ed36f689f77585ae76ac"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/4/filter/more/",
+      "anchors": [
+        "filter",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "background",
+        "a-bitmap-more-technical",
+        "image-filtering",
+        "grayscale",
+        "reflection",
+        "blur",
+        "edges",
+        "specification",
+        "understanding",
+        "bmph",
+        "filterc",
+        "helpersh",
+        "helpersc",
+        "makefile",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/psets/filter-more.md"
+    },
+    {
+      "id": "src-pset-4-recover",
+      "url": "https://cs50.harvard.edu/x/psets/4/recover/",
+      "title": "Recover",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:32+03:30",
+      "verified_at": "2026-10-28T17:26:24+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "4ac42b35650a568aafee99df3222154a6f2d0a38ee174d9319d34e3853fc62cc"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/4/recover/",
+      "anchors": [
+        "recover",
+        "problem-to-solve",
+        "distribution-code",
+        "background",
+        "specification",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "running-the-program",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/psets/recover.md"
+    },
+    {
+      "id": "src-practice-bottomup",
+      "url": "https://cs50.harvard.edu/x/practice/bottomup/",
+      "title": "Bottom Up",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:00+03:30",
+      "verified_at": "2026-10-28T17:26:18+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "ac79718ee42524aa347e3355418c0ded65d8863c84ab0e9ab1b92af6087ae4cd"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/bottomup/",
+      "anchors": [
+        "bottom-up",
+        "learning-goals",
+        "background",
+        "getting-started",
+        "demo",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/practice/bottomup.md"
+    },
+    {
+      "id": "src-practice-license",
+      "url": "https://cs50.harvard.edu/x/practice/license/",
+      "title": "License",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:01+03:30",
+      "verified_at": "2026-10-28T17:26:19+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "3694327a956a64a8b63080d8d63ae4532e86ee1e91f5fb3c7079852ca38e69ca"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/license/",
+      "anchors": [
+        "license",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "debugging",
+        "checking-for-memory-leaks",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/practice/license.md"
+    },
+    {
+      "id": "src-short-hexadecimal",
+      "url": "https://cs50.harvard.edu/x/shorts/hexadecimal/",
+      "title": "Short: Hexadecimal (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:37+03:30",
+      "verified_at": "2026-10-28T17:26:31+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "b761b7e3d2008d22962d37dd276ede27f32aa6e07ae71e5ce69be6220259d766"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/shorts/hexadecimal.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/hexadecimal/lang/en/hexadecimal.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/hexadecimal/lang/en/hexadecimal.srt. Video https://youtu.be/u_atXp-NF6w. Slides https://cdn.cs50.net/2017/fall/shorts/hexadecimal/hexadecimal.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-pointers",
+      "url": "https://cs50.harvard.edu/x/shorts/pointers/",
+      "title": "Short: Pointers (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:39+03:30",
+      "verified_at": "2026-10-28T17:26:32+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "3a05b8d71e69c16992ff7aeacc363a08c4082994e1501e57c5d0c0182005d2fd"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/shorts/pointers.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/pointers/lang/en/pointers.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/pointers/lang/en/pointers.srt. Video https://youtu.be/XISnO2YhnsY. Slides https://cdn.cs50.net/2017/fall/shorts/pointers/pointers.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-defining-custom-types",
+      "url": "https://cs50.harvard.edu/x/shorts/defining_custom_types/",
+      "title": "Short: Defining Custom Types (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:41+03:30",
+      "verified_at": "2026-10-28T17:26:27+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "eeccad220efb7c8f9dca244cb6a2abc80648f9d9c0bba52b2a0aac2fe80540d6"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/shorts/defining-custom-types.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/custom_types/lang/en/custom_types.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/custom_types/lang/en/custom_types.srt. Video https://youtu.be/96M4q0OnMfY. Slides https://cdn.cs50.net/2017/fall/shorts/custom_types/custom_types.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-dynamic-memory-allocation",
+      "url": "https://cs50.harvard.edu/x/shorts/dynamic_memory_allocation/",
+      "title": "Short: Dynamic Memory Allocation (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:43+03:30",
+      "verified_at": "2026-10-28T17:26:28+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "e3d0af36afdb32ef573c301a6f2cc0667cda881c0e2a124ff3dd58df2b9bc98b"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/shorts/dynamic-memory-allocation.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/dynamic_memory_allocation/lang/en/dynamic_memory_allocation.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/dynamic_memory_allocation/lang/en/dynamic_memory_allocation.srt. Video https://youtu.be/xa4ugmMDhiE. Slides https://cdn.cs50.net/2017/fall/shorts/dynamic_memory_allocation/dynamic_memory_allocation.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-file-pointers",
+      "url": "https://cs50.harvard.edu/x/shorts/file_pointers/",
+      "title": "Short: File Pointers (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:45+03:30",
+      "verified_at": "2026-10-28T17:26:30+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "e02e093aef80517daf8f3a3ec821aff055d3d7231f3927ea9798852d7eed0ed0"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-04-memory/shorts/file-pointers.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/file_pointers/lang/en/file_pointers.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/file_pointers/lang/en/file_pointers.srt. Video https://youtu.be/bOF-SpEAYgk. Slides https://cdn.cs50.net/2017/fall/shorts/file_pointers/file_pointers.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-time-cs50-deadline-4",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 4 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:28+03:30"
+    },
+    {
+      "id": "src-valgrind-box",
+      "url": "urn:cs50x-anzali:box:valgrind",
+      "title": "valgrind 3.x and gcc 14.2 on the CS50x Anzali build box (compile and memcheck evidence in validation/compile-checks.week-04.json)",
+      "source_type": "tool",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-28T18:00:00+03:30",
+      "notes": "Box-only verification (D30); learners run valgrind in cs50.dev."
+    },
+    {
+      "id": "src-anzali-authored-4",
+      "url": "urn:cs50x-anzali:authored:week-04",
+      "title": "Material authored by CS50x Anzali for Week 4 (examples marked تألیفی, exercises, challenges, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-28T18:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-4",
+      "url": "urn:cs50x-anzali:inference:week-04",
+      "title": "Editorial inferences for Week 4 (chapter boundaries from official .srt cue times; concept graph; topic order; Filter both-submitted policy D27)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-28T18:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d56",
+      "topic": "copy5: empty string and NULL",
+      "a": {
+        "source": "src-notes-4#copying-and-malloc",
+        "value": "'Notice that if the string obtained is of length 0 or malloc fails, NULL is returned.'"
+      },
+      "b": {
+        "source": "src-notes-4#copying-and-malloc",
+        "value": "copy5.c checks only the return values of get_string and malloc for NULL; an empty string is not NULL"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note states that NULL means 'no memory', not 'empty string'."
+    },
+    {
+      "id": "d57",
+      "topic": "Recover page wording",
+      "a": {
+        "source": "src-pset-4-recover#hints",
+        "value": "'pseudcode' typo; says fread 'returns the number of bytes that it has read'; links man.cs50.io"
+      },
+      "b": {
+        "source": "src-manual",
+        "value": "fread returns the number of items read (equal to bytes only when the item size is 1); CS50's manual is manual.cs50.io"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide says 'number of items' and links manual.cs50.io."
+    },
+    {
+      "id": "d58",
+      "topic": "Volume page: typo and empty block",
+      "a": {
+        "source": "src-pset-4-volume#problem-to-solve",
+        "value": "'the volume of the origin audio'"
+      },
+      "b": {
+        "source": "src-pset-4-volume#walkthrough",
+        "value": "'Not sure how to solve?' collapsible with no visible content"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Not reproduced; linked only."
+    },
+    {
+      "id": "d59",
+      "topic": "License distribution code wording",
+      "a": {
+        "source": "src-practice-license#implementation-details",
+        "value": "Page calls the array 'license array' and points to 'line 30' (malloc) and 'line 20' (fopen)"
+      },
+      "b": {
+        "source": "src-practice-license",
+        "value": "license.c names the array plates and prints 'Usage: ./read infile'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide uses the names in the distribution code and says line numbers may differ (as the page itself does)."
+    },
+    {
+      "id": "d60",
+      "topic": "Bottom Up usage message",
+      "a": {
+        "source": "src-practice-bottomup",
+        "value": "bottomup.c prints 'Usage: copy infile outfile'"
+      },
+      "b": {
+        "source": "src-practice-bottomup#how-to-test-your-code",
+        "value": "Program is run as ./bottomup"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Leftover from an older 'copy' program; harmless."
+    },
+    {
+      "id": "d61",
+      "topic": "BMP row order",
+      "a": {
+        "source": "src-pset-4-filter-less#a-bitmap-more-technical",
+        "value": "'we've stored this problem set's BMPs ... with each bitmap's top row first and bottom row last'; some BMPs store rows backwards"
+      },
+      "b": {
+        "source": "src-practice-bottomup#background",
+        "value": "harvard_bottomup.bmp is stored bottom-up and must be flipped via metadata"
+      },
+      "status": "complementary",
+      "note": "Both are true; Filter's images are top-down, Bottom Up's input is not."
+    },
+    {
+      "id": "d62",
+      "topic": "phonebook.c fopen mode",
+      "a": {
+        "source": "src-notes-4#file-io",
+        "value": "phonebook.c opens the CSV with mode \"a\" (append)"
+      },
+      "b": {
+        "source": "src-transcript-4",
+        "value": "Lecture demo first uses \"w\", shows the file being overwritten on each run, then switches to \"a\""
+      },
+      "status": "complementary",
+      "note": "Persian note explains both modes and uses the notes' code."
+    },
+    {
+      "id": "d63",
+      "topic": "Dated CDN paths",
+      "a": {
+        "source": "src-week-4",
+        "value": "Lecture and section media/code under cdn.cs50.net/2025/fall/"
+      },
+      "b": {
+        "source": "src-practice-bottomup#getting-started",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/4/bottomup.zip ; check50 cs50/labs/2023/x/bottomup (same for license)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Copied exactly as published; psets use 2026/x."
+    },
+    {
+      "id": "d64",
+      "topic": "Section code gaps",
+      "a": {
+        "source": "src-section-4-code",
+        "value": "concatenate.c has no NULL check after malloc; create.c error messages lack \\n and it returns before free(filename) when fopen fails"
+      },
+      "b": {
+        "source": "src-section-4-transcript",
+        "value": "Kelly stresses checking malloc for NULL and freeing every allocation"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Code reproduced verbatim with a Persian note; not fixed."
+    },
+    {
+      "id": "d65",
+      "topic": "Pointer size",
+      "a": {
+        "source": "src-short-pointers",
+        "value": "Doug Lloyd says a pointer is 4 or 8 bytes depending on the system"
+      },
+      "b": {
+        "source": "src-notes-4#pointers",
+        "value": "Notes: pointers are 8 bytes on the course's 64-bit system"
+      },
+      "status": "complementary",
+      "note": "2017 short covers 32-bit systems; Persian note uses 8 bytes and mentions 4 on older systems."
+    },
+    {
+      "id": "d66",
+      "topic": "fgetc stored in char",
+      "a": {
+        "source": "src-short-file-pointers",
+        "value": "Example declares char ch = fgetc(ptr) and loops until EOF"
+      },
+      "b": {
+        "source": "src-manual",
+        "value": "fgetc returns int so EOF (-1) is distinguishable from byte 255"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Authored examples use int for fgetc results."
+    },
+    {
+      "id": "d67",
+      "topic": "Call Stacks short listed twice",
+      "a": {
+        "source": "src-week-4",
+        "value": "Shorts list includes Call Stacks"
+      },
+      "b": {
+        "source": "src-week-3",
+        "value": "Same short listed in week 3"
+      },
+      "status": "consistent",
+      "note": "Covered once (w03-sh-call-stacks) and cross-linked from week 4."
+    },
+    {
+      "id": "d68",
+      "topic": "Official hints contain near-solution code",
+      "a": {
+        "source": "src-pset-4-volume#hints",
+        "value": "Hints show the full header copy and sample loop; Filter less hints show function skeletons and the sepia formula; Recover hints show the read loop"
+      },
+      "b": {
+        "source": "src-anzali-authored-4",
+        "value": "CS50x Anzali no-solution policy (FR-13)"
+      },
+      "status": "consistent",
+      "note": "These blocks are link-only in this package (D28)."
+    },
+    {
+      "id": "d69",
+      "topic": "Filter: both versions submitted",
+      "a": {
+        "source": "src-pset-4#what-to-do",
+        "value": "'Submit one of' Filter less or Filter more"
+      },
+      "b": {
+        "source": "src-pset-3#what-to-do",
+        "value": "Week 3 page says the higher score counts if both Runoff and Tideman are submitted"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Week 4 page is silent; package infers 'higher score' (D27) and labels it inference."
+    }
+  ]
+}

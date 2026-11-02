@@ -1,0 +1,417 @@
+{
+  "$schema": "../../schemas/activity.schema.json",
+  "week": 99,
+  "week_slug": "final-project",
+  "generated_at": "2026-10-31T21:00:00+03:30",
+  "origin": "authored",
+  "disclaimer": "Suggested by CS50x Anzali; configurable; NOT a CS50 rule and has no effect on official CS50 grades or certificate.",
+  "activities": [
+    {
+      "id": "w99-a-kb-read",
+      "type": "kb_read",
+      "title_fa": "خواندن نمای کلی پروژهٔ نهایی",
+      "objective_fa": "آشنایی با هدف‌ها و نقشهٔ جلسه",
+      "completion_condition": {
+        "type": "button_clicked",
+        "button": "من خواندم"
+      },
+      "assessment_criterion": {
+        "type": "none",
+        "note": "Existing panel behaviour; low XP by design."
+      },
+      "xp_event": "kb_week_read",
+      "tracking": {
+        "model": "WeekProgress",
+        "field": "kb_read"
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": false,
+      "origin": "authored"
+    },
+    {
+      "id": "w99-a-l01",
+      "type": "lesson",
+      "title_fa": "درس ۱: پروژهٔ نهایی چیست، ایده و ابزار",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w99-l01"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w99-l01"
+    },
+    {
+      "id": "w99-a-l02",
+      "type": "lesson",
+      "title_fa": "درس ۲: دامنه، نقطه‌های عطف و صداقت تحصیلی",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w99-l02"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w99-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w99-l02"
+    },
+    {
+      "id": "w99-a-l03",
+      "type": "lesson",
+      "title_fa": "درس ۳: سه گام تحویل",
+      "objective_fa": "تسلط بر همهٔ واحدهای درس",
+      "completion_condition": {
+        "type": "all_units_mastered",
+        "lesson_id": "w99-l03"
+      },
+      "assessment_criterion": {
+        "type": "unit_mastery",
+        "rule": "check_correct_and_exercise_pass",
+        "per_unit": true
+      },
+      "xp_event": "lesson_mastered",
+      "tracking": {
+        "proposed_model": "UnitProgress",
+        "fields": [
+          "unit_id",
+          "status",
+          "attempts",
+          "hints_used",
+          "mastered_at"
+        ],
+        "exercise_attempts": "ExerciseAttempt (see exercises.panel.json)"
+      },
+      "unlock": {
+        "rule": "all_prerequisite_lessons_mastered",
+        "lesson_ids": [
+          "w99-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "lesson_id": "w99-l03"
+    },
+    {
+      "id": "w99-a-qz01",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۱",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w99-qz-l01"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w99-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w99-qz-l01"
+    },
+    {
+      "id": "w99-a-qz02",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۲",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w99-qz-l02"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w99-l02"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w99-qz-l02"
+    },
+    {
+      "id": "w99-a-qz03",
+      "type": "practice_quiz",
+      "title_fa": "تمرین درس ۳",
+      "objective_fa": "بازیابی فعال مفاهیم درس",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w99-qz-l03"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.6,
+        "on": "auto_gradable_items"
+      },
+      "xp_event": "practice_quiz_completed",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "fields": [
+          "quiz_id",
+          "score",
+          "total",
+          "answers_json",
+          "started_at",
+          "finished_at"
+        ]
+      },
+      "unlock": {
+        "rule": "lesson_started",
+        "lesson_ids": [
+          "w99-l03"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w99-qz-l03"
+    },
+    {
+      "id": "w99-a-fc-daily",
+      "type": "spaced_review",
+      "title_fa": "مرور روزانهٔ فلش‌کارت پروژهٔ نهایی",
+      "objective_fa": "نگه‌داشتن مفاهیم در حافظهٔ بلندمدت",
+      "completion_condition": {
+        "type": "cards_reviewed_gte",
+        "value": 10,
+        "scope": "due_today"
+      },
+      "assessment_criterion": {
+        "type": "recall_rate_gte",
+        "value": 0.6,
+        "grade_pass": 3
+      },
+      "xp_event": "flashcard_daily_review",
+      "tracking": {
+        "model": "WeekProgress",
+        "field": "flashcards_reviewed",
+        "proposed_model": "FlashcardState"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w99-l01"
+        ]
+      },
+      "optional": false,
+      "origin": "authored",
+      "repeatable": "daily"
+    },
+    {
+      "id": "w99-a-fc-recall",
+      "type": "spaced_review",
+      "title_fa": "نرخ یادآوری ۸۰٪ پروژهٔ نهایی",
+      "objective_fa": "اثبات یادسپاری پایدار",
+      "completion_condition": {
+        "type": "rolling_recall_rate_gte",
+        "value": 0.8,
+        "window": 20
+      },
+      "assessment_criterion": {
+        "type": "recall_rate_gte",
+        "value": 0.8
+      },
+      "xp_event": "spaced_recall_milestone",
+      "tracking": {
+        "proposed_model": "FlashcardReview"
+      },
+      "unlock": {
+        "rule": "min_reviews",
+        "value": 20
+      },
+      "optional": false,
+      "origin": "authored"
+    },
+    {
+      "id": "w99-a-revisit",
+      "type": "revisit",
+      "title_fa": "بازگشت به مفهوم ضعیف",
+      "objective_fa": "رفع خطاهای تکرارشونده",
+      "completion_condition": {
+        "type": "previously_missed_item_answered_correctly"
+      },
+      "assessment_criterion": {
+        "type": "correct_on_equivalent_item"
+      },
+      "xp_event": "revisit_weak_concept",
+      "tracking": {
+        "proposed_model": "QuizAttempt",
+        "derived": "concepts with >= 2 misses"
+      },
+      "unlock": {
+        "rule": "has_weak_concept"
+      },
+      "optional": false,
+      "origin": "authored",
+      "repeatable": "daily_per_concept"
+    },
+    {
+      "id": "w99-a-challenges",
+      "type": "challenge_session",
+      "title_fa": "چالش‌های کوتاه پروژهٔ نهایی",
+      "objective_fa": "خودآزمایی الزامات تحویل با token tap، parsons و spot the bug",
+      "completion_condition": {
+        "type": "challenge_session_completed",
+        "file": "challenges.json",
+        "challenges": 6
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.8,
+        "configurable": true,
+        "on": "first_attempts",
+        "config_ref": "gamification/xp-config.json#/challenge_session"
+      },
+      "xp_event": "challenge_session_completed",
+      "tracking": {
+        "proposed_model": "ExerciseAttempt",
+        "see": "exercises.panel.json (role challenge)"
+      },
+      "unlock": {
+        "rule": "lesson_mastered",
+        "lesson_ids": [
+          "w99-l01"
+        ]
+      },
+      "optional": true,
+      "origin": "authored"
+    },
+    {
+      "id": "w99-a-mastery",
+      "type": "mastery_test",
+      "title_fa": "آزمون تسلط راهنمای پروژهٔ نهایی",
+      "objective_fa": "اثبات تسلط بر الزامات رسمی تحویل",
+      "completion_condition": {
+        "type": "quiz_submitted",
+        "quiz_id": "w99-mt-final"
+      },
+      "assessment_criterion": {
+        "type": "score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      "xp_event": "mastery_test_passed",
+      "tracking": {
+        "model": "WeekProgress",
+        "fields": [
+          "quiz_score",
+          "quiz_total",
+          "quiz_completed"
+        ]
+      },
+      "unlock": {
+        "rule": "all_lessons_mastered"
+      },
+      "optional": false,
+      "origin": "authored",
+      "quiz_id": "w99-mt-final"
+    },
+    {
+      "id": "w99-a-checklist",
+      "type": "project_checklist",
+      "title_fa": "فهرست بررسی پروژه (خوداظهاری)",
+      "objective_fa": "پیش از ارسال، الزامات رسمی را یکی‌یکی مرور کنی",
+      "completion_condition": {
+        "type": "required_checklist_items_ticked",
+        "file": "checklist.json"
+      },
+      "assessment_criterion": {
+        "type": "self_reported",
+        "note": "Ticks are self-reported; the panel cannot verify them. Submission is verified only by the official CS50 gradebook."
+      },
+      "xp_event": "none",
+      "tracking": {
+        "proposed_model": "ChecklistTick",
+        "fields": [
+          "user_id",
+          "item_id",
+          "ticked_at",
+          "link_value"
+        ]
+      },
+      "unlock": {
+        "rule": "always_open"
+      },
+      "optional": true,
+      "origin": "authored",
+      "self_reported": true
+    }
+  ]
+}

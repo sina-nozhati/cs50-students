@@ -1,0 +1,243 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w07-pr-favorites",
+  "kind": "practice",
+  "week": 7,
+  "title_en": "Favorites",
+  "title_fa": "پاک‌سازی علاقه‌مندی‌ها (Favorites)",
+  "guide_doc_id": "w07-pr-favorites",
+  "guide_file": "favorites.fa.md",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/favorites/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "choice_group": null,
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w07-pr-favorites-r1",
+        "text_fa": "با کلیدواژهٔ `UPDATE` پایگاه داده را پاک‌سازی کن تا برای تحلیل مفیدتر شود.",
+        "text_en": "Your job is to use the SQL UPDATE keyword to clean up this database, so it can be more effectively used for analysis",
+        "source_ref": "src-practice-favorites#background"
+      },
+      {
+        "id": "w07-pr-favorites-r2",
+        "text_fa": "به جای بازنویسی تک‌تک عنوان‌های نادرست، چند گونهٔ یک سریال را با هم انتخاب و به املای درست به‌روزرسانی کن؛ شاید `LIKE` کمک کند.",
+        "text_en": "it’s much more efficient to select muliple variations of the same show and UPDATE these to the correct spelling. Maybe the LIKE keyword could come in handy!",
+        "source_ref": "src-practice-favorites#implementation-details"
+      },
+      {
+        "id": "w07-pr-favorites-r3",
+        "text_fa": "عنوان‌های زیادی باید پاک شوند، از جمله بیست عنوان فهرست رسمی؛ اگر وقت کم است، شش عنوان پیشنهادی صفحهٔ رسمی جالب‌ترند.",
+        "text_en": "There are many titles to clean up, including all of the below ... If pressed for time, though, some of the more interesting clean-ups involve these shows",
+        "source_ref": "src-practice-favorites#implementation-details"
+      },
+      {
+        "id": "w07-pr-favorites-r4",
+        "text_fa": "همهٔ دستورهای SQL را در فایل تازهٔ `favorites.sql` ذخیره کن.",
+        "text_en": "Be sure to save each of these SQL statements to store in a new file favorites.sql",
+        "source_ref": "src-practice-favorites#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": null,
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/7/favorites.zip\nunzip favorites.zip\nrm favorites.zip"
+    },
+    "sample_io": [],
+    "test_texts": [],
+    "official_snippets": [],
+    "debug_commands": [],
+    "official_hints_fa": [],
+    "official_commands": [
+      {
+        "caption_fa": "باز کردن پایگاه داده",
+        "command": "sqlite3 favorites.db",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "دیدن دستورهای ساخت دو جدول",
+        "command": ".schema",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "دیدن داده‌های shows",
+        "command": "SELECT * FROM shows;",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی صفحه برای اولین عنوان",
+        "command": "UPDATE shows SET title = \"How I Met Your Mother\" WHERE title = \"How i met your mother\";",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": null,
+      "style50": null,
+      "has_check50": false,
+      "has_style50": false,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": null,
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d124",
+      "d125",
+      "d121"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w07-c-sqlite3-cli",
+      "w07-c-schema",
+      "w07-c-select-star",
+      "w07-c-update",
+      "w07-c-where",
+      "w07-c-like-wildcard",
+      "w07-c-missing-where-danger",
+      "w07-c-backups-permissions",
+      "w07-c-string-literal-quotes",
+      "w07-c-data-cleaning"
+    ],
+    "prerequisite_lesson_ids": [
+      "w07-l01",
+      "w07-l02",
+      "w07-l03"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w07-c-sqlite3-cli",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-schema",
+        "note_id": "w07-n02",
+        "lesson_id": "w07-l01",
+        "unit_id": "w07-l01-u03"
+      },
+      {
+        "concept_id": "w07-c-select-star",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u01"
+      },
+      {
+        "concept_id": "w07-c-update",
+        "note_id": "w07-n06",
+        "lesson_id": "w07-l03",
+        "unit_id": "w07-l03-u03"
+      },
+      {
+        "concept_id": "w07-c-where",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-like-wildcard",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u02"
+      },
+      {
+        "concept_id": "w07-c-missing-where-danger",
+        "note_id": "w07-n06",
+        "lesson_id": "w07-l03",
+        "unit_id": "w07-l03-u03"
+      },
+      {
+        "concept_id": "w07-c-backups-permissions",
+        "note_id": "w07-n06",
+        "lesson_id": "w07-l03",
+        "unit_id": "w07-l03-u04"
+      },
+      {
+        "concept_id": "w07-c-string-literal-quotes",
+        "note_id": "w07-n03",
+        "lesson_id": "w07-l02",
+        "unit_id": "w07-l02-u04"
+      },
+      {
+        "concept_id": "w07-c-data-cleaning",
+        "note_id": "w07-pr-favorites",
+        "lesson_id": null,
+        "unit_id": null
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیش از هر `UPDATE`، همان شرط `WHERE` را در یک `SELECT` اجرا کن و ببین دقیقاً کدام سطرها را می‌گیرد."
+      },
+      {
+        "n": 2,
+        "hint_fa": "`LIKE` بزرگی و کوچکی حروف لاتین را نادیده می‌گیرد و `%` هر تعداد نویسه را می‌پذیرد. ولی الگوی خیلی کلی ممکن است عنوان سریال دیگری را هم بگیرد."
+      },
+      {
+        "n": 3,
+        "hint_fa": "صفحهٔ رسمی پیشنهاد می‌کند در پایان همهٔ عنوان‌ها را به ترتیب الفبا ببینی؛ گونه‌های باقی‌مانده کنار هم دیده می‌شوند."
+      },
+      {
+        "n": 4,
+        "hint_fa": "نمونهٔ رسمی صفحه رشته‌ها را با نقل‌قول دوتایی نوشته است. SQLite این را می‌پذیرد چون ستونی با آن نام نیست، ولی در دستورهای خودت نقل‌قول تکی امن‌تر است (d121)."
+      }
+    ],
+    "common_mistakes_fa": [
+      "`UPDATE` بدون `WHERE` که همهٔ عنوان‌ها را یکی می‌کند",
+      "الگوی `LIKE` خیلی کلی که سریال دیگری را هم تغییر می‌دهد",
+      "نگه نداشتن نسخهٔ پشتیبان",
+      "ذخیره نکردن دستورها در `favorites.sql`"
+    ],
+    "self_checklist": [
+      {
+        "id": "w07-pr-favorites-c01",
+        "text_fa": "پیش از تغییر، از `favorites.db` نسخهٔ پشتیبان گرفته‌ام.",
+        "maps_to": "w07-pr-favorites-r1"
+      },
+      {
+        "id": "w07-pr-favorites-c02",
+        "text_fa": "هر `UPDATE` بند `WHERE` دارد و پیش از اجرا، همان شرط را با `SELECT` آزموده‌ام.",
+        "maps_to": "w07-pr-favorites-r2"
+      },
+      {
+        "id": "w07-pr-favorites-c03",
+        "text_fa": "گونه‌های یک عنوان را با یک دستور و `LIKE` گرفته‌ام، ولی مراقب بوده‌ام عنوان سریال دیگری را نگیرم.",
+        "maps_to": "w07-pr-favorites-r2"
+      },
+      {
+        "id": "w07-pr-favorites-c04",
+        "text_fa": "دست‌کم شش عنوان پیشنهادی را پاک کرده‌ام.",
+        "maps_to": "w07-pr-favorites-r3"
+      },
+      {
+        "id": "w07-pr-favorites-c05",
+        "text_fa": "همهٔ دستورها در `favorites.sql` ذخیره شده‌اند.",
+        "maps_to": "w07-pr-favorites-r4"
+      }
+    ],
+    "thought_question_fa": "چرا فکر می‌کنی «پاک‌سازی» داده لازم است وقتی می‌توانی از `LIKE` استفاده کنی؟",
+    "verification_fa": "چک‌لیست را بگذران را اجرا کن؛ این مسئله check50 و style50 ندارد، پس نمونه‌های رسمی را خودت اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "فایل آغازین favorites.zip",
+      "url": "https://cdn.cs50.net/2022/fall/labs/7/favorites.zip",
+      "reason_fa": "پایگاه دادهٔ رسمی؛ این بسته آن را باز نمی‌کند (D59)."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

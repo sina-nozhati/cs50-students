@@ -1,0 +1,2316 @@
+{
+  "$schema": "../../schemas/flashcard.schema.json",
+  "week": 9,
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "origin": "authored",
+  "note": "Cards are authored by CS50x Anzali from official content (source_ref). Per-user SRS state belongs in the database; the srs block is only the initial template (Leitner box 1 / SM-2 defaults from gamification/xp-config.json /srs).",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "cards": [
+    {
+      "id": "w09-fc-001",
+      "concept_id": "w09-c-static-page",
+      "note_id": "w09-n01",
+      "front_fa": "صفحهٔ ایستا (static) یعنی چه؟",
+      "back_fa": "فایل HTML ازپیش‌نوشته که سرور هر بار بدون تغییر می‌فرستد، مثل فایل‌هایی که `http-server` در هفتهٔ ۸ می‌فرستاد.",
+      "question_fa": "صفحهٔ ایستا (static) یعنی چه؟",
+      "answer_fa": "فایل HTML ازپیش‌نوشته که سرور هر بار بدون تغییر می‌فرستد، مثل فایل‌هایی که `http-server` در هفتهٔ ۸ می‌فرستاد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "web"
+      ],
+      "source_ref": "src-notes-9#http-server",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-002",
+      "concept_id": "w09-c-dynamic-page",
+      "note_id": "w09-n01",
+      "front_fa": "صفحهٔ پویا (dynamic) یعنی چه؟",
+      "back_fa": "صفحه‌ای که سرور با کد و بر اساس ورودی، مثلاً `?name=David` ، هر بار می‌سازد.",
+      "question_fa": "صفحهٔ پویا (dynamic) یعنی چه؟",
+      "answer_fa": "صفحه‌ای که سرور با کد و بر اساس ورودی، مثلاً `?name=David` ، هر بار می‌سازد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "web"
+      ],
+      "source_ref": "src-notes-9#http-server",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-003",
+      "concept_id": "w09-c-route",
+      "note_id": "w09-n01",
+      "front_fa": "در نشانی `/search?q=cats` مسیر و پارامتر کدام‌اند؟",
+      "back_fa": "مسیر `/search` است و پس از `?` پارامتر `q` با مقدار `cats` می‌آید.",
+      "question_fa": "در نشانی `/search?q=cats` مسیر و پارامتر کدام‌اند؟",
+      "answer_fa": "مسیر `/search` است و پس از `?` پارامتر `q` با مقدار `cats` می‌آید.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "web",
+        "route"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-004",
+      "concept_id": "w09-c-flask",
+      "note_id": "w09-n02",
+      "front_fa": "Flask چیست؟",
+      "back_fa": "یک کتابخانهٔ شخص ثالث و ریزچارچوب (microframework) وب در پایتون برای نوشتن برنامه‌های سمت سرور.",
+      "question_fa": "Flask چیست؟",
+      "answer_fa": "یک کتابخانهٔ شخص ثالث و ریزچارچوب (microframework) وب در پایتون برای نوشتن برنامه‌های سمت سرور.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-005",
+      "concept_id": "w09-c-app-py-requirements",
+      "note_id": "w09-n02",
+      "front_fa": "یک برنامهٔ سادهٔ Flask دست‌کم چه فایل‌هایی دارد؟",
+      "back_fa": "`app.py` برای کد و `requirements.txt` برای فهرست کتابخانه‌های لازم.",
+      "question_fa": "یک برنامهٔ سادهٔ Flask دست‌کم چه فایل‌هایی دارد؟",
+      "answer_fa": "`app.py` برای کد و `requirements.txt` برای فهرست کتابخانه‌های لازم.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-006",
+      "concept_id": "w09-c-flask-app-object",
+      "note_id": "w09-n02",
+      "front_fa": "`app = Flask(__name__)` چه می‌کند؟",
+      "back_fa": "از روی کلاس Flask یک برنامهٔ وب می‌سازد؛ `__name__` نام فایل جاری را به Flask می‌دهد.",
+      "question_fa": "`app = Flask(__name__)` چه می‌کند؟",
+      "answer_fa": "از روی کلاس Flask یک برنامهٔ وب می‌سازد؛ `__name__` نام فایل جاری را به Flask می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-007",
+      "concept_id": "w09-c-decorator",
+      "note_id": "w09-n02",
+      "front_fa": "تزئین‌گر `@app.route(\"/\")` چه می‌کند؟",
+      "back_fa": "تابع زیر خودش را به مسیر `/` وصل می‌کند تا با هر درخواست به آن مسیر اجرا شود.",
+      "question_fa": "تزئین‌گر `@app.route(\"/\")` چه می‌کند؟",
+      "answer_fa": "تابع زیر خودش را به مسیر `/` وصل می‌کند تا با هر درخواست به آن مسیر اجرا شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask",
+        "route"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-008",
+      "concept_id": "w09-c-return-text-html",
+      "note_id": "w09-n02",
+      "front_fa": "مقدار بازگشتی تابع یک مسیر در Flask چیست؟",
+      "back_fa": "بدنهٔ پاسخ است: متن ساده یا HTML، یا نتیجهٔ `render_template` .",
+      "question_fa": "مقدار بازگشتی تابع یک مسیر در Flask چیست؟",
+      "answer_fa": "بدنهٔ پاسخ است: متن ساده یا HTML، یا نتیجهٔ `render_template` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-009",
+      "concept_id": "w09-c-flask-run",
+      "note_id": "w09-n02",
+      "front_fa": "برنامهٔ Flask را در cs50.dev چطور اجرا می‌کنی؟",
+      "back_fa": "در پوشهٔ برنامه `flask run` را می‌زنی و نشانی‌ای را که چاپ می‌کند باز می‌کنی.",
+      "question_fa": "برنامهٔ Flask را در cs50.dev چطور اجرا می‌کنی؟",
+      "answer_fa": "در پوشهٔ برنامه `flask run` را می‌زنی و نشانی‌ای را که چاپ می‌کند باز می‌کنی.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-010",
+      "concept_id": "w09-c-flask-run",
+      "note_id": "w09-n02",
+      "front_fa": "اگر برای مسیری مثل `/bye` هیچ تابعی تعریف نشده باشد، Flask چه کدی برمی‌گرداند؟",
+      "back_fa": "404 Not Found (اجراشده با کلاینت آزمایشی Flask).",
+      "question_fa": "اگر برای مسیری مثل `/bye` هیچ تابعی تعریف نشده باشد، Flask چه کدی برمی‌گرداند؟",
+      "answer_fa": "404 Not Found (اجراشده با کلاینت آزمایشی Flask).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask",
+        "status"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-011",
+      "concept_id": "w09-c-templates-folder",
+      "note_id": "w09-n03",
+      "front_fa": "Flask قالب‌ها را در کدام پوشه جست‌وجو می‌کند؟",
+      "back_fa": "پوشهٔ `templates` کنار `app.py` .",
+      "question_fa": "Flask قالب‌ها را در کدام پوشه جست‌وجو می‌کند؟",
+      "answer_fa": "پوشهٔ `templates` کنار `app.py` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask",
+        "templates"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-012",
+      "concept_id": "w09-c-render-template",
+      "note_id": "w09-n03",
+      "front_fa": "`render_template(\"greet.html\", name=name)` چه می‌کند؟",
+      "back_fa": "قالب `templates/greet.html` را می‌خواند، `{{ name }}` را با مقدار متغیر پر می‌کند و HTML حاصل را برمی‌گرداند.",
+      "question_fa": "`render_template(\"greet.html\", name=name)` چه می‌کند؟",
+      "answer_fa": "قالب `templates/greet.html` را می‌خواند، `{{ name }}` را با مقدار متغیر پر می‌کند و HTML حاصل را برمی‌گرداند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "templates"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-013",
+      "concept_id": "w09-c-request-args",
+      "note_id": "w09-n03",
+      "front_fa": "`request.args.get(\"name\", \"world\")` چه برمی‌گرداند؟",
+      "back_fa": "مقدار پارامتر `name` در نشانی، یا `\"world\"` اگر آن پارامتر در نشانی نباشد.",
+      "question_fa": "`request.args.get(\"name\", \"world\")` چه برمی‌گرداند؟",
+      "answer_fa": "مقدار پارامتر `name` در نشانی، یا `\"world\"` اگر آن پارامتر در نشانی نباشد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "request"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-014",
+      "concept_id": "w09-c-jinja-placeholder",
+      "note_id": "w09-n03",
+      "front_fa": "`{{ name }}` در قالب Jinja یعنی چه؟",
+      "back_fa": "جای‌نگهداری که هنگام رندر با مقدار متغیر `name` جایگزین می‌شود.",
+      "question_fa": "`{{ name }}` در قالب Jinja یعنی چه؟",
+      "answer_fa": "جای‌نگهداری که هنگام رندر با مقدار متغیر `name` جایگزین می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "jinja"
+      ],
+      "source_ref": "src-notes-9#templates",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-015",
+      "concept_id": "w09-c-jinja-autoescape",
+      "note_id": "w09-n03",
+      "front_fa": "اگر `name` برابر `<b>` باشد، `{{ name }}` در قالب HTML چه تولید می‌کند؟",
+      "back_fa": "`&lt;b&gt;` ؛ Jinja در Flask نویسه‌های ویژهٔ HTML را خودکار escape می‌کند (اجراشده روی جعبه).",
+      "question_fa": "اگر `name` برابر `<b>` باشد، `{{ name }}` در قالب HTML چه تولید می‌کند؟",
+      "answer_fa": "`&lt;b&gt;` ؛ Jinja در Flask نویسه‌های ویژهٔ HTML را خودکار escape می‌کند (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "jinja",
+        "security"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-016",
+      "concept_id": "w09-c-form-to-route",
+      "note_id": "w09-n04",
+      "front_fa": "`<form action=\"/greet\">` چه می‌کند؟",
+      "back_fa": "با فرستادن فرم، مرورگر داده را به مسیر `/greet` همان سرور می‌فرستد.",
+      "question_fa": "`<form action=\"/greet\">` چه می‌کند؟",
+      "answer_fa": "با فرستادن فرم، مرورگر داده را به مسیر `/greet` همان سرور می‌فرستد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "forms"
+      ],
+      "source_ref": "src-notes-9#forms",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-017",
+      "concept_id": "w09-c-second-route",
+      "note_id": "w09-n04",
+      "front_fa": "چرا برنامهٔ hello با فرم دو مسیر دارد؟",
+      "back_fa": "`/` فرم را نشان می‌دهد و `/greet` دادهٔ فرم را می‌خواند و پاسخ سلام را می‌سازد.",
+      "question_fa": "چرا برنامهٔ hello با فرم دو مسیر دارد؟",
+      "answer_fa": "`/` فرم را نشان می‌دهد و `/greet` دادهٔ فرم را می‌خواند و پاسخ سلام را می‌سازد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "forms",
+        "route"
+      ],
+      "source_ref": "src-notes-9#forms",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-018",
+      "concept_id": "w09-c-template-not-found",
+      "note_id": "w09-n04",
+      "front_fa": "خطای `TemplateNotFound` یعنی چه؟",
+      "back_fa": "قالبی که در `render_template` نام برده‌ای در پوشهٔ `templates` پیدا نشده است.",
+      "question_fa": "خطای `TemplateNotFound` یعنی چه؟",
+      "answer_fa": "قالبی که در `render_template` نام برده‌ای در پوشهٔ `templates` پیدا نشده است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "templates",
+        "errors"
+      ],
+      "source_ref": "src-transcript-9",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-019",
+      "concept_id": "w09-c-layout",
+      "note_id": "w09-n05",
+      "front_fa": "قالب `layout.html` به چه درد می‌خورد؟",
+      "back_fa": "بخش مشترک همهٔ صفحه‌ها (head، ساختار) را یک‌جا نگه می‌دارد تا در هر قالب تکرار نشود.",
+      "question_fa": "قالب `layout.html` به چه درد می‌خورد؟",
+      "answer_fa": "بخش مشترک همهٔ صفحه‌ها (head، ساختار) را یک‌جا نگه می‌دارد تا در هر قالب تکرار نشود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "templates"
+      ],
+      "source_ref": "src-notes-9#templates",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-020",
+      "concept_id": "w09-c-block",
+      "note_id": "w09-n05",
+      "front_fa": "`{% block body %}{% endblock %}` در layout چه نقشی دارد؟",
+      "back_fa": "جای خالی‌ای می‌سازد که هر صفحهٔ فرزند محتوای خودش را در آن می‌گذارد.",
+      "question_fa": "`{% block body %}{% endblock %}` در layout چه نقشی دارد؟",
+      "answer_fa": "جای خالی‌ای می‌سازد که هر صفحهٔ فرزند محتوای خودش را در آن می‌گذارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "templates"
+      ],
+      "source_ref": "src-notes-9#templates",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-021",
+      "concept_id": "w09-c-extends",
+      "note_id": "w09-n05",
+      "front_fa": "صفحهٔ فرزند چطور از layout ارث می‌برد؟",
+      "back_fa": "با خط `{% extends \"layout.html\" %}` در آغاز قالب و پر کردن بلوک‌های هم‌نام.",
+      "question_fa": "صفحهٔ فرزند چطور از layout ارث می‌برد؟",
+      "answer_fa": "با خط `{% extends \"layout.html\" %}` در آغاز قالب و پر کردن بلوک‌های هم‌نام.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "templates"
+      ],
+      "source_ref": "src-notes-9#templates",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-022",
+      "concept_id": "w09-c-block",
+      "note_id": "w09-n05",
+      "front_fa": "اگر نام بلوک در فرزند با layout یکی نباشد چه می‌شود؟",
+      "back_fa": "خطایی رخ نمی‌دهد اما محتوای فرزند جایی نمی‌نشیند و بلوک layout خالی می‌ماند (اجراشده با Jinja2).",
+      "question_fa": "اگر نام بلوک در فرزند با layout یکی نباشد چه می‌شود؟",
+      "answer_fa": "خطایی رخ نمی‌دهد اما محتوای فرزند جایی نمی‌نشیند و بلوک layout خالی می‌ماند (اجراشده با Jinja2).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "templates",
+        "errors"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-023",
+      "concept_id": "w09-c-get-in-url",
+      "note_id": "w09-n06",
+      "front_fa": "چرا GET برای فرستادن گذرواژه مناسب نیست؟",
+      "back_fa": "چون داده در نشانی و تاریخچهٔ مرورگر دیده می‌شود.",
+      "question_fa": "چرا GET برای فرستادن گذرواژه مناسب نیست؟",
+      "answer_fa": "چون داده در نشانی و تاریخچهٔ مرورگر دیده می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "http",
+        "forms"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-024",
+      "concept_id": "w09-c-methods-param",
+      "note_id": "w09-n06",
+      "front_fa": "چطور به Flask می‌گویی مسیری POST می‌پذیرد؟",
+      "back_fa": "با `methods=[\"POST\"]` در تزئین‌گر، مثل `@app.route(\"/greet\", methods=[\"POST\"])` .",
+      "question_fa": "چطور به Flask می‌گویی مسیری POST می‌پذیرد؟",
+      "answer_fa": "با `methods=[\"POST\"]` در تزئین‌گر، مثل `@app.route(\"/greet\", methods=[\"POST\"])` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask",
+        "http"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-025",
+      "concept_id": "w09-c-request-form",
+      "note_id": "w09-n06",
+      "front_fa": "دادهٔ فرم POST را در Flask از کجا می‌خوانی؟",
+      "back_fa": "از `request.form` ، مثلاً `request.form.get(\"name\")` ؛ `request.args` فقط پارامترهای نشانی را دارد.",
+      "question_fa": "دادهٔ فرم POST را در Flask از کجا می‌خوانی؟",
+      "answer_fa": "از `request.form` ، مثلاً `request.form.get(\"name\")` ؛ `request.args` فقط پارامترهای نشانی را دارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "request",
+        "http"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-026",
+      "concept_id": "w09-c-405",
+      "note_id": "w09-n06",
+      "front_fa": "کد 405 Method Not Allowed کی برمی‌گردد؟",
+      "back_fa": "وقتی درخواست با روشی می‌آید که مسیر در `methods` نپذیرفته است، مثلاً GET به مسیری که فقط POST دارد.",
+      "question_fa": "کد 405 Method Not Allowed کی برمی‌گردد؟",
+      "answer_fa": "وقتی درخواست با روشی می‌آید که مسیر در `methods` نپذیرفته است، مثلاً GET به مسیری که فقط POST دارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "http",
+        "status"
+      ],
+      "source_ref": "src-transcript-9",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-027",
+      "concept_id": "w09-c-request-method",
+      "note_id": "w09-n06",
+      "front_fa": "در یک مسیر با `methods=[\"GET\", \"POST\"]` چطور روش درخواست را تشخیص می‌دهی؟",
+      "back_fa": "با `if request.method == \"POST\":` .",
+      "question_fa": "در یک مسیر با `methods=[\"GET\", \"POST\"]` چطور روش درخواست را تشخیص می‌دهی؟",
+      "answer_fa": "با `if request.method == \"POST\":` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "request",
+        "http"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-028",
+      "concept_id": "w09-c-get-default-missing-key",
+      "note_id": "w09-n07",
+      "front_fa": "اگر کادر نام خالی فرستاده شود، `request.form.get(\"name\", \"world\")` چه می‌دهد؟",
+      "back_fa": "رشتهٔ خالی، چون کلید هست؛ پیش‌فرض فقط وقتی به کار می‌رود که کلید نباشد (اجراشده روی جعبه).",
+      "question_fa": "اگر کادر نام خالی فرستاده شود، `request.form.get(\"name\", \"world\")` چه می‌دهد؟",
+      "answer_fa": "رشتهٔ خالی، چون کلید هست؛ پیش‌فرض فقط وقتی به کار می‌رود که کلید نباشد (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "request"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-029",
+      "concept_id": "w09-c-jinja-if",
+      "note_id": "w09-n07",
+      "front_fa": "ساختار شرط در Jinja چیست؟",
+      "back_fa": "`{% if name %} ... {% else %} ... {% endif %}` .",
+      "question_fa": "ساختار شرط در Jinja چیست؟",
+      "answer_fa": "`{% if name %} ... {% else %} ... {% endif %}` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "jinja"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-030",
+      "concept_id": "w09-c-select-menu",
+      "note_id": "w09-n08",
+      "front_fa": "در `<option value=\"Soccer\">` کدام بخش به سرور فرستاده می‌شود؟",
+      "back_fa": "مقدار `value` ؛ متن میان تگ‌ها فقط برای نمایش است.",
+      "question_fa": "در `<option value=\"Soccer\">` کدام بخش به سرور فرستاده می‌شود؟",
+      "answer_fa": "مقدار `value` ؛ متن میان تگ‌ها فقط برای نمایش است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "forms",
+        "html"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-031",
+      "concept_id": "w09-c-jinja-for",
+      "note_id": "w09-n08",
+      "front_fa": "ساختار حلقه در Jinja چیست؟",
+      "back_fa": "`{% for sport in sports %} ... {% endfor %}` .",
+      "question_fa": "ساختار حلقه در Jinja چیست؟",
+      "answer_fa": "`{% for sport in sports %} ... {% endfor %}` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "jinja"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-032",
+      "concept_id": "w09-c-constant-list",
+      "note_id": "w09-n08",
+      "front_fa": "چرا froshims فهرست `SPORTS` را در `app.py` تعریف می‌کند؟",
+      "back_fa": "تا یک منبع واحد باشد: قالب گزینه‌ها را از آن می‌سازد و سرور ورودی را با آن می‌سنجد.",
+      "question_fa": "چرا froshims فهرست `SPORTS` را در `app.py` تعریف می‌کند؟",
+      "answer_fa": "تا یک منبع واحد باشد: قالب گزینه‌ها را از آن می‌سازد و سرور ورودی را با آن می‌سنجد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "validation"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-033",
+      "concept_id": "w09-c-radio-buttons",
+      "note_id": "w09-n08",
+      "front_fa": "چرا چند دکمهٔ رادیویی `name` یکسان دارند؟",
+      "back_fa": "تا یک گروه باشند و کاربر فقط یکی را انتخاب کند.",
+      "question_fa": "چرا چند دکمهٔ رادیویی `name` یکسان دارند؟",
+      "answer_fa": "تا یک گروه باشند و کاربر فقط یکی را انتخاب کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "forms",
+        "html"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-034",
+      "concept_id": "w09-c-server-validation",
+      "note_id": "w09-n08",
+      "front_fa": "چرا اعتبارسنجی سمت سرور لازم است؟",
+      "back_fa": "چون کاربر می‌تواند HTML را با ابزار توسعه‌دهنده عوض کند یا درخواست را بدون مرورگر بفرستد؛ فقط سرور قابل اعتماد است.",
+      "question_fa": "چرا اعتبارسنجی سمت سرور لازم است؟",
+      "answer_fa": "چون کاربر می‌تواند HTML را با ابزار توسعه‌دهنده عوض کند یا درخواست را بدون مرورگر بفرستد؛ فقط سرور قابل اعتماد است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "validation",
+        "security"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-035",
+      "concept_id": "w09-c-server-validation",
+      "note_id": "w09-n08",
+      "front_fa": "در سخنرانی، چطور نشان داده شد که منوی کشویی کافی نیست؟",
+      "back_fa": "با ابزار توسعه‌دهندهٔ مرورگر گزینهٔ تازه‌ای (volleyball) به منو افزوده شد و سرورِ بدون بررسی آن را پذیرفت.",
+      "question_fa": "در سخنرانی، چطور نشان داده شد که منوی کشویی کافی نیست؟",
+      "answer_fa": "با ابزار توسعه‌دهندهٔ مرورگر گزینهٔ تازه‌ای (volleyball) به منو افزوده شد و سرورِ بدون بررسی آن را پذیرفت.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "validation",
+        "security"
+      ],
+      "source_ref": "src-transcript-9",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-036",
+      "concept_id": "w09-c-error-template",
+      "note_id": "w09-n09",
+      "front_fa": "قالب `error.html` با متغیر `message` چه فایده‌ای دارد؟",
+      "back_fa": "یک قالب برای همهٔ خطاها؛ هر بار پیام مناسب، مثل «Missing name»، به آن داده می‌شود.",
+      "question_fa": "قالب `error.html` با متغیر `message` چه فایده‌ای دارد؟",
+      "answer_fa": "یک قالب برای همهٔ خطاها؛ هر بار پیام مناسب، مثل «Missing name»، به آن داده می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "templates",
+        "errors"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-037",
+      "concept_id": "w09-c-in-memory-dict",
+      "note_id": "w09-n09",
+      "front_fa": "مشکل ذخیرهٔ ثبت‌نام‌ها در دیکشنری `REGISTRANTS` چیست؟",
+      "back_fa": "در حافظهٔ سرور است و با خاموش شدن یا راه‌اندازی دوبارهٔ سرور پاک می‌شود.",
+      "question_fa": "مشکل ذخیرهٔ ثبت‌نام‌ها در دیکشنری `REGISTRANTS` چیست؟",
+      "answer_fa": "در حافظهٔ سرور است و با خاموش شدن یا راه‌اندازی دوبارهٔ سرور پاک می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "data"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-038",
+      "concept_id": "w09-c-jinja-dict-loop",
+      "note_id": "w09-n09",
+      "front_fa": "در Jinja چطور مقدار یک کلید دیکشنری را می‌نویسی؟",
+      "back_fa": "`{{ registrants[name] }}` ، یا با نقطه برای ردیف‌ها مثل `{{ row.name }}` .",
+      "question_fa": "در Jinja چطور مقدار یک کلید دیکشنری را می‌نویسی؟",
+      "answer_fa": "`{{ registrants[name] }}` ، یا با نقطه برای ردیف‌ها مثل `{{ row.name }}` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "jinja"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-039",
+      "concept_id": "w09-c-redirect",
+      "note_id": "w09-n09",
+      "front_fa": "`redirect(\"/registrants\")` چه پاسخی می‌فرستد؟",
+      "back_fa": "کد 302 با سرآیند `Location: /registrants` ؛ مرورگر خودش با GET به آن مسیر می‌رود (اجراشده روی جعبه).",
+      "question_fa": "`redirect(\"/registrants\")` چه پاسخی می‌فرستد؟",
+      "answer_fa": "کد 302 با سرآیند `Location: /registrants` ؛ مرورگر خودش با GET به آن مسیر می‌رود (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "http",
+        "flask"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-040",
+      "concept_id": "w09-c-static-folder",
+      "note_id": "w09-n09",
+      "front_fa": "تصویرها و CSS در برنامهٔ Flask کجا می‌نشینند؟",
+      "back_fa": "در پوشهٔ `static` .",
+      "question_fa": "تصویرها و CSS در برنامهٔ Flask کجا می‌نشینند؟",
+      "answer_fa": "در پوشهٔ `static` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-041",
+      "concept_id": "w09-c-flask-sql",
+      "note_id": "w09-n10",
+      "front_fa": "کتابخانهٔ cs50 در Flask چطور به SQLite وصل می‌شود؟",
+      "back_fa": "با `db = SQL(\"sqlite:///froshims.db\")` و سپس `db.execute(...)` .",
+      "question_fa": "کتابخانهٔ cs50 در Flask چطور به SQLite وصل می‌شود؟",
+      "answer_fa": "با `db = SQL(\"sqlite:///froshims.db\")` و سپس `db.execute(...)` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "sql",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#flask-and-sql",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-042",
+      "concept_id": "w09-c-sql-in-route",
+      "note_id": "w09-n10",
+      "front_fa": "چرا در `db.execute` از `?` استفاده می‌کنی؟",
+      "back_fa": "تا کتابخانه مقدار کاربر را امن جای‌گذاری کند و جلوی تزریق SQL گرفته شود.",
+      "question_fa": "چرا در `db.execute` از `?` استفاده می‌کنی؟",
+      "answer_fa": "تا کتابخانه مقدار کاربر را امن جای‌گذاری کند و جلوی تزریق SQL گرفته شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "sql",
+        "security"
+      ],
+      "source_ref": "src-notes-9#flask-and-sql",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-043",
+      "concept_id": "w09-c-flask-sql",
+      "note_id": "w09-n10",
+      "front_fa": "`db.execute(\"SELECT ...\")` چه نوع مقداری برمی‌گرداند؟",
+      "back_fa": "فهرستی از دیکشنری‌ها؛ هر دیکشنری یک ردیف است با نام ستون‌ها به‌عنوان کلید.",
+      "question_fa": "`db.execute(\"SELECT ...\")` چه نوع مقداری برمی‌گرداند؟",
+      "answer_fa": "فهرستی از دیکشنری‌ها؛ هر دیکشنری یک ردیف است با نام ستون‌ها به‌عنوان کلید.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "sql"
+      ],
+      "source_ref": "src-notes-9#flask-and-sql",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-044",
+      "concept_id": "w09-c-checkbox",
+      "note_id": "w09-n10",
+      "front_fa": "تفاوت checkbox و radio در froshims چیست؟",
+      "back_fa": "checkbox اجازهٔ چند انتخاب با یک `name` می‌دهد؛ radio فقط یکی.",
+      "question_fa": "تفاوت checkbox و radio در froshims چیست؟",
+      "answer_fa": "checkbox اجازهٔ چند انتخاب با یک `name` می‌دهد؛ radio فقط یکی.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "forms",
+        "html"
+      ],
+      "source_ref": "src-notes-9#flask-and-sql",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-045",
+      "concept_id": "w09-c-getlist",
+      "note_id": "w09-n10",
+      "front_fa": "چطور همهٔ checkboxهای تیک‌خورده با `name=\"sport\"` را می‌خوانی؟",
+      "back_fa": "با `request.form.getlist(\"sport\")` ؛ `get` فقط اولی را می‌دهد (اجراشده روی جعبه).",
+      "question_fa": "چطور همهٔ checkboxهای تیک‌خورده با `name=\"sport\"` را می‌خوانی؟",
+      "answer_fa": "با `request.form.getlist(\"sport\")` ؛ `get` فقط اولی را می‌دهد (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "request",
+        "forms"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-046",
+      "concept_id": "w09-c-hidden-input",
+      "note_id": "w09-n10",
+      "front_fa": "`<input type=\"hidden\" name=\"id\" value=\"3\">` به چه کار می‌آید؟",
+      "back_fa": "مقداری مثل id ردیف را بی‌آنکه کاربر ببیند همراه فرم به سرور می‌فرستد، مثلاً برای Deregister.",
+      "question_fa": "`<input type=\"hidden\" name=\"id\" value=\"3\">` به چه کار می‌آید؟",
+      "answer_fa": "مقداری مثل id ردیف را بی‌آنکه کاربر ببیند همراه فرم به سرور می‌فرستد، مثلاً برای Deregister.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "forms"
+      ],
+      "source_ref": "src-notes-9#flask-and-sql",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-047",
+      "concept_id": "w09-c-post-for-changes",
+      "note_id": "w09-n10",
+      "front_fa": "چرا حذف ثبت‌نام باید با POST باشد، نه GET؟",
+      "back_fa": "نشانی GET را می‌توان در پیوند یا ایمیل فریب‌دهنده گذاشت تا کاربر بی‌خبر داده‌اش را حذف کند.",
+      "question_fa": "چرا حذف ثبت‌نام باید با POST باشد، نه GET؟",
+      "answer_fa": "نشانی GET را می‌توان در پیوند یا ایمیل فریب‌دهنده گذاشت تا کاربر بی‌خبر داده‌اش را حذف کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "http",
+        "security"
+      ],
+      "source_ref": "src-transcript-9",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-048",
+      "concept_id": "w09-c-mvc",
+      "note_id": "w09-n11",
+      "front_fa": "MVC را در froshims نام ببر.",
+      "back_fa": "مدل: پایگاه داده؛ نما: قالب‌های HTML؛ کنترل‌گر: `app.py` .",
+      "question_fa": "MVC را در froshims نام ببر.",
+      "answer_fa": "مدل: پایگاه داده؛ نما: قالب‌های HTML؛ کنترل‌گر: `app.py` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "design"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-049",
+      "concept_id": "w09-c-cookie",
+      "note_id": "w09-n11",
+      "front_fa": "کوکی (cookie) چیست؟",
+      "back_fa": "دادهٔ کوچکی که سرور به مرورگر می‌دهد و مرورگر در درخواست‌های بعدی به همان سایت برمی‌گرداند.",
+      "question_fa": "کوکی (cookie) چیست؟",
+      "answer_fa": "دادهٔ کوچکی که سرور به مرورگر می‌دهد و مرورگر در درخواست‌های بعدی به همان سایت برمی‌گرداند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "http",
+        "session"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-050",
+      "concept_id": "w09-c-cookie",
+      "note_id": "w09-n11",
+      "front_fa": "سخنرانی کوکی را به چه تشبیه کرد؟",
+      "back_fa": "به مُهری که در ورودی روی دستت می‌زنند تا بعداً بدون بلیت دوباره وارد شوی.",
+      "question_fa": "سخنرانی کوکی را به چه تشبیه کرد؟",
+      "answer_fa": "به مُهری که در ورودی روی دستت می‌زنند تا بعداً بدون بلیت دوباره وارد شوی.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "session"
+      ],
+      "source_ref": "src-transcript-9",
+      "origin": "authored",
+      "content_basis": "transcript",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-051",
+      "concept_id": "w09-c-set-cookie-header",
+      "note_id": "w09-n11",
+      "front_fa": "کدام سرآیند کوکی را از سرور به مرورگر می‌دهد و کدام آن را برمی‌گرداند؟",
+      "back_fa": "سرور: `Set-Cookie` ؛ مرورگر در درخواست‌های بعدی: `Cookie` .",
+      "question_fa": "کدام سرآیند کوکی را از سرور به مرورگر می‌دهد و کدام آن را برمی‌گرداند؟",
+      "answer_fa": "سرور: `Set-Cookie` ؛ مرورگر در درخواست‌های بعدی: `Cookie` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "http",
+        "session"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-052",
+      "concept_id": "w09-c-session",
+      "note_id": "w09-n11",
+      "front_fa": "جلسه (session) در وب یعنی چه؟",
+      "back_fa": "داده‌ای که سرور برای هر کاربر بین درخواست‌ها نگه می‌دارد و با کوکی به آن کاربر وصل می‌شود.",
+      "question_fa": "جلسه (session) در وب یعنی چه؟",
+      "answer_fa": "داده‌ای که سرور برای هر کاربر بین درخواست‌ها نگه می‌دارد و با کوکی به آن کاربر وصل می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "session"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-053",
+      "concept_id": "w09-c-flask-session",
+      "note_id": "w09-n12",
+      "front_fa": "`app.config[\"SESSION_TYPE\"] = \"filesystem\"` چه می‌کند؟",
+      "back_fa": "به Flask-Session می‌گوید داده‌های جلسه را در فایل‌هایی روی دیسک سرور نگه دارد.",
+      "question_fa": "`app.config[\"SESSION_TYPE\"] = \"filesystem\"` چه می‌کند؟",
+      "answer_fa": "به Flask-Session می‌گوید داده‌های جلسه را در فایل‌هایی روی دیسک سرور نگه دارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "session",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-054",
+      "concept_id": "w09-c-session-dict",
+      "note_id": "w09-n12",
+      "front_fa": "چطور در Flask نام کاربر را در جلسه نگه می‌داری؟",
+      "back_fa": "مثل دیکشنری: `session[\"name\"] = request.form.get(\"name\")` .",
+      "question_fa": "چطور در Flask نام کاربر را در جلسه نگه می‌داری؟",
+      "answer_fa": "مثل دیکشنری: `session[\"name\"] = request.form.get(\"name\")` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "session"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-055",
+      "concept_id": "w09-c-session-dict",
+      "note_id": "w09-n12",
+      "front_fa": "تفاوت `session[\"name\"]` و `session.get(\"name\")` برای کاربری که وارد نشده چیست؟",
+      "back_fa": "اولی `KeyError` می‌دهد (پاسخ 500) و دومی `None` (اجراشده روی جعبه).",
+      "question_fa": "تفاوت `session[\"name\"]` و `session.get(\"name\")` برای کاربری که وارد نشده چیست؟",
+      "answer_fa": "اولی `KeyError` می‌دهد (پاسخ 500) و دومی `None` (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "session",
+        "errors"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-056",
+      "concept_id": "w09-c-logout-clear",
+      "note_id": "w09-n12",
+      "front_fa": "خروج کاربر در مثال login چطور انجام می‌شود؟",
+      "back_fa": "با `session.clear()` و سپس redirect به `/` .",
+      "question_fa": "خروج کاربر در مثال login چطور انجام می‌شود؟",
+      "answer_fa": "با `session.clear()` و سپس redirect به `/` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "session"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-057",
+      "concept_id": "w09-c-session-list",
+      "note_id": "w09-n13",
+      "front_fa": "سبد خرید فروشگاه درس‌نامه کجا نگه داشته می‌شود؟",
+      "back_fa": "در `session[\"cart\"]` ، فهرستی از idهای کتاب که هر بار با `append` بزرگ می‌شود.",
+      "question_fa": "سبد خرید فروشگاه درس‌نامه کجا نگه داشته می‌شود؟",
+      "answer_fa": "در `session[\"cart\"]` ، فهرستی از idهای کتاب که هر بار با `append` بزرگ می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "session"
+      ],
+      "source_ref": "src-notes-9#shopping-cart",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-058",
+      "concept_id": "w09-c-sql-in-list",
+      "note_id": "w09-n13",
+      "front_fa": "`WHERE id IN (?)` با فهرست `[2, 1, 2]` چند ردیف برمی‌گرداند؟",
+      "back_fa": "هر کتاب یک بار: ردیف‌های ۱ و ۲؛ کتابخانهٔ cs50 فهرست را به چند مقدار باز می‌کند (اجراشده روی جعبه).",
+      "question_fa": "`WHERE id IN (?)` با فهرست `[2, 1, 2]` چند ردیف برمی‌گرداند؟",
+      "answer_fa": "هر کتاب یک بار: ردیف‌های ۱ و ۲؛ کتابخانهٔ cs50 فهرست را به چند مقدار باز می‌کند (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "sql",
+        "session"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-059",
+      "concept_id": "w09-c-like-search",
+      "note_id": "w09-n14",
+      "front_fa": "چطور عنوان‌هایی را می‌یابی که `q` در آن‌ها هست؟",
+      "back_fa": "`db.execute(\"SELECT * FROM shows WHERE title LIKE ?\", \"%\" + q + \"%\")` .",
+      "question_fa": "چطور عنوان‌هایی را می‌یابی که `q` در آن‌ها هست؟",
+      "answer_fa": "`db.execute(\"SELECT * FROM shows WHERE title LIKE ?\", \"%\" + q + \"%\")` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "sql"
+      ],
+      "source_ref": "src-notes-9#shows",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-060",
+      "concept_id": "w09-c-none-guard",
+      "note_id": "w09-n14",
+      "front_fa": "چرا در `/search` پیش از `\"%\" + q + \"%\"` به `if q:` نیاز است؟",
+      "back_fa": "اگر `q` در نشانی نباشد، `None` است و چسباندن آن به رشته `TypeError` می‌دهد (اجراشده روی جعبه).",
+      "question_fa": "چرا در `/search` پیش از `\"%\" + q + \"%\"` به `if q:` نیاز است؟",
+      "answer_fa": "اگر `q` در نشانی نباشد، `None` است و چسباندن آن به رشته `TypeError` می‌دهد (اجراشده روی جعبه).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "errors"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-061",
+      "concept_id": "w09-c-partial-template",
+      "note_id": "w09-n14",
+      "front_fa": "قالب `search.html` در shows2 چرا فقط چند `<li>` دارد؟",
+      "back_fa": "چون جاوااسکریپت آن را درون فهرست صفحهٔ موجود می‌نشاند؛ یک صفحهٔ کامل لازم نیست.",
+      "question_fa": "قالب `search.html` در shows2 چرا فقط چند `<li>` دارد؟",
+      "answer_fa": "چون جاوااسکریپت آن را درون فهرست صفحهٔ موجود می‌نشاند؛ یک صفحهٔ کامل لازم نیست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "ajax",
+        "templates"
+      ],
+      "source_ref": "src-notes-9#apis",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-062",
+      "concept_id": "w09-c-api",
+      "note_id": "w09-n14",
+      "front_fa": "API در این هفته به چه معناست؟",
+      "back_fa": "مشخصاتی برای اینکه برنامه‌ای با خدمت دیگری کار کند، مثل مسیر `/search` که داده برمی‌گرداند.",
+      "question_fa": "API در این هفته به چه معناست؟",
+      "answer_fa": "مشخصاتی برای اینکه برنامه‌ای با خدمت دیگری کار کند، مثل مسیر `/search` که داده برمی‌گرداند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "api"
+      ],
+      "source_ref": "src-notes-9#apis",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-063",
+      "concept_id": "w09-c-ajax",
+      "note_id": "w09-n14",
+      "front_fa": "Ajax چیست؟",
+      "back_fa": "درخواست از جاوااسکریپت به سرور بدون بارگذاری دوبارهٔ کل صفحه.",
+      "question_fa": "Ajax چیست؟",
+      "answer_fa": "درخواست از جاوااسکریپت به سرور بدون بارگذاری دوبارهٔ کل صفحه.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "ajax"
+      ],
+      "source_ref": "src-notes-9#apis",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-064",
+      "concept_id": "w09-c-fetch-await",
+      "note_id": "w09-n14",
+      "front_fa": "در shows، `let response = await fetch(...)` چه می‌کند؟",
+      "back_fa": "درخواست را می‌فرستد و تا رسیدن پاسخ صبر می‌کند؛ سپس `await response.text()` یا `response.json()` بدنه را می‌خواند.",
+      "question_fa": "در shows، `let response = await fetch(...)` چه می‌کند؟",
+      "answer_fa": "درخواست را می‌فرستد و تا رسیدن پاسخ صبر می‌کند؛ سپس `await response.text()` یا `response.json()` بدنه را می‌خواند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "ajax",
+        "js"
+      ],
+      "source_ref": "src-notes-9#apis",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-065",
+      "concept_id": "w09-c-encode-uri",
+      "note_id": "w09-n14",
+      "front_fa": "چرا `encodeURIComponent(input.value)` لازم است؟",
+      "back_fa": "تا نویسه‌هایی مثل `&` و فاصله در رشتهٔ پرس‌وجو درست کدگذاری شوند.",
+      "question_fa": "چرا `encodeURIComponent(input.value)` لازم است؟",
+      "answer_fa": "تا نویسه‌هایی مثل `&` و فاصله در رشتهٔ پرس‌وجو درست کدگذاری شوند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "ajax",
+        "js"
+      ],
+      "source_ref": "src-mdn-js",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-066",
+      "concept_id": "w09-c-json",
+      "note_id": "w09-n15",
+      "front_fa": "JSON چیست؟",
+      "back_fa": "قالب متنی برای داده با کلید و مقدار، مثل `[{\"id\": 1, \"title\": \"The Office\"}]` .",
+      "question_fa": "JSON چیست؟",
+      "answer_fa": "قالب متنی برای داده با کلید و مقدار، مثل `[{\"id\": 1, \"title\": \"The Office\"}]` .",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "json"
+      ],
+      "source_ref": "src-notes-9#json",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-067",
+      "concept_id": "w09-c-jsonify",
+      "note_id": "w09-n15",
+      "front_fa": "`jsonify(shows)` در Flask چه می‌کند؟",
+      "back_fa": "فهرست یا دیکشنری را به پاسخ JSON با `Content-Type: application/json` تبدیل می‌کند.",
+      "question_fa": "`jsonify(shows)` در Flask چه می‌کند؟",
+      "answer_fa": "فهرست یا دیکشنری را به پاسخ JSON با `Content-Type: application/json` تبدیل می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "json",
+        "flask"
+      ],
+      "source_ref": "src-notes-9#json",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-068",
+      "concept_id": "w09-c-response-json",
+      "note_id": "w09-n15",
+      "front_fa": "پس از گرفتن JSON در مرورگر، HTML را چه کسی می‌سازد؟",
+      "back_fa": "جاوااسکریپت در مرورگر، با پیمایش داده؛ دیگر Jinja نیست که خودکار escape کند.",
+      "question_fa": "پس از گرفتن JSON در مرورگر، HTML را چه کسی می‌سازد؟",
+      "answer_fa": "جاوااسکریپت در مرورگر، با پیمایش داده؛ دیگر Jinja نیست که خودکار escape کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "json",
+        "ajax"
+      ],
+      "source_ref": "src-notes-9#json",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-069",
+      "concept_id": "w09-c-escape-order",
+      "note_id": "w09-n15",
+      "front_fa": "در escape دستی، چرا `&` باید اول جایگزین شود؟",
+      "back_fa": "اگر اول `<` به `&lt;` تبدیل شود، جایگزینی بعدی `&` آن را `&amp;lt;` می‌کند (اجراشده با node).",
+      "question_fa": "در escape دستی، چرا `&` باید اول جایگزین شود؟",
+      "answer_fa": "اگر اول `<` به `&lt;` تبدیل شود، جایگزینی بعدی `&` آن را `&amp;lt;` می‌کند (اجراشده با node).",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-9",
+        "security",
+        "js"
+      ],
+      "source_ref": "src-flask-box-9",
+      "origin": "authored",
+      "content_basis": "authored",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-070",
+      "concept_id": "w09-c-flask-app-env-old",
+      "note_id": "w09-sh-flask",
+      "front_fa": "در ویدئوی کوتاه Flask (۲۰۱۷) برنامه چطور اجرا می‌شد؟",
+      "back_fa": "با `export FLASK_APP=application.py` و سپس `flask run` در CS50 IDE؛ امروز در cs50.dev فقط `flask run` در پوشهٔ `app.py` کافی است.",
+      "question_fa": "در ویدئوی کوتاه Flask (۲۰۱۷) برنامه چطور اجرا می‌شد؟",
+      "answer_fa": "با `export FLASK_APP=application.py` و سپس `flask run` در CS50 IDE؛ امروز در cs50.dev فقط `flask run` در پوشهٔ `app.py` کافی است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "flask",
+        "history"
+      ],
+      "source_ref": "src-short-flask",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-071",
+      "concept_id": "w09-c-xmlhttprequest",
+      "note_id": "w09-sh-ajax",
+      "front_fa": "ویدئوی کوتاه Ajax برای درخواست از چه استفاده می‌کرد؟",
+      "back_fa": "از شیء قدیمی `XMLHttpRequest` و بررسی `readyState == 4` و `status == 200` ؛ سخنرانی امروز `fetch` را به کار می‌برد.",
+      "question_fa": "ویدئوی کوتاه Ajax برای درخواست از چه استفاده می‌کرد؟",
+      "answer_fa": "از شیء قدیمی `XMLHttpRequest` و بررسی `readyState == 4` و `status == 200` ؛ سخنرانی امروز `fetch` را به کار می‌برد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "ajax",
+        "history"
+      ],
+      "source_ref": "src-short-ajax",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-072",
+      "concept_id": "w09-c-post-redirect-get",
+      "note_id": "w09-ps-birthdays",
+      "front_fa": "الگوی POST سپس redirect سپس GET چه فایده‌ای دارد؟",
+      "back_fa": "پس از فرستادن فرم، مرورگر با GET به صفحه برمی‌گردد و بارگذاری دوباره فرم را دوباره نمی‌فرستد.",
+      "question_fa": "الگوی POST سپس redirect سپس GET چه فایده‌ای دارد؟",
+      "answer_fa": "پس از فرستادن فرم، مرورگر با GET به صفحه برمی‌گردد و بارگذاری دوباره فرم را دوباره نمی‌فرستد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "http",
+        "pattern"
+      ],
+      "source_ref": "src-pset-9-birthdays#understanding",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-073",
+      "concept_id": "w09-c-login-required",
+      "note_id": "w09-ps-finance",
+      "front_fa": "تزئین‌گر `login_required` در Finance چه می‌کند؟",
+      "back_fa": "پیش از اجرای مسیر بررسی می‌کند کاربر وارد شده باشد؛ وگرنه به صفحهٔ ورود می‌فرستد.",
+      "question_fa": "تزئین‌گر `login_required` در Finance چه می‌کند؟",
+      "answer_fa": "پیش از اجرای مسیر بررسی می‌کند کاربر وارد شده باشد؛ وگرنه به صفحهٔ ورود می‌فرستد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "finance",
+        "session"
+      ],
+      "source_ref": "src-pset-9-finance#helperspy",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-074",
+      "concept_id": "w09-c-password-hash",
+      "note_id": "w09-ps-finance",
+      "front_fa": "چرا Finance به‌جای گذرواژه hash آن را نگه می‌دارد؟",
+      "back_fa": "تا اگر پایگاه داده لو برود، گذرواژه‌ها مستقیم خوانده نشوند؛ بررسی با `check_password_hash` انجام می‌شود.",
+      "question_fa": "چرا Finance به‌جای گذرواژه hash آن را نگه می‌دارد؟",
+      "answer_fa": "تا اگر پایگاه داده لو برود، گذرواژه‌ها مستقیم خوانده نشوند؛ بررسی با `check_password_hash` انجام می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "finance",
+        "security"
+      ],
+      "source_ref": "src-pset-9-finance#apppy",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-075",
+      "concept_id": "w09-c-jinja-filter",
+      "note_id": "w09-ps-finance",
+      "front_fa": "فیلتر Jinja مثل `{{ value | usd }}` چه می‌کند؟",
+      "back_fa": "مقدار را پیش از نوشتن با تابعی قالب‌بندی می‌کند؛ `usd` عدد را به شکل دلار نشان می‌دهد.",
+      "question_fa": "فیلتر Jinja مثل `{{ value | usd }}` چه می‌کند؟",
+      "answer_fa": "مقدار را پیش از نوشتن با تابعی قالب‌بندی می‌کند؛ `usd` عدد را به شکل دلار نشان می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "finance",
+        "jinja"
+      ],
+      "source_ref": "src-pset-9-finance#apppy",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-076",
+      "concept_id": "w09-c-apology",
+      "note_id": "w09-ps-finance",
+      "front_fa": "تابع `apology` در Finance برای چیست؟",
+      "back_fa": "یک صفحهٔ خطا با پیام و کد وضعیت به کاربر نشان می‌دهد.",
+      "question_fa": "تابع `apology` در Finance برای چیست؟",
+      "answer_fa": "یک صفحهٔ خطا با پیام و کد وضعیت به کاربر نشان می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "finance",
+        "errors"
+      ],
+      "source_ref": "src-pset-9-finance#helperspy",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-077",
+      "concept_id": "w09-c-external-quote-api",
+      "note_id": "w09-ps-finance",
+      "front_fa": "تابع `lookup` در helpers.py چه می‌کند؟",
+      "back_fa": "قیمت یک نماد سهم را از یک خدمت بیرونی می‌گیرد و دیکشنری یا، اگر نماد نامعتبر باشد، `None` برمی‌گرداند.",
+      "question_fa": "تابع `lookup` در helpers.py چه می‌کند؟",
+      "answer_fa": "قیمت یک نماد سهم را از یک خدمت بیرونی می‌گیرد و دیکشنری یا، اگر نماد نامعتبر باشد، `None` برمی‌گرداند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-9",
+        "finance",
+        "api"
+      ],
+      "source_ref": "src-pset-9-finance#helperspy",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w09-fc-078",
+      "concept_id": "w09-c-flask-forms-practice",
+      "note_id": "w09-pr-helloflask",
+      "front_fa": "Hello, Flask چه مسیری را تمرین می‌دهد؟",
+      "back_fa": "از برگرداندن متن ساده تا قالب، فرم و فرستادن نام با POST.",
+      "question_fa": "Hello, Flask چه مسیری را تمرین می‌دهد؟",
+      "answer_fa": "از برگرداندن متن ساده تا قالب، فرم و فرستادن نام با POST.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-9",
+        "practice"
+      ],
+      "source_ref": "src-practice-helloflask#implementation-details",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w05-l02",
+  "type": "lesson",
+  "week": 5,
+  "order": 2,
+  "stage_id": "w05-s2",
+  "title_fa": "آرایهٔ پویا و realloc",
+  "title_en": "Growing arrays and realloc",
+  "note_ids": [
+    "w05-n05",
+    "w05-n06"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w05-l01"
+  ],
+  "concept_ids": [
+    "w05-c-array-contiguous",
+    "w05-c-array-resize-copy",
+    "w05-c-tmp-pointer",
+    "w05-c-realloc",
+    "w05-c-realloc-null",
+    "w05-c-overallocation"
+  ],
+  "objective_ids": [
+    "w05-o03"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/5.",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w05-l01"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-28T19:30:00+03:30",
+  "units": [
+    {
+      "id": "w05-l02-u01",
+      "order": 1,
+      "title_fa": "بزرگ کردن آرایه با malloc و کپی",
+      "concept_ids": [
+        "w05-c-array-contiguous",
+        "w05-c-array-resize-copy",
+        "w05-c-tmp-pointer"
+      ],
+      "objective_ids": [
+        "w05-o03"
+      ],
+      "note_id": "w05-n05",
+      "source_refs": [
+        "src-notes-5#arrays",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "آرایه بلوکی پیوسته از حافظه است؛ پس نمی‌شود همیشه یک خانه به انتهایش چسباند، چون شاید خانهٔ بعدی مال چیز دیگری باشد. راه درس‌نامه این است: بلوک بزرگ‌تری با `malloc` بگیر و نتیجه را در اشاره‌گر موقت `tmp` بگذار، `NULL` را بسنج، مقدارهای قدیمی را کپی کن، مقدار تازه را بگذار، بلوک قدیمی را `free` کن و در آخر `list = tmp;`. این کار O(n) است، چون همهٔ مقدارها کپی می‌شوند.",
+        "note_id": "w05-n05",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n05"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list1",
+        "lang": "c",
+        "content": "// Implements a list of numbers with an array of dynamic size\n\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void)\n{\n    // List of size 3\n    int *list = malloc(3 * sizeof(int));\n    if (list == NULL)\n    {\n        return 1;\n    }\n\n    // Initialize list of size 3 with numbers\n    list[0] = 1;\n    list[1] = 2;\n    list[2] = 3;\n\n    // List of size 4\n    int *tmp = malloc(4 * sizeof(int));\n    if (tmp == NULL)\n    {\n        free(list);\n        return 1;\n    }\n\n    // Copy list of size 3 into list of size 4\n    for (int i = 0; i < 3; i++)\n    {\n        tmp[i] = list[i];\n    }\n\n    // Add number to list of size 4\n    tmp[3] = 4;\n\n    // Free list of size 3\n    free(list);\n\n    // Remember list of size 4\n    list = tmp;\n\n    // Print list\n    for (int i = 0; i < 4; i++)\n    {\n        printf(\"%i\\n\", list[i]);\n    }\n\n    // Free list\n    free(list);\n    return 0;\n}",
+        "source_ref": "src-notes-5#arrays",
+        "explain_fa": "کد رسمی list1.c."
+      },
+      "check": {
+        "id": "w05-l02-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `list1.c` چرا نتیجهٔ `malloc` دوم اول در `tmp` گذاشته می‌شود، نه مستقیم در `list`؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون هنوز باید مقدارهای بلوک قدیمی را کپی و بعد آن را free کنیم.",
+            "correct": true,
+            "feedback_fa": "درست. اگر list را بازنویسی کنیم، نشانی بلوک قدیمی گم می‌شود."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون malloc فقط به متغیری به نام tmp مقدار می‌دهد.",
+            "correct": false,
+            "feedback_fa": "نام متغیر اهمیتی ندارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون tmp سریع‌تر است.",
+            "correct": false,
+            "feedback_fa": "سرعت فرقی نمی‌کند؛ مسئله گم نشدن نشانی است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l02-u01-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "خط‌های این قطعهٔ تألیفی را بچین تا آرایهٔ سه‌تایی `list` به آرایهٔ چهارتایی بزرگ شود (مثل `list1.c`).",
+        "lang": "c",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "int *tmp = malloc(4 * sizeof(int));",
+            "text": "int *tmp = malloc(4 * sizeof(int));"
+          },
+          {
+            "id": "p2",
+            "code": "if (tmp == NULL) { free(list); return 1; }",
+            "text": "if (tmp == NULL) { free(list); return 1; }"
+          },
+          {
+            "id": "p3",
+            "code": "for (int i = 0; i < 3; i++) { tmp[i] = list[i]; }",
+            "text": "for (int i = 0; i < 3; i++) { tmp[i] = list[i]; }"
+          },
+          {
+            "id": "p4",
+            "code": "tmp[3] = 4;",
+            "text": "tmp[3] = 4;"
+          },
+          {
+            "id": "p5",
+            "code": "free(list);",
+            "text": "free(list);"
+          },
+          {
+            "id": "p6",
+            "code": "list = tmp;",
+            "text": "list = tmp;"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "list = malloc(4 * sizeof(int));",
+            "why_wrong_fa": "نشانی بلوک قدیمی را گم می‌کند و دیگر نمی‌شود آن را کپی یا آزاد کرد."
+          },
+          {
+            "id": "d2",
+            "code": "free(tmp);",
+            "why_wrong_fa": "tmp همان بلوک تازه است؛ آزاد کردنش داده را از بین می‌برد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5",
+            "p6"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: بگیر، بسنج، کپی کن، اضافه کن، قدیمی را آزاد کن، اشاره‌گر را جابه‌جا کن.",
+          "incorrect_fa": "اگر free(list) پیش از کپی بیاید، داده‌های قدیمی از دست می‌روند."
+        },
+        "hints_fa": [
+          "کپی باید پیش از free(list) باشد."
+        ]
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w05-l02-u02",
+      "order": 2,
+      "title_fa": "realloc",
+      "concept_ids": [
+        "w05-c-realloc",
+        "w05-c-realloc-null",
+        "w05-c-overallocation"
+      ],
+      "objective_ids": [
+        "w05-o03"
+      ],
+      "note_id": "w05-n06",
+      "source_refs": [
+        "src-notes-5#arrays",
+        "src-transcript-5",
+        "src-anzali-authored-5"
+      ],
+      "reading": {
+        "text_fa": "تابع `realloc` همین کار را یک‌جا انجام می‌دهد: بلوک را تغییر اندازه می‌دهد و اگر لازم باشد مقدارها را به جای تازه کپی می‌کند. باز هم نتیجه را اول در `tmp` می‌گذاریم: اگر `realloc` شکست بخورد `NULL` برمی‌گرداند و بلوک قدیمی هنوز سر جایش است و باید آزادش کنیم. در سخنرانی گفته شد گرفتن جای بیشتر از نیاز (مثلاً ۳۰ خانه) کپی‌ها را کم می‌کند، ولی حافظه هدر می‌دهد.",
+        "note_id": "w05-n06",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w05-n06"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "list2",
+        "lang": "c",
+        "content": "// Implements a list of numbers with an array of dynamic size using realloc\n\n#include <stdio.h>\n#include <stdlib.h>\n\nint main(void)\n{\n    // List of size 3\n    int *list = malloc(3 * sizeof(int));\n    if (list == NULL)\n    {\n        return 1;\n    }\n\n    // Initialize list of size 3 with numbers\n    list[0] = 1;\n    list[1] = 2;\n    list[2] = 3;\n\n    // Resize list to be of size 4\n    int *tmp = realloc(list, 4 * sizeof(int));\n    if (tmp == NULL)\n    {\n        free(list);\n        return 1;\n    }\n    list = tmp;\n\n    // Add number to list\n    list[3] = 4;\n\n    // Print list\n    for (int i = 0; i < 4; i++)\n    {\n        printf(\"%i\\n\", list[i]);\n    }\n\n    // Free list\n    free(list);\n    return 0;\n}",
+        "source_ref": "src-notes-5#arrays",
+        "explain_fa": "کد رسمی list2.c."
+      },
+      "check": {
+        "id": "w05-l02-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "اگر `realloc` در `list2.c` شکست بخورد، چه اتفاقی برای بلوک قدیمی `list` می‌افتد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "سر جایش می‌ماند؛ پس کد پیش از خروج `free(list)` می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "خودکار آزاد می‌شود.",
+            "correct": false,
+            "feedback_fa": "realloc در صورت شکست بلوک قدیمی را آزاد نمی‌کند."
+          },
+          {
+            "id": "c",
+            "text_fa": "به NULL تبدیل می‌شود.",
+            "correct": false,
+            "feedback_fa": "فقط مقدار برگشتی NULL است؛ list همان نشانی قبلی را دارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w05-l02-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: نوشتن `list = realloc(list, 4 * sizeof(int));` در صورت شکست realloc ممکن است نشت حافظه بسازد.",
+        "expected": {
+          "value": true
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: list برابر NULL می‌شود و نشانی بلوک قدیمی گم می‌شود.",
+          "incorrect_fa": "به حالت شکست فکر کن: list چه مقداری می‌گیرد؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

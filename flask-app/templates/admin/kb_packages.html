@@ -1,0 +1,354 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}مدیریت بسته‌های پایگاه دانش{% endblock %}
+{% block page_title %}مدیریت بسته‌های پایگاه دانش{% endblock %}
+
+{% block content %}
+<div class="space-y-8 max-w-6xl mx-auto">
+
+    {# ─── سربرگ صفحه ─── #}
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[var(--border)]">
+        <div>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-crimson text-white">
+                    {% if selected_course %}{{ selected_course.title }}{% else %}پایگاه دانش انزلی{% endif %}
+                </span>
+                <span class="text-xs text-[var(--slate)] font-mono">
+                    {% if selected_course %}[{{ selected_course.code }}]{% endif %}
+                </span>
+                <span class="text-xs text-[var(--slate)]">مدیریت محتوا و کوریکیلوم چنددوره‌ای</span>
+            </div>
+            <h1 class="text-2xl font-bold text-[var(--ink)]">بسته‌های هفتگی پایگاه دانش</h1>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="{{ url_for('kb.index') }}" target="_blank" rel="noopener"
+               class="btn-outline-crimson text-xs py-2 px-3.5 inline-flex items-center gap-1.5">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                مشاهده پایگاه دانش
+            </a>
+        </div>
+    </div>
+
+    {# ─── کارت‌های خلاصه وضعیت ─── #}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {% set total_weeks = weeks_status|length %}
+        {% set fa_installed = weeks_status|selectattr('has_fa_hub')|list|length %}
+        {% set total_notes = weeks_status|map(attribute='notes_count')|sum %}
+        {% set total_fc = weeks_status|map(attribute='flashcards_count')|sum %}
+        
+        <div class="card-harvard p-4 text-center">
+            <span class="text-xs text-[var(--slate)] block font-medium">پوشش فارسی هفته‌ها</span>
+            <span class="text-2xl font-black text-crimson mt-1 block num">{{ fa_installed }} / {{ total_weeks }}</span>
+        </div>
+        <div class="card-harvard p-4 text-center">
+            <span class="text-xs text-[var(--slate)] block font-medium">مجموع یادداشت‌های درس</span>
+            <span class="text-2xl font-black text-emerald-700 mt-1 block num">{{ total_notes }}</span>
+        </div>
+        <div class="card-harvard p-4 text-center">
+            <span class="text-xs text-[var(--slate)] block font-medium">فلش‌کارت‌های فعال</span>
+            <span class="text-2xl font-black text-amber-700 mt-1 block num">{{ total_fc }}</span>
+        </div>
+        <div class="card-harvard p-4 text-center">
+            <span class="text-xs text-[var(--slate)] block font-medium">مجموع سوالات آزمون</span>
+            <span class="text-2xl font-black text-blue-700 mt-1 block num">{{ weeks_status|map(attribute='quiz_count')|sum }}</span>
+        </div>
+    </div>
+
+    {# ─── بخش آپلود بسته جدید ─── #}
+    <section class="card-harvard p-6 sm:p-8 border-2 border-dashed border-[var(--border)] hover:border-crimson/50 transition-colors">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-crimson-tint text-crimson flex items-center justify-center mx-auto mb-3 shadow-sm">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <h2 class="text-lg font-bold text-[var(--ink)]">آپلود و نصب بسته هفته پایگاه دانش</h2>
+                <p class="text-xs text-[var(--slate)] mt-1">
+                    فایل فشرده (<code class="text-crimson font-mono">.tar.gz</code> یا <code class="text-crimson font-mono">.zip</code>) را انتخاب کنید. سیستم به‌صورت خودکار محتوا، فلش‌کارت‌ها، آزمون‌ها و واژه‌نامه را ادغام و فعال می‌کند.
+                </p>
+            </div>
+
+            <form method="POST" action="{{ url_for('admin.kb_packages_upload') }}" enctype="multipart/form-data" class="space-y-4">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                <div>
+                    <label class="block text-xs font-bold text-[var(--ink)] mb-1.5">فایل بسته آموزشی (.tar.gz یا .zip)</label>
+                    <input type="file" name="package_file" required accept=".tar.gz,.tgz,.tar,.zip"
+                           class="w-full text-xs text-[var(--slate)] file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-crimson file:text-white hover:file:bg-[var(--crimson-dark)] cursor-pointer bg-white p-2 border border-[var(--border)] rounded-xl transition">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center pt-2">
+                    <div>
+                        <label class="block text-xs font-bold text-[var(--ink)] mb-1">دوره آموزشی مقصد</label>
+                        <select name="course_id" class="w-full text-xs p-2.5 bg-white border border-[var(--border)] rounded-lg font-medium text-[var(--ink)] focus:border-crimson focus:ring-1 focus:ring-crimson">
+                            {% for c in courses %}
+                            <option value="{{ c.id }}" {% if selected_course and selected_course.id == c.id %}selected{% endif %}>
+                                {{ c.title }} (کد: {{ c.code }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <span class="text-[10px] text-[var(--slate)] mt-1 block">بسته پایگاه دانش به این دوره انتساب داده می‌شود.</span>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-[var(--slate)] mb-1">تعیین دستی شماره هفته (اختیاری)</label>
+                        <select name="target_week" class="w-full text-xs p-2.5 bg-white border border-[var(--border)] rounded-lg">
+                            <option value="">تشخیص خودکار از نام پوشه/مانیفست یا بسته مستر</option>
+                            {% for w in weeks_status %}
+                            <option value="{{ w.number }}">{% if w.number == 71 %}هفته ۷.۵ — {{ w.title }}{% elif w.number == 99 %}هفته ۹.۵ — {{ w.title }}{% else %}هفته {{ w.number }} — {{ w.title }}{% endif %}</option>
+                            {% endfor %}
+                        </select>
+                        <span class="text-[10px] text-[var(--slate)] mt-1 block">برای بسته‌های جامع مستر نیاز به تعیین هفته نیست.</span>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="btn-crimson w-full py-3 text-xs font-bold flex items-center justify-center gap-2 shadow-sm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                        شروع پردازش و نصب بسته در دوره
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+        {# ─── بخش سیستم دانلودهای پویا و خروجی‌های آفلاین ─── #}
+    <section class="card-harvard p-5 sm:p-6 overflow-hidden border border-[var(--border)]">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-[var(--border)]">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-crimson-tint text-crimson flex items-center justify-center shrink-0">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div>
+                    <h2 class="text-base font-bold text-[var(--ink)]">موتور دانلودهای پویای پایگاه دانش (Dynamic Exports)</h2>
+                    <p class="text-xs text-[var(--slate)] mt-0.5">تولید اتمیک بسته‌های آفلاین HTML، نسخه‌های چاپی PDF بدون درز و فایل‌های آرشیو ZIP</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                {% if downloads_status and downloads_status.dynamic_enabled %}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    حالت پویا فعال
+                </span>
+                {% else %}
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    حالت سازگاری (Legacy Fallback)
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)]">
+                <span class="text-[var(--slate)] block font-medium mb-1">موتور رندر PDF چاپی:</span>
+                <span class="font-bold text-[var(--ink)] font-mono text-[11px] truncate block" title="{{ downloads_status.pdf_engine_available if downloads_status else '' }}">
+                    {{ downloads_status.pdf_engine_available if downloads_status else 'نامشخص' }}
+                </span>
+            </div>
+
+            <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)]">
+                <span class="text-[var(--slate)] block font-medium mb-1">هفته‌های آماده دانلود پویا:</span>
+                {% set built_count = (downloads_status.weeks|selectattr('is_built')|list|length) if downloads_status and downloads_status.weeks else 0 %}
+                {% set total_w = downloads_status.weeks|length if downloads_status and downloads_status.weeks else 0 %}
+                <span class="font-bold text-emerald-700 num text-sm">
+                    {{ built_count }} از {{ total_w }} هفته
+                </span>
+            </div>
+
+            <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)] flex items-center justify-between">
+                <div>
+                    <span class="text-[var(--slate)] block font-medium mb-0.5">عملیات بازتولید کلی:</span>
+                    <span class="text-[11px] text-[var(--slate)]">تولید اتمیک تمام فایل‌ها</span>
+                </div>
+                <form method="POST" action="{{ url_for('admin.kb_packages_rebuild_downloads') }}"
+                      onsubmit="return confirm('آیا از بازتولید کلیه خروجی‌های دانلودی (HTML، PDF، ZIP) برای تمام هفته‌ها اطمینان دارید؟ این فرآیند ممکن است چند ثانیه زمان ببرد.');">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input type="hidden" name="course_id" value="{{ selected_course.id if selected_course else '' }}"/>
+                    <button type="submit" class="btn-soft-crimson text-xs py-2 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                        <span>تولید مجدد همه</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    {# ─── جدول وضعیت هفته‌ها ─── #}
+    <section class="card-harvard p-5 sm:p-6 overflow-hidden">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-base font-bold text-[var(--ink)]">وضعیت هفتگی پایگاه دانش انزلی</h2>
+            <span class="text-xs text-[var(--slate)]">به‌روزرسانی خودکار با هر آپلود</span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-right border-collapse text-xs">
+                <thead>
+                    <tr class="border-b border-[var(--border)] text-[var(--slate)] bg-gray-50/50">
+                        <th class="py-3 px-3 font-semibold">هفته</th>
+                        <th class="py-3 px-3 font-semibold">عنوان</th>
+                        <th class="py-3 px-3 font-semibold">وضعیت هاب فارسی</th>
+                        <th class="py-3 px-3 font-semibold">یادداشت‌ها</th>
+                        <th class="py-3 px-3 font-semibold">فلش‌کارت‌ها</th>
+                        <th class="py-3 px-3 font-semibold">آزمون تسلط</th>
+                        <th class="py-3 px-3 font-semibold">تمرین تعاملی</th>
+                        <th class="py-3 px-3 font-semibold">دانلودهای پویا</th>
+                        <th class="py-3 px-3 font-semibold">انتشار در سایت</th>
+                        <th class="py-3 px-3 font-semibold text-center">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--border)]">
+                    {% for w in weeks_status %}
+                    <tr class="hover:bg-crimson-tint/15 transition-colors">
+                        <td class="py-3 px-3 font-bold num">{% if w.number == 71 %}هفته ۷.۵{% elif w.number == 99 %}هفته ۹.۵{% else %}هفته {{ w.number }}{% endif %}</td>
+                        <td class="py-3 px-3 font-medium text-[var(--ink)]">{{ w.title }}</td>
+                        <td class="py-3 px-3">
+                            {% if w.has_fa_hub %}
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                فارسی فعال
+                            </span>
+                            {% else %}
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-gray-100 text-gray-500">
+                                انگلیسی هاروارد
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td class="py-3 px-3 num font-bold {% if w.notes_count > 0 %}text-[var(--ink)]{% else %}text-gray-400{% endif %}">
+                            {{ w.notes_count }} یادداشت
+                        </td>
+                        <td class="py-3 px-3 num font-bold {% if w.flashcards_count > 0 %}text-amber-800{% else %}text-gray-400{% endif %}">
+                            {{ w.flashcards_count }} کارت
+                        </td>
+                        <td class="py-3 px-3 num font-bold {% if w.quiz_count > 0 %}text-blue-800{% else %}text-gray-400{% endif %}">
+                            {{ w.quiz_count }} سوال
+                        </td>
+                        <td class="py-3 px-3 num font-bold {% if w.challenges_count > 0 %}text-emerald-700{% else %}text-gray-400{% endif %}">
+                            {% if w.challenges_count > 0 %}
+                            {{ w.challenges_count }} چالش
+                            {% else %}
+                            ندارد
+                            {% endif %}
+                        </td>
+                        <td class="py-3 px-3">
+                            {% set dl_entry = downloads_status.by_week.get(w.number) if downloads_status and downloads_status.by_week else None %}
+                            {% if dl_entry and dl_entry.is_built %}
+                            <div class="flex items-center gap-1.5">
+                                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800" title="{{ dl_entry.formats }}">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                    آماده ({{ dl_entry.items_count }} آیتم)
+                                </span>
+                            </div>
+                            {% else %}
+                            <span class="text-gray-400 text-[10px]">آماده‌نشده</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-3 px-3">
+                            {% if w.is_published %}
+                            <span class="text-emerald-600 font-bold">منتشر</span>
+                            {% else %}
+                            <span class="text-gray-400">مخفی</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-3 px-3 text-center">
+                            <div class="inline-flex items-center gap-1.5">
+                                <a href="{{ url_for('kb.week_page', week=w.number) }}" target="_blank"
+                                   class="btn-soft-crimson text-[11px] py-1 px-2.5 inline-flex items-center gap-1">
+                                    مشاهده
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <a href="{{ url_for('admin.weeks_edit', week_number=w.number) }}"
+                                   class="text-[11px] py-1 px-2 text-[var(--slate)] hover:text-crimson transition">
+                                    تنظیمات
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    {# ─── تاریخچه بسته‌های نصب‌شده ─── #}
+    {% if recent_installs %}
+    <section class="card-harvard p-5 sm:p-6 overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+            <h2 class="text-base font-bold text-[var(--ink)]">تاریخچه بسته‌های نصب‌شده</h2>
+            <span class="text-xs text-[var(--slate)]">{{ recent_installs|length }} بسته اخیر</span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-right border-collapse text-xs">
+                <thead>
+                    <tr class="border-b border-[var(--border)] text-[var(--slate)] bg-gray-50/50">
+                        <th class="py-2.5 px-3 font-semibold">نوع بسته</th>
+                        <th class="py-2.5 px-3 font-semibold">نسخه</th>
+                        <th class="py-2.5 px-3 font-semibold">دوره هدف</th>
+                        <th class="py-2.5 px-3 font-semibold">زمان نصب (تهران)</th>
+                        <th class="py-2.5 px-3 font-semibold">چک‌سام SHA256</th>
+                        <th class="py-2.5 px-3 font-semibold">وضعیت</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--border)]">
+                    {% for inst in recent_installs %}
+                    <tr class="hover:bg-crimson-tint/10 transition-colors">
+                        <td class="py-2.5 px-3 font-bold">
+                            {% if inst.package_type == 'master' %}
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800">
+                                بسته جامع مستر
+                            </span>
+                            {% else %}
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-blue-100 text-blue-800">
+                                تک‌هفته‌ای
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td class="py-2.5 px-3 font-mono font-bold text-[var(--ink)]">{{ inst.version }}</td>
+                        <td class="py-2.5 px-3 text-[var(--ink)]">
+                            {% if inst.course %}
+                                {{ inst.course.title }}
+                            {% elif inst.metadata_json and inst.metadata_json.get('course_title') %}
+                                {{ inst.metadata_json.get('course_title') }}
+                            {% else %}
+                                CS50x Anzali
+                            {% endif %}
+                        </td>
+                        <td class="py-2.5 px-3 font-mono text-[var(--slate)]">{{ inst.installed_at_tehran or inst.installed_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td class="py-2.5 px-3 font-mono text-[var(--slate)] text-[11px]">{{ inst.sha256[:12] }}...</td>
+                        <td class="py-2.5 px-3">
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                فعال
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+    {% endif %}
+
+    {# ─── راهنمای ساختار بسته برای ادمین ─── #}
+    <section class="card-harvard p-5 sm:p-6 bg-slate-50/60 border border-[var(--border)]">
+        <h3 class="text-sm font-bold text-[var(--ink)] mb-2 flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            راهنمای ساختار بسته‌های هفتگی
+        </h3>
+        <p class="text-xs text-[var(--slate)] leading-relaxed mb-3">
+            هر بسته هفتگی می‌تواند شامل فایل‌های زیر در پوشه <code class="font-mono text-crimson">week-XX</code> باشد:
+        </p>
+        <ul class="text-xs text-[var(--slate)] space-y-1.5 list-disc list-inside ps-2">
+            <li><code class="font-mono text-[var(--ink)]">overview.fa.md</code>: نمای کلی فارسی هفته (اهداف، مباحث و راهنمای یادگیری).</li>
+            <li><code class="font-mono text-[var(--ink)]">summary.fa.md</code>: خلاصه‌ی سریع مفاهیم کلیدی هفته.</li>
+            <li><code class="font-mono text-[var(--ink)]">notes/XX-*.fa.md</code>: یادداشت‌های گام‌به‌گام لکچر.</li>
+            <li><code class="font-mono text-[var(--ink)]">flashcards.json</code>: کارت‌های مرور فعال و سیستم فاصله‌گذاری لایتنر (جعبه‌های ۱ تا ۵).</li>
+            <li><code class="font-mono text-[var(--ink)]">quizzes.json</code>: بانک سوالات چهارگزینه‌ای، درست/نادرست، پارسونز و پیش‌بینی خروجی آزمون تسلط.</li>
+            <li><code class="font-mono text-[var(--ink)]">challenges.json</code>: چالش‌های تعاملی ۵ دقیقه‌ای (Duo-Style شامل توکن‌چینی، مرتب‌سازی پارسونز و شکار باگ).</li>
+            <li><code class="font-mono text-[var(--ink)]">sources.json</code>: پیوندهای اسلایدها، کدهای نمونه، ویدیوها و مراجع رسمی هاروارد.</li>
+        </ul>
+    </section>
+
+</div>
+{% endblock %}

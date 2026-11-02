@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/achievement.schema.json",
+  "title": "Achievements",
+  "type": "object",
+  "required": [
+    "achievements",
+    "disclaimer"
+  ],
+  "properties": {
+    "achievements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title_fa",
+          "description_fa",
+          "criteria",
+          "icon",
+          "badge_variant",
+          "basis"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-ach-[a-z0-9-]+$"
+          },
+          "badge_variant": {
+            "enum": [
+              "crimson",
+              "success",
+              "warning",
+              "muted"
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "basis": {
+            "enum": [
+              "mastery",
+              "consistency"
+            ]
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

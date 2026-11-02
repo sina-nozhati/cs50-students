@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/index-fragment.schema.json",
+  "title": "kb_repo index.json node fragment",
+  "type": "object",
+  "required": [
+    "mount_prefix",
+    "attach_to",
+    "nodes"
+  ],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "title",
+          "path",
+          "parent",
+          "children",
+          "week",
+          "source_type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(w00-|anzali-)"
+          },
+          "path": {
+            "type": "string",
+            "pattern": "\\.md$"
+          },
+          "week": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

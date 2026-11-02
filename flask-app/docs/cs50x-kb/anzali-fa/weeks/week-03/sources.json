@@ -1,0 +1,948 @@
+{
+  "$schema": "../../schemas/sources.schema.json",
+  "week": 3,
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "shared_sources_from_week_0": [
+    "src-license",
+    "src-cs50-ai",
+    "src-syllabus-honesty",
+    "src-certificate",
+    "src-repo-local"
+  ],
+  "shared_sources_from_week_1": [
+    "src-manual",
+    "src-style-guide-c",
+    "src-cs50-dev",
+    "src-submit-cs50",
+    "src-communities",
+    "src-notes-1"
+  ],
+  "shared_sources_from_week_2": [
+    "src-check50-docs"
+  ],
+  "origin_legend": {
+    "official": "Official CS50x source (Harvard).",
+    "translated-rewritten": "Faithful Persian rewrite of an official source.",
+    "authored": "Written by CS50x Anzali; not CS50 content.",
+    "inference": "Reasoned from the sources but not stated in them; flagged explicitly.",
+    "external": "Third-party reference linked by the official pages.",
+    "internal": "Sina's own repository (audit only)."
+  },
+  "sources": [
+    {
+      "id": "src-week-3",
+      "url": "https://cs50.harvard.edu/x/weeks/3/",
+      "title": "Week 3 Algorithms (week page)",
+      "source_type": "course-page",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:09:58+03:30",
+      "verified_at": "2026-10-28T05:52:51+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "99b8b12db9359e51bf47cda16fcdb37b490475b403f2234bc3fe898fe013ed49"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/weeks/3/",
+      "anchors": [
+        "week-3-algorithms"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/week.md",
+      "notes": "Topic line (Searching ... Recursion) and media list. Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-notes-3",
+      "url": "https://cs50.harvard.edu/x/notes/3/",
+      "title": "Lecture 3 notes",
+      "source_type": "lecture-notes",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "verified_at": "2026-10-28T05:52:30+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "e830a214a207ced46f210b5bc0ba74b4a034ae6b6711582c7d5437ca3d1341d1"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/notes/3/",
+      "anchors": [
+        "binary-search",
+        "bubble-sort",
+        "lecture-3",
+        "linear-search",
+        "merge-sort",
+        "phonebookc",
+        "recursion",
+        "running-time",
+        "searchc",
+        "sorting-and-selection-sort",
+        "structs",
+        "summing-up",
+        "welcome"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/lecture.md",
+      "notes": "All sections read in full; code blocks copied verbatim into examples3.py. Re-fetched 2026-10-28; main text identical."
+    },
+    {
+      "id": "src-transcript-3",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/lang/en/lecture3.txt",
+      "title": "Lecture 3 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:40:27+03:30",
+      "verified_at": "2026-10-28T05:52:30+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/transcripts/lecture-en.txt",
+      "notes": "Spoken text with transcription errors. Cited for content absent from the notes (stage demos, Theta wording, pyramid recursion details) and labelled «از سخنرانی»."
+    },
+    {
+      "id": "src-srt-3",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/lang/en/lecture3.srt",
+      "title": "Lecture 3 subtitles (English)",
+      "source_type": "subtitles",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-28T05:52:30+03:30",
+      "verified_at": "2026-10-28T05:52:30+03:30",
+      "local_copy": "_tools/refetch/week3/srt/lecture3.srt",
+      "notes": "Used only to derive chapter start times (chapter titles: inference; timestamps real)."
+    },
+    {
+      "id": "src-video-3",
+      "url": "https://video.cs50.io/6Svu_ae5ebk",
+      "title": "Lecture 3 video (CS50 Video Player)",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "notes": "Also https://youtu.be/6Svu_ae5ebk ; Portuguese 1dV61IMUwIc, Spanish zU0DbilHvYM."
+    },
+    {
+      "id": "src-audio-3",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/lecture3.mp3",
+      "title": "Lecture 3 audio",
+      "source_type": "audio",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30"
+    },
+    {
+      "id": "src-slides-3-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/lecture3.pdf",
+      "title": "Lecture 3 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "notes": "Not downloaded."
+    },
+    {
+      "id": "src-slides-3-google",
+      "url": "https://docs.google.com/presentation/d/18hLMy4Qw8fKjwnz4oQtcoTdUnMFxFxx6PBjm4b7ekgo/edit?usp=sharing",
+      "title": "Lecture 3 slides (Google Slides)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30"
+    },
+    {
+      "id": "src-src3-zip",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/src3.zip",
+      "title": "Lecture 3 source code (zip)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/source-code/",
+      "notes": "Code in the notes was used (verbatim); the zip itself is linked, not repackaged."
+    },
+    {
+      "id": "src-src3-index",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/src3/",
+      "title": "Lecture 3 source index",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30"
+    },
+    {
+      "id": "src-src3-pdf",
+      "url": "https://cdn.cs50.net/2025/fall/lectures/3/src3.pdf",
+      "title": "Lecture 3 source code (PDF)",
+      "source_type": "source-code",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30"
+    },
+    {
+      "id": "src-visualizations-3",
+      "url": "https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html",
+      "title": "Comparison sort visualization (linked from the notes)",
+      "source_type": "external-reference",
+      "extraction_status": "link-only",
+      "origin": "external",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "notes": "The notes also link a final visualization video https://www.youtube.com/watch?v=ZZuD6iUe3Pc (link only)."
+    },
+    {
+      "id": "src-section-3",
+      "url": "https://cs50.harvard.edu/x/sections/3/",
+      "title": "Section 3",
+      "source_type": "section",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:26+03:30",
+      "verified_at": "2026-10-28T05:52:42+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "3c8a8c614c3977796ced0c4ad27c65a0c901ab3937daf9bcb776ec1fc1d3bec0"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/sections/3/",
+      "anchors": [
+        "week-3-algorithms"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/sections.md"
+    },
+    {
+      "id": "src-section-3-transcript",
+      "url": "https://cdn.cs50.net/2025/fall/sections/3/lang/en/section3.txt",
+      "title": "Section 3 transcript (English)",
+      "source_type": "transcript",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:40:16+03:30",
+      "verified_at": "2026-10-28T05:52:30+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/transcripts/section-en.txt",
+      "notes": "Read in full for the Persian section summary (presenter: Kelly); chapter times from section3.srt."
+    },
+    {
+      "id": "src-section-3-video",
+      "url": "https://video.cs50.io/r383B4M1EgE",
+      "title": "Section 3 video",
+      "source_type": "video",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "notes": "Also https://youtu.be/r383B4M1EgE ; audio https://cdn.cs50.net/2025/fall/sections/3/section3.mp3"
+    },
+    {
+      "id": "src-section-3-slides",
+      "url": "https://cdn.cs50.net/2025/fall/sections/3/section3.pdf",
+      "title": "Section 3 slides (PDF)",
+      "source_type": "slides",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30"
+    },
+    {
+      "id": "src-section-3-code",
+      "url": "https://cdn.cs50.net/2025/fall/sections/3/src3.zip",
+      "title": "Section 3 source code (struct.c, factorial.c, fib.c)",
+      "source_type": "source-code",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30",
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/section-code/files/",
+      "notes": "All three files reproduced verbatim (teaching examples, not pset solutions). Index https://cdn.cs50.net/2025/fall/sections/3/src3/"
+    },
+    {
+      "id": "src-pset-3",
+      "url": "https://cs50.harvard.edu/x/psets/3/",
+      "title": "Problem Set 3",
+      "source_type": "pset-index",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:27+03:30",
+      "verified_at": "2026-10-28T05:52:36+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "ef9c5216e2d02599e9e4820b5925c8f0a4cf76a3a6f27a9c725a59d7d3b04c4c"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/3/",
+      "anchors": [
+        "problem-set-3",
+        "what-to-do",
+        "when-to-do-it",
+        "advice",
+        "how-to-get-help"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/psets/README.md"
+    },
+    {
+      "id": "src-pset-3-sort",
+      "url": "https://cs50.harvard.edu/x/psets/3/sort/",
+      "title": "Sort",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:24+03:30",
+      "verified_at": "2026-10-28T05:52:40+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "ad4a6057cb48ca885cb1ff9dc8f94821fc589d23e9acf539936d0c1f73a5a201"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/3/sort/",
+      "anchors": [
+        "sort",
+        "problem-to-solve",
+        "distribution-code",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/psets/sort.md"
+    },
+    {
+      "id": "src-pset-3-plurality",
+      "url": "https://cs50.harvard.edu/x/psets/3/plurality/",
+      "title": "Plurality",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:25+03:30",
+      "verified_at": "2026-10-28T05:52:37+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "985e9c1aa958ef615c1351ab59066f5e80ad540b2a2b85a0389fb7a9171ea9dd"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/3/plurality/",
+      "anchors": [
+        "plurality",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/psets/plurality.md"
+    },
+    {
+      "id": "src-pset-3-runoff",
+      "url": "https://cs50.harvard.edu/x/psets/3/runoff/",
+      "title": "Runoff",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:26+03:30",
+      "verified_at": "2026-10-28T05:52:38+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "69a4cb1bee1dec7db403c6b4598d237303d9112425f8601859013cbb2638659a"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/3/runoff/",
+      "anchors": [
+        "runoff",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "hints",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/psets/runoff.md"
+    },
+    {
+      "id": "src-pset-3-tideman",
+      "url": "https://cs50.harvard.edu/x/psets/3/tideman/",
+      "title": "Tideman",
+      "source_type": "pset-spec",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:11:27+03:30",
+      "verified_at": "2026-10-28T05:52:41+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "2fa23564dec3fa8d7ae1f84ac247d54495e288f819de4a5d928e34b78fd8f328"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/psets/3/tideman/",
+      "anchors": [
+        "tideman",
+        "problem-to-solve",
+        "demo",
+        "distribution-code",
+        "background",
+        "understanding",
+        "specification",
+        "walkthrough",
+        "how-to-test",
+        "correctness",
+        "style",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/psets/tideman.md"
+    },
+    {
+      "id": "src-practice-atoi",
+      "url": "https://cs50.harvard.edu/x/practice/atoi/",
+      "title": "Recursive atoi",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:55+03:30",
+      "verified_at": "2026-10-28T05:52:31+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "1e3775e368fb0a8ce5f67ab9c4dbcb18bb9cb9d62da483cf1c760050ce214bfb"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/atoi/",
+      "anchors": [
+        "recursive-atoi",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit",
+        "a-more-thorough-implementation"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/practice/atoi.md"
+    },
+    {
+      "id": "src-practice-temps",
+      "url": "https://cs50.harvard.edu/x/practice/temps/",
+      "title": "Average High Temperatures",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:56+03:30",
+      "verified_at": "2026-10-28T05:52:35+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "caebe7903af644c7c52a8f20e6b0a08907124522a55da135db3cc8ea93ac76a4"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/temps/",
+      "anchors": [
+        "average-high-temperatures",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/practice/temps.md"
+    },
+    {
+      "id": "src-practice-max",
+      "url": "https://cs50.harvard.edu/x/practice/max/",
+      "title": "Max",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:57+03:30",
+      "verified_at": "2026-10-28T05:52:32+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "7fabf39d031853806502eaba4cc914cc01730bfbcdcc53363853f5720ad9c5d5"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/max/",
+      "anchors": [
+        "max",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/practice/max.md"
+    },
+    {
+      "id": "src-practice-snackbar",
+      "url": "https://cs50.harvard.edu/x/practice/snackbar/",
+      "title": "Snackbar",
+      "source_type": "practice-problem",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:59+03:30",
+      "verified_at": "2026-10-28T05:52:34+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": true,
+        "sha256_live": "b8f3ab0ab13074b5f1a253592fdd4bc772d340c5da863dec67759bbc3dc85bb8"
+      },
+      "url_2026": "https://cs50.harvard.edu/x/2026/practice/snackbar/",
+      "anchors": [
+        "snackbar",
+        "learning-goals",
+        "background",
+        "demo",
+        "getting-started",
+        "implementation-details",
+        "thought-question",
+        "how-to-test-your-code",
+        "how-to-submit"
+      ],
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/practice/snackbar.md"
+    },
+    {
+      "id": "src-short-linear-search",
+      "url": "https://cs50.harvard.edu/x/shorts/linear_search/",
+      "title": "Short: Linear Search (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:23+03:30",
+      "verified_at": "2026-10-28T05:52:47+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "d5a3721cd1baae65136d72bd591b52a01176e6f4c453382d2324e70e2c81048e"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/linear-search.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/linear_search/lang/en/linear_search.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/linear_search/lang/en/linear_search.srt. Video https://youtu.be/TwsgCHYmbbA. Slides https://cdn.cs50.net/2017/fall/shorts/linear_search/linear_search.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-binary-search",
+      "url": "https://cs50.harvard.edu/x/shorts/binary_search/",
+      "title": "Short: Binary Search (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:25+03:30",
+      "verified_at": "2026-10-28T05:52:43+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "4bc8592522fef12b31c9a595c6dc7a4bddb7f969e4e68908ca888e8ba691f619"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/binary-search.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/binary_search/lang/en/binary_search.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/binary_search/lang/en/binary_search.srt. Video https://youtu.be/T98PIp4omUA. Slides https://cdn.cs50.net/2017/fall/shorts/binary_search/binary_search.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-bubble-sort",
+      "url": "https://cs50.harvard.edu/x/shorts/bubble_sort/",
+      "title": "Short: Bubble Sort (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:27+03:30",
+      "verified_at": "2026-10-28T05:52:44+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "0a3395c6f40383889017593da976616a15cc67c73826a868aba7e5b8261157a3"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/bubble-sort.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/bubble_sort/lang/en/bubble_sort.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/bubble_sort/lang/en/bubble_sort.srt. Video https://youtu.be/RT-hUXUWQ2I. Slides https://cdn.cs50.net/2017/fall/shorts/bubble_sort/bubble_sort.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-selection-sort",
+      "url": "https://cs50.harvard.edu/x/shorts/selection_sort/",
+      "title": "Short: Selection Sort (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:29+03:30",
+      "verified_at": "2026-10-28T05:52:50+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "044f089f09ca8fe30dbc9de593605cd1f885ed0cda1755cd748b99b84bb73f25"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/selection-sort.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/selection_sort/lang/en/selection_sort.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/selection_sort/lang/en/selection_sort.srt. Video https://youtu.be/3hH8kTHFw2A. Slides https://cdn.cs50.net/2017/fall/shorts/selection_sort/selection_sort.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-call-stacks",
+      "url": "https://cs50.harvard.edu/x/shorts/call_stacks/",
+      "title": "Short: Call Stacks (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:31+03:30",
+      "verified_at": "2026-10-28T05:52:46+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "fef25bde663226d186179f406dce0b7d58a695b89f6912b723cbe0c889f73bd7"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/call-stacks.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/call_stacks/lang/en/call_stacks.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/call_stacks/lang/en/call_stacks.srt. Video https://youtu.be/aCPkszeKRa4. Slides https://cdn.cs50.net/2017/fall/shorts/call_stacks/call_stacks.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-recursion",
+      "url": "https://cs50.harvard.edu/x/shorts/recursion/",
+      "title": "Short: Recursion (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:33+03:30",
+      "verified_at": "2026-10-28T05:52:49+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "6e9d0fc8aa6bc8774559124f4deca751f34d859a8b9266accb34ea5a4307dc26"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/recursion.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/recursion/lang/en/recursion.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/recursion/lang/en/recursion.srt. Video https://youtu.be/mz6tAJMVmfM. Slides https://cdn.cs50.net/2017/fall/shorts/recursion/recursion.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-short-merge-sort",
+      "url": "https://cs50.harvard.edu/x/shorts/merge_sort/",
+      "title": "Short: Merge Sort (2017, Doug Lloyd)",
+      "source_type": "short",
+      "extraction_status": "extracted-verbatim",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:41:35+03:30",
+      "verified_at": "2026-10-28T05:52:48+03:30",
+      "refetch": {
+        "http": 200,
+        "identical_main_text": null,
+        "sha256_live": "a83b16743626eeff9c8e3b6ab437a431da8b297810c38b8ee364ec433758d36a"
+      },
+      "local_copy": "/workspace/cs50x-kb/weeks/week-03-algorithms/shorts/merge-sort.md",
+      "notes": "Transcript https://cdn.cs50.net/2017/fall/shorts/merge_sort/lang/en/merge_sort.txt read in full; chapters from https://cdn.cs50.net/2017/fall/shorts/merge_sort/lang/en/merge_sort.srt. Video https://youtu.be/Ns7tGNbtvV4. Slides https://cdn.cs50.net/2017/fall/shorts/merge_sort/merge_sort.pdf (link only). Recorded 2017."
+    },
+    {
+      "id": "src-time-cs50-deadline-3",
+      "url": "https://time.cs50.io/20270630T235900Z",
+      "title": "Problem Set 3 deadline in local time",
+      "source_type": "tool",
+      "extraction_status": "link-only",
+      "origin": "official",
+      "retrieved_at": "2026-10-18T05:10:24+03:30"
+    },
+    {
+      "id": "src-anzali-authored-3",
+      "url": "urn:cs50x-anzali:authored:week-03",
+      "title": "Material authored by CS50x Anzali for Week 3 (examples marked تألیفی, exercises, challenges, flashcards, quizzes, lessons, gamification)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "authored",
+      "retrieved_at": "2026-10-28T10:00:00+03:30"
+    },
+    {
+      "id": "src-anzali-inference-3",
+      "url": "urn:cs50x-anzali:inference:week-03",
+      "title": "Editorial inferences for Week 3 (chapter boundaries from official .srt cue times; concept graph; topic order)",
+      "source_type": "authored",
+      "extraction_status": "authored",
+      "origin": "inference",
+      "retrieved_at": "2026-10-28T10:00:00+03:30"
+    }
+  ],
+  "discrepancies": [
+    {
+      "id": "d35",
+      "topic": "2026 URLs redirect",
+      "a": {
+        "source": "src-notes-3",
+        "value": "https://cs50.harvard.edu/x/2026/notes/3/ returns 302"
+      },
+      "b": {
+        "source": "src-notes-3",
+        "value": "Redirect target https://cs50.harvard.edu/x/notes/3/ (identical main text)"
+      },
+      "status": "consistent",
+      "note": "Sources use the canonical URL; url_2026 kept as alias. Same for week, section, pset, practice and shorts pages."
+    },
+    {
+      "id": "d36",
+      "topic": "Shorts recorded 2017 (CS50 IDE era)",
+      "a": {
+        "source": "src-short-linear-search",
+        "value": "All seven Week 3 shorts are Doug Lloyd, 2017"
+      },
+      "b": {
+        "source": "src-notes-3",
+        "value": "2026 course uses cs50.dev"
+      },
+      "status": "complementary",
+      "note": "Ideas are unchanged; environment names differ."
+    },
+    {
+      "id": "d37",
+      "topic": "Insertion sort mentioned but not taught",
+      "a": {
+        "source": "src-practice-temps#background",
+        "value": "'possibly bubble sort, selection sort, or insertion sort'"
+      },
+      "b": {
+        "source": "src-notes-3",
+        "value": "Notes teach selection, bubble and merge sort only"
+      },
+      "status": "complementary",
+      "note": "Also the Merge Sort short lists 'bubble sort, insertion sort, and selection sort'. Persian text names it and says it is not covered in the notes."
+    },
+    {
+      "id": "d38",
+      "topic": "Bubble sort Omega(n) depends on early exit",
+      "a": {
+        "source": "src-notes-3#bubble-sort",
+        "value": "'In the best case ... bubble sort is in the order of Omega(n)'"
+      },
+      "b": {
+        "source": "src-notes-3#bubble-sort",
+        "value": "Pseudocode includes 'If no swaps / Quit'; without it the best case is n^2"
+      },
+      "status": "complementary",
+      "note": "Persian note and quizzes make the early-exit condition explicit."
+    },
+    {
+      "id": "d39",
+      "topic": "Tideman: function name record_preference vs record_preferences",
+      "a": {
+        "source": "src-pset-3-tideman#understanding",
+        "value": "Text twice calls it record_preference"
+      },
+      "b": {
+        "source": "src-pset-3-tideman#specification",
+        "value": "'Complete the record_preferences function.'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Guide tells learners to use the name in the distribution code."
+    },
+    {
+      "id": "d40",
+      "topic": "Typos on official pages",
+      "a": {
+        "source": "src-pset-3-runoff#problem-to-solve",
+        "value": "'occurrs'; alt text 'tie betweeen' (also Tideman)"
+      },
+      "b": {
+        "source": "src-practice-temps#background",
+        "value": "'decending'; atoi 'Recusive', snackbar 'insentive'"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Not reproduced; typos only."
+    },
+    {
+      "id": "d41",
+      "topic": "Sort: empty 'Not sure how to solve?' block",
+      "a": {
+        "source": "src-pset-3-sort#walkthrough",
+        "value": "Heading/collapsible with no visible content in the extracted page"
+      },
+      "b": {
+        "source": "src-pset-3-sort#hints",
+        "value": "Hints section present"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Linked only."
+    },
+    {
+      "id": "d42",
+      "topic": "Plurality: merge sort 'one of the fastest'",
+      "a": {
+        "source": "src-pset-3-plurality#hints",
+        "value": "Mentions merge sort O(N log N) as one of the fastest sorting algorithms"
+      },
+      "b": {
+        "source": "src-notes-3#merge-sort",
+        "value": "Notes describe merge sort as 'very efficient' without ranking"
+      },
+      "status": "complementary",
+      "note": "Persian text says 'from the algorithms of this week'."
+    },
+    {
+      "id": "d43",
+      "topic": "Notes code listings skip line numbers",
+      "a": {
+        "source": "src-notes-3",
+        "value": "Some pseudocode/code listings are numbered with gaps in the rendered page"
+      },
+      "b": {
+        "source": "src-src3-zip",
+        "value": "Source files are continuous"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Code reproduced without line numbers."
+    },
+    {
+      "id": "d44",
+      "topic": "En dash in pseudocode",
+      "a": {
+        "source": "src-notes-3#sorting-and-selection-sort",
+        "value": "'For i from 0 to n–1' (U+2013)"
+      },
+      "b": {
+        "source": "src-notes-3#bubble-sort",
+        "value": "'For i from 0 to n–2' (U+2013)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian pseudocode uses ASCII '-' (n-1, n-2)."
+    },
+    {
+      "id": "d45",
+      "topic": "Practice problems: dated slugs",
+      "a": {
+        "source": "src-practice-atoi#getting-started",
+        "value": "wget https://cdn.cs50.net/2022/fall/labs/3/atoi.zip"
+      },
+      "b": {
+        "source": "src-practice-max#how-to-test-your-code",
+        "value": "check50 slug cs50/labs/2023/x/max"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Same pattern for temps and snackbar; copied exactly as published."
+    },
+    {
+      "id": "d46",
+      "topic": "'O(n2)' superscript lost",
+      "a": {
+        "source": "src-practice-temps#background",
+        "value": "'You will use an O(n2) sorting algorithm'"
+      },
+      "b": {
+        "source": "src-notes-3#sorting-and-selection-sort",
+        "value": "O(n^2) in the notes"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian text writes O(n²)."
+    },
+    {
+      "id": "d47",
+      "topic": "Reused alt text for graphs",
+      "a": {
+        "source": "src-pset-3-tideman#background",
+        "value": "Several graph images reuse alt text 'Nine ballots, with ranked preferences'"
+      },
+      "b": {
+        "source": "src-pset-3-tideman#background",
+        "value": "Images actually show preference graphs"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Media manifest describes each image in Persian; images are link-only."
+    },
+    {
+      "id": "d48",
+      "topic": "Duplicate merge-sort blocks",
+      "a": {
+        "source": "src-notes-3#merge-sort",
+        "value": "Some merge-sort pseudocode/visual steps repeated"
+      },
+      "b": {
+        "source": "src-transcript-3",
+        "value": "Lecture shows one pass"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Reproduced once."
+    },
+    {
+      "id": "d49",
+      "topic": "Inline SVG figures",
+      "a": {
+        "source": "src-notes-3",
+        "value": "Two figures are inline SVG rather than image files"
+      },
+      "b": {
+        "source": "src-anzali-authored-3",
+        "value": "Media manifest needs a kind for figures without a URL"
+      },
+      "status": "consistent",
+      "note": "Recorded as media kind 'inline-figure' (additive enum)."
+    },
+    {
+      "id": "d50",
+      "topic": "Odd Omega example",
+      "a": {
+        "source": "src-notes-3#running-time",
+        "value": "'The Omega symbol is used to denote the best case of an algorithm, such as Omega(log n)'"
+      },
+      "b": {
+        "source": "src-notes-3#running-time",
+        "value": "Common examples elsewhere are Omega(1) for linear/binary search"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian note gives Omega(1) as the search example and keeps the notes' sentence as quoted."
+    },
+    {
+      "id": "d51",
+      "topic": "Call Stacks short: printf 'returns nothing'",
+      "a": {
+        "source": "src-short-call-stacks",
+        "value": "Says printf returns nothing / its return value is not used"
+      },
+      "b": {
+        "source": "src-manual",
+        "value": "printf returns an int (number of characters printed)"
+      },
+      "status": "complementary",
+      "note": "Persian text says the return value is ignored, not absent."
+    },
+    {
+      "id": "d52",
+      "topic": "Fibonacci indexing",
+      "a": {
+        "source": "src-short-recursion",
+        "value": "fib(1) is 0 and fib(2) is 1 (1-based)"
+      },
+      "b": {
+        "source": "src-section-3-code",
+        "value": "fib.c: fib(0) is 0 and fib(1) is 1 (0-based)"
+      },
+      "status": "complementary",
+      "note": "Same sequence; Persian text states which convention each uses."
+    },
+    {
+      "id": "d53",
+      "topic": "Recursion short omits braces",
+      "a": {
+        "source": "src-short-recursion",
+        "value": "Code shown with single-statement if/else without braces"
+      },
+      "b": {
+        "source": "src-style-guide-c",
+        "value": "CS50 style uses braces"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Authored examples use braces."
+    },
+    {
+      "id": "d54",
+      "topic": "How to Test: 'MAX of 9'",
+      "a": {
+        "source": "src-pset-3-runoff#how-to-test",
+        "value": "Mentions a maximum of 9 candidates"
+      },
+      "b": {
+        "source": "src-pset-3-runoff#distribution-code",
+        "value": "Constant MAX_CANDIDATES in the distribution code"
+      },
+      "status": "complementary",
+      "note": "Guide refers to the constant by name."
+    },
+    {
+      "id": "d55",
+      "topic": "Section: n^2 called 'exponential'",
+      "a": {
+        "source": "src-section-3-transcript",
+        "value": "Kelly calls the n^2 growth of bubble/selection sort 'exponential'"
+      },
+      "b": {
+        "source": "src-notes-3",
+        "value": "Notes use O(n^2) (quadratic/polynomial)"
+      },
+      "status": "recorded-not-resolved",
+      "note": "Persian section summary notes the correct term."
+    }
+  ]
+}

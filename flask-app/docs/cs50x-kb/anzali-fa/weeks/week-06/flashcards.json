@@ -1,0 +1,2301 @@
+{
+  "$schema": "../../schemas/flashcard.schema.json",
+  "week": 6,
+  "generated_at": "2026-10-29T05:00:00+03:30",
+  "origin": "authored",
+  "note": "Cards are authored by CS50x Anzali from official content (source_ref). Per-user SRS state belongs in the database; the srs block is only the initial template (Leitner box 1 / SM-2 defaults from gamification/xp-config.json /srs).",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "cards": [
+    {
+      "id": "w06-fc-001",
+      "concept_id": "w06-c-python-language",
+      "note_id": "w06-n01",
+      "front_fa": "موضوع اصلی هفتهٔ ۶ چیست؟",
+      "back_fa": "پایتون: همان بلوک‌های سازندهٔ C در زبانی سطح بالا، و یاد گرفتن زبان تازه به دست خودت.",
+      "question_fa": "موضوع اصلی هفتهٔ ۶ چیست؟",
+      "answer_fa": "پایتون: همان بلوک‌های سازندهٔ C در زبانی سطح بالا، و یاد گرفتن زبان تازه به دست خودت.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python"
+      ],
+      "source_ref": "src-notes-6#hello-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-002",
+      "concept_id": "w06-c-interpreted",
+      "note_id": "w06-n01",
+      "front_fa": "فرق زبان کامپایلی و تفسیری در یک جمله؟",
+      "back_fa": "برنامهٔ کامپایلی پیش از اجرا به کد ماشین ترجمه می‌شود؛ برنامهٔ تفسیری را مفسر هنگام اجرا خط‌به‌خط می‌خواند و اجرا می‌کند.",
+      "question_fa": "فرق زبان کامپایلی و تفسیری در یک جمله؟",
+      "answer_fa": "برنامهٔ کامپایلی پیش از اجرا به کد ماشین ترجمه می‌شود؛ برنامهٔ تفسیری را مفسر هنگام اجرا خط‌به‌خط می‌خواند و اجرا می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python"
+      ],
+      "source_ref": "src-notes-6#hello-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-003",
+      "concept_id": "w06-c-run-python",
+      "note_id": "w06-n01",
+      "front_fa": "برنامهٔ hello.py را چطور اجرا می‌کنی؟",
+      "back_fa": "`python hello.py`؛ بدون `make` و بدون `./hello`.",
+      "question_fa": "برنامهٔ hello.py را چطور اجرا می‌کنی؟",
+      "answer_fa": "`python hello.py`؛ بدون `make` و بدون `./hello`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python"
+      ],
+      "source_ref": "src-notes-6#hello-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-004",
+      "concept_id": "w06-c-python-syntax-basics",
+      "note_id": "w06-n01",
+      "front_fa": "توضیح (comment) در پایتون با چه نویسه‌ای شروع می‌شود؟",
+      "back_fa": "با `#`.",
+      "question_fa": "توضیح (comment) در پایتون با چه نویسه‌ای شروع می‌شود؟",
+      "answer_fa": "با `#`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "syntax"
+      ],
+      "source_ref": "src-notes-6#hello-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-005",
+      "concept_id": "w06-c-python-syntax-basics",
+      "note_id": "w06-n01",
+      "front_fa": "آیا در پایتون نقطه‌ویرگول پایان دستور لازم است؟",
+      "back_fa": "نه؛ هر دستور در سطر خودش می‌آید.",
+      "question_fa": "آیا در پایتون نقطه‌ویرگول پایان دستور لازم است؟",
+      "answer_fa": "نه؛ هر دستور در سطر خودش می‌آید.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "syntax"
+      ],
+      "source_ref": "src-notes-6#hello-python",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-006",
+      "concept_id": "w06-c-high-level-tradeoff",
+      "note_id": "w06-n02",
+      "front_fa": "بهای کوتاه‌تر شدن Speller در پایتون چیست؟",
+      "back_fa": "اجرای احتمالاً کندتر و کنترل کمتر بر حافظه؛ کارهای سطح پایین را زبان برایت انجام می‌دهد.",
+      "question_fa": "بهای کوتاه‌تر شدن Speller در پایتون چیست؟",
+      "answer_fa": "اجرای احتمالاً کندتر و کنترل کمتر بر حافظه؛ کارهای سطح پایین را زبان برایت انجام می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "speller"
+      ],
+      "source_ref": "src-notes-6#speller",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-007",
+      "concept_id": "w06-c-set",
+      "note_id": "w06-n02",
+      "front_fa": "set در پایتون چه ویژگی دارد؟",
+      "back_fa": "مجموعه‌ای از مقدارهای یکتا (بدون تکرار) که آزمون عضویت با `in` روی آن سریع است.",
+      "question_fa": "set در پایتون چه ویژگی دارد؟",
+      "answer_fa": "مجموعه‌ای از مقدارهای یکتا (بدون تکرار) که آزمون عضویت با `in` روی آن سریع است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "collections"
+      ],
+      "source_ref": "src-notes-6#speller",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-008",
+      "concept_id": "w06-c-function-call-py",
+      "note_id": "w06-n03",
+      "front_fa": "معادل `printf(\"hello, world\\n\");` در پایتون؟",
+      "back_fa": "`print(\"hello, world\")`؛ `print` خودش سطر تازه می‌گذارد.",
+      "question_fa": "معادل `printf(\"hello, world\\n\");` در پایتون؟",
+      "answer_fa": "`print(\"hello, world\")`؛ `print` خودش سطر تازه می‌گذارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "print"
+      ],
+      "source_ref": "src-notes-6#functions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-009",
+      "concept_id": "w06-c-cs50-library-py",
+      "note_id": "w06-n03",
+      "front_fa": "سه تابع کتابخانهٔ CS50 در پایتون را نام ببر.",
+      "back_fa": "`get_float`، `get_int` و `get_string`.",
+      "question_fa": "سه تابع کتابخانهٔ CS50 در پایتون را نام ببر.",
+      "answer_fa": "`get_float`، `get_int` و `get_string`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "cs50"
+      ],
+      "source_ref": "src-notes-6#libraries-modules-and-packages",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-010",
+      "concept_id": "w06-c-import",
+      "note_id": "w06-n03",
+      "front_fa": "فرق `import cs50` و `from cs50 import get_int` چیست؟",
+      "back_fa": "در اولی تابع را با `cs50.get_int(...)` صدا می‌زنی؛ در دومی مستقیم با `get_int(...)`.",
+      "question_fa": "فرق `import cs50` و `from cs50 import get_int` چیست؟",
+      "answer_fa": "در اولی تابع را با `cs50.get_int(...)` صدا می‌زنی؛ در دومی مستقیم با `get_int(...)`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "modules"
+      ],
+      "source_ref": "src-notes-6#libraries-modules-and-packages",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-011",
+      "concept_id": "w06-c-string-concat",
+      "note_id": "w06-n04",
+      "front_fa": "`\"hello, \" + \"Sina\"` چه می‌دهد؟",
+      "back_fa": "`\"hello, Sina\"`؛ `+` دو رشته را به هم می‌چسباند.",
+      "question_fa": "`\"hello, \" + \"Sina\"` چه می‌دهد؟",
+      "answer_fa": "`\"hello, Sina\"`؛ `+` دو رشته را به هم می‌چسباند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "strings"
+      ],
+      "source_ref": "src-notes-6#strings",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-012",
+      "concept_id": "w06-c-print-multiple",
+      "note_id": "w06-n04",
+      "front_fa": "`print(\"hello,\", \"Sina\")` چه چاپ می‌کند؟",
+      "back_fa": "`hello, Sina`؛ میان آرگومان‌ها به‌طور پیش‌فرض یک فاصله می‌گذارد.",
+      "question_fa": "`print(\"hello,\", \"Sina\")` چه چاپ می‌کند؟",
+      "answer_fa": "`hello, Sina`؛ میان آرگومان‌ها به‌طور پیش‌فرض یک فاصله می‌گذارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "print"
+      ],
+      "source_ref": "src-notes-6#strings",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-013",
+      "concept_id": "w06-c-f-string",
+      "note_id": "w06-n04",
+      "front_fa": "f-string چیست؟",
+      "back_fa": "رشته‌ای با پیشوند `f` که عبارت‌های درون `{}` را با مقدارشان جای‌گزین می‌کند، مثل `f\"hello, {name}\"`.",
+      "question_fa": "f-string چیست؟",
+      "answer_fa": "رشته‌ای با پیشوند `f` که عبارت‌های درون `{}` را با مقدارشان جای‌گزین می‌کند، مثل `f\"hello, {name}\"`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "strings"
+      ],
+      "source_ref": "src-notes-6#strings",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-014",
+      "concept_id": "w06-c-f-string",
+      "note_id": "w06-n04",
+      "front_fa": "اگر `f` را از `f\"hello, {name}\"` برداری چه چاپ می‌شود؟",
+      "back_fa": "خود متن `hello, {name}`، بدون جای‌گذاری.",
+      "question_fa": "اگر `f` را از `f\"hello, {name}\"` برداری چه چاپ می‌شود؟",
+      "answer_fa": "خود متن `hello, {name}`، بدون جای‌گذاری.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "strings"
+      ],
+      "source_ref": "src-notes-6#strings",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-015",
+      "concept_id": "w06-c-named-parameters",
+      "note_id": "w06-n04",
+      "front_fa": "پارامتر `end` در `print` چیست و پیش‌فرضش چیست؟",
+      "back_fa": "رشته‌ای که پس از آخرین آرگومان چاپ می‌شود؛ پیش‌فرض `\"\\n\"` است.",
+      "question_fa": "پارامتر `end` در `print` چیست و پیش‌فرضش چیست؟",
+      "answer_fa": "رشته‌ای که پس از آخرین آرگومان چاپ می‌شود؛ پیش‌فرض `\"\\n\"` است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "print"
+      ],
+      "source_ref": "src-notes-6#positional-parameters-and-named-parameters",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-016",
+      "concept_id": "w06-c-named-parameters",
+      "note_id": "w06-n04",
+      "front_fa": "پارامتر `sep` در `print` چه می‌کند؟",
+      "back_fa": "رشتهٔ میان آرگومان‌ها را تعیین می‌کند؛ پیش‌فرض یک فاصله است.",
+      "question_fa": "پارامتر `sep` در `print` چه می‌کند؟",
+      "answer_fa": "رشتهٔ میان آرگومان‌ها را تعیین می‌کند؛ پیش‌فرض یک فاصله است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "print"
+      ],
+      "source_ref": "src-notes-6#positional-parameters-and-named-parameters",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-017",
+      "concept_id": "w06-c-no-declaration",
+      "note_id": "w06-n05",
+      "front_fa": "معادل `int counter = 0;` در پایتون؟",
+      "back_fa": "`counter = 0`؛ نوع اعلان نمی‌شود.",
+      "question_fa": "معادل `int counter = 0;` در پایتون؟",
+      "answer_fa": "`counter = 0`؛ نوع اعلان نمی‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "variables"
+      ],
+      "source_ref": "src-notes-6#variables",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-018",
+      "concept_id": "w06-c-augmented-assignment",
+      "note_id": "w06-n05",
+      "front_fa": "آیا `counter++` در پایتون کار می‌کند؟",
+      "back_fa": "نه؛ پایتون `++` ندارد. بنویس `counter += 1`.",
+      "question_fa": "آیا `counter++` در پایتون کار می‌کند؟",
+      "answer_fa": "نه؛ پایتون `++` ندارد. بنویس `counter += 1`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "variables"
+      ],
+      "source_ref": "src-notes-6#variables",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-019",
+      "concept_id": "w06-c-python-types",
+      "note_id": "w06-n05",
+      "front_fa": "چهار نوع دادهٔ پرکاربرد پایتون که درس‌نامه نام می‌برد؟",
+      "back_fa": "`bool`، `float`، `int` و `str`.",
+      "question_fa": "چهار نوع دادهٔ پرکاربرد پایتون که درس‌نامه نام می‌برد؟",
+      "answer_fa": "`bool`، `float`، `int` و `str`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "types"
+      ],
+      "source_ref": "src-notes-6#types",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-020",
+      "concept_id": "w06-c-no-long-double",
+      "note_id": "w06-n05",
+      "front_fa": "چرا پایتون `long` ندارد؟",
+      "back_fa": "چون `int` پایتون اندازهٔ ثابت ندارد و سرریز نمی‌کند؛ هر قدر لازم باشد بزرگ می‌شود.",
+      "question_fa": "چرا پایتون `long` ندارد؟",
+      "answer_fa": "چون `int` پایتون اندازهٔ ثابت ندارد و سرریز نمی‌کند؛ هر قدر لازم باشد بزرگ می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "types"
+      ],
+      "source_ref": "src-notes-6#types",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-021",
+      "concept_id": "w06-c-no-long-double",
+      "note_id": "w06-n05",
+      "front_fa": "`2147483647 + 1` در پایتون چه می‌دهد؟",
+      "back_fa": "`2147483648`؛ سرریز رخ نمی‌دهد.",
+      "question_fa": "`2147483647 + 1` در پایتون چه می‌دهد؟",
+      "answer_fa": "`2147483648`؛ سرریز رخ نمی‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "types"
+      ],
+      "source_ref": "src-python-docs",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-022",
+      "concept_id": "w06-c-collection-types",
+      "note_id": "w06-n05",
+      "front_fa": "پنج نوع مجموعه‌ای که درس‌نامه نام می‌برد؟",
+      "back_fa": "`range`، `list`، `tuple`، `dict` و `set`.",
+      "question_fa": "پنج نوع مجموعه‌ای که درس‌نامه نام می‌برد؟",
+      "answer_fa": "`range`، `list`، `tuple`، `dict` و `set`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "collections"
+      ],
+      "source_ref": "src-notes-6#types",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-023",
+      "concept_id": "w06-c-input-returns-str",
+      "note_id": "w06-n06",
+      "front_fa": "`input` چه نوعی برمی‌گرداند؟",
+      "back_fa": "همیشه `str`، حتی اگر کاربر عدد تایپ کند.",
+      "question_fa": "`input` چه نوعی برمی‌گرداند؟",
+      "answer_fa": "همیشه `str`، حتی اگر کاربر عدد تایپ کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "input"
+      ],
+      "source_ref": "src-notes-6#calculator",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-024",
+      "concept_id": "w06-c-input-returns-str",
+      "note_id": "w06-n06",
+      "front_fa": "اگر کاربر 1 و 2 بدهد، `input(\"x: \") + input(\"y: \")` چه می‌شود؟",
+      "back_fa": "`\"12\"`؛ دو رشته به هم چسبیده‌اند.",
+      "question_fa": "اگر کاربر 1 و 2 بدهد، `input(\"x: \") + input(\"y: \")` چه می‌شود؟",
+      "answer_fa": "`\"12\"`؛ دو رشته به هم چسبیده‌اند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "input"
+      ],
+      "source_ref": "src-notes-6#calculator",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-025",
+      "concept_id": "w06-c-int-conversion",
+      "note_id": "w06-n06",
+      "front_fa": "رشتهٔ `\"42\"` را چطور به عدد صحیح تبدیل می‌کنی؟",
+      "back_fa": "`int(\"42\")`.",
+      "question_fa": "رشتهٔ `\"42\"` را چطور به عدد صحیح تبدیل می‌کنی؟",
+      "answer_fa": "`int(\"42\")`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "types"
+      ],
+      "source_ref": "src-notes-6#calculator",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-026",
+      "concept_id": "w06-c-int-conversion",
+      "note_id": "w06-n06",
+      "front_fa": "`int(\"cat\")` چه می‌کند؟",
+      "back_fa": "استثنای `ValueError` برمی‌انگیزد.",
+      "question_fa": "`int(\"cat\")` چه می‌کند؟",
+      "answer_fa": "استثنای `ValueError` برمی‌انگیزد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "exceptions"
+      ],
+      "source_ref": "src-notes-6#calculator",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-027",
+      "concept_id": "w06-c-indentation-blocks",
+      "note_id": "w06-n07",
+      "front_fa": "در پایتون بدنهٔ یک `if` چطور مشخص می‌شود؟",
+      "back_fa": "با دونقطه پس از شرط و تورفتگی سطرهای بدنه؛ آکولاد نیست.",
+      "question_fa": "در پایتون بدنهٔ یک `if` چطور مشخص می‌شود؟",
+      "answer_fa": "با دونقطه پس از شرط و تورفتگی سطرهای بدنه؛ آکولاد نیست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "conditionals"
+      ],
+      "source_ref": "src-notes-6#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-028",
+      "concept_id": "w06-c-elif",
+      "note_id": "w06-n07",
+      "front_fa": "معادل `else if` در پایتون؟",
+      "back_fa": "`elif`.",
+      "question_fa": "معادل `else if` در پایتون؟",
+      "answer_fa": "`elif`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "conditionals"
+      ],
+      "source_ref": "src-notes-6#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-029",
+      "concept_id": "w06-c-logical-words",
+      "note_id": "w06-n07",
+      "front_fa": "معادل `||` و `&&` در پایتون؟",
+      "back_fa": "`or` و `and`.",
+      "question_fa": "معادل `||` و `&&` در پایتون؟",
+      "answer_fa": "`or` و `and`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "conditionals"
+      ],
+      "source_ref": "src-notes-6#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-030",
+      "concept_id": "w06-c-in-list",
+      "note_id": "w06-n07",
+      "front_fa": "`s in [\"y\", \"yes\"]` چه می‌سنجد؟",
+      "back_fa": "این‌که مقدار `s` یکی از عضوهای فهرست باشد.",
+      "question_fa": "`s in [\"y\", \"yes\"]` چه می‌سنجد؟",
+      "answer_fa": "این‌که مقدار `s` یکی از عضوهای فهرست باشد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "conditionals"
+      ],
+      "source_ref": "src-notes-6#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-031",
+      "concept_id": "w06-c-no-char",
+      "note_id": "w06-n07",
+      "front_fa": "نوع `\"y\"` و `'y'` در پایتون چیست؟",
+      "back_fa": "هر دو `str` هستند؛ پایتون نوع `char` ندارد.",
+      "question_fa": "نوع `\"y\"` و `'y'` در پایتون چیست؟",
+      "answer_fa": "هر دو `str` هستند؛ پایتون نوع `char` ندارد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "types"
+      ],
+      "source_ref": "src-notes-6#conditionals",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-032",
+      "concept_id": "w06-c-object-method",
+      "note_id": "w06-n08",
+      "front_fa": "متد چیست؟",
+      "back_fa": "تابعی که به یک شیء تعلق دارد و با نقطه روی آن صدا زده می‌شود، مثل `s.lower()`.",
+      "question_fa": "متد چیست؟",
+      "answer_fa": "تابعی که به یک شیء تعلق دارد و با نقطه روی آن صدا زده می‌شود، مثل `s.lower()`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "oop"
+      ],
+      "source_ref": "src-notes-6#object-oriented-programming",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-033",
+      "concept_id": "w06-c-string-methods",
+      "note_id": "w06-n08",
+      "front_fa": "`\"Hello\".lower()` چه برمی‌گرداند؟",
+      "back_fa": "`\"hello\"`.",
+      "question_fa": "`\"Hello\".lower()` چه برمی‌گرداند؟",
+      "answer_fa": "`\"hello\"`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "strings"
+      ],
+      "source_ref": "src-notes-6#object-oriented-programming",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-034",
+      "concept_id": "w06-c-method-returns-new",
+      "note_id": "w06-n08",
+      "front_fa": "پس از `s = \"hi\"` و `s.upper()`، مقدار `s` چیست؟",
+      "back_fa": "هنوز `\"hi\"`؛ رشته تغییرناپذیر است و متد رشتهٔ تازه برمی‌گرداند.",
+      "question_fa": "پس از `s = \"hi\"` و `s.upper()`، مقدار `s` چیست؟",
+      "answer_fa": "هنوز `\"hi\"`؛ رشته تغییرناپذیر است و متد رشتهٔ تازه برمی‌گرداند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "strings"
+      ],
+      "source_ref": "src-python-docs",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-035",
+      "concept_id": "w06-c-for-range",
+      "note_id": "w06-n09",
+      "front_fa": "`for i in range(3)` چه مقدارهایی به `i` می‌دهد؟",
+      "back_fa": "`0`، `1`، `2`.",
+      "question_fa": "`for i in range(3)` چه مقدارهایی به `i` می‌دهد؟",
+      "answer_fa": "`0`، `1`، `2`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "loops"
+      ],
+      "source_ref": "src-notes-6#loops",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-036",
+      "concept_id": "w06-c-for-range",
+      "note_id": "w06-n09",
+      "front_fa": "`list(range(1, 10, 3))` چیست؟",
+      "back_fa": "`[1, 4, 7]`؛ پایان ناشامل است.",
+      "question_fa": "`list(range(1, 10, 3))` چیست؟",
+      "answer_fa": "`[1, 4, 7]`؛ پایان ناشامل است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "loops"
+      ],
+      "source_ref": "src-notes-6#loops",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-037",
+      "concept_id": "w06-c-while-py",
+      "note_id": "w06-n09",
+      "front_fa": "حلقهٔ `while` در پایتون با C چه فرق نحوی دارد؟",
+      "back_fa": "پرانتز لازم نیست، دونقطه و تورفتگی جای آکولاد را می‌گیرد و `i++` نیست.",
+      "question_fa": "حلقهٔ `while` در پایتون با C چه فرق نحوی دارد؟",
+      "answer_fa": "پرانتز لازم نیست، دونقطه و تورفتگی جای آکولاد را می‌گیرد و `i++` نیست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "loops"
+      ],
+      "source_ref": "src-notes-6#loops",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-038",
+      "concept_id": "w06-c-iterate-string",
+      "note_id": "w06-n09",
+      "front_fa": "`for c in \"hi\": print(c)` چه چاپ می‌کند؟",
+      "back_fa": "`h` و در سطر بعد `i`.",
+      "question_fa": "`for c in \"hi\": print(c)` چه چاپ می‌کند؟",
+      "answer_fa": "`h` و در سطر بعد `i`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "loops",
+        "strings"
+      ],
+      "source_ref": "src-notes-6#loops",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-039",
+      "concept_id": "w06-c-def-function",
+      "note_id": "w06-n09",
+      "front_fa": "تابع در پایتون با چه کلیدواژه‌ای تعریف می‌شود؟",
+      "back_fa": "`def`؛ بدون نوع برگشتی و بدون نوع پارامتر.",
+      "question_fa": "تابع در پایتون با چه کلیدواژه‌ای تعریف می‌شود؟",
+      "answer_fa": "`def`؛ بدون نوع برگشتی و بدون نوع پارامتر.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "functions"
+      ],
+      "source_ref": "src-notes-6#abstraction",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-040",
+      "concept_id": "w06-c-main-convention",
+      "note_id": "w06-n09",
+      "front_fa": "چرا در پایان فایل `main()` صدا زده می‌شود؟",
+      "back_fa": "پایتون `main` را خودکار صدا نمی‌زند؛ با این کار تابع‌های پایین‌تر هم پیش از اجرا تعریف شده‌اند.",
+      "question_fa": "چرا در پایان فایل `main()` صدا زده می‌شود؟",
+      "answer_fa": "پایتون `main` را خودکار صدا نمی‌زند؛ با این کار تابع‌های پایین‌تر هم پیش از اجرا تعریف شده‌اند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "functions"
+      ],
+      "source_ref": "src-notes-6#abstraction",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-041",
+      "concept_id": "w06-c-true-division",
+      "note_id": "w06-n10",
+      "front_fa": "`7 / 2` در پایتون ۳ چیست؟",
+      "back_fa": "`3.5`؛ `/` همیشه `float` می‌دهد و نمی‌بُرد.",
+      "question_fa": "`7 / 2` در پایتون ۳ چیست؟",
+      "answer_fa": "`3.5`؛ `/` همیشه `float` می‌دهد و نمی‌بُرد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "arithmetic"
+      ],
+      "source_ref": "src-notes-6#truncation-and-floating-point-imprecision",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-042",
+      "concept_id": "w06-c-floor-division",
+      "note_id": "w06-n10",
+      "front_fa": "`7 // 2` و `-7 // 2` در پایتون چیست؟",
+      "back_fa": "`3` و `-4`؛ `//` به سمت پایین (کف) گرد می‌کند.",
+      "question_fa": "`7 // 2` و `-7 // 2` در پایتون چیست؟",
+      "answer_fa": "`3` و `-4`؛ `//` به سمت پایین (کف) گرد می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-6",
+        "python",
+        "arithmetic"
+      ],
+      "source_ref": "src-python-docs",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-043",
+      "concept_id": "w06-c-float-imprecision-py",
+      "note_id": "w06-n10",
+      "front_fa": "آیا `0.1 + 0.2 == 0.3` در پایتون `True` است؟",
+      "back_fa": "نه؛ عدم دقت ممیز شناور در پایتون هم هست.",
+      "question_fa": "آیا `0.1 + 0.2 == 0.3` در پایتون `True` است؟",
+      "answer_fa": "نه؛ عدم دقت ممیز شناور در پایتون هم هست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "arithmetic"
+      ],
+      "source_ref": "src-notes-6#truncation-and-floating-point-imprecision",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-044",
+      "concept_id": "w06-c-exception",
+      "note_id": "w06-n10",
+      "front_fa": "استثنا (exception) چیست؟",
+      "back_fa": "خطایی که هنگام اجرا رخ می‌دهد و اگر گرفته نشود برنامه را با پیام traceback متوقف می‌کند.",
+      "question_fa": "استثنا (exception) چیست؟",
+      "answer_fa": "خطایی که هنگام اجرا رخ می‌دهد و اگر گرفته نشود برنامه را با پیام traceback متوقف می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "exceptions"
+      ],
+      "source_ref": "src-notes-6#exceptions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-045",
+      "concept_id": "w06-c-try-except",
+      "note_id": "w06-n10",
+      "front_fa": "`try` و `except ValueError` با هم چه می‌کنند؟",
+      "back_fa": "کد درون `try` اجرا می‌شود و اگر `ValueError` رخ داد، به جای توقف، بلوک `except` اجرا می‌شود.",
+      "question_fa": "`try` و `except ValueError` با هم چه می‌کنند؟",
+      "answer_fa": "کد درون `try` اجرا می‌شود و اگر `ValueError` رخ داد، به جای توقف، بلوک `except` اجرا می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "exceptions"
+      ],
+      "source_ref": "src-notes-6#exceptions",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-046",
+      "concept_id": "w06-c-while-true-break",
+      "note_id": "w06-n11",
+      "front_fa": "معادل `do-while` در پایتون؟",
+      "back_fa": "`while True:` با `break` وقتی شرط خروج برقرار شد.",
+      "question_fa": "معادل `do-while` در پایتون؟",
+      "answer_fa": "`while True:` با `break` وقتی شرط خروج برقرار شد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "loops",
+        "mario"
+      ],
+      "source_ref": "src-notes-6#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-047",
+      "concept_id": "w06-c-print-end",
+      "note_id": "w06-n11",
+      "front_fa": "چطور چند `?` را با چند `print` روی یک سطر چاپ می‌کنی؟",
+      "back_fa": "با `print(\"?\", end=\"\")`.",
+      "question_fa": "چطور چند `?` را با چند `print` روی یک سطر چاپ می‌کنی؟",
+      "answer_fa": "با `print(\"?\", end=\"\")`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "print",
+        "mario"
+      ],
+      "source_ref": "src-notes-6#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-048",
+      "concept_id": "w06-c-string-repeat",
+      "note_id": "w06-n11",
+      "front_fa": "`\"?\" * 4` چیست؟",
+      "back_fa": "`\"????\"`.",
+      "question_fa": "`\"?\" * 4` چیست؟",
+      "answer_fa": "`\"????\"`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "strings",
+        "mario"
+      ],
+      "source_ref": "src-notes-6#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-049",
+      "concept_id": "w06-c-nested-loops-py",
+      "note_id": "w06-n11",
+      "front_fa": "در حلقهٔ تودرتو برای شبکهٔ ۳×۳، چرا پس از حلقهٔ درونی `print()` می‌آید؟",
+      "back_fa": "تا پس از هر سطر به سطر بعد برود.",
+      "question_fa": "در حلقهٔ تودرتو برای شبکهٔ ۳×۳، چرا پس از حلقهٔ درونی `print()` می‌آید؟",
+      "answer_fa": "تا پس از هر سطر به سطر بعد برود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "loops",
+        "mario"
+      ],
+      "source_ref": "src-notes-6#mario",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-050",
+      "concept_id": "w06-c-list",
+      "note_id": "w06-n12",
+      "front_fa": "فرق فهرست پایتون با آرایهٔ C؟",
+      "back_fa": "اندازه‌اش ثابت نیست و می‌تواند بزرگ و کوچک شود.",
+      "question_fa": "فرق فهرست پایتون با آرایهٔ C؟",
+      "answer_fa": "اندازه‌اش ثابت نیست و می‌تواند بزرگ و کوچک شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "lists"
+      ],
+      "source_ref": "src-notes-6#lists",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-051",
+      "concept_id": "w06-c-sum-len",
+      "note_id": "w06-n12",
+      "front_fa": "`sum([72, 73, 33]) / len([72, 73, 33])` چیست؟",
+      "back_fa": "`59.333...`؛ میانگین، چون `/` بریده نمی‌شود.",
+      "question_fa": "`sum([72, 73, 33]) / len([72, 73, 33])` چیست؟",
+      "answer_fa": "`59.333...`؛ میانگین، چون `/` بریده نمی‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "lists"
+      ],
+      "source_ref": "src-notes-6#lists",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-052",
+      "concept_id": "w06-c-sum-len",
+      "note_id": "w06-n12",
+      "front_fa": "`sum` و `len` متدند یا تابع داخلی؟",
+      "back_fa": "تابع داخلی: `sum(scores)`؛ ولی `append` متد است: `scores.append(x)`.",
+      "question_fa": "`sum` و `len` متدند یا تابع داخلی؟",
+      "answer_fa": "تابع داخلی: `sum(scores)`؛ ولی `append` متد است: `scores.append(x)`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "lists"
+      ],
+      "source_ref": "src-notes-6#lists",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-053",
+      "concept_id": "w06-c-append",
+      "note_id": "w06-n12",
+      "front_fa": "`scores.append(90)` چه می‌کند؟",
+      "back_fa": "`90` را به انتهای فهرست `scores` می‌افزاید.",
+      "question_fa": "`scores.append(90)` چه می‌کند؟",
+      "answer_fa": "`90` را به انتهای فهرست `scores` می‌افزاید.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "lists"
+      ],
+      "source_ref": "src-notes-6#lists",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-054",
+      "concept_id": "w06-c-linear-search-py",
+      "note_id": "w06-n13",
+      "front_fa": "`if name in names:` روی یک فهرست چه نوع جست‌وجویی است؟",
+      "back_fa": "جست‌وجوی خطی؛ پایتون عضوها را یکی‌یکی می‌سنجد.",
+      "question_fa": "`if name in names:` روی یک فهرست چه نوع جست‌وجویی است؟",
+      "answer_fa": "جست‌وجوی خطی؛ پایتون عضوها را یکی‌یکی می‌سنجد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "search"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-055",
+      "concept_id": "w06-c-for-else",
+      "note_id": "w06-n13",
+      "front_fa": "بخش `else` در `for ... else` کی اجرا می‌شود؟",
+      "back_fa": "وقتی حلقه بدون `break` تمام شود.",
+      "question_fa": "بخش `else` در `for ... else` کی اجرا می‌شود؟",
+      "answer_fa": "وقتی حلقه بدون `break` تمام شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "loops",
+        "search"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-056",
+      "concept_id": "w06-c-dict",
+      "note_id": "w06-n13",
+      "front_fa": "واژه‌نامه (dict) چیست؟",
+      "back_fa": "مجموعه‌ای از جفت‌های کلید و مقدار، مثل `{\"David\": \"+1-617-495-1000\"}`.",
+      "question_fa": "واژه‌نامه (dict) چیست؟",
+      "answer_fa": "مجموعه‌ای از جفت‌های کلید و مقدار، مثل `{\"David\": \"+1-617-495-1000\"}`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "dicts"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-057",
+      "concept_id": "w06-c-list-of-dicts",
+      "note_id": "w06-n13",
+      "front_fa": "`people[0][\"name\"]` در فهرستی از واژه‌نامه‌ها چه می‌دهد؟",
+      "back_fa": "مقدار کلید `\"name\"` در واژه‌نامهٔ اول فهرست.",
+      "question_fa": "`people[0][\"name\"]` در فهرستی از واژه‌نامه‌ها چه می‌دهد؟",
+      "answer_fa": "مقدار کلید `\"name\"` در واژه‌نامهٔ اول فهرست.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "dicts"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-058",
+      "concept_id": "w06-c-dict-lookup",
+      "note_id": "w06-n13",
+      "front_fa": "`name in people` روی یک dict چه چیزی را می‌سنجد؟",
+      "back_fa": "فقط کلیدها را، نه مقدارها.",
+      "question_fa": "`name in people` روی یک dict چه چیزی را می‌سنجد؟",
+      "answer_fa": "فقط کلیدها را، نه مقدارها.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "dicts"
+      ],
+      "source_ref": "src-notes-6#searching-and-dictionaries",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-059",
+      "concept_id": "w06-c-dict-iteration",
+      "note_id": "w06-sh-python",
+      "front_fa": "`for k in d` روی یک dict روی چه چیزی می‌چرخد؟",
+      "back_fa": "روی کلیدها؛ برای جفت‌ها `d.items()`.",
+      "question_fa": "`for k in d` روی یک dict روی چه چیزی می‌چرخد؟",
+      "answer_fa": "روی کلیدها؛ برای جفت‌ها `d.items()`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "dicts"
+      ],
+      "source_ref": "src-short-python",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-060",
+      "concept_id": "w06-c-sys-argv",
+      "note_id": "w06-n14",
+      "front_fa": "در `python greet.py David`، `sys.argv[0]` و `sys.argv[1]` چیست؟",
+      "back_fa": "`\"greet.py\"` و `\"David\"`.",
+      "question_fa": "در `python greet.py David`، `sys.argv[0]` و `sys.argv[1]` چیست؟",
+      "answer_fa": "`\"greet.py\"` و `\"David\"`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "argv"
+      ],
+      "source_ref": "src-notes-6#command-line-arguments",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-061",
+      "concept_id": "w06-c-sys-exit",
+      "note_id": "w06-n14",
+      "front_fa": "`sys.exit(1)` چه می‌کند؟",
+      "back_fa": "برنامه را بی‌درنگ با وضعیت خروج `1` (نشانهٔ خطا) پایان می‌دهد.",
+      "question_fa": "`sys.exit(1)` چه می‌کند؟",
+      "answer_fa": "برنامه را بی‌درنگ با وضعیت خروج `1` (نشانهٔ خطا) پایان می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "argv"
+      ],
+      "source_ref": "src-notes-6#exit-status",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-062",
+      "concept_id": "w06-c-csv-module",
+      "note_id": "w06-n15",
+      "front_fa": "با کدام ماژول و تابع سطری را به فایل CSV می‌نویسی؟",
+      "back_fa": "ماژول `csv`؛ `csv.writer(file)` و `writer.writerow([...])`.",
+      "question_fa": "با کدام ماژول و تابع سطری را به فایل CSV می‌نویسی؟",
+      "answer_fa": "ماژول `csv`؛ `csv.writer(file)` و `writer.writerow([...])`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "csv"
+      ],
+      "source_ref": "src-notes-6#csv-files",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-063",
+      "concept_id": "w06-c-with-open",
+      "note_id": "w06-n15",
+      "front_fa": "مزیت `with open(...) as file:` چیست؟",
+      "back_fa": "فایل پس از پایان بلوک خودکار بسته می‌شود.",
+      "question_fa": "مزیت `with open(...) as file:` چیست؟",
+      "answer_fa": "فایل پس از پایان بلوک خودکار بسته می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "files"
+      ],
+      "source_ref": "src-notes-6#csv-files",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-064",
+      "concept_id": "w06-c-dictwriter",
+      "note_id": "w06-n15",
+      "front_fa": "در `csv.DictWriter` پارامتر `fieldnames` چه می‌کند؟",
+      "back_fa": "ترتیب ستون‌ها و کلیدهای واژه‌نامه‌ای را که نوشته می‌شود تعیین می‌کند.",
+      "question_fa": "در `csv.DictWriter` پارامتر `fieldnames` چه می‌کند؟",
+      "answer_fa": "ترتیب ستون‌ها و کلیدهای واژه‌نامه‌ای را که نوشته می‌شود تعیین می‌کند.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "csv"
+      ],
+      "source_ref": "src-notes-6#csv-files",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-065",
+      "concept_id": "w06-c-third-party",
+      "note_id": "w06-n15",
+      "front_fa": "کتابخانهٔ شخص ثالث را چطور نصب می‌کنی؟",
+      "back_fa": "با `pip install`، مثلاً `pip install cowsay`.",
+      "question_fa": "کتابخانهٔ شخص ثالث را چطور نصب می‌کنی؟",
+      "answer_fa": "با `pip install`، مثلاً `pip install cowsay`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "libraries"
+      ],
+      "source_ref": "src-notes-6#third-party-libraries",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-066",
+      "concept_id": "w06-c-python3-version",
+      "note_id": "w06-sh-python",
+      "front_fa": "ویدئوی کوتاه چه توصیه‌ای برای جست‌وجوی مستندات دارد؟",
+      "back_fa": "«Python 3» را بنویس تا نتیجه‌های پایتون ۲ نیاید؛ CS50 پایتون ۳ درس می‌دهد.",
+      "question_fa": "ویدئوی کوتاه چه توصیه‌ای برای جست‌وجوی مستندات دارد؟",
+      "answer_fa": "«Python 3» را بنویس تا نتیجه‌های پایتون ۲ نیاید؛ CS50 پایتون ۳ درس می‌دهد.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "short"
+      ],
+      "source_ref": "src-short-python",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-067",
+      "concept_id": "w06-c-bool-capitalized",
+      "note_id": "w06-sh-python",
+      "front_fa": "مقدارهای بولی پایتون چطور نوشته می‌شوند؟",
+      "back_fa": "`True` و `False` با حرف اول بزرگ.",
+      "question_fa": "مقدارهای بولی پایتون چطور نوشته می‌شوند؟",
+      "answer_fa": "`True` و `False` با حرف اول بزرگ.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "python",
+        "types",
+        "short"
+      ],
+      "source_ref": "src-short-python",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-068",
+      "concept_id": "w06-c-tuple",
+      "note_id": "w06-sh-python",
+      "front_fa": "tuple چه فرقی با list دارد؟",
+      "back_fa": "tuple تغییرناپذیر است و با پرانتز نوشته می‌شود؛ list تغییرپذیر و با کروشه.",
+      "question_fa": "tuple چه فرقی با list دارد؟",
+      "answer_fa": "tuple تغییرناپذیر است و با پرانتز نوشته می‌شود؛ list تغییرپذیر و با کروشه.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "collections",
+        "short"
+      ],
+      "source_ref": "src-short-python",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-069",
+      "concept_id": "w06-c-class-init",
+      "note_id": "w06-sh-python",
+      "front_fa": "`__init__` و `self` در یک کلاس چه نقشی دارند؟",
+      "back_fa": "`__init__` شیء تازه را مقداردهی می‌کند و `self` پارامتر اول هر متد و اشاره به خود شیء است.",
+      "question_fa": "`__init__` و `self` در یک کلاس چه نقشی دارند؟",
+      "answer_fa": "`__init__` شیء تازه را مقداردهی می‌کند و `self` پارامتر اول هر متد و اشاره به خود شیء است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 3,
+      "tags": [
+        "week-6",
+        "python",
+        "oop",
+        "short"
+      ],
+      "source_ref": "src-short-python",
+      "origin": "authored",
+      "content_basis": "official-short",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-070",
+      "concept_id": "w06-c-string-slicing",
+      "note_id": "w06-sec",
+      "front_fa": "`\"wahoo\"[1:3]` چیست؟",
+      "back_fa": "`\"ah\"`؛ شروع شامل و پایان ناشامل است.",
+      "question_fa": "`\"wahoo\"[1:3]` چیست؟",
+      "answer_fa": "`\"ah\"`؛ شروع شامل و پایان ناشامل است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "strings",
+        "section"
+      ],
+      "source_ref": "src-section-6-transcript",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-071",
+      "concept_id": "w06-c-string-slicing",
+      "note_id": "w06-sec",
+      "front_fa": "چرا `s[len(s)]` خطا می‌دهد؟",
+      "back_fa": "آخرین نمایه `len(s) - 1` است؛ `IndexError: string index out of range`.",
+      "question_fa": "چرا `s[len(s)]` خطا می‌دهد؟",
+      "answer_fa": "آخرین نمایه `len(s) - 1` است؛ `IndexError: string index out of range`.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "strings",
+        "section"
+      ],
+      "source_ref": "src-section-6-transcript",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-072",
+      "concept_id": "w06-c-csv-dictreader",
+      "note_id": "w06-ps-dna",
+      "front_fa": "`csv.DictReader` هر سطر را به چه چیزی تبدیل می‌کند؟",
+      "back_fa": "به یک `dict` که کلیدهایش نام ستون‌های سطر سرآیند است.",
+      "question_fa": "`csv.DictReader` هر سطر را به چه چیزی تبدیل می‌کند؟",
+      "answer_fa": "به یک `dict` که کلیدهایش نام ستون‌های سطر سرآیند است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "csv",
+        "dna"
+      ],
+      "source_ref": "src-pset-6-dna#hints",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-073",
+      "concept_id": "w06-c-csv-dictreader",
+      "note_id": "w06-ps-dna",
+      "front_fa": "مقدار عددی خوانده‌شده از CSV چه نوعی دارد؟",
+      "back_fa": "`str`؛ برای مقایسهٔ عددی باید تبدیل شود.",
+      "question_fa": "مقدار عددی خوانده‌شده از CSV چه نوعی دارد؟",
+      "answer_fa": "`str`؛ برای مقایسهٔ عددی باید تبدیل شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "python",
+        "csv",
+        "dna"
+      ],
+      "source_ref": "src-section-6-transcript",
+      "origin": "authored",
+      "content_basis": "official-notes",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-074",
+      "concept_id": "w06-c-str-dna",
+      "note_id": "w06-ps-dna",
+      "front_fa": "STR در مسئلهٔ DNA چیست؟",
+      "back_fa": "Short Tandem Repeat: توالی کوتاهی از بازها که پشت سر هم چند بار تکرار می‌شود.",
+      "question_fa": "STR در مسئلهٔ DNA چیست؟",
+      "answer_fa": "Short Tandem Repeat: توالی کوتاهی از بازها که پشت سر هم چند بار تکرار می‌شود.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "dna",
+        "psets"
+      ],
+      "source_ref": "src-pset-6-dna#background",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-075",
+      "concept_id": "w06-c-port-c-to-python",
+      "note_id": "w06-ps-hello",
+      "front_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۶، نگاه کردن به چه چیزی برای Hello تا Readability معقول نیست؟",
+      "back_fa": "نگاه کردن به پیاده‌سازی پایتونِ دیگران؛ نگاه به پیاده‌سازی‌های C معقول است.",
+      "question_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۶، نگاه کردن به چه چیزی برای Hello تا Readability معقول نیست؟",
+      "answer_fa": "نگاه کردن به پیاده‌سازی پایتونِ دیگران؛ نگاه به پیاده‌سازی‌های C معقول است.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 1,
+      "tags": [
+        "week-6",
+        "psets",
+        "honesty"
+      ],
+      "source_ref": "src-pset-6#academic-honesty",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    },
+    {
+      "id": "w06-fc-076",
+      "concept_id": "w06-c-regex-validation",
+      "note_id": "w06-ps-credit",
+      "front_fa": "صفحهٔ Credit برای سنجیدن ورودی کدام ماژول پایتون را پیشنهاد می‌کند؟",
+      "back_fa": "ماژول `re` (عبارت‌های منظم)، به‌صورت اختیاری.",
+      "question_fa": "صفحهٔ Credit برای سنجیدن ورودی کدام ماژول پایتون را پیشنهاد می‌کند؟",
+      "answer_fa": "ماژول `re` (عبارت‌های منظم)، به‌صورت اختیاری.",
+      "hint_fa": null,
+      "box_number": 1,
+      "difficulty": 2,
+      "tags": [
+        "week-6",
+        "credit",
+        "psets"
+      ],
+      "source_ref": "src-pset-6-credit#hints",
+      "origin": "authored",
+      "content_basis": "official-pset",
+      "srs": {
+        "leitner_box": 1,
+        "sm2": {
+          "repetitions": 0,
+          "interval_days": 0,
+          "ease_factor": null,
+          "due_at": null
+        },
+        "initial_values_ref": "gamification/xp-config.json#/srs"
+      }
+    }
+  ]
+}

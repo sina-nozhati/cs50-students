@@ -1,0 +1,694 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 9,
+  "title": "چالش‌های هفتهٔ ۹ — Flask",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali‌اند، سؤال رسمی CS50 نیستند و بخشی از راه‌حل پرابلم‌ست‌ها نیستند. همهٔ کدها روی جعبهٔ ساخت با کلاینت آزمایشی Flask و Jinja2 اجرا و بررسی شده‌اند.",
+  "xp_policy": {
+    "per_challenge_xp_reward": 5,
+    "session_xp": 20,
+    "conflict_note": "Per-challenge xp_reward conflicts with the package rule 'XP only for mastery'. Proposed default (configurable, D24): award session XP only when the session is completed with correctness >= 0.8; per-challenge xp_reward is informational and not awarded individually.",
+    "proposed": {
+      "award": "session_only",
+      "min_correctness": 0.8,
+      "configurable": true,
+      "config_ref": "gamification/xp-config.json#/challenge_session"
+    }
+  },
+  "counts": {
+    "token_tap": 6,
+    "parsons": 5,
+    "spot_bug": 5
+  },
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "challenges": [
+    {
+      "id": "w09-ch01-route-decorator",
+      "type": "token_tap",
+      "concept_tag": "@app.route",
+      "title": "وصل کردن مسیر",
+      "instruction": "توکن درست را بزن تا درخواست به `/` متن `hi` بدهد.",
+      "prompt": "from flask import Flask, request\n\napp = Flask(__name__)\n\n___(\"/\")\ndef index():\n    return \"hi\"",
+      "token_bank": [
+        "@app.route",
+        "@route",
+        "app.route",
+        "@app.get_route"
+      ],
+      "expected_answer": [
+        "@app.route"
+      ],
+      "blank_marker": "___",
+      "explanation": "تزئین‌گر `@app.route` تابع را به مسیر وصل می‌کند.",
+      "hint": "با `@` شروع می‌شود و از شیء `app` است.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-decorator"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch02-args-get",
+      "type": "token_tap",
+      "concept_tag": "request.args",
+      "title": "خواندن پارامتر نشانی",
+      "instruction": "توکن درست را بزن تا `/?name=Ali` متن `hello, Ali` بدهد.",
+      "prompt": "from flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef index():\n    return \"hello, \" + request.___.get(\"name\", \"world\")",
+      "token_bank": [
+        "args",
+        "form",
+        "get",
+        "values_list"
+      ],
+      "expected_answer": [
+        "args"
+      ],
+      "blank_marker": "___",
+      "explanation": "پارامترهای نشانی (GET) در `request.args` هستند.",
+      "hint": "GET داده را در نشانی می‌گذارد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-request-args"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch03-methods-post",
+      "type": "token_tap",
+      "concept_tag": "methods",
+      "title": "پذیرفتن POST",
+      "instruction": "توکن درست را بزن تا POST به `/greet` پذیرفته شود.",
+      "prompt": "from flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route(\"/greet\", methods=___)\ndef greet():\n    return \"hello, \" + request.form.get(\"name\")",
+      "token_bank": [
+        "[\"POST\"]",
+        "\"POST\"",
+        "[\"GET\"]",
+        "POST"
+      ],
+      "expected_answer": [
+        "[\"POST\"]"
+      ],
+      "blank_marker": "___",
+      "explanation": "`methods` فهرستی از روش‌ها می‌گیرد.",
+      "hint": "یک فهرست با یک رشته.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-methods-param"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch04-jinja-endfor",
+      "type": "token_tap",
+      "concept_tag": "endfor",
+      "title": "بستن حلقهٔ Jinja",
+      "instruction": "توکن درست را بزن تا قالب دو `<li>` بسازد.",
+      "prompt": "{% for x in items %}\n<li>{{ x }}</li>\n{% ___ %}",
+      "token_bank": [
+        "endfor",
+        "end",
+        "endif",
+        "done"
+      ],
+      "expected_answer": [
+        "endfor"
+      ],
+      "blank_marker": "___",
+      "explanation": "حلقهٔ Jinja با `{% endfor %}` بسته می‌شود.",
+      "hint": "بستن `for` .",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-jinja-for"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "lang": "jinja"
+    },
+    {
+      "id": "w09-ch05-sql-placeholder",
+      "type": "token_tap",
+      "concept_tag": "?",
+      "title": "جای‌نگهدار امن",
+      "instruction": "توکن درست را بزن تا فقط ثبت‌نام‌های Soccer شمرده شوند (پاسخ 1).",
+      "prompt": "from cs50 import SQL\nfrom flask import Flask\n\napp = Flask(__name__)\n\ndb = SQL(\"sqlite:///froshims.db\")\n\n@app.route(\"/\")\ndef index():\n    return str(len(db.execute(\"SELECT * FROM registrants WHERE sport = ___\", \"Soccer\")))",
+      "token_bank": [
+        "?",
+        "sport",
+        "{sport}",
+        "Soccer"
+      ],
+      "expected_answer": [
+        "?"
+      ],
+      "blank_marker": "___",
+      "explanation": "`?` مقدار را امن جای‌گذاری می‌کند.",
+      "hint": "کتابخانهٔ cs50 کدام نشانه را جای‌نگهدار می‌داند؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-sql-in-route"
+      ],
+      "source_ref": "src-notes-9#flask-and-sql",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch06-session-get",
+      "type": "token_tap",
+      "concept_tag": "session.get",
+      "title": "خواندن امن جلسه",
+      "instruction": "توکن درست را بزن تا کاربرِ واردنشده `None` ببیند، نه خطا.",
+      "prompt": "from flask import Flask, session\nfrom flask_session import Session\n\napp = Flask(__name__)\napp.config[\"SESSION_PERMANENT\"] = False\napp.config[\"SESSION_TYPE\"] = \"filesystem\"\nSession(app)\n\n@app.route(\"/\")\ndef index():\n    return str(session.___(\"name\"))",
+      "token_bank": [
+        "get",
+        "pop_item",
+        "name",
+        "keys"
+      ],
+      "expected_answer": [
+        "get"
+      ],
+      "blank_marker": "___",
+      "explanation": "`session.get` برای کلید ناموجود `None` می‌دهد؛ `session[\"name\"]` خطای KeyError می‌داد.",
+      "hint": "مثل دیکشنری.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-session-dict"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch07-hello-app",
+      "type": "parsons",
+      "concept_tag": "Flask app",
+      "title": "ساده‌ترین برنامه",
+      "instruction": "خط‌ها را مرتب کن تا `/` متن `hello, world` بدهد.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "@app.route(\"/\")"
+        },
+        {
+          "id": "L1",
+          "text": "from flask import Flask"
+        },
+        {
+          "id": "L5",
+          "text": "    return \"hello, world\""
+        },
+        {
+          "id": "L2",
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "id": "L4",
+          "text": "def index():"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول import، بعد ساختن app، بعد تزئین‌گر و تابع.",
+      "hint": "پیش از `@app.route` باید `app` وجود داشته باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-flask-app-object",
+        "w09-c-decorator"
+      ],
+      "source_ref": "src-notes-9#flask",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch08-method-branch",
+      "type": "parsons",
+      "concept_tag": "request.method",
+      "title": "شاخهٔ GET و POST",
+      "instruction": "خط‌ها را مرتب کن تا GET متن `form` و POST متن `posted` بدهد.",
+      "scrambled_lines": [
+        {
+          "id": "L2",
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "id": "L1",
+          "text": "from flask import Flask, request"
+        },
+        {
+          "id": "L4",
+          "text": "def index():"
+        },
+        {
+          "id": "L3",
+          "text": "@app.route(\"/\", methods=[\"GET\", \"POST\"])"
+        },
+        {
+          "id": "L7",
+          "text": "    return \"form\""
+        },
+        {
+          "id": "L5",
+          "text": "    if request.method == \"POST\":"
+        },
+        {
+          "id": "L6",
+          "text": "        return \"posted\""
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "شرط POST پیش از بازگشت پیش‌فرض.",
+      "hint": "اگر `return \"form\"` اول بیاید، POST هرگز به شاخهٔ خودش نمی‌رسد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-request-method"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch09-validate-then-redirect",
+      "type": "parsons",
+      "concept_tag": "validation",
+      "title": "اعتبارسنجی پیش از redirect",
+      "instruction": "خط‌ها را مرتب کن تا ثبت‌نام بی‌نام `missing` بدهد و ثبت‌نام درست به `/registrants` برود.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "@app.route(\"/register\", methods=[\"POST\"])"
+        },
+        {
+          "id": "L1",
+          "text": "from flask import Flask, redirect, request"
+        },
+        {
+          "id": "L2",
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "id": "L4",
+          "text": "def register():"
+        },
+        {
+          "id": "L7",
+          "text": "    return redirect(\"/registrants\")"
+        },
+        {
+          "id": "L5",
+          "text": "    if not request.form.get(\"name\"):"
+        },
+        {
+          "id": "L6",
+          "text": "        return \"missing\""
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول بسنج، بعد redirect.",
+      "hint": "redirect باید آخرین کار باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-server-validation",
+        "w09-c-redirect"
+      ],
+      "source_ref": "src-notes-9#frosh-ims",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch10-cart-append",
+      "type": "parsons",
+      "concept_tag": "session list",
+      "title": "افزودن به سبد",
+      "instruction": "بدنهٔ تابع `cart` را (در برنامه‌ای با Flask-Session و مسیر `/cart` با `methods=[\"GET\", \"POST\"]`) مرتب کن تا پس از دو POST، سبد `['2', '5']` نشان داده شود.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "    if request.method == \"POST\":"
+        },
+        {
+          "id": "L5",
+          "text": "    return str(session[\"cart\"])"
+        },
+        {
+          "id": "L1",
+          "text": "    if \"cart\" not in session:"
+        },
+        {
+          "id": "L4",
+          "text": "        session[\"cart\"].append(request.form.get(\"id\"))"
+        },
+        {
+          "id": "L2",
+          "text": "        session[\"cart\"] = []"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "اول فهرست خالی بساز، بعد بیفزا، بعد نشان بده.",
+      "hint": "پیش از `append` فهرست باید وجود داشته باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-session-list"
+      ],
+      "source_ref": "src-notes-9#shopping-cart",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch11-extends-block",
+      "type": "parsons",
+      "concept_tag": "extends",
+      "title": "قالب فرزند",
+      "instruction": "خط‌ها را مرتب کن تا قالب فرزند `<h1>T</h1>` و `hi` رندر کند.",
+      "scrambled_lines": [
+        {
+          "id": "L3",
+          "text": "hi"
+        },
+        {
+          "id": "L2",
+          "text": "{% block body %}"
+        },
+        {
+          "id": "L4",
+          "text": "{% endblock %}"
+        },
+        {
+          "id": "L1",
+          "text": "{% extends \"layout.html\" %}"
+        }
+      ],
+      "correct_order": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "indentation_matters": false,
+      "grading_note": "Indentation is part of each line and fixed. Order verified unique by _tools/qa_questions.py (all permutations).",
+      "explanation": "extends اول، سپس بلوک هم‌نام.",
+      "hint": "`extends` باید نخستین دستور باشد.",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-extends",
+        "w09-c-block"
+      ],
+      "source_ref": "src-notes-9#templates",
+      "lang": "jinja"
+    },
+    {
+      "id": "w09-ch12-args-vs-form",
+      "type": "spot_bug",
+      "concept_tag": "args vs form",
+      "title": "POST یا GET؟",
+      "instruction": "این مسیر باید برای POST با `name=Bo` متن `hello, Bo` بدهد ولی خطا می‌دهد. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "from flask import Flask, request"
+        },
+        {
+          "index": 1,
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "index": 2,
+          "text": "@app.route(\"/greet\", methods=[\"POST\"])"
+        },
+        {
+          "index": 3,
+          "text": "def greet():"
+        },
+        {
+          "index": 4,
+          "text": "    return \"hello, \" + request.args.get(\"name\")"
+        }
+      ],
+      "bug_line_index": 4,
+      "fix": {
+        "action": "replace_line",
+        "text": "    return \"hello, \" + request.form.get(\"name\")"
+      },
+      "explanation": "دادهٔ POST در `request.form` است؛ `request.args.get` مقدار `None` می‌دهد و چسباندن آن به رشته TypeError می‌سازد.",
+      "hint": "دادهٔ فرم POST کجاست؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-request-form"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch13-missing-methods",
+      "type": "spot_bug",
+      "concept_tag": "405",
+      "title": "خطای 405",
+      "instruction": "فرم با POST به `/greet` می‌فرستد ولی پاسخ 405 است. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "from flask import Flask, request"
+        },
+        {
+          "index": 1,
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "index": 2,
+          "text": "@app.route(\"/greet\")"
+        },
+        {
+          "index": 3,
+          "text": "def greet():"
+        },
+        {
+          "index": 4,
+          "text": "    return \"hello, \" + request.form.get(\"name\", \"world\")"
+        }
+      ],
+      "bug_line_index": 2,
+      "fix": {
+        "action": "replace_line",
+        "text": "@app.route(\"/greet\", methods=[\"POST\"])"
+      },
+      "explanation": "بدون `methods` مسیر فقط GET می‌پذیرد.",
+      "hint": "مسیر کدام روش‌ها را می‌پذیرد؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-405",
+        "w09-c-methods-param"
+      ],
+      "source_ref": "src-notes-9#request-methods",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch14-search-none",
+      "type": "spot_bug",
+      "concept_tag": "if q",
+      "title": "جست‌وجوی بدون q",
+      "instruction": "این نسخهٔ تألیفی از shows1 برای `/search` بدون `q` باید `0` بدهد ولی خطا می‌دهد. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "from cs50 import SQL"
+        },
+        {
+          "index": 1,
+          "text": "from flask import Flask, request"
+        },
+        {
+          "index": 2,
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "index": 3,
+          "text": "db = SQL(\"sqlite:///shows.db\")"
+        },
+        {
+          "index": 4,
+          "text": "@app.route(\"/search\")"
+        },
+        {
+          "index": 5,
+          "text": "def search():"
+        },
+        {
+          "index": 6,
+          "text": "    q = request.args.get(\"q\")"
+        },
+        {
+          "index": 7,
+          "text": "    shows = db.execute(\"SELECT * FROM shows WHERE title LIKE ?\", \"%\" + q + \"%\")"
+        },
+        {
+          "index": 8,
+          "text": "    return str(len(shows))"
+        }
+      ],
+      "bug_line_index": 7,
+      "fix": {
+        "action": "replace_line",
+        "text": "    shows = db.execute(\"SELECT * FROM shows WHERE title LIKE ?\", \"%\" + q + \"%\") if q else []"
+      },
+      "explanation": "بدون `q` ، `q` برابر `None` است و `\"%\" + None` خطای TypeError می‌دهد (d159).",
+      "hint": "`q` کی `None` است؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-none-guard",
+        "w09-c-like-search"
+      ],
+      "source_ref": "src-notes-9#shows",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch15-session-bracket",
+      "type": "spot_bug",
+      "concept_tag": "session.get",
+      "title": "کاربر واردنشده",
+      "instruction": "صفحهٔ اصلی برای کاربر واردنشده باید `not logged in` بدهد ولی خطای 500 می‌دهد. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "from flask import Flask, session"
+        },
+        {
+          "index": 1,
+          "text": "from flask_session import Session"
+        },
+        {
+          "index": 2,
+          "text": "app = Flask(__name__)"
+        },
+        {
+          "index": 3,
+          "text": "app.config[\"SESSION_PERMANENT\"] = False"
+        },
+        {
+          "index": 4,
+          "text": "app.config[\"SESSION_TYPE\"] = \"filesystem\""
+        },
+        {
+          "index": 5,
+          "text": "Session(app)"
+        },
+        {
+          "index": 6,
+          "text": "@app.route(\"/\")"
+        },
+        {
+          "index": 7,
+          "text": "def index():"
+        },
+        {
+          "index": 8,
+          "text": "    name = session[\"name\"]"
+        },
+        {
+          "index": 9,
+          "text": "    return name if name else \"not logged in\""
+        }
+      ],
+      "bug_line_index": 8,
+      "fix": {
+        "action": "replace_line",
+        "text": "    name = session.get(\"name\")"
+      },
+      "explanation": "`session[\"name\"]` برای کلید ناموجود KeyError می‌دهد؛ `session.get` مقدار `None` می‌دهد.",
+      "hint": "کلید `name` پیش از ورود وجود دارد؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-session-dict"
+      ],
+      "source_ref": "src-notes-9#cookies-and-session",
+      "lang": "flask"
+    },
+    {
+      "id": "w09-ch16-block-name",
+      "type": "spot_bug",
+      "concept_tag": "block",
+      "title": "بلوک خالی",
+      "instruction": "layout `{% block body %}{% endblock %}` دارد. قالب فرزند باید `hi` را زیر `<h1>T</h1>` نشان دهد ولی فقط سرعنوان دیده می‌شود. سطر خطادار را پیدا کن.",
+      "code_lines": [
+        {
+          "index": 0,
+          "text": "{% extends \"layout.html\" %}"
+        },
+        {
+          "index": 1,
+          "text": "{% block main %}"
+        },
+        {
+          "index": 2,
+          "text": "hi"
+        },
+        {
+          "index": 3,
+          "text": "{% endblock %}"
+        }
+      ],
+      "bug_line_index": 1,
+      "fix": {
+        "action": "replace_line",
+        "text": "{% block body %}"
+      },
+      "explanation": "نام بلوک فرزند باید با layout یکی باشد؛ بلوک `main` جایی در layout ندارد.",
+      "hint": "نام بلوک layout چیست؟",
+      "xp_reward": 5,
+      "origin": "authored",
+      "concept_ids": [
+        "w09-c-block"
+      ],
+      "source_ref": "src-notes-9#templates",
+      "lang": "jinja"
+    }
+  ]
+}

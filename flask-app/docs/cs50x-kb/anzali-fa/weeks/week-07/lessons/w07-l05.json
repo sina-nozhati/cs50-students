@@ -1,0 +1,509 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l05",
+  "type": "lesson",
+  "week": 7,
+  "order": 5,
+  "stage_id": "w07-s5",
+  "title_fa": "JOIN و رابطه‌ها",
+  "title_en": "JOINs and relationships",
+  "note_ids": [
+    "w07-n08"
+  ],
+  "related_doc_ids": [
+    "w07-sec"
+  ],
+  "prerequisite_lesson_ids": [
+    "w07-l04"
+  ],
+  "concept_ids": [
+    "w07-c-join",
+    "w07-c-qualified-column",
+    "w07-c-one-to-many",
+    "w07-c-many-to-many",
+    "w07-c-multi-join",
+    "w07-c-implicit-join",
+    "w07-c-sql-style",
+    "w07-c-string-literal-quotes",
+    "w07-c-primary-key"
+  ],
+  "objective_ids": [
+    "w07-o06",
+    "w07-o05"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w07-l04"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l05-u01",
+      "order": 1,
+      "title_fa": "JOIN ... ON",
+      "concept_ids": [
+        "w07-c-join",
+        "w07-c-qualified-column"
+      ],
+      "objective_ids": [
+        "w07-o06"
+      ],
+      "note_id": "w07-n08",
+      "source_refs": [
+        "src-notes-7#joins",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "به جای پرس‌وجوی تودرتو می‌شود دو جدول را با `JOIN` کنار هم گذاشت: `shows JOIN ratings ON shows.id = ratings.show_id` هر سریال را به ردیف امتیاز خودش وصل می‌کند و ستون‌های هر دو جدول در یک نتیجه می‌آیند. شرط `ON` می‌گوید کدام سطرها به هم مربوط‌اند. سریالی که در `ratings` ردیفی ندارد در نتیجهٔ این `JOIN` ظاهر نمی‌شود.",
+        "note_id": "w07-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "join-ratings",
+        "lang": "sql",
+        "content": "SELECT * FROM shows\n  JOIN ratings ON shows.id = ratings.show_id\n  WHERE rating >= 6.0\n  LIMIT 10;",
+        "source_ref": "src-notes-7#joins",
+        "explain_fa": "پیوند shows و ratings (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l05-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `shows JOIN ratings ON shows.id = ratings.show_id` شرط `ON` چه کاری می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "مشخص می‌کند کدام سطر `shows` با کدام سطر `ratings` جفت شود.",
+            "correct": true,
+            "feedback_fa": "درست. فقط سطرهایی که `id` و `show_id` برابر دارند کنار هم می‌آیند."
+          },
+          {
+            "id": "b",
+            "text_fa": "نتیجه را مرتب می‌کند.",
+            "correct": false,
+            "feedback_fa": "مرتب‌سازی کار `ORDER BY` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "ستون‌های تکراری را حذف می‌کند.",
+            "correct": false,
+            "feedback_fa": "`ON` شرط جفت شدن سطرهاست، نه انتخاب ستون‌ها."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l05-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "در پایگاه دادهٔ تمرینی `shows` سریال `Brooklyn Nine-Nine` (سال ۲۰۱۳) ردیفی در `ratings` ندارد. خروجی این پرس‌وجو دقیقاً چیست؟",
+        "expected": {
+          "output": "Parks and Recreation|8.6\nThe Good Place|8.2"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: سریال بدون امتیاز در `JOIN` حذف می‌شود و بقیه نزولی مرتب‌اند.",
+          "incorrect_fa": "اول ببین کدام سریال‌ها از ۲۰۰۹ به بعدند و کدام‌شان امتیاز دارند."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "SELECT title, rating FROM shows\nJOIN ratings ON shows.id = ratings.show_id\nWHERE year >= 2009\nORDER BY rating DESC;",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:shows"
+          },
+          "expected_stdout_exact": "Parks and Recreation|8.6\nThe Good Place|8.2\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "shows",
+          "order_matters": true
+        },
+        "fixture": "shows"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l05-u02",
+      "order": 2,
+      "title_fa": "یک‌به‌چند، چندبه‌چند و JOIN سه جدول",
+      "concept_ids": [
+        "w07-c-one-to-many",
+        "w07-c-many-to-many",
+        "w07-c-multi-join"
+      ],
+      "objective_ids": [
+        "w07-o06"
+      ],
+      "note_id": "w07-n08",
+      "source_refs": [
+        "src-notes-7#joins",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "هر سریال می‌تواند چند ژانر داشته باشد، پس `shows` و `genres` رابطهٔ یک‌به‌چند دارند. هر سریال چند بازیگر دارد و هر بازیگر در چند سریال بازی می‌کند؛ این رابطهٔ چندبه‌چند با جدول واسط `stars` نگه داشته می‌شود که فقط `show_id` و `person_id` دارد. برای رسیدن از نام سریال به نام بازیگران باید سه جدول `shows`، `stars` و `people` را پشت سر هم `JOIN` کنی.",
+        "note_id": "w07-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "office-stars",
+        "lang": "sql",
+        "content": "SELECT name FROM people WHERE id IN \n    (SELECT person_id FROM stars WHERE show_id = \n        (SELECT id FROM shows WHERE title = 'The Office' AND year = 2005));",
+        "source_ref": "src-notes-7#joins",
+        "explain_fa": "بازیگران The Office با پرس‌وجوهای تودرتو (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l05-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا رابطهٔ سریال و بازیگر به جدول جداگانهٔ `stars` نیاز دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون رابطه چندبه‌چند است و هر جفت (سریال، بازیگر) یک سطر جدا لازم دارد.",
+            "correct": true,
+            "feedback_fa": "درست. `stars` جدول واسط است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون SQLite نمی‌تواند در یک جدول بیش از دو ستون داشته باشد.",
+            "correct": false,
+            "feedback_fa": "جدول‌ها می‌توانند ستون‌های زیادی داشته باشند."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون نام بازیگران تکراری است.",
+            "correct": false,
+            "feedback_fa": "دلیل اصلی چندبه‌چند بودن رابطه است، نه تکرار نام."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l05-u02-ex",
+        "type": "parsons",
+        "origin": "authored",
+        "prompt_fa": "سطرها را مرتب کن تا نام بازیگران `The Office` سال ۲۰۰۵ به ترتیب الفبا چاپ شود. خروجی روی `shows`: `Rainn Wilson` و `Steve Carell`.",
+        "lang": "sql",
+        "code_origin": "authored",
+        "lines": [
+          {
+            "id": "p1",
+            "code": "SELECT name",
+            "text": "SELECT name"
+          },
+          {
+            "id": "p2",
+            "code": "FROM people JOIN stars ON people.id = stars.person_id",
+            "text": "FROM people JOIN stars ON people.id = stars.person_id"
+          },
+          {
+            "id": "p3",
+            "code": "JOIN shows ON stars.show_id = shows.id",
+            "text": "JOIN shows ON stars.show_id = shows.id"
+          },
+          {
+            "id": "p4",
+            "code": "WHERE title = 'The Office' AND year = 2005",
+            "text": "WHERE title = 'The Office' AND year = 2005"
+          },
+          {
+            "id": "p5",
+            "code": "ORDER BY name;",
+            "text": "ORDER BY name;"
+          }
+        ],
+        "distractors": [
+          {
+            "id": "d1",
+            "code": "FROM people JOIN stars ON people.id = stars.show_id",
+            "why_wrong_fa": "شناسهٔ شخص را با شناسهٔ سریال مقایسه می‌کند و جفت‌های نادرست می‌سازد."
+          }
+        ],
+        "expected": {
+          "order": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "p5"
+          ]
+        },
+        "indentation_matters": false,
+        "evaluation": "auto",
+        "shuffle": true,
+        "feedback": {
+          "correct_fa": "درست: از `people` به `stars` و از `stars` به `shows` رسیدی.",
+          "incorrect_fa": "زنجیره را دنبال کن: people ← stars ← shows."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:shows"
+          },
+          "expected_stdout_exact": "Rainn Wilson\nSteve Carell\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "shows",
+          "order_matters": true
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l05-u03",
+      "order": 3,
+      "title_fa": "JOIN ضمنی و نام کامل ستون",
+      "concept_ids": [
+        "w07-c-implicit-join",
+        "w07-c-qualified-column"
+      ],
+      "objective_ids": [
+        "w07-o06"
+      ],
+      "note_id": "w07-n08",
+      "source_refs": [
+        "src-notes-7#joins",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "همان پیوند را می‌شود بدون واژهٔ `JOIN` هم نوشت: `FROM shows, stars, people WHERE shows.id = stars.show_id AND people.id = stars.person_id`. وقتی دو جدول ستونی هم‌نام دارند، مثل `id`، باید نام کامل `table.column` را بنویسی؛ وگرنه SQLite خطای «ستون مبهم» (`ambiguous column name`) می‌دهد.",
+        "note_id": "w07-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "carell-implicit",
+        "lang": "sql",
+        "content": "SELECT title FROM shows, stars, people \nWHERE shows.id = stars.show_id\nAND people.id = stars.person_id\nAND name = 'Steve Carell';",
+        "source_ref": "src-notes-7#joins",
+        "explain_fa": "JOIN ضمنی (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l05-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`books` و `loans` هر دو ستون `id` دارند. `SELECT title FROM books JOIN loans ON id = loans.book_id;` چه می‌شود؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "خطای `ambiguous column name: id` می‌دهد.",
+            "correct": true,
+            "feedback_fa": "درست. معلوم نیست `id` کدام جدول منظور است."
+          },
+          {
+            "id": "b",
+            "text_fa": "`id` خودکار `books.id` در نظر گرفته می‌شود.",
+            "correct": false,
+            "feedback_fa": "SQLite حدس نمی‌زند؛ خطا می‌دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "نتیجهٔ خالی برمی‌گرداند.",
+            "correct": false,
+            "feedback_fa": "پرس‌وجو اصلاً اجرا نمی‌شود؛ خطای ابهام می‌دهد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l05-u03-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا عنوان کتاب‌هایی که `Nima` امانت گرفته به ترتیب الفبا چاپ شود (پایگاه دادهٔ تمرینی `library`). خروجی: `C in Practice` و `Everyday SQL`.",
+        "lang": "sql",
+        "code_origin": "authored",
+        "template": "SELECT title FROM books\nJOIN loans ON [[b1]] = loans.book_id\nWHERE member = 'Nima'\nORDER BY title;",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "books.id"
+            ],
+            "hint_fa": "ستون `id` در هر دو جدول هست؛ کدام را می‌خواهی؟",
+            "wrong_feedback": {
+              "id": "`id` در هر دو جدول هست و SQLite خطای `ambiguous column name` می‌دهد.",
+              "loans.id": "`loans.id` شمارهٔ امانت است، نه کتاب؛ هیچ امانت Nima با شمارهٔ کتاب خودش برابر نیست و نتیجه خالی می‌شود.",
+              "authors.id": "جدول `authors` در این پرس‌وجو نیامده و SQLite می‌گوید چنین ستونی نیست.",
+              "book_id": "این `loans.book_id` را با خودش مقایسه می‌کند؛ هر امانت Nima با همهٔ کتاب‌ها جفت می‌شود و ۱۰ سطر می‌آید."
+            },
+            "default_wrong_fa": "نام کامل ستون کلید اصلی کتاب را بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "books.id"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `books.id` را با `loans.book_id` جفت کردی.",
+          "incorrect_fa": "ستون کلید اصلی جدول کتاب‌ها را با نام کامل بنویس."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:library"
+          },
+          "expected_stdout_exact": "C in Practice\nEveryday SQL\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "library",
+          "order_matters": true
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l05-u04",
+      "order": 4,
+      "title_fa": "طراحی و نقل‌قول‌ها در جلسهٔ حل تمرین",
+      "concept_ids": [
+        "w07-c-sql-style",
+        "w07-c-string-literal-quotes",
+        "w07-c-primary-key"
+      ],
+      "objective_ids": [
+        "w07-o05"
+      ],
+      "note_id": "w07-sec",
+      "source_refs": [
+        "src-section-7",
+        "src-anzali-authored-7",
+        "src-section-7-transcript",
+        "src-sqlite-docs"
+      ],
+      "reading": {
+        "text_fa": "در جلسهٔ حل تمرین، Kelly چند اصل طراحی را مرور می‌کند: هر جدول یک موضوع، هر سطر یک کلید اصلی، و رابطه‌ها با کلید خارجی. او یادآوری می‌کند که رشته‌ها در SQL داخل نقل‌قول تکی می‌آیند و نقل‌قول دوتایی برای نام شناسه‌هاست. SQLite اگر شناسهٔ داخل نقل‌قول دوتایی ستونی پیدا نکند، آن را رشته فرض می‌کند؛ این رفتار باعث می‌شود اشتباه نقل‌قول گاهی بدون خطا ولی با نتیجهٔ غلط اجرا شود. سبک پیشنهادی هم کلیدواژه‌های بزرگ و تورفتگی خوانا است.",
+        "note_id": "w07-sec",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-sec"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "SELECT \"Timestamp\", problem\nFROM favorites\nWHERE language = 'Scratch'\nORDER BY \"Timestamp\";",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "تألیفی: نقل‌قول دوتایی برای نام ستون، تکی برای رشته (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "favorites",
+        "run_output": "10/20/2025 13:01:09|Scratch\n10/20/2025 13:02:15|Scratch\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l05-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در SQLite کدام نوشتن برای مقایسهٔ ستون `language` با رشتهٔ `Python` درست است؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`language = 'Python'`",
+            "correct": true,
+            "feedback_fa": "درست. رشته در نقل‌قول تکی."
+          },
+          {
+            "id": "b",
+            "text_fa": "`language = \"Python\"`",
+            "correct": false,
+            "feedback_fa": "نقل‌قول دوتایی برای شناسه است؛ اینجا به‌طور اتفاقی کار می‌کند چون ستونی به این نام نیست، ولی شکل درست نیست."
+          },
+          {
+            "id": "c",
+            "text_fa": "`'language' = Python`",
+            "correct": false,
+            "feedback_fa": "این رشتهٔ `language` را با شناسهٔ `Python` مقایسه می‌کند که ستونی به آن نام وجود ندارد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l05-u04-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "خروجی این دو پرس‌وجو روی `favorites` (۱۲ سطر) دقیقاً چیست؟ به نوع نقل‌قول‌ها دقت کن.",
+        "expected": {
+          "output": "0\n12"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: `\"language\"` نام همان ستون است، پس شرط هر سطر را با خودش مقایسه می‌کند و همهٔ ۱۲ سطر می‌آیند.",
+          "incorrect_fa": "نقل‌قول دوتایی در SQL نام شناسه است، نه رشته."
+        },
+        "hints_fa": [],
+        "lang": "sql",
+        "code": "SELECT COUNT(*) FROM favorites WHERE language = 'language';\nSELECT COUNT(*) FROM favorites WHERE language = \"language\";",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "fixture.sql": "fixture:favorites"
+          },
+          "expected_stdout_exact": "0\n12\n",
+          "verified_by": "_tools/qa_questions.py",
+          "fixture": "favorites",
+          "order_matters": true
+        },
+        "fixture": "favorites"
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

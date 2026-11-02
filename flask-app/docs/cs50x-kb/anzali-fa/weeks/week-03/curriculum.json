@@ -1,0 +1,494 @@
+{
+  "$schema": "../../schemas/curriculum.schema.json",
+  "id": "w03-curriculum",
+  "week": 3,
+  "title_fa": "هفتهٔ ۳ — الگوریتم‌ها",
+  "title_en": "Week 3 — Algorithms",
+  "panel_week_number": 3,
+  "kb_parent_node": "week-3",
+  "hub_doc_id": "w03-fa",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "origin": "authored",
+  "official_sources": [
+    "src-week-3",
+    "src-notes-3",
+    "src-transcript-3",
+    "src-section-3",
+    "src-pset-3"
+  ],
+  "objectives_doc": "overview.fa.md",
+  "objective_ids": [
+    "w03-o01",
+    "w03-o02",
+    "w03-o03",
+    "w03-o04",
+    "w03-o05",
+    "w03-o06",
+    "w03-o07",
+    "w03-o08",
+    "w03-o09",
+    "w03-o10"
+  ],
+  "sequence_rationale_fa": "ترتیب درس‌ها از ترتیب درس‌نامه و سخنرانی پیروی می‌کند: جست‌وجو، زمان اجرا، جست‌وجو در C، struct، مرتب‌سازی انتخابی و حبابی، بازگشت، مرتب‌سازی ادغامی. درس ادغامی به هر دو درس مرتب‌سازی و بازگشت وابسته است، چون شبه‌کدش بازگشتی است. ویدئوهای کوتاه کنار بخش متناظرشان آمده‌اند و Call Stacks در درس بازگشت است.",
+  "stages": [
+    {
+      "id": "w03-s1",
+      "lesson_ids": [
+        "w03-l01",
+        "w03-l02"
+      ]
+    },
+    {
+      "id": "w03-s2",
+      "lesson_ids": [
+        "w03-l03",
+        "w03-l04"
+      ]
+    },
+    {
+      "id": "w03-s3",
+      "lesson_ids": [
+        "w03-l05"
+      ]
+    },
+    {
+      "id": "w03-s4",
+      "lesson_ids": [
+        "w03-l06",
+        "w03-l07"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "w03-l01",
+      "order": 1,
+      "file": "lessons/w03-l01.json",
+      "title_fa": "جست‌وجو: خطی و دودویی",
+      "stage_id": "w03-s1",
+      "prerequisite_lesson_ids": [],
+      "unit_ids": [
+        "w03-l01-u01",
+        "w03-l01-u02",
+        "w03-l01-u03"
+      ],
+      "note_ids": [
+        "w03-n01",
+        "w03-n02",
+        "w03-n03"
+      ],
+      "related_doc_ids": [
+        "w03-sh-linear-search",
+        "w03-sh-binary-search"
+      ]
+    },
+    {
+      "id": "w03-l02",
+      "order": 2,
+      "file": "lessons/w03-l02.json",
+      "title_fa": "زمان اجرا: O، Ω و Θ",
+      "stage_id": "w03-s1",
+      "prerequisite_lesson_ids": [
+        "w03-l01"
+      ],
+      "unit_ids": [
+        "w03-l02-u01",
+        "w03-l02-u02"
+      ],
+      "note_ids": [
+        "w03-n04",
+        "w03-n05"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w03-l03",
+      "order": 3,
+      "file": "lessons/w03-l03.json",
+      "title_fa": "جست‌وجو در C",
+      "stage_id": "w03-s2",
+      "prerequisite_lesson_ids": [
+        "w03-l01"
+      ],
+      "unit_ids": [
+        "w03-l03-u01",
+        "w03-l03-u02"
+      ],
+      "note_ids": [
+        "w03-n06",
+        "w03-n07"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w03-l04",
+      "order": 4,
+      "file": "lessons/w03-l04.json",
+      "title_fa": "دفترچهٔ تلفن و struct",
+      "stage_id": "w03-s2",
+      "prerequisite_lesson_ids": [
+        "w03-l03"
+      ],
+      "unit_ids": [
+        "w03-l04-u01",
+        "w03-l04-u02"
+      ],
+      "note_ids": [
+        "w03-n08",
+        "w03-n09"
+      ],
+      "related_doc_ids": []
+    },
+    {
+      "id": "w03-l05",
+      "order": 5,
+      "file": "lessons/w03-l05.json",
+      "title_fa": "مرتب‌سازی انتخابی و حبابی",
+      "stage_id": "w03-s3",
+      "prerequisite_lesson_ids": [
+        "w03-l02"
+      ],
+      "unit_ids": [
+        "w03-l05-u01",
+        "w03-l05-u02",
+        "w03-l05-u03"
+      ],
+      "note_ids": [
+        "w03-n10",
+        "w03-n11"
+      ],
+      "related_doc_ids": [
+        "w03-sh-selection-sort",
+        "w03-sh-bubble-sort"
+      ]
+    },
+    {
+      "id": "w03-l06",
+      "order": 6,
+      "file": "lessons/w03-l06.json",
+      "title_fa": "بازگشت",
+      "stage_id": "w03-s4",
+      "prerequisite_lesson_ids": [
+        "w03-l01"
+      ],
+      "unit_ids": [
+        "w03-l06-u01",
+        "w03-l06-u02",
+        "w03-l06-u03"
+      ],
+      "note_ids": [
+        "w03-n12",
+        "w03-n13"
+      ],
+      "related_doc_ids": [
+        "w03-sh-recursion",
+        "w03-sh-call-stacks",
+        "w03-sec"
+      ]
+    },
+    {
+      "id": "w03-l07",
+      "order": 7,
+      "file": "lessons/w03-l07.json",
+      "title_fa": "مرتب‌سازی ادغامی",
+      "stage_id": "w03-s4",
+      "prerequisite_lesson_ids": [
+        "w03-l05",
+        "w03-l06"
+      ],
+      "unit_ids": [
+        "w03-l07-u01",
+        "w03-l07-u02"
+      ],
+      "note_ids": [
+        "w03-n14"
+      ],
+      "related_doc_ids": [
+        "w03-sh-merge-sort"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "w03-n01",
+      "file": "notes/01-welcome.fa.md",
+      "official_anchor": "welcome"
+    },
+    {
+      "id": "w03-n02",
+      "file": "notes/02-linear-search.fa.md",
+      "official_anchor": "linear-search"
+    },
+    {
+      "id": "w03-n03",
+      "file": "notes/03-binary-search.fa.md",
+      "official_anchor": "binary-search"
+    },
+    {
+      "id": "w03-n04",
+      "file": "notes/04-big-o.fa.md",
+      "official_anchor": "running-time"
+    },
+    {
+      "id": "w03-n05",
+      "file": "notes/05-omega-theta.fa.md",
+      "official_anchor": "running-time"
+    },
+    {
+      "id": "w03-n06",
+      "file": "notes/06-search-int.fa.md",
+      "official_anchor": "searchc"
+    },
+    {
+      "id": "w03-n07",
+      "file": "notes/07-search-strings.fa.md",
+      "official_anchor": "searchc"
+    },
+    {
+      "id": "w03-n08",
+      "file": "notes/08-phonebook.fa.md",
+      "official_anchor": "phonebookc"
+    },
+    {
+      "id": "w03-n09",
+      "file": "notes/09-structs.fa.md",
+      "official_anchor": "structs"
+    },
+    {
+      "id": "w03-n10",
+      "file": "notes/10-selection-sort.fa.md",
+      "official_anchor": "sorting-and-selection-sort"
+    },
+    {
+      "id": "w03-n11",
+      "file": "notes/11-bubble-sort.fa.md",
+      "official_anchor": "bubble-sort"
+    },
+    {
+      "id": "w03-n12",
+      "file": "notes/12-recursion.fa.md",
+      "official_anchor": "recursion"
+    },
+    {
+      "id": "w03-n13",
+      "file": "notes/13-pyramid.fa.md",
+      "official_anchor": "recursion"
+    },
+    {
+      "id": "w03-n14",
+      "file": "notes/14-merge-sort.fa.md",
+      "official_anchor": "merge-sort"
+    }
+  ],
+  "docs": {
+    "overview": "overview.fa.md",
+    "summary": "summary.fa.md",
+    "section": "section/section-3.fa.md",
+    "shorts": [
+      {
+        "id": "w03-sh-linear-search",
+        "file": "shorts/linear-search.fa.md"
+      },
+      {
+        "id": "w03-sh-binary-search",
+        "file": "shorts/binary-search.fa.md"
+      },
+      {
+        "id": "w03-sh-bubble-sort",
+        "file": "shorts/bubble-sort.fa.md"
+      },
+      {
+        "id": "w03-sh-selection-sort",
+        "file": "shorts/selection-sort.fa.md"
+      },
+      {
+        "id": "w03-sh-call-stacks",
+        "file": "shorts/call-stacks.fa.md"
+      },
+      {
+        "id": "w03-sh-recursion",
+        "file": "shorts/recursion.fa.md"
+      },
+      {
+        "id": "w03-sh-merge-sort",
+        "file": "shorts/merge-sort.fa.md"
+      }
+    ],
+    "problem_guides": [
+      {
+        "id": "w03-ps-sort",
+        "file": "problem-sets/sort.fa.md"
+      },
+      {
+        "id": "w03-ps-plurality",
+        "file": "problem-sets/plurality.fa.md"
+      },
+      {
+        "id": "w03-ps-runoff",
+        "file": "problem-sets/runoff.fa.md"
+      },
+      {
+        "id": "w03-ps-tideman",
+        "file": "problem-sets/tideman.fa.md"
+      },
+      {
+        "id": "w03-pr-atoi",
+        "file": "problem-sets/atoi.fa.md"
+      },
+      {
+        "id": "w03-pr-temps",
+        "file": "problem-sets/temps.fa.md"
+      },
+      {
+        "id": "w03-pr-max",
+        "file": "problem-sets/max.fa.md"
+      },
+      {
+        "id": "w03-pr-snackbar",
+        "file": "problem-sets/snackbar.fa.md"
+      }
+    ]
+  },
+  "assessments": {
+    "flashcards": "flashcards.json",
+    "quizzes": "quizzes.json",
+    "mastery_test_id": "w03-mt-final",
+    "challenges": "challenges.json",
+    "activities": "activities.json",
+    "exercise_panel_export": "exercises.panel.json"
+  },
+  "glossary": "curriculum/glossary.fa.json",
+  "media": "media.json",
+  "problem_sets": [
+    {
+      "id": "w03-ps-sort",
+      "kind": "pset",
+      "file": "problem-sets/sort.json",
+      "guide": "problem-sets/sort.fa.md",
+      "unlock_after_lesson": "w03-l07"
+    },
+    {
+      "id": "w03-ps-plurality",
+      "kind": "pset",
+      "file": "problem-sets/plurality.json",
+      "guide": "problem-sets/plurality.fa.md",
+      "unlock_after_lesson": "w03-l04"
+    },
+    {
+      "id": "w03-ps-runoff",
+      "kind": "pset",
+      "file": "problem-sets/runoff.json",
+      "guide": "problem-sets/runoff.fa.md",
+      "unlock_after_lesson": "w03-l04"
+    },
+    {
+      "id": "w03-ps-tideman",
+      "kind": "pset",
+      "file": "problem-sets/tideman.json",
+      "guide": "problem-sets/tideman.fa.md",
+      "unlock_after_lesson": "w03-l07"
+    },
+    {
+      "id": "w03-pr-atoi",
+      "kind": "practice",
+      "file": "problem-sets/atoi.json",
+      "guide": "problem-sets/atoi.fa.md",
+      "unlock_after_lesson": "w03-l06"
+    },
+    {
+      "id": "w03-pr-temps",
+      "kind": "practice",
+      "file": "problem-sets/temps.json",
+      "guide": "problem-sets/temps.fa.md",
+      "unlock_after_lesson": "w03-l05"
+    },
+    {
+      "id": "w03-pr-max",
+      "kind": "practice",
+      "file": "problem-sets/max.json",
+      "guide": "problem-sets/max.fa.md",
+      "unlock_after_lesson": "w03-l03"
+    },
+    {
+      "id": "w03-pr-snackbar",
+      "kind": "practice",
+      "file": "problem-sets/snackbar.json",
+      "guide": "problem-sets/snackbar.fa.md",
+      "unlock_after_lesson": "w03-l04"
+    }
+  ],
+  "required_choice": {
+    "note_fa": "طبق صفحهٔ رسمی پرابلم‌ست ۳: Sort و Plurality تحویل شوند و یکی از Runoff یا Tideman. Runoff برای کسانی است که کم‌وبیش احساس راحتی می‌کنند و Tideman برای کسانی که «خیلی، خیلی، خیلی» راحت‌اند. طبق همان صفحه، اگر هر دو تحویل شود نمرهٔ بالاتر ثبت می‌شود و Tideman اختیاری ولی چالشی است. تمرین‌های Recursive atoi، Average High Temperatures، Max و Snackbar اختیاری‌اند و تحویل ندارند.",
+    "groups": [
+      {
+        "required": [
+          "w03-ps-sort"
+        ],
+        "submit": true
+      },
+      {
+        "required": [
+          "w03-ps-plurality"
+        ],
+        "submit": true
+      },
+      {
+        "one_of": [
+          "w03-ps-runoff",
+          "w03-ps-tideman"
+        ],
+        "submit": true,
+        "choice_group": "runoff-tideman",
+        "if_both": "higher_score_counts",
+        "if_both_origin": "official",
+        "if_both_source_ref": "src-pset-3#what-to-do"
+      }
+    ],
+    "optional_practice": [
+      "w03-pr-atoi",
+      "w03-pr-temps",
+      "w03-pr-max",
+      "w03-pr-snackbar"
+    ],
+    "source_ref": "src-pset-3#what-to-do"
+  },
+  "week_mastery": {
+    "rule": "all_of",
+    "conditions": [
+      {
+        "type": "all_lessons_mastered"
+      },
+      {
+        "type": "mastery_test_score_gte",
+        "value": 0.8,
+        "configurable": true
+      },
+      {
+        "type": "spaced_recall_rate_gte",
+        "value": 0.8,
+        "window_reviews": 20,
+        "configurable": true
+      },
+      {
+        "type": "pset_self_checklist_complete",
+        "problem_set_ids_any_of_groups": true,
+        "note": "checklists of Sort, Plurality and the chosen Runoff/Tideman"
+      },
+      {
+        "type": "assignment_submitted",
+        "problem_set_ids": [
+          "w03-ps-sort",
+          "w03-ps-plurality"
+        ],
+        "plus_one_of": [
+          [
+            "w03-ps-runoff",
+            "w03-ps-tideman"
+          ]
+        ],
+        "note": "Panel Assignment/Submission; official grade remains check50/gradebook"
+      }
+    ],
+    "note_fa": "این معیارها پیشنهاد CS50x Anzali و قابل تنظیم‌اند؛ قاعدهٔ CS50 نیستند. آستانهٔ ۸۰٪ پیش‌فرض موقت است (D13). چالش‌های challenges.json در معیار تسلط نیستند و تمرین اختیاری‌اند."
+  }
+}

@@ -1,0 +1,435 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l06",
+  "type": "lesson",
+  "week": 7,
+  "order": 6,
+  "stage_id": "w07-s6",
+  "title_fa": "شاخص‌ها و SQL در پایتون",
+  "title_en": "Indexes and SQL in Python",
+  "note_ids": [
+    "w07-n09",
+    "w07-n10"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w07-l05"
+  ],
+  "concept_ids": [
+    "w07-c-index",
+    "w07-c-timer",
+    "w07-c-btree",
+    "w07-c-index-tradeoff",
+    "w07-c-cs50-sql",
+    "w07-c-execute-returns-rows",
+    "w07-c-placeholder-qmark"
+  ],
+  "objective_ids": [
+    "w07-o07",
+    "w07-o08",
+    "w07-o10"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w07-l05"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l06-u01",
+      "order": 1,
+      "title_fa": "CREATE INDEX و سنجش زمان",
+      "concept_ids": [
+        "w07-c-index",
+        "w07-c-timer"
+      ],
+      "objective_ids": [
+        "w07-o07"
+      ],
+      "note_id": "w07-n09",
+      "source_refs": [
+        "src-notes-7#indexes",
+        "src-transcript-7",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "در سخنرانی با `.timer on` زمان یک جست‌وجو روی جدول بزرگ `shows` اندازه گرفته شد و بعد با `CREATE INDEX title_index ON shows (title);` برای ستون `title` شاخص ساخته شد. همان پرس‌وجو پس از ساخت شاخص بسیار سریع‌تر شد، چون SQLite دیگر لازم نیست همهٔ سطرها را یکی‌یکی ببیند. برای سریع کردن JOIN بازیگران هم روی `people (name)` و `stars (person_id)` شاخص ساخته شد.",
+        "note_id": "w07-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "create-indexes",
+        "lang": "sql",
+        "content": "CREATE INDEX name_index ON people (name);\nCREATE INDEX person_index ON stars (person_id);",
+        "source_ref": "src-notes-7#indexes",
+        "explain_fa": "ساخت شاخص برای جست‌وجوی نام و JOIN (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l06-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`CREATE INDEX name_index ON people (name);` کدام پرس‌وجو را سریع‌تر می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`SELECT id FROM people WHERE name = 'Steve Carell';`",
+            "correct": true,
+            "feedback_fa": "درست. جست‌وجو روی ستون `name` از شاخص استفاده می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`SELECT COUNT(*) FROM stars;`",
+            "correct": false,
+            "feedback_fa": "این پرس‌وجو به ستون `name` کاری ندارد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`INSERT INTO people (name) VALUES ('Sara');`",
+            "correct": false,
+            "feedback_fa": "درج با شاخص کندتر هم می‌شود، چون شاخص باید به‌روز شود."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l06-u01-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر مورد را «سود شاخص» یا «هزینهٔ شاخص» بنویس: (۱) جست‌وجوی سریع‌تر روی ستون شاخص‌دار (۲) فضای بیشتر روی دیسک (۳) `INSERT` و `UPDATE` کندتر (۴) `JOIN` سریع‌تر روی ستون شاخص‌دار",
+        "expected": {
+          "answers": {
+            "1": "سود شاخص",
+            "2": "هزینهٔ شاخص",
+            "3": "هزینهٔ شاخص",
+            "4": "سود شاخص"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "بپرس: این مورد خواندن را سریع می‌کند یا چیزی می‌گیرد؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l06-u02",
+      "order": 2,
+      "title_fa": "B-tree و بده‌بستان شاخص",
+      "concept_ids": [
+        "w07-c-btree",
+        "w07-c-index-tradeoff"
+      ],
+      "objective_ids": [
+        "w07-o07"
+      ],
+      "note_id": "w07-n09",
+      "source_refs": [
+        "src-notes-7#indexes",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "شاخص در SQLite با ساختاری به نام B-tree ساخته می‌شود: درختی متوازن و کوتاه که هر گره چند فرزند دارد، پس پیدا کردن یک مقدار فقط چند گام لازم دارد. بهای آن این است که شاخص حافظهٔ اضافه می‌گیرد و هر `INSERT` یا `UPDATE` باید شاخص را هم به‌روز کند. پس روی هر ستونی شاخص نمی‌سازی؛ فقط روی ستون‌هایی که زیاد در جست‌وجو یا `JOIN` به کار می‌روند.",
+        "note_id": "w07-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n09"
+      },
+      "example": {
+        "kind": "authored",
+        "origin": "authored",
+        "label_fa": "تألیفی",
+        "lang": "sql",
+        "content": "CREATE INDEX title_index ON shows (title);\nSELECT title, year FROM shows WHERE title = 'The Office' ORDER BY year;",
+        "source_ref": "src-anzali-authored-7",
+        "explain_fa": "ساخت شاخص روی پایگاه دادهٔ تمرینی؛ نتیجه با شاخص و بی‌شاخص یکی است، فقط سرعت فرق می‌کند (اجراشده روی جعبهٔ ساخت).",
+        "fixture": "shows",
+        "run_output": "The Office|2001\nThe Office|2005\n",
+        "verified_by": "sqlrun7 (box)"
+      },
+      "check": {
+        "id": "w07-l06-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا روی همهٔ ستون‌های همهٔ جدول‌ها شاخص نمی‌سازیم؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون هر شاخص فضا می‌گیرد و درج و به‌روزرسانی را کند می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. شاخص بده‌بستان است."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون SQLite در هر جدول فقط یک شاخص می‌پذیرد.",
+            "correct": false,
+            "feedback_fa": "یک جدول می‌تواند چند شاخص داشته باشد؛ درس‌نامه هم دو شاخص می‌سازد."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون شاخص نتیجهٔ پرس‌وجو را تغییر می‌دهد.",
+            "correct": false,
+            "feedback_fa": "شاخص فقط سرعت را عوض می‌کند، نه نتیجه را."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l06-u02-ex",
+        "type": "true_false",
+        "origin": "authored",
+        "prompt_fa": "درست یا نادرست: ساختن شاخص روی ستون `title` ممکن است سطرهای برگشتی `SELECT ... WHERE title = 'The Office'` را تغییر دهد.",
+        "expected": {
+          "value": false
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: شاخص فقط راه پیدا کردن سطرها را سریع‌تر می‌کند؛ نتیجه همان است.",
+          "incorrect_fa": "شاخص روی سرعت اثر دارد یا روی معنی پرس‌وجو؟"
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l06-u03",
+      "order": 3,
+      "title_fa": "from cs50 import SQL و db.execute",
+      "concept_ids": [
+        "w07-c-cs50-sql",
+        "w07-c-execute-returns-rows"
+      ],
+      "objective_ids": [
+        "w07-o08"
+      ],
+      "note_id": "w07-n10",
+      "source_refs": [
+        "src-notes-7#using-sql-in-python",
+        "src-cs50-sql-docs",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "کتابخانهٔ CS50 در پایتون تابع `SQL` دارد: `db = SQL(\"sqlite:///favorites.db\")` پایگاه داده را باز می‌کند و `db.execute(...)` یک دستور SQL را اجرا می‌کند. برای `SELECT` خروجی فهرستی از واژه‌نامه‌هاست: هر سطر یک واژه‌نامه که کلیدهایش نام ستون‌ها یا نام مستعار `AS` هستند. پس `rows[0][\"n\"]` مقدار ستون `n` در سطر اول است.",
+        "note_id": "w07-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "favorites10",
+        "lang": "python",
+        "content": "# Searches database for popularity of a problem\n\nfrom cs50 import SQL\n\n# Open database\ndb = SQL(\"sqlite:///favorites.db\")\n\n# Prompt user for favorite\nfavorite = input(\"Favorite: \")\n\n# Search for title\nrows = db.execute(\"SELECT COUNT(*) AS n FROM favorites WHERE problem = ?\", favorite)\n\n# Get first (and only) row\nrow = rows[0]\n\n# Print popularity\nprint(row[\"n\"])",
+        "source_ref": "src-notes-7#using-sql-in-python",
+        "explain_fa": "شمارش محبوبیت یک مسئله با کتابخانهٔ CS50 (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l06-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "`rows = db.execute(\"SELECT COUNT(*) AS n FROM favorites\")` ؛ `rows` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "فهرستی با یک واژه‌نامه، مثل `[{'n': 12}]`",
+            "correct": true,
+            "feedback_fa": "درست. هر سطر نتیجه یک واژه‌نامه است."
+          },
+          {
+            "id": "b",
+            "text_fa": "عدد `12`",
+            "correct": false,
+            "feedback_fa": "عدد داخل واژه‌نامهٔ سطر اول است: `rows[0][\"n\"]`."
+          },
+          {
+            "id": "c",
+            "text_fa": "رشتهٔ `\"12\"`",
+            "correct": false,
+            "feedback_fa": "`db.execute` برای `SELECT` فهرست سطرها را برمی‌گرداند، نه رشته."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l06-u03-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "پایگاه دادهٔ `favorites.db` از روی `fixtures/favorites.sql` ساخته شده (شش Python، چهار C، دو Scratch). خروجی این برنامهٔ تألیفی دقیقاً چیست؟",
+        "expected": {
+          "output": "Python 6\nC 4\nScratch 2"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: هر سطر یک واژه‌نامه با کلیدهای `language` و `n` است.",
+          "incorrect_fa": "کلیدهای هر واژه‌نامه نام ستون‌ها و نام مستعار `AS` هستند."
+        },
+        "hints_fa": [],
+        "lang": "python",
+        "code": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///favorites.db\")\nrows = db.execute(\"SELECT language, COUNT(*) AS n FROM favorites GROUP BY language ORDER BY n DESC\")\nfor row in rows:\n    print(row[\"language\"], row[\"n\"])",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "favorites.db": "fixture:favorites"
+          },
+          "expected_stdout_exact": "Python 6\nC 4\nScratch 2\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l06-u04",
+      "order": 4,
+      "title_fa": "جای‌نگهدار ?",
+      "concept_ids": [
+        "w07-c-placeholder-qmark"
+      ],
+      "objective_ids": [
+        "w07-o08",
+        "w07-o10"
+      ],
+      "note_id": "w07-n10",
+      "source_refs": [
+        "src-notes-7#using-sql-in-python",
+        "src-cs50-sql-docs",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "وقتی مقداری از کاربر در پرس‌وجو می‌آید، درس‌نامه آن را با جای‌نگهدار `?` می‌نویسد و مقدار را جدا به `db.execute` می‌دهد: `db.execute(\"SELECT COUNT(*) AS n FROM favorites WHERE problem = ?\", favorite)`. کتابخانه مقدار را امن داخل پرس‌وجو می‌گذارد، از جمله نقل‌قول‌ها را. تعداد `?` ها باید با تعداد مقدارها برابر باشد؛ وگرنه کتابخانه `RuntimeError` می‌دهد.",
+        "note_id": "w07-n10",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n10"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "favorites10",
+        "lang": "python",
+        "content": "# Searches database for popularity of a problem\n\nfrom cs50 import SQL\n\n# Open database\ndb = SQL(\"sqlite:///favorites.db\")\n\n# Prompt user for favorite\nfavorite = input(\"Favorite: \")\n\n# Search for title\nrows = db.execute(\"SELECT COUNT(*) AS n FROM favorites WHERE problem = ?\", favorite)\n\n# Get first (and only) row\nrow = rows[0]\n\n# Print popularity\nprint(row[\"n\"])",
+        "source_ref": "src-notes-7#using-sql-in-python",
+        "explain_fa": "جای‌نگهدار ? و آرگومان جدا (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l06-u04-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `db.execute(\"SELECT * FROM favorites WHERE problem = ?\", favorite)` چه کسی مقدار `favorite` را جای `?` می‌گذارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "کتابخانهٔ CS50، که مقدار را امن و با نقل‌قول درست جاگذاری می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. تو مقدار را جدا می‌دهی و کتابخانه جاگذاری را انجام می‌دهد."
+          },
+          {
+            "id": "b",
+            "text_fa": "خود پایتون، مثل f-string.",
+            "correct": false,
+            "feedback_fa": "رشته f-string نیست؛ `?` بدون تغییر به کتابخانه می‌رسد."
+          },
+          {
+            "id": "c",
+            "text_fa": "کاربر، که باید نقل‌قول‌ها را خودش بنویسد.",
+            "correct": false,
+            "feedback_fa": "کاربر فقط مقدار را وارد می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l06-u04-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا تعداد پاسخ‌های مسئله‌ای که کاربر وارد می‌کند شمرده شود. با ورودی `Mario` روی `favorites.db` باید `Problem: 2` چاپ شود. از همان جای‌نگهدار درس‌نامه استفاده کن.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "from cs50 import SQL\n\ndb = SQL(\"sqlite:///favorites.db\")\nproblem = input(\"Problem: \")\nrows = db.execute(\"SELECT COUNT(*) AS n FROM favorites WHERE problem = [[b1]]\", problem)\nprint(rows[0][\"n\"])",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "?"
+            ],
+            "hint_fa": "جای‌نگهداری که درس‌نامه در `db.execute` به کار می‌برد.",
+            "wrong_feedback": {
+              "problem": "این نام ستون است، نه جای‌نگهدار؛ کتابخانه می‌بیند یک مقدار اضافه داده‌ای و `RuntimeError` می‌دهد.",
+              "'?'": "داخل نقل‌قول، `?` یک رشتهٔ عادی است و جای‌نگهدار نیست؛ کتابخانه `RuntimeError` می‌دهد.",
+              "{problem}": "رشته f-string نیست، پس `{problem}` متن عادی است؛ کتابخانه `RuntimeError` می‌دهد.",
+              ":problem": "جای‌نگهدار نام‌دار مقدار نام‌دار لازم دارد؛ اینجا مقدار موقعیتی داده شده و کتابخانه `RuntimeError` می‌دهد."
+            },
+            "default_wrong_fa": "علامت سؤال بدون نقل‌قول بنویس."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "?"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `?` جای مقدار را نگه می‌دارد و کتابخانه آن را امن پر می‌کند.",
+          "incorrect_fa": "جای‌نگهدار درس‌نامه یک نویسه است."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "Mario\n",
+          "args": [],
+          "files": {
+            "favorites.db": "fixture:favorites"
+          },
+          "expected_stdout_exact": "Problem: 2\n",
+          "verified_by": "_tools/qa_questions.py",
+          "spec_excludes": {
+            "%s": "cs50.SQL also accepts the format-style %s placeholder; the prompt asks for the lecture's ? placeholder"
+          }
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

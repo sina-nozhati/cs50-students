@@ -1,0 +1,144 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-pr-max",
+  "kind": "practice",
+  "week": 3,
+  "title_en": "Max",
+  "title_fa": "بیشینه (Max)",
+  "guide_doc_id": "w03-pr-max",
+  "guide_file": "max.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/max/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w03-pr-max-r1",
+        "text_fa": "تابع `max` همهٔ عضوهای آرایه را پیمایش کند و بیشینه را برگرداند.",
+        "text_en": "Complete the `max` function by iterating through every element in the array, and return the maximum value.",
+        "source_ref": "src-practice-max#implementation-details"
+      },
+      {
+        "id": "w03-pr-max-r2",
+        "text_fa": "خروجی مثل نمونه‌های رسمی باشد.",
+        "text_en": "Your program should behave per the examples below.",
+        "source_ref": "src-practice-max#how-to-test-your-code"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/max",
+      "style50": "style50 max.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/3/max.zip\nunzip max.zip\nrm max.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی ۱",
+        "text": "max/ $ ./max\nNumber of elements: 3\nElement 0: 2\nElement 1: 10\nElement 2: -1\nThe max value is 10.",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی ۲: همه منفی",
+        "text": "max/ $ ./max\nNumber of elements: 4\nElement 0: -100\nElement 1: -200\nElement 2: -3\nElement 3: -5000\nThe max value is -3.",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/max",
+      "style50": "style50 max.c",
+      "has_check50": true,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "TSe2Z5ZlnpuN3Od14jNKerLqM",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d45"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-linear-search",
+      "w03-c-big-o",
+      "w03-c-omega"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l02",
+      "w03-l03"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-linear-search",
+        "note_id": "w03-n02",
+        "lesson_id": "w03-l01",
+        "unit_id": "w03-l01-u02"
+      },
+      {
+        "concept_id": "w03-c-big-o",
+        "note_id": "w03-n04",
+        "lesson_id": "w03-l02",
+        "unit_id": "w03-l02-u01"
+      },
+      {
+        "concept_id": "w03-c-omega",
+        "note_id": "w03-n05",
+        "lesson_id": "w03-l02",
+        "unit_id": "w03-l02-u02"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "پیدا کردن بیشینه شبیه جست‌وجوی خطی است: باید به همهٔ خانه‌ها نگاه کنی. O و Ω این کار چیست؟"
+      },
+      {
+        "n": 2,
+        "hint_fa": "صفحهٔ رسمی دو راه برای مقدار اولیه می‌گوید و هشدار می‌دهد که از صفر شروع نکنی. نمونهٔ دوم رسمی چرا این هشدار را نشان می‌دهد؟"
+      }
+    ],
+    "common_mistakes_fa": [
+      "شروع از صفر و شکست روی آرایهٔ همه‌منفی",
+      "حلقه با `<=` و خواندن بیرون از آرایه"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-pr-max-c01",
+        "text_fa": "تابع همهٔ عضوها را می‌بیند.",
+        "maps_to": "w03-pr-max-r1"
+      },
+      {
+        "id": "w03-pr-max-c02",
+        "text_fa": "نمونهٔ همه‌منفی رسمی `-3` می‌دهد.",
+        "maps_to": "w03-pr-max-r2"
+      },
+      {
+        "id": "w03-pr-max-c03",
+        "text_fa": "check50 همه را سبز نشان می‌دهد.",
+        "maps_to": "check50"
+      },
+      {
+        "id": "w03-pr-max-c04",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "What types of programs can you think of that might benefit from a `max` helper function?",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

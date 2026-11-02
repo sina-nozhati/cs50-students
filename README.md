@@ -55,3 +55,10 @@
 - `deploy/cs50hub.conf`: فایل پیکربندی Nginx
 
 برای اطلاعات بیشتر در مورد استقرار، به مستندات [SKILL.md](.agents/skills/fullstack-engineer/SKILL.md) مراجعه کنید.
+
+## مستندات محصول
+
+- سند مادر: [`flask-app/docs/CS50x_Anzali_Master_PRD_v1.0.md`](flask-app/docs/CS50x_Anzali_Master_PRD_v1.0.md)
+- نقشهٔ راه اجرایی: [`flask-app/docs/ROADMAP.md`](flask-app/docs/ROADMAP.md)
+- معماری کوتاه: [`flask-app/docs/PROJECT_BRIEF.md`](flask-app/docs/PROJECT_BRIEF.md)
+- امنیت / دیپلوی / بک‌آپ: `SECURITY.md`, `DEPLOYMENT.md`, `BACKUP_RESTORE.md` در همان پوشه

@@ -1,0 +1,615 @@
+<!DOCTYPE html><html lang="en-us"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <meta property="og:image" content="https://cs50.harvard.edu/x/2026/assets/sanders.jpg">
+
+        <meta property="og:title" content="Volume - CS50x 2026">
+
+        <link href="../../../favicon.ico?1792016574" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/ -->
+        <script src="../../../assets/jquery/dist/jquery.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap/dist/js/bootstrap.bundle.min.js?1792016574"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="../../../assets/bootstrap-table/dist/bootstrap-table.min.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/bootstrap-table/dist/bootstrap-table.min.js?1792016574"></script>
+        <script src="../../../assets/bootstrap-table/dist/extensions/mobile/bootstrap-table-mobile.min.js?1792016574"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <!-- cs50.fontawesome: "self-hosted" loads CS50's self-hosted Font Awesome Pro (the site's domain must be
+             allowlisted in cs50/font-awesome); a Font Awesome kit ID loads that kit; unset loads Font Awesome Free. -->
+        
+        <link crossorigin="anonymous" href="https://fa.cs50.io/latest/css/all.min.css" rel="stylesheet">
+        
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="../../../assets/luxon/build/global/luxon.min.js?1792016574"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <!-- https://docs.mathjax.org/en/latest/output/fonts.html -->
+        <script>
+            MathJax = {
+                loader: {
+                    paths: {
+                        'mathjax-newcm': '[mathjax]/../@mathjax/mathjax-newcm-font',
+                    }
+                },
+                output: {
+                    displayAlign: 'left'
+                }
+            };
+        </script>
+        <script src="../../../assets/mathjax/tex-mml-chtml.js?1792016574"></script>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script src="../../../assets/vanilla-lazyload/dist/lazyload.min.js?1792016574"></script>
+
+        <!-- https://iframe-resizer.com/ -->
+        <script src="../../../assets/@iframe-resizer/parent/index.umd.js?1792016574"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="../../../assets/scratchblocks.min.js?1792016574"></script>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <script src="../../../assets/mermaid/dist/mermaid.min.js?1792016574"></script>
+
+        <!-- https://github.com/twitter/twemoji -->
+        <script src="../../../assets/@twemoji/api/dist/twemoji.min.js?1792016574"></script>
+
+        
+
+        <link href="../../../assets/page.css?1792016574" rel="stylesheet">
+        <script src="../../../assets/jekyll-theme-cs50.js?1792016574"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "Etc/Zulu"
+            };
+        </script>
+
+        <title>Volume - CS50x 2026</title>
+
+
+    <meta property="og:description" content="Problem to Solve WAV files are a common file format for representing audio. WAV files store audio as a sequence of “samples”: numbers that represent the...">
+</head>
+
+    <body class="invisible">
+
+        <div class="alert fixed-top mb-0 rounded-0" data-alert="success dismissible" data-hash="9cf1a82965914e0be3c584222fdc8671" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close d-none" data-bs-dismiss="alert" type="button"></button><p>Lectures have now been dubbed into <a href="https://cs50.ly/pt">Portuguese</a> and <a href="https://cs50.ly/es">Spanish</a>, thanks to <a href="https://lingopal.ai/">lingopal.ai</a>. Interested in <a href="../../../#how-to-take-this-course">a verified certificate, a professional certificate, or transfer credit and accreditation</a>?</p>
+</div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-lg">
+ 
+                    <header><h1 data-id="this-is-cs50"><a href="../../..">This is CS50</a></h1>
+
+<h2 class="text-white" data-id="cs50s-introduction-to-computer-science">CS50’s Introduction to Computer Science</h2>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fa-brands fa-facebook-f" title="Facebook"></i><span class="visually-hidden">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fa-brands fa-github" title="GitHub"></i><span class="visually-hidden">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fa-brands fa-instagram" title="Instagram"></i><span class="visually-hidden">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fa-brands fa-linkedin" title="LinkedIn"></i><span class="visually-hidden">LinkedIn</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fa-brands fa-reddit-alien" title="Reddit"></i><span class="visually-hidden">Reddit</span></a>
+<a class="mr-1" href="https://x.com/davidjmalan"><i aria-hidden="true" class="fa-brands fa-x-twitter" title="X"></i><span class="visually-hidden">X</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-lg-none" data-bs-target="aside > nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-lg-block" id="nav"><hr>
+
+<ul>
+  <li data-marker="*"><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fa-solid fa-puzzle-piece pe-2"></i>CS50x Puzzle Day</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/pt"><i class="fa-solid fa-language pe-2"></i>CS50x em português</a></li>
+  <li data-marker="*"><a href="https://cs50.ly/es"><i class="fa-solid fa-globe pe-2"></i>CS50x en español</a></li>
+</ul>
+
+<!-- Tools -->
+<hr class="small">
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.ai/"><i class="fa-solid fa-duck pe-2 text-decoration-none"></i>CS50.ai</a></li>
+  <li data-marker="*">
+<a href="https://cs50.edx.org/ed"><i class="fa-solid fa-comment-question pe-2 text-decoration-none"></i>Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*"><a href="https://cs50.dev/"><i class="fa-solid fa-laptop pe-2 text-decoration-none"></i>Visual Studio Code</a></li>
+</ul>
+
+<!-- Highlights -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.harvard.edu/workshop/">CS50 Educator Workshop</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+</ul>
+
+<!-- Course Nav -->
+<hr>
+
+<ul>
+  <li data-marker="*">
+<a href="../../../weeks/0/">Week 0</a> Scratch</li>
+  <li data-marker="*">
+<a href="../../../weeks/1/">Week 1</a> C</li>
+  <li data-marker="*">
+<a href="../../../weeks/2/">Week 2</a> Arrays</li>
+  <li data-marker="*">
+<a href="../../../weeks/3/">Week 3</a> Algorithms</li>
+  <li data-marker="*">
+<a href="../../../weeks/4/">Week 4</a> Memory</li>
+  <li data-marker="*">
+<a href="../../../weeks/5/">Week 5</a> Data Structures</li>
+  <li data-marker="*">
+<a href="../../../weeks/6/">Week 6</a> Python</li>
+  <li data-marker="*">
+<a href="../../../weeks/7/">Week 7</a> SQL</li>
+  <li data-marker="*"><a href="../../../weeks/ai/" class="small">Artificial Intelligence</a></li>
+  <li data-marker="*">
+<a href="../../../weeks/8/">Week 8</a> HTML, CSS, JavaScript</li>
+  <li data-marker="*">
+<a href="../../../weeks/9/">Week 9</a> Flask</li>
+  <li data-marker="*">
+<a href="../../../weeks/10/">Week 10</a> The End</li>
+</ul>
+<ul class="small">
+  <li data-marker="*"><a href="../../../practice/"><i class="fa-solid fa-rocket pe-2 text-decoration-none"></i>Additional Practice</a></li>
+</ul>
+
+<hr>
+
+<!-- Final project spec, seminars, shorts -->
+<ul>
+  <li data-marker="*"><a href="../../../project/">Final Project</a></li>
+  <li data-marker="*"><a href="../../../gallery/">Gallery of Final Projects<span aria-hidden="true" class="ps-2 text-decoration-none">🖼️ </span></a></li>
+  <li data-marker="*"><a href="../../../seminars/">Seminars</a></li>
+  <li data-marker="*">
+</li></ul>
+
+<!-- Items that might usually appear in an academic syllabus -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><a href="../../../certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><a href="../../../faqs/">FAQs</a></li>
+  <li data-marker="*"><a href="https://cs50.me/cs50x">Gradebook</a></li>
+  <li data-marker="*"><a href="../../../staff/">Staff</a></li>
+  <li data-marker="*"><a href="../../../syllabus/">Syllabus</a></li>
+</ul>
+
+<!-- Where to watch or take the class course -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://apps.apple.com/us/app/cs50/id1631064453">Apple TV</a></li>
+  <li data-marker="*"><a href="https://cs50.edx.org/">edX</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://play.google.com/store/apps/details?id=edu.harvard.cs50.googletv">Google TV</a></li>
+  <li data-marker="*"><a href="https://web.dce.harvard.edu/extension/csci/e/50">Harvard Extension School</a></li>
+  <li data-marker="*">
+  </li><li data-marker="*"><a href="https://web.dce.harvard.edu/summer/csci/s/50">Harvard Summer School</a></li>
+  <li data-marker="*"><a href="https://channelstore.roku.com/details/e338f60adfb133abc19eac2da9e5c505:40cee2a1909355bc4496086c8fa4a86f/cs50">Roku</a></li>
+  <li data-marker="*"><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T380hlTqAU8HfvVepCcjCqTg6">YouTube</a></li>
+</ul>
+
+<!-- Manual page, style guide, other docs -->
+
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://manual.cs50.io/">Manual Pages</a></li>
+  <li data-marker="*"><a href="https://cs50.readthedocs.io/style/c/">Style Guide</a></li>
+</ul>
+
+<!-- Status Page -->
+<hr>
+
+<ul class="small">
+  <li data-marker="*"><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<!-- Communities -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://bsky.app/profile/cs50.harvard.edu">Bluesky</a></li>
+  <li data-marker="*" class="small">
+<a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small">
+<a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small">
+<a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span>
+</li>
+  <li data-marker="*" class="small"><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><a href="https://t.me/cs50x">Telegram</a></li>
+  <li data-marker="*" class="small"><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><a href="https://www.threads.net/@cs50">Threads</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/cs50">X Account</a></li>
+  <li data-marker="*" class="small"><a href="https://x.com/i/communities/1722308663522594923">X Community</a></li>
+  <li data-marker="*" class="small"><a href="https://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<!-- Courses -->
+<hr>
+
+<ul>
+  <li data-marker="*"><a href="../../../courses/"><strong>Courses</strong></a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/x">CS50x</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/games">CS50 2D</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/ai">CS50 AI</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/business">CS50 Business</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/cybersecurity">CS50 Cybersecurity</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/law">CS50 for Lawyers</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/python">CS50 Python</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/r">CS50 R</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/scratch">CS50 Scratch</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/sql">CS50 SQL</a></li>
+  <li data-marker="*" class="small"><a href="https://cs50.harvard.edu/web">CS50 Web</a></li>
+</ul>
+
+<!-- Harvard Shop -->
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="https://cs50.harvard.edu/x/2023/assets/shop.png" alt="Harvard Shop"></a></p>
+
+<!-- Legal -->
+<hr>
+
+<p><a href="../../../license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-lg">
+
+                    <h1 id="volume">Volume</h1>
+
+<p class="w-100"><img src="wav_file.png" alt="WAV file waveform"></p>
+
+<h2 id="problem-to-solve">Problem to Solve</h2>
+
+<p><a href="https://docs.fileformat.com/audio/wav/">WAV files</a> are a common file format for representing audio. WAV files store audio as a sequence of “samples”: numbers that represent the value of some audio signal at a particular point in time. WAV files begin with a 44-byte “header” that contains information about the file itself, including the size of the file, the number of samples per second, and the size of each sample. After the header, the WAV file contains a sequence of samples, each a single 2-byte (16-bit) integer representing the audio signal at a particular point in time.</p>
+
+<p>Scaling each sample value by a given factor has the effect of changing the volume of the audio. Multiplying each sample value by 2.0, for example, will have the effect of doubling the volume of the origin audio. Multiplying each sample by 0.5, meanwhile, will have the effect of cutting the volume in half.</p>
+
+<p>In a file called <code class="language-plaintext highlighter-rouge">volume.c</code> in a folder called <code class="language-plaintext highlighter-rouge">volume</code>, write a program to modify the volume of an audio file.</p>
+
+<h2 id="demo">Demo</h2>
+
+<script async="" data-autoplay="1" data-cols="100" data-loop="1" data-rows="12" id="asciicast-mc2hPhYDt1spoMjlqNMuqC4Uc" src="https://asciinema.org/a/mc2hPhYDt1spoMjlqNMuqC4Uc.js"></script>
+
+<h2 id="distribution-code">Distribution Code</h2>
+
+<p>For this problem, you’ll extend the functionality of code provided to you by CS50’s staff.</p>
+
+<details><summary>Download the distribution code</summary><p>Log into <a href="https://cs50.dev/">cs50.dev</a>, click on your terminal window, and execute <code class="language-plaintext highlighter-rouge">cd</code> by itself. You should find that your terminal window’s prompt resembles the below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$
+</code></pre></div></div>
+
+<p>Next execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://cdn.cs50.net/2026/x/psets/4/volume.zip
+</code></pre></div></div>
+
+<p>in order to download a ZIP called <code class="language-plaintext highlighter-rouge">volume.zip</code> into your codespace.</p>
+
+<p>Then execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip volume.zip
+</code></pre></div></div>
+
+<p>to create a folder called <code class="language-plaintext highlighter-rouge">volume</code>. You no longer need the ZIP file, so you can execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm volume.zip
+</code></pre></div></div>
+
+<p>and respond with “y” followed by Enter at the prompt to remove the ZIP file you downloaded.</p>
+
+<p>Now type</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd volume
+</code></pre></div></div>
+
+<p>followed by Enter to move yourself into (i.e., open) that directory. Your prompt should now resemble the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>volume/ $
+</code></pre></div></div>
+
+<p>If all was successful, you should execute</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls
+</code></pre></div></div>
+
+<p>and see a file named <code class="language-plaintext highlighter-rouge">volume.c</code>. Executing <code class="language-plaintext highlighter-rouge">code volume.c</code> should open the file where you will type your code for this problem set. If not, retrace your steps and see if you can determine where you went wrong!</p></details>
+
+<h2 id="implementation-details">Implementation Details</h2>
+
+<p>Complete the implementation of <code class="language-plaintext highlighter-rouge">volume.c</code>, such that it changes the volume of a sound file by a given factor.</p>
+
+<ul>
+  <li data-marker="*">The program should accept three command-line arguments. The first is <code class="language-plaintext highlighter-rouge">input</code>, which represents the name of the original audio file. The second is <code class="language-plaintext highlighter-rouge">output</code>, which represents the name of the new audio file that should be generated. The third is <code class="language-plaintext highlighter-rouge">factor</code>, which is the amount by which the volume of the original audio file should be scaled.
+    <ul>
+      <li data-marker="*">For example, if <code class="language-plaintext highlighter-rouge">factor</code> is <code class="language-plaintext highlighter-rouge">2.0</code>, then your program should double the volume of the audio file in <code class="language-plaintext highlighter-rouge">input</code> and save the newly generated audio file in <code class="language-plaintext highlighter-rouge">output</code>.</li>
+    </ul>
+  </li>
+  <li data-marker="*">Your program should first read the header from the input file and write the header to the output file.</li>
+  <li data-marker="*">Your program should then read the rest of the data from the WAV file, one 16-bit (2-byte) sample at a time. Your program should multiply each sample by the <code class="language-plaintext highlighter-rouge">factor</code> and write the new sample to the output file.
+    <ul>
+      <li data-marker="*">You may assume that the WAV file will use 16-bit signed values as samples. In practice, WAV files can have varying numbers of bits per sample, but we’ll assume 16-bit samples for this problem.</li>
+    </ul>
+  </li>
+  <li data-marker="*">Your program, if it uses <code class="language-plaintext highlighter-rouge">malloc</code>, must not leak any memory.</li>
+</ul>
+
+<h2 id="hints">Hints</h2>
+
+<details><summary>Understand the code in <code>volume.c</code></summary><p>Notice first that <code class="language-plaintext highlighter-rouge">volume.c</code> is already set up to take three command-line arguments, <code class="language-plaintext highlighter-rouge">input</code>, <code class="language-plaintext highlighter-rouge">output</code>, and <code class="language-plaintext highlighter-rouge">factor</code>.</p>
+<ul>
+  <li data-marker="*">
+<code class="language-plaintext highlighter-rouge">main</code> takes both an <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">argc</code>, and an array of <code class="language-plaintext highlighter-rouge">char *</code>s (strings!), <code class="language-plaintext highlighter-rouge">argv</code>.</li>
+  <li data-marker="*">If <code class="language-plaintext highlighter-rouge">argc</code>, the number of arguments at the command-line including the program itself, is not equal to 4, the program will print its proper usage and exit with status code 1.</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="c1">// Check command-line arguments</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"Usage: ./volume input.wav output.wav factor</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Next, <code class="language-plaintext highlighter-rouge">volume.c</code> uses <a href="https://manual.cs50.io/3/fopen"><code class="language-plaintext highlighter-rouge">fopen</code></a> to open the two files provided as command-line arguments.</p>
+<ul>
+  <li data-marker="*">It’s best practice to check if the result of calling <code class="language-plaintext highlighter-rouge">fopen</code> is <code class="language-plaintext highlighter-rouge">NULL</code>. If it is, the file wasn’t found or wasn’t able to be opened.</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Open files and determine scaling factor</span>
+<span class="kt">FILE</span> <span class="o">*</span><span class="n">input</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">"r"</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">input</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Could not open file.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">FILE</span> <span class="o">*</span><span class="n">output</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s">"w"</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">output</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Could not open file.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Later, these files are closed with <code class="language-plaintext highlighter-rouge">fclose</code>. Whenever you call <code class="language-plaintext highlighter-rouge">fopen</code>, you should later call <code class="language-plaintext highlighter-rouge">fclose</code>!</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Close files</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Before closing the files, though, notice that we have a few TODOs.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TODO: Copy header from input file to output file</span>
+
+<span class="c1">// TODO: Read samples from input file and write updated data to output file</span>
+</code></pre></div></div>
+
+<p>Odds are you’ll need to know the factor by which to scale the volume, hence why <code class="language-plaintext highlighter-rouge">volume.c</code> already converts the third command-line argument to a <code class="language-plaintext highlighter-rouge">float</code> for you!</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">factor</span> <span class="o">=</span> <span class="n">atof</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+</code></pre></div></div></details>
+
+<details><summary>Copy WAV header from input file to output file</summary><p>Your first TODO is to copy the WAV file header from <code class="language-plaintext highlighter-rouge">input</code> and write it to <code class="language-plaintext highlighter-rouge">output</code>. First, though, you’ll need to learn about a few special data types.</p>
+
+<p>So far, we’ve seen a number of different types in C, including <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">bool</code>, <code class="language-plaintext highlighter-rouge">char</code>, <code class="language-plaintext highlighter-rouge">double</code>, <code class="language-plaintext highlighter-rouge">float</code>, and <code class="language-plaintext highlighter-rouge">long</code>. However, inside a header file called <code class="language-plaintext highlighter-rouge">stdint.h</code> are the declarations of a number of <em>other</em> types that allow us to very precisely define the size (in bits) and sign (signed or unsigned) of an integer. Two types in particular will be useful to us when working with WAV files:</p>
+
+<ul>
+  <li data-marker="*">
+<code class="language-plaintext highlighter-rouge">uint8_t</code> is a type that stores an 8-bit (hence <code class="language-plaintext highlighter-rouge">8</code>!) unsigned (i.e., not negative) integer (hence <code class="language-plaintext highlighter-rouge">uint</code>!). We can treat each byte of a WAV file’s header as a <code class="language-plaintext highlighter-rouge">uint8_t</code> value.</li>
+  <li data-marker="*">
+<code class="language-plaintext highlighter-rouge">int16_t</code> is a type that stores a 16-bit signed (i.e., positive or negative) integer. We can treat each sample of audio in a WAV file as an <code class="language-plaintext highlighter-rouge">int16_t</code> value.</li>
+</ul>
+
+<p>You’ll likely want to create an array of bytes to store the data from the WAV file header that you’ll read from the input file. Using the <code class="language-plaintext highlighter-rouge">uint8_t</code> type to represent a byte, you can create an array of <code class="language-plaintext highlighter-rouge">n</code> bytes for your header with syntax like</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uint8_t header[n];
+</code></pre></div></div>
+
+<p>replacing <code class="language-plaintext highlighter-rouge">n</code> with the number of bytes. You can then use <code class="language-plaintext highlighter-rouge">header</code> as an argument to <a href="https://manual.cs50.io/3/fread"><code class="language-plaintext highlighter-rouge">fread</code></a> or <a href="https://manual.cs50.io/3/fwrite"><code class="language-plaintext highlighter-rouge">fwrite</code></a> to read into or write from the header.</p>
+
+<p>Recall that a WAV file’s header is always exactly 44 bytes long. Note that <code class="language-plaintext highlighter-rouge">volume.c</code> already defines a variable for you called <code class="language-plaintext highlighter-rouge">HEADER_SIZE</code>, equal to the number of bytes in the header.</p>
+
+<p>The below is a pretty big hint, but here’s how you could accomplish this TODO!</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Copy header from input file to output file</span>
+<span class="kt">uint8_t</span> <span class="n">header</span><span class="p">[</span><span class="n">HEADER_SIZE</span><span class="p">];</span>
+<span class="n">fread</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">HEADER_SIZE</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>
+<span class="n">fwrite</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">HEADER_SIZE</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+</code></pre></div></div></details>
+
+<details><summary>Write updated data to output file</summary><p>Your next TODO is to read samples from <code class="language-plaintext highlighter-rouge">input</code>, update those samples, and write the updated samples to <code class="language-plaintext highlighter-rouge">output</code>. When reading files, it’s common to create a “buffer” in which to temporarily store data. There, you can modify the data and—once it’s ready—write the buffer’s data to a new file.</p>
+
+<p>Recall that we can use the <code class="language-plaintext highlighter-rouge">int16_t</code> type to represent a sample of a WAV file. To store an audio sample, then, you can create a buffer variable with syntax like:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a buffer for a single sample</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>With a buffer for samples in place, you can now read data into it, one sample at a time. Try using <code class="language-plaintext highlighter-rouge">fread</code> for this task! You can use <code class="language-plaintext highlighter-rouge">&amp;buffer</code>, the address of <code class="language-plaintext highlighter-rouge">buffer</code>, as an argument to <code class="language-plaintext highlighter-rouge">fread</code> or <code class="language-plaintext highlighter-rouge">fwrite</code> to read into or write from the buffer. (Recall that the <code class="language-plaintext highlighter-rouge">&amp;</code> operator is used to get the address of the variable.)</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a buffer for a single sample</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">;</span>
+
+<span class="c1">// Read single sample into buffer</span>
+<span class="n">fread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Now, to increase (or decrease) the volume of a sample, you need only multiply it by some factor.</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a buffer for a single sample</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">;</span>
+
+<span class="c1">// Read single sample into buffer</span>
+<span class="n">fread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>
+
+<span class="c1">// Update volume of sample</span>
+<span class="n">buffer</span> <span class="o">*=</span> <span class="n">factor</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>And finally, you can write that updated sample to <code class="language-plaintext highlighter-rouge">output</code>:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a buffer for a single sample</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">;</span>
+
+<span class="c1">// Read single sample from input into buffer</span>
+<span class="n">fread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>
+
+<span class="c1">// Update volume of sample</span>
+<span class="n">buffer</span> <span class="o">*=</span> <span class="n">factor</span><span class="p">;</span>
+
+<span class="c1">// Write updated sample to new file</span>
+<span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>There’s just one problem: you’ll need to <em>continue</em> reading a sample into your buffer, updating its volume, and writing the updated sample to the output file while there are still samples left to read.</p>
+<ul>
+  <li data-marker="*">Thankfully, per its documentation, <code class="language-plaintext highlighter-rouge">fread</code> will return the number of items of data successfully read. You may find this useful to check for when you’ve reached the end of the file!</li>
+  <li data-marker="*">Keep in mind there’s no reason you can’t call <code class="language-plaintext highlighter-rouge">fread</code> inside of a <code class="language-plaintext highlighter-rouge">while</code> loop’s conditional. You could, for example, make a call to <code class="language-plaintext highlighter-rouge">fread</code> like the following:
+    <div class="language-c highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="p">(</span><span class="n">fread</span><span class="p">(...))</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>It’s quite the hint, but see the below for an efficient way to solve this problem:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a buffer for a single sample</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">;</span>
+
+<span class="c1">// Read single sample from input into buffer while there are samples left to read</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">fread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Update volume of sample</span>
+    <span class="n">buffer</span> <span class="o">*=</span> <span class="n">factor</span><span class="p">;</span>
+
+    <span class="c1">// Write updated sample to new file</span>
+    <span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Because the version of C you’re using treats non-zero values as <code class="language-plaintext highlighter-rouge">true</code> and zero values as <code class="language-plaintext highlighter-rouge">false</code>, you could simplify the above syntax to the following:</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Create a buffer for a single sample</span>
+<span class="kt">int16_t</span> <span class="n">buffer</span><span class="p">;</span>
+
+<span class="c1">// Read single sample from input into buffer while there are samples left to read</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">fread</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">input</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// Update volume of sample</span>
+    <span class="n">buffer</span> <span class="o">*=</span> <span class="n">factor</span><span class="p">;</span>
+
+    <span class="c1">// Write updated sample to new file</span>
+    <span class="n">fwrite</span><span class="p">(</span><span class="o">&amp;</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int16_t</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">output</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div></details>
+
+<h2 id="walkthrough">Walkthrough</h2>
+
+<div class="ratio ratio-16x9" data-video=""><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" src="https://www.youtube.com/embed/LiGhjz9ColQ?modestbranding=0&amp;rel=0&amp;showinfo=0"></iframe></div>
+
+<details><summary>Not sure how to solve?</summary><div class="ratio ratio-16x9" data-video=""><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="border" data-video="" data-src="https://www.youtube.com/embed/-rtZkTAK2gg?modestbranding=0&amp;rel=0&amp;showinfo=0"></iframe></div></details>
+
+<h2 id="how-to-test">How to Test</h2>
+
+<p>Your program should behave per the examples below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./volume input.wav output.wav 2.0
+</code></pre></div></div>
+
+<p>When you listen to <code class="language-plaintext highlighter-rouge">output.wav</code> (as by control-clicking on <code class="language-plaintext highlighter-rouge">output.wav</code> in the file browser, choosing <strong>Download</strong>, and then opening the file in an audio player on your computer), it should be twice as loud as <code class="language-plaintext highlighter-rouge">input.wav</code>!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./volume input.wav output.wav 0.5
+</code></pre></div></div>
+
+<p>When you listen to <code class="language-plaintext highlighter-rouge">output.wav</code>, it should be half as loud as <code class="language-plaintext highlighter-rouge">input.wav</code>!</p>
+
+<h3 id="correctness">Correctness</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>check50 cs50/problems/2026/x/volume
+</code></pre></div></div>
+
+<h3 id="style">Style</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>style50 volume.c
+</code></pre></div></div>
+
+<h2 id="how-to-submit">How to Submit</h2>
+
+<p>In your terminal, execute the below to submit your work, answering the prompts that come up as well.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>submit50 cs50/problems/2026/x/volume
+</code></pre></div></div>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="../../../assets/page.js?1792016574"></script>
+
+    
+
+
+</body></html>

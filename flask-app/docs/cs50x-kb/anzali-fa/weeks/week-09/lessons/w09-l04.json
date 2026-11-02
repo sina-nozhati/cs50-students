@@ -1,0 +1,259 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w09-l04",
+  "type": "lesson",
+  "week": 9,
+  "order": 4,
+  "stage_id": "w09-s4",
+  "title_fa": "froshims: منو، اعتبارسنجی و redirect",
+  "title_en": "froshims: menus, validation and redirect",
+  "note_ids": [
+    "w09-n08",
+    "w09-n09"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [
+    "w09-l03"
+  ],
+  "concept_ids": [
+    "w09-c-select-menu",
+    "w09-c-jinja-for",
+    "w09-c-constant-list",
+    "w09-c-radio-buttons",
+    "w09-c-server-validation",
+    "w09-c-error-template",
+    "w09-c-in-memory-dict",
+    "w09-c-jinja-dict-loop",
+    "w09-c-redirect",
+    "w09-c-static-folder"
+  ],
+  "objective_ids": [
+    "w09-o06",
+    "w09-o07"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/9; authored Flask apps run with the Flask test client and authored templates render with Jinja2 on the build box, databases from authored fixtures (D72, D73).",
+  "unlock": {
+    "rule": "all_prerequisite_lessons_mastered",
+    "lesson_ids": [
+      "w09-l03"
+    ]
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T18:00:00+03:30",
+  "units": [
+    {
+      "id": "w09-l04-u01",
+      "order": 1,
+      "title_fa": "select، for و اعتبارسنجی سمت سرور",
+      "concept_ids": [
+        "w09-c-select-menu",
+        "w09-c-jinja-for",
+        "w09-c-constant-list",
+        "w09-c-radio-buttons",
+        "w09-c-server-validation"
+      ],
+      "objective_ids": [
+        "w09-o06"
+      ],
+      "note_id": "w09-n08",
+      "source_refs": [
+        "src-notes-9#frosh-ims",
+        "src-transcript-9",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "در froshims کاربر نام و ورزش را انتخاب می‌کند. فهرست ثابت `SPORTS` در `app.py` یک منبع واحد است: قالب با `{% for sport in sports %}` گزینه‌های `<option>` را می‌سازد و سرور هم با `sport not in SPORTS` ورودی را می‌سنجد. سخنرانی نشان داد که کاربر می‌تواند با ابزار توسعه‌دهنده گزینه‌ای مثل volleyball بیفزاید؛ پس **فقط اعتبارسنجی سمت سرور** قابل اعتماد است. دکمه‌های رادیویی با `name` یکسان فقط یک انتخاب می‌دهند.",
+        "note_id": "w09-n08",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n08"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "froshims0-index",
+        "lang": "jinja",
+        "content": "{% extends \"layout.html\" %}\n\n{% block body %}\n    <h1>Register</h1>\n    <form action=\"/register\" method=\"post\">\n        <input autocomplete=\"off\" autofocus name=\"name\" placeholder=\"Name\" type=\"text\">\n        <select name=\"sport\">\n            <option selected value=\"\">Sport</option>\n            {% for sport in sports %}\n                <option value=\"{{ sport }}\">{{ sport }}</option>\n            {% endfor %}\n        </select>\n        <button type=\"submit\">Register</button>\n    </form>\n{% endblock %}",
+        "source_ref": "src-notes-9#frosh-ims",
+        "explain_fa": "منوی ورزش‌ها با for (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l04-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا سرور باید `sport not in SPORTS` را بسنجد، با اینکه منو فقط سه گزینه دارد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون کاربر می‌تواند HTML را در مرورگر عوض کند یا درخواست را بی‌مرورگر بفرستد.",
+            "correct": true,
+            "feedback_fa": "درست. هرگز به ورودی کاربر اعتماد نکن."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `<select>` گاهی گزینهٔ تصادفی می‌فرستد.",
+            "correct": false,
+            "feedback_fa": "مرورگر همان گزینهٔ انتخاب‌شده را می‌فرستد، اما کاربر می‌تواند گزینه‌ها را تغییر دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "لازم نیست؛ منو کافی است.",
+            "correct": false,
+            "feedback_fa": "Kelly در سخنرانی با devtools گزینهٔ تازه افزود و ثبت‌نام شد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l04-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی سه ثبت‌نام می‌فرستد. پاسخ‌ها چه هستند؟",
+        "expected": {
+          "output": "success\nfailure\nfailure"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: دومی ورزش مجاز ندارد و سومی نام ندارد.",
+          "incorrect_fa": "هر درخواست را با دو شرط بسنج: نام هست؟ ورزش در فهرست است؟"
+        },
+        "hints_fa": [
+          "`Volleyball` در `SPORTS` نیست."
+        ],
+        "lang": "flask",
+        "code": "from flask import Flask, render_template, request\n\napp = Flask(__name__)\n\nSPORTS = [\"Basketball\", \"Soccer\", \"Ultimate Frisbee\"]\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    if not request.form.get(\"name\") or request.form.get(\"sport\") not in SPORTS:\n        return \"failure\"\n    return \"success\"\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"data\": {\"name\": \"Alice\", \"sport\": \"Soccer\"}, \"method\": \"POST\", \"path\": \"/register\"}, {\"data\": {\"name\": \"Bob\", \"sport\": \"Volleyball\"}, \"method\": \"POST\", \"path\": \"/register\"}, {\"data\": {\"sport\": \"Soccer\"}, \"method\": \"POST\", \"path\": \"/register\"}]"
+          },
+          "expected_stdout_exact": "success\nfailure\nfailure\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w09-l04-u02",
+      "order": 2,
+      "title_fa": "error.html، دیکشنری حافظه و redirect",
+      "concept_ids": [
+        "w09-c-error-template",
+        "w09-c-in-memory-dict",
+        "w09-c-jinja-dict-loop",
+        "w09-c-redirect",
+        "w09-c-static-folder"
+      ],
+      "objective_ids": [
+        "w09-o07"
+      ],
+      "note_id": "w09-n09",
+      "source_refs": [
+        "src-notes-9#frosh-ims",
+        "src-anzali-authored-9"
+      ],
+      "reading": {
+        "text_fa": "به‌جای «failure» یک قالب `error.html` با پیام متغیر، مثلاً «Missing name»، کاربر را راهنمایی می‌کند. ثبت‌نام‌ها در دیکشنری `REGISTRANTS` نگه داشته می‌شوند که با خاموش شدن سرور پاک می‌شود. پس از ثبت، `redirect(\"/registrants\")` پاسخ **302** با سرآیند `Location` می‌دهد و مرورگر خودش با GET به آن مسیر می‌رود. تصویرها و CSS در پوشهٔ `static` می‌نشینند.",
+        "note_id": "w09-n09",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w09-n09"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "froshims4-app",
+        "lang": "python",
+        "content": "# Implements a registration form, storing registrants in a dictionary, with error messages\n\nfrom flask import Flask, redirect, render_template, request\n\napp = Flask(__name__)\n\nREGISTRANTS = {}\n\nSPORTS = [\n    \"Basketball\",\n    \"Soccer\",\n    \"Ultimate Frisbee\"\n]\n\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\", sports=SPORTS)\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n\n    # Validate name\n    name = request.form.get(\"name\")\n    if not name:\n        return render_template(\"error.html\", message=\"Missing name\")\n\n    # Validate sport\n    sport = request.form.get(\"sport\")\n    if not sport:\n        return render_template(\"error.html\", message=\"Missing sport\")\n    if sport not in SPORTS:\n        return render_template(\"error.html\", message=\"Invalid sport\")\n\n    # Remember registrant\n    REGISTRANTS[name] = sport\n\n    # Confirm registration\n    return redirect(\"/registrants\")\n\n@app.route(\"/registrants\")\ndef registrants():\n    return render_template(\"registrants.html\", registrants=REGISTRANTS)",
+        "source_ref": "src-notes-9#frosh-ims",
+        "explain_fa": "ثبت‌نام در دیکشنری و redirect (درس‌نامه)."
+      },
+      "check": {
+        "id": "w09-l04-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "پس از `return redirect(\"/registrants\")` ، مرورگر چه می‌کند؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "پاسخ 302 با `Location: /registrants` می‌گیرد و خودش با GET به آن مسیر می‌رود.",
+            "correct": true,
+            "feedback_fa": "درست."
+          },
+          {
+            "id": "b",
+            "text_fa": "صفحهٔ registrants را مستقیم در همان پاسخ دریافت می‌کند.",
+            "correct": false,
+            "feedback_fa": "redirect فقط نشانی جدید را می‌گوید؛ صفحه در درخواست بعدی می‌آید."
+          },
+          {
+            "id": "c",
+            "text_fa": "دوباره همان POST را به `/registrants` می‌فرستد.",
+            "correct": false,
+            "feedback_fa": "با 302 مرورگر درخواست بعدی را با GET می‌فرستد."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w09-l04-u02-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "این برنامهٔ تألیفی یک ثبت‌نام می‌فرستد (بدون دنبال کردن redirect) و سپس `/registrants` را می‌خواند. خروجی چیست؟",
+        "expected": {
+          "output": "STATUS 302\nLOCATION /registrants\nAlice: Soccer"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: 302 با Location و سپس فهرست از دیکشنری.",
+          "incorrect_fa": "پاسخ اول redirect است؛ دومی فهرست را می‌سازد."
+        },
+        "hints_fa": [
+          "برای redirect فقط STATUS و LOCATION چاپ می‌شود."
+        ],
+        "lang": "flask",
+        "code": "from flask import Flask, redirect, request\n\napp = Flask(__name__)\n\nREGISTRANTS = {}\n\n@app.route(\"/register\", methods=[\"POST\"])\ndef register():\n    REGISTRANTS[request.form.get(\"name\")] = request.form.get(\"sport\")\n    return redirect(\"/registrants\")\n\n@app.route(\"/registrants\")\ndef registrants():\n    return \", \".join(f\"{name}: {sport}\" for name, sport in REGISTRANTS.items())\n",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "requests.json": "[{\"data\": {\"name\": \"Alice\", \"sport\": \"Soccer\"}, \"method\": \"POST\", \"path\": \"/register\"}, {\"path\": \"/registrants\"}]"
+          },
+          "expected_stdout_exact": "STATUS 302\nLOCATION /registrants\nAlice: Soccer\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

@@ -1,0 +1,363 @@
+{
+  "$schema": "../../../schemas/lesson.schema.json",
+  "id": "w07-l01",
+  "type": "lesson",
+  "week": 7,
+  "order": 1,
+  "stage_id": "w07-s1",
+  "title_fa": "از فایل تخت تا پایگاه دادهٔ رابطه‌ای",
+  "title_en": "From flat files to relational databases",
+  "note_ids": [
+    "w07-n01",
+    "w07-n02"
+  ],
+  "related_doc_ids": [],
+  "prerequisite_lesson_ids": [],
+  "concept_ids": [
+    "w07-c-flat-file-db",
+    "w07-c-csv-format",
+    "w07-c-csv-quoting",
+    "w07-c-csv-reader-header",
+    "w07-c-dictreader-columns",
+    "w07-c-count-with-dict",
+    "w07-c-keyerror-try",
+    "w07-c-sorted-key-reverse",
+    "w07-c-relational-db",
+    "w07-c-sql-language",
+    "w07-c-crud",
+    "w07-c-sqlite3-cli",
+    "w07-c-csv-import",
+    "w07-c-schema"
+  ],
+  "objective_ids": [
+    "w07-o01",
+    "w07-o02"
+  ],
+  "origin": "authored",
+  "origin_detail": "Lesson structure, check questions and exercises authored by CS50x Anzali; readings are Persian rewrites of the linked official notes/shorts/section/transcript; examples marked official are verbatim from notes/7; authored SQL examples and exercises run on the authored fixtures in fixtures/ (D59).",
+  "unlock": {
+    "rule": "always_open",
+    "lesson_ids": [],
+    "recommended_after": "w06-mt-final",
+    "note_fa": "پیشنهاد می‌شود پیش از این درس هفتهٔ ۶ را مسلط شده باشی؛ قفل سخت نیست (قابل تنظیم)."
+  },
+  "mastery": {
+    "rule": "all_units_mastered",
+    "then": "lesson_mastered",
+    "xp_event": "lesson_mastered",
+    "xp_reason_template": "kb:lesson:{lesson_id}:mastered"
+  },
+  "estimated_minutes": null,
+  "estimated_minutes_note": "No defensible official estimate; measure from real usage (see validation/unresolved-items.md).",
+  "review_status": "draft-needs-human-review",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "generated_at": "2026-10-29T06:00:00+03:30",
+  "units": [
+    {
+      "id": "w07-l01-u01",
+      "order": 1,
+      "title_fa": "CSV و DictReader",
+      "concept_ids": [
+        "w07-c-flat-file-db",
+        "w07-c-csv-format",
+        "w07-c-csv-quoting",
+        "w07-c-csv-reader-header",
+        "w07-c-dictreader-columns"
+      ],
+      "objective_ids": [
+        "w07-o01"
+      ],
+      "note_id": "w07-n01",
+      "source_refs": [
+        "src-notes-7#flat-file-database",
+        "src-transcript-7",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "ساده‌ترین پایگاه داده یک فایل تخت (flat-file) است، مثل CSV: هر سطر یک رکورد است و ستون‌ها با ویرگول جدا می‌شوند. اگر خود مقدار ویرگول داشته باشد، مثل `Hello, World` ، داخل نقل‌قول دوتایی نوشته می‌شود تا ستون‌ها به هم نریزند. در سخنرانی، پاسخ‌های فرم Google به شکل `favorites.csv` دانلود شد و با پایتون خوانده شد. `csv.reader` هر سطر را فهرست می‌دهد و باید سطر سرستون را با `next` رد کنی؛ `csv.DictReader` هر سطر را واژه‌نامه‌ای می‌دهد که با نام ستون، مثل `row[\"language\"]` ، خوانده می‌شود و اگر ترتیب ستون‌ها عوض شود هم درست کار می‌کند.",
+        "note_id": "w07-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "favorites3",
+        "lang": "python",
+        "content": "# Prints all favorites in CSV using csv.DictReader\n\nimport csv\n\n# Open CSV file\nwith open(\"favorites.csv\", \"r\") as file:\n\n    # Create DictReader\n    reader = csv.DictReader(file)\n\n    # Iterate over CSV file, printing each favorite\n    for row in reader:\n        print(row[\"language\"])",
+        "source_ref": "src-notes-7#flat-file-database",
+        "explain_fa": "خواندن ستون language با DictReader (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l01-u01-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "چرا درس‌نامه `csv.DictReader` را به `csv.reader` ترجیح می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "چون ستون‌ها با نام خوانده می‌شوند و جابه‌جا شدن ستون‌ها برنامه را خراب نمی‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. `row[\"language\"]` به جای شمارهٔ ستون به نام آن تکیه می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "چون `csv.reader` نمی‌تواند فایل CSV را باز کند.",
+            "correct": false,
+            "feedback_fa": "`csv.reader` هم فایل را می‌خواند؛ فقط هر سطر را فهرست می‌دهد و باید با شمارهٔ ستون کار کنی."
+          },
+          {
+            "id": "c",
+            "text_fa": "چون `DictReader` فایل را خودش مرتب می‌کند.",
+            "correct": false,
+            "feedback_fa": "هیچ‌کدام از این دو چیزی را مرتب نمی‌کنند؛ ترتیب سطرها همان ترتیب فایل است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l01-u01-ex",
+        "type": "predict_output",
+        "origin": "authored",
+        "prompt_fa": "فایل `favorites.csv` این سه سطر را دارد:\n\n```text\nTimestamp,language,problem\n10/20/2025 13:01:01,Python,\"Hello, World\"\n10/20/2025 13:01:05,C,Mario\n```\n\nخروجی این برنامهٔ تألیفی دقیقاً چیست؟",
+        "expected": {
+          "output": "Hello, World\nMario"
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست: نقل‌قول دوتایی ویرگول را جزو مقدار نگه می‌دارد و سطر سرستون چاپ نمی‌شود.",
+          "incorrect_fa": "دو نکته: `DictReader` سطر اول را سرستون می‌گیرد، و ویرگولِ داخل نقل‌قول جداکننده نیست."
+        },
+        "hints_fa": [
+          "مقدار داخل نقل‌قول یک ستون است، نه دو ستون."
+        ],
+        "lang": "python",
+        "code": "import csv\n\nwith open(\"favorites.csv\", \"r\") as file:\n    reader = csv.DictReader(file)\n    for row in reader:\n        print(row[\"problem\"])",
+        "code_origin": "authored",
+        "stdin": "",
+        "args": [],
+        "run_checked": true,
+        "match": "exact_after_trim",
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "favorites.csv": "Timestamp,language,problem\n10/20/2025 13:01:01,Python,\"Hello, World\"\n10/20/2025 13:01:05,C,Mario\n"
+          },
+          "expected_stdout_exact": "Hello, World\nMario\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l01-u02",
+      "order": 2,
+      "title_fa": "شمردن با واژه‌نامه و مرتب کردن",
+      "concept_ids": [
+        "w07-c-count-with-dict",
+        "w07-c-keyerror-try",
+        "w07-c-sorted-key-reverse"
+      ],
+      "objective_ids": [
+        "w07-o01"
+      ],
+      "note_id": "w07-n01",
+      "source_refs": [
+        "src-notes-7#flat-file-database",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "برای شمردن محبوبیت هر زبان، درس‌نامه یک واژه‌نامهٔ خالی `counts` می‌سازد و برای هر سطر، اگر کلید از قبل بود `counts[favorite] += 1` و اگر نبود مقدار را `1` می‌گذارد. نسخهٔ دیگر همین کار را با `try` و `except KeyError` انجام می‌دهد، چون خواندن کلیدی که وجود ندارد `KeyError` می‌دهد. برای چاپ از پرطرفدارترین به کم‌طرفدارترین، `sorted(counts, key=counts.get, reverse=True)` کلیدها را بر اساس مقدارشان و نزولی مرتب می‌کند.",
+        "note_id": "w07-n01",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n01"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "favorites8",
+        "lang": "python",
+        "content": "# Sorts favorites by value using .get\n\nimport csv\n\n# Open CSV file\nwith open(\"favorites.csv\", \"r\") as file:\n\n    # Create DictReader\n    reader = csv.DictReader(file)\n\n    # Counts\n    counts = {}\n\n    # Iterate over CSV file, counting favorites\n    for row in reader:\n        favorite = row[\"language\"]\n        if favorite in counts:\n            counts[favorite] += 1\n        else:\n            counts[favorite] = 1\n\n# Print counts\nfor favorite in sorted(counts, key=counts.get, reverse=True):\n    print(f\"{favorite}: {counts[favorite]}\")",
+        "source_ref": "src-notes-7#flat-file-database",
+        "explain_fa": "مرتب‌سازی بر اساس مقدار با .get (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l01-u02-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `sorted(counts, key=counts.get, reverse=True)` نقش `key=counts.get` چیست؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "هر کلید را بر اساس مقدار متناظرش در `counts` مرتب می‌کند.",
+            "correct": true,
+            "feedback_fa": "درست. `counts.get` برای هر کلید شمارش آن را برمی‌گرداند و مرتب‌سازی بر همین پایه است."
+          },
+          {
+            "id": "b",
+            "text_fa": "کلیدها را الفبایی مرتب می‌کند.",
+            "correct": false,
+            "feedback_fa": "مرتب‌سازی الفبایی کار پیش‌فرض `sorted(counts)` بدون `key` است."
+          },
+          {
+            "id": "c",
+            "text_fa": "مقدارها را به جای کلیدها چاپ می‌کند.",
+            "correct": false,
+            "feedback_fa": "`sorted(counts, ...)` همچنان کلیدها را برمی‌گرداند؛ `key` فقط معیار ترتیب است."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l01-u02-ex",
+        "type": "fill_blank_code",
+        "origin": "authored",
+        "prompt_fa": "جای خالی را پر کن تا زبان‌ها از پرطرفدارترین به کم‌طرفدارترین چاپ شوند. فایل شش پاسخ دارد: سه Python، دو C و یک Scratch.",
+        "lang": "python",
+        "code_origin": "authored",
+        "template": "import csv\n\ncounts = {}\nwith open(\"favorites.csv\", \"r\") as file:\n    reader = csv.DictReader(file)\n    for row in reader:\n        favorite = row[\"language\"]\n        if favorite in counts:\n            counts[favorite] += 1\n        else:\n            counts[favorite] = 1\n\nfor favorite in sorted(counts, key=[[b1]], reverse=True):\n    print(f\"{favorite}: {counts[favorite]}\")",
+        "blanks": [
+          {
+            "id": "b1",
+            "accepted": [
+              "counts.get",
+              "lambda favorite: counts[favorite]"
+            ],
+            "hint_fa": "تابعی لازم است که برای هر کلید، شمارش آن را برگرداند.",
+            "wrong_feedback": {
+              "counts": "خود واژه‌نامه تابع نیست؛ `sorted` هنگام صدا زدن آن `TypeError` می‌دهد.",
+              "len": "`len` طول نام زبان را معیار می‌گیرد، نه شمارش آن را؛ ترتیب Scratch، Python، C می‌شود.",
+              "counts.keys": "`counts.keys` آرگومان نمی‌گیرد و صدا زدنش با هر کلید `TypeError` می‌دهد."
+            },
+            "default_wrong_fa": "از متد `get` واژه‌نامهٔ `counts` استفاده کن."
+          }
+        ],
+        "expected": {
+          "b1": [
+            "counts.get",
+            "lambda favorite: counts[favorite]"
+          ]
+        },
+        "evaluation": "auto",
+        "match": "exact_after_trim",
+        "feedback": {
+          "correct_fa": "درست: `counts.get` شمارش هر زبان را معیار مرتب‌سازی می‌کند.",
+          "incorrect_fa": "معیار ترتیب باید شمارش هر زبان باشد."
+        },
+        "hints_fa": [],
+        "qa": {
+          "stdin": "",
+          "args": [],
+          "files": {
+            "favorites.csv": "Timestamp,language,problem\n10/20/2025 13:01:01,Python,Mario\n10/20/2025 13:01:05,C,Mario\n10/20/2025 13:01:09,Scratch,Scratch\n10/20/2025 13:01:12,Python,DNA\n10/20/2025 13:01:20,C,Filter\n10/20/2025 13:01:31,Python,Speller\n"
+          },
+          "expected_stdout_exact": "Python: 3\nC: 2\nScratch: 1\n",
+          "verified_by": "_tools/qa_questions.py"
+        }
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    },
+    {
+      "id": "w07-l01-u03",
+      "order": 3,
+      "title_fa": "پایگاه دادهٔ رابطه‌ای، SQL و sqlite3",
+      "concept_ids": [
+        "w07-c-relational-db",
+        "w07-c-sql-language",
+        "w07-c-crud",
+        "w07-c-sqlite3-cli",
+        "w07-c-csv-import",
+        "w07-c-schema"
+      ],
+      "objective_ids": [
+        "w07-o02"
+      ],
+      "note_id": "w07-n02",
+      "source_refs": [
+        "src-notes-7#relational-databases",
+        "src-transcript-7",
+        "src-anzali-authored-7"
+      ],
+      "reading": {
+        "text_fa": "پایگاه دادهٔ رابطه‌ای داده را در جدول‌هایی با سطر و ستون نگه می‌دارد و با زبان SQL با آن کار می‌کنی. چهار کار اصلی CRUD نام دارند: Create، Read، Update و Delete؛ در SQL این‌ها `CREATE` و `INSERT`، `SELECT`، `UPDATE` و `DELETE` هستند. در CS50 از SQLite و برنامهٔ خط فرمان `sqlite3` استفاده می‌شود: با `sqlite3 favorites.db` پایگاه داده ساخته یا باز می‌شود، با `.mode csv` و `.import favorites.csv favorites` فایل CSV به جدول تبدیل می‌شود و `.schema` دستور `CREATE TABLE` جدول را نشان می‌دهد.",
+        "note_id": "w07-n02",
+        "origin": "translated-rewritten",
+        "link": "/kb/d/w07-n02"
+      },
+      "example": {
+        "kind": "official",
+        "origin": "official",
+        "example_key": "crud-list",
+        "lang": "text",
+        "content": "Create \nRead\nUpdate\nDelete",
+        "source_ref": "src-notes-7#relational-databases",
+        "explain_fa": "چهار عمل CRUD (درس‌نامه)."
+      },
+      "check": {
+        "id": "w07-l01-u03-chk",
+        "type": "mcq",
+        "origin": "authored",
+        "prompt_fa": "در `sqlite3` کدام فرمان ساختار جدول‌ها، یعنی دستور `CREATE TABLE` آن‌ها، را نشان می‌دهد؟",
+        "options": [
+          {
+            "id": "a",
+            "text_fa": "`.schema`",
+            "correct": true,
+            "feedback_fa": "درست. `.schema` طرح‌وارهٔ جدول‌ها را چاپ می‌کند."
+          },
+          {
+            "id": "b",
+            "text_fa": "`.import`",
+            "correct": false,
+            "feedback_fa": "`.import` داده را از فایل به جدول وارد می‌کند؛ ساختار را نشان نمی‌دهد."
+          },
+          {
+            "id": "c",
+            "text_fa": "`.mode csv`",
+            "correct": false,
+            "feedback_fa": "`.mode csv` فقط قالب ورودی و خروجی را عوض می‌کند."
+          }
+        ]
+      },
+      "exercise": {
+        "id": "w07-l01-u03-ex",
+        "type": "classify",
+        "origin": "authored",
+        "prompt_fa": "هر دستور SQL را در یکی از چهار دستهٔ CRUD بگذار: (۱) `INSERT` (۲) `SELECT` (۳) `UPDATE` (۴) `DELETE`",
+        "expected": {
+          "answers": {
+            "1": "ایجاد",
+            "2": "خواندن",
+            "3": "به‌روزرسانی",
+            "4": "حذف"
+          }
+        },
+        "evaluation": "auto",
+        "feedback": {
+          "correct_fa": "درست.",
+          "incorrect_fa": "حرف‌های C، R، U و D را با کار هر دستور تطبیق بده."
+        },
+        "hints_fa": []
+      },
+      "mastery": {
+        "rule": "check_correct_and_exercise_pass",
+        "max_hints_for_full_xp": 1,
+        "note_fa": "واحد زمانی «مسلط» است که پرسش بررسی درست پاسخ داده شود و تمرین پذیرفته شود. اگر پاسخ اول غلط بود، بعد از خواندن بازخورد یک پرسش هم‌ارز دوباره پرسیده می‌شود."
+      },
+      "xp_event": "unit_mastered",
+      "xp_reason_template": "kb:unit:{unit_id}:mastered"
+    }
+  ]
+}

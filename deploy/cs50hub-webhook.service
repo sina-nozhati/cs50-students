@@ -6,7 +6,9 @@ After=network.target
 User=root
 Group=root
 WorkingDirectory=/var/www/cs50hub
-Environment="WEBHOOK_SECRET=cs50-anzali-webhook-secret"
+# Secret را در این فایل قرار دهید (chmod 600) — هرگز در git commit نشود:
+#   /etc/cs50hub/webhook.env  →  WEBHOOK_SECRET=...
+EnvironmentFile=-/etc/cs50hub/webhook.env
 ExecStart=/var/www/cs50hub/venv/bin/python /var/www/cs50hub/deploy/webhook.py
 Restart=always
 RestartSec=5

@@ -1,0 +1,171 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w03-pr-atoi",
+  "kind": "practice",
+  "week": 3,
+  "title_en": "Recursive atoi",
+  "title_fa": "atoi بازگشتی (Recursive atoi)",
+  "guide_doc_id": "w03-pr-atoi",
+  "guide_file": "atoi.fa.md",
+  "generated_at": "2026-10-28T10:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/2026/practice/atoi/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w03-pr-atoi-r1",
+        "text_fa": "تابع `convert` را بازگشتی بنویس.",
+        "text_en": "In the recursive version of `convert`, start with the last `char` and convert it into an integer value.",
+        "source_ref": "src-practice-atoi#implementation-details"
+      },
+      {
+        "id": "w03-pr-atoi-r2",
+        "text_fa": "برنامه برای عدد صحیح مثبت باید مثل نمونه‌های رسمی رفتار کند.",
+        "text_en": "Your program should behave per the examples below.",
+        "source_ref": "src-practice-atoi#how-to-test-your-code"
+      }
+    ],
+    "commands": {
+      "check50": null,
+      "style50": "style50 atoi.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/3/atoi.zip\nunzip atoi.zip\nrm atoi.zip"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی ۱",
+        "text": "atoi/ $ ./atoi\nEnter a positive integer: 3432\n3432",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی ۲",
+        "text": "atoi/ $ ./atoi\nEnter a positive integer: 98765\n98765",
+        "origin": "official"
+      }
+    ],
+    "test_texts": [],
+    "debug_commands": [],
+    "official_evaluation": {
+      "check50": null,
+      "style50": "style50 atoi.c",
+      "has_check50": false,
+      "has_style50": true,
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [],
+    "asciinema": "qH1q1cIz2kZEnbl1Mc4CCCcYK",
+    "media_ids": [],
+    "discrepancy_ids": [
+      "d40",
+      "d45"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w03-c-recursion",
+      "w03-c-base-case",
+      "w03-c-recursive-case",
+      "w03-c-iteration-vs-recursion"
+    ],
+    "prerequisite_lesson_ids": [
+      "w03-l06"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w03-c-recursion",
+        "note_id": "w03-n12",
+        "lesson_id": "w03-l06",
+        "unit_id": "w03-l06-u01"
+      },
+      {
+        "concept_id": "w03-c-base-case",
+        "note_id": "w03-n12",
+        "lesson_id": "w03-l06",
+        "unit_id": "w03-l06-u01"
+      },
+      {
+        "concept_id": "w03-c-recursive-case",
+        "note_id": "w03-n12",
+        "lesson_id": "w03-l06",
+        "unit_id": "w03-l06-u01"
+      },
+      {
+        "concept_id": "w03-c-iteration-vs-recursion",
+        "note_id": "w03-n13",
+        "lesson_id": "w03-l06",
+        "unit_id": "w03-l06-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "اول بپرس: کوچک‌ترین رشته‌ای که جوابش را بدون فکر می‌دانی چیست؟ آن حالت پایه است."
+      },
+      {
+        "n": 2,
+        "hint_fa": "یادداشت ۱۲ را مرور کن: هر فراخوانی بازگشتی باید مسئله را کوچک‌تر کند. اینجا «کوچک‌تر» یعنی چه؟"
+      },
+      {
+        "n": 3,
+        "hint_fa": "یادت هست رشته در C با `\\0` تمام می‌شود (هفتهٔ ۲)؟ این در کوتاه کردن رشته به کار می‌آید."
+      },
+      {
+        "n": 4,
+        "hint_fa": "یک عدد دورقمی را با دست دنبال کن: رقم آخر و بقیهٔ رشته چه رابطه‌ای با عدد کامل دارند؟"
+      }
+    ],
+    "common_mistakes_fa": [
+      "فراموش کردن حالت پایه",
+      "فراخوانی بازگشتی با همان رشته بدون کوتاه کردن",
+      "جمع کردن کد ASCII رقم به‌جای مقدار عددی آن"
+    ],
+    "self_checklist": [
+      {
+        "id": "w03-pr-atoi-c01",
+        "text_fa": "تابع `convert` بازگشتی است و حلقه ندارد.",
+        "maps_to": "w03-pr-atoi-r1"
+      },
+      {
+        "id": "w03-pr-atoi-c02",
+        "text_fa": "هر دو نمونهٔ رسمی خروجی درست دارند.",
+        "maps_to": "w03-pr-atoi-r2"
+      },
+      {
+        "id": "w03-pr-atoi-c03",
+        "text_fa": "حالت پایه را مشخص کرده‌ام.",
+        "maps_to": "w03-pr-atoi-r1"
+      },
+      {
+        "id": "w03-pr-atoi-c04",
+        "text_fa": "style50 تغییری پیشنهاد نمی‌کند.",
+        "maps_to": "style50"
+      }
+    ],
+    "thought_question_fa": "Why do you need a base case whenever you create a recursive function?",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [
+    {
+      "title_fa": "راهنمایی‌های گام‌به‌گام «Hints» صفحهٔ رسمی",
+      "url": "https://cs50.harvard.edu/x/practice/atoi/#background",
+      "reason_fa": "این راهنمایی‌ها الگوریتم را تقریباً کامل توصیف می‌کنند؛ اول خودت امتحان کن."
+    },
+    {
+      "title_fa": "«A More Thorough Implementation»",
+      "url": "https://cs50.harvard.edu/x/practice/atoi/#a-more-thorough-implementation",
+      "reason_fa": "پیاده‌سازی کامل رسمی atoi؛ در این بسته بازتولید نشده است."
+    }
+  ],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}

@@ -1,0 +1,68 @@
+<div id="exercise-{{ exercise.id }}" class="card-harvard p-5 my-4 border border-[var(--border)]">
+    <div class="flex items-center justify-between gap-2 mb-3">
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-crimson"></span>
+            <h4 class="font-bold text-sm text-[var(--ink)]">{{ exercise.title }}</h4>
+            <span class="badge-crimson text-xs num">+{{ exercise.xp_reward }} XP</span>
+        </div>
+        {% if attempt and attempt.is_correct %}
+            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full flex items-center gap-1">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                حل شده
+            </span>
+        {% endif %}
+    </div>
+
+    <p class="text-xs text-[var(--slate)] mb-3 leading-relaxed">{{ exercise.instruction }}</p>
+
+    <div class="bg-[#1E1E1E] text-[#F5F5F5] p-3.5 rounded-lg text-xs font-mono direction-ltr text-left overflow-x-auto mb-4 border border-gray-800">
+        <pre><code>{{ exercise.code_snippet }}</code></pre>
+    </div>
+
+    {% if attempt and attempt.is_correct %}
+        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-800 flex items-start gap-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+                <p class="font-bold mb-0.5">پاسخ شما درست بود: <span class="font-mono text-emerald-900">{{ attempt.submitted_answer }}</span></p>
+                <p>{{ exercise.explanation }}</p>
+            </div>
+        </div>
+    {% else %}
+        <form hx-post="{{ url_for('kb.submit_code_exercise', exercise_id=exercise.id) }}"
+              hx-target="#exercise-{{ exercise.id }}"
+              hx-swap="outerHTML"
+              class="space-y-3">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="hints_used" id="hints_used_{{ exercise.id }}" value="{{ attempt.hints_used if attempt else 0 }}">
+
+            <div class="flex items-center gap-2">
+                <input type="text"
+                       name="answer"
+                       required
+                       autocomplete="off"
+                       placeholder="قسمت جای خالی را وارد کنید..."
+                       class="form-input text-xs font-mono direction-ltr text-left flex-1"
+                       value="{{ attempt.submitted_answer if attempt and attempt.submitted_answer else '' }}">
+                <button type="submit" class="btn-crimson text-xs px-4 py-2 shrink-0">
+                    بررسی پاسخ
+                </button>
+            </div>
+
+            {% if error_message %}
+                <p class="text-xs text-red-600 font-medium">{{ error_message }}</p>
+            {% endif %}
+
+            <div class="flex items-center justify-between text-[11px] pt-1">
+                <button type="button"
+                        onclick="document.getElementById('hint-{{ exercise.id }}').classList.toggle('hidden'); document.getElementById('hints_used_{{ exercise.id }}').value = parseInt(document.getElementById('hints_used_{{ exercise.id }}').value || 0) + 1;"
+                        class="text-crimson hover:underline">
+                    نیاز به راهنمایی داری؟ 💡
+                </button>
+            </div>
+
+            <div id="hint-{{ exercise.id }}" class="hidden p-2.5 bg-amber-50 border border-amber-200 rounded text-xs text-amber-900 leading-relaxed">
+                {{ exercise.hint }}
+            </div>
+        </form>
+    {% endif %}
+</div>

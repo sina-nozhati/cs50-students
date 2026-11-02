@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://anzali.local/kb/schemas/activity.schema.json",
+  "title": "Activities",
+  "type": "object",
+  "required": [
+    "week",
+    "activities",
+    "disclaimer"
+  ],
+  "properties": {
+    "activities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "title_fa",
+          "objective_fa",
+          "completion_condition",
+          "assessment_criterion",
+          "xp_event",
+          "tracking",
+          "unlock",
+          "optional",
+          "origin"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^w00-a-[a-z0-9-]+$"
+          },
+          "type": {
+            "enum": [
+              "kb_read",
+              "lesson",
+              "practice_quiz",
+              "spaced_review",
+              "revisit",
+              "mastery_test",
+              "pset_step",
+              "pset_submit",
+              "optional_challenge"
+            ]
+          },
+          "completion_condition": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {},
+            "additionalProperties": true
+          },
+          "assessment_criterion": {
+            "type": "object",
+            "required": [
+              "type"
+            ],
+            "properties": {},
+            "additionalProperties": true
+          },
+          "xp_event": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tracking": {
+            "type": "object",
+            "minProperties": 1
+          },
+          "unlock": {
+            "type": "object",
+            "required": [
+              "rule"
+            ],
+            "properties": {},
+            "additionalProperties": true
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "origin": {
+            "const": "authored"
+          }
+        },
+        "additionalProperties": true
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true
+}

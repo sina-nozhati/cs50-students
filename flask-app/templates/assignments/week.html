@@ -66,22 +66,23 @@
         </a>
         {% endif %}
 
-        {# فرم تحویل — فقط اگر هنوز تحویل نداده #}
-        {% if current_user.is_authenticated and not sub %}
+        {# فرم تحویل / به‌روزرسانی لینک تا قبل از نمره‌دهی #}
+        {% if current_user.is_authenticated and (not sub or sub.grade is none) %}
         <form method="POST" action="{{ url_for('assignments.submit', assignment_id=a.id) }}"
               class="mt-3 flex gap-2 flex-wrap"
               onsubmit="this.querySelector('button[type=submit]').disabled=true;">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
 
             <input type="url" name="github_url" placeholder="https://github.com/username/repo"
+                   value="{{ sub.github_url if sub else '' }}"
                    required pattern="https://github\.com/.*"
                    class="flex-1 min-w-[200px] px-3 py-2.5 border border-[var(--border)] rounded-lg text-sm focus:ring-2 focus:ring-crimson focus:outline-none focus:border-crimson">
             <button type="submit"
                     class="btn-crimson px-4 py-2.5 text-sm whitespace-nowrap">
-                تحویل (+{{ a.xp_reward }} XP)
+                {% if sub %}به‌روزرسانی لینک{% else %}تحویل (+{{ a.xp_reward }} XP){% endif %}
             </button>
         </form>
-        {% elif not sub %}
+        {% elif not current_user.is_authenticated %}
         <p class="text-xs text-[var(--slate)] mt-3 italic">برای تحویل، ابتدا <a href="{{ url_for('auth.login') }}" class="text-crimson underline">وارد شوید</a>.</p>
         {% endif %}
     </div>

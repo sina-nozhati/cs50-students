@@ -1,0 +1,191 @@
+{
+  "$schema": "../../../schemas/problem-set.schema.json",
+  "id": "w01-pr-half",
+  "kind": "practice",
+  "week": 1,
+  "title_en": "Half",
+  "title_fa": "نصف صورت‌حساب (Half)",
+  "guide_doc_id": "w01-pr-half",
+  "guide_file": "half.fa.md",
+  "generated_at": "2026-10-27T09:00:00+03:30",
+  "license": "CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)",
+  "attribution": "Based on CS50x 2026 © David J. Malan, Harvard University (https://cs50.harvard.edu/x/), licensed CC BY-NC-SA 4.0. Persian rewrite and authored material by CS50x Anzali; same license (ShareAlike), non-commercial.",
+  "review_status": "draft-needs-human-review",
+  "official": {
+    "origin": "translated-rewritten",
+    "url": "https://cs50.harvard.edu/x/practice/half/",
+    "index_url": null,
+    "submission": "optional-practice",
+    "deadline_utc": null,
+    "deadline_tehran": null,
+    "requirements": [
+      {
+        "id": "w01-pr-half-r1",
+        "text_fa": "تابع half را کامل کن تا نصف کل (با مالیات و انعام) را برگرداند.",
+        "text_en": "complete the function, `half`, which calculates exactly half of the bill after tax and tip are added, and returns that value.",
+        "source_ref": "src-practice-half#getting-started"
+      },
+      {
+        "id": "w01-pr-half-r2",
+        "text_fa": "مالیات پیش از انعام اضافه شود.",
+        "text_en": "The tax should be added to the bill amount *before* calculating the tip.",
+        "source_ref": "src-practice-half#implementation-details"
+      }
+    ],
+    "commands": {
+      "check50": "check50 cs50/labs/2023/x/half",
+      "style50": "style50 half.c",
+      "submit50": null,
+      "wget": "wget https://cdn.cs50.net/2022/fall/labs/1/half.c"
+    },
+    "sample_io": [
+      {
+        "caption_fa": "نمونهٔ رسمی ۱",
+        "text": "half/ $ ./half\nBill before tax and tip: 12.50\nSale Tax Percent: 8.875\nTip percent: 20\nYou will owe $8.17 each!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی ۲",
+        "text": "half/ $ ./half\nBill before tax and tip: 23.50\nSale Tax Percent: 7  \nTip percent: 15\nYou will owe $14.46 each!",
+        "origin": "official"
+      },
+      {
+        "caption_fa": "نمونهٔ رسمی ۳",
+        "text": "half/ $ ./half\nBill before tax and tip: 100\nSale Tax Percent: 6.25\nTip percent: 18\nYou will owe $62.69 each!",
+        "origin": "official"
+      }
+    ],
+    "official_evaluation": {
+      "check50": "check50 cs50/labs/2023/x/half",
+      "style50": "style50 half.c",
+      "note_fa": "نمرهٔ رسمی از check50/submit50 و gradebook می‌آید؛ چک‌لیست پنل نمرهٔ رسمی نیست."
+    },
+    "videos": [
+      {
+        "youtube_id": "EYb9jnt2cv4",
+        "caption_fa": "ویدئوی معرفی"
+      }
+    ],
+    "asciinema": null,
+    "media_ids": [
+      "w01-m-half-demo"
+    ],
+    "discrepancy_ids": [
+      "d15"
+    ]
+  },
+  "pedagogical_guide": {
+    "origin": "authored",
+    "concept_ids": [
+      "w01-c-data-types",
+      "w01-c-type-casting",
+      "w01-c-truncation",
+      "w01-c-arithmetic-operators",
+      "w01-c-parameter",
+      "w01-c-return-value",
+      "w01-c-format-codes"
+    ],
+    "prerequisite_lesson_ids": [
+      "w01-l05",
+      "w01-l10",
+      "w01-l12"
+    ],
+    "concept_links": [
+      {
+        "concept_id": "w01-c-data-types",
+        "note_id": "w01-n10",
+        "lesson_id": "w01-l05",
+        "unit_id": "w01-l05-u01"
+      },
+      {
+        "concept_id": "w01-c-type-casting",
+        "note_id": "w01-n19",
+        "lesson_id": "w01-l12",
+        "unit_id": "w01-l12-u03"
+      },
+      {
+        "concept_id": "w01-c-truncation",
+        "note_id": "w01-n19",
+        "lesson_id": "w01-l12",
+        "unit_id": "w01-l12-u03"
+      },
+      {
+        "concept_id": "w01-c-arithmetic-operators",
+        "note_id": "w01-n19",
+        "lesson_id": "w01-l12",
+        "unit_id": "w01-l12-u01"
+      },
+      {
+        "concept_id": "w01-c-parameter",
+        "note_id": "w01-n16",
+        "lesson_id": "w01-l10",
+        "unit_id": "w01-l10-u02"
+      },
+      {
+        "concept_id": "w01-c-return-value",
+        "note_id": "w01-n16",
+        "lesson_id": "w01-l10",
+        "unit_id": "w01-l10-u03"
+      },
+      {
+        "concept_id": "w01-c-format-codes",
+        "note_id": "w01-n11",
+        "lesson_id": "w01-l05",
+        "unit_id": "w01-l05-u03"
+      }
+    ],
+    "staged_hints": [
+      {
+        "n": 1,
+        "hint_fa": "صفحهٔ رسمی یادآوری می‌کند: انعام به‌صورت int وارد می‌شود و تقسیم int بر int نتیجهٔ int می‌دهد."
+      },
+      {
+        "n": 2,
+        "hint_fa": "ترتیب عملیات مثل جبر است: ضرب و تقسیم پیش از جمع و تفریق."
+      },
+      {
+        "n": 3,
+        "hint_fa": "یادداشت «بریدن و تبدیل نوع» را مرور کن."
+      }
+    ],
+    "common_mistakes_fa": [
+      "تقسیم صحیح درصد انعام",
+      "محاسبهٔ انعام روی مبلغ بدون مالیات",
+      "برگرداندن کل به‌جای نصف"
+    ],
+    "self_checklist": [
+      {
+        "id": "w01-pr-half-c01",
+        "text_fa": "درصدها را پیش از محاسبه به مقدار اعشاری مناسب تبدیل کرده‌ام.",
+        "maps_to": "w01-pr-half-r1"
+      },
+      {
+        "id": "w01-pr-half-c02",
+        "text_fa": "مالیات را پیش از انعام اضافه کرده‌ام.",
+        "maps_to": "w01-pr-half-r2"
+      },
+      {
+        "id": "w01-pr-half-c03",
+        "text_fa": "مراقب تقسیم int بر int بوده‌ام.",
+        "maps_to": "w01-pr-half-r1"
+      },
+      {
+        "id": "w01-pr-half-c04",
+        "text_fa": "هر سه نمونهٔ رسمی را بازتولید کرده‌ام.",
+        "maps_to": "w01-pr-half-r1"
+      },
+      {
+        "id": "w01-pr-half-c05",
+        "text_fa": "check50 و style50 را اجرا کرده‌ام.",
+        "maps_to": "check50"
+      }
+    ],
+    "thought_question_fa": "چرا فکر می‌کنی در C انواع دادهٔ مختلف وجود دارد؟",
+    "verification_fa": "پیش از تحویل چک‌لیست را بگذران و check50 و style50 را اجرا کن."
+  },
+  "link_only": [],
+  "solution": {
+    "provided": false,
+    "reason_fa": "طبق سیاست صداقت علمی CS50 و PRD مادر (FR-13) راه‌حل ارائه نمی‌شود. بخش‌های رسمیِ نزدیک به راه‌حل فقط پیوند داده شده‌اند."
+  }
+}
