@@ -175,3 +175,73 @@ def test_practice_routes(client, app):
     assert complete_resp.status_code == 200
     comp_data = complete_resp.get_json()
     assert comp_data["success"] is True
+
+
+def test_week0_and_global_practice_routes(client, app):
+    with app.app_context():
+        user = User(username="week0_tester", password_hash="hash", is_admin=False)
+        db.session.add(user)
+        week0 = Week.query.filter_by(number=0).first()
+        if not week0:
+            week0 = Week(number=0, title="هفته صفر — اسکرچ", is_published=True)
+            db.session.add(week0)
+        else:
+            week0.is_published = True
+        db.session.commit()
+        user_id = user.id
+
+    with client.session_transaction() as sess:
+        sess["_user_id"] = str(user_id)
+
+    # 1. تست رندر صفحه تمرین هفته ۰
+    resp_w0 = client.get("/kb/week/0/practice")
+    assert resp_w0.status_code == 200
+    html_w0 = resp_w0.data.decode("utf-8")
+    assert "practiceApp(0," in html_w0
+    assert ", false, '')" in html_w0
+    assert "/kb/week/0" in html_w0
+
+    # 2. تست ثبت پاسخ در هفته ۰ با challenge_id
+    resp_sub0 = client.post(
+        "/kb/week/0/practice/submit",
+        json={
+            "challenge_id": "w00-ch01-token-binary",
+            "answer": ["0", "1"],
+            "hints_used": 0
+        }
+    )
+    assert resp_sub0.status_code == 200
+    sub0_data = resp_sub0.get_json()
+    assert sub0_data["success"] is True
+
+    # 3. تست ثبت پاسخ در هفته ۰ با نام مستعار question_id و answer_value
+    resp_sub0_alt = client.post(
+        "/kb/week/0/practice/submit",
+        json={
+            "question_id": "w00-ch01-token-binary",
+            "answer_value": ["0", "1"],
+            "hints_used": 0
+        }
+    )
+    assert resp_sub0_alt.status_code == 200
+    sub0_alt_data = resp_sub0_alt.get_json()
+    assert sub0_alt_data["success"] is True
+
+    # 4. تست اتمام هفته ۰
+    resp_comp0 = client.post(
+        "/kb/week/0/practice/complete",
+        json={
+            "completed_count": 4,
+            "incorrect_count": 0,
+            "time_spent_seconds": 45
+        }
+    )
+    assert resp_comp0.status_code == 200
+    assert resp_comp0.get_json()["success"] is True
+
+    # 5. تست رندر صفحه تمرین تطبیقی سراسری (/practice)
+    resp_global = client.get("/practice")
+    assert resp_global.status_code == 200
+    html_global = resp_global.data.decode("utf-8")
+    assert "practiceApp(null," in html_global
+    assert ", true," in html_global

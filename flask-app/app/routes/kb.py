@@ -358,6 +358,8 @@ def practice_page(week: int):
     return render_template(
         "kb/practice_runner.html",
         week=week,
+        is_global=False,
+        session_id="",
         week_title=week_obj.title,
         session_data=session_data,
         challenges_json=json.dumps(session_data["challenges"], ensure_ascii=False),
@@ -371,9 +373,9 @@ def practice_page(week: int):
 def submit_practice_challenge(week: int):
     """بررسی و اعتبارسنجی پاسخ یک چالش خاص و اعطای XP."""
     _get_visible_week_or_404(week)
-    data = request.get_json(silent=True) or request.form.to_dict()
-    challenge_id = data.get("challenge_id")
-    user_answer = data.get("answer")
+    data = request.get_json(silent=True) or request.form.to_dict() or {}
+    challenge_id = data.get("challenge_id") or data.get("question_id")
+    user_answer = data.get("answer") if "answer" in data else data.get("answer_value")
     hints_used = int(data.get("hints_used", 0))
 
     if not challenge_id or user_answer is None:

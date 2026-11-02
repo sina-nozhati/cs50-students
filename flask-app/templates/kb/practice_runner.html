@@ -292,7 +292,7 @@
   {{ challenges_json|safe }}
 </script>
 
-<div x-data="practiceApp({{ week }}, {{ user_xp }}, {{ user_streak }})"
+<div x-data="practiceApp({{ week if week is not none else 'null' }}, {{ user_xp }}, {{ user_streak }}, {{ 'true' if is_global else 'false' }}, '{{ session_id or '' }}')"
      class="flex flex-col min-h-[100dvh] justify-between relative">
 
   {# ─── نوار بالای صفحه (Apple Frosted Glass Header) ─── #}
@@ -300,7 +300,7 @@
     <div class="max-w-2xl mx-auto px-4 h-16 flex items-center justify-between gap-3 sm:gap-4">
 
       {# دکمه خروج #}
-      <a href="{{ url_for('kb.week_page', week=week) if week else url_for('main.dashboard') }}"
+      <a href="{{ url_for('kb.week_page', week=week) if week is not none else url_for('main.dashboard') }}"
          class="w-10 h-10 rounded-full flex items-center justify-center text-apple-secondary hover:text-apple-ink hover:bg-black/[0.05] transition-colors"
          title="خروج از تمرین"
          aria-label="خروج">
@@ -711,13 +711,17 @@
 
       {# دکمه اقدام با ارتفاع و عرض مناسب تاچ در موبایل #}
       <div class="w-full sm:w-auto flex justify-end shrink-0" x-show="!isCompleted">
-        {# حالت ۱: دکمه بررسی #}
+        {# حالت ۱: دکمه بررسی با لودینگ استیت و فیدبک لمسی #}
         <button x-show="feedbackStatus === null"
                 type="button"
                 @click="checkAnswer()"
-                :disabled="!canCheck"
-                class="apple-btn btn-tactile-primary w-full sm:w-48 py-3.5 text-base sm:text-lg shadow-sm">
-          بررسی پاسخ
+                :disabled="!canCheck || isChecking"
+                class="apple-btn btn-tactile-primary w-full sm:w-48 py-3.5 text-base sm:text-lg shadow-sm flex items-center justify-center gap-2">
+          <svg x-show="isChecking" class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" style="display: none;">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          <span x-text="isChecking ? 'در حال بررسی...' : 'بررسی پاسخ'">بررسی پاسخ</span>
         </button>
 
         {# حالت ۲: دکمه رفتن به بعد #}
@@ -740,7 +744,7 @@
 
 {# ─── Alpine.js Core Logic & Refined Audio Synthesizer ─── #}
 <script>
-function practiceApp(week, initialXp, initialStreak) {
+function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
   // بارگذاری امن چالش‌ها از اسکریپت ساختاریافته
   const dataEl = document.getElementById('practice-challenges-data');
   let rawChallenges = [];
@@ -756,6 +760,9 @@ function practiceApp(week, initialXp, initialStreak) {
   return {
     challenges: rawChallenges,
     week: week,
+    isGlobal: isGlobal === true,
+    sessionId: sessionId || '',
+    isChecking: false,
     csrfToken: csrfToken,
     currentIndex: 0,
     hearts: 3,
@@ -995,7 +1002,8 @@ function practiceApp(week, initialXp, initialStreak) {
     },
 
     async checkAnswer() {
-      if (!this.canCheck) return;
+      if (!this.canCheck || this.isChecking) return;
+      this.isChecking = true;
       const ch = this.currentChallenge;
       let userAnswer = null;
 
@@ -1011,20 +1019,22 @@ function practiceApp(week, initialXp, initialStreak) {
         userAnswer = this.selectedMcqOption;
       }
 
-      const isGlobalPractice = (!this.week || this.week === 0);
-      const submitEndpoint = isGlobalPractice ? '/practice/answer' : `/kb/week/${this.week}/practice/submit`;
+      const submitEndpoint = this.isGlobal ? '/practice/answer' : `/kb/week/${this.week}/practice/submit`;
 
-      const postPayload = isGlobalPractice
+      const postPayload = this.isGlobal
         ? {
-            session_id: (ch.session_id || ''),
+            session_id: (this.sessionId || ch.session_id || ''),
             question_id: ch.id,
             challenge_id: ch.id,
             answer: userAnswer,
+            answer_value: userAnswer,
             hints_used: this.hintsCount
           }
         : {
             challenge_id: ch.id,
+            question_id: ch.id,
             answer: userAnswer,
+            answer_value: userAnswer,
             hints_used: this.hintsCount
           };
 
@@ -1039,7 +1049,16 @@ function practiceApp(week, initialXp, initialStreak) {
         });
 
         if (!resp.ok) {
-          console.error('Server returned error status:', resp.status);
+          let errDetail = 'خطا در برقراری ارتباط با سرور.';
+          try {
+            const errData = await resp.json();
+            if (errData.error) errDetail = errData.error;
+            else if (errData.message) errDetail = errData.message;
+          } catch (e) {}
+          console.error('Server returned error status:', resp.status, errDetail);
+          this.feedbackStatus = 'incorrect';
+          this.currentExplanation = `خطا (${resp.status}): ${errDetail}`;
+          this.playErrorSound();
           return;
         }
 
@@ -1061,6 +1080,11 @@ function practiceApp(week, initialXp, initialStreak) {
         }
       } catch (err) {
         console.error('Failed to submit answer:', err);
+        this.feedbackStatus = 'incorrect';
+        this.currentExplanation = 'خطا در ارسال پاسخ. لطفاً اتصال اینترنت خود را بررسی کنید.';
+        this.playErrorSound();
+      } finally {
+        this.isChecking = false;
       }
     },
 
@@ -1079,8 +1103,7 @@ function practiceApp(week, initialXp, initialStreak) {
           });
         }
 
-        const isGlobalPractice = (!this.week || this.week === 0);
-        const completeEndpoint = isGlobalPractice ? '/practice/finish' : `/kb/week/${this.week}/practice/complete`;
+        const completeEndpoint = this.isGlobal ? '/practice/finish' : `/kb/week/${this.week}/practice/complete`;
 
         try {
           const timeSpent = Math.round((Date.now() - this.startTime) / 1000);
@@ -1091,6 +1114,7 @@ function practiceApp(week, initialXp, initialStreak) {
               'X-CSRFToken': this.csrfToken,
             },
             body: JSON.stringify({
+              session_id: (this.sessionId || ''),
               completed_count: this.totalChallenges,
               incorrect_count: this.incorrectCount,
               time_spent_seconds: timeSpent,

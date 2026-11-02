@@ -193,7 +193,9 @@ def practice():
 
     return render_template(
         "kb/practice_runner.html",
-        week=0,
+        week=None,
+        is_global=True,
+        session_id=session_data.get("session_id", ""),
         week_title="تمرین تطبیقی ۵ دقیقه‌ای (Adaptive Practice)",
         session_data=session_data,
         challenges_json=json.dumps(items, ensure_ascii=False),
@@ -206,14 +208,16 @@ def practice():
 @login_required
 def practice_answer():
     """ثبت پاسخ یک پرسش در نشست تطبیقی جاری."""
-    data = request.get_json(silent=True) or request.form.to_dict()
+    data = request.get_json(silent=True) or request.form.to_dict() or {}
     session_id = data.get("session_id")
-    question_id = data.get("question_id")
+    question_id = data.get("question_id") or data.get("challenge_id")
     answer = data.get("answer") if "answer" in data else data.get("answer_value")
 
     if not session_id:
         state = adaptive_service.get_or_create_adaptive_state(current_user.id)
         current = state.get("current_session")
+        if not current:
+            current = adaptive_service.start_user_practice_session(current_user.id)
         if current:
             session_id = current.get("session_id")
 
