@@ -324,8 +324,24 @@ fi
 action "Restarting systemd service cs50hub..."
 run_as_admin systemctl restart cs50hub >> "$LOG_FILE" 2>&1
 
-action "Waiting for Gunicorn workers to bind..."
-sleep 2
+action "Waiting for Gunicorn workers to warm up and become ready..."
+max_wait=20
+waited=0
+ready=0
+while [ $waited -lt $max_wait ]; do
+    if curl -s -f --max-time 2 http://127.0.0.1:5000/health >/dev/null 2>&1; then
+        ready=1
+        break
+    fi
+    sleep 1
+    waited=$((waited + 1))
+done
+
+if [ $ready -eq 1 ]; then
+    ok "Gunicorn workers initialized and ready in ${waited}s."
+else
+    warn "Gunicorn workers took more than ${max_wait}s to initialize; proceeding to smoke tests."
+fi
 
 action "Checking systemd service active state..."
 if ! run_as_admin systemctl is-active --quiet cs50hub; then

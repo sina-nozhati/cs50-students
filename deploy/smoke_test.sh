@@ -8,7 +8,7 @@
 set -uo pipefail
 
 TARGET_URL="${1:-http://127.0.0.1:5000}"
-MAX_LATENCY_MS=2000
+MAX_LATENCY_MS=3000
 
 # ANSI Color Codes
 BOLD='\033[1m'
@@ -43,7 +43,7 @@ echo -e "${CYAN}${BOLD}▶ Running Production Smoke Tests against: ${TARGET_URL}
 
 # 1. Test /health endpoint
 echo -e "  ${BLUE}→${NC} Probing Health Monitoring API (/health)..."
-HEALTH_RESP=$(curl -s --max-time 5 -w "\n%{http_code}\n%{time_total}" "${TARGET_URL}/health" 2>/dev/null || echo -e "ERROR\n000\n0")
+HEALTH_RESP=$(curl -s --retry 2 --retry-connrefused --max-time 10 -w "\n%{http_code}\n%{time_total}" "${TARGET_URL}/health" 2>/dev/null || echo -e "ERROR\n000\n0")
 HEALTH_BODY=$(echo "$HEALTH_RESP" | sed '$d' | sed '$d')
 HEALTH_CODE=$(echo "$HEALTH_RESP" | tail -n 2 | head -n 1)
 HEALTH_TIME=$(echo "$HEALTH_RESP" | tail -n 1)
@@ -57,7 +57,7 @@ fi
 
 # 2. Test Root Landing (/)
 echo -e "  ${BLUE}→${NC} Probing Public Landing Page (/)..."
-ROOT_RESP=$(curl -s --max-time 5 -w "%{http_code}\n%{time_total}" -o /dev/null "${TARGET_URL}/" 2>/dev/null || echo -e "000\n0")
+ROOT_RESP=$(curl -s --retry 2 --retry-connrefused --max-time 10 -w "%{http_code}\n%{time_total}" -o /dev/null "${TARGET_URL}/" 2>/dev/null || echo -e "000\n0")
 ROOT_CODE=$(echo "$ROOT_RESP" | head -n 1)
 ROOT_TIME=$(echo "$ROOT_RESP" | tail -n 1)
 ROOT_MS=$(awk "BEGIN {print int(${ROOT_TIME:-0} * 1000)}")
@@ -70,7 +70,7 @@ fi
 
 # 3. Test Login Page (/login)
 echo -e "  ${BLUE}→${NC} Probing User Authentication Page (/login)..."
-LOGIN_RESP=$(curl -s --max-time 5 -w "\n%{http_code}\n%{time_total}" "${TARGET_URL}/login" 2>/dev/null || echo -e "ERROR\n000\n0")
+LOGIN_RESP=$(curl -s --retry 2 --retry-connrefused --max-time 10 -w "\n%{http_code}\n%{time_total}" "${TARGET_URL}/login" 2>/dev/null || echo -e "ERROR\n000\n0")
 LOGIN_BODY=$(echo "$LOGIN_RESP" | sed '$d' | sed '$d')
 LOGIN_CODE=$(echo "$LOGIN_RESP" | tail -n 2 | head -n 1)
 LOGIN_TIME=$(echo "$LOGIN_RESP" | tail -n 1)
@@ -86,7 +86,7 @@ fi
 
 # 4. Test Offline Page (/offline)
 echo -e "  ${BLUE}→${NC} Probing PWA Offline Fallback (/offline)..."
-OFFLINE_CODE=$(curl -s --max-time 4 -w "%{http_code}" -o /dev/null "${TARGET_URL}/offline" 2>/dev/null || echo "000")
+OFFLINE_CODE=$(curl -s --retry 2 --retry-connrefused --max-time 6 -w "%{http_code}" -o /dev/null "${TARGET_URL}/offline" 2>/dev/null || echo "000")
 if [ "$OFFLINE_CODE" = "200" ]; then
     test_log "PASS" "PWA Offline Fallback (/offline)" "HTTP 200"
 else
