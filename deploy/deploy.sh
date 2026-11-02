@@ -3,7 +3,7 @@
 # CS50x Anzali Hub — Professional Auto-Deploy Pipeline v2.0
 #
 # Key Features:
-#   1. Clean, English terminal UI with explicit step tracking
+#   1. Clean, English terminal UI with live real-time action tracking
 #   2. Atomic pre-deploy database backup (SQLite WAL-safe)
 #   3. Automatic instant rollback on failure (Git + DB + Systemd)
 #   4. Idempotent database schema & reference model sync
@@ -66,6 +66,10 @@ step() {
     echo ""
     log "${CYAN}${BOLD}[${CURRENT_STEP}/${TOTAL_STEPS}]${NC} ${BOLD}$1${NC}"
     echo -e "${DIM}────────────────────────────────────────────────────────────────${NC}"
+}
+
+action() {
+    log "  ${BLUE}→${NC} ${DIM}$1${NC}"
 }
 
 ok() {
@@ -171,25 +175,28 @@ fi
 # ─── Step 1: Pre-flight & Environment Checks ──────────────────
 step "Pre-flight Environment & Requirements Checks"
 
+action "Verifying project root directory (${PROJECT_DIR})..."
 if [ ! -d "$PROJECT_DIR" ]; then
     fail "Project directory not found: $PROJECT_DIR"
     exit 1
 fi
 ok "Project directory confirmed: ${PROJECT_DIR}"
 
+action "Verifying Python virtual environment (${VENV_DIR})..."
 if [ ! -d "$VENV_DIR" ]; then
     fail "Python virtual environment not found: $VENV_DIR"
     exit 1
 fi
 ok "Python virtual environment confirmed: ${VENV_DIR}"
 
-# Ensure flask-app/.env exists and has required flags
+action "Validating environment configuration (.env)..."
 mkdir -p "${FLASK_DIR}/instance"
 if [ ! -f "${FLASK_DIR}/.env" ]; then
     touch "${FLASK_DIR}/.env"
 fi
 
 if ! grep -q "KB_DOWNLOADS_DYNAMIC" "${FLASK_DIR}/.env" 2>/dev/null; then
+    action "Injecting KB_DOWNLOADS_DYNAMIC=true into .env..."
     echo "KB_DOWNLOADS_DYNAMIC=true" >> "${FLASK_DIR}/.env"
     ok "Added KB_DOWNLOADS_DYNAMIC=true to ${FLASK_DIR}/.env"
 else
@@ -201,23 +208,26 @@ step "Atomic Database Backup (Pre-deploy Snapshot)"
 
 mkdir -p "$BACKUP_DIR"
 
+action "Checking SQLite database at ${DB_PATH}..."
 if [ -f "$DB_PATH" ]; then
     BACKUP_TIMESTAMP=$(date '+%Y%m%d_%H%M%S')
     RAW_BACKUP="${BACKUP_DIR}/pre_deploy_${BACKUP_TIMESTAMP}.db"
 
+    action "Creating WAL-safe SQLite snapshot..."
     if command -v sqlite3 >/dev/null 2>&1; then
         sqlite3 "$DB_PATH" ".backup '${RAW_BACKUP}'" >> "$LOG_FILE" 2>&1
     else
         cp "$DB_PATH" "$RAW_BACKUP"
     fi
 
+    action "Compressing snapshot with gzip..."
     gzip -c "$RAW_BACKUP" > "${RAW_BACKUP}.gz"
     rm -f "$RAW_BACKUP"
     CURRENT_BACKUP="${RAW_BACKUP}.gz"
     ok "Atomic backup created successfully:"
     log "     ${DIM}${CURRENT_BACKUP}${NC}"
 
-    # Retain backups from the last 14 days to prevent disk bloat
+    action "Purging backups older than 14 days..."
     find "$BACKUP_DIR" -type f -name "pre_deploy_*.db.gz" -mtime +14 -exec rm -f {} \; 2>/dev/null || true
 else
     warn "Database file not found yet (fresh install). Skipped backup."
@@ -226,8 +236,11 @@ fi
 # ─── Step 3: Git Pull & Hard Reset to origin/main ─────────────
 step "Synchronizing Code with GitHub (Git Fetch & Reset to origin/main)"
 
+action "Connecting to remote origin and fetching main branch..."
 cd "$PROJECT_DIR"
 git fetch origin main >> "$LOG_FILE" 2>&1
+
+action "Resetting working tree to match origin/main..."
 git reset --hard origin/main >> "$LOG_FILE" 2>&1
 GIT_UPDATED=1
 
@@ -239,15 +252,22 @@ log "     ${DIM}${COMMIT_MSG}${NC}"
 # ─── Step 4: Virtualenv Python Dependencies ───────────────────
 step "Updating Python Dependencies (Virtualenv Requirements)"
 
+action "Activating virtual environment at ${VENV_DIR}..."
 source "${VENV_DIR}/bin/activate"
+
+action "Verifying pip package manager..."
 pip install --quiet --upgrade pip >> "$LOG_FILE" 2>&1 || true
-pip install --quiet -r "${FLASK_DIR}/requirements.txt" >> "$LOG_FILE" 2>&1
+
+action "Installing/updating dependencies from requirements.txt (may take a few seconds)..."
+pip install -r "${FLASK_DIR}/requirements.txt" >> "$LOG_FILE" 2>&1
 ok "Installed/verified Python packages (Pygments, Flask, SQLAlchemy, etc.)."
 
 # ─── Step 5: Database Models & Seed Synchronization ───────────
 step "Synchronizing Database Models & Seed Data (Idempotent Sync)"
 
+action "Loading Flask application context..."
 cd "$FLASK_DIR"
+action "Executing db.create_all() for all registered models..."
 python3 -c "
 from app import create_app, db
 app = create_app()
@@ -256,13 +276,15 @@ with app.app_context():
 " >> "$LOG_FILE" 2>&1
 ok "Database schema and tables validated & synchronized."
 
-# Run idempotent database seeder (weeks, downloadable resources, defaults)
+action "Executing idempotent curriculum and reference seeder (init_db.py)..."
 python3 init_db.py >> "$LOG_FILE" 2>&1
 ok "Reference curriculum data and resources verified."
 
 # ─── Step 6: Dynamic KB Downloads Warm-up ─────────────────────
 step "Knowledge Base Dynamic Downloads Cache Warm-up"
 
+action "Checking dynamic downloads engine status..."
+action "Pre-building missing weekly HTML & PDF packages..."
 python3 -c "
 from app import create_app
 from app.services.downloads import build_all_downloads
@@ -276,17 +298,21 @@ ok "Dynamic downloads engine verified and warm."
 # ─── Step 7: Service Restart & Automated Smoke Tests ──────────
 step "Restarting Application Service & Running Smoke Tests"
 
+action "Restarting systemd service cs50hub..."
 run_as_admin systemctl restart cs50hub >> "$LOG_FILE" 2>&1
+
+action "Waiting for Gunicorn workers to bind..."
 sleep 2
 
+action "Checking systemd service active state..."
 if ! run_as_admin systemctl is-active --quiet cs50hub; then
     fail "cs50hub.service failed to enter active state after restart!"
     exit 1
 fi
 ok "Service cs50hub is active (running)."
 
+action "Executing automated production smoke tests..."
 echo ""
-# Execute dedicated smoke test script
 chmod +x "$SMOKE_TEST_SCRIPT" 2>/dev/null || true
 if ! bash "$SMOKE_TEST_SCRIPT"; then
     fail "Automated production smoke tests failed!"
