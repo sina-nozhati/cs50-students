@@ -27,14 +27,13 @@ login_manager.login_message_category = "info"
 
 @event.listens_for(Engine, "connect")
 def _set_sqlite_pragma(dbapi_connection, connection_record):
-    """تنظیمات کارایی بالا برای SQLite: فعال‌سازی WAL، کش رم ۶۴ مگابایتی و تایم‌اوت هوشمند."""
+    """تنظیمات کارایی بالا برای SQLite: کش رم، تایم‌اوت شلوغی و کلیدهای خارجی."""
     import sqlite3
     if isinstance(dbapi_connection, sqlite3.Connection):
         cursor = dbapi_connection.cursor()
-        cursor.execute("PRAGMA journal_mode=WAL;")
-        cursor.execute("PRAGMA synchronous=NORMAL;")
         cursor.execute("PRAGMA busy_timeout=5000;")
-        cursor.execute("PRAGMA cache_size=-64000;")  # 64MB Cache in RAM
+        cursor.execute("PRAGMA synchronous=NORMAL;")
+        cursor.execute("PRAGMA cache_size=-16000;")  # 16MB Cache in RAM per connection
         cursor.execute("PRAGMA foreign_keys=ON;")
         cursor.close()
 
