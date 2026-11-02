@@ -6,6 +6,11 @@
 در production از Gunicorn استفاده کنید:
     gunicorn --workers 2 --bind 127.0.0.1:5000 "run:app"
 """
+import os
+
+# فعال‌سازی پیش‌فرض دانلودهای پویا در محیط توسعه محلی
+os.environ.setdefault("KB_DOWNLOADS_DYNAMIC", "true")
+
 from app import create_app
 
 app = create_app()
