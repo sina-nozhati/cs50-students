@@ -13,6 +13,8 @@ from flask_login import LoginManager
 
 
 from flask_wtf.csrf import CSRFProtect
+from sqlalchemy import event
+from sqlalchemy.engine import Engine
 
 # extensionها در سطح ماژول ساخته می‌شوند اما به هیچ appی متصل نیستند تا create_app صدا زده شود
 db = SQLAlchemy()
@@ -21,6 +23,20 @@ login_manager = LoginManager()
 login_manager.login_view = "auth.login"
 login_manager.login_message = "برای ادامه لطفاً وارد شوید."
 login_manager.login_message_category = "info"
+
+
+@event.listens_for(Engine, "connect")
+def _set_sqlite_pragma(dbapi_connection, connection_record):
+    """تنظیمات کارایی بالا برای SQLite: فعال‌سازی WAL، کش رم ۶۴ مگابایتی و تایم‌اوت هوشمند."""
+    import sqlite3
+    if isinstance(dbapi_connection, sqlite3.Connection):
+        cursor = dbapi_connection.cursor()
+        cursor.execute("PRAGMA journal_mode=WAL;")
+        cursor.execute("PRAGMA synchronous=NORMAL;")
+        cursor.execute("PRAGMA busy_timeout=5000;")
+        cursor.execute("PRAGMA cache_size=-64000;")  # 64MB Cache in RAM
+        cursor.execute("PRAGMA foreign_keys=ON;")
+        cursor.close()
 
 
 def create_app(config_object: str = "app.config.Config") -> Flask:
@@ -113,6 +129,8 @@ def _ensure_sqlite_columns() -> None:
         ("kb_package_installs", "course_id", "ALTER TABLE kb_package_installs ADD COLUMN course_id INTEGER REFERENCES course(id)"),
     ]
     with db.engine.begin() as conn:
+        conn.exec_driver_sql("PRAGMA journal_mode=WAL;")
+        conn.exec_driver_sql("PRAGMA synchronous=NORMAL;")
         for table, column, sql in alters:
             cols = conn.exec_driver_sql(f"PRAGMA table_info({table})").fetchall()
             names = {row[1] for row in cols}

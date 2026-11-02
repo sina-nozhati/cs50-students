@@ -1,6 +1,7 @@
 """خواندن و رندر markdown اسناد cs50x-kb با جداسازی OFFICIAL / GENERATED."""
 from __future__ import annotations
 
+import functools
 import re
 from pathlib import Path
 
@@ -169,8 +170,10 @@ def add_heading_ids_and_toc(
     return _HEADING_RE.sub(repl, html), toc
 
 
-def load_and_render(path: Path) -> dict:
-    """فایل md را می‌خواند و HTML بخش‌ها را برمی‌گرداند."""
+@functools.lru_cache(maxsize=128)
+def _cached_load_and_render(path_str: str, mtime: float) -> dict:
+    """رندر و کش درون‌حافظه‌ای اسناد markdown بر اساس مسیر و آخرین زمان تغییر فایل."""
+    path = Path(path_str)
     raw = path.read_text(encoding="utf-8")
     _fm, body = _split_front_matter(raw)
     parts = split_kb_sections(body)
@@ -200,5 +203,14 @@ def load_and_render(path: Path) -> dict:
         "has_official": bool(official_md.strip()),
         "has_generated": bool(generated_md.strip()),
         "toc": toc,
-        "raw_path": str(path),
+        "raw_path": path_str,
     }
+
+
+def load_and_render(path: Path) -> dict:
+    """فایل md را با استفاده از کش فوق‌سریع حافظه لود و رندر می‌کند."""
+    try:
+        mtime = path.stat().st_mtime
+    except Exception:
+        mtime = 0.0
+    return _cached_load_and_render(str(path), mtime)

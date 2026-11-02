@@ -16,6 +16,7 @@ DIM='\033[2m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m'
 
@@ -41,6 +42,7 @@ test_log() {
 echo -e "${CYAN}${BOLD}▶ Running Production Smoke Tests against: ${TARGET_URL}${NC}"
 
 # 1. Test /health endpoint
+echo -e "  ${BLUE}→${NC} Probing Health Monitoring API (/health)..."
 HEALTH_RESP=$(curl -s --max-time 5 -w "\n%{http_code}\n%{time_total}" "${TARGET_URL}/health" 2>/dev/null || echo -e "ERROR\n000\n0")
 HEALTH_BODY=$(echo "$HEALTH_RESP" | sed '$d' | sed '$d')
 HEALTH_CODE=$(echo "$HEALTH_RESP" | tail -n 2 | head -n 1)
@@ -54,6 +56,7 @@ else
 fi
 
 # 2. Test Root Landing (/)
+echo -e "  ${BLUE}→${NC} Probing Public Landing Page (/)..."
 ROOT_RESP=$(curl -s --max-time 5 -w "%{http_code}\n%{time_total}" -o /dev/null "${TARGET_URL}/" 2>/dev/null || echo -e "000\n0")
 ROOT_CODE=$(echo "$ROOT_RESP" | head -n 1)
 ROOT_TIME=$(echo "$ROOT_RESP" | tail -n 1)
@@ -66,6 +69,7 @@ else
 fi
 
 # 3. Test Login Page (/login)
+echo -e "  ${BLUE}→${NC} Probing User Authentication Page (/login)..."
 LOGIN_RESP=$(curl -s --max-time 5 -w "\n%{http_code}\n%{time_total}" "${TARGET_URL}/login" 2>/dev/null || echo -e "ERROR\n000\n0")
 LOGIN_BODY=$(echo "$LOGIN_RESP" | sed '$d' | sed '$d')
 LOGIN_CODE=$(echo "$LOGIN_RESP" | tail -n 2 | head -n 1)
@@ -81,6 +85,7 @@ else
 fi
 
 # 4. Test Offline Page (/offline)
+echo -e "  ${BLUE}→${NC} Probing PWA Offline Fallback (/offline)..."
 OFFLINE_CODE=$(curl -s --max-time 4 -w "%{http_code}" -o /dev/null "${TARGET_URL}/offline" 2>/dev/null || echo "000")
 if [ "$OFFLINE_CODE" = "200" ]; then
     test_log "PASS" "PWA Offline Fallback (/offline)" "HTTP 200"
@@ -90,6 +95,7 @@ fi
 
 # 5. Process & Worker Check (if local)
 if [[ "$TARGET_URL" == *"127.0.0.1"* ]] || [[ "$TARGET_URL" == *"localhost"* ]]; then
+    echo -e "  ${BLUE}→${NC} Inspecting Gunicorn worker processes..."
     WORKER_COUNT=$(pgrep -f "gunicorn.*wsgi:app" 2>/dev/null | awk 'NF{count++} END{print count+0}')
     if [ "$WORKER_COUNT" -gt 0 ]; then
         test_log "PASS" "Server Process Status (Gunicorn)" "${WORKER_COUNT} active worker(s)"

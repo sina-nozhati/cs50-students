@@ -25,9 +25,8 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/duck-logo.png') }}">
 
-    {# فونت Vazirmatn از CDN با fallback (اینترنت نوسانی ایران) #}
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    {# فونت محلی Vazirmatn برای سرعت حداکثری و بدون وابستگی به CDN خارجی #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vazirmatn.css') }}">
 
     {# Theme Preload Script: جلوگیری از پرش رنگ (Zero Flash) پیش از رندر #}
     <script>
@@ -42,10 +41,8 @@
       })();
     </script>
 
-    {# Tailwind CSS از CDN — بدون build.
-       نکته آموزشی: config زیر رنگ crimson را به‌عنوان رنگ سفارشی Tailwind اضافه می‌کند
-       تا بتوانیم از کلاس‌هایی مثل bg-crimson استفاده کنیم. #}
-    <script src="https://cdn.tailwindcss.com"></script>
+    {# Tailwind CSS سروشده به صورت محلی با کش پایدار مرورگر #}
+    <script src="{{ url_for('static', filename='js/tailwind.js') }}"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -76,8 +73,8 @@
     {# ─── Design Tokens + Base Styles (Single Source of Truth) ─── #}
     {% include "_partials/_design-tokens.html" %}
 
-    {# HTMX برای تعامل بدون رفرش صفحه (مثل دکمه‌ی «من خواندم») #}
-    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    {# HTMX محلی برای تعامل سریع و بدون تأخیر شبکه #}
+    <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
     <script>
       document.addEventListener('htmx:configRequest', function(event) {
         event.detail.headers['X-CSRFToken'] = '{{ csrf_token() }}';
