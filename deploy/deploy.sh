@@ -310,14 +310,25 @@ if [ -f "/etc/systemd/system/cs50hub.service" ]; then
     run_as_admin systemctl daemon-reload >> "$LOG_FILE" 2>&1 || true
 fi
 
-action "Synchronizing Nginx performance configuration (Gzip & Keepalive)..."
+action "Synchronizing Nginx performance configuration (Gzip & Security)..."
 if [ -f "/etc/nginx/sites-available/cs50hub" ]; then
-    run_as_admin cp "${PROJECT_DIR}/deploy/nginx.conf" /etc/nginx/sites-available/cs50hub >> "$LOG_FILE" 2>&1 || true
-    if run_as_admin nginx -t >> "$LOG_FILE" 2>&1; then
-        run_as_admin systemctl reload nginx >> "$LOG_FILE" 2>&1 || true
-        ok "Nginx reloaded with Gzip compression and Keepalive enabled."
+    if grep -q "ssl_certificate" /etc/nginx/sites-available/cs50hub; then
+        ok "Active SSL certificate detected in /etc/nginx/sites-available/cs50hub; preserving SSL configuration."
+        if run_as_admin nginx -t >> "$LOG_FILE" 2>&1; then
+            run_as_admin systemctl reload nginx >> "$LOG_FILE" 2>&1 || true
+        fi
     else
-        warn "Nginx config test failed; kept running existing configuration."
+        run_as_admin cp "${PROJECT_DIR}/deploy/nginx.conf" /etc/nginx/sites-available/cs50hub >> "$LOG_FILE" 2>&1 || true
+        if [ -f "/etc/letsencrypt/live/cs50xanzali.ir/fullchain.pem" ] && command -v certbot >/dev/null 2>&1; then
+            action "Re-binding existing Let's Encrypt SSL certificate for cs50xanzali.ir..."
+            run_as_admin certbot install --cert-name cs50xanzali.ir --nginx >> "$LOG_FILE" 2>&1 || true
+        fi
+        if run_as_admin nginx -t >> "$LOG_FILE" 2>&1; then
+            run_as_admin systemctl reload nginx >> "$LOG_FILE" 2>&1 || true
+            ok "Nginx reloaded with performance optimizations and SSL security."
+        else
+            warn "Nginx config test failed; kept running existing configuration."
+        fi
     fi
 fi
 
