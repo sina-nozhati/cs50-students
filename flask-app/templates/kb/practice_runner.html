@@ -7,11 +7,10 @@
     <title>تمرین تعاملی: {{ week_title }} · CS50x انزلی</title>
 
     {# Vazirmatn Font #}
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vazirmatn.css') }}">
 
     {# Tailwind CSS #}
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{{ url_for('static', filename='js/tailwind.js') }}"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -48,10 +47,10 @@
     </script>
 
     {# Alpine.js #}
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <script defer src="{{ url_for('static', filename='js/alpine.min.js') }}"></script>
 
     {# Canvas Confetti #}
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="{{ url_for('static', filename='js/confetti.browser.min.js') }}"></script>
 
     <style>
       :root {

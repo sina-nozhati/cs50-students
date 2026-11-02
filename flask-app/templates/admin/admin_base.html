@@ -9,9 +9,8 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/duck-logo.png') }}">
 
-    {# فونت Vazirmatn #}
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    {# فونت محلی Vazirmatn #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vazirmatn.css') }}">
 
     {# Theme Preload Script: جلوگیری از پرش رنگ (Zero Flash) پیش از رندر #}
     <script>
@@ -26,8 +25,8 @@
       })();
     </script>
 
-    {# Tailwind CSS از CDN #}
-    <script src="https://cdn.tailwindcss.com"></script>
+    {# Tailwind CSS محلی #}
+    <script src="{{ url_for('static', filename='js/tailwind.js') }}"></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -77,8 +76,8 @@
       }
     </style>
 
-    {# HTMX #}
-    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    {# HTMX محلی #}
+    <script src="{{ url_for('static', filename='js/htmx.min.js') }}"></script>
     
     {% block head_extra %}{% endblock %}
 </head>

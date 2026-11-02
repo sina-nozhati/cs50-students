@@ -280,6 +280,12 @@ action "Executing idempotent curriculum and reference seeder (init_db.py)..."
 python3 init_db.py >> "$LOG_FILE" 2>&1
 ok "Reference curriculum data and resources verified."
 
+action "Enforcing high-performance SQLite WAL mode & RAM cache on database..."
+if command -v sqlite3 >/dev/null 2>&1 && [ -f "$DB_PATH" ]; then
+    sqlite3 "$DB_PATH" "PRAGMA journal_mode=WAL; PRAGMA synchronous=NORMAL; PRAGMA cache_size=-64000;" >> "$LOG_FILE" 2>&1 || true
+    ok "SQLite WAL mode and 64MB RAM page cache verified."
+fi
+
 # ─── Step 6: Dynamic KB Downloads Warm-up ─────────────────────
 step "Knowledge Base Dynamic Downloads Cache Warm-up"
 
@@ -297,6 +303,23 @@ ok "Dynamic downloads engine verified and warm."
 
 # ─── Step 7: Service Restart & Automated Smoke Tests ──────────
 step "Restarting Application Service & Running Smoke Tests"
+
+action "Synchronizing Gunicorn systemd service configuration..."
+if [ -f "/etc/systemd/system/cs50hub.service" ]; then
+    run_as_admin cp "${PROJECT_DIR}/deploy/cs50hub.service" /etc/systemd/system/cs50hub.service >> "$LOG_FILE" 2>&1 || true
+    run_as_admin systemctl daemon-reload >> "$LOG_FILE" 2>&1 || true
+fi
+
+action "Synchronizing Nginx performance configuration (Gzip & Keepalive)..."
+if [ -f "/etc/nginx/sites-available/cs50hub" ]; then
+    run_as_admin cp "${PROJECT_DIR}/deploy/nginx.conf" /etc/nginx/sites-available/cs50hub >> "$LOG_FILE" 2>&1 || true
+    if run_as_admin nginx -t >> "$LOG_FILE" 2>&1; then
+        run_as_admin systemctl reload nginx >> "$LOG_FILE" 2>&1 || true
+        ok "Nginx reloaded with Gzip compression and Keepalive enabled."
+    else
+        warn "Nginx config test failed; kept running existing configuration."
+    fi
+fi
 
 action "Restarting systemd service cs50hub..."
 run_as_admin systemctl restart cs50hub >> "$LOG_FILE" 2>&1
