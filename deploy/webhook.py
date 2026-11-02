@@ -75,13 +75,13 @@ def webhook():
                 ["bash", DEPLOY_SCRIPT],
                 capture_output=True,
                 text=True,
-                timeout=120
+                timeout=300
             )
             if result.returncode == 0:
-                logging.info("Deploy successful")
+                logging.info(f"Deploy successful:\n{result.stdout}")
                 return "Deployed", 200
             else:
-                logging.error(f"Deploy failed: {result.stderr}")
+                logging.error(f"Deploy failed (code {result.returncode}):\n{result.stderr}\nOutput:\n{result.stdout}")
                 return "Deploy failed", 500
 
     return "OK", 200
