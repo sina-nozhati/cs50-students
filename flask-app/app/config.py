@@ -32,8 +32,8 @@ class Config:
     UPLOAD_FOLDER = os.path.join(BASE_DIR, "..", "static", "downloads")
     DATA_DIR = os.environ.get("DATA_DIR", os.path.abspath(os.path.join(BASE_DIR, "..", "data")))
     KB_DOWNLOADS_DYNAMIC = os.environ.get("KB_DOWNLOADS_DYNAMIC", "False").lower() in ("true", "1", "yes")
-    MAX_CONTENT_LENGTH = 30 * 1024 * 1024  # 30 MB max upload size
-    ALLOWED_EXTENSIONS = {"pdf", "zip"}
+    MAX_CONTENT_LENGTH = int(os.environ.get("MAX_CONTENT_LENGTH", 250 * 1024 * 1024))  # 250 MB max upload size
+    ALLOWED_EXTENSIONS = {"pdf", "zip", "tar", "gz", "tgz"}
     # محدودیت نرخ ورود: حداکثر تلاش در پنجرهٔ زمانی (ثانیه)
     LOGIN_RATE_LIMIT = 10
     LOGIN_RATE_WINDOW_SECONDS = 300

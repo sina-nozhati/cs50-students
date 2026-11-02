@@ -314,6 +314,10 @@ action "Synchronizing Nginx performance configuration (Gzip & Security)..."
 if [ -f "/etc/nginx/sites-available/cs50hub" ]; then
     if grep -q "ssl_certificate" /etc/nginx/sites-available/cs50hub; then
         ok "Active SSL certificate detected in /etc/nginx/sites-available/cs50hub; preserving SSL configuration."
+        if ! grep -q "client_max_body_size" /etc/nginx/sites-available/cs50hub; then
+            action "Configuring 250MB upload limit in /etc/nginx/sites-available/cs50hub..."
+            run_as_admin sed -i '/server_name/a \    client_max_body_size 250M;\n    client_body_timeout 180s;' /etc/nginx/sites-available/cs50hub 2>/dev/null || true
+        fi
         if run_as_admin nginx -t >> "$LOG_FILE" 2>&1; then
             run_as_admin systemctl reload nginx >> "$LOG_FILE" 2>&1 || true
         fi

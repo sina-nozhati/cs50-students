@@ -34,6 +34,7 @@ from flask import (
     url_for,
     flash,
     current_app,
+    jsonify,
 )
 from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
@@ -686,20 +687,28 @@ def kb_packages_dashboard():
 @bp.route("/kb-packages/upload", methods=["POST"])
 @admin_required
 def kb_packages_upload():
-    """دریافت و استخراج فایل فشرده بسته هفته یا مستر و ادغام آن در پایگاه دانش دوره انتخابی."""
+    """دریافت و استخراج فایل فشرده بسته هفته یا مستر و ادغام آن در پایگاه دانش دوره انتخابی (با پشتیبانی از AJAX و پروگرس بار)."""
+    is_ajax = request.headers.get("X-Requested-With") == "XMLHttpRequest"
+    course_id = request.form.get("course_id", type=int)
+
     uploaded = request.files.get("package_file")
     target_week_raw = request.form.get("target_week")
     target_week = int(target_week_raw) if target_week_raw and target_week_raw.strip().isdigit() else None
-    course_id = request.form.get("course_id", type=int)
 
     if not uploaded or not uploaded.filename:
-        flash("لطفاً یک فایل فشرده بسته آموزشی (.tar.gz یا .zip) انتخاب کنید.", "error")
+        err = "لطفاً یک فایل فشرده بسته آموزشی (.tar.gz یا .zip) انتخاب کنید."
+        flash(err, "error")
+        if is_ajax:
+            return jsonify({"success": False, "error": err}), 400
         return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
 
     filename = secure_filename(uploaded.filename) or "kb_package.tar.gz"
     lower_name = filename.lower()
     if not (lower_name.endswith(".tar.gz") or lower_name.endswith(".tgz") or lower_name.endswith(".tar") or lower_name.endswith(".zip")):
-        flash("فرمت فایل معتبر نیست. لطفاً فایل با پسوند .tar.gz یا .zip آپلود کنید.", "error")
+        err = "فرمت فایل معتبر نیست. لطفاً فایل با پسوند .tar.gz یا .zip آپلود کنید."
+        flash(err, "error")
+        if is_ajax:
+            return jsonify({"success": False, "error": err}), 400
         return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
 
     with tempfile.NamedTemporaryFile(suffix="_" + filename, delete=False) as tmp:
@@ -716,28 +725,41 @@ def kb_packages_upload():
         if result.get("success"):
             if result.get("is_master"):
                 if result.get("already_installed"):
-                    flash(result.get("message", "این بسته قبلاً نصب شده است."), "info")
+                    msg = result.get("message", "این بسته قبلاً نصب شده است.")
+                    flash(msg, "info")
                 else:
-                    flash(
-                        result.get(
-                            "message",
-                            f"بسته نهایی نسخه {result.get('version', '')} با موفقیت تایید و ادغام شد!",
-                        ),
-                        "success",
+                    msg = result.get(
+                        "message",
+                        f"بسته نهایی نسخه {result.get('version', '')} با موفقیت تایید و ادغام شد!",
                     )
+                    flash(msg, "success")
             else:
                 w_disp = "۷.۵" if result.get("week") == 71 else ("۹.۵" if result.get("week") == 99 else str(result.get("week", "")))
-                flash(
+                msg = (
                     f"بسته هفته {w_disp} با موفقیت نصب و ادغام شد! "
                     f"({result.get('notes_count', 0)} یادداشت درس، {result.get('flashcards_count', 0)} فلش‌کارت، "
-                    f"{result.get('quiz_count', 0)} سوال آزمون، {result.get('glossary_count', 0)} اصطلاح واژه‌نامه)",
-                    "success",
+                    f"{result.get('quiz_count', 0)} سوال آزمون، {result.get('glossary_count', 0)} اصطلاح واژه‌نامه)"
                 )
+                flash(msg, "success")
+
+            if is_ajax:
+                return jsonify({
+                    "success": True,
+                    "message": msg,
+                    "redirect_url": url_for("admin.kb_packages_dashboard", course_id=course_id),
+                })
         else:
-            flash(result.get("error", "خطای ناشناخته در نصب بسته"), "error")
+            err = result.get("error", "خطای ناشناخته در نصب بسته")
+            flash(err, "error")
             if result.get("error_list"):
-                for err in result["error_list"][:5]:
-                    flash(f"جزئیات خطا: {err}", "error")
+                for e in result["error_list"][:5]:
+                    flash(f"جزئیات خطا: {e}", "error")
+            if is_ajax:
+                return jsonify({
+                    "success": False,
+                    "error": err,
+                    "error_list": result.get("error_list", []),
+                }), 400
     finally:
         try:
             if tmp_path.exists():
