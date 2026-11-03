@@ -515,28 +515,399 @@
   .kb-prose ul, .kb-prose ol { padding-inline-start: 1.25rem; }
   .kb-prose a { color: var(--crimson); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
   .kb-prose a:hover { color: var(--crimson-dark); }
-  .kb-prose code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85em;
-    direction: ltr;
-    unicode-bidi: isolate;
-    background: var(--crimson-tint);
-    padding: 0.1em 0.35em;
-    border-radius: 0.25rem;
+  /* ─── Code Display & Responsive UI Engineering (Universal) ─── */
+  /* ۱. کدهای تک‌خطی (Inline Code): نشکن در عبور از عرض و بدون آسیب به ساختار متن فارسی */
+  code:not(pre code),
+  .kb-prose code:not(pre code) {
+    font-family: 'Fira Code', 'JetBrains Mono', Menlo, Consolas, monospace !important;
+    font-size: 0.86em !important;
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate !important;
+    background: var(--crimson-tint) !important;
+    color: var(--crimson-dark) !important;
+    border: 1px solid rgba(165, 28, 48, 0.15) !important;
+    border-radius: 6px !important;
+    padding: 0.12em 0.45em !important;
+    margin: 0 0.18em !important;
+    white-space: break-spaces !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    display: inline !important;
+    vertical-align: baseline !important;
+    line-height: 1.4 !important;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
-  .kb-prose pre {
-    direction: ltr;
-    text-align: left;
-    unicode-bidi: isolate;
-    background: #1E1E1E;
-    color: #F5F5F5;
+  html.dark code:not(pre code),
+  html.dark .kb-prose code:not(pre code) {
+    background: rgba(224, 62, 82, 0.14) !important;
+    color: #FCA5A5 !important;
+    border-color: rgba(224, 62, 82, 0.28) !important;
+  }
+
+  /* ۲. کدهای چندخطی خام و پایه‌ای قبل از ارتقا (Fallback Raw Pre) */
+  pre, .kb-prose pre {
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate !important;
+    background: #18181B;
+    color: #F1F5F9;
     padding: 1rem 1.1rem;
-    border-radius: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow-x: auto;
-    margin-bottom: 1rem;
-    font-size: 0.85rem;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.25rem 0;
+    font-size: 0.84rem;
+    font-family: 'Fira Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+    line-height: 1.6;
+    tab-size: 4;
+    white-space: pre;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
   }
-  .kb-prose pre code { background: transparent; color: inherit; padding: 0; }
+  pre code, .kb-prose pre code {
+    background: transparent !important;
+    color: inherit !important;
+    padding: 0 !important;
+    border: none !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    white-space: inherit !important;
+    direction: ltr !important;
+  }
+
+  /* ۳. فریم پیشرفته و واکنش‌گرای macOS برای بلوک‌های کد */
+  .code-block-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 1.25rem 0;
+    border-radius: 14px;
+    background: #18181B;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate;
+    box-sizing: border-box;
+  }
+  html.dark .code-block-wrapper {
+    background: #111114;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 24px -2px rgba(0, 0, 0, 0.45);
+  }
+
+  .code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    padding: 0 0.85rem;
+    background: #121215;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    user-select: none;
+    -webkit-user-select: none;
+    gap: 0.5rem;
+  }
+  html.dark .code-block-header {
+    background: #0B0B0E;
+  }
+
+  .traffic-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    shrink: 0;
+  }
+  .traffic-dot {
+    width: 10.5px;
+    height: 10.5px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-red { background: #FF5F56; border: 1px solid rgba(224, 68, 62, 0.6); }
+  .dot-yellow { background: #FFBD2E; border: 1px solid rgba(222, 161, 35, 0.6); }
+  .dot-green { background: #27C93F; border: 1px solid rgba(26, 171, 41, 0.6); }
+
+  .code-info-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow: hidden;
+  }
+  .code-lang-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #A1A1AA;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .code-lines-count {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #71717A;
+    white-space: nowrap;
+  }
+
+  .code-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    shrink: 0;
+  }
+  .code-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.22rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #D4D4D8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    min-height: 28px;
+  }
+  .code-action-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .code-action-btn:active {
+    transform: scale(0.96);
+  }
+  .code-action-btn.active {
+    background: rgba(0, 113, 227, 0.25);
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #38BDF8;
+  }
+  .code-action-btn.copied {
+    background: rgba(52, 199, 89, 0.18);
+    border-color: rgba(52, 199, 89, 0.5);
+    color: #34C759;
+  }
+
+  .code-block-viewport {
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    background: #18181B;
+  }
+  html.dark .code-block-viewport {
+    background: #111114;
+  }
+
+  .code-line-numbers {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.55rem 1rem 0.75rem;
+    color: #52525B;
+    font-family: 'Fira Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-align: right;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.15);
+    shrink: 0;
+  }
+  .code-line-numbers span {
+    display: block;
+  }
+
+  pre.code-content {
+    margin: 0 !important;
+    padding: 1rem 1.1rem !important;
+    flex: 1;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    font-family: 'Fira Code', 'JetBrains Mono', Menlo, Consolas, monospace !important;
+    font-size: 0.84rem !important;
+    line-height: 1.6 !important;
+    tab-size: 4;
+    -moz-tab-size: 4;
+    direction: ltr !important;
+    text-align: left !important;
+    unicode-bidi: isolate !important;
+    white-space: pre !important;
+    color: #F1F5F9 !important;
+    background: transparent !important;
+    border: none !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  pre.code-content code {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    color: inherit !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    white-space: inherit !important;
+    direction: ltr !important;
+  }
+
+  /* Wrap mode: شکستن خطوط طولانی بدون ایجاد اسکرول افقی */
+  .code-block-wrapper.wrap-mode pre.code-content {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* مدیریت کدهای طولانی (Expand / Collapse) */
+  .code-block-wrapper.is-collapsible:not(.is-expanded) .code-block-viewport {
+    max-height: 380px;
+    overflow-y: hidden;
+  }
+  .code-block-wrapper.is-collapsible.is-expanded .code-block-viewport {
+    max-height: none;
+  }
+  .code-expand-drawer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 84px;
+    background: linear-gradient(to bottom, transparent, #18181B 75%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 0.65rem;
+    z-index: 10;
+    pointer-events: none;
+  }
+  html.dark .code-expand-drawer {
+    background: linear-gradient(to bottom, transparent, #111114 75%);
+  }
+  .code-block-wrapper.is-expanded .code-expand-drawer {
+    position: static;
+    height: auto;
+    background: #141417;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.45rem;
+  }
+  .code-expand-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    font-family: 'Vazirmatn', sans-serif;
+    color: #F4F4F5;
+    background: #27272A;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.18s ease;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+  .code-expand-btn:hover {
+    background: #3F3F46;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+
+  /* ۴. توکن‌های رنگی هایلایت کد با کنتراست عالی (WCAG AAA) */
+  .token-kw, .highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr {
+    color: #60A5FA !important; /* Blue-400 */
+    font-weight: 700;
+  }
+  .token-str, .highlight .s, .highlight .s1, .highlight .s2, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx {
+    color: #34D399 !important; /* Emerald-400 */
+  }
+  .token-com, .highlight .c, .highlight .c1, .highlight .cm, .highlight .cs, .highlight .cp {
+    color: #94A3B8 !important; /* Slate-400 */
+    font-style: italic;
+  }
+  .token-num, .highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il {
+    color: #FBBF24 !important; /* Amber-400 */
+    font-weight: 600;
+  }
+  .token-fn, .highlight .nf, .highlight .fm {
+    color: #38BDF8 !important; /* Sky-400 */
+    font-weight: 600;
+  }
+  .token-typ, .highlight .kt, .highlight .nc, .highlight .nn {
+    color: #C084FC !important; /* Purple-400 */
+    font-weight: 600;
+  }
+  .token-con, .highlight .kc {
+    color: #FB923C !important; /* Orange-400 */
+    font-weight: 700;
+  }
+
+  /* ۵. اسکرول‌بار ظریف و شیک کد */
+  .code-block-viewport::-webkit-scrollbar,
+  pre.code-content::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .code-block-viewport::-webkit-scrollbar-track,
+  pre.code-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .code-block-viewport::-webkit-scrollbar-thumb,
+  pre.code-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+  .code-block-viewport::-webkit-scrollbar-thumb:hover,
+  pre.code-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.32);
+  }
+
+  /* ۶. واکنش‌گرایی در نمایشگرهای موبایل و تبلت */
+  @media (max-width: 640px) {
+    .code-block-header {
+      padding: 0 0.5rem;
+      height: 36px;
+    }
+    .code-info-pill {
+      gap: 0.3rem;
+    }
+    .code-lines-count {
+      display: none;
+    }
+    .code-line-numbers {
+      padding: 0.75rem 0.4rem 0.75rem 0.6rem;
+      font-size: 0.75rem;
+    }
+    pre.code-content {
+      padding: 0.75rem 0.75rem !important;
+      font-size: 0.78rem !important;
+    }
+    .code-action-btn {
+      padding: 0.18rem 0.45rem;
+      font-size: 0.68rem;
+    }
+  }
   .kb-prose blockquote {
     border-inline-start: 3px solid var(--crimson);
     padding-inline-start: 1rem;
@@ -557,17 +928,18 @@
   /* Dark mode prose & code enhancements */
   html.dark .kb-prose { color: var(--ink); }
   html.dark .kb-prose pre {
-    background: #0E0E12;
-    border: 1px solid #2B2B33;
-    color: #F3F4F6;
+    background: #111114;
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #F1F5F9;
   }
-  html.dark .kb-prose code {
-    background: rgba(224, 62, 82, 0.15);
-    color: #F87171;
+  html.dark .kb-prose :not(pre) > code {
+    background: rgba(224, 62, 82, 0.14) !important;
+    color: #FCA5A5 !important;
+    border-color: rgba(224, 62, 82, 0.28) !important;
   }
   html.dark .kb-prose pre code {
-    background: transparent;
-    color: inherit;
+    background: transparent !important;
+    color: inherit !important;
   }
   html.dark .kb-prose a { color: #F87171; }
   html.dark .kb-prose a:hover { color: #FCA5A5; }
