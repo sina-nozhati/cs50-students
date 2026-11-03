@@ -12,7 +12,9 @@ from app.services import exercises as exercise_service
 from app.services import events as event_service
 from app.services import kb_interactive
 from app.services import practice as practice_service
-from app.models import WeekProgress
+from app import db
+from datetime import datetime
+from app.models import WeekProgress, XPLog
 from flask import request, jsonify, make_response, send_file
 from urllib.parse import quote
 from app.services import downloads as downloads_service
@@ -404,3 +406,33 @@ def complete_practice(week: int):
     )
     return jsonify(result)
 
+
+@bp.route("/week/<int:week>/practice/refill-hearts", methods=["POST"])
+@login_required
+def refill_practice_hearts(week: int):
+    """احیای کامل قلب‌های تمرین هفته با کسر ۲۰ XP."""
+    _get_visible_week_or_404(week)
+    REFILL_COST = 20
+    user_xp = current_user.xp or 0
+    if user_xp < REFILL_COST:
+        return jsonify({
+            "success": False,
+            "message": f"برای احیای قلب‌ها حداقل به {REFILL_COST} XP نیاز داری. موجودی فعلی: {user_xp} XP"
+        }), 400
+
+    current_user.xp = user_xp - REFILL_COST
+    stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
+    log = XPLog(
+        user_id=current_user.id,
+        amount=-REFILL_COST,
+        reason=f"practice:hearts:refill:w{week}:{stamp}",
+    )
+    db.session.add(log)
+    db.session.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "قلب‌های شما با موفقیت شارژ شدند!",
+        "hearts": 5,
+        "current_xp": current_user.xp,
+    })

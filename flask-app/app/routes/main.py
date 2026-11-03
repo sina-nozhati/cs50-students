@@ -16,6 +16,9 @@ from app.services import events as event_service
 from app.services import diagnostics as diag_service
 from app.services import cohorts as cohort_service
 from app.services import adaptive as adaptive_service
+from app import db
+from datetime import datetime
+from app.models import XPLog
 
 bp = Blueprint("main", __name__)
 
@@ -255,3 +258,32 @@ def practice_finish():
     )
     return jsonify(res)
 
+
+@bp.route("/practice/refill-hearts", methods=["POST"])
+@login_required
+def practice_refill_hearts():
+    """احیای کامل ۵ قلب در تمرین تطبیقی با کسر ۲۰ XP."""
+    REFILL_COST = 20
+    user_xp = current_user.xp or 0
+    if user_xp < REFILL_COST:
+        return jsonify({
+            "success": False,
+            "message": f"برای احیای قلب‌ها حداقل به {REFILL_COST} XP نیاز داری. موجودی فعلی: {user_xp} XP"
+        }), 400
+
+    current_user.xp = user_xp - REFILL_COST
+    stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
+    log = XPLog(
+        user_id=current_user.id,
+        amount=-REFILL_COST,
+        reason=f"practice:hearts:refill:global:{stamp}",
+    )
+    db.session.add(log)
+    db.session.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "قلب‌های شما با موفقیت شارژ شدند!",
+        "hearts": 5,
+        "current_xp": current_user.xp,
+    })

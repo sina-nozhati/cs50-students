@@ -245,3 +245,63 @@ def test_week0_and_global_practice_routes(client, app):
     html_global = resp_global.data.decode("utf-8")
     assert "practiceApp(null," in html_global
     assert ", true," in html_global
+
+
+def test_refill_practice_hearts_endpoint(client, app):
+    """تست‌های اندپوینت شارژ مجدد قلب‌های تمرین با XP."""
+    from app.models import XPLog
+
+    user = User(username="refill_tester", password_hash="hash", is_admin=False, xp=10)
+    db.session.add(user)
+
+    week1 = Week.query.filter_by(number=1).first()
+    if not week1:
+        week1 = Week(number=1, title="هفته اول", is_published=True)
+        db.session.add(week1)
+    else:
+        week1.is_published = True
+
+    db.session.commit()
+    user_id = user.id
+
+    with client.session_transaction() as sess:
+        sess["_user_id"] = str(user_id)
+
+    # 1. تلاش برای شارژ وقتی XP ناکافی است (< 20)
+    resp_fail = client.post("/kb/week/1/practice/refill-hearts")
+    assert resp_fail.status_code == 400
+    fail_data = resp_fail.get_json()
+    assert fail_data["success"] is False
+    assert "حداقل به 20 XP نیاز داری" in fail_data["message"]
+
+    # 2. افزایش موجودی به 50 XP و شارژ موفق
+    user.xp = 50
+    db.session.commit()
+    db.session.expire_all()
+
+    resp_success = client.post("/kb/week/1/practice/refill-hearts")
+    assert resp_success.status_code == 200, resp_success.get_json()
+    succ_data = resp_success.get_json()
+    assert succ_data["success"] is True
+    assert succ_data["hearts"] == 5
+    assert succ_data["current_xp"] == 30
+
+    u = db.session.get(User, user_id)
+    assert u.xp == 30
+    log = XPLog.query.filter(XPLog.user_id == user_id, XPLog.amount == -20).first()
+    assert log is not None
+    assert "practice:hearts:refill:w1" in log.reason
+
+    # 3. شارژ در تمرین سراسری تطبیقی (/practice/refill-hearts)
+    resp_global = client.post("/practice/refill-hearts")
+    assert resp_global.status_code == 200
+    g_data = resp_global.get_json()
+    assert g_data["success"] is True
+    assert g_data["current_xp"] == 10
+
+    u = db.session.get(User, user_id)
+    assert u.xp == 10
+
+    # 4. تلاش مجدد وقتی به 10 رسیده و ناکافی است
+    resp_fail2 = client.post("/practice/refill-hearts")
+    assert resp_fail2.status_code == 400
