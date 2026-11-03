@@ -34,6 +34,7 @@ class Config:
     KB_DOWNLOADS_DYNAMIC = os.environ.get("KB_DOWNLOADS_DYNAMIC", "False").lower() in ("true", "1", "yes")
     MAX_CONTENT_LENGTH = int(os.environ.get("MAX_CONTENT_LENGTH", 250 * 1024 * 1024))  # 250 MB max upload size
     ALLOWED_EXTENSIONS = {"pdf", "zip", "tar", "gz", "tgz"}
+    WTF_CSRF_TIME_LIMIT = 86400  # 24 hours (prevents premature CSRF token expiration)
     # محدودیت نرخ ورود: حداکثر تلاش در پنجرهٔ زمانی (ثانیه)
     LOGIN_RATE_LIMIT = 10
     LOGIN_RATE_WINDOW_SECONDS = 300

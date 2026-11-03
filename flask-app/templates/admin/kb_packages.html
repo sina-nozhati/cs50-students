@@ -246,17 +246,90 @@
             <div class="bg-gray-50/70 p-3 rounded-xl border border-[var(--border)] flex items-center justify-between">
                 <div>
                     <span class="text-[var(--slate)] block font-medium mb-0.5">عملیات بازتولید کلی:</span>
-                    <span class="text-[11px] text-[var(--slate)]">تولید اتمیک تمام فایل‌ها</span>
+                    <span class="text-[11px] text-[var(--slate)]">تولید اتمیک در پس‌زمینه با لاگ زنده</span>
                 </div>
-                <form method="POST" action="{{ url_for('admin.kb_packages_rebuild_downloads') }}"
-                      onsubmit="return confirm('آیا از بازتولید کلیه خروجی‌های دانلودی (HTML، PDF، ZIP) برای تمام هفته‌ها اطمینان دارید؟ این فرآیند ممکن است چند ثانیه زمان ببرد.');">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                    <input type="hidden" name="course_id" value="{{ selected_course.id if selected_course else '' }}"/>
-                    <button type="submit" class="btn-soft-crimson text-xs py-2 px-3 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition">
+                <button id="start-rebuild-btn"
+                        type="button"
+                        onclick="triggerRebuildDownloads()"
+                        class="btn-soft-crimson text-xs py-2 px-3.5 inline-flex items-center gap-1.5 font-bold cursor-pointer hover:bg-crimson hover:text-white transition shadow-sm">
+                    <svg id="rebuild-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    <span id="rebuild-btn-text">تولید مجدد همه</span>
+                </button>
+            </div>
+        </div>
+
+        {# ─── پنل پیشرفته رهگیری زنده بازتولید دانلودها (Apple-grade Live Rebuild Progress) ─── #}
+        <div id="rebuild-progress-panel" class="hidden mt-4 pt-4 border-t border-[var(--border)] transition-all duration-300">
+            <div class="bg-gradient-to-b from-white to-gray-50/60 rounded-2xl border border-[var(--border)] p-4 sm:p-5 shadow-sm">
+                {# هدر پنل وضعیت #}
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                    <div class="flex items-center gap-2.5">
+                        <span id="rebuild-spinner" class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-crimson opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-crimson"></span>
+                        </span>
+                        <h4 id="rebuild-headline" class="font-black text-sm text-[var(--ink)]">در حال بازتولید فایل‌های دانلودی پویا...</h4>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span id="rebuild-timer" class="text-xs text-[var(--slate)] font-mono">زمان: ۰ ثانیه</span>
+                        <span id="rebuild-percent-badge" class="px-2.5 py-0.5 rounded-full text-xs font-black bg-crimson/10 text-crimson num">۰٪</span>
+                    </div>
+                </div>
+
+                {# نوار پیشرفت #}
+                <div class="w-full bg-gray-200/70 rounded-full h-3.5 overflow-hidden shadow-inner mb-3">
+                    <div id="rebuild-progress-bar"
+                         class="h-full bg-gradient-to-r from-crimson to-red-600 rounded-full transition-all duration-300 ease-out"
+                         style="width: 0%;"></div>
+                </div>
+
+                {# جزئیات هفته در حال پردازش #}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--slate)] mb-3 bg-white p-3 rounded-xl border border-[var(--border)] shadow-xs">
+                    <div class="flex items-center gap-2 truncate">
+                        <span class="font-medium text-[var(--slate)] shrink-0">درحال تولید:</span>
+                        <span id="rebuild-current-title" class="font-bold text-[var(--ink)] truncate">در حال آماده‌سازی...</span>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end gap-3">
+                        <div class="flex items-center gap-1.5">
+                            <span class="font-medium text-[var(--slate)]">فرمت‌ها:</span>
+                            <span class="inline-flex gap-1">
+                                <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-100">HTML</span>
+                                <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-100">PDF</span>
+                                <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-purple-50 text-purple-700 border border-purple-100">ZIP</span>
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-1">
+                            <span class="font-medium text-[var(--slate)]">تکمیل:</span>
+                            <span id="rebuild-count-stat" class="font-mono text-emerald-700 font-bold">۰ از ۱۳ هفته</span>
+                        </div>
+                    </div>
+                </div>
+
+                {# گزارش لحظه‌ای هفته‌های تکمیل‌شده #}
+                <div class="mb-3">
+                    <span class="text-[11px] font-bold text-[var(--slate)] block mb-1.5">وضعیت هفته‌های تولیدشده:</span>
+                    <div id="rebuild-completed-chips" class="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto pr-1">
+                        <span class="text-[11px] text-[var(--slate)] italic">در انتظار آغاز اولین هفته...</span>
+                    </div>
+                </div>
+
+                {# جعبه خطاهای احتمالی #}
+                <div id="rebuild-errors-box" class="hidden mt-3 p-3.5 rounded-xl bg-red-50 border border-red-200 text-xs text-red-800">
+                    <div class="flex items-center gap-2 font-bold mb-1.5">
+                        <svg class="w-4 h-4 text-red-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        <span>گزارش خطاهای احتمالی در حین بازتولید:</span>
+                    </div>
+                    <ul id="rebuild-errors-list" class="list-disc list-inside space-y-1 font-mono text-[11px] text-red-700">
+                    </ul>
+                </div>
+
+                {# دکمه‌های اتمام فرآیند #}
+                <div id="rebuild-actions" class="hidden mt-3 pt-3 border-t border-[var(--border)] flex justify-end gap-2">
+                    <button type="button" onclick="window.location.reload()" class="btn-soft-crimson text-xs py-2 px-4 font-bold hover:bg-crimson hover:text-white transition shadow-sm inline-flex items-center gap-1.5">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                        <span>تولید مجدد همه</span>
+                        <span>تازه‌سازی صفحه و جدول وضعیت</span>
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
@@ -712,6 +785,190 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send(formData);
     });
 });
+
+// ─── سیستم مانیتورینگ زنده و غیرهمگام بازتولید دانلودها (Dynamic Exports Rebuilder) ───
+let rebuildPollTimer = null;
+
+function triggerRebuildDownloads() {
+    if (!confirm('آیا از بازتولید کلیه خروجی‌های دانلودی (HTML، PDF، ZIP) برای تمام هفته‌ها اطمینان دارید؟\n\nاین عملیات در پس‌زمینه سرور اجرا شده و درصد پیشرفت هر هفته به‌صورت زنده به شما نمایش داده می‌شود.')) {
+        return;
+    }
+
+    const startBtn = document.getElementById('start-rebuild-btn');
+    const startBtnText = document.getElementById('rebuild-btn-text');
+    const panel = document.getElementById('rebuild-progress-panel');
+    const headline = document.getElementById('rebuild-headline');
+    const progressBar = document.getElementById('rebuild-progress-bar');
+    const percentBadge = document.getElementById('rebuild-percent-badge');
+    const actions = document.getElementById('rebuild-actions');
+    const errorsBox = document.getElementById('rebuild-errors-box');
+    const spinner = document.getElementById('rebuild-spinner');
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+                   || document.querySelector('input[name="csrf_token"]')?.value || '';
+
+    if (startBtn) startBtn.disabled = true;
+    if (startBtnText) startBtnText.textContent = 'در حال ارسال دستور...';
+    if (panel) panel.classList.remove('hidden');
+    if (actions) actions.classList.add('hidden');
+    if (errorsBox) errorsBox.classList.add('hidden');
+    if (progressBar) {
+        progressBar.style.width = '0%';
+        progressBar.className = 'h-full bg-gradient-to-r from-crimson to-red-600 rounded-full transition-all duration-300 ease-out';
+    }
+    if (percentBadge) percentBadge.textContent = '۰٪';
+    if (headline) headline.textContent = 'در حال بازتولید فایل‌های دانلودی پویا...';
+    if (spinner) spinner.classList.remove('hidden');
+
+    fetch("{{ url_for('admin.kb_packages_rebuild_downloads') }}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken,
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({ force: true })
+    })
+    .then(r => {
+        if (!r.ok) {
+            if (r.status === 400) {
+                throw new Error('توکن امنیتی (CSRF) منقضی شده است. لطفاً صفحه را تازه‌سازی (F5) کرده و مجدداً امتحان کنید.');
+            }
+            throw new Error('خطا در برقراری ارتباط با وب‌سرور (کد ' + r.status + ')');
+        }
+        return r.json();
+    })
+    .then(data => {
+        if (startBtnText) startBtnText.textContent = 'درحال بازتولید...';
+        startRebuildPolling();
+    })
+    .catch(err => {
+        alert(err.message || 'خطا در آغاز فرآیند بازتولید');
+        if (startBtn) startBtn.disabled = false;
+        if (startBtnText) startBtnText.textContent = 'تولید مجدد همه';
+    });
+}
+
+function startRebuildPolling() {
+    if (rebuildPollTimer) clearInterval(rebuildPollTimer);
+    pollRebuildStatus();
+    rebuildPollTimer = setInterval(pollRebuildStatus, 1500);
+}
+
+function pollRebuildStatus() {
+    fetch("{{ url_for('admin.kb_packages_rebuild_downloads_status') }}", {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(r => r.json())
+    .then(status => {
+        updateRebuildUI(status);
+        if (!status.is_running && status.finished) {
+            clearInterval(rebuildPollTimer);
+            rebuildPollTimer = null;
+        }
+    })
+    .catch(e => {
+        console.error('Polling error', e);
+    });
+}
+
+function updateRebuildUI(status) {
+    const panel = document.getElementById('rebuild-progress-panel');
+    const headline = document.getElementById('rebuild-headline');
+    const timer = document.getElementById('rebuild-timer');
+    const percentBadge = document.getElementById('rebuild-percent-badge');
+    const progressBar = document.getElementById('rebuild-progress-bar');
+    const currentTitle = document.getElementById('rebuild-current-title');
+    const countStat = document.getElementById('rebuild-count-stat');
+    const chipsContainer = document.getElementById('rebuild-completed-chips');
+    const errorsBox = document.getElementById('rebuild-errors-box');
+    const errorsList = document.getElementById('rebuild-errors-list');
+    const actions = document.getElementById('rebuild-actions');
+    const spinner = document.getElementById('rebuild-spinner');
+    const startBtn = document.getElementById('start-rebuild-btn');
+    const startBtnText = document.getElementById('rebuild-btn-text');
+
+    if (!status || status.status === 'idle') return;
+
+    if (panel) panel.classList.remove('hidden');
+
+    const p = Math.min(100, Math.max(0, status.percent || 0));
+    if (progressBar) progressBar.style.width = p + '%';
+    if (percentBadge) percentBadge.textContent = p + '٪';
+    if (timer) timer.textContent = 'زمان: ' + (status.elapsed_seconds || 0) + ' ثانیه';
+    if (currentTitle) currentTitle.textContent = status.current_title || status.current_slug || 'در حال آماده‌سازی...';
+    if (countStat) countStat.textContent = (status.completed_weeks ? status.completed_weeks.length : 0) + ' از ' + (status.total_weeks || 13) + ' هفته';
+
+    // ساخت چیپس‌های تکمیل‌شده
+    if (chipsContainer && status.completed_weeks && status.completed_weeks.length > 0) {
+        chipsContainer.innerHTML = status.completed_weeks.map(w => `
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-2xs">
+                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <span>${w.title}</span>
+                <span class="text-[10px] text-emerald-600 font-mono font-normal">(${w.duration_s}s)</span>
+            </span>
+        `).join('');
+    }
+
+    // نمایش خطاها یا هشدارهای احتمالی
+    if (errorsBox && errorsList && status.errors && status.errors.length > 0) {
+        errorsBox.classList.remove('hidden');
+        errorsList.innerHTML = status.errors.map(err => {
+            const msg = typeof err === 'string' ? err : `${err.title || err.slug}: ${err.error}`;
+            return `<li>${msg}</li>`;
+        }).join('');
+    }
+
+    // بررسی اتمام فرآیند
+    if (!status.is_running && status.finished) {
+        if (spinner) spinner.classList.add('hidden');
+        if (startBtn) startBtn.disabled = false;
+        if (startBtnText) startBtnText.textContent = 'تولید مجدد همه';
+
+        if (status.status === 'success') {
+            if (headline) headline.textContent = '✓ تمام فایل‌های دانلودی پویا با موفقیت تولید و کش شدند!';
+            if (progressBar) {
+                progressBar.className = 'h-full bg-emerald-600 rounded-full transition-all duration-300';
+            }
+            if (percentBadge) {
+                percentBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 num';
+            }
+        } else if (status.status === 'partial') {
+            if (headline) headline.textContent = 'بازتولید انجام شد (همراه با برخی هشدارها)';
+            if (progressBar) {
+                progressBar.className = 'h-full bg-amber-500 rounded-full transition-all duration-300';
+            }
+        } else {
+            if (headline) headline.textContent = 'خطا در بازتولید برخی هفته‌ها';
+            if (progressBar) {
+                progressBar.className = 'h-full bg-red-600 rounded-full transition-all duration-300';
+            }
+        }
+
+        if (actions) actions.classList.remove('hidden');
+    }
+}
+
+// بررسی وضعیت در لود اولیه صفحه (اگر تردی از قبل در حال اجرا بوده)
+document.addEventListener('DOMContentLoaded', function() {
+    fetch("{{ url_for('admin.kb_packages_rebuild_downloads_status') }}", {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(r => r.json())
+    .then(status => {
+        if (status && status.is_running) {
+            const panel = document.getElementById('rebuild-progress-panel');
+            if (panel) panel.classList.remove('hidden');
+            const startBtn = document.getElementById('start-rebuild-btn');
+            const startBtnText = document.getElementById('rebuild-btn-text');
+            if (startBtn) startBtn.disabled = true;
+            if (startBtnText) startBtnText.textContent = 'درحال بازتولید...';
+            startRebuildPolling();
+        }
+    })
+    .catch(() => {});
+});
+
 </script>
 
 {% endblock %}

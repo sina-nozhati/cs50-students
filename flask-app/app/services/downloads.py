@@ -13,6 +13,8 @@ import os
 import re
 import shutil
 import tempfile
+import threading
+import time
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
@@ -232,12 +234,125 @@ def build_downloads_for_week(
     return manifest
 
 
-def build_all_downloads(
-    force: bool = False,
-    pdf: bool = True,
-    engine: str = "chrome",
-) -> dict[str, Any]:
-    """ساخت فایل‌های دانلودی برای تمام هفته‌های موجود در پایگاه دانش."""
+# ─── سیستم مانیتورینگ و رهگیری لحظه‌ای بازتولید فایل‌های دانلودی ───────
+_REBUILD_LOCK = threading.Lock()
+_REBUILD_STATUS: dict[str, Any] = {
+    "is_running": False,
+    "current_index": 0,
+    "total_weeks": 0,
+    "current_slug": "",
+    "current_title": "",
+    "percent": 0,
+    "elapsed_seconds": 0,
+    "completed_weeks": [],
+    "errors": [],
+    "warnings": [],
+    "status": "idle",  # "idle", "running", "success", "partial", "error"
+    "message": "",
+    "finished": False,
+    "started_at": 0,
+    "updated_at": 0,
+}
+
+
+def get_week_display_title(slug: str) -> str:
+    """دریافت نام و عنوان فارسی و خوانا برای یک هفته دانلودی."""
+    try:
+        kb_root = kb_repo.kb_root() / "anzali-fa"
+        curric_path = kb_root / "weeks" / slug / "curriculum.json"
+        if curric_path.is_file():
+            cdata = json.loads(curric_path.read_text(encoding="utf-8"))
+            t = cdata.get("title") or cdata.get("title_fa") or cdata.get("name")
+            if t:
+                return t
+    except Exception:
+        pass
+
+    title_map = {
+        "week-00": "هفته ۰ — اسکرچ (Scratch)",
+        "week-01": "هفته ۱ — زبان سی (C)",
+        "week-02": "هفته ۲ — آرایه‌ها (Arrays)",
+        "week-03": "هفته ۳ — الگوریتم‌ها (Algorithms)",
+        "week-04": "هفته ۴ — حافظه (Memory)",
+        "week-05": "هفته ۵ — ساختار داده‌ها (Data Structures)",
+        "week-06": "هفته ۶ — پایتون (Python)",
+        "week-07": "هفته ۷ — پایگاه داده SQL",
+        "week-08": "هفته ۸ — توسعه وب HTML/CSS/JS",
+        "week-09": "هفته ۹ — فریم‌ورک Flask",
+        "week-10": "هفته ۱۰ — امنیت سایبری (Cybersecurity)",
+        "week-ai": "هفته هوش مصنوعی (Artificial Intelligence)",
+        "final-project": "پروژه پایانی دوره (Final Project)",
+    }
+    return title_map.get(slug, slug)
+
+
+def get_rebuild_progress() -> dict[str, Any]:
+    """دریافت وضعیت زنده و درصد پیشرفت بازتولید فایل‌های دانلودی."""
+    with _REBUILD_LOCK:
+        status_copy = dict(_REBUILD_STATUS)
+        status_copy["completed_weeks"] = list(_REBUILD_STATUS["completed_weeks"])
+        status_copy["errors"] = list(_REBUILD_STATUS["errors"])
+        status_copy["warnings"] = list(_REBUILD_STATUS["warnings"])
+        if _REBUILD_STATUS["is_running"] and _REBUILD_STATUS["started_at"] > 0:
+            status_copy["elapsed_seconds"] = int(time.time() - _REBUILD_STATUS["started_at"])
+        return status_copy
+
+
+def start_async_rebuild_all_downloads(force: bool = True, app_obj: Any = None) -> dict[str, Any]:
+    """شروع غیرهمگام بازتولید تمام دانلودها در ترد پس‌زمینه بدون بلاک کردن ریکوئست HTTP."""
+    with _REBUILD_LOCK:
+        if _REBUILD_STATUS["is_running"]:
+            return {
+                "started": False,
+                "is_running": True,
+                "message": "عملیات بازتولید در حال حاضر در پس‌زمینه در جریان است.",
+                "progress": get_rebuild_progress(),
+            }
+
+        _REBUILD_STATUS.update({
+            "is_running": True,
+            "current_index": 0,
+            "total_weeks": 0,
+            "current_slug": "",
+            "current_title": "در حال آماده‌سازی و بررسی فهرست هفته‌ها...",
+            "percent": 0,
+            "elapsed_seconds": 0,
+            "completed_weeks": [],
+            "errors": [],
+            "warnings": [],
+            "status": "running",
+            "message": "فرآیند بازتولید فایل‌های دانلودی آغاز شد.",
+            "finished": False,
+            "started_at": time.time(),
+            "updated_at": time.time(),
+        })
+
+    def _worker():
+        try:
+            if app_obj:
+                with app_obj.app_context():
+                    _execute_rebuild_all(force=force)
+            else:
+                _execute_rebuild_all(force=force)
+        except Exception as e:
+            with _REBUILD_LOCK:
+                _REBUILD_STATUS["is_running"] = False
+                _REBUILD_STATUS["finished"] = True
+                _REBUILD_STATUS["status"] = "error"
+                _REBUILD_STATUS["message"] = f"خطای غیرمنتظره در بازتولید: {e}"
+                _REBUILD_STATUS["errors"].append({"slug": "system", "title": "خطای سیستمی", "error": str(e)})
+
+    threading.Thread(target=_worker, daemon=True, name="async-kb-rebuild-downloads").start()
+    return {
+        "started": True,
+        "is_running": True,
+        "message": "عملیات بازتولید فایل‌های دانلودی در پس‌زمینه آغاز شد.",
+        "progress": get_rebuild_progress(),
+    }
+
+
+def _execute_rebuild_all(force: bool = True, pdf: bool = True, engine: str = "chrome") -> dict[str, Any]:
+    """اجرای مرحله‌به‌مرحله ساخت تمام دانلودها و به‌روزرسانی لحظه‌ای وضعیت."""
     kb_root = kb_repo.kb_root() / "anzali-fa"
     weeks_root = kb_root / "weeks"
 
@@ -247,35 +362,101 @@ def build_all_downloads(
             if d.is_dir() and (d.name.startswith("week-") or d.name == "final-project"):
                 all_slugs.append(d.name)
 
+    total = len(all_slugs)
+    with _REBUILD_LOCK:
+        _REBUILD_STATUS["total_weeks"] = total
+
     results: dict[str, Any] = {
         "success": True,
-        "total_weeks": len(all_slugs),
+        "total_weeks": total,
         "weeks": {},
         "warnings": [],
         "errors": [],
     }
 
-    pkg_root = get_package_downloads_root()
+    start_t = time.time()
+    for idx, slug in enumerate(all_slugs):
+        title = get_week_display_title(slug)
+        with _REBUILD_LOCK:
+            _REBUILD_STATUS["current_index"] = idx + 1
+            _REBUILD_STATUS["current_slug"] = slug
+            _REBUILD_STATUS["current_title"] = title
+            _REBUILD_STATUS["percent"] = int((idx / max(total, 1)) * 100)
+            _REBUILD_STATUS["updated_at"] = time.time()
 
-    for slug in all_slugs:
+        t0 = time.time()
         try:
             m = build_downloads_for_week(slug, force=force, pdf=pdf, engine=engine)
+            dur = round(time.time() - t0, 1)
+            item_count = len(m.get("items", []))
+            has_pdf = any("pdf" in it.get("formats", []) for it in m.get("items", []))
+            has_zip = any("zip" in it.get("formats", []) for it in m.get("items", []))
             results["weeks"][slug] = {
                 "success": True,
-                "items_count": len(m.get("items", [])),
+                "items_count": item_count,
                 "built": m.get("built"),
+                "duration_s": dur,
+                "has_pdf": has_pdf,
             }
+            with _REBUILD_LOCK:
+                _REBUILD_STATUS["completed_weeks"].append({
+                    "slug": slug,
+                    "title": title,
+                    "items_count": item_count,
+                    "has_pdf": has_pdf,
+                    "has_zip": has_zip,
+                    "duration_s": dur,
+                })
         except Exception as e:
             results["success"] = False
-            results["errors"].append(f"{slug}: {e}")
+            err_msg = f"{title} ({slug}): {e}"
+            results["errors"].append(err_msg)
             results["weeks"][slug] = {
                 "success": False,
                 "error": str(e),
             }
+            with _REBUILD_LOCK:
+                _REBUILD_STATUS["errors"].append({
+                    "slug": slug,
+                    "title": title,
+                    "error": str(e),
+                })
 
+        with _REBUILD_LOCK:
+            _REBUILD_STATUS["percent"] = int(((idx + 1) / max(total, 1)) * 100)
+            _REBUILD_STATUS["updated_at"] = time.time()
+
+    pkg_root = get_package_downloads_root()
     status_file = pkg_root / "status.json"
     status_file.write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    with _REBUILD_LOCK:
+        _REBUILD_STATUS["is_running"] = False
+        _REBUILD_STATUS["finished"] = True
+        _REBUILD_STATUS["percent"] = 100
+        _REBUILD_STATUS["elapsed_seconds"] = int(time.time() - start_t)
+        err_len = len(_REBUILD_STATUS["errors"])
+        comp_len = len(_REBUILD_STATUS["completed_weeks"])
+        if err_len == 0:
+            _REBUILD_STATUS["status"] = "success"
+            _REBUILD_STATUS["message"] = f"کلیه فایل‌های دانلودی {comp_len} هفته با موفقیت تولید و کش شدند."
+        elif comp_len > 0:
+            _REBUILD_STATUS["status"] = "partial"
+            _REBUILD_STATUS["message"] = f"{comp_len} هفته با موفقیت تولید شد، اما {err_len} هفته با خطا مواجه شد."
+        else:
+            _REBUILD_STATUS["status"] = "error"
+            _REBUILD_STATUS["message"] = "تولید فایل‌های دانلودی با خطا مواجه شد."
+
     return results
+
+
+def build_all_downloads(
+    force: bool = False,
+    pdf: bool = True,
+    engine: str = "chrome",
+) -> dict[str, Any]:
+    """ساخت فایل‌های دانلودی برای تمام هفته‌های موجود در پایگاه دانش."""
+    return _execute_rebuild_all(force=force, pdf=pdf, engine=engine)
 
 
 def _is_safe_path(base_dir: Path, target_path: Path) -> bool:

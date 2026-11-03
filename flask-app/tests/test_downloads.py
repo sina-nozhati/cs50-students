@@ -179,3 +179,13 @@ class TestAdminRebuildDownloads:
         resp = client.post("/admin/kb-packages/rebuild-downloads", follow_redirects=True)
         assert resp.status_code == 200
         assert len(called) == 1
+
+    def test_admin_rebuild_status_endpoint(self, client, admin):
+        client.post("/login", data={"username": "dl_admin", "password": "adminpw"})
+        resp = client.get("/admin/kb-packages/rebuild-downloads/status")
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert "is_running" in data
+        assert "percent" in data
+        assert "completed_weeks" in data
+        assert "errors" in data

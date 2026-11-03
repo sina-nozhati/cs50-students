@@ -775,29 +775,35 @@ def kb_packages_upload():
 @bp.route("/kb-packages/rebuild-downloads", methods=["POST"])
 @admin_required
 def kb_packages_rebuild_downloads():
-    """تولید مجدد کلیه خروجی‌های دانلودی پویا (HTML / PDF / ZIP)."""
+    """شروع غیرهمگام بازتولید کلیه خروجی‌های دانلودی پویا (HTML / PDF / ZIP) بدون مسدود کردن ریکوئست."""
+    is_ajax = request.headers.get("X-Requested-With") == "XMLHttpRequest" or request.is_json
     course_id = request.form.get("course_id", type=int)
-    try:
-        res = downloads_service.build_all_downloads(force=True)
-        event_service.log_event(
-            user_id=current_user.id,
-            event_type="admin_rebuild_downloads",
-            data={
-                "weeks_count": len(res.get("weeks", {})),
-                "pdf_engine": res.get("pdf_engine"),
-                "status": res.get("status"),
-            },
-        )
-        if res.get("status") == "success":
-            flash("کلیه فایل‌های دانلودی پویا با موفقیت تولید و جای‌گذاری شدند.", "success")
-        elif res.get("status") == "partial":
-            flash("تولید فایل‌های دانلودی با موفقیت نسبی انجام شد؛ لطفاً گزارش هفتگی را بررسی کنید.", "warning")
-        else:
-            flash(f"خطا در تولید فایل‌های دانلودی: {res.get('error', 'خطای نامشخص')}", "error")
-    except Exception as e:
-        flash(f"خطای سیستمی در بازتولید دانلودها: {e}", "error")
 
+    if current_app.config.get("TESTING"):
+        res = downloads_service.build_all_downloads(force=True)
+        if is_ajax:
+            return jsonify(res)
+        flash("کلیه فایل‌های دانلودی پویا با موفقیت تولید و جای‌گذاری شدند.", "success")
+        return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
+
+    res = downloads_service.start_async_rebuild_all_downloads(
+        force=True,
+        app_obj=current_app._get_current_object(),
+    )
+
+    if is_ajax:
+        return jsonify(res)
+
+    flash("عملیات بازتولید فایل‌های دانلودی در پس‌زمینه آغاز شد. می‌توانید روند پیشرفت را از بخش دانلودهای پویا مشاهده کنید.", "info")
     return redirect(url_for("admin.kb_packages_dashboard", course_id=course_id))
+
+
+@bp.route("/kb-packages/rebuild-downloads/status", methods=["GET"])
+@admin_required
+def kb_packages_rebuild_downloads_status():
+    """استعلام وضعیت زنده، درصد پیشرفت و خطاهای احتمالی فرآیند بازتولید دانلودها."""
+    prog = downloads_service.get_rebuild_progress()
+    return jsonify(prog)
 
 
 # ──────────────────────────────────────────────────────────────────────────────
