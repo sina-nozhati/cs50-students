@@ -792,7 +792,7 @@
       {# ── بخش اصلی: گزینه‌های پیش‌رو ── #}
       <div class="flex flex-col gap-3">
 
-        {# گزینه ۱: تایمر ۱۵ دقیقه‌ای و مطالعه بیشتر درسنامه #}
+        {# گزینه ۱: تایمر ۶ ساعته و مطالعه بیشتر درسنامه #}
         <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 flex flex-col gap-3">
           <div class="flex items-center justify-between gap-3">
             <div class="flex items-center gap-2.5">
@@ -802,7 +802,7 @@
                 </svg>
               </div>
               <div>
-                <div class="text-xs font-bold text-slate-900">شارژ خودکار جان‌ها (۱۵ دقیقه)</div>
+                <div class="text-xs font-bold text-slate-900">شارژ خودکار جان‌ها (۶ ساعت)</div>
                 <div class="text-[11px] text-slate-500 font-medium">صبر کن یا جزوه را بخوان تا شارژ شود</div>
               </div>
             </div>
@@ -1291,11 +1291,12 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
     },
 
     formatCooldown(totalSec) {
-      if (totalSec <= 0) return '۰۰:۰۰';
-      const m = Math.floor(totalSec / 60);
+      if (totalSec <= 0) return '۰۰:۰۰:۰۰';
+      const h = Math.floor(totalSec / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
       const s = totalSec % 60;
       const pad = (n) => n < 10 ? '0' + n : '' + n;
-      const str = pad(m) + ':' + pad(s);
+      const str = pad(h) + ':' + pad(m) + ':' + pad(s);
       const faDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
       return str.replace(/[0-9]/g, d => faDigits[d]);
     },
@@ -1325,16 +1326,18 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
       this.playHeartDepletedSound();
       const key = 'cs50_cooldown_' + (this.isGlobal ? 'global' : (this.week !== null ? this.week : '0'));
       let savedUntil = localStorage.getItem(key);
-      let remaining = 15 * 60; // 900 seconds
+      const SIX_HOURS_SEC = 6 * 60 * 60; // 21,600 seconds (6 hours)
+      const SIX_HOURS_MS = SIX_HOURS_SEC * 1000;
+      let remaining = SIX_HOURS_SEC;
       if (savedUntil) {
         const diff = Math.ceil((Number(savedUntil) - Date.now()) / 1000);
         if (diff > 0) remaining = diff;
         else {
-          const newUntil = Date.now() + 15 * 60 * 1000;
+          const newUntil = Date.now() + SIX_HOURS_MS;
           localStorage.setItem(key, newUntil);
         }
       } else {
-        const newUntil = Date.now() + 15 * 60 * 1000;
+        const newUntil = Date.now() + SIX_HOURS_MS;
         localStorage.setItem(key, newUntil);
       }
       this.startCooldownTimer(remaining);
