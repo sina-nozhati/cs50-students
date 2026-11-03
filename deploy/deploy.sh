@@ -310,13 +310,17 @@ if [ -f "/etc/systemd/system/cs50hub.service" ]; then
     run_as_admin systemctl daemon-reload >> "$LOG_FILE" 2>&1 || true
 fi
 
-action "Synchronizing Nginx performance configuration (Gzip & Security)..."
+action "Synchronizing Nginx performance configuration (Gzip, Timeouts & Security)..."
 if [ -f "/etc/nginx/sites-available/cs50hub" ]; then
     if grep -q "ssl_certificate" /etc/nginx/sites-available/cs50hub; then
         ok "Active SSL certificate detected in /etc/nginx/sites-available/cs50hub; preserving SSL configuration."
         if ! grep -q "client_max_body_size" /etc/nginx/sites-available/cs50hub; then
             action "Configuring 250MB upload limit in /etc/nginx/sites-available/cs50hub..."
             run_as_admin sed -i '/server_name/a \    client_max_body_size 250M;\n    client_body_timeout 180s;' /etc/nginx/sites-available/cs50hub 2>/dev/null || true
+        fi
+        if ! grep -q "proxy_read_timeout" /etc/nginx/sites-available/cs50hub; then
+            action "Configuring 300s proxy timeout in /etc/nginx/sites-available/cs50hub..."
+            run_as_admin sed -i '/proxy_pass/a \        proxy_read_timeout 300s;\n        proxy_connect_timeout 75s;\n        proxy_send_timeout 300s;' /etc/nginx/sites-available/cs50hub 2>/dev/null || true
         fi
         if run_as_admin nginx -t >> "$LOG_FILE" 2>&1; then
             run_as_admin systemctl reload nginx >> "$LOG_FILE" 2>&1 || true

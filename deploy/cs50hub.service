@@ -7,7 +7,7 @@ User=root
 Group=root
 WorkingDirectory=/var/www/cs50hub/flask-app
 EnvironmentFile=/var/www/cs50hub/flask-app/.env
-ExecStart=/var/www/cs50hub/venv/bin/gunicorn --workers 3 --threads 3 --worker-class gthread --worker-tmp-dir /dev/shm --timeout 60 --keep-alive 5 --bind 127.0.0.1:5000 wsgi:app
+ExecStart=/var/www/cs50hub/venv/bin/gunicorn --workers 3 --threads 3 --worker-class gthread --worker-tmp-dir /dev/shm --timeout 300 --keep-alive 5 --bind 127.0.0.1:5000 wsgi:app
 Restart=always
 RestartSec=3
 

@@ -521,8 +521,16 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None, course_id
         try:
             from flask import current_app
             if not current_app.config.get("TESTING"):
-                from app.services import downloads as downloads_service
-                downloads_service.build_all_downloads(force=True)
+                app_obj = current_app._get_current_object()
+                def _bg_master_build():
+                    try:
+                        with app_obj.app_context():
+                            from app.services import downloads as downloads_service
+                            downloads_service.build_all_downloads(force=True)
+                    except Exception as bg_e:
+                        app_obj.logger.warning(f"Background downloads build warning: {bg_e}")
+                import threading
+                threading.Thread(target=_bg_master_build, daemon=True, name="kb-master-downloads-build").start()
         except Exception:
             pass
 
@@ -746,8 +754,16 @@ def install_kb_package(
     try:
         from flask import current_app
         if not current_app.config.get("TESTING"):
-            from app.services import downloads as downloads_service
-            downloads_service.build_downloads_for_week(dest_slug, force=True)
+            app_obj = current_app._get_current_object()
+            def _bg_week_build(slug):
+                try:
+                    with app_obj.app_context():
+                        from app.services import downloads as downloads_service
+                        downloads_service.build_downloads_for_week(slug, force=True)
+                except Exception as bg_e:
+                    app_obj.logger.warning(f"Background week downloads build warning ({slug}): {bg_e}")
+            import threading
+            threading.Thread(target=_bg_week_build, args=(dest_slug,), daemon=True, name=f"kb-week-{dest_slug}-downloads-build").start()
     except Exception:
         pass
 

@@ -649,7 +649,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 progressBar.classList.add('bg-red-600');
                 percentText.classList.add('text-red-600');
                 phaseText.textContent = 'خطای ۴۱۳: حجم فایل فراتر از سقف مجاز وب‌سرور است.';
-                showError('وب‌سرور درخواست را به دلیل حجم بالا رد کرد (413 Request Entity Too Large). سقف فایل ۲۵۰ مگابایت است.');
+                showError('وب‌سرور درخواست را به دلیل حجم بالا رد کرد (413 Request Entity Too Large). سقف مجاز فایل ۲۵۰ مگابایت است.');
+                submitBtn.disabled = false;
+                submitBtnText.textContent = 'تلاش مجدد';
+                cancelBtn.classList.add('hidden');
+            } else if (xhr.status === 504) {
+                progressBar.classList.add('bg-amber-600');
+                percentText.classList.add('text-amber-600');
+                phaseText.textContent = 'پردازش طولانی در سرور (Gateway Timeout 504)';
+                showError('زمان پردازش وب‌سرور به پایان رسید (504). فایل با موفقیت دریافت شده و استخراج محتوا ممکن است در پس‌زمینه سرور در جریان باشد. لطفاً ۱ دقیقه صبر کرده و صفحه را تازه‌سازی (Refresh) نمایید.');
+                submitBtn.disabled = false;
+                submitBtnText.textContent = 'بررسی وضعیت';
+                cancelBtn.classList.add('hidden');
+            } else if (xhr.status === 502) {
+                progressBar.classList.add('bg-red-600');
+                percentText.classList.add('text-red-600');
+                phaseText.textContent = 'خطای ارتباط با سرور برنامه (502 Bad Gateway)';
+                showError('سرویس پس‌زمینه در حین پردازش متوقف یا بازنشانی شد (502 Bad Gateway).');
                 submitBtn.disabled = false;
                 submitBtnText.textContent = 'تلاش مجدد';
                 cancelBtn.classList.add('hidden');
