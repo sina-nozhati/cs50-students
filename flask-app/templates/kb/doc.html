@@ -1,46 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ doc.title }}
-<script>
-  function kbDocReaderApp() {
-    return {
-      drawerOpen: false,
-      scrolledPastHeader: false,
-      scrollPct: 0,
-
-      init: function() {
-        var self = this;
-        // ثبت در حافظه محلی برای پیگیری مطالعه
-        try {
-          var weekNum = {{ doc.site_number or 'null' }};
-          var docId = '{{ doc.id }}';
-          if (weekNum !== null && docId) {
-            var key = 'cs50_read_notes_w' + weekNum;
-            var list = JSON.parse(localStorage.getItem(key) || '[]');
-            if (list.indexOf(docId) === -1) {
-              list.push(docId);
-              localStorage.setItem(key, JSON.stringify(list));
-            }
-            localStorage.setItem('cs50_last_read_w' + weekNum, docId);
-          }
-        } catch (e) {}
-
-        // محاسبه وضعیت اسکرول
-        var handleScroll = function() {
-          var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          self.scrollPct = height > 0 ? Math.min(100, Math.round((winScroll / height) * 100)) : 0;
-          self.scrolledPastHeader = winScroll > 180;
-        };
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-      }
-    };
-  }
-</script>
-
-{% endblock %}
+{% block title %}{{ doc.title }}{% endblock %}
 
 {% block content %}
 <div x-data="kbDocReaderApp()" class="max-w-4xl mx-auto space-y-6 relative">
@@ -93,7 +53,7 @@
 
   {# سمت چپ: دکمه‌های سریع فهرست و مبحث بعدی #}
   <div class="flex items-center gap-2 shrink-0">
-    <button type="button" @click="drawerOpen = true"
+    <button type="button" @click="drawerOpen = true" onclick="window.openKbDrawer()"
             class="btn-outline-crimson text-xs py-1.5 px-2.5 sm:px-3 rounded-xl inline-flex items-center gap-1.5 font-bold cursor-pointer transition shadow-xs">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
       <span class="hidden sm:inline">فهرست مباحث</span>
@@ -122,177 +82,100 @@
 </div>
 
 {# ─── دراور کشویی فهرست کل مباحث هفته (Slide-over Drawer) ─── #}
-<div x-show="drawerOpen" class="relative z-50" aria-labelledby="slide-over-title" role="dialog" aria-modal="true" x-cloak>
-  <div x-show="drawerOpen"
-       x-transition:enter="ease-in-out duration-300"
-       x-transition:enter-start="opacity-0"
-       x-transition:enter-end="opacity-100"
-       x-transition:leave="ease-in-out duration-200"
-       x-transition:leave-start="opacity-100"
-       x-transition:leave-end="opacity-0"
-       class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
-       @click="drawerOpen = false"></div>
+<div id="kb-curriculum-drawer"
+     x-show="drawerOpen"
+     @keydown.escape.window="drawerOpen = false; window.closeKbDrawer()"
+     class="fixed inset-0 z-50 overflow-hidden"
+     aria-labelledby="slide-over-title"
+     role="dialog"
+     aria-modal="true"
+     style="display: none;">
 
-  <div class="fixed inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-        <div x-show="drawerOpen"
-             x-transition:enter="transform transition ease-in-out duration-300"
-             x-transition:enter-start="translate-x-full"
-             x-transition:enter-end="translate-x-0"
-             x-transition:leave="transform transition ease-in-out duration-250"
-             x-transition:leave-start="translate-x-0"
-             x-transition:leave-end="translate-x-full"
-             class="pointer-events-auto w-screen max-w-md bg-white dark:bg-[#1A1A22] border-l border-[var(--border)] shadow-2xl flex flex-col">
-          
-          {# هدر دراور #}
-          <div class="p-4 sm:p-5 border-b border-[var(--border)] flex items-center justify-between bg-gray-50/70 dark:bg-white/5">
-            <div>
-              <div class="flex items-center gap-2 mb-1">
-                <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-black bg-crimson text-white">هفته {{ doc.site_number }}</span>
-                <h3 class="text-sm font-extrabold text-[var(--ink)]" id="slide-over-title">نقشه راه درس‌نامه‌های هفته</h3>
-              </div>
-              <p class="text-xs text-[var(--slate)]">
-                مبحث <strong class="text-crimson font-bold num">{{ doc.siblings_nav.current_index }}</strong> از <strong class="num">{{ doc.siblings_nav.total_count }}</strong>
-                {% if doc.siblings_nav.remaining_count > 0 %}
-                • <span class="text-amber-700 dark:text-amber-400 font-bold num">{{ doc.siblings_nav.remaining_count }}</span> مبحث باقی‌مانده
-                {% else %}
-                • <span class="text-emerald-600 font-bold">تمام مباحث خوانده شد</span>
-                {% endif %}
-              </p>
-            </div>
-            <button type="button" @click="drawerOpen = false" class="p-2 rounded-xl text-gray-500 hover:bg-black/5 dark:hover:bg-white/10 transition cursor-pointer">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+  {# پس‌زمینه نیمه‌شفاف #}
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity cursor-pointer"
+       @click="drawerOpen = false"
+       onclick="window.closeKbDrawer()"></div>
+
+  {# پنل کشویی شناور #}
+  <div class="fixed inset-y-0 right-0 max-w-full flex z-10 pointer-events-auto">
+    <div class="w-screen max-w-md bg-white dark:bg-[#1A1A22] border-l border-[var(--border)] shadow-2xl flex flex-col h-full">
+      
+      {# هدر دراور #}
+      <div class="p-4 sm:p-5 border-b border-[var(--border)] flex items-center justify-between bg-gray-50/70 dark:bg-white/5">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-flex px-2 py-0.5 rounded text-[10px] font-black bg-crimson text-white">هفته {{ doc.site_number }}</span>
+            <h3 class="text-sm font-extrabold text-[var(--ink)]" id="slide-over-title">نقشه راه درس‌نامه‌های هفته</h3>
           </div>
+          <p class="text-xs text-[var(--slate)]">
+            مبحث <strong class="text-crimson font-bold num">{{ doc.siblings_nav.current_index }}</strong> از <strong class="num">{{ doc.siblings_nav.total_count }}</strong>
+            {% if doc.siblings_nav.remaining_count > 0 %}
+            • <span class="text-amber-700 dark:text-amber-400 font-bold num">{{ doc.siblings_nav.remaining_count }}</span> مبحث باقی‌مانده
+            {% else %}
+            • <span class="text-emerald-600 font-bold">تمام مباحث خوانده شد</span>
+            {% endif %}
+          </p>
+        </div>
+        <button type="button" @click="drawerOpen = false" onclick="window.closeKbDrawer()" class="p-2 rounded-xl text-gray-500 hover:bg-black/5 dark:hover:bg-white/10 transition cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
 
-          {# پیشرفت کلی در بالای لیست دراور #}
-          <div class="px-5 py-3 border-b border-[var(--border)] bg-white dark:bg-[#1E1E26]">
-            <div class="flex items-center justify-between text-xs mb-1.5">
-              <span class="font-bold text-[var(--ink)]">پیشرفت درس‌نامه‌ها</span>
-              <span class="font-black text-crimson num">{{ doc.siblings_nav.progress_pct }}٪</span>
-            </div>
-            <div class="w-full bg-gray-100 dark:bg-white/10 rounded-full h-2 overflow-hidden">
-              <div class="bg-gradient-to-r from-crimson to-crimson-light h-full rounded-full transition-all duration-300" style="width: {{ doc.siblings_nav.progress_pct }}%;"></div>
-            </div>
-          </div>
-
-          {# لیست اسکرول‌خور یادداشت‌ها #}
-          <div class="flex-1 overflow-y-auto p-4 space-y-2">
-            {% for item in doc.siblings_nav.notes_list %}
-            <a href="{{ url_for('kb.doc_page', doc_id=item.id) }}"
-               class="flex items-start gap-3 p-3 rounded-2xl border transition-all cursor-pointer group
-                      {% if item.is_current %}
-                        bg-crimson-tint/30 border-crimson ring-2 ring-crimson/20 shadow-xs
-                      {% elif item.is_past %}
-                        bg-emerald-50/20 border-emerald-500/30 hover:border-emerald-500
-                      {% else %}
-                        bg-white dark:bg-white/5 border-[var(--border)] hover:border-crimson/50
-                      {% endif %}">
-              <div class="w-7 h-7 rounded-xl text-xs font-black flex items-center justify-center shrink-0 mt-0.5 shadow-xs
-                          {% if item.is_current %}
-                            bg-crimson text-white animate-pulse
-                          {% elif item.is_past %}
-                            bg-emerald-500 text-white
-                          {% else %}
-                            bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 group-hover:bg-crimson-tint group-hover:text-crimson
-                          {% endif %}">
-                {{ '✓' if item.is_past else item.index }}
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="flex items-center justify-between gap-1 mb-0.5">
-                  <span class="text-[10px] font-bold {% if item.is_current %}text-crimson{% elif item.is_past %}text-emerald-600 dark:text-emerald-400{% else %}text-[var(--slate-muted)]{% endif %}">
-                    {% if item.is_current %}در حال مطالعه{% elif item.is_past %}خوانده‌شده{% else %}مبحث {{ item.index }}{% endif %}
-                  </span>
-                  <span class="text-[10px] text-[var(--slate-muted)]">⏱ ۳ دقیقه</span>
-                </div>
-                <h4 class="text-xs font-bold leading-snug {% if item.is_current %}text-crimson font-black{% else %}text-[var(--ink)] group-hover:text-crimson{% endif %} line-clamp-2 transition-colors">
-                  {{ item.title }}
-                </h4>
-              </div>
-            </a>
-            {% endfor %}
-          </div>
-
-          {# فوتر دراور #}
-          <div class="p-4 border-t border-[var(--border)] bg-gray-50/80 dark:bg-white/5">
-            <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="btn-soft-crimson text-xs py-2 px-3 rounded-xl font-bold w-full text-center block">
-              بازگشت به نقشه کامل مراحل هفته {{ doc.site_number }}
-            </a>
-          </div>
-
+      {# پیشرفت کلی در بالای لیست دراور #}
+      <div class="px-5 py-3 border-b border-[var(--border)] bg-white dark:bg-[#1E1E26]">
+        <div class="flex items-center justify-between text-xs mb-1.5">
+          <span class="font-bold text-[var(--ink)]">پیشرفت درس‌نامه‌ها</span>
+          <span class="font-black text-crimson num">{{ doc.siblings_nav.progress_pct }}٪</span>
+        </div>
+        <div class="w-full bg-gray-100 dark:bg-white/10 rounded-full h-2 overflow-hidden">
+          <div class="bg-gradient-to-r from-crimson to-crimson-light h-full rounded-full transition-all duration-300" style="width: {{ doc.siblings_nav.progress_pct }}%;"></div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-{% endif %}
 
-<nav class="mb-2 text-sm flex flex-wrap gap-2 items-center" aria-label="مسیر راهنما">
-  <a href="{{ url_for('kb.index') }}" class="text-crimson hover:underline cursor-pointer">پایگاه دانش</a>
-  {% if doc.site_number is not none %}
-  <span class="text-[var(--border)]">/</span>
-  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline cursor-pointer">هفتهٔ {{ doc.site_number }}</a>
-  {% endif %}
-  <span class="text-[var(--border)]">/</span>
-  <span class="text-[var(--slate)] truncate max-w-xs">{{ doc.title }}</span>
-</nav>
-
-{% if doc.site_number is not none %}
-{# نوار هدایت هوشمند جایگاه در مسیر یادگیری #}
-<div class="flex flex-wrap items-center justify-between gap-3 bg-white dark:bg-[#1A1A22] p-3 sm:p-4 rounded-2xl border border-[var(--border)] text-xs shadow-xs">
-  <div class="flex items-center gap-2.5">
-    <span class="inline-flex px-2.5 py-0.5 rounded-full bg-crimson-tint text-crimson font-bold text-xs num">هفته {{ doc.site_number }}</span>
-    <span class="text-[var(--ink)] font-bold">گام ۲: درسنامه‌های درس</span>
-    {% if doc.siblings_nav %}
-    <span class="text-[var(--slate)] font-mono text-[11px]">({{ doc.siblings_nav.current_index }} از {{ doc.siblings_nav.total_count }})</span>
-    {% endif %}
-  </div>
-  <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="text-crimson hover:underline font-bold inline-flex items-center gap-1.5 transition">
-    <span>نقشه کامل مراحل هفته</span>
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-  </a>
-</div>
-{% endif %}
-
-{# ─── نقشه راه و وضعیت مطالعه درس‌نامه‌های هفته (قانون ۰۱ Closure و قانون ۰۵ Connectedness) ─── #}
-{% if doc.siblings_nav %}
-<div class="card-harvard p-4 sm:p-5 mb-6 bg-gradient-to-r from-crimson/5 via-[var(--surface-sunken)] to-[var(--surface-raised)] border border-crimson/25 shadow-sm rounded-2xl">
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3.5">
-    <div>
-      <div class="flex items-center gap-2 mb-1">
-        <span class="inline-flex px-2 py-0.5 rounded-full text-[11px] font-black bg-crimson text-white num">هفته {{ doc.site_number }}</span>
-        <span class="text-xs font-black text-[var(--ink)]">مسیر مطالعه گام‌به‌گام درس‌نامه‌ها</span>
+      {# لیست اسکرول‌خور یادداشت‌ها #}
+      <div class="flex-1 overflow-y-auto p-4 space-y-2">
+        {% for item in doc.siblings_nav.notes_list %}
+        <a href="{{ url_for('kb.doc_page', doc_id=item.id) }}"
+           class="flex items-start gap-3 p-3 rounded-2xl border transition-all cursor-pointer group
+                  {% if item.is_current %}
+                    bg-crimson-tint/30 border-crimson ring-2 ring-crimson/20 shadow-xs
+                  {% elif item.is_past %}
+                    bg-emerald-50/20 border-emerald-500/30 hover:border-emerald-500
+                  {% else %}
+                    bg-white dark:bg-white/5 border-[var(--border)] hover:border-crimson/50
+                  {% endif %}">
+          <div class="w-7 h-7 rounded-xl text-xs font-black flex items-center justify-center shrink-0 mt-0.5 shadow-xs
+                      {% if item.is_current %}
+                        bg-crimson text-white animate-pulse
+                      {% elif item.is_past %}
+                        bg-emerald-500 text-white
+                      {% else %}
+                        bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 group-hover:bg-crimson-tint group-hover:text-crimson
+                      {% endif %}">
+            {{ '✓' if item.is_past else item.index }}
+          </div>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center justify-between gap-1 mb-0.5">
+              <span class="text-[10px] font-bold {% if item.is_current %}text-crimson{% elif item.is_past %}text-emerald-600 dark:text-emerald-400{% else %}text-[var(--slate-muted)]{% endif %}">
+                {% if item.is_current %}در حال مطالعه{% elif item.is_past %}خوانده‌شده{% else %}مبحث {{ item.index }}{% endif %}
+              </span>
+              <span class="text-[10px] text-[var(--slate-muted)]">⏱ ۳ دقیقه</span>
+            </div>
+            <h4 class="text-xs font-bold leading-snug {% if item.is_current %}text-crimson font-black{% else %}text-[var(--ink)] group-hover:text-crimson{% endif %} line-clamp-2 transition-colors">
+              {{ item.title }}
+            </h4>
+          </div>
+        </a>
+        {% endfor %}
       </div>
-      <p class="text-xs text-[var(--slate)]">
-        یادداشت <strong class="num text-crimson font-black">{{ doc.siblings_nav.current_index }}</strong> از <strong class="num">{{ doc.siblings_nav.total_count }}</strong>
-        {% if doc.siblings_nav.remaining_count > 0 %}
-        — <strong class="text-amber-700 dark:text-amber-400 font-bold num">{{ doc.siblings_nav.remaining_count }}</strong> مبحث دیگر تا پایان درس‌نامه باقی‌مانده (تخمین زمان: ~{{ doc.siblings_nav.est_mins_remaining }} دقیقه)
-        {% else %}
-        — <strong class="text-emerald-700 dark:text-emerald-400 font-bold">آخرین مبحث هفته! پس از مطالعه، آماده شرکت در آزمون تسلط کوییز هستید.</strong>
-        {% endif %}
-      </p>
-    </div>
-    
-    <button type="button" @click="drawerOpen = true"
-            class="btn-outline-crimson text-xs py-2 px-3.5 rounded-xl font-bold inline-flex items-center justify-center gap-2 cursor-pointer shadow-xs shrink-0">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-      <span>مشاهده فهرست همه {{ doc.siblings_nav.total_count }} مبحث</span>
-    </button>
-  </div>
-  
-  {# نوار پیشرفت بصری #}
-  <div class="space-y-1.5">
-    <div class="flex items-center justify-between text-[11px] text-[var(--slate)] font-semibold">
-      <span>پیشرفت درس‌نامه‌ها</span>
-      <span class="num text-crimson font-black text-xs">{{ doc.siblings_nav.progress_pct }}٪ تکمیل شده</span>
-    </div>
-    <div class="w-full bg-gray-200/80 dark:bg-white/10 rounded-full h-2.5 overflow-hidden flex">
-      <div class="bg-gradient-to-r from-crimson to-crimson-light h-full rounded-full transition-all duration-500 shadow-sm" style="width: {{ doc.siblings_nav.progress_pct }}%;"></div>
-    </div>
-    <div class="flex items-center justify-between text-[10px] text-[var(--slate-muted)] pt-0.5">
-      <span>مبحث ۱: شروع</span>
-      <span>مبحث {{ doc.siblings_nav.total_count }}: پایان درس‌نامه</span>
+
+      {# فوتر دراور #}
+      <div class="p-4 border-t border-[var(--border)] bg-gray-50/80 dark:bg-white/5">
+        <a href="{{ url_for('kb.week_page', week=doc.site_number) }}" class="btn-soft-crimson text-xs py-2 px-3 rounded-xl font-bold w-full text-center block">
+          بازگشت به نقشه کامل مراحل هفته {{ doc.site_number }}
+        </a>
+      </div>
+
     </div>
   </div>
 </div>
@@ -541,7 +424,7 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <button type="button" @click="drawerOpen = true"
+        <button type="button" @click="drawerOpen = true" onclick="window.openKbDrawer()"
                 class="btn-soft-crimson text-xs py-2.5 px-4 rounded-xl font-bold inline-flex items-center justify-center gap-1.5 cursor-pointer">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
           <span>همه {{ doc.siblings_nav.total_count }} مبحث</span>
@@ -598,5 +481,83 @@
     استخراج غیرتجاری آموزشی برای CS50x Anzali؛ ترجمه‌ها و اقتباس‌ها با همان مجوز ShareAlike.
   </p>
 </footer>
+<script>
+  function kbDocReaderApp() {
+    return {
+      drawerOpen: false,
+      scrolledPastHeader: false,
+      scrollPct: 0,
+
+      init: function() {
+        var self = this;
+        // ثبت در حافظه محلی برای پیگیری خودکار مطالعه
+        try {
+          var weekNum = {{ doc.site_number or 'null' }};
+          var docId = '{{ doc.id }}';
+          if (weekNum !== null && docId) {
+            var key = 'cs50_read_notes_w' + weekNum;
+            var list = JSON.parse(localStorage.getItem(key) || '[]');
+            if (list.indexOf(docId) === -1) {
+              list.push(docId);
+              localStorage.setItem(key, JSON.stringify(list));
+            }
+            localStorage.setItem('cs50_last_read_w' + weekNum, docId);
+          }
+        } catch (e) {
+          console.warn('LocalStorage error:', e);
+        }
+
+        // محاسبه وضعیت اسکرول برای Sticky HUD
+        var handleScroll = function() {
+          var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          self.scrollPct = height > 0 ? Math.min(100, Math.round((winScroll / height) * 100)) : 0;
+          self.scrolledPastHeader = winScroll > 180;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+      },
+
+      openDrawer: function() {
+        this.drawerOpen = true;
+      },
+
+      closeDrawer: function() {
+        this.drawerOpen = false;
+      }
+    };
+  }
+  window.kbDocReaderApp = kbDocReaderApp;
+
+  // توابع سراسری Fallback برای اطمینان ۱۰۰٪ از کارکرد دکمه‌ها در هر شرایط
+  window.openKbDrawer = function() {
+    var d = document.getElementById('kb-curriculum-drawer');
+    if (d) {
+      d.style.display = 'block';
+    }
+    var app = document.querySelector('[x-data]');
+    if (app && app._x_dataStack && app._x_dataStack[0]) {
+      app._x_dataStack[0].drawerOpen = true;
+    }
+  };
+
+  window.closeKbDrawer = function() {
+    var d = document.getElementById('kb-curriculum-drawer');
+    if (d) {
+      d.style.display = 'none';
+    }
+    var app = document.querySelector('[x-data]');
+    if (app && app._x_dataStack && app._x_dataStack[0]) {
+      app._x_dataStack[0].drawerOpen = false;
+    }
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      window.closeKbDrawer();
+    }
+  });
+</script>
 </div>
 {% endblock %}
