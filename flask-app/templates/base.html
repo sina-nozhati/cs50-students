@@ -83,7 +83,7 @@
 
     {% block head_extra %}{% endblock %}
 </head>
-<body class="min-h-screen flex flex-col" hx-headers='{"X-CSRFToken": "{{ csrf_token() }}"}'>
+<body class="min-h-screen flex flex-col" hx-headers='{"X-CSRFToken": "{{ csrf_token() }}"}' data-barba="wrapper">
 
     {# ─── Skip-link دسترس‌پذیری — کاربران صفحه‌کلید می‌توانند مستقیم به محتوا بروند ─── #}
     <a href="#main-content"
@@ -249,7 +249,7 @@
     {% endwith %}
 
     {# ─── محتوای اصلی هر صفحه ─── #}
-    <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full pb-20 md:pb-8">
+    <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full pb-20 md:pb-8" data-barba="container" data-barba-namespace="cs50-page">
         {% block content %}{% endblock %}
     </main>
 
@@ -316,6 +316,57 @@
         });
       }
     </script>
+        {# Lenis Silk Smooth Scrolling Engine #}
+    <script src="{{ url_for('static', filename='js/lenis.min.js') }}"></script>
+    <script>
+      (function() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (window.location.pathname.includes('/practice')) return;
+
+        try {
+          if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis({
+              duration: 1.1,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smoothWheel: true,
+              smoothTouch: false, /* Preserve 120Hz native touch dynamics on mobile */
+              orientation: 'vertical',
+              gestureOrientation: 'vertical'
+            });
+            window.lenis = lenis;
+
+            function raf(time) {
+              lenis.raf(time);
+              requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            /* Smooth anchor navigation */
+            document.addEventListener('click', function(e) {
+              const a = e.target.closest('a[href^="#"]');
+              if (a && a.getAttribute('href').length > 1) {
+                const targetEl = document.querySelector(a.getAttribute('href'));
+                if (targetEl) {
+                  e.preventDefault();
+                  lenis.scrollTo(targetEl, { offset: -70, duration: 1.0 });
+                }
+              }
+            });
+          }
+        } catch(e) {
+          console.warn('Lenis scroll engine not started:', e);
+        }
+      })();
+    </script>
+        {# Alpine.js Core Engine #}
+    <script defer src="{{ url_for('static', filename='js/alpine.min.js') }}"></script>
+
+    {# GSAP Animation & Physics Engine #}
+    <script src="{{ url_for('static', filename='js/gsap.min.js') }}"></script>
+
+    {# Barba.js PJAX Seamless Page Transitions #}
+    <script src="{{ url_for('static', filename='js/barba.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/barba-integration.js') }}"></script>
     {# Code Display & Responsive UI Engineering Engine #}
     <script src="{{ url_for('static', filename='js/code-engine.js') }}"></script>
     {% block scripts %}{% endblock %}

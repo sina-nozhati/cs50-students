@@ -394,6 +394,12 @@
   </section>
   {% endif %}
 
+  
+  {# ─── تصویرساز تعاملی حافظه و پوینترها (مخصوص هفته ۴ CS50) ─── #}
+  {% if week == 4 or week == '4' %}
+    {% include "kb/_partials/_memory_visualizer.html" %}
+  {% endif %}
+
   {# ─── بخش ابزارهای تمرینی و یادگیری سریع (Flashcards & Glossary Launchers) ─── #}
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
     {# لانچر فلش‌کارت‌ها #}

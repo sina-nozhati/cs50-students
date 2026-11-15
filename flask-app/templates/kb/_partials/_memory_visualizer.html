@@ -1,0 +1,339 @@
+{# Interactive C Pointer & Memory Visualizer (CS50 Week 4)
+   Powered by GSAP & Alpine.js with Tailwind CSS & Harvard Design Tokens.
+#}
+<section id="c-memory-visualizer" class="card-harvard p-5 sm:p-7 mb-8 border-2 border-crimson/25 bg-gradient-to-b from-white via-white to-crimson-tint/10 dark:from-[#1A1A22] dark:via-[#1A1A22] dark:to-crimson/5 rounded-3xl shadow-md overflow-hidden relative"
+         x-data="memoryVisualizer()" x-init="initVisualizer()">
+
+  {# ─── نشانگر بالای کارت ─── #}
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-5 border-b border-[var(--border)] pb-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-crimson text-white flex items-center justify-center font-black shadow-sm shrink-0">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <rect x="4" y="4" width="16" height="16" rx="2"/>
+          <rect x="9" y="9" width="6" height="6"/>
+          <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+        </svg>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-flex px-2 py-0.5 rounded text-[11px] font-extrabold bg-crimson-tint text-crimson dark:bg-crimson/20 dark:text-rose-300">
+            آزمایشگاه بصری تعاملی
+          </span>
+          <span class="text-xs text-[var(--slate)] font-bold">هفته ۴: حافظه و پوینترها (RAM & Pointers)</span>
+        </div>
+        <h3 class="text-lg sm:text-xl font-extrabold text-[var(--ink)] mt-0.5">تصویرساز جریان حافظه و اشاره‌گرها در C</h3>
+      </div>
+    </div>
+
+    {# دکمه‌های کنترل گام‌ها #}
+    <div class="flex items-center gap-2">
+      <button type="button" @click="resetStep()"
+              class="px-3 py-1.5 text-xs font-bold text-[var(--slate)] hover:text-crimson bg-[var(--surface-sunken)] hover:bg-[var(--border-subtle)] rounded-xl border border-[var(--border)] transition flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <span>شروع مجدد</span>
+      </button>
+
+      <button type="button" @click="nextStep()"
+              :disabled="step >= 4"
+              class="px-4 py-1.5 text-xs font-extrabold text-white bg-crimson hover:bg-crimson-dark active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed rounded-xl shadow-sm transition flex items-center gap-1.5">
+        <span>گام بعد</span>
+        <svg class="w-3.5 h-3.5 rtl:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  {# ─── بدنه اصلی: دو ستون (کد C در چپ/راست + ویژوالایزر RAM) ─── #}
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+    {# ستون اول: خطوط کد برنامه (4 ستون) #}
+    <div class="lg:col-span-5 bg-[#18181F] text-slate-200 rounded-2xl p-4 sm:p-5 border border-black/20 shadow-inner font-mono text-xs sm:text-sm" dir="ltr">
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10 text-slate-400 text-[11px]">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+          <span class="ml-2 font-sans font-bold text-slate-300">pointer_lab.c</span>
+        </div>
+        <span class="font-sans font-medium text-slate-400">گام <span class="text-amber-400 font-bold" x-text="step"></span> از ۴</span>
+      </div>
+
+      <div class="space-y-1.5 leading-relaxed">
+        {# خط 1 #}
+        <div class="flex items-center gap-3 px-2 py-1.5 rounded-lg transition-all"
+             :class="step === 1 ? 'bg-crimson/30 border border-crimson/50 text-white font-bold pl-3' : (step > 1 ? 'text-slate-400' : 'text-slate-500')">
+          <span class="select-none text-slate-600 w-4 text-right">1</span>
+          <code><span class="text-rose-400">int</span> n = <span class="text-amber-300">50</span>;</code>
+        </div>
+
+        {# خط 2 #}
+        <div class="flex items-center gap-3 px-2 py-1.5 rounded-lg transition-all"
+             :class="step === 2 ? 'bg-crimson/30 border border-crimson/50 text-white font-bold pl-3' : (step > 2 ? 'text-slate-400' : 'text-slate-500')">
+          <span class="select-none text-slate-600 w-4 text-right">2</span>
+          <code><span class="text-rose-400">int</span> *p = &amp;n;</code>
+        </div>
+
+        {# خط 3 #}
+        <div class="flex items-center gap-3 px-2 py-1.5 rounded-lg transition-all"
+             :class="step === 3 ? 'bg-crimson/30 border border-crimson/50 text-white font-bold pl-3' : (step > 3 ? 'text-slate-400' : 'text-slate-500')">
+          <span class="select-none text-slate-600 w-4 text-right">3</span>
+          <code>*p = <span class="text-emerald-300">99</span>;</code>
+        </div>
+
+        {# خط 4 #}
+        <div class="flex items-center gap-3 px-2 py-1.5 rounded-lg transition-all"
+             :class="step === 4 ? 'bg-crimson/30 border border-crimson/50 text-white font-bold pl-3' : 'text-slate-500'">
+          <span class="select-none text-slate-600 w-4 text-right">4</span>
+          <code><span class="text-sky-400">printf</span>(<span class="text-emerald-400">"%d\n"</span>, *p);</code>
+        </div>
+      </div>
+
+      {# خروجی ترمینال شبیه‌سازی‌شده #}
+      <div class="mt-4 pt-3 border-t border-white/10 text-xs font-mono">
+        <div class="text-slate-400 text-[10px] uppercase font-sans mb-1 font-bold">Terminal Output:</div>
+        <div class="bg-black/40 rounded-lg p-2.5 flex items-center gap-2 min-h-[38px] text-emerald-400 font-bold">
+          <span class="text-slate-500 select-none">$</span>
+          <span x-show="step === 4" x-transition.scale.origin.left class="text-emerald-300 text-sm">99</span>
+          <span x-show="step < 4" class="text-slate-600 italic font-sans text-xs">در انتظار رسیدن به دستور printf...</span>
+        </div>
+      </div>
+    </div>
+
+    {# ستون دوم: گرید بصری رم (RAM Layout & Pointers) (7 ستون) #}
+    <div class="lg:col-span-7 flex flex-col justify-between">
+      <div class="text-xs text-[var(--slate)] mb-2 flex items-center justify-between">
+        <span class="font-extrabold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>نمای فضای حافظه پشته (Call Stack Memory)</span>
+        </span>
+        <span class="font-mono text-[11px] text-[var(--slate-muted)]">۴ بایتی (32-bit Architecture)</span>
+      </div>
+
+      {# محفظه کارت‌های حافظه با کانواس پوینتر #}
+      <div class="relative bg-[var(--surface-sunken)] p-4 sm:p-5 rounded-2xl border border-[var(--border)] min-h-[220px] flex flex-col justify-center">
+
+        {# SVG پیکان متحرک پوینتر با GSAP #}
+        <svg id="pointer-svg-layer" class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible"
+             style="display: none;">
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <polygon points="0 0, 8 4, 0 8" fill="#F59E0B" />
+            </marker>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+          <path id="pointer-arrow-path"
+                d=""
+                fill="none"
+                stroke="#F59E0B"
+                stroke-width="3"
+                stroke-dasharray="6,4"
+                marker-end="url(#arrowhead)"
+                filter="url(#glow)" />
+          {# ذره نوری دی‌رفرنس #}
+          <circle id="deref-particle" cx="0" cy="0" r="5" fill="#10B981" style="display: none; filter: drop-shadow(0 0 6px #10B981);" />
+        </svg>
+
+        {# جدول خانه‌های رم #}
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 relative z-10" dir="ltr">
+
+          {# خانه ۱: متغیر n #}
+          <div id="ram-cell-n"
+               class="flex flex-col items-center justify-between p-3 rounded-2xl border-2 transition-all duration-300 min-h-[140px] text-center bg-white dark:bg-[#1E1E26] shadow-sm relative"
+               :class="step >= 1 ? (step >= 3 ? 'border-emerald-500 shadow-emerald-500/20' : 'border-amber-500 shadow-amber-500/20') : 'border-[var(--border)] opacity-60'">
+            <div class="w-full flex items-center justify-between text-[10px] font-mono text-slate-400 pb-1 border-b border-[var(--border)]">
+              <span class="font-bold text-crimson">0x7ffe4a20</span>
+              <span class="px-1.5 py-0.2 rounded bg-black/5 dark:bg-white/10 text-[9px] font-sans">int</span>
+            </div>
+
+            <div class="my-auto py-2">
+              <div class="text-[11px] font-bold text-slate-400 font-sans mb-1">شناسه: <code class="text-rose-500 text-xs">n</code></div>
+              <div id="val-n-box" class="text-2xl sm:text-3xl font-black transition-all num"
+                   :class="step >= 3 ? 'text-emerald-500' : (step >= 1 ? 'text-amber-500' : 'text-slate-300')">
+                <span x-text="step >= 3 ? '99' : (step >= 1 ? '50' : '??')"></span>
+              </div>
+            </div>
+
+            <div class="text-[10px] font-sans text-slate-400">
+              <span x-show="step >= 1" class="text-emerald-600 dark:text-emerald-400 font-bold">تخصیص‌یافته</span>
+              <span x-show="step === 0">خالی</span>
+            </div>
+          </div>
+
+          {# خانه ۲: فضای میانی پشته #}
+          <div class="flex flex-col items-center justify-between p-3 rounded-2xl border border-dashed border-[var(--border)] min-h-[140px] text-center bg-white/40 dark:bg-white/5 opacity-40">
+            <div class="w-full flex items-center justify-between text-[10px] font-mono text-slate-400 pb-1 border-b border-[var(--border)]">
+              <span>0x7ffe4a24</span>
+              <span>4B</span>
+            </div>
+            <div class="my-auto text-xs text-slate-400 font-mono italic">
+              [رزرو سیستم]
+            </div>
+            <div class="text-[9px] text-slate-400">Padding</div>
+          </div>
+
+          {# خانه ۳: متغیر اشاره‌گر p #}
+          <div id="ram-cell-p"
+               class="flex flex-col items-center justify-between p-3 rounded-2xl border-2 transition-all duration-300 min-h-[140px] text-center bg-white dark:bg-[#1E1E26] shadow-sm relative"
+               :class="step >= 2 ? 'border-amber-500 shadow-amber-500/25 ring-2 ring-amber-400/30' : 'border-[var(--border)] opacity-60'">
+            <div class="w-full flex items-center justify-between text-[10px] font-mono text-slate-400 pb-1 border-b border-[var(--border)]">
+              <span class="font-bold text-amber-500">0x7ffe4a28</span>
+              <span class="px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[9px] font-sans font-bold">int*</span>
+            </div>
+
+            <div class="my-auto py-2">
+              <div class="text-[11px] font-bold text-slate-400 font-sans mb-1">اشاره‌گر: <code class="text-amber-500 text-xs font-bold">p</code></div>
+              <div id="val-p-box" class="text-xs sm:text-sm font-mono font-black text-amber-600 dark:text-amber-400 transition-all">
+                <span x-show="step >= 2" class="bg-amber-500/10 px-1.5 py-1 rounded">0x7ffe4a20</span>
+                <span x-show="step < 2" class="text-slate-300">NULL</span>
+              </div>
+            </div>
+
+            <div class="text-[10px] font-sans text-slate-400">
+              <span x-show="step >= 2" class="text-amber-600 dark:text-amber-400 font-bold">&amp;n (آدرس n)</span>
+              <span x-show="step < 2">تخصیص‌نیافته</span>
+            </div>
+          </div>
+
+          {# خانه ۴: بالای پشته #}
+          <div class="flex flex-col items-center justify-between p-3 rounded-2xl border border-dashed border-[var(--border)] min-h-[140px] text-center bg-white/40 dark:bg-white/5 opacity-40">
+            <div class="w-full flex items-center justify-between text-[10px] font-mono text-slate-400 pb-1 border-b border-[var(--border)]">
+              <span>0x7ffe4a2c</span>
+              <span>Stack</span>
+            </div>
+            <div class="my-auto text-xs text-slate-400 font-mono italic">
+              [Stack Top]
+            </div>
+            <div class="text-[9px] text-slate-400">فریم تابع main</div>
+          </div>
+
+        </div>
+      </div>
+
+      {# توضیحات گام تعاملی #}
+      <div class="mt-4 p-3.5 bg-white dark:bg-[#1E1E26] rounded-xl border border-[var(--border)] text-xs text-[var(--slate)] leading-relaxed flex items-start gap-3">
+        <div class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 font-bold num mt-0.5">
+          <span x-text="step"></span>
+        </div>
+        <div class="flex-1">
+          <template x-if="step === 1">
+            <p><strong>تخصیص متغیر معمولی:</strong> دستور <code>int n = 50;</code> یک خانهٔ ۴ بایتی در حافظهٔ رم در آدرس فرضی <code>0x7ffe4a20</code> برای متغیر <code>n</code> باز کرده و مقدار عددی <strong>۵۰</strong> را در آن قرار می‌دهد.</p>
+          </template>
+          <template x-if="step === 2">
+            <p><strong>اشاره‌گر و عملگر آدرس:</strong> دستور <code>int *p = &amp;n;</code> متغیری به نام <code>p</code> از جنس پوینتر می‌سازد. مقدار داخل <code>p</code> عدد ۵۰ نیست، بلکه آدرس خانهٔ <code>n</code> یعنی <code>0x7ffe4a20</code> است (پیکان زرد رنگ نشان‌دهندهٔ اشاره است).</p>
+          </template>
+          <template x-if="step === 3">
+            <p><strong>دی‌رفرنس (Dereferencing):</strong> دستور <code>*p = 99;</code> می‌گوید: «برو به همان آدرسی که در <code>p</code> ذخیره است و مقدار آن خانه را به <strong>۹۹</strong> تغییر بده!». بدون این که مستقیماً بنویسیم <code>n = 99</code>، مقدار داخل متغیر <code>n</code> جهش پیدا کرد.</p>
+          </template>
+          <template x-if="step === 4">
+            <p><strong>خواندن از پوینتر:</strong> دستور <code>printf("%d\n", *p);</code> مقدار موجود در مقصد اشاره‌گر را روی ترمینال چاپ می‌کند و عدد <strong>۹۹</strong> نمایش داده می‌شود.</p>
+          </template>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{# اسکریپت کنترل با GSAP #}
+<script>
+function memoryVisualizer() {
+  return {
+    step: 1,
+
+    initVisualizer() {
+      this.$nextTick(() => {
+        this.renderStepAnimation();
+      });
+    },
+
+    nextStep() {
+      if (this.step < 4) {
+        this.step++;
+        this.renderStepAnimation();
+      }
+    },
+
+    resetStep() {
+      this.step = 1;
+      this.renderStepAnimation();
+    },
+
+    drawArrowBetweenCells() {
+      const cellN = document.getElementById('ram-cell-n');
+      const cellP = document.getElementById('ram-cell-p');
+      const svgLayer = document.getElementById('pointer-svg-layer');
+      const pathEl = document.getElementById('pointer-arrow-path');
+      if (!cellN || !cellP || !svgLayer || !pathEl) return;
+
+      svgLayer.style.display = 'block';
+
+      const svgRect = svgLayer.getBoundingClientRect();
+      const rectN = cellN.getBoundingClientRect();
+      const rectP = cellP.getBoundingClientRect();
+
+      // Start from cell P (top middle)
+      const startX = (rectP.left + rectP.width / 2) - svgRect.left;
+      const startY = rectP.top - svgRect.top + 15;
+
+      // End at cell N (top middle)
+      const endX = (rectN.left + rectN.width / 2) - svgRect.left;
+      const endY = rectN.top - svgRect.top + 15;
+
+      // Arc curve upwards
+      const midX = (startX + endX) / 2;
+      const controlY = startY - 45;
+
+      const pathData = `M ${startX} ${startY} Q ${midX} ${controlY} ${endX} ${endY}`;
+      pathEl.setAttribute('d', pathData);
+
+      if (typeof gsap !== 'undefined') {
+        const len = pathEl.getTotalLength ? pathEl.getTotalLength() : 300;
+        gsap.fromTo(pathEl,
+          { strokeDasharray: len, strokeDashoffset: len },
+          { strokeDashoffset: 0, duration: 0.6, ease: 'power2.out' }
+        );
+      }
+    },
+
+    hideArrow() {
+      const svgLayer = document.getElementById('pointer-svg-layer');
+      if (svgLayer) svgLayer.style.display = 'none';
+    },
+
+    renderStepAnimation() {
+      if (typeof gsap === 'undefined') return;
+
+      if (this.step === 1) {
+        this.hideArrow();
+        gsap.fromTo('#ram-cell-n',
+          { scale: 0.92, borderColor: '#A51C30' },
+          { scale: 1, borderColor: '#F59E0B', duration: 0.4, ease: 'back.out(1.7)' }
+        );
+        gsap.fromTo('#val-n-box',
+          { scale: 0.5, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' }
+        );
+      } else if (this.step === 2) {
+        gsap.fromTo('#ram-cell-p',
+          { scale: 0.92 },
+          { scale: 1, duration: 0.4, ease: 'back.out(1.7)' }
+        );
+        this.drawArrowBetweenCells();
+      } else if (this.step === 3) {
+        this.drawArrowBetweenCells();
+        // Pulse traveling from p to n
+        const cellN = document.getElementById('val-n-box');
+        if (cellN) {
+          gsap.timeline()
+            .to(cellN, { scale: 1.4, color: '#10B981', duration: 0.2, ease: 'power1.out' })
+            .to(cellN, { scale: 1, duration: 0.3, ease: 'elastic.out(1.2, 0.4)' });
+        }
+      } else if (this.step === 4) {
+        this.drawArrowBetweenCells();
+      }
+    }
+  };
+}
+</script>

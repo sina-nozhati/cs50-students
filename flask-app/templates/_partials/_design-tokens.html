@@ -493,6 +493,23 @@
     color: var(--warning);
     margin-bottom: 0.5rem;
   }
+  /* ─── Lenis Smooth Scroll Engine ─── */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .kb-link-chip, .btn-crimson, .card-harvard { transition: none !important; }
   }

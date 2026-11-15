@@ -52,6 +52,9 @@
     {# Canvas Confetti #}
     <script src="{{ url_for('static', filename='js/confetti.browser.min.js') }}"></script>
 
+    {# GSAP Motion & Physics Engine #}
+    <script src="{{ url_for('static', filename='js/gsap.min.js') }}"></script>
+
     <style>
       :root {
         --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -338,7 +341,7 @@
       </div>
 
       {# جون‌ها / قلب‌ها با آیکون وکتور کارتونی سه‌بعدی و بازخورد الاستیک #}
-      <div class="flex items-center gap-1.5 px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm"
+      <div id="hearts-counter-badge" class="flex items-center gap-1.5 px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm transition-transform"
            :class="{'animate-shake-heart': isShaking}">
         <svg class="w-5 h-5 text-rose-500 fill-rose-500 drop-shadow-sm inline-block shrink-0" viewBox="0 0 24 24">
           <path stroke="#BE123C" stroke-width="1.2" stroke-linejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -348,7 +351,7 @@
       </div>
 
       {# نشانگر XP با آیکون آذرخش وکتور کارتونی (همواره در موبایل و دسکتاپ نمایان) #}
-      <div class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm shrink-0">
+      <div id="xp-counter-badge" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 bg-white border border-black/[0.07] rounded-full shadow-sm shrink-0 transition-transform">
         <svg class="w-4 h-4 text-amber-500 fill-amber-400 drop-shadow-sm inline-block shrink-0" viewBox="0 0 24 24">
           <path stroke="#D97706" stroke-width="1.5" stroke-linejoin="round" d="M13 2L3 14h8l-2 8 11-12h-8l3-8z" />
         </svg>
@@ -369,7 +372,7 @@
          x-transition:enter-end="opacity-100 scale-100"
          class="flex-1 min-h-0 overflow-y-auto custom-scrollbar flex flex-col items-center justify-center text-center py-6">
 
-      <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 bg-gradient-to-b from-amber-50 to-amber-100 text-amber-600 rounded-3xl flex items-center justify-center shadow-md border-2 border-amber-300">
+      <div id="victory-trophy" class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 bg-gradient-to-b from-amber-50 to-amber-100 text-amber-600 rounded-3xl flex items-center justify-center shadow-md border-2 border-amber-300">
         <svg class="w-10 h-10 sm:w-12 sm:h-12" viewBox="0 0 24 24">
           <path fill="#FBBF24" stroke="#B45309" stroke-width="1.5" stroke-linejoin="round" d="M6 3h12v7a6 6 0 01-12 0V3z"/>
           <path fill="none" stroke="#B45309" stroke-width="1.5" stroke-linecap="round" d="M6 5H3a2 2 0 00-2 2v1a4 4 0 004 4h1M18 5h3a2 2 0 012 2v1a4 4 0 01-4 4h-1"/>
@@ -382,7 +385,7 @@
       <p class="text-apple-secondary text-sm sm:text-base mb-6 sm:mb-8 font-medium">تمام چالش‌های این مرحله را با موفقیت پشت سر گذاشتی.</p>
 
       <div class="grid grid-cols-2 gap-3 sm:gap-4 max-w-xs mx-auto mb-6 sm:mb-8 w-full">
-        <div class="bg-white border border-black/[0.06] rounded-2xl p-3 sm:p-4 shadow-sm">
+        <div class="victory-stat-card bg-white border border-black/[0.06] rounded-2xl p-3 sm:p-4 shadow-sm">
           <div class="text-xs text-apple-secondary font-medium mb-1">XP کسب‌شده</div>
           <div class="text-xl sm:text-2xl font-black text-apple-orange flex items-center justify-center gap-1.5 num">
             <svg class="w-4 h-4 sm:w-5 sm:h-5 text-amber-500 fill-amber-400 inline-block shrink-0" viewBox="0 0 24 24">
@@ -393,7 +396,7 @@
             <span class="text-xs font-bold text-apple-secondary">XP</span>
           </div>
         </div>
-        <div class="bg-white border border-black/[0.06] rounded-2xl p-3 sm:p-4 shadow-sm">
+        <div class="victory-stat-card bg-white border border-black/[0.06] rounded-2xl p-3 sm:p-4 shadow-sm">
           <div class="text-xs text-apple-secondary font-medium mb-1">استریک روزانه</div>
           <div class="text-xl sm:text-2xl font-black text-apple-red flex items-center justify-center gap-1.5 num">
             <svg class="w-5 h-5 sm:w-6 sm:h-6 inline-block shrink-0" viewBox="0 0 24 24">
@@ -555,16 +558,27 @@
 
               <div class="space-y-2 min-h-[100px] p-2.5 bg-black/[0.02] rounded-xl border-2 border-dashed border-black/[0.1]">
                 <template x-for="(line, idx) in parsonsSelected" :key="line.id">
-                  <div @click="removeParsonsLine(idx)"
-                       dir="ltr"
-                       class="parsons-item ltr-surface flex items-center justify-between p-3 sm:p-3.5 border-apple-blue/40 cursor-pointer [direction:ltr]">
-                    <div class="flex items-center gap-2.5 [direction:ltr]" dir="ltr">
+                  <div dir="ltr"
+                       draggable="true"
+                       @dragstart="onParsonsDragStart($event, idx)"
+                       @dragover.prevent="onParsonsDragOver($event, idx)"
+                       @drop.prevent="onParsonsDrop($event, idx)"
+                       class="parsons-item ltr-surface flex items-center justify-between p-2.5 sm:p-3.5 border-apple-blue/40 cursor-grab active:cursor-grabbing transition-all select-none [direction:ltr]">
+                    <div class="flex items-center gap-2 [direction:ltr]" dir="ltr">
+                      {# دستگیره لمسی و درگ #}
+                      <span class="cursor-grab text-zinc-400 hover:text-zinc-600 select-none px-0.5 shrink-0" title="برای جابه‌جایی بکشید">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M7 4a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0zM7 16a2 2 0 11-4 0 2 2 0 014 0zM17 4a2 2 0 11-4 0 2 2 0 014 0zM17 10a2 2 0 11-4 0 2 2 0 014 0zM17 16a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                      </span>
                       <span class="w-5 h-5 rounded-full bg-apple-blue text-white text-[11px] font-bold flex items-center justify-center shrink-0 num">
                         <span x-text="idx + 1"></span>
                       </span>
                       <div dir="ltr" class="font-mono text-xs sm:text-sm text-apple-ink font-semibold whitespace-pre [direction:ltr]" x-text="line.text"></div>
                     </div>
-                    <span dir="rtl" class="text-[11px] text-apple-red font-sans font-bold px-1.5 shrink-0 rtl-surface">حذف</span>
+                    <div class="flex items-center gap-1 shrink-0">
+                      <button type="button" @click.stop="moveParsonsLine(idx, -1)" :disabled="idx === 0" class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:text-apple-blue disabled:opacity-20 hover:bg-black/5" title="انتقال به بالا">▲</button>
+                      <button type="button" @click.stop="moveParsonsLine(idx, 1)" :disabled="idx === parsonsSelected.length - 1" class="w-6 h-6 rounded flex items-center justify-center text-zinc-500 hover:text-apple-blue disabled:opacity-20 hover:bg-black/5" title="انتقال به پایین">▼</button>
+                      <button type="button" @click.stop="removeParsonsLine(idx)" class="text-[11px] text-apple-red font-sans font-bold px-1.5 py-0.5 rounded hover:bg-rose-50" title="حذف از لیست">حذف</button>
+                    </div>
                   </div>
                 </template>
 
@@ -1097,6 +1111,7 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
     // Parsons
     parsonsSelected: [],
     parsonsAvailable: [],
+    draggedParsonsIdx: null,
 
     // Spot Bug
     selectedBugLine: null,
@@ -1243,6 +1258,16 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
       if (emptySlotIdx !== -1) {
         this.slots[emptySlotIdx] = tok;
         this.availableTokens.splice(bankIdx, 1);
+        this.$nextTick(() => {
+          const filledSlots = document.querySelectorAll('.code-slot.filled');
+          if (filledSlots && filledSlots.length > 0 && typeof gsap !== 'undefined') {
+            const targetSlot = filledSlots[filledSlots.length - 1];
+            gsap.fromTo(targetSlot, 
+              { scale: 0.65, opacity: 0.7 }, 
+              { scale: 1, opacity: 1, duration: 0.22, ease: 'back.out(2)' }
+            );
+          }
+        });
       }
     },
 
@@ -1263,6 +1288,28 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
       const line = this.parsonsSelected[idx];
       this.parsonsSelected.splice(idx, 1);
       this.parsonsAvailable.push(line);
+    },
+    onParsonsDragStart(e, idx) {
+      this.draggedParsonsIdx = idx;
+      if (e.dataTransfer) {
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', String(idx));
+      }
+    },
+    onParsonsDragOver(e, idx) {
+      e.preventDefault();
+    },
+    onParsonsDrop(e, targetIdx) {
+      if (this.draggedParsonsIdx === null || this.draggedParsonsIdx === targetIdx) return;
+      const moved = this.parsonsSelected.splice(this.draggedParsonsIdx, 1)[0];
+      this.parsonsSelected.splice(targetIdx, 0, moved);
+      this.draggedParsonsIdx = null;
+    },
+    moveParsonsLine(idx, dir) {
+      const target = idx + dir;
+      if (target < 0 || target >= this.parsonsSelected.length) return;
+      const item = this.parsonsSelected.splice(idx, 1)[0];
+      this.parsonsSelected.splice(target, 0, item);
     },
 
     // Web Audio Synthesizer
@@ -1457,6 +1504,63 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
       } catch (e) {}
     },
 
+    triggerXpBurst(xpAmount) {
+      if (typeof gsap === 'undefined') return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const target = document.getElementById('xp-counter-badge');
+      if (!target) return;
+
+      const targetRect = target.getBoundingClientRect();
+      const startX = window.innerWidth / 2;
+      const startY = window.innerHeight * 0.75;
+
+      const burstEl = document.createElement('div');
+      burstEl.className = 'fixed z-50 pointer-events-none flex items-center gap-1 px-3 py-1 bg-amber-400 text-amber-950 font-black text-sm rounded-full shadow-lg border border-amber-300';
+      burstEl.style.left = startX + 'px';
+      burstEl.style.top = startY + 'px';
+      burstEl.style.transform = 'translate(-50%, -50%)';
+      burstEl.innerHTML = `<span>⚡</span><span>+${xpAmount} XP</span>`;
+      document.body.appendChild(burstEl);
+
+      const destX = targetRect.left + (targetRect.width / 2);
+      const destY = targetRect.top + (targetRect.height / 2);
+
+      gsap.timeline({
+        onComplete: () => {
+          burstEl.remove();
+          gsap.fromTo(target, 
+            { scale: 1.28, borderColor: '#F59E0B' }, 
+            { scale: 1, borderColor: 'rgba(0,0,0,0.07)', duration: 0.35, ease: 'elastic.out(1, 0.4)' }
+          );
+        }
+      })
+      .fromTo(burstEl, 
+        { scale: 0, opacity: 0 }, 
+        { scale: 1.2, opacity: 1, duration: 0.18, ease: 'back.out(2)' }
+      )
+      .to(burstEl, {
+        x: destX - startX,
+        y: destY - startY,
+        scale: 0.7,
+        opacity: 0.95,
+        duration: 0.45,
+        ease: 'power2.in'
+      });
+    },
+
+    triggerHeartLossAnimation() {
+      if (typeof gsap === 'undefined') return;
+      const target = document.getElementById('hearts-counter-badge');
+      if (!target) return;
+      gsap.timeline()
+        .to(target, { x: -8, duration: 0.05, ease: 'power1.inOut' })
+        .to(target, { x: 8, duration: 0.05, ease: 'power1.inOut' })
+        .to(target, { x: -6, duration: 0.05, ease: 'power1.inOut' })
+        .to(target, { x: 6, duration: 0.05, ease: 'power1.inOut' })
+        .to(target, { x: 0, duration: 0.1 });
+    },
+
     playVictorySound() {
       try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -1551,14 +1655,17 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
         if (result.is_correct) {
           this.feedbackStatus = 'correct';
           this.currentExplanation = result.explanation_fa || result.explanation || result.feedback_fa || 'پاسخ شما کاملاً صحیح است!';
-          this.earnedXp += (result.xp_awarded || 0);
+          const awarded = (result.xp_awarded || 5);
+          this.earnedXp += awarded;
           this.playSuccessSound();
+          this.triggerXpBurst(awarded);
         } else {
           this.feedbackStatus = 'incorrect';
           this.currentExplanation = result.feedback_fa || result.explanation_fa || result.explanation || 'پاسخ نادرست است. دوباره تلاش کنید.';
           this.incorrectCount++;
           this.hearts = Math.max(0, this.hearts - 1);
           this.isShaking = true;
+          this.triggerHeartLossAnimation();
           setTimeout(() => this.isShaking = false, 500);
           this.playErrorSound();
 
@@ -1593,10 +1700,14 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
         this.playVictorySound();
         if (typeof confetti === 'function') {
           confetti({
-            particleCount: 90,
-            spread: 60,
+            particleCount: 100,
+            spread: 70,
             origin: { y: 0.6 }
           });
+        }
+        if (typeof gsap !== 'undefined') {
+          gsap.from('#victory-trophy', { scale: 0, rotation: -20, duration: 0.6, ease: 'back.out(2)' });
+          gsap.from('.victory-stat-card', { y: 30, opacity: 0, stagger: 0.15, duration: 0.4, delay: 0.2, ease: 'power2.out' });
         }
 
         const completeEndpoint = this.isGlobal ? '/practice/finish' : `/kb/week/${this.week}/practice/complete`;
