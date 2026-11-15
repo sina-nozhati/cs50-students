@@ -713,7 +713,8 @@
        x-transition:leave-start="opacity-100"
        x-transition:leave-end="opacity-0"
        @keydown.escape.window="showHintModal = false"
-       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm rtl-surface"
+       role="dialog" aria-modal="true"
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md rtl-surface"
        dir="rtl"
        style="display: none;">
 
@@ -773,7 +774,8 @@
        x-transition:leave="transition ease-in duration-200"
        x-transition:leave-start="opacity-100 backdrop-blur-md"
        x-transition:leave-end="opacity-0 backdrop-blur-none"
-       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md rtl-surface"
+       role="dialog" aria-modal="true"
+       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md rtl-surface"
        dir="rtl"
        style="display: none;">
 

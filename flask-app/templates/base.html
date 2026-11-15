@@ -83,7 +83,7 @@
 
     {% block head_extra %}{% endblock %}
 </head>
-<body class="min-h-screen flex flex-col" hx-headers='{"X-CSRFToken": "{{ csrf_token() }}"}' data-barba="wrapper">
+<body class="min-h-screen flex flex-col" hx-headers='{"X-CSRFToken": "{{ csrf_token() }}"}'>
 
     {# ─── Skip-link دسترس‌پذیری — کاربران صفحه‌کلید می‌توانند مستقیم به محتوا بروند ─── #}
     <a href="#main-content"
@@ -249,7 +249,7 @@
     {% endwith %}
 
     {# ─── محتوای اصلی هر صفحه ─── #}
-    <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full pb-20 md:pb-8" data-barba="container" data-barba-namespace="cs50-page">
+    <main id="main-content" class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full pb-20 md:pb-8">
         {% block content %}{% endblock %}
     </main>
 
@@ -364,9 +364,6 @@
     {# GSAP Animation & Physics Engine #}
     <script src="{{ url_for('static', filename='js/gsap.min.js') }}"></script>
 
-    {# Barba.js PJAX Seamless Page Transitions #}
-    <script src="{{ url_for('static', filename='js/barba.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/barba-integration.js') }}"></script>
     {# Code Display & Responsive UI Engineering Engine #}
     <script src="{{ url_for('static', filename='js/code-engine.js') }}"></script>
     {% block scripts %}{% endblock %}
