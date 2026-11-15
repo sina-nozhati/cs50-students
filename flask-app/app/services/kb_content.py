@@ -1,6 +1,8 @@
 """سرویس KB — پل بین روت‌ها و docs/cs50x-kb."""
 from __future__ import annotations
 
+import re
+
 from app.content import kb_repo
 from app.content import md_render
 from app.content.certificate import CERTIFICATE
@@ -132,6 +134,9 @@ def week_payload(site_number: int) -> dict | None:
 
         fa_notes.sort(key=lambda x: x["order"])
         fa_shorts.sort(key=lambda x: x["order"])
+        for i, n in enumerate(fa_notes):
+            n["index"] = i + 1
+            n["est_mins"] = 3
 
     children = []
     for c in kb_repo.children_of(node["id"]):
@@ -167,6 +172,8 @@ def week_payload(site_number: int) -> dict | None:
         "rendered_fa_summary": rendered_fa_summary,
         "rendered_en": rendered_en,
         "fa_notes": fa_notes,
+        "fa_notes_count": len(fa_notes),
+        "fa_notes_total_mins": len(fa_notes) * 3,
         "fa_shorts": fa_shorts,
         "fa_sections": fa_sections,
         "fa_psets": fa_psets,
@@ -235,23 +242,43 @@ def get_document(doc_id: str) -> dict | None:
 
     # ناوبری هوشمند قبلی و بعدی برای یادداشت‌های درسی
     siblings_nav = None
-    if parent and (node.get("type") == "anzali-note" or nid.startswith(("w00-n", "w01-n", "w02-n"))):
+    is_note_node = (node.get("type") == "anzali-note") or bool(re.match(r"^w\d+-n", nid))
+    if parent and is_note_node:
         all_notes = [
             c for c in kb_repo.children_of(parent["id"])
-            if c.get("type") == "anzali-note" or (c.get("id") or "").startswith(("w00-n", "w01-n", "w02-n"))
+            if (c.get("type") == "anzali-note") or bool(re.match(r"^w\d+-n", c.get("id") or ""))
         ]
         all_notes.sort(key=lambda x: x.get("order", 99))
         note_ids = [n["id"] for n in all_notes]
         if nid in note_ids:
             idx = note_ids.index(nid)
+            total = len(all_notes)
+            current_idx = idx + 1
+            remaining = total - current_idx
             prev_node = all_notes[idx - 1] if idx > 0 else None
-            next_node = all_notes[idx + 1] if idx < len(all_notes) - 1 else None
+            next_node = all_notes[idx + 1] if idx < total - 1 else None
+            progress_pct = int((current_idx / total) * 100) if total else 0
             siblings_nav = {
                 "prev": {"id": prev_node["id"], "title": prev_node.get("title")} if prev_node else None,
                 "next": {"id": next_node["id"], "title": next_node.get("title")} if next_node else None,
-                "current_index": idx + 1,
-                "total_count": len(all_notes),
-                "progress_pct": int(((idx + 1) / len(all_notes)) * 100) if all_notes else 0,
+                "current_index": current_idx,
+                "total_count": total,
+                "remaining_count": remaining,
+                "progress_pct": progress_pct,
+                "est_mins_remaining": remaining * 3,
+                "notes_list": [
+                    {
+                        "id": n["id"],
+                        "title": n.get("title") or n["id"],
+                        "index": i + 1,
+                        "is_current": (n["id"] == nid),
+                        "is_past": (i < idx),
+                        "is_upcoming": (i > idx),
+                        "order": n.get("order", i + 1),
+                        "est_mins": 3,
+                    }
+                    for i, n in enumerate(all_notes)
+                ],
             }
 
     return {

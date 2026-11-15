@@ -346,33 +346,146 @@
   {% endif %}
 
   {% if week_data.has_fa and week_data.fa_notes %}
-  <section class="mb-8" id="section-notes">
-    <div class="flex items-center justify-between gap-2 mb-3">
-      <h2 class="kb-section-title mb-0">یادداشت‌های درس (فارسی و گام‌به‌گام)</h2>
-      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-crimson text-white num">{{ week_data.fa_notes|length }} مبحث</span>
-    </div>
-    <p class="text-xs text-[var(--slate)] mb-4">متن آموزشی بومی‌سازی‌شده منطبق با مباحث تدریس‌شده در لکچر رسمی CS50.</p>
+  <section class="mb-10" id="section-notes">
+    
+    {# ─── کارت جامع پیشرفت و نقشه راه مطالعه درس‌نامه‌ها (قانون ۰۱ Closure، قانون ۰۵ Connectedness و قانون ۰۶ Hick's Law) ─── #}
+    <div class="card-harvard p-5 sm:p-6 mb-6 bg-gradient-to-r from-crimson/5 via-[var(--surface-sunken)] to-[var(--surface-raised)] border border-crimson/25 rounded-2xl shadow-sm">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-5">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-black bg-crimson text-white">
+              گام ۲ از مسیر ۶ مرحله‌ای هفته {{ week }}
+            </span>
+            <span class="inline-flex px-2 py-0.5 rounded text-[11px] font-bold bg-crimson-tint text-crimson">
+              {{ week_data.fa_notes|length }} مبحث پیوسته
+            </span>
+            <span class="inline-flex px-2 py-0.5 rounded text-[11px] font-medium text-[var(--slate)] bg-black/5 dark:bg-white/5">
+              ⏱ زمان کل: ~{{ week_data.fa_notes_total_mins or (week_data.fa_notes|length * 3) }} دقیقه
+            </span>
+          </div>
+          
+          <h2 class="text-xl sm:text-2xl font-black text-[var(--ink)] leading-snug">
+            نقشه راه یادداشت‌های درس (فارسی و گام‌به‌گام) — {{ title }}
+          </h2>
+          
+          {# وضعیت مطالعه کاربر #}
+          <div class="flex flex-wrap items-center gap-3 text-xs text-[var(--slate)] mt-2">
+            <span>
+              وضعیت شما: <strong class="num text-crimson font-black text-sm" x-text="readCount">0</strong> از <strong class="num font-bold">{{ week_data.fa_notes|length }}</strong> مبحث خوانده‌شده
+            </span>
+            <span class="opacity-40">•</span>
+            <span>
+              <strong class="text-amber-700 dark:text-amber-400 font-bold num" x-text="remainingCount">{{ week_data.fa_notes|length }}</strong> مبحث دیگر تا پایان درس‌نامه
+            </span>
+          </div>
+        </div>
 
+        {# اقدام مستقیم و بدون سردرگمی (Single Primary CTA) #}
+        <div class="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+          <template x-if="readCount < {{ week_data.fa_notes|length }}">
+            <a :href="nextUnreadUrl"
+               class="btn-crimson font-black text-xs sm:text-sm py-3 px-5 sm:px-6 rounded-2xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>
+                <span x-text="readCount === 0 ? 'شروع مطالعه از مبحث ۱' : 'ادامه مطالعه از مبحث ' + nextUnreadIndex"></span>
+              </span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </a>
+          </template>
+          <template x-if="readCount >= {{ week_data.fa_notes|length }}">
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-black text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-500/30">
+                ✓ تمام {{ week_data.fa_notes|length }} مبحث خوانده شد!
+              </span>
+              <a href="{{ url_for('kb.doc_page', doc_id=week_data.fa_notes[0].id) }}"
+                 class="btn-outline-crimson text-xs py-2 px-3 rounded-xl font-bold">
+                مرور از اول
+              </a>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      {# نوار متریال پیشرفت درصد مطالعه #}
+      <div class="space-y-1.5 bg-white/70 dark:bg-white/5 p-3.5 rounded-xl border border-[var(--border)]">
+        <div class="flex items-center justify-between text-xs font-bold">
+          <span class="text-[var(--ink)]">پیشرفت مطالعهٔ درس‌نامه‌های این هفته</span>
+          <span class="text-crimson font-black num"><span x-text="progressPct">0</span>٪ تکمیل شده</span>
+        </div>
+        <div class="w-full bg-gray-200 dark:bg-white/10 rounded-full h-2.5 overflow-hidden">
+          <div class="bg-gradient-to-r from-crimson to-crimson-light h-full rounded-full transition-all duration-500" :style="'width: ' + progressPct + '%'"></div>
+        </div>
+        <div class="flex items-center justify-between text-[10px] text-[var(--slate-muted)] pt-0.5">
+          <span>مبحث ۱: شروع مسیر</span>
+          <span x-text="remainingCount === 0 ? 'تبریک! آماده شرکت در آزمون' : remainingCount + ' مبحث تا آزمون تسلط (کوییز)'"></span>
+          <span>مبحث {{ week_data.fa_notes|length }}: تسلط کامل</span>
+        </div>
+      </div>
+    </div>
+
+    {# تیتر لیست مباحث #}
+    <div class="flex items-center justify-between gap-2 mb-4">
+      <h3 class="text-base font-extrabold text-[var(--ink)] flex items-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span>فهرست تفصیلی {{ week_data.fa_notes|length }} مبحث آموزشی</span>
+      </h3>
+      <span class="text-xs text-[var(--slate)] font-medium">به ترتیب تدریس رسمی CS50</span>
+    </div>
+
+    {# گرید هوشمند کارت‌های مباحث با نشانگرهای بصری #}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
       {% for note in week_data.fa_notes %}
       <a href="{{ url_for('kb.doc_page', doc_id=note.id) }}"
-         class="card-harvard p-4 sm:p-5 flex items-start gap-3.5 hover:border-crimson hover:bg-crimson-tint/25 border border-[var(--border)] cursor-pointer transition-all duration-200 group relative">
-        <span class="w-8 h-8 rounded-xl bg-crimson-tint text-crimson font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 num group-hover:bg-crimson group-hover:text-white transition-colors">
-          {{ loop.index }}
-        </span>
+         class="card-harvard p-4 sm:p-5 flex items-start gap-3.5 border cursor-pointer transition-all duration-200 group relative rounded-2xl"
+         :class="isNoteRead('{{ note.id }}') ? 'border-emerald-500/35 bg-emerald-50/15 dark:bg-emerald-950/10 hover:border-emerald-500' : (isNoteNext('{{ note.id }}', {{ loop.index }}) ? 'border-crimson ring-2 ring-crimson/25 bg-crimson-tint/20 shadow-md scale-[1.01]' : 'border-[var(--border)] hover:border-crimson/50 hover:bg-black/5 dark:hover:bg-white/5')">
+        
+        {# شماره / تیک خوانده شده #}
+        <div class="w-9 h-9 rounded-xl font-black text-xs flex items-center justify-center shrink-0 mt-0.5 num transition-transform group-hover:scale-105 shadow-xs"
+             :class="isNoteRead('{{ note.id }}') ? 'bg-emerald-500 text-white' : (isNoteNext('{{ note.id }}', {{ loop.index }}) ? 'bg-crimson text-white animate-pulse' : 'bg-crimson-tint text-crimson group-hover:bg-crimson group-hover:text-white')">
+          <span x-show="isNoteRead('{{ note.id }}')">✓</span>
+          <span x-show="!isNoteRead('{{ note.id }}')">{{ loop.index }}</span>
+        </div>
+
         <div class="min-w-0 flex-1">
-          <p class="font-bold text-sm leading-snug group-hover:text-crimson transition-colors">{{ note.title }}</p>
-          <div class="mt-2 flex items-center justify-between text-[11px] text-[var(--slate)]">
-            <span class="inline-flex items-center gap-1 font-semibold text-crimson">
-              مطالعه یادداشت
+          {# ردیف برچسب‌ها #}
+          <div class="flex items-center justify-between gap-2 mb-1">
+            <span class="text-[10px] font-bold num"
+                  :class="isNoteRead('{{ note.id }}') ? 'text-emerald-600 dark:text-emerald-400' : (isNoteNext('{{ note.id }}', {{ loop.index }}) ? 'text-crimson font-black' : 'text-[var(--slate-muted)]')">
+              مبحث {{ loop.index }} از {{ week_data.fa_notes|length }}
+            </span>
+            
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] text-[var(--slate-muted)] font-medium">⏱ {{ note.est_mins or 3 }} دقیقه</span>
+              
+              <span x-show="isNoteRead('{{ note.id }}')" class="inline-flex items-center gap-0.5 text-[10px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/40 px-2 py-0.2 rounded-full">
+                خوانده‌شد
+              </span>
+              <span x-show="isNoteNext('{{ note.id }}', {{ loop.index }})" class="inline-flex items-center gap-0.5 text-[10px] font-black text-crimson bg-white dark:bg-white/10 px-2 py-0.2 rounded-full border border-crimson/30 shadow-xs">
+                پیشنهادی بعدی
+              </span>
+            </div>
+          </div>
+
+          {# عنوان یادداشت #}
+          <h4 class="font-bold text-sm leading-snug group-hover:text-crimson transition-colors text-[var(--ink)] line-clamp-2">
+            {{ note.title }}
+          </h4>
+
+          {# فوتر کارت #}
+          <div class="mt-2.5 pt-2 border-t border-[var(--border)] flex items-center justify-between text-[11px]">
+            <span class="inline-flex items-center gap-1 font-bold group-hover:translate-x-[-2px] transition-transform"
+                  :class="isNoteRead('{{ note.id }}') ? 'text-emerald-600 dark:text-emerald-400' : 'text-crimson'">
+              <span x-text="isNoteRead('{{ note.id }}') ? 'مرور مجدد مبحث' : 'مطالعه مبحث'">مطالعه یادداشت</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
             </span>
-            <span class="text-gray-400">بخش {{ loop.index }} از {{ week_data.fa_notes|length }}</span>
+            <span class="text-[10px] text-[var(--slate-muted)]" x-text="isNoteRead('{{ note.id }}') ? 'تکمیل شده' : 'در انتظار مطالعه'"></span>
           </div>
+
         </div>
       </a>
       {% endfor %}
     </div>
+
   </section>
   {% endif %}
 
@@ -1067,6 +1180,74 @@
   function kbWeekApp() {
     return {
       activeTab: 'notes',
+      weekNum: {{ week }},
+      readNoteIds: [],
+      lastReadDocId: null,
+
+      initNotesProgress: function() {
+        try {
+          var saved = JSON.parse(localStorage.getItem('cs50_read_notes_w' + this.weekNum) || '[]');
+          this.readNoteIds = Array.isArray(saved) ? saved : [];
+          this.lastReadDocId = localStorage.getItem('cs50_last_read_w' + this.weekNum) || null;
+        } catch(e) {
+          this.readNoteIds = [];
+        }
+      },
+
+      get readCount() {
+        return this.readNoteIds.length;
+      },
+
+      get totalNotesCount() {
+        return {{ (week_data.fa_notes|length) if (week_data and week_data.fa_notes) else 0 }};
+      },
+
+      get remainingCount() {
+        var rem = this.totalNotesCount - this.readCount;
+        return rem > 0 ? rem : 0;
+      },
+
+      get progressPct() {
+        if (!this.totalNotesCount) return 0;
+        return Math.min(100, Math.round((this.readCount / this.totalNotesCount) * 100));
+      },
+
+      isNoteRead: function(docId) {
+        return this.readNoteIds.indexOf(docId) !== -1;
+      },
+
+      isNoteNext: function(docId, index) {
+        if (this.readNoteIds.indexOf(docId) !== -1) return false;
+        return this.nextUnreadIndex === index;
+      },
+
+      get nextUnreadIndex() {
+        var allIds = [{% if week_data and week_data.fa_notes %}{% for n in week_data.fa_notes %}'{{ n.id }}'{% if not loop.last %},{% endif %}{% endfor %}{% endif %}];
+        for (var i = 0; i < allIds.length; i++) {
+          if (this.readNoteIds.indexOf(allIds[i]) === -1) {
+            return i + 1;
+          }
+        }
+        return 1;
+      },
+
+      get nextUnreadUrl() {
+        var allUrls = [{% if week_data and week_data.fa_notes %}{% for n in week_data.fa_notes %}'{{ url_for("kb.doc_page", doc_id=n.id) }}'{% if not loop.last %},{% endif %}{% endfor %}{% endif %}];
+        var idx = this.nextUnreadIndex - 1;
+        if (idx >= 0 && idx < allUrls.length) {
+          return allUrls[idx];
+        }
+        return allUrls.length > 0 ? allUrls[0] : '#';
+      },
+
+      get nextUnreadTitle() {
+        var allTitles = [{% if week_data and week_data.fa_notes %}{% for n in week_data.fa_notes %}{{ n.title|tojson }}{% if not loop.last %},{% endif %}{% endfor %}{% endif %}];
+        var idx = this.nextUnreadIndex - 1;
+        if (idx >= 0 && idx < allTitles.length) {
+          return allTitles[idx];
+        }
+        return '';
+      },
 
       init: function() {
         var rawHash = (window.location.hash || '').replace('#', '').trim();
@@ -1079,6 +1260,7 @@
             this.activeTab = clean;
           }
         }
+        this.initNotesProgress();
       },
 
       switchTab: function(tabId, scrollTargetId) {
