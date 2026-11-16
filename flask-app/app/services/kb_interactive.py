@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from app import db
-from app.models import FlashcardProgress, ExerciseAttempt, WeekProgress, QuizAttempt
+from app.models import utc_now, FlashcardProgress, ExerciseAttempt, WeekProgress, QuizAttempt
 from app.content import kb_repo
 from app.services import xp as xp_service
 from app.services import events as event_service
@@ -62,7 +62,7 @@ def load_flashcards_for_week(week: int, user_id: int | None = None) -> list[dict
         user_states = {r.card_id: r for r in rows}
 
     out = []
-    now = datetime.utcnow()
+    now = utc_now()
     for c in cards:
         cid = c.get("id")
         st = user_states.get(cid)
@@ -89,7 +89,7 @@ def load_flashcards_for_week(week: int, user_id: int | None = None) -> list[dict
 
 def review_flashcard(user_id: int, week: int, card_id: str, rating: str) -> dict[str, Any]:
     """ثبت نتیجه مرور فلش‌کارت در جعبه لایتنر (again, good, easy)."""
-    now = datetime.utcnow()
+    now = utc_now()
     st = FlashcardProgress.query.filter_by(user_id=user_id, card_id=card_id).first()
     if not st:
         st = FlashcardProgress(
@@ -226,7 +226,7 @@ def get_or_create_active_quiz_attempt(
             total_questions=total_questions,
             answers_json={},
             is_completed=False,
-            created_at=datetime.utcnow(),
+            created_at=utc_now(),
         )
         db.session.add(latest)
         db.session.commit()
@@ -254,7 +254,7 @@ def start_new_quiz_attempt(user_id: int, week: int, total_questions: int = 5) ->
     # در صورت وجود تلاش قبلی که کامل نشده، آن را با نمره فعلی نهایی می‌کنیم
     if attempts and not attempts[-1].is_completed:
         attempts[-1].is_completed = True
-        attempts[-1].completed_at = datetime.utcnow()
+        attempts[-1].completed_at = utc_now()
 
     new_attempt_number = attempts_count + 1
     new_attempt = QuizAttempt(
@@ -265,7 +265,7 @@ def start_new_quiz_attempt(user_id: int, week: int, total_questions: int = 5) ->
         total_questions=total_questions,
         answers_json={},
         is_completed=False,
-        created_at=datetime.utcnow(),
+        created_at=utc_now(),
     )
     db.session.add(new_attempt)
     db.session.commit()
@@ -584,7 +584,7 @@ def submit_quiz_question(
     answers[question_id] = {
         "answer": clean_ans,
         "is_correct": is_correct,
-        "submitted_at": datetime.utcnow().isoformat(),
+        "submitted_at": utc_now().isoformat(),
     }
     attempt.answers_json = answers
 
@@ -595,7 +595,7 @@ def submit_quiz_question(
     # نهایی شدن آزمون با پاسخ به همه سوالات
     if len(answers) >= total_quiz_questions:
         attempt.is_completed = True
-        attempt.completed_at = datetime.utcnow()
+        attempt.completed_at = utc_now()
 
     # ۵. به‌روزرسانی نمره نهایی در WeekProgress بر اساس آستانه قبولی آزمون تسلط
     mastery_info = get_mastery_quiz_info(week)
@@ -625,7 +625,7 @@ def submit_quiz_question(
             is_correct=is_correct,
             submitted_answer=clean_ans,
             hints_used=0,
-            created_at=datetime.utcnow(),
+            created_at=utc_now(),
         )
         db.session.add(att)
     else:

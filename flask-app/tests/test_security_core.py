@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash
 
 from app import db
-from app.models import User, Assignment, Submission, Resource, Week, XPLog
+from app.models import utc_now, User, Assignment, Submission, Resource, Week, XPLog
 from app.services import xp as xp_service
 from app.services import submissions as sub_service
 from app.services import progress as progress_service
@@ -45,7 +45,7 @@ class TestSubmissionResubmit:
             a = Assignment(
                 title="P0",
                 week=0,
-                due_date=datetime.utcnow() + timedelta(days=3),
+                due_date=utc_now() + timedelta(days=3),
                 xp_reward=20,
                 is_active=True,
             )
@@ -107,7 +107,7 @@ class TestNotificationsOnGrade:
             a = Assignment(
                 title="P0",
                 week=0,
-                due_date=datetime.utcnow() + timedelta(days=1),
+                due_date=utc_now() + timedelta(days=1),
                 xp_reward=10,
             )
             db.session.add(a)
@@ -124,7 +124,7 @@ class TestAnalyticsFr10:
     def test_timing_and_median(self, app):
         with app.app_context():
             u = _student()
-            due = datetime.utcnow() + timedelta(days=2)
+            due = utc_now() + timedelta(days=2)
             a = Assignment(title="A", week=0, due_date=due, xp_reward=10)
             db.session.add(a)
             db.session.commit()
@@ -132,10 +132,10 @@ class TestAnalyticsFr10:
                 student_id=u.id,
                 assignment_id=a.id,
                 github_url="https://github.com/u/a",
-                submitted_at=datetime.utcnow(),
+                submitted_at=utc_now(),
                 grade=80,
                 feedback="ok",
-                graded_at=datetime.utcnow() + timedelta(hours=4),
+                graded_at=utc_now() + timedelta(hours=4),
             )
             db.session.add(sub)
             db.session.commit()

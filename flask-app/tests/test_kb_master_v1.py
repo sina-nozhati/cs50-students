@@ -30,6 +30,7 @@ import pytest
 
 from app import db
 from app.models import (
+    utc_now,
     AdaptiveState,
     KBPackageInstall,
     QuizAttempt,
@@ -427,7 +428,7 @@ def test_10_adaptive_practice_session_misconceptions_and_streak(app, student_use
     with app.app_context():
         user = User.query.get(student_user.id)
         user.streak = 1
-        yesterday = datetime.utcnow() - timedelta(days=1)
+        yesterday = utc_now() - timedelta(days=1)
         db.session.add(XPLog(user_id=user.id, amount=5, reason="test:yesterday", timestamp=yesterday))
         db.session.commit()
 

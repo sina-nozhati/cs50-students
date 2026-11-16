@@ -3,7 +3,7 @@ import pytest
 from datetime import datetime, timedelta
 
 from app import create_app, db
-from app.models import User, Assignment, Submission, XPLog, WeekProgress
+from app.models import utc_now, User, Assignment, Submission, XPLog, WeekProgress
 from app.services import assignments_admin as assignments_service
 from app.services import analytics as analytics_service
 
@@ -32,7 +32,7 @@ def seeded_app(app):
         a1 = Assignment(
             title="Scratch Project",
             week=0,
-            due_date=datetime.utcnow() + timedelta(days=7),
+            due_date=utc_now() + timedelta(days=7),
             xp_reward=25,
             is_active=True,
         )

@@ -315,7 +315,7 @@
   {{ challenges_json|safe }}
 </script>
 
-<div x-data="practiceApp({{ week if week is not none else 'null' }}, {{ user_xp }}, {{ user_streak }}, {{ 'true' if is_global else 'false' }}, '{{ session_id or '' }}')"
+<div x-data="practiceApp({{ week if week is not none else 'null' }}, {{ user_xp }}, {{ user_streak }}, {{ 'true' if is_global else 'false' }}, '{{ session_id or '' }}', {{ user_hearts if user_hearts is not none else 5 }}, {{ cooldown_seconds if cooldown_seconds is not none else 0 }})"
      class="h-full max-h-[100dvh] flex flex-col justify-between overflow-hidden relative">
 
   {# ─── نوار بالای صفحه (Apple Frosted Glass Header) ─── #}
@@ -1029,7 +1029,7 @@
 
 {# ─── Alpine.js Core Logic & Refined Audio Synthesizer ─── #}
 <script>
-function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
+function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId, initialHearts, serverCooldownSeconds) {
   // بارگذاری امن چالش‌ها از اسکریپت ساختاریافته
   const dataEl = document.getElementById('practice-challenges-data');
   let rawChallenges = [];
@@ -1050,7 +1050,7 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
     isChecking: false,
     csrfToken: csrfToken,
     currentIndex: 0,
-    hearts: 5,
+    hearts: (initialHearts !== undefined && initialHearts !== null) ? Number(initialHearts) : 5,
     initialXp: Number(initialXp) || 0,
     earnedXp: 0,
     streak: initialStreak,
@@ -1123,7 +1123,14 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
 
     init() {
       this.loadCurrentChallenge();
-      this.checkSavedCooldown();
+      const serverCooldown = Number(serverCooldownSeconds) || 0;
+      if (serverCooldown > 0) {
+        this.hearts = 0;
+        this.isOutOfHearts = true;
+        this.startCooldownTimer(serverCooldown);
+      } else {
+        this.checkSavedCooldown();
+      }
     },
 
     checkSavedCooldown() {
@@ -1422,6 +1429,20 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
       const key = 'cs50_cooldown_' + (this.isGlobal ? 'global' : (this.week !== null ? this.week : '0'));
       localStorage.removeItem(key);
       this.playSuccessSound();
+
+      // Sync heart restore with backend
+      const restoreEndpoint = this.isGlobal ? '/practice/restore-one-heart' : `/kb/week/${this.week}/practice/restore-one-heart`;
+      fetch(restoreEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': this.csrfToken,
+        }
+      }).then(r => r.json()).then(data => {
+        if (data && data.hearts !== undefined) {
+          this.hearts = data.hearts;
+        }
+      }).catch(e => console.error('Heart restore sync error:', e));
     },
 
     startRefillChallenge() {
@@ -1665,7 +1686,14 @@ function practiceApp(week, initialXp, initialStreak, isGlobal, sessionId) {
           this.feedbackStatus = 'incorrect';
           this.currentExplanation = result.feedback_fa || result.explanation_fa || result.explanation || 'پاسخ نادرست است. دوباره تلاش کنید.';
           this.incorrectCount++;
-          this.hearts = Math.max(0, this.hearts - 1);
+          if (result.hearts !== undefined) {
+            this.hearts = result.hearts;
+          } else {
+            this.hearts = Math.max(0, this.hearts - 1);
+          }
+          if (result.cooldown_seconds && result.cooldown_seconds > 0) {
+            this.startCooldownTimer(result.cooldown_seconds);
+          }
           this.isShaking = true;
           this.triggerHeartLossAnimation();
           setTimeout(() => this.isShaking = false, 500);

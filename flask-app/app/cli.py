@@ -3,7 +3,7 @@ from flask import current_app
 from app import db
 from app.services import engagement as engagement_service
 from app.services import notifications as notif_service
-from app.models import User
+from app.models import utc_now, User
 
 
 def register_cli_commands(app):
@@ -30,7 +30,7 @@ def register_cli_commands(app):
         from datetime import datetime, timedelta
         from app.models import LearningEvent
 
-        cutoff = datetime.utcnow() - timedelta(days=days)
+        cutoff = utc_now() - timedelta(days=days)
         deleted = LearningEvent.query.filter(LearningEvent.created_at < cutoff).delete()
         db.session.commit()
         click.echo(f"✅ {deleted} رویداد قدیمی با موفقیت پاکسازی شد.")

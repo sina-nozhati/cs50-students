@@ -4,7 +4,7 @@
 """
 from datetime import datetime, timedelta
 from app import db
-from app.models import User, XPLog, EngagementScore, ExerciseAttempt, WeekProgress, Assignment, Submission
+from app.models import utc_now, User, XPLog, EngagementScore, ExerciseAttempt, WeekProgress, Assignment, Submission
 
 
 def compute_user_engagement(user_id: int) -> dict:
@@ -16,7 +16,7 @@ def compute_user_engagement(user_id: int) -> dict:
     factors = []
     prob = 0.5  # نقطه آغاز میانی
 
-    now = datetime.utcnow()
+    now = utc_now()
     last_log = XPLog.query.filter_by(user_id=user_id).order_by(XPLog.timestamp.desc()).first()
 
     days_inactive = 0

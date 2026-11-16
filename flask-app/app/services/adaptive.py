@@ -19,7 +19,7 @@ from typing import Any
 
 from app import db
 from app.content import kb_repo
-from app.models import AdaptiveState, StudentMistake, User
+from app.models import utc_now, AdaptiveState, StudentMistake, User
 from app.services import streak as streak_service
 from app.services import xp as xp_service
 
@@ -468,7 +468,7 @@ def save_adaptive_state(user_id: int, state: dict[str, Any]) -> None:
         db.session.add(row)
     else:
         row.state_json = state
-        row.updated_at = datetime.utcnow()
+        row.updated_at = utc_now()
     db.session.commit()
 
 

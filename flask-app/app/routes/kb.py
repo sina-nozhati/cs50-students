@@ -12,9 +12,10 @@ from app.services import exercises as exercise_service
 from app.services import events as event_service
 from app.services import kb_interactive
 from app.services import practice as practice_service
+from app.services import hearts as hearts_service
 from app import db
 from datetime import datetime
-from app.models import WeekProgress, XPLog
+from app.models import utc_now, WeekProgress, XPLog
 from flask import request, jsonify, make_response, send_file
 from urllib.parse import quote
 from app.services import downloads as downloads_service
@@ -357,6 +358,7 @@ def practice_page(week: int):
         {"week": week, "type": "practice_runner"}
     )
 
+    heart_info = hearts_service.get_user_hearts(current_user.id)
     return render_template(
         "kb/practice_runner.html",
         week=week,
@@ -367,6 +369,9 @@ def practice_page(week: int):
         challenges_json=json.dumps(session_data["challenges"], ensure_ascii=False),
         user_xp=current_user.xp,
         user_streak=current_user.streak,
+        user_hearts=heart_info["hearts"],
+        cooldown_seconds=heart_info["cooldown_seconds"],
+        is_out_of_hearts=heart_info["is_out_of_hearts"],
     )
 
 
@@ -390,6 +395,13 @@ def submit_practice_challenge(week: int):
         user_answer=user_answer,
         hints_used=hints_used,
     )
+    if not result.get("is_correct", False):
+        heart_info = hearts_service.drain_user_heart(current_user.id)
+    else:
+        heart_info = hearts_service.get_user_hearts(current_user.id)
+    result["hearts"] = heart_info["hearts"]
+    result["cooldown_seconds"] = heart_info["cooldown_seconds"]
+    result["is_out_of_hearts"] = heart_info["is_out_of_hearts"]
     return jsonify(result)
 
 
@@ -412,27 +424,28 @@ def complete_practice(week: int):
 def refill_practice_hearts(week: int):
     """احیای کامل قلب‌های تمرین هفته با کسر ۲۰ XP."""
     _get_visible_week_or_404(week)
-    REFILL_COST = 20
-    user_xp = current_user.xp or 0
-    if user_xp < REFILL_COST:
-        return jsonify({
-            "success": False,
-            "message": f"برای احیای قلب‌ها حداقل به {REFILL_COST} XP نیاز داری. موجودی فعلی: {user_xp} XP"
-        }), 400
-
-    current_user.xp = user_xp - REFILL_COST
-    stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
-    log = XPLog(
-        user_id=current_user.id,
-        amount=-REFILL_COST,
-        reason=f"practice:hearts:refill:w{week}:{stamp}",
+    success, msg, new_xp = hearts_service.refill_user_hearts_with_xp(
+        current_user.id, f"practice:hearts:refill:w{week}"
     )
-    db.session.add(log)
-    db.session.commit()
-
+    if not success:
+        return jsonify({"success": False, "message": msg}), 400
     return jsonify({
         "success": True,
-        "message": "قلب‌های شما با موفقیت شارژ شدند!",
+        "message": msg,
         "hearts": 5,
-        "current_xp": current_user.xp,
+        "current_xp": new_xp,
+    })
+
+
+@bp.route("/week/<int:week>/practice/restore-one-heart", methods=["POST"])
+@login_required
+def restore_one_practice_heart(week: int):
+    """احیای یک قلب با انجام موفق چالش مفهومی در تمرین هفته."""
+    _get_visible_week_or_404(week)
+    status = hearts_service.restore_one_heart(current_user.id)
+    return jsonify({
+        "success": True,
+        "hearts": status["hearts"],
+        "cooldown_seconds": status["cooldown_seconds"],
+        "is_out_of_hearts": status["is_out_of_hearts"],
     })

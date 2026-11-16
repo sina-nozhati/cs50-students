@@ -16,9 +16,10 @@ from app.services import events as event_service
 from app.services import diagnostics as diag_service
 from app.services import cohorts as cohort_service
 from app.services import adaptive as adaptive_service
+from app.services import hearts as hearts_service
 from app import db
 from datetime import datetime
-from app.models import XPLog
+from app.models import utc_now, XPLog
 
 bp = Blueprint("main", __name__)
 
@@ -194,6 +195,7 @@ def practice():
     bank_map = {item["id"]: item for item in bank}
     items = [bank_map[iid] for iid in session_data.get("item_ids", []) if iid in bank_map]
 
+    heart_info = hearts_service.get_user_hearts(current_user.id)
     return render_template(
         "kb/practice_runner.html",
         week=None,
@@ -204,6 +206,9 @@ def practice():
         challenges_json=json.dumps(items, ensure_ascii=False),
         user_xp=current_user.xp,
         user_streak=current_user.streak,
+        user_hearts=heart_info["hearts"],
+        cooldown_seconds=heart_info["cooldown_seconds"],
+        is_out_of_hearts=heart_info["is_out_of_hearts"],
     )
 
 
@@ -233,6 +238,13 @@ def practice_answer():
         question_id=question_id,
         answer_value=answer,
     )
+    if not res.get("is_correct", False):
+        heart_info = hearts_service.drain_user_heart(current_user.id)
+    else:
+        heart_info = hearts_service.get_user_hearts(current_user.id)
+    res["hearts"] = heart_info["hearts"]
+    res["cooldown_seconds"] = heart_info["cooldown_seconds"]
+    res["is_out_of_hearts"] = heart_info["is_out_of_hearts"]
     return jsonify(res)
 
 
@@ -263,27 +275,27 @@ def practice_finish():
 @login_required
 def practice_refill_hearts():
     """احیای کامل ۵ قلب در تمرین تطبیقی با کسر ۲۰ XP."""
-    REFILL_COST = 20
-    user_xp = current_user.xp or 0
-    if user_xp < REFILL_COST:
-        return jsonify({
-            "success": False,
-            "message": f"برای احیای قلب‌ها حداقل به {REFILL_COST} XP نیاز داری. موجودی فعلی: {user_xp} XP"
-        }), 400
-
-    current_user.xp = user_xp - REFILL_COST
-    stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
-    log = XPLog(
-        user_id=current_user.id,
-        amount=-REFILL_COST,
-        reason=f"practice:hearts:refill:global:{stamp}",
+    success, msg, new_xp = hearts_service.refill_user_hearts_with_xp(
+        current_user.id, "practice:hearts:refill:global"
     )
-    db.session.add(log)
-    db.session.commit()
-
+    if not success:
+        return jsonify({"success": False, "message": msg}), 400
     return jsonify({
         "success": True,
-        "message": "قلب‌های شما با موفقیت شارژ شدند!",
+        "message": msg,
         "hearts": 5,
-        "current_xp": current_user.xp,
+        "current_xp": new_xp,
+    })
+
+
+@bp.route("/practice/restore-one-heart", methods=["POST"])
+@login_required
+def practice_restore_one_heart():
+    """احیای یک قلب با انجام موفق چالش مفهومی."""
+    status = hearts_service.restore_one_heart(current_user.id)
+    return jsonify({
+        "success": True,
+        "hearts": status["hearts"],
+        "cooldown_seconds": status["cooldown_seconds"],
+        "is_out_of_hearts": status["is_out_of_hearts"],
     })

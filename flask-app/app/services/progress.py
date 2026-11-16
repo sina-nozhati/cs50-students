@@ -8,7 +8,7 @@ from datetime import datetime
 from flask import abort
 
 from app import db
-from app.models import User, WeekProgress, Assignment, Submission, XPLog, Week
+from app.models import utc_now, User, WeekProgress, Assignment, Submission, XPLog, Week
 
 # تعداد پیش‌فرض واحدهای دوره (0–10 + AI + Final) در صورت خالی بودن DB
 TOTAL_WEEKS = 13
@@ -26,7 +26,7 @@ def get_user_stats(user_id: int) -> dict:
 
     active_assignments = (
         Assignment.query.filter_by(is_active=True)
-        .filter(Assignment.due_date >= datetime.utcnow())
+        .filter(Assignment.due_date >= utc_now())
         .count()
     )
     submissions_count = (
@@ -232,7 +232,7 @@ def mark_kb_read(user_id: int, week: int) -> bool:
     if wp.kb_read:
         return False  # قبلاً خوانده شده
     wp.kb_read = True
-    wp.last_activity = datetime.utcnow()
+    wp.last_activity = utc_now()
     db.session.commit()
     return True
 
@@ -244,5 +244,5 @@ def mark_quiz_completed(user_id: int, week: int, score: int, total: int, pass_th
     wp.quiz_total = total
     if total > 0 and (score / total) >= pass_threshold:
         wp.quiz_completed = True
-    wp.last_activity = datetime.utcnow()
+    wp.last_activity = utc_now()
     db.session.commit()

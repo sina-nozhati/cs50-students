@@ -28,7 +28,7 @@ from typing import Any
 
 from app import db
 from app.content import kb_repo
-from app.models import Course, KBPackageInstall, Week
+from app.models import utc_now, Course, KBPackageInstall, Week
 
 
 def _get_kb_root() -> Path:
@@ -508,7 +508,7 @@ def install_master_package(pkg_dir: Path, admin_id: int | None = None, course_id
             package_type="master",
             version=pkg_version,
             sha256=master_sha,
-            installed_at=datetime.utcnow(),
+            installed_at=utc_now(),
             installed_at_tehran=tehran_time,
             admin_id=admin_id,
             course_id=course.id if course else None,

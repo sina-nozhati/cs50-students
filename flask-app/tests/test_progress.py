@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 import pytest
 
 from app import db
-from app.models import User, WeekProgress, Assignment, Submission, XPLog
+from app.models import utc_now, User, WeekProgress, Assignment, Submission, XPLog
 from app.services import progress as progress_service
 
 
@@ -32,7 +32,7 @@ class TestGetUserStats:
         a = Assignment(
             title="Pset 1",
             week=0,
-            due_date=datetime.utcnow() + timedelta(days=7),
+            due_date=utc_now() + timedelta(days=7),
             is_active=True,
         )
         db.session.add(a)
@@ -46,7 +46,7 @@ class TestGetUserStats:
         a = Assignment(
             title="Old Pset",
             week=0,
-            due_date=datetime.utcnow() - timedelta(days=7),
+            due_date=utc_now() - timedelta(days=7),
             is_active=True,
         )
         db.session.add(a)
@@ -113,7 +113,7 @@ class TestGetUpcomingAssignments:
         a = Assignment(
             title="Pset 2",
             week=1,
-            due_date=datetime.utcnow() + timedelta(days=5),
+            due_date=utc_now() + timedelta(days=5),
             is_active=True,
         )
         db.session.add(a)
@@ -139,7 +139,7 @@ class TestGetUpcomingAssignments:
             a = Assignment(
                 title=f"Pset {i}",
                 week=i,
-                due_date=datetime.utcnow() + timedelta(days=i + 1),
+                due_date=utc_now() + timedelta(days=i + 1),
                 is_active=True,
             )
             db.session.add(a)

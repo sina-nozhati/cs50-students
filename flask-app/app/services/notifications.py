@@ -2,7 +2,7 @@
 from datetime import datetime
 
 from app import db
-from app.models import Notification
+from app.models import utc_now, Notification
 
 
 def create(user_id: int, title: str, body: str = "", link: str | None = None) -> Notification:
@@ -13,7 +13,7 @@ def create(user_id: int, title: str, body: str = "", link: str | None = None) ->
         body=body or None,
         link=link,
         is_read=False,
-        created_at=datetime.utcnow(),
+        created_at=utc_now(),
     )
     db.session.add(n)
     db.session.commit()

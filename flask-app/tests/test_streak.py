@@ -12,12 +12,12 @@ from datetime import datetime, date, timedelta, timezone
 import pytest
 
 from app import db
-from app.models import User, XPLog
+from app.models import User, XPLog, utc_now
 from app.services import streak as streak_service
 from app.services import xp as xp_service
 
 
-def _utcnow():
+def utc_now():
     """UTC-aware datetime برای جلوگیری از deprecation warning."""
     return datetime.now(timezone.utc).replace(tzinfo=None)
 
@@ -83,7 +83,7 @@ class TestUpdateStreak:
         # آخرین فعالیت ۳ روز پیش
         db.session.add(XPLog(
             user_id=user.id, amount=5, reason="old",
-            timestamp=_utcnow() - timedelta(days=3),
+            timestamp=utc_now() - timedelta(days=3),
         ))
         db.session.commit()
 

@@ -198,7 +198,7 @@ def test_week0_and_global_practice_routes(client, app):
     assert resp_w0.status_code == 200
     html_w0 = resp_w0.data.decode("utf-8")
     assert "practiceApp(0," in html_w0
-    assert ", false, '')" in html_w0
+    assert ", false, ''" in html_w0
     assert "/kb/week/0" in html_w0
 
     # 2. تست ثبت پاسخ در هفته ۰ با challenge_id

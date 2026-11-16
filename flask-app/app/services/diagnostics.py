@@ -12,7 +12,7 @@ from typing import Any
 from sqlalchemy import func, case
 
 from app import db
-from app.models import User, StudentMistake, LearningEvent
+from app.models import utc_now, User, StudentMistake, LearningEvent
 
 
 def _stringify_value(val: Any) -> str:
@@ -44,7 +44,7 @@ def record_mistake(
     clean_tag = (concept_tag or "مفاهیم پایه")[:100]
 
     mistake = StudentMistake.query.filter_by(user_id=user_id, item_id=item_id).first()
-    now = datetime.utcnow()
+    now = utc_now()
 
     if mistake:
         mistake.error_count = (mistake.error_count or 1) + 1
@@ -87,7 +87,7 @@ def resolve_mistake(user_id: int, item_id: str) -> bool:
     ).first()
     if mistake:
         mistake.is_resolved = True
-        mistake.resolved_at = datetime.utcnow()
+        mistake.resolved_at = utc_now()
         db.session.commit()
         return True
     return False

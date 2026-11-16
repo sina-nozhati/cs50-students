@@ -2,7 +2,7 @@
 import json
 from datetime import datetime
 from app import db
-from app.models import LearningEvent
+from app.models import utc_now, LearningEvent
 
 ALLOWED_EVENT_TYPES = {
     "app_open",
@@ -35,7 +35,7 @@ def log_event(user_id: int, event_type: str, payload: dict | None = None) -> Lea
         user_id=user_id,
         event_type=event_type,
         payload=payload or {},
-        created_at=datetime.utcnow()
+        created_at=utc_now()
     )
     db.session.add(event)
     db.session.commit()

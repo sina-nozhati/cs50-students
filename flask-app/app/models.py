@@ -13,11 +13,20 @@
     Week         — یک هفته‌ی دوره (عنوان/انتشار/محتوای آموزشی)
     Notification — اعلان داخل‌پنل برای دانش‌آموز
 """
-from datetime import datetime
+from datetime import datetime, timezone
 
 from flask_login import UserMixin
 
 from app import db, login_manager
+
+
+def utc_now() -> datetime:
+    """Return naive datetime representing current UTC time.
+
+    Replaces deprecated datetime.utcnow() without breaking SQLite
+    naive DateTime comparison semantics.
+    """
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 
 class User(UserMixin, db.Model):
@@ -27,6 +36,8 @@ class User(UserMixin, db.Model):
     telegram_id = db.Column(db.String(50), unique=True, nullable=True)
     xp = db.Column(db.Integer, default=0, index=True)        # index برای کوئری leaderboard
     streak = db.Column(db.Integer, default=0)
+    hearts = db.Column(db.Integer, default=5, nullable=False)
+    last_heart_drain = db.Column(db.DateTime, nullable=True)
     is_admin = db.Column(db.Boolean, default=False)
     is_active = db.Column(db.Boolean, default=True, nullable=False)  # غیرفعال‌سازی بدون حذف
     submissions = db.relationship("Submission", backref="student", lazy=True, cascade="all, delete-orphan")
@@ -45,7 +56,7 @@ class Course(db.Model):
     title = db.Column(db.String(150), nullable=False)
     description = db.Column(db.Text, nullable=True)
     is_active = db.Column(db.Boolean, default=True, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=utc_now)
 
     cohorts = db.relationship("Cohort", backref="course", lazy=True, cascade="all, delete-orphan")
 
@@ -66,7 +77,7 @@ class Cohort(db.Model):
     # وضعیت‌ها: draft | enrollment | active | completed | archived
     capacity = db.Column(db.Integer, nullable=True)
     description = db.Column(db.Text, nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=utc_now)
 
     enrollments = db.relationship("Enrollment", backref="cohort", lazy=True, cascade="all, delete-orphan")
 
@@ -83,7 +94,7 @@ class Enrollment(db.Model):
     status = db.Column(db.String(20), default="active", nullable=False, index=True)
     # وضعیت عضویت: active | pending | dropped | completed
     role = db.Column(db.String(20), default="student", nullable=False)
-    enrolled_at = db.Column(db.DateTime, default=datetime.utcnow)
+    enrolled_at = db.Column(db.DateTime, default=utc_now)
     completed_at = db.Column(db.DateTime, nullable=True)
     is_primary = db.Column(db.Boolean, default=True, nullable=False)
     notes = db.Column(db.Text, nullable=True)
@@ -114,7 +125,7 @@ class Submission(db.Model):
         db.Integer, db.ForeignKey("assignment.id", ondelete="CASCADE"), nullable=False
     )
     github_url = db.Column(db.String(255), nullable=False)
-    submitted_at = db.Column(db.DateTime, default=datetime.utcnow)
+    submitted_at = db.Column(db.DateTime, default=utc_now)
     grade = db.Column(db.Integer, nullable=True)      # نمره از 0 تا 100
     feedback = db.Column(db.Text, nullable=True)
     graded_at = db.Column(db.DateTime, nullable=True)  # برای میانهٔ زمان بازخورد
@@ -132,7 +143,7 @@ class XPLog(db.Model):
     )
     amount = db.Column(db.Integer, nullable=False)
     reason = db.Column(db.String(100))
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    timestamp = db.Column(db.DateTime, default=utc_now, index=True)
 
 
 class Resource(db.Model):
@@ -148,7 +159,7 @@ class Resource(db.Model):
     display_name = db.Column(db.String(200), nullable=False)   # مثلاً «اسلایدها»
     category = db.Column(db.String(20), nullable=False)        # slides|notes|pset|src|extra
     is_published = db.Column(db.Boolean, default=True)
-    uploaded_at = db.Column(db.DateTime, default=datetime.utcnow)
+    uploaded_at = db.Column(db.DateTime, default=utc_now)
     uploaded_by = db.Column(
         db.Integer, db.ForeignKey("user.id", ondelete="SET NULL"), nullable=True
     )
@@ -176,7 +187,7 @@ class WeekProgress(db.Model):
     quiz_completed = db.Column(db.Boolean, default=False)
     kb_read = db.Column(db.Boolean, default=False)       # تقلب‌نامه را خوانده؟
     flashcards_reviewed = db.Column(db.Boolean, default=False)
-    last_activity = db.Column(db.DateTime, default=datetime.utcnow)
+    last_activity = db.Column(db.DateTime, default=utc_now)
 
     __table_args__ = (
         # یک ردیف به‌ازای (کاربر، هفته) — جلوگیری از چندتایی
@@ -201,7 +212,7 @@ class Week(db.Model):
     is_published = db.Column(db.Boolean, default=False, nullable=False)
     content_html = db.Column(db.Text, nullable=True)
     content_url = db.Column(db.String(500), nullable=True)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=utc_now, onupdate=utc_now)
 
 
 class Notification(db.Model):
@@ -214,7 +225,7 @@ class Notification(db.Model):
     body = db.Column(db.String(500), nullable=True)
     link = db.Column(db.String(255), nullable=True)  # مسیر نسبی مثل /assignments
     is_read = db.Column(db.Boolean, default=False, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    created_at = db.Column(db.DateTime, default=utc_now, index=True)
 
 
 class LearningEvent(db.Model):
@@ -225,7 +236,7 @@ class LearningEvent(db.Model):
     )
     event_type = db.Column(db.String(50), nullable=False, index=True)
     payload = db.Column(db.JSON, nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    created_at = db.Column(db.DateTime, default=utc_now, index=True)
 
 
 class ExerciseAttempt(db.Model):
@@ -239,7 +250,7 @@ class ExerciseAttempt(db.Model):
     is_correct = db.Column(db.Boolean, default=False, nullable=False)
     submitted_answer = db.Column(db.Text, nullable=True)
     hints_used = db.Column(db.Integer, default=0)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    created_at = db.Column(db.DateTime, default=utc_now, index=True)
 
     __table_args__ = (
         db.UniqueConstraint("user_id", "exercise_id", name="uq_user_exercise"),
@@ -262,7 +273,7 @@ class QuizAttempt(db.Model):
     total_questions = db.Column(db.Integer, default=5, nullable=False)
     answers_json = db.Column(db.JSON, nullable=True)  # {q_id: {"answer": ..., "is_correct": bool}}
     is_completed = db.Column(db.Boolean, default=False, nullable=False, index=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    created_at = db.Column(db.DateTime, default=utc_now, index=True)
     completed_at = db.Column(db.DateTime, nullable=True)
 
     __table_args__ = (
@@ -282,8 +293,8 @@ class FlashcardProgress(db.Model):
     repetitions = db.Column(db.Integer, default=0, nullable=False)
     interval_days = db.Column(db.Integer, default=1, nullable=False)
     ease_factor = db.Column(db.Float, default=2.5, nullable=False)
-    next_review = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, index=True)
-    last_reviewed = db.Column(db.DateTime, default=datetime.utcnow)
+    next_review = db.Column(db.DateTime, default=utc_now, nullable=False, index=True)
+    last_reviewed = db.Column(db.DateTime, default=utc_now)
 
     __table_args__ = (
         db.UniqueConstraint("user_id", "card_id", name="uq_user_card"),
@@ -298,7 +309,7 @@ class StreakFreeze(db.Model):
     )
     earned_reason = db.Column(db.String(50), default="weekly_goal")
     used_on = db.Column(db.Date, nullable=True)
-    earned_at = db.Column(db.DateTime, default=datetime.utcnow)
+    earned_at = db.Column(db.DateTime, default=utc_now)
 
 
 class EngagementScore(db.Model):
@@ -311,7 +322,7 @@ class EngagementScore(db.Model):
     latest_risk = db.Column(db.String(10), nullable=False)  # low / medium / high
     previous_prob = db.Column(db.Float, nullable=True)
     previous_risk = db.Column(db.String(10), nullable=True)
-    computed_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    computed_at = db.Column(db.DateTime, default=utc_now, index=True)
     factors_json = db.Column(db.JSON, nullable=True)
 
 
@@ -348,7 +359,7 @@ class StudentMistake(db.Model):
     explanation = db.Column(db.Text, nullable=True)
     error_count = db.Column(db.Integer, default=1, nullable=False)
     is_resolved = db.Column(db.Boolean, default=False, nullable=False, index=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow, index=True)
+    created_at = db.Column(db.DateTime, default=utc_now, index=True)
     resolved_at = db.Column(db.DateTime, nullable=True)
 
     __table_args__ = (
@@ -363,7 +374,7 @@ class KBPackageInstall(db.Model):
     package_type = db.Column(db.String(50), nullable=False)  # master | single_week
     version = db.Column(db.String(20), nullable=False)       # e.g. "1.0.0", "1.0.1"
     sha256 = db.Column(db.String(64), nullable=False, unique=True, index=True)
-    installed_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    installed_at = db.Column(db.DateTime, default=utc_now, nullable=False)
     installed_at_tehran = db.Column(db.String(50), nullable=True)
     admin_id = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="SET NULL"), nullable=True)
     course_id = db.Column(db.Integer, db.ForeignKey("course.id", ondelete="SET NULL"), nullable=True, index=True)
@@ -379,7 +390,7 @@ class AdaptiveState(db.Model):
         db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), primary_key=True
     )
     state_json = db.Column(db.JSON, nullable=False)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    updated_at = db.Column(db.DateTime, default=utc_now, onupdate=utc_now, nullable=False)
 
 
 @login_manager.user_loader

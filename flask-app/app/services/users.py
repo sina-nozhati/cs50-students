@@ -4,7 +4,7 @@ from flask import abort
 from werkzeug.security import generate_password_hash
 
 from app import db
-from app.models import User, Submission, WeekProgress, XPLog
+from app.models import utc_now, User, Submission, WeekProgress, XPLog
 from app.services import xp as xp_service
 
 def list_all_students() -> list[dict]:
@@ -64,7 +64,7 @@ def create_user(
     db.session.commit()
 
     if initial_xp > 0:
-        stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
+        stamp = utc_now().strftime("%Y%m%d%H%M%S%f")
         log = XPLog(
             user_id=user.id,
             amount=initial_xp,
@@ -129,7 +129,7 @@ def update_user(
         
     if xp_adjustment != 0:
         # reason یکتا تا award ایدمپوتنت مانع تنظیمات متوالی ادمین نشود
-        stamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
+        stamp = utc_now().strftime("%Y%m%d%H%M%S%f")
         if xp_adjustment > 0:
             xp_service.award(user.id, xp_adjustment, f"admin:adjust:+:{stamp}")
         else:

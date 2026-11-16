@@ -5,7 +5,7 @@ from statistics import median
 from sqlalchemy import func
 
 from app import db
-from app.models import User, Assignment, Submission, XPLog, WeekProgress, Week
+from app.models import utc_now, User, Assignment, Submission, XPLog, WeekProgress, Week
 
 
 def get_overview() -> dict:
@@ -13,7 +13,7 @@ def get_overview() -> dict:
     total_students = User.query.filter_by(is_admin=False).count()
     active_assignments = Assignment.query.filter_by(is_active=True).count()
 
-    today = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
+    today = utc_now().replace(hour=0, minute=0, second=0, microsecond=0)
     start_of_week = today - timedelta(days=today.weekday())
 
     submissions_today = Submission.query.filter(Submission.submitted_at >= today).count()
@@ -129,7 +129,7 @@ def get_weekly_progress_overview() -> list[dict]:
 
 def get_low_engagement_students(days: int = 3) -> list[dict]:
     """دانش‌آموزانی که در روزهای اخیر فعالیتی نداشته‌اند."""
-    cutoff = datetime.utcnow() - timedelta(days=days)
+    cutoff = utc_now() - timedelta(days=days)
     students = User.query.filter_by(is_admin=False).all()
     
     result = []

@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import abort
 
 from app import db
-from app.models import Submission, Assignment
+from app.models import utc_now, Submission, Assignment
 from app.services import xp as xp_service
 
 
@@ -25,7 +25,7 @@ def create_submission(student_id: int, assignment_id: int, github_url: str) -> S
     db.session.add(submission)
     db.session.commit()
 
-    if assignment.due_date >= datetime.utcnow():
+    if assignment.due_date >= utc_now():
         xp_service.award(
             student_id,
             amount=assignment.xp_reward or 20,
@@ -50,7 +50,7 @@ def update_submission_url(
     if submission.grade is not None:
         abort(403)
     submission.github_url = github_url
-    submission.submitted_at = datetime.utcnow()
+    submission.submitted_at = utc_now()
     db.session.commit()
     return submission
 
@@ -62,7 +62,7 @@ def grade(submission_id: int, grade: int, feedback: str = "") -> Submission:
         abort(404)
     submission.grade = grade
     submission.feedback = feedback
-    submission.graded_at = datetime.utcnow()
+    submission.graded_at = utc_now()
     db.session.commit()
 
     from app.services import notifications as notif_service

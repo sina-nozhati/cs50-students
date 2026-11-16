@@ -13,7 +13,7 @@ from typing import Any
 from flask import abort
 
 from app import db
-from app.models import Course, Cohort, Enrollment, User, WeekProgress, Week
+from app.models import utc_now, Course, Cohort, Enrollment, User, WeekProgress, Week
 
 
 DEFAULT_COURSE_CODE = "cs50x"
@@ -33,7 +33,7 @@ def ensure_default_course_and_cohort() -> tuple[Course, Cohort]:
             title="مبانی علوم کامپیوتر CS50x انزلی",
             description="دوره جامع و رسمی مبانی علوم کامپیوتر و برنامه‌نویسی CS50x دانشگاه هاروارد در بندر انزلی.",
             is_active=True,
-            created_at=datetime.utcnow(),
+            created_at=utc_now(),
         )
         db.session.add(course)
         db.session.commit()
@@ -49,7 +49,7 @@ def ensure_default_course_and_cohort() -> tuple[Course, Cohort]:
             status="active",
             capacity=100,
             description="نوبت برگزاری حضوری و آنلاین زمستان ۱۴۰۵ در انزلی به همراه منتورینگ و پروژه‌محور.",
-            created_at=datetime.utcnow(),
+            created_at=utc_now(),
         )
         db.session.add(cohort)
         db.session.commit()
@@ -67,7 +67,7 @@ def ensure_default_course_and_cohort() -> tuple[Course, Cohort]:
                 status="active",
                 role="student",
                 is_primary=not has_primary,
-                enrolled_at=datetime.utcnow(),
+                enrolled_at=utc_now(),
             )
             db.session.add(enrollment)
 
@@ -294,7 +294,7 @@ def create_cohort(
         start_date=start_date,
         end_date=end_date,
         description=description.strip() if description else None,
-        created_at=datetime.utcnow(),
+        created_at=utc_now(),
     )
     db.session.add(cohort)
     db.session.commit()
@@ -371,7 +371,7 @@ def enroll_student_in_cohort(
             return False, "این دانش‌آموز از قبل عضو فعال این دوره است."
         else:
             existing.status = "active"
-            existing.enrolled_at = datetime.utcnow()
+            existing.enrolled_at = utc_now()
             if is_primary:
                 Enrollment.query.filter_by(user_id=user_id).update({"is_primary": False})
                 existing.is_primary = True
@@ -397,7 +397,7 @@ def enroll_student_in_cohort(
         role=role,
         is_primary=should_be_primary,
         notes=notes,
-        enrolled_at=datetime.utcnow(),
+        enrolled_at=utc_now(),
     )
     db.session.add(enrollment)
     db.session.commit()
@@ -457,7 +457,7 @@ def update_enrollment_status(enrollment_id: int, new_status: str) -> bool:
 
     enr.status = new_status
     if new_status == "completed":
-        enr.completed_at = datetime.utcnow()
+        enr.completed_at = utc_now()
     db.session.commit()
     return True
 

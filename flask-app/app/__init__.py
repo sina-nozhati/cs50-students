@@ -126,6 +126,8 @@ def _ensure_sqlite_columns() -> None:
         ("user", "is_active", "ALTER TABLE user ADD COLUMN is_active BOOLEAN NOT NULL DEFAULT 1"),
         ("submission", "graded_at", "ALTER TABLE submission ADD COLUMN graded_at DATETIME"),
         ("kb_package_installs", "course_id", "ALTER TABLE kb_package_installs ADD COLUMN course_id INTEGER REFERENCES course(id)"),
+        ("user", "hearts", "ALTER TABLE user ADD COLUMN hearts INTEGER NOT NULL DEFAULT 5"),
+        ("user", "last_heart_drain", "ALTER TABLE user ADD COLUMN last_heart_drain DATETIME"),
     ]
     with db.engine.begin() as conn:
         conn.exec_driver_sql("PRAGMA journal_mode=WAL;")
