@@ -89,6 +89,11 @@ def dashboard():
     xp_history = progress_service.get_xp_history(current_user.id, limit=5)
     diag_summary = diag_service.get_student_diagnostic_profile(current_user.id)
 
+    # مأموریت‌های روزانه و دستاوردها (Gamification Core)
+    from app.services import achievements as achievement_service, quests as quest_service
+    daily_quests = quest_service.get_or_create_daily_quests(current_user.id)
+    achievements_data = achievement_service.get_user_achievements(current_user.id)
+
     # اطلاعات چنددوره‌ای کاربر (Multi-Cohort Context)
     active_cohort = cohort_service.get_active_cohort_for_user(
         current_user.id, session.get("active_cohort_id")
@@ -109,6 +114,8 @@ def dashboard():
         streak_history=streak_history,
         xp_history=xp_history,
         diag_summary=diag_summary,
+        daily_quests=daily_quests,
+        achievements_data=achievements_data,
         active_cohort=active_cohort,
         user_enrollments=user_enrollments,
     )
@@ -299,3 +306,49 @@ def practice_restore_one_heart():
         "cooldown_seconds": status["cooldown_seconds"],
         "is_out_of_hearts": status["is_out_of_hearts"],
     })
+
+
+@bp.route("/quests/claim/<int:quest_id>", methods=["POST"])
+@login_required
+def claim_quest(quest_id: int):
+    """دریافت پاداش مأموریت روزانه تکمیل‌شده."""
+    from app.services import quests as quest_service
+    res = quest_service.claim_quest_reward(current_user.id, quest_id)
+    status_code = 200 if res.get("success") else 400
+    return jsonify(res), status_code
+
+
+@bp.route("/streak-freeze/buy", methods=["POST"])
+@login_required
+def buy_streak_freeze():
+    """خرید محافظ استریک با ۵۰ XP."""
+    res = streak_service.buy_streak_freeze(current_user.id)
+    status_code = 200 if res.get("success") else 400
+    return jsonify(res), status_code
+
+
+@bp.route("/api/quests", methods=["GET"])
+@login_required
+def api_daily_quests():
+    """استعلام مأموریت‌های روز جاری کاربر."""
+    from app.services import quests as quest_service
+    quests = quest_service.get_or_create_daily_quests(current_user.id)
+    return jsonify({"success": True, "quests": quests})
+
+
+@bp.route("/api/achievements", methods=["GET"])
+@login_required
+def api_achievements():
+    """استعلام فهرست دستاوردها و وضعیت بازگشایی کاربر."""
+    from app.services import achievements as achievement_service
+    data = achievement_service.get_user_achievements(current_user.id)
+    return jsonify({"success": True, **data})
+
+
+@bp.route("/api/leaderboard/weekly", methods=["GET"])
+@login_required
+def api_weekly_leaderboard():
+    """استعلام رتبه‌بندی ۷ روز اخیر کلاس."""
+    from app.services import xp as xp_service
+    items = xp_service.weekly_leaderboard(limit=10)
+    return jsonify({"success": True, "leaderboard": items})

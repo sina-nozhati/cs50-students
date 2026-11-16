@@ -32,6 +32,12 @@ def create_submission(student_id: int, assignment_id: int, github_url: str) -> S
             reason=f"submit:assignment:{assignment_id}",
         )
 
+    try:
+        from app.services.achievements import evaluate_achievements
+        evaluate_achievements(student_id, "submission_accepted")
+    except Exception:
+        pass
+
     return submission
 
 

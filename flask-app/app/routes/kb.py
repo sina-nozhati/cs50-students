@@ -336,6 +336,12 @@ def mark_read(week: int):
     if is_first_read:
         xp_service.award(current_user.id, amount=5, reason=f"kb:read:week:{week}")
 
+    try:
+        from app.services.quests import track_quest_progress
+        track_quest_progress(current_user.id, "learn_or_resolve", 1)
+    except Exception:
+        pass
+
     return render_template(
         "kb/_read_button.html", awarded=True, week=week, first_read=is_first_read
     )

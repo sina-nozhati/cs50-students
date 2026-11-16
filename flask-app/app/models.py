@@ -47,6 +47,14 @@ class User(UserMixin, db.Model):
     mistakes = db.relationship("StudentMistake", backref="user", lazy=True, cascade="all, delete-orphan")
     quiz_attempts = db.relationship("QuizAttempt", backref="user", lazy=True, cascade="all, delete-orphan")
     enrollments = db.relationship("Enrollment", backref="user", lazy=True, cascade="all, delete-orphan")
+    user_achievements = db.relationship("UserAchievement", back_populates="user", lazy=True, cascade="all, delete-orphan")
+    daily_quests = db.relationship("UserDailyQuest", back_populates="user", lazy=True, cascade="all, delete-orphan")
+    streak_freezes = db.relationship("StreakFreeze", backref="user", lazy=True, cascade="all, delete-orphan")
+
+    @property
+    def streak_freezes_count(self) -> int:
+        """تعداد فریزهای استریک موجود (مصرف‌نشده)."""
+        return StreakFreeze.query.filter_by(user_id=self.id, used_on=None).count()
 
 
 class Course(db.Model):
@@ -391,6 +399,67 @@ class AdaptiveState(db.Model):
     )
     state_json = db.Column(db.JSON, nullable=False)
     updated_at = db.Column(db.DateTime, default=utc_now, onupdate=utc_now, nullable=False)
+
+
+class Achievement(db.Model):
+    """مدل دستاوردها و نشان‌های پلتفرم (Badges & Achievements)."""
+    __tablename__ = "achievements"
+    id = db.Column(db.String(64), primary_key=True)
+    title_fa = db.Column(db.String(100), nullable=False)
+    description_fa = db.Column(db.String(255), nullable=False)
+    icon = db.Column(db.String(50), default="award")
+    badge_variant = db.Column(db.String(20), default="crimson")  # crimson, success, warning, muted
+    tier = db.Column(db.String(20), default="bronze")            # bronze, silver, gold, platinum
+    criteria_json = db.Column(db.JSON, nullable=True)
+    xp_bonus = db.Column(db.Integer, default=0, nullable=False)
+    week = db.Column(db.Integer, nullable=True)
+    basis = db.Column(db.String(50), default="mastery")          # mastery, consistency, engagement
+    created_at = db.Column(db.DateTime, default=utc_now)
+
+
+class UserAchievement(db.Model):
+    """ثبت دستاوردهای کسب‌شده توسط دانش‌آموز."""
+    __tablename__ = "user_achievements"
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(
+        db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    achievement_id = db.Column(
+        db.String(64), db.ForeignKey("achievements.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    unlocked_at = db.Column(db.DateTime, default=utc_now, nullable=False)
+
+    achievement = db.relationship("Achievement", backref=db.backref("unlocks", lazy=True))
+    user = db.relationship("User", back_populates="user_achievements")
+
+    __table_args__ = (
+        db.UniqueConstraint("user_id", "achievement_id", name="uq_user_achievement"),
+    )
+
+
+class UserDailyQuest(db.Model):
+    """مأموریت‌های روزانه دانش‌آموز (Daily Quests)."""
+    __tablename__ = "user_daily_quests"
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(
+        db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    quest_date = db.Column(db.Date, nullable=False, index=True)
+    quest_type = db.Column(db.String(50), nullable=False)  # flashcard_review, practice_challenge, learn_or_resolve
+    title_fa = db.Column(db.String(150), nullable=False)
+    target_count = db.Column(db.Integer, default=1, nullable=False)
+    current_count = db.Column(db.Integer, default=0, nullable=False)
+    xp_reward = db.Column(db.Integer, default=10, nullable=False)
+    hearts_reward = db.Column(db.Integer, default=0, nullable=False)
+    is_completed = db.Column(db.Boolean, default=False, nullable=False)
+    completed_at = db.Column(db.DateTime, nullable=True)
+    is_claimed = db.Column(db.Boolean, default=False, nullable=False)
+
+    user = db.relationship("User", back_populates="daily_quests")
+
+    __table_args__ = (
+        db.UniqueConstraint("user_id", "quest_date", "quest_type", name="uq_user_daily_quest"),
+    )
 
 
 @login_manager.user_loader

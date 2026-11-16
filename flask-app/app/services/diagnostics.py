@@ -89,6 +89,13 @@ def resolve_mistake(user_id: int, item_id: str) -> bool:
         mistake.is_resolved = True
         mistake.resolved_at = utc_now()
         db.session.commit()
+        try:
+            from app.services.quests import track_quest_progress
+            track_quest_progress(user_id, "learn_or_resolve", 1)
+            from app.services.achievements import evaluate_achievements
+            evaluate_achievements(user_id, "mistake_resolved", {"item_id": item_id})
+        except Exception:
+            pass
         return True
     return False
 

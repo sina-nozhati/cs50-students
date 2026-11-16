@@ -145,6 +145,14 @@ def review_flashcard(user_id: int, week: int, card_id: str, rating: str) -> dict
         "new_box": st.box_number,
     })
 
+    try:
+        from app.services.quests import track_quest_progress
+        track_quest_progress(user_id, "flashcard_review", 1)
+        from app.services.achievements import evaluate_achievements
+        evaluate_achievements(user_id, "flashcard_reviewed", {"week": week, "card_id": card_id})
+    except Exception:
+        pass
+
     if rating == "again":
         diag_service.record_mistake(
             user_id=user_id,
@@ -651,6 +659,19 @@ def submit_quiz_question(
         "quiz_completed": wp.quiz_completed,
         "is_finalized": attempt.is_completed,
     })
+
+    try:
+        from app.services.quests import track_quest_progress
+        track_quest_progress(user_id, "practice_challenge", 1)
+        if attempt.is_completed:
+            from app.services.achievements import evaluate_achievements
+            evaluate_achievements(user_id, "quiz_completed", {
+                "week": week,
+                "score": attempt.score,
+                "total": attempt.total_questions,
+            })
+    except Exception:
+        pass
 
     if not is_correct:
         c_ids = target.get("concept_ids", [])

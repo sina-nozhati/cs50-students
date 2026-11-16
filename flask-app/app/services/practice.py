@@ -226,6 +226,17 @@ def submit_challenge_attempt(
         )
     else:
         diag_service.resolve_mistake(user_id=user_id, item_id=challenge_id)
+        try:
+            from app.services.quests import track_quest_progress
+            track_quest_progress(user_id, "practice_challenge", 1)
+            from app.services.achievements import evaluate_achievements
+            evaluate_achievements(user_id, "challenge_completed", {
+                "week": week,
+                "challenge_id": challenge_id,
+                "hints_used": hints_used,
+            })
+        except Exception:
+            pass
 
     user = db.session.get(User, user_id)
     current_xp = user.xp if user else 0
