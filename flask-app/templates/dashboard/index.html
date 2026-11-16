@@ -43,10 +43,11 @@
             {# Right: Certificate Progress Meter #}
             <div class="w-full lg:w-80 bg-gray-50/80 p-4 rounded-2xl border border-gray-100 space-y-2.5 shrink-0" id="certificate">
                 <div class="flex justify-between items-center text-xs font-bold">
-                    <span class="text-gray-700 flex items-center gap-1.5">
+                    <a href="{{ url_for('main.certificate_view') }}" class="text-gray-700 hover:text-crimson transition flex items-center gap-1.5" title="مشاهده جزئیات تسلط و گواهینامه">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-crimson"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                        پیشرفت تا مدرک نهایی
-                    </span>
+                        <span>پیشرفت تا مدرک نهایی</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
                     <span class="text-crimson font-mono font-bold text-sm">{{ certificate.percent }}٪</span>
                 </div>
                 <div class="w-full h-2.5 bg-gray-200 rounded-full overflow-hidden">
@@ -54,7 +55,7 @@
                 </div>
                 <div class="flex items-center justify-between text-[11px] text-[var(--slate)] font-mono">
                     <span>{{ certificate.completed_weeks }} از {{ certificate.total_weeks }} هفته</span>
-                    <span>وضعیت: {{ 'تکمیل' if certificate.completed_weeks >= certificate.total_weeks else 'در جریان' }}</span>
+                    <span>تسلط: {{ certificate.mastery_percent|default(certificate.percent) }}٪</span>
                 </div>
             </div>
         </div>

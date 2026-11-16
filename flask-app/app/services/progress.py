@@ -84,13 +84,32 @@ def get_certificate_progress(user_id: int) -> dict:
         if current_week > total_weeks - 1:
             current_week = total_weeks - 1
 
+    # ارزیابی تسلط اثبات‌شده بر پایه فرمول سه‌گانه فاز ۳
+    mastery_info = {}
+    try:
+        from app.services.certificate import evaluate_certification_eligibility
+        mastery_info = evaluate_certification_eligibility(user_id)
+    except Exception:
+        pass
+
     return {
         "completed_weeks": completed,
         "total_weeks": total_weeks,
         "percent": percent,
         "current_week": current_week,
         "criterion": "kb_read",
+        "mastery_percent": mastery_info.get("overall_mastery_pct", 0.0),
+        "mastery_completed_weeks": mastery_info.get("completed_weeks", 0),
+        "is_eligible_for_cert": mastery_info.get("is_eligible", False),
+        "formula": "20% KB Read + 40% Mastery Quiz (>=80%) + 40% Homework (>=70%)",
+        "missing_by_week": mastery_info.get("missing_by_week", []),
     }
+
+
+def get_rigorous_certificate_progress(user_id: int) -> dict:
+    """دریافت پیشرفت جامع بر اساس تسلط مهارتی ۱۰۰٪ اثبات‌شده (فاز ۳)."""
+    from app.services.certificate import evaluate_certification_eligibility
+    return evaluate_certification_eligibility(user_id)
 
 
 def get_recent_feedback(user_id: int, limit: int = 5) -> list[dict]:

@@ -352,3 +352,40 @@ def api_weekly_leaderboard():
     from app.services import xp as xp_service
     items = xp_service.weekly_leaderboard(limit=10)
     return jsonify({"success": True, "leaderboard": items})
+
+
+@bp.route("/verify/<string:cert_id>", methods=["GET"])
+def verify_certificate_page(cert_id: str):
+    """صفحه عمومی استعلام و تایید اصالت گواهینامه برای کارفرمایان."""
+    from app.services import certificate as cert_service
+    res = cert_service.verify_certificate(cert_id)
+    return render_template("certificate/verify.html", res=res, cert_id=cert_id)
+
+
+@bp.route("/certificate", methods=["GET"])
+@login_required
+def certificate_view():
+    """مشاهده وضعیت گواهینامه و نقشه تسلط دانشجو."""
+    from app.models import Certificate
+    from app.services import certificate as cert_service
+    cert = Certificate.query.filter_by(user_id=current_user.id, is_revoked=False).first()
+    eval_res = cert_service.evaluate_certification_eligibility(current_user.id)
+    return render_template(
+        "certificate/student_view.html",
+        cert=cert,
+        eval_res=eval_res,
+        is_eligible=eval_res.get("is_eligible", False),
+    )
+
+
+@bp.route("/certificate/claim", methods=["POST"])
+@login_required
+def claim_certificate():
+    """صدور رسمی گواهینامه پس از احراز شرایط تسلط."""
+    from app.services import certificate as cert_service
+    success, msg, cert = cert_service.issue_certificate(current_user.id)
+    if success:
+        flash(msg, "success")
+    else:
+        flash(msg, "error")
+    return redirect(url_for("main.certificate_view"))

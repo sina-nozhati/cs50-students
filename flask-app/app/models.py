@@ -462,6 +462,34 @@ class UserDailyQuest(db.Model):
     )
 
 
+class Certificate(db.Model):
+    """مدل گواهینامه دوره CS50x Anzali با قابلیت تایید اصالت عمومی و امضای دیجیتال."""
+    __tablename__ = "certificates"
+    id = db.Column(db.Integer, primary_key=True)
+    cert_id = db.Column(db.String(64), unique=True, nullable=False, index=True)
+    user_id = db.Column(
+        db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    course_id = db.Column(
+        db.Integer, db.ForeignKey("course.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    cohort_id = db.Column(
+        db.Integer, db.ForeignKey("cohort.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    student_name = db.Column(db.String(100), nullable=False)
+    completion_date = db.Column(db.Date, nullable=False)
+    mastery_score = db.Column(db.Float, default=100.0, nullable=False)
+    signature_hash = db.Column(db.String(128), nullable=False)
+    qr_svg = db.Column(db.Text, nullable=True)
+    issued_at = db.Column(db.DateTime, default=utc_now, nullable=False)
+    is_revoked = db.Column(db.Boolean, default=False, nullable=False)
+    revocation_reason = db.Column(db.String(255), nullable=True)
+
+    user = db.relationship("User", backref=db.backref("certificates", lazy=True))
+    course = db.relationship("Course", backref=db.backref("certificates", lazy=True))
+    cohort = db.relationship("Cohort", backref=db.backref("certificates", lazy=True))
+
+
 @login_manager.user_loader
 def load_user(user_id: str):
     """Flask-Login با این تابع کاربر را از session بارگذاری می‌کند."""
