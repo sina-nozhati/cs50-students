@@ -1,0 +1,119 @@
+{
+  "$schema": "../../schemas/challenges.schema.json",
+  "week": 10,
+  "title": "چالش‌های هفتهٔ ۱۰ — امنیت سایبری (Cybersecurity)",
+  "xp_reward_session": 20,
+  "origin": "authored",
+  "disclaimer_fa": "چالش‌ها تألیف CS50x Anzali بر اساس مباحث امنیت، هش، سالت و جلوگیری از نفوذ است.",
+  "counts": {
+    "token_tap": 2,
+    "parsons": 2,
+    "spot_bug": 2
+  },
+  "challenges": [
+    {
+      "id": "w10-ch01-hash-pw",
+      "type": "token_tap",
+      "concept_tag": "generate_password_hash",
+      "title": "هش کردن امن رمز عبور",
+      "instruction": "توکن صحیح برای تبدیل رمز عبور به هش یک‌طرفه را انتخاب کن.",
+      "prompt": "from werkzeug.security import generate_password_hash\n\nhashed = ___(password)",
+      "token_bank": [
+        "generate_password_hash",
+        "hash",
+        "md5",
+        "encrypt"
+      ],
+      "expected_answer": [
+        "generate_password_hash"
+      ],
+      "blank_marker": "___",
+      "explanation": "در وب مدرن هرگز رمز عبور را به صورت متن خام (Plaintext) ذخیره نمی‌کنیم؛ از توابع هش امن مانند generate_password_hash استفاده می‌شود.",
+      "hint": "نام تابع Werkzeug برای ساخت هش امن.",
+      "xp_reward": 5,
+      "lang": "python"
+    },
+    {
+      "id": "w10-ch02-sql-injection-spot",
+      "type": "spot_bug",
+      "concept_tag": "sql_injection",
+      "title": "شکار باگ تزریق اس‌کیو‌ال (SQL Injection)",
+      "instruction": "کدام خط به دلیل الحاق مستقیم رشته در معرض حمله SQL Injection قرار دارد؟",
+      "prompt": "1: def get_user(username):\n2:     conn = get_db()\n3:     query = f\"SELECT * FROM users WHERE name = '{username}'\"\n4:     return conn.execute(query).fetchone()",
+      "bug_line_index": 3,
+      "explanation": "الحاق رشته با f-string در خط ۳ ورودی کاربر را مستقیماً به دستور SQL تزریق می‌کند. راه امن استفاده از کوئری پارامتری (?, username) است.",
+      "hint": "خطی که کوئری را بدون علامت ? یا پارامتر امن می‌سازد.",
+      "xp_reward": 5,
+      "lang": "python"
+    },
+    {
+      "id": "w10-ch03-verify-pw-parsons",
+      "type": "parsons",
+      "concept_tag": "check_password_hash",
+      "title": "احراز هویت صحیح با هش",
+      "instruction": "خطوط احراز هویت با تابع check_password_hash را به ترتیب درست بچین.",
+      "scrambled_lines": [
+        {"id": "p1", "text": "user = get_user(username)"},
+        {"id": "p2", "text": "if user and check_password_hash(user.hash, password):"},
+        {"id": "p3", "text": "    login_user(user)"}
+      ],
+      "correct_order": ["p1", "p2", "p3"],
+      "explanation": "ابتدا کاربر از دیتابیس خوانده می‌شود، سپس هش ذخیره‌شده با رمز عبور ورودی مقایسه می‌گردد.",
+      "hint": "اول پیدا کردن کاربر، بعد بررسی تطابق هش، در نهایت ورود.",
+      "xp_reward": 5,
+      "lang": "python"
+    },
+    {
+      "id": "w10-ch04-prevent-sqli-token",
+      "type": "token_tap",
+      "concept_tag": "parameterized_query",
+      "title": "کوئری پارامتری ضد نفوذ",
+      "instruction": "جای خالی را با نماد پارامتر امن در SQLite پر کن.",
+      "prompt": "db.execute(\"SELECT * FROM accounts WHERE id = ___ \", (user_id,))",
+      "token_bank": [
+        "?",
+        "%s",
+        "$1",
+        "user_id"
+      ],
+      "expected_answer": [
+        "?"
+      ],
+      "blank_marker": "___",
+      "explanation": "در SQLite از علامت ? برای کوئری‌های پارامتری استفاده می‌شود تا دیتابیس ورودی را به عنوان داده و نه دستور اجرایی تفسیر کند.",
+      "hint": "علامت سوال در استاندارد پایتون DB-API برای SQLite.",
+      "xp_reward": 5,
+      "lang": "sql"
+    },
+    {
+      "id": "w10-ch05-spot-plaintext-password",
+      "type": "spot_bug",
+      "concept_tag": "plaintext_storage",
+      "title": "اشکال ذخیره رمز خام",
+      "instruction": "خط دارای نقض فاحش امنیتی را پیدا کن.",
+      "prompt": "1: def register(username, password):\n2:     h = generate_password_hash(password)\n3:     db.execute(\"INSERT INTO users VALUES (?, ?)\", (username, password))\n4:     db.commit()",
+      "bug_line_index": 3,
+      "explanation": "در خط ۲ هش ساخته شده، اما در خط ۳ رمز عبور خام (password) به‌جای متغیر هش (h) در دیتابیس ذخیره شده است!",
+      "hint": "به متغیرهای ارسال‌شده در تاپل خط ۳ دقت کن.",
+      "xp_reward": 5,
+      "lang": "python"
+    },
+    {
+      "id": "w10-ch06-totp-parsons",
+      "type": "parsons",
+      "concept_tag": "mfa_verification",
+      "title": "تایید کد دو مرحله‌ای (2FA)",
+      "instruction": "فرآیند تایید کد یکبارمصرف دو مرحله‌ای را مرتب کن.",
+      "scrambled_lines": [
+        {"id": "p1", "text": "totp = pyotp.TOTP(user.mfa_secret)"},
+        {"id": "p2", "text": "if totp.verify(otp_code):"},
+        {"id": "p3", "text": "    session['mfa_verified'] = True"}
+      ],
+      "correct_order": ["p1", "p2", "p3"],
+      "explanation": "با کلید سکرت کاربر شیء TOTP ایجاد و سپس کد ارسالی کاربر اعتبارسنجی می‌شود.",
+      "hint": "ساخت نمونه TOTP -> اعتبارسنجی -> تایید سشن.",
+      "xp_reward": 5,
+      "lang": "python"
+    }
+  ]
+}

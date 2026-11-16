@@ -696,7 +696,31 @@ def submit_quiz_question(
 
 
 def load_glossary_for_week(week: int) -> list[dict[str, str]]:
-    """بارگذاری اصطلاحات تخصصی مربوط به هفته از glossary.fa.json."""
+    """بارگذاری اصطلاحات تخصصی مربوط به هفته از فایل‌های محلی یا glossary.fa.json."""
+    # ۱. بررسی فایل اختصاصی هفته
+    try:
+        week_dir = kb_repo.get_anzali_week_dir(week)
+        w_path = week_dir / "curriculum" / "glossary.fa.json"
+        if w_path.is_file():
+            with open(w_path, encoding="utf-8") as f:
+                w_data = json.load(f)
+            if isinstance(w_data, dict):
+                out = []
+                for k, v in w_data.items():
+                    out.append({
+                        "id": k,
+                        "fa": v.get("fa", ""),
+                        "en": v.get("en", ""),
+                        "definition": v.get("definition", ""),
+                        "concept_id": v.get("concept_id", ""),
+                        "source_ref": v.get("source_ref", ""),
+                    })
+                if out:
+                    return out
+    except Exception:
+        pass
+
+    # ۲. fallback به لود از پایگاه اصلی
     root = kb_repo.kb_root()
     path = root / "anzali-fa" / "curriculum" / "glossary.fa.json"
     if not path.is_file():
@@ -720,6 +744,7 @@ def load_glossary_for_week(week: int) -> list[dict[str, str]]:
                 "id": tid,
                 "fa": t.get("fa", ""),
                 "en": t.get("en", ""),
+                "definition": t.get("definition", ""),
                 "concept_id": cid,
                 "source_ref": t.get("source_ref", ""),
             })

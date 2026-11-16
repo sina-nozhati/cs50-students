@@ -1,0 +1,569 @@
+{
+  "w01_scratch_to_c": {
+    "en": "carrying building blocks from Scratch to C",
+    "fa": "انتقال بلوک‌های سازنده از Scratch به C",
+    "definition": "اصطلاح تخصصی «انتقال بلوک‌های سازنده از Scratch به C» (carrying building blocks from Scratch to C) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-scratch-to-c",
+    "source_ref": "src-notes-1#welcome"
+  },
+  "w01_source_code": {
+    "en": "source code",
+    "fa": "کد منبع",
+    "definition": "اصطلاح تخصصی «کد منبع» (source code) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-source-code",
+    "source_ref": "src-notes-1#source-code"
+  },
+  "w01_machine_code": {
+    "en": "machine code",
+    "fa": "کد ماشین",
+    "definition": "اصطلاح تخصصی «کد ماشین» (machine code) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-machine-code",
+    "source_ref": "src-notes-1#source-code"
+  },
+  "w01_compiler": {
+    "en": "compiler / compiling",
+    "fa": "کامپایلر و کامپایل کردن",
+    "definition": "اصطلاح تخصصی «کامپایلر و کامپایل کردن» (compiler / compiling) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-compiler",
+    "source_ref": "src-notes-1#source-code"
+  },
+  "w01_ide_regions": {
+    "en": "VS Code regions: file explorer, text editor, terminal",
+    "fa": "بخش‌های VS Code: کاوشگر فایل، ویرایشگر، ترمینال",
+    "definition": "اصطلاح تخصصی «بخش‌های VS Code: کاوشگر فایل، ویرایشگر، ترمینال» (VS Code regions: file explorer, text editor, terminal) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-ide-regions",
+    "source_ref": "src-notes-1#visual-studio-code-for-cs50"
+  },
+  "w01_gui_cli": {
+    "en": "GUI vs CLI",
+    "fa": "رابط گرافیکی و رابط خط فرمان",
+    "definition": "اصطلاح تخصصی «رابط گرافیکی و رابط خط فرمان» (GUI vs CLI) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-gui-cli",
+    "source_ref": "src-notes-1#visual-studio-code-for-cs50"
+  },
+  "w01_code_make_run": {
+    "en": "the code → make → ./ cycle",
+    "fa": "چرخهٔ code، make و اجرا با ./",
+    "definition": "اصطلاح تخصصی «چرخهٔ code، make و اجرا با ./» (the code → make → ./ cycle) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-code-make-run",
+    "source_ref": "src-notes-1#hello-world"
+  },
+  "w01_main": {
+    "en": "the main function",
+    "fa": "تابع main",
+    "definition": "اصطلاح تخصصی «تابع main» (the main function) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-main",
+    "source_ref": "src-transcript-1"
+  },
+  "w01_printf": {
+    "en": "printf",
+    "fa": "تابع printf",
+    "definition": "اصطلاح تخصصی «تابع printf» (printf) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-printf",
+    "source_ref": "src-notes-1#from-scratch-to-c"
+  },
+  "w01_syntax": {
+    "en": "C syntax: semicolons, parentheses, braces, quotes",
+    "fa": "نحو C: نقطه‌ویرگول، پرانتز، آکولاد و نقل‌قول",
+    "definition": "اصطلاح تخصصی «نحو C: نقطه‌ویرگول، پرانتز، آکولاد و نقل‌قول» (C syntax: semicolons, parentheses, braces, quotes) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-syntax",
+    "source_ref": "src-notes-1#from-scratch-to-c"
+  },
+  "w01_escape_sequence": {
+    "en": "escape sequence",
+    "fa": "دنبالهٔ گریز",
+    "definition": "اصطلاح تخصصی «دنبالهٔ گریز» (escape sequence) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-escape-sequence",
+    "source_ref": "src-notes-1#from-scratch-to-c"
+  },
+  "w01_recompile": {
+    "en": "recompiling after every change",
+    "fa": "کامپایل دوباره پس از هر تغییر",
+    "definition": "اصطلاح تخصصی «کامپایل دوباره پس از هر تغییر» (recompiling after every change) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-recompile",
+    "source_ref": "src-notes-1#from-scratch-to-c"
+  },
+  "w01_header_file": {
+    "en": "header file / #include",
+    "fa": "فایل سرآیند و #include",
+    "definition": "اصطلاح تخصصی «فایل سرآیند و #include» (header file / #include) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-header-file",
+    "source_ref": "src-notes-1#header-files-and-cs50-manual-pages"
+  },
+  "w01_library": {
+    "en": "library",
+    "fa": "کتابخانه",
+    "definition": "اصطلاح تخصصی «کتابخانه» (library) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-library",
+    "source_ref": "src-notes-1#header-files-and-cs50-manual-pages"
+  },
+  "w01_manual_pages": {
+    "en": "manual pages",
+    "fa": "صفحه‌های راهنما (manual.cs50.io)",
+    "definition": "اصطلاح تخصصی «صفحه‌های راهنما (manual.cs50.io)» (manual pages) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-manual-pages",
+    "source_ref": "src-notes-1#header-files-and-cs50-manual-pages"
+  },
+  "w01_cs50_library": {
+    "en": "CS50 library (get_* functions)",
+    "fa": "کتابخانهٔ CS50 و توابع get_*",
+    "definition": "اصطلاح تخصصی «کتابخانهٔ CS50 و توابع get_*» (CS50 library (get_* functions)) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-cs50-library",
+    "source_ref": "src-notes-1#header-files-and-cs50-manual-pages"
+  },
+  "w01_get_string": {
+    "en": "get_string and its return value",
+    "fa": "get_string و مقدار بازگشتی",
+    "definition": "اصطلاح تخصصی «get_string و مقدار بازگشتی» (get_string and its return value) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-get-string",
+    "source_ref": "src-notes-1#hello-you"
+  },
+  "w01_variable_declaration": {
+    "en": "declaring a typed variable",
+    "fa": "اعلان متغیر با نوع",
+    "definition": "اصطلاح تخصصی «اعلان متغیر با نوع» (declaring a typed variable) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-variable-declaration",
+    "source_ref": "src-notes-1#hello-you"
+  },
+  "w01_assignment_operator": {
+    "en": "assignment operator =",
+    "fa": "عملگر انتساب =",
+    "definition": "اصطلاح تخصصی «عملگر انتساب =» (assignment operator =) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-assignment-operator",
+    "source_ref": "src-notes-1#hello-you"
+  },
+  "w01_placeholder": {
+    "en": "the %s placeholder",
+    "fa": "جای‌نگهدار %s",
+    "definition": "اصطلاح تخصصی «جای‌نگهدار %s» (the %s placeholder) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-placeholder",
+    "source_ref": "src-notes-1#hello-you"
+  },
+  "w01_linux_commands": {
+    "en": "basic Linux commands",
+    "fa": "فرمان‌های پایهٔ لینوکس",
+    "definition": "اصطلاح تخصصی «فرمان‌های پایهٔ لینوکس» (basic Linux commands) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-linux-commands",
+    "source_ref": "src-notes-1#linux"
+  },
+  "w01_paths_navigation": {
+    "en": "current/parent/home directory (. .. ~ pwd)",
+    "fa": "پوشهٔ جاری، پوشهٔ والد و خانه (. .. ~ pwd)",
+    "definition": "اصطلاح تخصصی «پوشهٔ جاری، پوشهٔ والد و خانه (. .. ~ pwd)» (current/parent/home directory (. .. ~ pwd)) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-paths-navigation",
+    "source_ref": "src-short-command-line"
+  },
+  "w01_if_else": {
+    "en": "if / else in C",
+    "fa": "if و else در C",
+    "definition": "اصطلاح تخصصی «if و else در C» (if / else in C) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-if-else",
+    "source_ref": "src-notes-1#conditionals"
+  },
+  "w01_else_if_chain": {
+    "en": "else-if chains and mutually exclusive branches",
+    "fa": "زنجیرهٔ else if و شاخه‌های ناسازگار",
+    "definition": "اصطلاح تخصصی «زنجیرهٔ else if و شاخه‌های ناسازگار» (else-if chains and mutually exclusive branches) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-else-if-chain",
+    "source_ref": "src-notes-1#conditionals"
+  },
+  "w01_switch": {
+    "en": "switch statement",
+    "fa": "دستور switch",
+    "definition": "اصطلاح تخصصی «دستور switch» (switch statement) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-switch",
+    "source_ref": "src-short-conditional-statements"
+  },
+  "w01_ternary": {
+    "en": "ternary operator ?:",
+    "fa": "عملگر سه‌تایی ?:",
+    "definition": "اصطلاح تخصصی «عملگر سه‌تایی ?:» (ternary operator ?:) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-ternary",
+    "source_ref": "src-short-conditional-statements"
+  },
+  "w01_data_types": {
+    "en": "C data types",
+    "fa": "انواع داده در C",
+    "definition": "اصطلاح تخصصی «انواع داده در C» (C data types) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-data-types",
+    "source_ref": "src-notes-1#types"
+  },
+  "w01_type_sizes": {
+    "en": "type sizes and ranges",
+    "fa": "اندازهٔ انواع (بایت) و بازه",
+    "definition": "اصطلاح تخصصی «اندازهٔ انواع (بایت) و بازه» (type sizes and ranges) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-type-sizes",
+    "source_ref": "src-short-data-types"
+  },
+  "w01_void": {
+    "en": "void",
+    "fa": "void: نبودِ ورودی یا خروجی",
+    "definition": "اصطلاح تخصصی «void: نبودِ ورودی یا خروجی» (void) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-void",
+    "source_ref": "src-short-data-types"
+  },
+  "w01_format_codes": {
+    "en": "format codes",
+    "fa": "کدهای قالب",
+    "definition": "اصطلاح تخصصی «کدهای قالب» (format codes) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-format-codes",
+    "source_ref": "src-notes-1#format-codes"
+  },
+  "w01_increment": {
+    "en": "increment / decrement",
+    "fa": "افزایش و کاهش (+= ++ --)",
+    "definition": "اصطلاح تخصصی «افزایش و کاهش (+= ++ --)» (increment / decrement) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-increment",
+    "source_ref": "src-notes-1#variables"
+  },
+  "w01_relational_operators": {
+    "en": "relational operators",
+    "fa": "عملگرهای مقایسه‌ای",
+    "definition": "اصطلاح تخصصی «عملگرهای مقایسه‌ای» (relational operators) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-relational-operators",
+    "source_ref": "src-notes-1#comparec"
+  },
+  "w01_get_int": {
+    "en": "get_int",
+    "fa": "get_int",
+    "definition": "اصطلاح تخصصی «get_int» (get_int) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-get-int",
+    "source_ref": "src-notes-1#comparec"
+  },
+  "w01_comments": {
+    "en": "comments (//)",
+    "fa": "توضیح (comment) با //",
+    "definition": "اصطلاح تخصصی «توضیح (comment) با //» (comments (//)) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-comments",
+    "source_ref": "src-notes-1#comparec"
+  },
+  "w01_char": {
+    "en": "char and single quotes",
+    "fa": "نوع char و نقل‌قول تکی",
+    "definition": "اصطلاح تخصصی «نوع char و نقل‌قول تکی» (char and single quotes) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-char",
+    "source_ref": "src-notes-1#agreec"
+  },
+  "w01_equality_vs_assignment": {
+    "en": "== vs =",
+    "fa": "== در برابر =",
+    "definition": "اصطلاح تخصصی «== در برابر =» (== vs =) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-equality-vs-assignment",
+    "source_ref": "src-notes-1#agreec"
+  },
+  "w01_logical_operators": {
+    "en": "logical operators && || !",
+    "fa": "عملگرهای منطقی && || !",
+    "definition": "اصطلاح تخصصی «عملگرهای منطقی && || !» (logical operators && || !) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-logical-operators",
+    "source_ref": "src-notes-1#agreec"
+  },
+  "w01_while_loop": {
+    "en": "while loop",
+    "fa": "حلقهٔ while",
+    "definition": "اصطلاح تخصصی «حلقهٔ while» (while loop) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-while-loop",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_for_loop": {
+    "en": "for loop",
+    "fa": "حلقهٔ for",
+    "definition": "اصطلاح تخصصی «حلقهٔ for» (for loop) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-for-loop",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_zero_indexing": {
+    "en": "counting from zero",
+    "fa": "شمارش از صفر",
+    "definition": "اصطلاح تخصصی «شمارش از صفر» (counting from zero) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-zero-indexing",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_infinite_loop": {
+    "en": "infinite loop and control-C",
+    "fa": "حلقهٔ بی‌پایان و control-C",
+    "definition": "اصطلاح تخصصی «حلقهٔ بی‌پایان و control-C» (infinite loop and control-C) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-infinite-loop",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_do_while": {
+    "en": "do-while loop",
+    "fa": "حلقهٔ do while",
+    "definition": "اصطلاح تخصصی «حلقهٔ do while» (do-while loop) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-do-while",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_input_validation": {
+    "en": "input validation / re-prompting",
+    "fa": "اعتبارسنجی ورودی و درخواست دوباره",
+    "definition": "اصطلاح تخصصی «اعتبارسنجی ورودی و درخواست دوباره» (input validation / re-prompting) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-input-validation",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_break_continue": {
+    "en": "break and continue",
+    "fa": "break و continue",
+    "definition": "اصطلاح تخصصی «break و continue» (break and continue) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-break-continue",
+    "source_ref": "src-notes-1#loops-and-meowc"
+  },
+  "w01_function_definition": {
+    "en": "defining a function",
+    "fa": "تعریف تابع",
+    "definition": "اصطلاح تخصصی «تعریف تابع» (defining a function) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-function-definition",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_prototype": {
+    "en": "function prototype",
+    "fa": "پیش‌نمونهٔ تابع",
+    "definition": "اصطلاح تخصصی «پیش‌نمونهٔ تابع» (function prototype) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-prototype",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_parameter": {
+    "en": "function parameters in C",
+    "fa": "پارامتر تابع در C",
+    "definition": "اصطلاح تخصصی «پارامتر تابع در C» (function parameters in C) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-parameter",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_scope": {
+    "en": "scope",
+    "fa": "حوزهٔ متغیر",
+    "definition": "اصطلاح تخصصی «حوزهٔ متغیر» (scope) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-scope",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_return_value": {
+    "en": "return values and return",
+    "fa": "مقدار بازگشتی و return",
+    "definition": "اصطلاح تخصصی «مقدار بازگشتی و return» (return values and return) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-return-value",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_correctness_design_style": {
+    "en": "correctness, design, style",
+    "fa": "درستی، طراحی، سبک (check50، design50، style50)",
+    "definition": "اصطلاح تخصصی «درستی، طراحی، سبک (check50، design50، style50)» (correctness, design, style) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-correctness-design-style",
+    "source_ref": "src-notes-1#correctness-design-style"
+  },
+  "w01_nested_loops": {
+    "en": "nested loops",
+    "fa": "حلقه‌های تودرتو",
+    "definition": "اصطلاح تخصصی «حلقه‌های تودرتو» (nested loops) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-nested-loops",
+    "source_ref": "src-notes-1#mario"
+  },
+  "w01_constant": {
+    "en": "constants (const)",
+    "fa": "ثابت با const",
+    "definition": "اصطلاح تخصصی «ثابت با const» (constants (const)) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-constant",
+    "source_ref": "src-notes-1#mario"
+  },
+  "w01_helper_function": {
+    "en": "helper functions",
+    "fa": "تابع کمکی برای زیرمسئله",
+    "definition": "اصطلاح تخصصی «تابع کمکی برای زیرمسئله» (helper functions) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-helper-function",
+    "source_ref": "src-notes-1#mario"
+  },
+  "w01_magic_numbers": {
+    "en": "magic numbers and #define",
+    "fa": "عدد جادویی و #define",
+    "definition": "اصطلاح تخصصی «عدد جادویی و #define» (magic numbers and #define) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-magic-numbers",
+    "source_ref": "src-short-magic-numbers"
+  },
+  "w01_arithmetic_operators": {
+    "en": "arithmetic operators and modulo",
+    "fa": "عملگرهای حسابی و باقی‌مانده %",
+    "definition": "اصطلاح تخصصی «عملگرهای حسابی و باقی‌مانده %» (arithmetic operators and modulo) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-arithmetic-operators",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_integer_overflow": {
+    "en": "integer overflow",
+    "fa": "سرریز عدد صحیح",
+    "definition": "اصطلاح تخصصی «سرریز عدد صحیح» (integer overflow) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-integer-overflow",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_truncation": {
+    "en": "truncation",
+    "fa": "بریدن بخش اعشاری در تقسیم صحیح",
+    "definition": "اصطلاح تخصصی «بریدن بخش اعشاری در تقسیم صحیح» (truncation) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-truncation",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_type_casting": {
+    "en": "type casting",
+    "fa": "تبدیل نوع (casting)",
+    "definition": "اصطلاح تخصصی «تبدیل نوع (casting)» (type casting) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-type-casting",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_floatinpoint_imprecision": {
+    "en": "floating-point imprecision",
+    "fa": "عدم دقت اعداد اعشاری",
+    "definition": "اصطلاح تخصصی «عدم دقت اعداد اعشاری» (floating-point imprecision) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-floating-point-imprecision",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_debugginerrors": {
+    "en": "reading compiler error messages",
+    "fa": "خواندن پیام خطای کامپایلر",
+    "definition": "اصطلاح تخصصی «خواندن پیام خطای کامپایلر» (reading compiler error messages) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "w01-c-debugging-errors",
+    "source_ref": "src-pset-1#advice"
+  },
+  "w01_x_compiler": {
+    "en": "compiler",
+    "fa": "کامپایلر",
+    "definition": "اصطلاح تخصصی «کامپایلر» (compiler) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#source-code"
+  },
+  "w01_x_terminal": {
+    "en": "terminal",
+    "fa": "ترمینال",
+    "definition": "اصطلاح تخصصی «ترمینال» (terminal) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#visual-studio-code-for-cs50"
+  },
+  "w01_x_command_line": {
+    "en": "command line",
+    "fa": "خط فرمان",
+    "definition": "اصطلاح تخصصی «خط فرمان» (command line) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#visual-studio-code-for-cs50"
+  },
+  "w01_x_text_editor": {
+    "en": "text editor",
+    "fa": "ویرایشگر متن",
+    "definition": "اصطلاح تخصصی «ویرایشگر متن» (text editor) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#visual-studio-code-for-cs50"
+  },
+  "w01_x_file_explorer": {
+    "en": "file explorer",
+    "fa": "کاوشگر فایل",
+    "definition": "اصطلاح تخصصی «کاوشگر فایل» (file explorer) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#visual-studio-code-for-cs50"
+  },
+  "w01_x_prompt": {
+    "en": "prompt",
+    "fa": "اعلان ترمینال",
+    "definition": "اصطلاح تخصصی «اعلان ترمینال» (prompt) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#hello-world"
+  },
+  "w01_x_directory": {
+    "en": "directory (folder)",
+    "fa": "پوشه",
+    "definition": "اصطلاح تخصصی «پوشه» (directory (folder)) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#linux"
+  },
+  "w01_x_format_code": {
+    "en": "format code",
+    "fa": "کد قالب",
+    "definition": "اصطلاح تخصصی «کد قالب» (format code) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#format-codes"
+  },
+  "w01_x_semicolon": {
+    "en": "semicolon",
+    "fa": "نقطه‌ویرگول",
+    "definition": "اصطلاح تخصصی «نقطه‌ویرگول» (semicolon) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#from-scratch-to-c"
+  },
+  "w01_x_curly_brace": {
+    "en": "curly brace",
+    "fa": "آکولاد",
+    "definition": "اصطلاح تخصصی «آکولاد» (curly brace) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#from-scratch-to-c"
+  },
+  "w01_x_indentation": {
+    "en": "indentation",
+    "fa": "تورفتگی",
+    "definition": "اصطلاح تخصصی «تورفتگی» (indentation) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-style-guide-c"
+  },
+  "w01_x_overflow": {
+    "en": "overflow",
+    "fa": "سرریز",
+    "definition": "اصطلاح تخصصی «سرریز» (overflow) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_x_precision": {
+    "en": "precision",
+    "fa": "دقت",
+    "definition": "اصطلاح تخصصی «دقت» (precision) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#operators"
+  },
+  "w01_x_function_call": {
+    "en": "function call",
+    "fa": "فراخوانی تابع",
+    "definition": "اصطلاح تخصصی «فراخوانی تابع» (function call) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_x_argument": {
+    "en": "argument",
+    "fa": "آرگومان",
+    "definition": "اصطلاح تخصصی «آرگومان» (argument) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_x_return": {
+    "en": "return",
+    "fa": "بازگشت",
+    "definition": "اصطلاح تخصصی «بازگشت» (return) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#functions"
+  },
+  "w01_x_standard_i_o_library": {
+    "en": "standard I/O library (stdio)",
+    "fa": "کتابخانهٔ استاندارد ورودی/خروجی",
+    "definition": "اصطلاح تخصصی «کتابخانهٔ استاندارد ورودی/خروجی» (standard I/O library (stdio)) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#header-files-and-cs50-manual-pages"
+  },
+  "w01_x_check50": {
+    "en": "check50",
+    "fa": "check50",
+    "definition": "اصطلاح تخصصی «check50» (check50) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#correctness-design-style"
+  },
+  "w01_x_style50": {
+    "en": "style50",
+    "fa": "style50",
+    "definition": "اصطلاح تخصصی «style50» (style50) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#correctness-design-style"
+  },
+  "w01_x_submit50": {
+    "en": "submit50",
+    "fa": "submit50",
+    "definition": "اصطلاح تخصصی «submit50» (submit50) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-pset-1#what-to-do"
+  },
+  "w01_x_design50": {
+    "en": "design50",
+    "fa": "design50",
+    "definition": "اصطلاح تخصصی «design50» (design50) در مباحث آموزشی هفتهٔ 1 دوره CS50x.",
+    "concept_id": "",
+    "source_ref": "src-notes-1#correctness-design-style"
+  }
+}

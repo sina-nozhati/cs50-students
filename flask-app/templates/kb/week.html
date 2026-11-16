@@ -879,6 +879,9 @@
           <span class="font-extrabold text-sm text-[var(--ink)] glossary-fa">{{ item.fa }}</span>
         </div>
         <div class="text-xs font-mono text-crimson dir-ltr text-left glossary-en" dir="ltr">{{ item.en }}</div>
+        {% if item.definition %}
+        <p class="text-xs text-[var(--slate)] mt-2 leading-relaxed glossary-def">{{ item.definition }}</p>
+        {% endif %}
         {% if item.concept_id %}
         <span class="inline-block mt-2 text-[10px] text-gray-400 font-mono">{{ item.concept_id }}</span>
         {% endif %}
@@ -1529,7 +1532,9 @@
     items.forEach(function(item) {
       var fa = item.querySelector('.glossary-fa').textContent.toLowerCase();
       var en = item.querySelector('.glossary-en').textContent.toLowerCase();
-      if (fa.indexOf(q) !== -1 || en.indexOf(q) !== -1) {
+      var defElem = item.querySelector('.glossary-def');
+      var def = defElem ? defElem.textContent.toLowerCase() : '';
+      if (fa.indexOf(q) !== -1 || en.indexOf(q) !== -1 || def.indexOf(q) !== -1) {
         item.classList.remove('hidden');
       } else {
         item.classList.add('hidden');
